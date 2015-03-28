@@ -16,7 +16,7 @@ def extractDataAndStore(dbHandle, urlExtract):
 			cursor.execute(sqlStatement)
 			dbHandle.commit()
 		except _mysql_exceptions.IntegrityError:
-			print datetime.datetime.now()+"data already there"
+			print str(datetime.datetime.now())+"data already there"
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise

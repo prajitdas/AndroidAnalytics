@@ -23,7 +23,7 @@ def extractDataAndStore(dbHandle, urlExtract):
 
 def updateParsed(dbHandle, id):
 	cursor = dbHandle.cursor()
-	sqlStatement = "UPDATE appurls SET parsed=1 WHERE id="+id+";"
+	sqlStatement = "UPDATE appurls SET parsed=1 WHERE id="+str(id)+";"
 	try:
 		cursor.execute(sqlStatement)
 	except:

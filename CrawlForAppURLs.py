@@ -40,11 +40,11 @@ def dbConnectionCheck():
     return dbHandle
 
 def main(argv):
-    if len(sys.argv) != 2:
-        sys.stderr.write('Usage: python %s [i|c]\n')
-        sys.exit(1)
+	if len(sys.argv) != 2:
+		sys.stderr.write('Usage: python %s [i|c]\n')
+		sys.exit(1)
 
-    dbHandle = dbConnectionCheck() # DB Open
+	dbHandle = dbConnectionCheck() # DB Open
 
 	if sys.argv[1] == "i":
 		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls

@@ -2,6 +2,8 @@ from dateutil.relativedelta import relativedelta
 from bs4 import BeautifulSoup
 import urllib, re, urllib, simplejson, sys, datetime, MySQLdb, _mysql_exceptions
 
+count = 0
+
 # def ensureAbsence(dbHandle, urlExtract):
 # 	cursor = dbHandle.cursor()
 # 	packageName = urlExtract.split("=")[1]
@@ -13,7 +15,6 @@ import urllib, re, urllib, simplejson, sys, datetime, MySQLdb, _mysql_exceptions
 # 	return False
 
 def extractDataAndStore(dbHandle, urlExtract):
-	count = 0
 	# if ensureAbsence(dbHandle, urlExtract):
 	cursor = dbHandle.cursor()
 	page = urllib.urlopen(urlExtract).read()

@@ -13,6 +13,7 @@ import urllib, re, urllib, simplejson, sys, datetime, MySQLdb, _mysql_exceptions
 # 	return False
 
 def extractDataAndStore(dbHandle, urlExtract):
+	count = 0
 	# if ensureAbsence(dbHandle, urlExtract):
 	cursor = dbHandle.cursor()
 	page = urllib.urlopen(urlExtract).read()
@@ -20,6 +21,7 @@ def extractDataAndStore(dbHandle, urlExtract):
 	data = soup.findAll(attrs={'class': 'card-click-target'})
 
 	for chunk in data:
+		count = count + 1
 		url = "https://play.google.com"+chunk['href']
 		packageName = url.split("=")
 		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url, parsed) VALUES('"+packageName[1]+"', '"+url+"', 0);"
@@ -27,7 +29,7 @@ def extractDataAndStore(dbHandle, urlExtract):
 			cursor.execute(sqlStatement)
 			dbHandle.commit()
 		except _mysql_exceptions.IntegrityError:
-			print str(datetime.datetime.now())+" data already there"
+			print str(count)+" data already there"
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise

@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `appurls` (
 -- Dumping data for table `appurls`
 --
 
-INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('a.akakao.danji_pastel_balloon','https://play.google.com/store/apps/details?id=a.akakao.danji_pastel_balloon', 0);
+INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('a.akakao.danji_pastel_balloon','https://play.google.com/store/apps/details?id=a.akakao.danji_pastel_balloon', 0);
 INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('a.akakao.neon_simple','https://play.google.com/store/apps/details?id=a.akakao.neon_simple', 0);
 INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('a.akakao.oguduck_g','https://play.google.com/store/apps/details?id=a.akakao.oguduck_g', 0);
 INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('a.akakao.somgom_alllove','https://play.google.com/store/apps/details?id=a.akakao.somgom_alllove', 0);
@@ -7204,3 +7204,5 @@ INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('yo.app.free
 INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('yong.reader.pdf.xps.viewer','https://play.google.com/store/apps/details?id=yong.reader.pdf.xps.viewer', 0);
 INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('zausan.zdevicetest','https://play.google.com/store/apps/details?id=zausan.zdevicetest', 0);
 INSERT INTO `appurls` (`app_pkg_name`, `app_url`, `parsed`) VALUES ('zpaitoon.ad.ptune','https://play.google.com/store/apps/details?id=zpaitoon.ad.ptune', 0);
+
+COMMIT;

@@ -24,7 +24,8 @@ def appUrlGeneration(dbHandle):
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT app_url FROM appurls WHERE parsed = 0;"
 	try:
-		queryOutput = cursor.execute(sqlStatement)
+		cursor.execute(sqlStatement)
+		queryOutput = cursor.fetchall()
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise

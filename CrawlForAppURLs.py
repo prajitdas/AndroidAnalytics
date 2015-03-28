@@ -45,13 +45,15 @@ def main(argv):
         sys.exit(1)
 
     dbHandle = dbConnectionCheck() # DB Open
-    if sys.argv[1] == "i":
-    	oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
-    elif sys.argv[1] == "c":
+
+	if sys.argv[1] == "i":
+		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
+	elif sys.argv[1] == "c":
 		appUrlGeneration(dbHandle) # Second level of search for app urls
 	else
 		sys.stderr.write('Usage: python %s [i|c]\n')
-    dbHandle.close() #DB Close
+
+	dbHandle.close() #DB Close
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

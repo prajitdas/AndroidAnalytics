@@ -50,7 +50,7 @@ def main(argv):
 		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
 	elif sys.argv[1] == "c":
 		appUrlGeneration(dbHandle) # Second level of search for app urls
-	else
+	else:
 		sys.stderr.write('Usage: python %s [i|c]\n')
 
 	dbHandle.close() #DB Close

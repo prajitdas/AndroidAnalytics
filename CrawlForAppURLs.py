@@ -28,6 +28,8 @@ def appUrlGeneration(dbHandle):
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
+	print type(queryOutput)
+	print queryOutput
 	listOutput = list(queryOutput)
 	print listOutput
 

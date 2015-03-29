@@ -4,19 +4,18 @@ import urllib, re, urllib, simplejson, sys, datetime, MySQLdb, _mysql_exceptions
 
 count = 0
 
-# def ensureAbsence(dbHandle, urlExtract):
-# 	cursor = dbHandle.cursor()
-# 	packageName = urlExtract.split("=")[1]
-# 	sqlStatement = "SELECT COUNT(app_url) FROM appurls WHERE app_url='"+packageName+"';"
-# 	try:
-# 		cursor.execute(sqlStatement)
-# 	except:
-# 		return True
-# 	return False
+def dbManipulateData(dbHandle, sqlStatement):
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement)
+		dbHandle.commit()
+	except _mysql_exceptions.IntegrityError:
+		print str(count)+" data already there"
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
 
 def extractDataAndStore(dbHandle, urlExtract):
-	# if ensureAbsence(dbHandle, urlExtract):
-	cursor = dbHandle.cursor()
 	page = urllib.urlopen(urlExtract).read()
 	soup = BeautifulSoup(''.join(page))
 	data = soup.findAll(attrs={'class': 'card-click-target'})
@@ -26,24 +25,12 @@ def extractDataAndStore(dbHandle, urlExtract):
 		url = "https://play.google.com"+chunk['href']
 		packageName = url.split("=")
 		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url, parsed) VALUES('"+packageName[1]+"', '"+url+"', 0);"
-		try:
-			cursor.execute(sqlStatement)
-			dbHandle.commit()
-		except _mysql_exceptions.IntegrityError:
-			print str(count)+" data already there"
-		except:
-			print "Unexpected error:", sys.exc_info()[0]
-			raise
+		dbManipulateData(dbHandle, sqlStatement)
 
 def updateParsed(dbHandle, id):
 	cursor = dbHandle.cursor()
 	sqlStatement = "UPDATE appurls SET parsed=1 WHERE id="+str(id)+";"
-	try:
-		cursor.execute(sqlStatement)
-		dbHandle.commit()
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
+	dbManipulateData(dbHandle, sqlStatement)
 
 def appUrlGeneration(dbHandle):
 	cursor = dbHandle.cursor()

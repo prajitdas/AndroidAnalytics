@@ -30,7 +30,6 @@ def downloadAPK(appPackageName):
 	# If the apps download directory doesn't exist just create it
 	currentDirectory = os.getcwd()
 	appsDownloadDirectory = currentDirectory+"/apps/"
-	print appsDownloadDirectory
 	if not os.path.isdir(os.path.dirname(appsDownloadDirectory)):
 		os.makedirs(appsDownloadDirectory)
 
@@ -50,7 +49,7 @@ def updateDownloaded(dbHandle, id):
 # Get URLs for app downloading
 def getAppURL(dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0 AND id = 1;"
+	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()

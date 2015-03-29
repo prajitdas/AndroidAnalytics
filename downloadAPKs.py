@@ -52,7 +52,7 @@ def downloadAPK(dbHandle, id, appPackageName):
 # Get URLs for app downloading
 def getAppURL(dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0;"
+	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0 LIMIT 500;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()

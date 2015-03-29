@@ -45,7 +45,7 @@ def main(argv):
 	else:
 		print 'The current os not supported at the moment.'
 
-	if makeSurePathExists(appsFolder) && makeSurePathExists(outFolder):
+	if makeSurePathExists(appsFolder) & makeSurePathExists(outFolder):
 		runAnalysis(appsFolder,outFolder)
 	else:
 		print 'The data folder doesn\'t exist. Create one and download apks to it and then run this script again.'

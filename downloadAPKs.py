@@ -3,8 +3,6 @@
 from dateutil.relativedelta import relativedelta
 import os 
 import urllib2
-import re
-import simplejson
 import sys
 import datetime
 import MySQLdb

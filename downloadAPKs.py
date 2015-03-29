@@ -2,7 +2,7 @@
 
 from dateutil.relativedelta import relativedelta
 import os 
-import urllib
+import urllib2
 import re
 import simplejson
 import sys
@@ -26,8 +26,20 @@ def dbManipulateData(dbHandle, sqlStatement):
 def downloadAPK(appPackageName):
 	URLPrefix = "http://dl3.apk-dl.com/store/download/details?id="
 	APKURL = URLPrefix+appPackageName
-	appDownloadedFileLocation = "apps/"+appPackageName
-	urllib.urlretrieve(APKURL, filename=appDownloadedFileLocation)
+
+	# If the apps download directory doesn't exist just create it
+	currentDirectory = os.getcwd()
+	appsDownloadDirectory = currentDirectory+"/apps/"
+	print appsDownloadDirectory
+	if not os.path.isdir(os.path.dirname(appsDownloadDirectory)):
+		os.makedirs(appsDownloadDirectory)
+
+	appDownloadFileLocation = appsDownloadDirectory+appPackageName+".apk"
+
+	outFile = urllib2.urlopen(APKURL)
+	apkFile = open(appDownloadFileLocation,'wb')
+	apkFile.write(outFile.read())
+	apkFile.close()
 
 # Update "downloaded" column to mark app has been downloaded
 def updateDownloaded(dbHandle, id):
@@ -38,7 +50,7 @@ def updateDownloaded(dbHandle, id):
 # Get URLs for app downloading
 def getAppURL(dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0;"
+	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0 AND id = 1;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -58,11 +70,6 @@ def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python downloadAPKs\n')
 		sys.exit(1)
-
-	# If the apps download directory doesn't exist just create it
-	appsDownloadDirectory = "apps"
-	if not os.path.exists(os.path.dirname(appsDownloadDirectory)):
-		os.makedirs(os.path.dirname(appsDownloadDirectory))
 
 	dbHandle = dbConnectionCheck() # DB Open
 

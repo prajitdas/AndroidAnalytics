@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from dateutil.relativedelta import relativedelta
+import os 
 import urllib
 import re
 import simplejson

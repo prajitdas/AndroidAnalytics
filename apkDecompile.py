@@ -38,10 +38,10 @@ def main(argv):
 	osInfo = platform.system()
 	if osInfo == 'Windows':
 		appsFolder = os.path.dirname(os.path.realpath(__file__))+"\\apps\\"
-		outFolder = os.path.dirname(os.path.realpath(__file__))+"\\apps\\"
-	elif osInfo == 'Linux':
-		appsFolder = os.path.dirname(os.path.realpath(__file__))+"/data/"
 		outFolder = os.path.dirname(os.path.realpath(__file__))+"\\data\\"
+	elif osInfo == 'Linux':
+		appsFolder = os.path.dirname(os.path.realpath(__file__))+"/apps/"
+		outFolder = os.path.dirname(os.path.realpath(__file__))+"/data/"
 	else:
 		print 'The current os not supported at the moment.'
 

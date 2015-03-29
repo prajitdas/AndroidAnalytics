@@ -42,12 +42,12 @@ def downloadAPK(dbHandle, id, appPackageName):
 	outFile = urllib2.urlopen(APKURL)
 	apkFile = open(appDownloadFileLocation,'wb')
 	apkFile.write(outFile.read())
+	apkFile.close()
 
 	if os.path.getsize(appDownloadFileLocation) < 1 * 1024:
 		os.remove(appDownloadFileLocation)
 	else:
 		updateDownloaded(dbHandle, id)
-	apkFile.close()
 
 # Get URLs for app downloading
 def getAppURL(dbHandle):

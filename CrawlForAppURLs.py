@@ -24,7 +24,7 @@ def extractDataAndStore(dbHandle, urlExtract):
 		count = count + 1
 		url = "https://play.google.com"+chunk['href']
 		packageName = url.split("=")
-		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url, parsed) VALUES('"+packageName[1]+"', '"+url+"', 0);"
+		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url) VALUES('"+packageName[1]+"', '"+url+"');"
 		dbManipulateData(dbHandle, sqlStatement)
 
 def updateParsed(dbHandle, id):

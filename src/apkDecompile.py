@@ -25,7 +25,10 @@ def runAnalysis(inpath,outPath):
 	os.chdir(inpath)
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for file in files:
-		subprocess.call(["apktool", "d", "-f", inpath+file, "-o", outPath], shell=True)
+		pkgName = file.replace(".apk", "")
+		outputFolder = outPath+pkgName
+		print outputFolder
+		subprocess.call(["apktool", "d", "-f", inpath+file, "-o", outputFolder], shell=True)
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -37,18 +40,19 @@ def main(argv):
 	'''
 	osInfo = platform.system()
 	if osInfo == 'Windows':
+		decommpileOutputDirectory = os.path.dirname(os.path.realpath(__file__))+"\\data\\"
 		appsFolder = os.path.dirname(os.path.realpath(__file__))+"\\apps\\"
-		outFolder = os.path.dirname(os.path.realpath(__file__))+"\\apps\\"
 	elif osInfo == 'Linux':
-		appsFolder = os.path.dirname(os.path.realpath(__file__))+"/data/"
-		outFolder = os.path.dirname(os.path.realpath(__file__))+"\\data\\"
+		decommpileOutputDirectory = os.path.dirname(os.path.realpath(__file__))+"/data/"
+		appsFolder = os.path.dirname(os.path.realpath(__file__))+"/apps/"
 	else:
 		print 'The current os not supported at the moment.'
 
-	if makeSurePathExists(appsFolder) && makeSurePathExists(outFolder):
-		runAnalysis(appsFolder,outFolder)
+	if makeSurePathExists(appsFolder):
+		deleteAndReCreateFolder(decommpileOutputDirectory)
+		runAnalysis(appsFolder,decommpileOutputDirectory)
 	else:
-		print 'The data folder doesn\'t exist. Create one and download apks to it and then run this script again.'
+		print 'The apps folder doesn\'t exist. Create one and download apks to it and then run this script again.'
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

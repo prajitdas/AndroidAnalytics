@@ -64,7 +64,7 @@ def main(argv):
 	if not os.path.exists(os.path.dirname(appsDownloadDirectory)):
 		os.makedirs(os.path.dirname(appsDownloadDirectory))
 
-    dbHandle = dbConnectionCheck() # DB Open
+	dbHandle = dbConnectionCheck() # DB Open
 
 	getAppURL(dbHandle)
 	startTime = datetime.datetime.now()

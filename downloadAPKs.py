@@ -20,8 +20,14 @@ def dbManipulateData(dbHandle, sqlStatement):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 
+# Update "downloaded" column to mark app has been downloaded
+def updateDownloaded(dbHandle, id):
+	cursor = dbHandle.cursor()
+	sqlStatement = "UPDATE appurls SET downloaded=1 WHERE id="+str(id)+";"
+	dbManipulateData(dbHandle, sqlStatement)
+
 # Download APK
-def downloadAPK(appPackageName):
+def downloadAPK(dbHandle, id, appPackageName):
 	URLPrefix = "http://dl3.apk-dl.com/store/download/details?id="
 	APKURL = URLPrefix+appPackageName
 
@@ -36,13 +42,12 @@ def downloadAPK(appPackageName):
 	outFile = urllib2.urlopen(APKURL)
 	apkFile = open(appDownloadFileLocation,'wb')
 	apkFile.write(outFile.read())
-	apkFile.close()
 
-# Update "downloaded" column to mark app has been downloaded
-def updateDownloaded(dbHandle, id):
-	cursor = dbHandle.cursor()
-	sqlStatement = "UPDATE appurls SET downloaded=1 WHERE id="+str(id)+";"
-	dbManipulateData(dbHandle, sqlStatement)
+	if os.path.getsize(appDownloadFileLocation) < 1 * 1024:
+		os.remove(appDownloadFileLocation)
+	else:
+		updateDownloaded(dbHandle, id)
+	apkFile.close()
 
 # Get URLs for app downloading
 def getAppURL(dbHandle):
@@ -55,8 +60,7 @@ def getAppURL(dbHandle):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		updateDownloaded(dbHandle,row[0])
-		downloadAPK(row[1])
+		downloadAPK(dbHandle,row[0],row[1])
 
 # Database Conenction Handler
 def dbConnectionCheck():

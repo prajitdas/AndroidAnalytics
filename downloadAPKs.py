@@ -38,7 +38,7 @@ def updateDownloaded(dbHandle, id):
 # Get URLs for app downloading
 def getAppURL(dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0 AND id = 1;"
+	sqlStatement = "SELECT id, app_pkg_name FROM appurls WHERE downloaded = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -55,8 +55,8 @@ def dbConnectionCheck():
 	return dbHandle
 
 def main(argv):
-	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python downloadAPKs [i|e|p]\n')
+	if len(sys.argv) != 1:
+		sys.stderr.write('Usage: python downloadAPKs\n')
 		sys.exit(1)
 
 	dbHandle = dbConnectionCheck() # DB Open
@@ -64,7 +64,8 @@ def main(argv):
 	getAppURL(dbHandle)
 	startTime = datetime.datetime.now()
 	endTime = datetime.datetime.now()
-	print "Execution time was: "(endTime-startTime)
+	executionTime = (endTime-startTime)
+	print "Execution time was: "+str(executionTime)
 
 	dbHandle.close() #DB Close
 

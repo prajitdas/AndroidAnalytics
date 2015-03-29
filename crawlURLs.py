@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from dateutil.relativedelta import relativedelta
 from bs4 import BeautifulSoup
 import urllib, re, simplejson, sys, datetime, MySQLdb, _mysql_exceptions

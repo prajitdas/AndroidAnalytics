@@ -59,7 +59,12 @@ def main(argv):
 		sys.stderr.write('Usage: python downloadAPKs\n')
 		sys.exit(1)
 
-	dbHandle = dbConnectionCheck() # DB Open
+	# If the apps download directory doesn't exist just create it
+	appsDownloadDirectory = "apps"
+	if not os.path.exists(os.path.dirname(appsDownloadDirectory)):
+		os.makedirs(os.path.dirname(appsDownloadDirectory))
+
+    dbHandle = dbConnectionCheck() # DB Open
 
 	getAppURL(dbHandle)
 	startTime = datetime.datetime.now()

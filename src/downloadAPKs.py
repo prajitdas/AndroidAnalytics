@@ -4,9 +4,8 @@ import os
 import urllib2
 import sys
 import datetime
-import MySQLdb
 import _mysql_exceptions
-from ConfigParser import SafeConfigParser
+import databaseHandler
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -59,25 +58,12 @@ def getAppURL(dbHandle):
 	for row in queryOutput:
 		downloadAPK(dbHandle,row[0],row[1])
 
-# Database Connection Handler
-def dbConnectionCheck():
-	parser = SafeConfigParser()
-	parser.read('dbconfig.ini')
-	
-	host = parser.get('dbconfig', 'host')
-	user = parser.get('dbconfig', 'user')
-	passwd = parser.get('dbconfig', 'passwd')
-	db = parser.get('dbconfig', 'db')
-	
-	dbHandle = MySQLdb.connect(host,user,passwd,db);
-	return dbHandle
-
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python downloadAPKs\n')
 		sys.exit(1)
 
-	dbHandle = dbConnectionCheck() # DB Open
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
 	getAppURL(dbHandle)
 	startTime = datetime.datetime.now()

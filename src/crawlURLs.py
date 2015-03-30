@@ -4,9 +4,8 @@ from bs4 import BeautifulSoup
 import urllib
 import sys
 import datetime
-import MySQLdb
 import _mysql_exceptions
-from ConfigParser import SafeConfigParser
+import databaseHandler
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -89,25 +88,12 @@ def getURLsForParsingAppData(dbHandle):
 		updateParsed(dbHandle,row[0])
 		extractAppDataAndStore(dbHandle,row[1])
 
-# Database Connection Handler
-def dbConnectionCheck():
-	parser = SafeConfigParser()
-	parser.read('dbconfig.ini')
-	
-	host = parser.get('dbconfig', 'host')
-	user = parser.get('dbconfig', 'user')
-	passwd = parser.get('dbconfig', 'passwd')
-	db = parser.get('dbconfig', 'db')
-	
-	dbHandle = MySQLdb.connect(host,user,passwd,db);
-	return dbHandle
-
 def main(argv):
 	if len(sys.argv) != 2:
 		sys.stderr.write('Usage: python crawlURLs [i|e|p]\n')
 		sys.exit(1)
 
-	dbHandle = dbConnectionCheck() # DB Open
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
 	startTime = datetime.datetime.now()
 	if sys.argv[1] == "i":

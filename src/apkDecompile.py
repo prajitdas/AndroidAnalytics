@@ -8,22 +8,8 @@ import subprocess
 from os import listdir
 from os.path import isfile, join
 from bs4 import BeautifulSoup as Soup
-import MySQLdb
 import _mysql_exceptions
-from ConfigParser import SafeConfigParser
-
-# Database Connection Handler
-def dbConnectionCheck():
-	parser = SafeConfigParser()
-	parser.read('dbconfig.ini')
-	
-	host = parser.get('dbconfig', 'host')
-	user = parser.get('dbconfig', 'user')
-	passwd = parser.get('dbconfig', 'passwd')
-	db = parser.get('dbconfig', 'db')
-	
-	dbHandle = MySQLdb.connect(host,user,passwd,db);
-	return dbHandle
+import databaseHandler
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -87,7 +73,7 @@ def extractManifestFiles():
 		print 'The apps folder doesn\'t exist. Create one and download apks to it and then run this script again.'
 
 def verifyIfPermissionIsInTable(permissionName):
-	dbHandle = dbConnectionCheck()
+	dbHandle = databaseHandler.dbConnectionCheck()
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT count(*) FROM `permissions` WHERE `name` = '"+permissionName+"';"
 	try:
@@ -106,7 +92,7 @@ def extractCustomPermissions(soup):
 		permissionProtectionLevel = permissionsAttributes['android:protectionlevel']
 		if not verifyIfPermissionIsInTable(permissionName):
 			sqlStatement = "INSERT INTO `permissions`(`name`,`protection_level`) VALUES ('"+permissionName+"','"+permissionProtectionLevel+"');"
-			dbHandle = dbConnectionCheck()
+			dbHandle = databaseHandler.dbConnectionCheck()
 			dbManipulateData(dbHandle, sqlStatement)
 
 def getAppId(dbHandle,sqlStatement,pkgName):

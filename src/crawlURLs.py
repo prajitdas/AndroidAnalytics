@@ -54,20 +54,19 @@ def getURLsForExtractingMoreURLs(dbHandle):
 def oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle):
 	alpahbeticalSearchStrings=["https://play.google.com/store/search?q=a&c=apps","https://play.google.com/store/search?q=b&c=apps","https://play.google.com/store/search?q=c&c=apps","https://play.google.com/store/search?q=d&c=apps","https://play.google.com/store/search?q=e&c=apps","https://play.google.com/store/search?q=f&c=apps","https://play.google.com/store/search?q=g&c=apps","https://play.google.com/store/search?q=h&c=apps","https://play.google.com/store/search?q=i&c=apps","https://play.google.com/store/search?q=j&c=apps","https://play.google.com/store/search?q=k&c=apps","https://play.google.com/store/search?q=l&c=apps","https://play.google.com/store/search?q=m&c=apps","https://play.google.com/store/search?q=n&c=apps","https://play.google.com/store/search?q=o&c=apps","https://play.google.com/store/search?q=p&c=apps","https://play.google.com/store/search?q=q&c=apps","https://play.google.com/store/search?q=r&c=apps","https://play.google.com/store/search?q=s&c=apps","https://play.google.com/store/search?q=t&c=apps","https://play.google.com/store/search?q=u&c=apps","https://play.google.com/store/search?q=v&c=apps","https://play.google.com/store/search?q=w&c=apps","https://play.google.com/store/search?q=x&c=apps","https://play.google.com/store/search?q=y&c=apps","https://play.google.com/store/search?q=z&c=apps"]
 	for searchString in alpahbeticalSearchStrings:
-		extractURLAndStore(dbHandle, searchString)
+		extractMoreURLsAndStore(dbHandle, searchString)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):
 	page = urllib.urlopen(urlExtract).read()
 	soup = BeautifulSoup(''.join(page))
-	data = soup.findAll(attrs={'class': 'card-click-target'})
-
-	for chunk in data:
-		count = count + 1
-		url = "https://play.google.com"+chunk['href']
-		packageName = url.split("=")
-		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url) VALUES('"+packageName[1]+"', '"+url+"');"
-		dbManipulateData(dbHandle, sqlStatement)
+	data = soup.findAll(attrs={'class': 'document-title'})
+	print data
+# 	for chunk in data:
+# 		url = "https://play.google.com"+chunk['href']
+# 		packageName = url.split("=")
+# 		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url) VALUES('"+packageName[1]+"', '"+url+"');"
+# 		dbManipulateData(dbHandle, sqlStatement)
 
 # Update "parsed" column to mark app data has been parsed
 def updateParsed(dbHandle, tableId):
@@ -90,22 +89,24 @@ def getURLsForParsingAppData(dbHandle):
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python crawlURLs [i|e|p]\n')
+		sys.stderr.write('Usage: python crawlURLs [i|m|a]\n')
 		sys.exit(1)
 
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+	
+	extractAppDataAndStore(dbHandle,"https://play.google.com/store/apps/details?id=bbc.mobile.news.ww")
 
-	startTime = datetime.datetime.now()
-	if sys.argv[1] == "i":
-		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
-	elif sys.argv[1] == "e":
-		getURLsForExtractingMoreURLs(dbHandle) # Second level of search for app urls
-	elif sys.argv[1] == "p":
-		getURLsForParsingAppData(dbHandle) # Extract app data
-	else:
-		sys.stderr.write('Usage: python crawlURLs [i|e|p]\n')
-	endTime = datetime.datetime.now()
-	print "Execution time was: "(endTime-startTime)
+# 	startTime = datetime.datetime.now()
+# 	if sys.argv[1] == "i":
+# 		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
+# 	elif sys.argv[1] == "m":
+# 		getURLsForExtractingMoreURLs(dbHandle) # Second level of search for app urls
+# 	elif sys.argv[1] == "a":
+# 		getURLsForParsingAppData(dbHandle) # Extract app data
+# 	else:
+# 		sys.stderr.write('Usage: python crawlURLs [i|m|a]\n')
+# 	endTime = datetime.datetime.now()
+# 	print "Execution time was: "(endTime-startTime)
 
 	dbHandle.close() #DB Close
 

@@ -109,27 +109,32 @@ def extractAppDataAndStore(urlExtract):
 					whatsNew = child.string
 
 	pairing = 0
-# 	appMetaInfoDict = {"Updated": "11-25-2014", "Size": "3.6M", "Installs": "10,000,000 - 50,000,000", "Current Version": "2.5.3", "Requires Android": "2.3 and up",    
-# Content Rating
-# Everyone  
-# Permissions
-# View details 
-# Report
-# Flag as inappropriate 
-# Offered By 
-# BBC Worldwide (Ltd)
-# Developer 
-# None
-# }
-	for div in soup.findAll(attrs={'class': 'details-section-contents', 'class': 'meta-info'}):
-		for desc in div.descendants:
-			print dict(desc)
-			if unicode(desc.string) != "None":
-				if pairing == 0:
-					key = unicode(desc.string)
-				else:
-					value = unicode(desc.string)
-# 			appMetaInfoDict[key] = value
+	my_dict = {}
+	for div in soup.findAll(attrs={'class': 'details-section-contents', 'class': 'meta-info'}):	
+		for child in div.children:
+# 			print child.__class__.__name__
+			if child.__class__.__name__ == "Tag":
+# 				print child['class'], child.string
+				my_dict[child['class'][0]] = child.string
+	from pprint import pprint
+	pprint(my_dict)
+# 		print div, type(div)
+# 		print div['class']
+# 		if type(div) == "bs4.element.Tag":
+# 			for desc in div.children:
+# 				key = desc['title']
+# 				value = desc['content']
+# 				print key, value
+# 				exit()
+# 		else:
+# 				if unicode(desc.string) != "None":	
+# 					if pairing == 0:
+# 						key = unicode(desc.string)
+# 						pairing = 1
+# 					else:
+# 						value = unicode(desc.string)
+# 						pairing = 0
+# 	# 		print key, value
 # 			
 # 	print appMetaInfoDict
 

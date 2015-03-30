@@ -1,8 +1,11 @@
 #!/usr/bin/python
 
-from dateutil.relativedelta import relativedelta
 from bs4 import BeautifulSoup
-import urllib, re, simplejson, sys, datetime, MySQLdb, _mysql_exceptions
+import urllib
+import sys
+import datetime
+import MySQLdb
+import _mysql_exceptions
 
 count = 0
 
@@ -32,9 +35,8 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 		dbManipulateData(dbHandle, sqlStatement)
 
 # Update "urls_extracted" column to mark urls have been extracted
-def updateURLsExtracted(dbHandle, id):
-	cursor = dbHandle.cursor()
-	sqlStatement = "UPDATE appurls SET urls_extracted=1 WHERE id="+str(id)+";"
+def updateURLsExtracted(dbHandle, tableId):
+	sqlStatement = "UPDATE appurls SET urls_extracted=1 WHERE id="+str(tableId)+";"
 	dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for extracting more URLs
@@ -71,9 +73,8 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		dbManipulateData(dbHandle, sqlStatement)
 
 # Update "parsed" column to mark app data has been parsed
-def updateParsed(dbHandle, id):
-	cursor = dbHandle.cursor()
-	sqlStatement = "UPDATE appurls SET parsed=1 WHERE id="+str(id)+";"
+def updateParsed(dbHandle, tableId):
+	sqlStatement = "UPDATE appurls SET parsed=1 WHERE id="+str(tableId)+";"
 	dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for app data parsing

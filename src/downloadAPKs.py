@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-from dateutil.relativedelta import relativedelta
 import os 
 import urllib2
 import sys
@@ -14,20 +13,17 @@ def dbManipulateData(dbHandle, sqlStatement):
 	try:
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
-		print str(count)+" data already there"
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 
 # Update "downloaded" column to mark app has been downloaded
-def updateDownloaded(dbHandle, id):
-	cursor = dbHandle.cursor()
-	sqlStatement = "UPDATE appurls SET downloaded=1 WHERE id="+str(id)+";"
+def updateDownloaded(dbHandle, tableId):
+	sqlStatement = "UPDATE appurls SET downloaded=1 WHERE id="+str(tableId)+";"
 	dbManipulateData(dbHandle, sqlStatement)
 
 # Download APK
-def downloadAPK(dbHandle, id, appPackageName):
+def downloadAPK(dbHandle, tableId, appPackageName):
 	URLPrefix = "http://dl3.apk-dl.com/store/download/details?id="
 	APKURL = URLPrefix+appPackageName
 
@@ -47,7 +43,7 @@ def downloadAPK(dbHandle, id, appPackageName):
 	if os.path.getsize(appDownloadFileLocation) < 5 * 1024:
 		os.remove(appDownloadFileLocation)
 	else:
-		updateDownloaded(dbHandle, id)
+		updateDownloaded(dbHandle, tableId)
 
 # Get URLs for app downloading
 def getAppURL(dbHandle):

@@ -14,9 +14,9 @@ def makeSurePathExists(path):
 	return False
 
 def deleteAndReCreateFolder(path):
-    if os.path.exists(path):
-        shutil.rmtree(path)
-    os.makedirs(path)
+	if os.path.exists(path):
+		shutil.rmtree(path)
+	os.makedirs(path)
 
 def runAnalysis(inpath,outPath):
 	'''
@@ -24,17 +24,21 @@ def runAnalysis(inpath,outPath):
 	'''
 	os.chdir(inpath)
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
-	for file in files:
-		pkgName = file.replace(".apk", "")
+	for inputFile in files:
+		pkgName = inputFile.replace(".apk", "")
 		outputFolder = outPath+pkgName
-		print outputFolder
-		subprocess.call(["apktool", "d", "-f", inpath+file, "-o", outputFolder], shell=True)
+		subprocess.call(["apktool", "d", "-f", inpath+inputFile, "-o", outputFolder], shell=True)
+		osInfo = platform.system()
+		if osInfo == 'Windows':
+			manifestFile = outPath+pkgName+"\\AndroidManifest.xml"
+		elif osInfo == 'Linux':
+			manifestFile = outPath+pkgName+"/AndroidManifest.xml"
+		renamedManifestFile = outPath+pkgName+".xml"
+		shutil.copy2(manifestFile, renamedManifestFile)
+		shutil.rmtree(outputFolder)
+		extractPermissionsInfo(renamedManifestFile)
 
-def main(argv):
-	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python analysis.py\n')
-		sys.exit(1)
-		
+def extractManifestFiles():
 	'''
 		Detect operating system and takes actions accordingly
 	'''
@@ -53,6 +57,16 @@ def main(argv):
 		runAnalysis(appsFolder,decommpileOutputDirectory)
 	else:
 		print 'The apps folder doesn\'t exist. Create one and download apks to it and then run this script again.'
+
+def extractPermissionsInfo(renamedManifestFile):
+	print renamedManifestFile
+
+def main(argv):
+	if len(sys.argv) != 1:
+		sys.stderr.write('Usage: python analysis.py\n')
+		sys.exit(1)
+		
+	extractManifestFiles()
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

@@ -7,6 +7,7 @@ import shutil
 import subprocess
 from os import listdir
 from os.path import isfile, join
+from bs4 import BeautifulSoup as Soup
 
 def makeSurePathExists(path):
 	if os.path.exists(path):
@@ -57,14 +58,22 @@ def extractManifestFiles():
 		print 'The apps folder doesn\'t exist. Create one and download apks to it and then run this script again.'
 
 def extractPermissionsInfo(renamedManifestFile):
-	print renamedManifestFile
+	XMLFileHandler = open(renamedManifestFile).read()
+	soup = Soup(XMLFileHandler)
+	for message in soup.findAll('uses-permission'):
+		print message.get('android:name')
+	for message in soup.findAll('permission'):
+		permissionsAttributes = dict(message.attrs)
+		print permissionsAttributes['android:name']
+		print permissionsAttributes['android:protectionlevel']
 
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python analysis.py\n')
 		sys.exit(1)
 		
-	extractManifestFiles()
+# 	extractManifestFiles()
+	extractPermissionsInfo("data\\bbc.xml")
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

@@ -132,7 +132,7 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 	# Extract permissions used by the app and store in the DB
 	for message in soup.findAll('uses-permission'):
 		permissionName = message.get('android:name')
-		dbHandle = dbConnectionCheck()
+		dbHandle = databaseHandler.dbConnectionCheck()
 
 		# See if the permission is in the table if not insert it and get its id
 		sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"

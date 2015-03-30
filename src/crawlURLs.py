@@ -6,8 +6,7 @@ import sys
 import datetime
 import MySQLdb
 import _mysql_exceptions
-
-count = 0
+from ConfigParser import SafeConfigParser
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -16,7 +15,7 @@ def dbManipulateData(dbHandle, sqlStatement):
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
 	except _mysql_exceptions.IntegrityError:
-		print str(count)+" data already there"
+		print "data already there"
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
@@ -28,7 +27,6 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 	data = soup.findAll(attrs={'class': 'card-click-target'})
 
 	for chunk in data:
-		count = count + 1
 		url = "https://play.google.com"+chunk['href']
 		packageName = url.split("=")
 		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url) VALUES('"+packageName[1]+"', '"+url+"');"
@@ -91,9 +89,17 @@ def getURLsForParsingAppData(dbHandle):
 		updateParsed(dbHandle,row[0])
 		extractAppDataAndStore(dbHandle,row[1])
 
-# Database Conenction Handler
+# Database Connection Handler
 def dbConnectionCheck():
-	dbHandle = MySQLdb.connect('trishuli.cs.umbc.edu', 'googleplaystore', 'prajitkumardas', 'googleplaystore');
+	parser = SafeConfigParser()
+	parser.read('dbconfig.ini')
+	
+	host = parser.get('dbconfig', 'host')
+	user = parser.get('dbconfig', 'user')
+	passwd = parser.get('dbconfig', 'passwd')
+	db = parser.get('dbconfig', 'db')
+	
+	dbHandle = MySQLdb.connect(host,user,passwd,db);
 	return dbHandle
 
 def main(argv):

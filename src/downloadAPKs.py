@@ -6,6 +6,7 @@ import sys
 import datetime
 import MySQLdb
 import _mysql_exceptions
+from ConfigParser import SafeConfigParser
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -58,9 +59,17 @@ def getAppURL(dbHandle):
 	for row in queryOutput:
 		downloadAPK(dbHandle,row[0],row[1])
 
-# Database Conenction Handler
+# Database Connection Handler
 def dbConnectionCheck():
-	dbHandle = MySQLdb.connect('trishuli.cs.umbc.edu', 'googleplaystore', 'prajitkumardas', 'googleplaystore');
+	parser = SafeConfigParser()
+	parser.read('dbconfig.ini')
+	
+	host = parser.get('dbconfig', 'host')
+	user = parser.get('dbconfig', 'user')
+	passwd = parser.get('dbconfig', 'passwd')
+	db = parser.get('dbconfig', 'db')
+	
+	dbHandle = MySQLdb.connect(host,user,passwd,db);
 	return dbHandle
 
 def main(argv):

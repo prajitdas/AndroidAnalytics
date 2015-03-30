@@ -44,7 +44,7 @@ def downloadAPK(dbHandle, id, appPackageName):
 	apkFile.write(outFile.read())
 	apkFile.close()
 
-	if os.path.getsize(appDownloadFileLocation) < 1 * 1024:
+	if os.path.getsize(appDownloadFileLocation) < 5 * 1024:
 		os.remove(appDownloadFileLocation)
 	else:
 		updateDownloaded(dbHandle, id)

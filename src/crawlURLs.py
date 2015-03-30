@@ -60,8 +60,14 @@ def oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle):
 def extractAppDataAndStore(dbHandle, urlExtract):
 	page = urllib.urlopen(urlExtract).read()
 	soup = BeautifulSoup(''.join(page))
-	data = soup.findAll(attrs={'class': 'document-title'})
-	print data
+
+	for div in soup.findAll(attrs={'class': 'document-title'}):
+		appName = div.find('div')
+		print appName
+
+	for div in soup.findAll(attrs={'class': 'document-subtitle'}):
+		devName = div.find('name')
+		print devName
 # 	for chunk in data:
 # 		url = "https://play.google.com"+chunk['href']
 # 		packageName = url.split("=")

@@ -61,23 +61,38 @@ def extractAppDataAndStore(urlExtract):
 	page = urllib.urlopen(urlExtract).read()
 	soup = BeautifulSoup(''.join(page))
 
-	print soup.findAll(attrs={'class': 'document-title'})
-	print soup.findAll(attrs={'class': 'document-subtitle'})
 	for div in soup.findAll(attrs={'class': 'document-title'}):
-		appName = div.find('div')
-		print appName
+		for child in div.children:
+			if not child.string == ' ':
+				appName = child.string
 
 	for div in soup.findAll(attrs={'class': 'document-subtitle','class': 'primary'}):
-		for child in div.children: print child.string
-		
+		for child in div.children:
+			if not child.string == ' ':
+				developerName = child.string
+
 	for div in soup.findAll(attrs={'class': 'document-subtitle','class': 'category'}):
-		for child in div.children: print child.string
-		
+		for child in div.children:
+			if not child.string == ' ':
+				appCategory = child.string
+
+	appDesc = ""
 	for div in soup.findAll(attrs={'class': 'id-app-orig-desc'}):
 		for desc in div.descendants:
-			print desc.string 
+			if unicode(desc.string) != "None":
+				appDesc = appDesc + unicode(desc.string)
 		
-	
+	for div in soup.findAll(attrs={'class': 'score'}):
+		for child in div.children:
+			if not child.string == ' ':
+				reviewRating = eval(child.string)
+
+	for div in soup.findAll(attrs={'class': 'reviews-num'}):
+		for child in div.children:
+			if not child.string == ' ':
+				reviewCount = eval(child.string.replace(",",""))
+				
+	print appName, developerName, appCategory, appDesc, reviewRating, reviewCount
 # 	for chunk in data:
 # 		url = "https://play.google.com"+chunk['href']
 # 		packageName = url.split("=")

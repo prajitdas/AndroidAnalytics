@@ -19,9 +19,8 @@ def deleteAndReCreateFolder(path):
 	os.makedirs(path)
 
 def runAnalysis(inpath,outPath):
-	'''
-		Run analysis
-	'''
+	#	Run analysis
+
 	os.chdir(inpath)
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for inputFile in files:
@@ -39,9 +38,8 @@ def runAnalysis(inpath,outPath):
 		extractPermissionsInfo(renamedManifestFile)
 
 def extractManifestFiles():
-	'''
-		Detect operating system and takes actions accordingly
-	'''
+	# Detect operating system and takes actions accordingly
+
 	osInfo = platform.system()
 	if osInfo == 'Windows':
 		decommpileOutputDirectory = os.path.dirname(os.path.realpath(__file__))+"\\data\\"

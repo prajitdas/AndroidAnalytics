@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `developer`(
   `name` text(500) NOT NULL,
   `website` text(500),
   `email` text(500),
-  `address` text(1000)
+  `country` text(1000)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 -- --------------------------------------------------------

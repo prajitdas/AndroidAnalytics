@@ -5,7 +5,7 @@
 from bs4 import BeautifulSoup
 import urllib
 import sys
-from datetime import datetime
+import datetime
 import json
 import _mysql_exceptions
 import databaseHandler
@@ -62,7 +62,7 @@ def oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle):
 # Create the SQL statement to execute out of the dictionary data 
 def createSQLStatementAndInsert(dbHandle,app_dict):
 	sqlStatement = "INSERT INTO appdata"
-	dbManipulateData(dbHandle, sqlStatement)
+	#dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):
@@ -137,7 +137,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 	if "Installs" in app_dict:
 		app_dict['Installs'] = app_dict['Installs'].split(" ")[-1]
 	if "Updated" in app_dict:
-		app_dict['Updated'] = datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
+		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
 	
 	for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link'}):
 		for child in div.children:
@@ -163,7 +163,7 @@ def updateParsed(dbHandle, tableId):
 def getURLsForParsingAppData(dbHandle):
 	app_info = {}
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0;"
+	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0 AND id < 10;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -172,7 +172,7 @@ def getURLsForParsingAppData(dbHandle):
 		raise
 	for row in queryOutput:
 		app_info[row[1].split("=")[-1]] = extractAppDataAndStore(dbHandle,row[1])
-		updateParsed(dbHandle,row[0])
+		# updateParsed(dbHandle,row[0])
 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
 
 def main(argv):
@@ -192,7 +192,8 @@ def main(argv):
 	else:
 		sys.stderr.write('Usage: python crawlURLs [i|m|a]\n')
 	endTime = datetime.datetime.now()
-	print "Execution time was: "(endTime-startTime)
+	executionTime = (endTime-startTime)
+	print "Execution time was: "+str(executionTime)
 	
 	dbHandle.close() #DB Close
 

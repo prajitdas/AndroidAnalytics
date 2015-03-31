@@ -164,7 +164,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 	for div in soup.findAll(attrs={'class': 'score'}):
 		for child in div.children:
 			if not child.string == ' ':
-				app_dict['review_rating'] = eval(child.string)
+				app_dict['review_rating'] = round(eval(child.string),1)
 
 	for div in soup.findAll(attrs={'class': 'reviews-num'}):
 		for child in div.children:

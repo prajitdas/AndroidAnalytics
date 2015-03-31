@@ -33,18 +33,18 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 	for chunk in data:
 		url = "https://play.google.com"+chunk['href']
 		packageName = url.split("=")
-		sqlStatement = "INSERT INTO appurls(app_pkg_name, app_url) VALUES('"+packageName[1]+"', '"+url+"');"
+		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
 		dbManipulateData(dbHandle, sqlStatement)
 
 # Update "urls_extracted" column to mark urls have been extracted
 def updateURLsExtracted(dbHandle, tableId):
-	sqlStatement = "UPDATE appurls SET urls_extracted=1 WHERE id="+str(tableId)+";"
+	sqlStatement = "UPDATE `appurls` SET `urls_extracted`=1 WHERE `id`="+str(tableId)+";"
 	dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for extracting more URLs
 def getURLsForExtractingMoreURLs(dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_url FROM appurls WHERE urls_extracted = 0;"
+	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `urls_extracted` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -76,7 +76,7 @@ def getDeveloperId(dbHandle,app_dict):
 		dev_loc = app_dict['dev_location']
 	else:
 		dev_loc = ""
-	sqlStatementdDevId = "SELECT id FROM developer WHERE name = '"+dev_name+"';"
+	sqlStatementdDevId = "SELECT `id` FROM `developer` WHERE `name` = '"+dev_name+"';"
 	try:
 		cursor.execute(sqlStatementdDevId)
 		if cursor.rowcount > 0:
@@ -84,7 +84,7 @@ def getDeveloperId(dbHandle,app_dict):
 			for row in queryOutput:
 				return row[0]
 		else:
-			sqlStatementdDevIdInsert = "INSERT into developer(name,website,email,country) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
+			sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
 			return dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
@@ -92,7 +92,7 @@ def getDeveloperId(dbHandle,app_dict):
 
 def getCategoryId(dbHandle,app_dict):
 	cursor = dbHandle.cursor()
-	sqlStatementdAppCatId = "SELECT id FROM appcategories WHERE name = '"+app_dict['app_category'].upper()+"';"
+	sqlStatementdAppCatId = "SELECT `id` FROM `appcategories` WHERE `name` = '"+app_dict['app_category'].upper()+"';"
 	try:
 		cursor.execute(sqlStatementdAppCatId)
 		queryOutput = cursor.fetchall()
@@ -119,7 +119,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	android_reqd = app_dict['Requires_Android']
 	content_rating = app_dict['Content_Rating']
 	
-	sqlStatement = "INSERT INTO appdata(app_pkg_name,app_name,developer_id,app_category_id,review_rating,review_count,desc,whats_new,updated,installs,version,android_reqd,content_rating) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) + str(review_count) +",'" + desc + "','" + whats_new + "','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) + str(review_count) +",'" + desc + "','" + whats_new + "','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
 	print sqlStatement
 	dbManipulateData(dbHandle, sqlStatement)
 
@@ -215,14 +215,14 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 
 # Update "parsed" column to mark app data has been parsed
 def updateParsed(dbHandle, tableId):
-	sqlStatement = "UPDATE appurls SET parsed=1 WHERE id="+str(tableId)+";"
+	sqlStatement = "UPDATE `appurls` SET `parsed`=1 WHERE `id`="+str(tableId)+";"
 	dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for app data parsing
 def getURLsForParsingAppData(dbHandle):
 	app_info = {}
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0 AND app_pkg_name LIKE '%com.google%';"
+	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `parsed` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -231,7 +231,7 @@ def getURLsForParsingAppData(dbHandle):
 		raise
 	for row in queryOutput:
 		app_info[row[1].split("=")[-1]] = extractAppDataAndStore(dbHandle,row[1])
-		# updateParsed(dbHandle,row[0])
+		updateParsed(dbHandle,row[0])
 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
 
 def main(argv):

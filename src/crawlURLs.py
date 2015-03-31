@@ -9,6 +9,7 @@ import datetime
 import json
 import _mysql_exceptions
 import databaseHandler
+from macpath import curdir
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -21,6 +22,7 @@ def dbManipulateData(dbHandle, sqlStatement):
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
+	return cursor.lastrowid
 
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
@@ -59,10 +61,61 @@ def oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle):
 	for searchString in alpahbeticalSearchStrings:
 		extractMoreURLsAndStore(dbHandle, searchString)
 
+def getDeveloperId(dbHandle,app_dict):
+	cursor = dbHandle.cursor()
+	dev_name = app_dict['developer_name']
+	if app_dict['dev_website']:
+		dev_web = app_dict['dev_website']
+	if app_dict['dev_email']:
+		dev_email = app_dict['dev_email']
+	if app_dict['dev_location']:
+		dev_loc = app_dict['dev_location']
+	sqlStatementdDevId = "SELECT id FROM developer WHERE name = '"+dev_name+"';"
+	try:
+		cursor.execute(sqlStatementdDevId)
+		if cursor.rowcount > 0:
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				return row[0]
+		else:
+			sqlStatementdDevIdInsert = "INSERT into developer(name,website,email,country) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
+			return dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+
+def getCategoryId(dbHandle,app_dict):
+	cursor = dbHandle.cursor()
+	sqlStatementdAppCatId = "SELECT id FROM appcategories WHERE name = '"+app_dict['app_category'].upper()+"';"
+	try:
+		cursor.execute(sqlStatementdAppCatId)
+		queryOutput = cursor.fetchall()
+		for row in queryOutput:
+			return row[0]
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	
+
 # Create the SQL statement to execute out of the dictionary data 
 def createSQLStatementAndInsert(dbHandle,app_dict):
-	sqlStatement = "INSERT INTO appdata"
-	#dbManipulateData(dbHandle, sqlStatement)
+	app_pkg_name = app_dict['app_pkg_name']
+	app_name = app_dict['app_name']
+	developer_id = getDeveloperId(dbHandle,app_dict)
+	app_category_id = getCategoryId(dbHandle,app_dict)	
+	review_rating = app_dict['review_rating']
+	review_count = app_dict['review_count']
+	desc = app_dict['app_desc']
+	whats_new = app_dict['whats_new']
+	updated = app_dict['Updated']
+	installs = app_dict['Installs']
+	version = app_dict['Current_Version']
+	android_reqd = app_dict['Requires_Android']
+	content_rating = app_dict['Content_Rating']
+	
+	sqlStatement = "INSERT INTO appdata(app_pkg_name,app_name,developer_id,app_category_id,review_rating,review_count,desc,whats_new,updated,installs,version,android_reqd,content_rating) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) + str(review_count) +",'" + desc + "','" + whats_new + "','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+	print sqlStatement
+	dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):

@@ -64,11 +64,11 @@ def oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle):
 def getDeveloperId(dbHandle,app_dict):
 	cursor = dbHandle.cursor()
 	dev_name = app_dict['developer_name']
-	if app_dict['dev_website']:
+	if 'dev_website' in app_dict:
 		dev_web = app_dict['dev_website']
-	if app_dict['dev_email']:
+	if 'dev_email' in app_dict:
 		dev_email = app_dict['dev_email']
-	if app_dict['dev_location']:
+	if 'dev_location' in app_dict:
 		dev_loc = app_dict['dev_location']
 	sqlStatementdDevId = "SELECT id FROM developer WHERE name = '"+dev_name+"';"
 	try:

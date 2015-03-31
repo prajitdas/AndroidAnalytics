@@ -66,10 +66,16 @@ def getDeveloperId(dbHandle,app_dict):
 	dev_name = app_dict['developer_name']
 	if 'dev_website' in app_dict:
 		dev_web = app_dict['dev_website']
+	else:
+		dev_web = ""
 	if 'dev_email' in app_dict:
 		dev_email = app_dict['dev_email']
+	else:
+		dev_email = ""
 	if 'dev_location' in app_dict:
 		dev_loc = app_dict['dev_location']
+	else:
+		dev_loc = ""
 	sqlStatementdDevId = "SELECT id FROM developer WHERE name = '"+dev_name+"';"
 	try:
 		cursor.execute(sqlStatementdDevId)
@@ -216,7 +222,7 @@ def updateParsed(dbHandle, tableId):
 def getURLsForParsingAppData(dbHandle):
 	app_info = {}
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0 AND app_pkg_name LIKE '%google%';"
+	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0 AND app_pkg_name LIKE '%com.google%';"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()

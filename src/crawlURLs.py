@@ -216,7 +216,7 @@ def updateParsed(dbHandle, tableId):
 def getURLsForParsingAppData(dbHandle):
 	app_info = {}
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0 AND id < 10;"
+	sqlStatement = "SELECT id, app_url FROM appurls WHERE parsed = 0 AND app_pkg_name LIKE '%google%';"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()

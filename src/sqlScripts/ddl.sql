@@ -69,8 +69,8 @@ CREATE TABLE IF NOT EXISTS `appcategories`(
 -- Indexes for table `appcategories`
 --
 ALTER TABLE `appcategories` 
-  ADD UNIQUE KEY `name_idx` (`name`(100)),
-  ADD KEY `url_idx` (`url`);
+  ADD KEY `name_idx` (`name`),
+  ADD UNIQUE KEY `url_idx` (`url`(250));
 
 -- --------------------------------------------------------
 

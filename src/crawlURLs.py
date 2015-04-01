@@ -134,9 +134,11 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	android_reqd = app_dict['Requires_Android']
 	content_rating = app_dict['Content_Rating']
 	
-	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'{:s}','{:s}','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+ 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ desc +"','"+ whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+# 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);"
 	print sqlStatement
-	dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new)
+# 	dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new)
+	dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):

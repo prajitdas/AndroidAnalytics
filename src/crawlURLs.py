@@ -142,9 +142,6 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	content_rating = app_dict['Content_Rating']
 	
 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
-# 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);"
-	print sqlStatement
-# 	dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new)
 	dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
@@ -219,6 +216,8 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		app_dict.pop("Size", None)
 	if "Installs" in app_dict:
 		app_dict['Installs'] = eval(app_dict['Installs'].split(" ")[-1].replace(",",""))
+	else:
+		app_dict['Installs'] = 0
 	if "Updated" in app_dict:
 		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
 	
@@ -251,7 +250,7 @@ def updateParsed(dbHandle, tableId):
 # Get URLs for app data parsing
 def getURLsForParsingAppData(dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `parsed` = 0 AND `app_pkg_name` LIKE '%com.google%';"
+	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `parsed` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()

@@ -235,8 +235,9 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		
 	# Return app_dict to write back to JSON file	
 	app_info = {}
-	app_info_json = open("googlePlayStoreAppData.json",'w').read()
-	app_info = json.loads(app_info_json)
+	app_info_json = open("googlePlayStoreAppData.json",'r').read()
+	if len(app_info_json) > 0:
+		app_info = json.loads(app_info_json)
 	app_info[app_dict['app_pkg_name']] = app_dict 
 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
 	#Write to SQL now

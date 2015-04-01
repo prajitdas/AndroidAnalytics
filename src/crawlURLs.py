@@ -31,7 +31,7 @@ def dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new):
 	escaped_text_desc = conversion.MySQLConverter().escape(desc)
 	escaped_text_whats_new = conversion.MySQLConverter().escape(whats_new)
 	try:
-		cursor.execute(sqlStatement, escaped_text_desc, escaped_text_whats_new)
+		cursor.execute(sqlStatement.format(escaped_text_desc, escaped_text_whats_new))
 		dbHandle.commit()
 	except _mysql_exceptions.IntegrityError:
 		print "data already there"

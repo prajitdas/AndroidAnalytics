@@ -127,7 +127,9 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	review_rating = app_dict['review_rating']
 	review_count = app_dict['review_count']
 	desc = app_dict['app_desc']
+	desc = unicode(desc, errors="replace")
 	whats_new = app_dict['whats_new']
+	whats_new = unicode(whats_new, errors="replace")
 	updated = app_dict['Updated']
 	installs = app_dict['Installs']
 	version = app_dict['Current_Version']

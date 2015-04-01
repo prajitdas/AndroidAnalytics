@@ -9,7 +9,6 @@ import datetime
 import json
 import _mysql_exceptions
 import databaseHandler
-from macpath import curdir
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -23,6 +22,18 @@ def dbManipulateData(dbHandle, sqlStatement):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	return cursor.lastrowid
+
+# Fire an DML SQL statement and commit data
+def dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new):
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement, desc, whats_new)
+		dbHandle.commit()
+	except _mysql_exceptions.IntegrityError:
+		print "data already there"
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
 
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
@@ -119,9 +130,9 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	android_reqd = app_dict['Requires_Android']
 	content_rating = app_dict['Content_Rating']
 	
-	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'" + desc + "','" + whats_new + "','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",%s,%s,'" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
 	print sqlStatement
-	dbManipulateData(dbHandle, sqlStatement)
+	dbManipulateDataWithParameters(dbHandle, sqlStatement,desc,whats_new)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):

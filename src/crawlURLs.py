@@ -215,7 +215,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 	if "Size" in app_dict:
 		app_dict.pop("Size", None)
 	if "Installs" in app_dict:
-		app_dict['Installs'] = app_dict['Installs'].split(" ")[-1]
+		app_dict['Installs'] = eval(app_dict['Installs'].split(" ")[-1].replace(",",""))
 	if "Updated" in app_dict:
 		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
 	

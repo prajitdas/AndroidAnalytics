@@ -127,16 +127,18 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	review_rating = app_dict['review_rating']
 	review_count = app_dict['review_count']
 	desc = app_dict['app_desc']
-	desc = unicode(desc, errors="replace")
+	escaped_text_desc = conversion.MySQLConverter().escape(desc)
+	print escaped_text_desc
 	whats_new = app_dict['whats_new']
-	whats_new = unicode(whats_new, errors="replace")
+	escaped_text_whats_new = conversion.MySQLConverter().escape(whats_new)
+	print escaped_text_whats_new
 	updated = app_dict['Updated']
 	installs = app_dict['Installs']
 	version = app_dict['Current_Version']
 	android_reqd = app_dict['Requires_Android']
 	content_rating = app_dict['Content_Rating']
 	
- 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ desc +"','"+ whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+ 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
 # 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);"
 	print sqlStatement
 # 	dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new)

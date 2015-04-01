@@ -17,4 +17,5 @@ def dbConnectionCheck():
     db = parser.get('dbconfig', 'db')
     
     dbHandle = MySQLdb.connect(host,user,passwd,db);
+    dbHandle.set_character_set('utf8')
     return dbHandle

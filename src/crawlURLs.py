@@ -16,6 +16,9 @@ from mysql.connector import conversion
 def dbManipulateData(dbHandle, sqlStatement):
 	cursor = dbHandle.cursor()
 	try:
+		cursor.execute('SET NAMES utf8;')
+		cursor.execute('SET CHARACTER SET utf8;')
+		cursor.execute('SET character_set_connection=utf8;')
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
 	except _mysql_exceptions.IntegrityError:
@@ -230,9 +233,13 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 	for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link', 'class': 'physical-address'}):
 		app_dict['dev_location'] = div.string
 		
-	createSQLStatementAndInsert(dbHandle,app_dict)
 	# Return app_dict to write back to JSON file	
-	return app_dict
+	app_info = {}
+	open("googlePlayStoreAppData.json",'w').read(json.loads(app_info))
+	app_info[app_dict['app_pkg_name']] = app_dict 
+	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
+	#Write to SQL now
+	createSQLStatementAndInsert(dbHandle,app_dict)
 
 # Update "parsed" column to mark app data has been parsed
 def updateParsed(dbHandle, tableId):
@@ -241,7 +248,6 @@ def updateParsed(dbHandle, tableId):
 
 # Get URLs for app data parsing
 def getURLsForParsingAppData(dbHandle):
-	app_info = {}
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `parsed` = 0 AND `app_pkg_name` LIKE '%com.google%';"
 	try:
@@ -251,9 +257,8 @@ def getURLsForParsingAppData(dbHandle):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		app_info[row[1].split("=")[-1]] = extractAppDataAndStore(dbHandle,row[1])
+		extractAppDataAndStore(dbHandle,row[1])
 		updateParsed(dbHandle,row[0])
-	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
 
 def main(argv):
 	if len(sys.argv) != 2:

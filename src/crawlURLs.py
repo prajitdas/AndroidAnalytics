@@ -141,7 +141,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	android_reqd = app_dict['Requires_Android']
 	content_rating = app_dict['Content_Rating']
 	
- 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
 # 	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);"
 	print sqlStatement
 # 	dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new)
@@ -235,7 +235,8 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		
 	# Return app_dict to write back to JSON file	
 	app_info = {}
-	open("googlePlayStoreAppData.json",'w').read(json.loads(app_info))
+	app_info_json = open("googlePlayStoreAppData.json",'w').read()
+	app_info = json.loads(app_info_json)
 	app_info[app_dict['app_pkg_name']] = app_dict 
 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
 	#Write to SQL now

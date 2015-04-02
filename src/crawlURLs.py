@@ -81,6 +81,7 @@ def oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle):
 def getDeveloperId(dbHandle,app_dict):
 	cursor = dbHandle.cursor()
 	dev_name = app_dict['developer_name']
+	dev_name = conversion.MySQLConverter().escape(dev_name)
 	if 'dev_website' in app_dict:
 		dev_web = app_dict['dev_website']
 	else:

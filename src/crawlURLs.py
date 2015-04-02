@@ -258,6 +258,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
 	if 'Offered_By' in app_dict:
 		app_dict['Offered_By'] = conversion.MySQLConverter().escape(app_dict['Offered_By'])
+	print app_dict['Offered_By']
 	
 	for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link'}):
 		for child in div.children:

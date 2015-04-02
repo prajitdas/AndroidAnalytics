@@ -94,6 +94,7 @@ def getDeveloperId(dbHandle,app_dict):
 		dev_loc = app_dict['dev_location']
 	else:
 		dev_loc = ""
+	dev_loc = conversion.MySQLConverter().escape(dev_loc)
 	sqlStatementdDevId = "SELECT `id` FROM `developer` WHERE `name` = '"+dev_name+"';"
 	try:
 		cursor.execute(sqlStatementdDevId)

@@ -123,29 +123,30 @@ def getCategoryId(dbHandle,app_dict):
 
 # Create the SQL statement to execute out of the dictionary data 
 def createSQLStatementAndInsert(dbHandle,app_dict):
-	app_pkg_name = app_dict['app_pkg_name']
-	print app_pkg_name
-	app_name = app_dict['app_name']
-	app_name = conversion.MySQLConverter().escape(app_name)
-	developer_id = getDeveloperId(dbHandle,app_dict)
-	app_category_id = getCategoryId(dbHandle,app_dict)	
-	review_rating = app_dict['review_rating']
-	review_count = app_dict['review_count']
-	desc = app_dict['app_desc']
-	escaped_text_desc = conversion.MySQLConverter().escape(desc)
-	#escaped_text_desc = escaped_text_desc.replace("'",";")
-	whats_new = app_dict['whats_new']
-	escaped_text_whats_new = conversion.MySQLConverter().escape(whats_new)
-	#escaped_text_whats_new = escaped_text_whats_new.replace("'",";")
-	updated = app_dict['Updated']
-	installs = app_dict['Installs']
-	version = app_dict['Current_Version']
-	android_reqd = app_dict['Requires_Android']
-	content_rating = app_dict['Content_Rating']
-	
-	sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
-	print sqlStatement
-	dbManipulateData(dbHandle, sqlStatement)
+	if 'app_name' in app_dict:
+		app_name = app_dict['app_name']
+		app_name = conversion.MySQLConverter().escape(app_name)
+
+		app_pkg_name = app_dict['app_pkg_name']
+		developer_id = getDeveloperId(dbHandle,app_dict)
+		app_category_id = getCategoryId(dbHandle,app_dict)	
+		review_rating = app_dict['review_rating']
+		review_count = app_dict['review_count']
+		desc = app_dict['app_desc']
+		escaped_text_desc = conversion.MySQLConverter().escape(desc)
+		#escaped_text_desc = escaped_text_desc.replace("'",";")
+		whats_new = app_dict['whats_new']
+		escaped_text_whats_new = conversion.MySQLConverter().escape(whats_new)
+		#escaped_text_whats_new = escaped_text_whats_new.replace("'",";")
+		updated = app_dict['Updated']
+		installs = app_dict['Installs']
+		version = app_dict['Current_Version']
+		android_reqd = app_dict['Requires_Android']
+		content_rating = app_dict['Content_Rating']
+		
+		sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
+		print sqlStatement
+		dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):
@@ -219,8 +220,6 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		app_dict.pop("Size", None)
 	if "Installs" in app_dict:
 		app_dict['Installs'] = eval(app_dict['Installs'].split(" ")[-1].replace(",",""))
-	else:
-		app_dict['Installs'] = 0
 	if "Updated" in app_dict:
 		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
 	

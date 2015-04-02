@@ -129,13 +129,13 @@ CREATE TABLE IF NOT EXISTS `appdata`(
   `app_category_id` int(10) unsigned NOT NULL,
   `review_rating` float(1,1) NOT NULL DEFAULT '0.0',
   `review_count` int(10) NOT NULL DEFAULT '0',
-  `desc` text(65535),
+  `desc` text(65535) DEFAULT NULL,
   `whats_new` text(65535),
   `updated` date NOT NULL,
   `installs` int(10) DEFAULT '0',
-  `version` varchar(50) NOT NULL,
-  `android_reqd` varchar(50) NOT NULL,
-  `content_rating` varchar(100) NOT NULL,
+  `version` varchar(50) DEFAULT NULL,
+  `android_reqd` varchar(50) DEFAULT NULL,
+  `content_rating` varchar(100) DEFAULT NULL,
   CONSTRAINT `fk_developer_id` FOREIGN KEY (`developer_id`) REFERENCES `developer`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_app_category_id` FOREIGN KEY (`app_category_id`) REFERENCES `appcategories`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;

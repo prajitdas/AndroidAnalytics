@@ -126,6 +126,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	if 'app_name' in app_dict:
 		app_name = app_dict['app_name']
 		app_name = conversion.MySQLConverter().escape(app_name)
+		print app_name
 
 		app_pkg_name = app_dict['app_pkg_name']
 		developer_id = getDeveloperId(dbHandle,app_dict)

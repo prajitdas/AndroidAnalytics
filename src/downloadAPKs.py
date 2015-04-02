@@ -4,7 +4,6 @@ import os
 import urllib2
 import sys
 import datetime
-import _mysql_exceptions
 import databaseHandler
 
 # Fire an DML SQL statement and commit data

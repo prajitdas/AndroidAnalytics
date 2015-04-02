@@ -9,7 +9,6 @@ import datetime
 import json
 import _mysql_exceptions
 import databaseHandler
-import mysql.connector
 from mysql.connector import conversion
 
 # Fire an DML SQL statement and commit data
@@ -245,18 +244,20 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 						value = child.string.strip()			
 						pairing = 0
 						app_dict[key] = value
-	if "Developer" in app_dict:
-		app_dict.pop("Developer", None)
-	if "Permissions" in app_dict:
-		app_dict.pop("Permissions", None)
-	if "Report" in app_dict:
-		app_dict.pop("Report", None)
-	if "Size" in app_dict:
-		app_dict.pop("Size", None)
-	if "Installs" in app_dict:
+	if 'Developer' in app_dict:
+		app_dict.pop('Developer', None)
+	if 'Permissions' in app_dict:
+		app_dict.pop('Permissions', None)
+	if 'Report' in app_dict:
+		app_dict.pop('Report', None)
+	if 'Size' in app_dict:
+		app_dict.pop('Size', None)
+	if 'Installs' in app_dict:
 		app_dict['Installs'] = eval(app_dict['Installs'].split(" ")[-1].replace(",",""))
-	if "Updated" in app_dict:
+	if 'Updated' in app_dict:
 		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
+	if 'Offered_By' in app_dict:
+		app_dict['Offered_By'] = conversion.MySQLConverter().escape(app_dict['Offered_By'])
 	
 	for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link'}):
 		for child in div.children:

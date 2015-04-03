@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import urllib
 import sys
 import datetime
-import json
+# import json
 import _mysql_exceptions
 import databaseHandler
 from mysql.connector import conversion
@@ -273,12 +273,12 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		app_dict['dev_location'] = div.string
 		
 	# Return app_dict to write back to JSON file	
-	app_info = {}
-	app_info_json = open("googlePlayStoreAppData.json",'r').read()
-	if len(app_info_json) > 0:
-		app_info = json.loads(app_info_json)
-	app_info[app_dict['app_pkg_name']] = app_dict 
-	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
+# 	app_info = {}
+# 	app_info_json = open("googlePlayStoreAppData.json",'r').read()
+# 	if len(app_info_json) > 0:
+# 		app_info = json.loads(app_info_json)
+# 	app_info[app_dict['app_pkg_name']] = app_dict 
+# 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
 	#Write to SQL now
 	createSQLStatementAndInsert(dbHandle,app_dict)
 

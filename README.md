@@ -29,7 +29,7 @@ The following steps are in sequence and have dependencies on previous steps.
 
 **THIS CODE WILL DESTROY YOUR DATABASE, IF IT EXISTS AND RECREATE IT!**
 * createDatbase.py: This is the step where the database is created where your data will be stored.
-++ Usage: python createDatbase.py
+	+ Usage: python createDatbase.py
 
 ##Step three: Start crawling
 * crawURLs.py: This is the main crawling script for crawling the Google Play Store. It obtains urls for apps and parses and stores data about them. 

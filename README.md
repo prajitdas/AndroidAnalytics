@@ -17,18 +17,19 @@ The following steps are in sequence and have dependencies on previous steps.
 
 * databaseHandler.py: This module is not to be executed on its own and should be used only to obtain the database handler for database operations through other scripts as such:
 ```
-dbHandle = databaseHandler.dbConnectionCheck()
+	dbHandle = databaseHandler.dbConnectionCheck()
 ``` 
 **DO NOT FORGET TO DO**
 ```
-dbHandle.close()
+	dbHandle.close()
 ```
 
 ##Step two: Database creation
 **BE CAREFUL WITH THIS CODE.**
+
 **THIS CODE WILL DESTROY YOUR DATABASE, IF IT EXISTS AND RECREATE IT!**
 * createDatbase.py: This is the step where the database is created where your data will be stored.
-+ Usage: python createDatbase.py
+++ Usage: python createDatbase.py
 
 ##Step three: Start crawling
 * crawURLs.py: This is the main crawling script for crawling the Google Play Store. It obtains urls for apps and parses and stores data about them. 

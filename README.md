@@ -11,7 +11,8 @@ The following steps are in sequence and have dependencies on previous steps.
 	host = [hostname]
 	user = [database_username]
 	passwd = [database_user_password]
-	db = [database_name]```
+	db = [database_name]
+	```
 
 * databaseHandler.py: This module is not to be executed on its own and should be used only to obtain the database handler for database operations through other scripts as such:
 ```dbHandle = databaseHandler.dbConnectionCheck()``` 

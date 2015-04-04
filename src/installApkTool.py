@@ -1,4 +1,10 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+'''
+Created on Apr 4, 2015
+@author: Prajit Kumar Das
+Usage: python installApkTool.py
+'''
 
 import os
 import sys

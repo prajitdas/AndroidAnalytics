@@ -1,8 +1,10 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 '''
-Created on Mar 30, 2015
+Created on Apr 4, 2015
+@author: Prajit Kumar Das
+'''
 
-@author: Prajit
-'''
 from ConfigParser import SafeConfigParser
 import MySQLdb
 

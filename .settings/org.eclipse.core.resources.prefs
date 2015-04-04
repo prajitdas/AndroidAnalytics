@@ -1,2 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/apkDecompile.py=utf-8
 encoding//src/crawlURLs.py=utf-8
+encoding//src/createDatabase.py=utf-8
+encoding//src/databaseHandler.py=utf-8
+encoding//src/downloadAPKs.py=utf-8
+encoding//src/extractApkFromMobile.py=utf-8
+encoding//src/installApkTool.py=utf-8

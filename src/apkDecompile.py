@@ -1,4 +1,10 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+'''
+Created on Apr 4, 2015
+@author: Prajit Kumar Das
+Usage: python apkDecompile.py
+'''
 
 import os
 import sys
@@ -150,7 +156,7 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 
 def main(argv):
 	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python analysis.py\n')
+		sys.stderr.write('Usage: python apkDecompile.py\n')
 		sys.exit(1)
 
 	extractManifestFiles()

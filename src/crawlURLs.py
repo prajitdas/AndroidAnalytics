@@ -1,6 +1,13 @@
 #!/usr/bin/python
-
 # -*- coding: utf-8 -*-
+'''
+Created on Apr 4, 2015
+@author: Prajit Kumar Das
+Usage: python crawlURLs.py [i|m|a]
+Option i is for initial url extraction using a basic alphabetical search algorithm 
+Option m is for more url extraction from current urls 
+Option a is for appending data for apps into the database 
+'''
 
 from bs4 import BeautifulSoup
 import urllib
@@ -303,7 +310,7 @@ def getURLsForParsingAppData(dbHandle):
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python crawlURLs [i|m|a]\n')
+		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
 		sys.exit(1)
 
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
@@ -316,7 +323,7 @@ def main(argv):
 	elif sys.argv[1] == "a":
 		getURLsForParsingAppData(dbHandle) # Extract app data
 	else:
-		sys.stderr.write('Usage: python crawlURLs [i|m|a]\n')
+		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
 	endTime = datetime.datetime.now()
 	executionTime = (endTime-startTime)
 	print "Execution time was: "+str(executionTime)

@@ -1,6 +1,10 @@
 #!/usr/bin/python
-
 # -*- coding: utf-8 -*-
+'''
+Created on Apr 4, 2015
+@author: Prajit Kumar Das
+Usage: python extractApkFromMobile
+'''
 
 from bs4 import BeautifulSoup
 import urllib
@@ -102,7 +106,7 @@ def downloadAPKFromPhone():
 
 def main(argv):
     if len(sys.argv) != 1:
-        sys.stderr.write('Usage: python downloadAPKs\n')
+        sys.stderr.write('Usage: python extractApkFromMobile\n')
         sys.exit(1)
     
     downloadAPKFromPhone()

@@ -1,4 +1,10 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+'''
+Created on Apr 4, 2015
+@author: Prajit Kumar Das
+Usage: python downloadAPKs.py
+'''
 
 import os 
 import urllib2
@@ -59,7 +65,7 @@ def getAppURL(dbHandle):
 
 def main(argv):
 	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python downloadAPKs\n')
+		sys.stderr.write('Usage: python downloadAPKs.py\n')
 		sys.exit(1)
 
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open

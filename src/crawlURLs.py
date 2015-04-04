@@ -34,20 +34,6 @@ def dbManipulateData(dbHandle, sqlStatement):
 		raise
 	return cursor.lastrowid
 
-# Fire an DML SQL statement and commit data
-def dbManipulateDataWithParameters(dbHandle, sqlStatement, desc, whats_new):
-	cursor = dbHandle.cursor()
-	escaped_text_desc = conversion.MySQLConverter().escape(desc)
-	escaped_text_whats_new = conversion.MySQLConverter().escape(whats_new)
-	try:
-		cursor.execute(sqlStatement.format(escaped_text_desc, escaped_text_whats_new))
-		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
-		print "data already there"
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
 	page = urllib.urlopen(urlExtract).read()

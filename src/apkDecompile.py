@@ -21,6 +21,9 @@ import databaseHandler
 def dbManipulateData(dbHandle, sqlStatement):
 	cursor = dbHandle.cursor()
 	try:
+		cursor.execute('SET NAMES utf8;')
+		cursor.execute('SET CHARACTER SET utf8;')
+		cursor.execute('SET character_set_connection=utf8;')
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
 	except _mysql_exceptions.IntegrityError:

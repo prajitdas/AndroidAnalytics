@@ -19,10 +19,13 @@ import _mysql_exceptions
 def dbManipulateData(dbHandle, sqlStatement):
     cursor = dbHandle.cursor()
     try:
+        cursor.execute('SET NAMES utf8;')
+        cursor.execute('SET CHARACTER SET utf8;')
+        cursor.execute('SET character_set_connection=utf8;')
         cursor.execute(sqlStatement)
         dbHandle.commit()
     except _mysql_exceptions.IntegrityError:
-        raise _mysql_exceptions.IntegrityError
+        print "data already there"
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise

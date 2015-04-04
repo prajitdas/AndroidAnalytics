@@ -9,6 +9,7 @@ import sys
 import subprocess
 import databaseHandler
 import platform
+import _mysql_exceptions
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -16,9 +17,12 @@ def dbManipulateData(dbHandle, sqlStatement):
     try:
         cursor.execute(sqlStatement)
         dbHandle.commit()
+    except _mysql_exceptions.IntegrityError:
+        raise _mysql_exceptions.IntegrityError
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+    return cursor.lastrowid
 
 # Update "downloaded" column to mark app has been downloaded
 def updateDownloaded(dbHandle, tableId):
@@ -38,7 +42,7 @@ def downloadAPK(appsDownloadDirectory,path):
     if not os.path.isdir(os.path.dirname(appsDownloadDirectory)):
         os.makedirs(appsDownloadDirectory)
 
-    subprocess.call(["cd", appsDownloadDirectory])
+    os.chdir(appsDownloadDirectory)
     subprocess.call(["adb", "pull", path])
 
 def downloadAPKFromPhone():
@@ -53,15 +57,25 @@ def downloadAPKFromPhone():
         if verifyPresentInAppMarket(urlExtract):
             dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
-            sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+package+"', '"+urlExtract+"');"
-            dbManipulateData(dbHandle, sqlStatement)
-     
+            sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`,`downloaded`) VALUES('"+package+"', '"+urlExtract+"', 1);"
+            try:
+                dbManipulateData(dbHandle, sqlStatement)
+            except _mysql_exceptions.IntegrityError:
+                sqlStatement = "SELECT `id` FROM `appurls` WHERE app_pkg_name = '"+package+"';"
+                cursor = dbHandle.cursor()
+                try:
+                    cursor.execute(sqlStatement)
+                    queryOutput = cursor.fetchall()
+                except:
+                    print "Unexpected error:", sys.exc_info()[0]
+                    raise
+                for row in queryOutput:
+                    updateDownloaded(dbHandle,row[0])
+                
             dbHandle.close() #DB Close
 
             # Get the path of the apk and extract it
             path = subprocess.check_output(["adb", "shell", "pm", "path", package]).strip().split(":")[-1]
-            fileNameOfApk = path.split("/")[-1]
-            apk_name = package+".apk"
 
             # If the apps download directory doesn't exist just create it
             currentDirectory = os.getcwd()
@@ -70,14 +84,19 @@ def downloadAPKFromPhone():
             if osInfo == 'Windows':
                 appsDownloadDirectory = currentDirectory+"\\apps\\"
                 downloadAPK(appsDownloadDirectory,path)
-                subprocess.call(["ren", fileNameOfApk, apk_name])
             elif osInfo == 'Linux':
                 appsDownloadDirectory = currentDirectory+"/apps/"
                 downloadAPK(appsDownloadDirectory,path)
-                subprocess.call(["mv", fileNameOfApk, apk_name])
             else:
                 sys.stderr.write('The current os not supported at the moment.\n')
                 sys.exit(1)
+            copiedFromPhoneAPKName = appsDownloadDirectory+path.split("/")[-1]
+            realPackageBasedAPKName = appsDownloadDirectory+package+".apk"
+            try:
+                os.rename(copiedFromPhoneAPKName, realPackageBasedAPKName)
+            except WindowsError:
+                os.remove(copiedFromPhoneAPKName)
+            os.chdir(currentDirectory)
 
 def main(argv):
     if len(sys.argv) != 1:

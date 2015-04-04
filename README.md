@@ -33,21 +33,21 @@ The following steps are in sequence and have dependencies on previous steps.
 
 ##Step three: Start crawling
 * crawURLs.py: This is the main crawling script for crawling the Google Play Store. It obtains urls for apps and parses and stores data about them. 
-+ Usage: python crawlURLs.py [i|m|a]
-+ Option i is for initial url extraction using a basic alphabetical search algorithm 
-+ Option m is for more url extraction from current urls 
-+ Option a is for getting apps data into the database
+	+ Usage: python crawlURLs.py [i|m|a]
+	+ Option i is for initial url extraction using a basic alphabetical search algorithm 
+	+ Option m is for more url extraction from current urls 
+	+ Option a is for getting apps data into the database
 
 ##Step four: Get the apk files
 * downloadAPKs.py: Once a bit of crawling has been accomplished, this module is used to download the apks, for permission analysis, to the apps folder.
-+ Usage: python downloadAPKs.py
+	+ Usage: python downloadAPKs.py
 
 * extractApkFromMobile.py: This code will obtain app apks from a phone connected to your computer. Remember that you need the Android SDK setup on your computer for this and you also need the phone to be connected in debug mode through USB to your computer. If you don't know what that means then please read up on these steps [here](http://www.androidauthority.com/about-android-debug-bridge-adb-21510/)
-+ Usage: python extractApkFromMobile.py
+	+ Usage: python extractApkFromMobile.py
 
 #Step five: Decompile apks and extract permissions
 * installApkTool.py: This module is a pre-requisite for apkDecompile.py module's execution. It carries out the setup for ApkTool. 
-+ Usage: python installApkTool.py
+	+ Usage: python installApkTool.py
 
-* apkDecompile.py: This is the last step where we obtain the last piece of information for gathering information about permissions used by Android apps. This code decompiles the apks in the apps folder (if present) and puts the Manifest.xml file for the apps in the data folder. Then it extracts all the permissions used by the app and the permissions provided by the app. If any of the permissions are not present in the permission table, it stores the same in the permission table and stores the permission usage information for the app in the database.
-+ Usage: python apkDecompile.py
+* apkDecompile.py: This is the last step where we obtain the last piece of information for gathering information about permissions used by Android apps. This code decompiles the apks from the apps folder and puts the Manifest.xml file for individual app in the data folder. Then it extracts all the permissions used by the app and the permissions provided by the app. If any of the permissions are not present in the permission table, it stores the same in the permission table and stores the permission usage information for the app in the database.
+	+ Usage: python apkDecompile.py

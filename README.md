@@ -27,7 +27,7 @@ The following steps are in sequence and have dependencies on previous steps.
 ##Step two: Database creation
 **BE CAREFUL WITH THIS CODE.**
 
-**THIS CODE WILL DESTROY YOUR DATABASE, IF IT EXISTS AND RECREATE IT!**
+**THIS CODE WILL DESTROY YOUR DATABASE, IF IT EXISTS, AND RECREATE IT!**
 * createDatbase.py: This is the step where the database is created where your data will be stored.
 	+ Usage: python createDatbase.py
 
@@ -42,7 +42,7 @@ The following steps are in sequence and have dependencies on previous steps.
 * downloadAPKs.py: Once a bit of crawling has been accomplished, this module is used to download the apks, for permission analysis, to the apps folder.
 	+ Usage: python downloadAPKs.py
 
-* extractApkFromMobile.py: This code will obtain app apks from a phone connected to your computer. Remember that you need the Android SDK setup on your computer for this and you also need the phone to be connected in debug mode through USB to your computer. If you don't know what that means then please read up on these steps [here](http://www.androidauthority.com/about-android-debug-bridge-adb-21510/)
+* extractApkFromMobile.py: This code will obtain app apks from a phone connected to your computer. Remember that you need the Android SDK setup on your computer for this and you also need the phone to be connected in debug mode through USB to your computer. If you don't know what that means then please read up on these steps [here](http://www.androidauthority.com/about-android-debug-bridge-adb-21510/).
 	+ Usage: python extractApkFromMobile.py
 
 #Step five: Decompile apks and extract permissions

@@ -11,6 +11,7 @@ import sys
 import platform
 import subprocess
 import shutil
+import time
 
 def makeSurePathExists(wrapperSrc,jarSrc,des):
 	if os.path.exists(wrapperSrc) and os.path.exists(jarSrc) and os.path.exists(des):
@@ -24,11 +25,7 @@ def installApkTool(wrapperSrc,jarSrc,des):
 	shutil.copy(wrapperSrc, des)
 	shutil.copy(jarSrc, des)
 
-def main(argv):
-	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python installApkTool.py\n')
-		sys.exit(1)
-		
+def doTask():
 	'''
 		Detect operating system and takes installation actions accordingly
 	'''
@@ -55,6 +52,16 @@ def main(argv):
 	if osInfo == 'Linux':
 		subprocess.call(['chmod', '0755', wrapperSrc])
 		subprocess.call(['chmod', '0755', jarSrc])
+
+def main(argv):
+	if len(sys.argv) != 1:
+		sys.stderr.write('Usage: python installApkTool.py\n')
+		sys.exit(1)
+		
+	startTime = time.time()
+	doTask()
+	executionTime = str((time.time()-startTime)*1000)
+	print "Execution time was: "+executionTime+" ms"
 	
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

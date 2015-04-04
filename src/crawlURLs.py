@@ -12,27 +12,10 @@ Option a is for appending data for apps into the database
 from bs4 import BeautifulSoup
 import urllib
 import sys
-import datetime
-# import json
-import _mysql_exceptions
 import databaseHandler
 from mysql.connector import conversion
-
-# Fire an DML SQL statement and commit data
-def dbManipulateData(dbHandle, sqlStatement):
-	cursor = dbHandle.cursor()
-	try:
-		cursor.execute('SET NAMES utf8;')
-		cursor.execute('SET CHARACTER SET utf8;')
-		cursor.execute('SET character_set_connection=utf8;')
-		cursor.execute(sqlStatement)
-		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
-		print "data already there"
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	return cursor.lastrowid
+import time
+import datetime
 
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
@@ -44,12 +27,12 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 		url = "https://play.google.com"+chunk['href']
 		packageName = url.split("=")
 		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
-		dbManipulateData(dbHandle, sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Update "urls_extracted" column to mark urls have been extracted
 def updateURLsExtracted(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `urls_extracted`=1 WHERE `id`="+str(tableId)+";"
-	dbManipulateData(dbHandle, sqlStatement)
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for extracting more URLs
 def getURLsForExtractingMoreURLs(dbHandle):
@@ -97,7 +80,7 @@ def getDeveloperId(dbHandle,app_dict):
 				return row[0]
 		else:
 			sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
-			return dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
+			return databaseHandler.dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
@@ -175,7 +158,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 
 		sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
 		print sqlStatement
-		dbManipulateData(dbHandle, sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):
@@ -278,7 +261,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 # Update "parsed" column to mark app data has been parsed
 def updateParsed(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `parsed`=1 WHERE `id`="+str(tableId)+";"
-	dbManipulateData(dbHandle, sqlStatement)
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for app data parsing
 def getURLsForParsingAppData(dbHandle):
@@ -294,27 +277,29 @@ def getURLsForParsingAppData(dbHandle):
 		extractAppDataAndStore(dbHandle,row[1])
 		updateParsed(dbHandle,row[0])
 
+def doTask(cmdLineArg):
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+
+	if cmdLineArg == "i":
+		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
+	elif cmdLineArg == "m":
+		getURLsForExtractingMoreURLs(dbHandle) # Second level of search for app urls
+	elif cmdLineArg == "a":
+		getURLsForParsingAppData(dbHandle) # Extract app data
+	else:
+		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
+	
+	dbHandle.close() #DB Close
+
 def main(argv):
 	if len(sys.argv) != 2:
 		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
 		sys.exit(1)
 
-	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
-
-	startTime = datetime.datetime.now()
-	if sys.argv[1] == "i":
-		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls
-	elif sys.argv[1] == "m":
-		getURLsForExtractingMoreURLs(dbHandle) # Second level of search for app urls
-	elif sys.argv[1] == "a":
-		getURLsForParsingAppData(dbHandle) # Extract app data
-	else:
-		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
-	endTime = datetime.datetime.now()
-	executionTime = (endTime-startTime)
-	print "Execution time was: "+str(executionTime)
-	
-	dbHandle.close() #DB Close
+	startTime = time.time()
+	doTask(sys.argv[1])
+	executionTime = str((time.time()-startTime)*1000)
+	print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

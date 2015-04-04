@@ -14,25 +14,9 @@ import subprocess
 from os import listdir
 from os.path import isfile, join
 from bs4 import BeautifulSoup as Soup
-import _mysql_exceptions
 import databaseHandler
+import time
 
-# Fire an DML SQL statement and commit data
-def dbManipulateData(dbHandle, sqlStatement):
-	cursor = dbHandle.cursor()
-	try:
-		cursor.execute('SET NAMES utf8;')
-		cursor.execute('SET CHARACTER SET utf8;')
-		cursor.execute('SET character_set_connection=utf8;')
-		cursor.execute(sqlStatement)
-		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
-		print "data already there"
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	return cursor.lastrowid
-	
 def makeSurePathExists(path):
 	if os.path.exists(path):
 		return True
@@ -102,7 +86,7 @@ def extractCustomPermissions(soup):
 		if not verifyIfPermissionIsInTable(permissionName):
 			sqlStatement = "INSERT INTO `permissions`(`name`,`protection_level`) VALUES ('"+permissionName+"','"+permissionProtectionLevel+"');"
 			dbHandle = databaseHandler.dbConnectionCheck()
-			dbManipulateData(dbHandle, sqlStatement)
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def getAppId(dbHandle,sqlStatement,pkgName):
 	cursor = dbHandle.cursor()
@@ -126,7 +110,7 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 			permissionId = cursor.fetchall()
 		else:
 			sqlStatement = "INSERT INTO `permissions`(`name`) VALUES ('"+permissionName+"');"
-			permissionId = dbManipulateData(dbHandle, sqlStatement)
+			permissionId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
@@ -155,14 +139,17 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 
 		# Insert the App_Id and corresponding Perm_Id in to the DB
 		sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ('"+appId+"','"+permissionId+"');"
-		dbManipulateData(dbHandle, sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python apkDecompile.py\n')
 		sys.exit(1)
 
+	startTime = time.time()
 	extractManifestFiles()
+	executionTime = str((time.time()-startTime)*1000)
+	print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

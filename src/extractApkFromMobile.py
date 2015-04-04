@@ -14,27 +14,12 @@ import subprocess
 import databaseHandler
 import platform
 import _mysql_exceptions
-
-# Fire an DML SQL statement and commit data
-def dbManipulateData(dbHandle, sqlStatement):
-    cursor = dbHandle.cursor()
-    try:
-        cursor.execute('SET NAMES utf8;')
-        cursor.execute('SET CHARACTER SET utf8;')
-        cursor.execute('SET character_set_connection=utf8;')
-        cursor.execute(sqlStatement)
-        dbHandle.commit()
-    except _mysql_exceptions.IntegrityError:
-        print "data already there"
-    except:
-        print "Unexpected error:", sys.exc_info()[0]
-        raise
-    return cursor.lastrowid
+import time
 
 # Update "downloaded" column to mark app has been downloaded
 def updateDownloaded(dbHandle, tableId):
     sqlStatement = "UPDATE appurls SET downloaded=1 WHERE id="+str(tableId)+";"
-    dbManipulateData(dbHandle, sqlStatement)
+    databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def verifyPresentInAppMarket(urlExtract):
     sorryString = "We're sorry, the requested URL was not found on this server."
@@ -66,7 +51,7 @@ def downloadAPKFromPhone():
 
             sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`,`downloaded`) VALUES('"+package+"', '"+urlExtract+"', 1);"
             try:
-                dbManipulateData(dbHandle, sqlStatement)
+                databaseHandler.dbManipulateData(dbHandle, sqlStatement)
             except _mysql_exceptions.IntegrityError:
                 sqlStatement = "SELECT `id` FROM `appurls` WHERE app_pkg_name = '"+package+"';"
                 cursor = dbHandle.cursor()
@@ -112,7 +97,10 @@ def main(argv):
         sys.stderr.write('Usage: python extractApkFromMobile\n')
         sys.exit(1)
     
+    startTime = time.time()
     downloadAPKFromPhone()
+    executionTime = str((time.time()-startTime)*1000)
+    print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

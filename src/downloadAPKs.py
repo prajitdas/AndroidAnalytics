@@ -9,30 +9,13 @@ Usage: python downloadAPKs.py
 import os 
 import urllib2
 import sys
-import datetime
 import databaseHandler
-import _mysql_exceptions
-
-# Fire an DML SQL statement and commit data
-def dbManipulateData(dbHandle, sqlStatement):
-	cursor = dbHandle.cursor()
-	try:
-		cursor.execute('SET NAMES utf8;')
-		cursor.execute('SET CHARACTER SET utf8;')
-		cursor.execute('SET character_set_connection=utf8;')
-		cursor.execute(sqlStatement)
-		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
-		print "data already there"
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	return cursor.lastrowid
+import time
 
 # Update "downloaded" column to mark app has been downloaded
 def updateDownloaded(dbHandle, tableId):
 	sqlStatement = "UPDATE appurls SET downloaded=1 WHERE id="+str(tableId)+";"
-	dbManipulateData(dbHandle, sqlStatement)
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Download APK
 def downloadAPK(dbHandle, tableId, appPackageName):
@@ -70,20 +53,20 @@ def getAppURL(dbHandle):
 	for row in queryOutput:
 		downloadAPK(dbHandle,row[0],row[1])
 
+def doTask():
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+	getAppURL(dbHandle)
+	dbHandle.close() #DB Close
+
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python downloadAPKs.py\n')
 		sys.exit(1)
 
-	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
-
-	getAppURL(dbHandle)
-	startTime = datetime.datetime.now()
-	endTime = datetime.datetime.now()
-	executionTime = (endTime-startTime)
-	print "Execution time was: "+str(executionTime)
-
-	dbHandle.close() #DB Close
+	startTime = time.time()
+	doTask()
+	executionTime = str((time.time()-startTime)*1000)
+	print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

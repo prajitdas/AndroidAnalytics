@@ -7,17 +7,22 @@ The following steps are in sequence and have dependencies on previous steps.
 
 ##Step one: Config file changes
 * If the dbconfig.ini file does not exist in your src folder create it with a format as shown below:
-	```	[dbconfig]
+```	
+	[dbconfig]
 	host = [hostname]
 	user = [database_username]
 	passwd = [database_user_password]
 	db = [database_name]
-	```
+```
 
 * databaseHandler.py: This module is not to be executed on its own and should be used only to obtain the database handler for database operations through other scripts as such:
-```dbHandle = databaseHandler.dbConnectionCheck()``` 
+```
+dbHandle = databaseHandler.dbConnectionCheck()
+``` 
 **DO NOT FORGET TO DO**
-```dbHandle.close()```
+```
+dbHandle.close()
+```
 
 ##Step two: Database creation
 **BE CAREFUL WITH THIS CODE.**

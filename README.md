@@ -15,9 +15,10 @@ The following steps are in sequence and have dependencies on previous steps.
 	db = [database_name]
 ```
 
-* databaseHandler.py: This module is not to be executed on its own and should be used only to obtain the database handler for database operations through other scripts as such:
+* databaseHandler.py: This module is not to be executed on its own and should be used only to obtain the database handler for database operations or insert, update or delete from the database through other scripts as such:
 ```
 	dbHandle = databaseHandler.dbConnectionCheck()
+	dbHandle = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 ``` 
 **DO NOT FORGET TO DO**
 ```

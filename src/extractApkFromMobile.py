@@ -95,7 +95,9 @@ def downloadAPKFromPhone():
             try:
                 os.rename(copiedFromPhoneAPKName, realPackageBasedAPKName)
             except WindowsError:
-                os.remove(copiedFromPhoneAPKName)
+                # The file already exists, we should copy the new apk over it
+                os.remove(realPackageBasedAPKName)
+                os.rename(copiedFromPhoneAPKName, realPackageBasedAPKName)
             os.chdir(currentDirectory)
 
 def main(argv):

@@ -27,12 +27,12 @@ def deleteAndReCreateFolder(path):
 		shutil.rmtree(path)
 	os.makedirs(path)
 
-def runAnalysis(inpath,outPath):
+def runAnalysis(inpath,outPath,currentDirectory):
 	#	Run analysis
 
-	os.chdir(inpath)
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for inputFile in files:
+		os.chdir(inpath)
 		pkgName = inputFile.replace(".apk", "")
 		outputFolder = outPath+pkgName
 		subprocess.call(["apktool", "d", "-f", inpath+inputFile, "-o", outputFolder], shell=True)
@@ -43,25 +43,39 @@ def runAnalysis(inpath,outPath):
 			manifestFile = outPath+pkgName+"/AndroidManifest.xml"
 		renamedManifestFile = outPath+pkgName+".xml"
 		shutil.copy2(manifestFile, renamedManifestFile)
-		shutil.rmtree(outputFolder)
+		#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
+		'''
+			The standard library includes shutil.rmtree for this. By default,
+			
+			shutil.rmtree(path)  # errors if dir not empty
+			will give OSError: [Errno 66] Directory not empty: <your/path>.
+			
+			You can delete the directory and its contents anyway by ignoring the error:
+			
+			shutil.rmtree(role_fs_path, ignore_errors=True)
+			You can perform more sophisticated error handling by also passing onerrror=<some function(function, path, excinfo)>.
+		'''
+		shutil.rmtree(outputFolder, ignore_errors=True)
+		os.chdir(currentDirectory)
 		extractPermissionsInfo(pkgName,renamedManifestFile)
 
 def extractManifestFiles():
-	# Detect operating system and takes actions accordingly
+	currentDirectory = os.getcwd()
 
+	# Detect operating system and takes actions accordingly
 	osInfo = platform.system()
 	if osInfo == 'Windows':
-		decommpileOutputDirectory = os.path.dirname(os.path.realpath(__file__))+"\\data\\"
-		appsFolder = os.path.dirname(os.path.realpath(__file__))+"\\apps\\"
+		decommpileOutputDirectory = currentDirectory+"\\data\\"
+		appsFolder = currentDirectory+"\\apps\\"
 	elif osInfo == 'Linux':
-		decommpileOutputDirectory = os.path.dirname(os.path.realpath(__file__))+"/data/"
-		appsFolder = os.path.dirname(os.path.realpath(__file__))+"/apps/"
+		decommpileOutputDirectory = currentDirectory+"/data/"
+		appsFolder = currentDirectory+"/apps/"
 	else:
 		print 'The current os not supported at the moment.'
 
 	if makeSurePathExists(appsFolder):
 		deleteAndReCreateFolder(decommpileOutputDirectory)
-		runAnalysis(appsFolder,decommpileOutputDirectory)
+		runAnalysis(appsFolder,decommpileOutputDirectory,currentDirectory)
 	else:
 		print 'The apps folder doesn\'t exist. Create one and download apks to it and then run this script again.'
 
@@ -93,7 +107,9 @@ def getAppId(dbHandle,sqlStatement,pkgName):
 	try:
 		cursor.execute(sqlStatement)
 		if cursor.rowcount > 0:
-			appId = cursor.fetchall()
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				appId = row[0]
 		else:
 			print "Probably the app data has not been collected because we could not find that app in the database:", sys.exc_info()[0]
 			raise
@@ -107,7 +123,9 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 	try:
 		cursor.execute(sqlStatement)
 		if cursor.rowcount > 0:
-			permissionId = cursor.fetchall()
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				permissionId = row[0]
 		else:
 			sqlStatement = "INSERT INTO `permissions`(`name`) VALUES ('"+permissionName+"');"
 			permissionId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
@@ -138,7 +156,7 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 		appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
 
 		# Insert the App_Id and corresponding Perm_Id in to the DB
-		sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ('"+appId+"','"+permissionId+"');"
+		sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def main(argv):

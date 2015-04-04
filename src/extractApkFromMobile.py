@@ -8,6 +8,7 @@ import os
 import sys
 import subprocess
 import databaseHandler
+import platform
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -33,6 +34,13 @@ def verifyPresentInAppMarket(urlExtract):
             return False
     return True
 
+def downloadAPK(appsDownloadDirectory,path):
+    if not os.path.isdir(os.path.dirname(appsDownloadDirectory)):
+        os.makedirs(appsDownloadDirectory)
+
+    subprocess.call(["cd", appsDownloadDirectory])
+    subprocess.call(["adb", "pull", path])
+
 def downloadAPKFromPhone():
     urlPrefix = "https://play.google.com/store/apps/details?id="
     listOfPackages = subprocess.check_output(["adb", "shell", "pm", "list", "packages"])
@@ -52,15 +60,24 @@ def downloadAPKFromPhone():
 
             # Get the path of the apk and extract it
             path = subprocess.check_output(["adb", "shell", "pm", "path", package]).strip().split(":")[-1]
+            fileNameOfApk = path.split("/")[-1]
+            apk_name = package+".apk"
 
             # If the apps download directory doesn't exist just create it
             currentDirectory = os.getcwd()
-            appsDownloadDirectory = currentDirectory+"/apps/"
-            if not os.path.isdir(os.path.dirname(appsDownloadDirectory)):
-                os.makedirs(appsDownloadDirectory)
 
-            subprocess.call(["cd", appsDownloadDirectory])
-            subprocess.call(["adb", "pull", path])
+            osInfo = platform.system()
+            if osInfo == 'Windows':
+                appsDownloadDirectory = currentDirectory+"\\apps\\"
+                downloadAPK(appsDownloadDirectory,path)
+                subprocess.call(["ren", fileNameOfApk, apk_name])
+            elif osInfo == 'Linux':
+                appsDownloadDirectory = currentDirectory+"/apps/"
+                downloadAPK(appsDownloadDirectory,path)
+                subprocess.call(["mv", fileNameOfApk, apk_name])
+            else:
+                sys.stderr.write('The current os not supported at the moment.\n')
+                sys.exit(1)
 
 def main(argv):
     if len(sys.argv) != 1:

@@ -158,9 +158,9 @@ ALTER TABLE `appdata`
 --
 
 CREATE TABLE IF NOT EXISTS `appperm`(
-  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `app_id` int(10) unsigned NOT NULL,
   `perm_id` int(10) unsigned NOT NULL,
+  CONSTRAINT pk_apperm PRIMARY KEY (app_id,perm_id),
   CONSTRAINT `fk_app_id` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_perm_id` FOREIGN KEY (`perm_id`) REFERENCES `permissions`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;

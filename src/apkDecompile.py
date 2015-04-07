@@ -27,6 +27,19 @@ def deleteAndReCreateFolder(path):
 		shutil.rmtree(path)
 	os.makedirs(path)
 
+def isAPKPermissionsAlreadyInTable(pkgName):
+	dbHandle = databaseHandler.dbConnectionCheck()
+	cursor = dbHandle.cursor()
+	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
+	try:
+		cursor.execute(sqlStatement)
+		if cursor.rowcount > 0:
+			return True
+		return False
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+
 def runAnalysis(inpath,outPath,currentDirectory):
 	#	Run analysis
 
@@ -36,29 +49,32 @@ def runAnalysis(inpath,outPath,currentDirectory):
 		pkgName = inputFile.replace(".apk", "")
 		outputFolder = outPath+pkgName
 		apk = inpath+inputFile
-		subprocess.call(["apktool", "d", "-f", apk, "-o", outputFolder], shell=True)
-		osInfo = platform.system()
-		if osInfo == 'Windows':
-			manifestFile = outPath+pkgName+"\\AndroidManifest.xml"
-		elif osInfo == 'Linux':
-			manifestFile = outPath+pkgName+"/AndroidManifest.xml"
-		renamedManifestFile = outPath+pkgName+".xml"
-		shutil.copy2(manifestFile, renamedManifestFile)
-		#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
-		'''
-			The standard library includes shutil.rmtree for this. By default,
-			
-			shutil.rmtree(path)  # errors if dir not empty
-			will give OSError: [Errno 66] Directory not empty: <your/path>.
-			
-			You can delete the directory and its contents anyway by ignoring the error:
-			
-			shutil.rmtree(role_fs_path, ignore_errors=True)
-			You can perform more sophisticated error handling by also passing onerrror=<some function(function, path, excinfo)>.
-		'''
-		shutil.rmtree(outputFolder, ignore_errors=True)
-		os.chdir(currentDirectory)
-		extractPermissionsInfo(pkgName,renamedManifestFile)
+		if isAPKPermissionsAlreadyInTable(pkgName) == 0:
+			subprocess.call(["apktool", "d", "-f", apk, "-o", outputFolder], shell=True)
+			osInfo = platform.system()
+			if osInfo == 'Windows':
+				manifestFile = outPath+pkgName+"\\AndroidManifest.xml"
+			elif osInfo == 'Linux':
+				manifestFile = outPath+pkgName+"/AndroidManifest.xml"
+			renamedManifestFile = outPath+pkgName+".xml"
+			shutil.copy2(manifestFile, renamedManifestFile)
+			#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
+			'''
+				The standard library includes shutil.rmtree for this. By default,
+				
+				shutil.rmtree(path)  # errors if dir not empty
+				will give OSError: [Errno 66] Directory not empty: <your/path>.
+				
+				You can delete the directory and its contents anyway by ignoring the error:
+				
+				shutil.rmtree(role_fs_path, ignore_errors=True)
+				You can perform more sophisticated error handling by also passing onerrror=<some function(function, path, excinfo)>.
+			'''
+			shutil.rmtree(outputFolder, ignore_errors=True)
+			os.chdir(currentDirectory)
+			extractPermissionsInfo(pkgName,renamedManifestFile)
+		else:
+			print "Moving on to decompiling the next app. This one is already in the database."
 
 def extractManifestFiles():
 	currentDirectory = os.getcwd()

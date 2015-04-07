@@ -111,7 +111,7 @@ def getAppId(dbHandle,sqlStatement,pkgName):
 			for row in queryOutput:
 				appId = row[0]
 		else:
-			print "Probably the app data has not been collected because we could not find that app in the database:", sys.exc_info()[0]
+			print "Probably the app data for: "+pkgName+" has not been collected because we could not find that app in the database:", sys.exc_info()[0]
 			raise
 	except:
 		print "Unexpected error:", sys.exc_info()[0]

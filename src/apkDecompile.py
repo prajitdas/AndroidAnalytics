@@ -35,7 +35,8 @@ def runAnalysis(inpath,outPath,currentDirectory):
 		os.chdir(inpath)
 		pkgName = inputFile.replace(".apk", "")
 		outputFolder = outPath+pkgName
-		subprocess.call(["apktool", "d", "-f", inpath+inputFile, "-o", outputFolder], shell=True)
+		apk = inpath+inputFile
+		subprocess.call(["apktool", "d", "-f", apk, "-o", outputFolder], shell=True)
 		osInfo = platform.system()
 		if osInfo == 'Windows':
 			manifestFile = outPath+pkgName+"\\AndroidManifest.xml"

@@ -112,7 +112,7 @@ def getAppId(dbHandle,sqlStatement,pkgName):
 				appId = row[0]
 		else:
 			print "Probably the app data for: "+pkgName+" has not been collected because we could not find that app in the database:", sys.exc_info()[0]
-			raise
+			return -1
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
@@ -154,10 +154,12 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 		# If that is not true this step will fail and we will
 		sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
 		appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
-
-		# Insert the App_Id and corresponding Perm_Id in to the DB
-		sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
-		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		if appId > 0:
+			# Insert the App_Id and corresponding Perm_Id in to the DB
+			sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		else:
+			print "Moving on to the next app"
 
 def main(argv):
 	if len(sys.argv) != 1:

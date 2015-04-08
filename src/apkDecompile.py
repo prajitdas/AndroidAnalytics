@@ -27,8 +27,7 @@ def deleteAndReCreateFolder(path):
 		shutil.rmtree(path)
 	os.makedirs(path)
 
-def isAPKPermissionsAlreadyInTable(pkgName):
-	dbHandle = databaseHandler.dbConnectionCheck()
+def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
 	try:
@@ -42,6 +41,7 @@ def isAPKPermissionsAlreadyInTable(pkgName):
 
 def runAnalysis(inpath,outPath,currentDirectory):
 	#	Run analysis
+	dbHandle = databaseHandler.dbConnectionCheck()
 
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for inputFile in files:
@@ -49,7 +49,7 @@ def runAnalysis(inpath,outPath,currentDirectory):
 		pkgName = inputFile.replace(".apk", "")
 		outputFolder = outPath+pkgName
 		apk = inpath+inputFile
-		if isAPKPermissionsAlreadyInTable(pkgName) == 0:
+		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == 0:
 			subprocess.call(["apktool", "d", "-f", apk, "-o", outputFolder], shell=True)
 			osInfo = platform.system()
 			if osInfo == 'Windows':

@@ -62,10 +62,12 @@ def getDeveloperId(dbHandle,app_dict):
 		dev_web = app_dict['dev_website']
 	else:
 		dev_web = ""
+	dev_web = conversion.MySQLConverter().escape(dev_web)
 	if 'dev_email' in app_dict:
 		dev_email = app_dict['dev_email']
 	else:
 		dev_email = ""
+	dev_email = conversion.MySQLConverter().escape(dev_email)
 	if 'dev_location' in app_dict:
 		dev_loc = app_dict['dev_location']
 	else:

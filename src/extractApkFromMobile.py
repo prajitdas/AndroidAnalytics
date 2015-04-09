@@ -7,7 +7,7 @@ Usage: python extractApkFromMobile
 '''
 
 from bs4 import BeautifulSoup
-import urllib
+import urllib2
 import os 
 import sys
 import subprocess
@@ -23,7 +23,9 @@ def updateDownloaded(dbHandle, tableId):
 
 def verifyPresentInAppMarket(urlExtract):
     sorryString = "We're sorry, the requested URL was not found on this server."
-    page = urllib.urlopen(urlExtract).read()
+    headers = { 'User-Agent' : 'Mozilla/5.0' }
+    req = urllib2.Request(urlExtract, None, headers)
+    page = urllib2.urlopen(req).read()
     soup = BeautifulSoup(''.join(page))
     for data in soup.findAll(attrs={'class': 'rounded'}):
         if sorryString in data.string:

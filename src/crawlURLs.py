@@ -10,7 +10,7 @@ Option a is for appending data for apps into the database
 '''
 
 from bs4 import BeautifulSoup
-import urllib
+import urllib2
 import sys
 import databaseHandler
 from mysql.connector import conversion
@@ -19,7 +19,9 @@ import datetime
 
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
-	page = urllib.urlopen(urlExtract).read()
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(urlExtract, None, headers)
+	page = urllib2.urlopen(req).read()
 	soup = BeautifulSoup(''.join(page))
 	data = soup.findAll(attrs={'class': 'card-click-target'})
 
@@ -164,7 +166,9 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):
-	page = urllib.urlopen(urlExtract).read()
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(urlExtract, None, headers)
+	page = urllib2.urlopen(req).read()
 	soup = BeautifulSoup(''.join(page))
 	
 	app_dict = {}

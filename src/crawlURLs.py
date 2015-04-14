@@ -16,20 +16,33 @@ import databaseHandler
 from mysql.connector import conversion
 import time
 import datetime
+import traceback
+import httplib
 
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
 	headers = { 'User-Agent' : 'Mozilla/5.0' }
 	req = urllib2.Request(urlExtract, None, headers)
-	page = urllib2.urlopen(req).read()
-	soup = BeautifulSoup(''.join(page))
-	data = soup.findAll(attrs={'class': 'card-click-target'})
-
-	for chunk in data:
-		url = "https://play.google.com"+chunk['href']
-		packageName = url.split("=")
-		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
+	try: 
+		page = urllib2.urlopen(req).read()
+		soup = BeautifulSoup(''.join(page))
+		data = soup.findAll(attrs={'class': 'card-click-target'})
+	
+		for chunk in data:
+			url = "https://play.google.com"+chunk['href']
+			packageName = url.split("=")
+			sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.HTTPError, e:
+		print 'HTTPError = ', str(e.code)
+		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.URLError, e:
+		print 'URLError = ' + str(e.reason)
+	except httplib.HTTPException, e:
+		print 'HTTPException'
+	except Exception:
+		print 'generic exception: ' + traceback.format_exc()
 
 # Update "urls_extracted" column to mark urls have been extracted
 def updateURLsExtracted(dbHandle, tableId):
@@ -168,101 +181,111 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 def extractAppDataAndStore(dbHandle, urlExtract):
 	headers = { 'User-Agent' : 'Mozilla/5.0' }
 	req = urllib2.Request(urlExtract, None, headers)
-	page = urllib2.urlopen(req).read()
-	soup = BeautifulSoup(''.join(page))
-	
-	app_dict = {}
-	
-	app_dict['app_pkg_name'] = urlExtract.split("=")[-1]
-
-	for div in soup.findAll(attrs={'class': 'document-title'}):
-		for child in div.children:
-			if not child.string == ' ':
-				app_dict['app_name'] = child.string
-
-	for div in soup.findAll(attrs={'class': 'document-subtitle','class': 'primary'}):
-		for child in div.children:
-			if not child.string == ' ':
-				app_dict['developer_name'] = child.string
-
-	for div in soup.findAll(attrs={'class': 'document-subtitle','class': 'category'}):
-		for child in div.children:
-			if not child.string == ' ':
-				app_dict['app_category'] = child.string
-
-	appDesc = ""
-	for div in soup.findAll(attrs={'class': 'id-app-orig-desc'}):
-		for desc in div.descendants:
-			if type(desc.string).__name__ != "NoneType":
-				appDesc = appDesc + desc.string
-	app_dict['app_desc'] = appDesc
-
-	whatsNew = ""
-	for div in soup.findAll(attrs={'class': 'recent-change'}):
-		for desc in div.descendants:
-			if type(desc.string).__name__ != "NoneType":
-				whatsNew = whatsNew + desc.string
-	app_dict['whats_new'] = whatsNew
+	try: 
+		page = urllib2.urlopen(req).read()
+		soup = BeautifulSoup(''.join(page))
+		app_dict = {}
 		
-	for div in soup.findAll(attrs={'class': 'score'}):
-		for child in div.children:
-			if not child.string == ' ':
-				app_dict['review_rating'] = round(eval(child.string),1)
-
-	for div in soup.findAll(attrs={'class': 'reviews-num'}):
-		for child in div.children:
-			if not child.string == ' ':
-				app_dict['review_count'] = eval(child.string.replace(",",""))
-
-	pairing = 0
-	key = ""
-	value = ""
-	for div in soup.findAll(attrs={'class': 'details-section-contents', 'class': 'meta-info'}):
-		for child in div.children:
-			if type(child.string).__name__ != "NoneType":
-				if child.__class__.__name__ == "Tag":
-					if pairing == 0:
-						key = child.string.strip().replace(' ','_')
-						pairing = 1
-					else:
-						value = child.string.strip()			
-						pairing = 0
-						app_dict[key] = value
-	if 'Developer' in app_dict:
-		app_dict.pop('Developer', None)
-	if 'Permissions' in app_dict:
-		app_dict.pop('Permissions', None)
-	if 'Report' in app_dict:
-		app_dict.pop('Report', None)
-	if 'Size' in app_dict:
-		app_dict.pop('Size', None)
-	if 'Installs' in app_dict:
-		app_dict['Installs'] = eval(app_dict['Installs'].split(" ")[-1].replace(",",""))
-	if 'Updated' in app_dict:
-		app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
-	if 'Offered_By' in app_dict:
-		app_dict.pop('Offered_By', None)
+		app_dict['app_pkg_name'] = urlExtract.split("=")[-1]
 	
-	for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link'}):
-		for child in div.children:
-			if child.name == 'a':
-				if child.string.strip() == 'Visit Website':
-					app_dict['dev_website'] = child.attrs['href']
-				elif child.string.strip().startswith('Email'):
-					app_dict['dev_email'] = str(child.attrs['href']).split(":")[-1]
-
-	for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link', 'class': 'physical-address'}):
-		app_dict['dev_location'] = div.string
+		for div in soup.findAll(attrs={'class': 'document-title'}):
+			for child in div.children:
+				if not child.string == ' ':
+					app_dict['app_name'] = child.string
+	
+		for div in soup.findAll(attrs={'class': 'document-subtitle','class': 'primary'}):
+			for child in div.children:
+				if not child.string == ' ':
+					app_dict['developer_name'] = child.string
+	
+		for div in soup.findAll(attrs={'class': 'document-subtitle','class': 'category'}):
+			for child in div.children:
+				if not child.string == ' ':
+					app_dict['app_category'] = child.string
+	
+		appDesc = ""
+		for div in soup.findAll(attrs={'class': 'id-app-orig-desc'}):
+			for desc in div.descendants:
+				if type(desc.string).__name__ != "NoneType":
+					appDesc = appDesc + desc.string
+		app_dict['app_desc'] = appDesc
+	
+		whatsNew = ""
+		for div in soup.findAll(attrs={'class': 'recent-change'}):
+			for desc in div.descendants:
+				if type(desc.string).__name__ != "NoneType":
+					whatsNew = whatsNew + desc.string
+		app_dict['whats_new'] = whatsNew
+			
+		for div in soup.findAll(attrs={'class': 'score'}):
+			for child in div.children:
+				if not child.string == ' ':
+					app_dict['review_rating'] = round(eval(child.string),1)
+	
+		for div in soup.findAll(attrs={'class': 'reviews-num'}):
+			for child in div.children:
+				if not child.string == ' ':
+					app_dict['review_count'] = eval(child.string.replace(",",""))
+	
+		pairing = 0
+		key = ""
+		value = ""
+		for div in soup.findAll(attrs={'class': 'details-section-contents', 'class': 'meta-info'}):
+			for child in div.children:
+				if type(child.string).__name__ != "NoneType":
+					if child.__class__.__name__ == "Tag":
+						if pairing == 0:
+							key = child.string.strip().replace(' ','_')
+							pairing = 1
+						else:
+							value = child.string.strip()			
+							pairing = 0
+							app_dict[key] = value
+		if 'Developer' in app_dict:
+			app_dict.pop('Developer', None)
+		if 'Permissions' in app_dict:
+			app_dict.pop('Permissions', None)
+		if 'Report' in app_dict:
+			app_dict.pop('Report', None)
+		if 'Size' in app_dict:
+			app_dict.pop('Size', None)
+		if 'Installs' in app_dict:
+			app_dict['Installs'] = eval(app_dict['Installs'].split(" ")[-1].replace(",",""))
+		if 'Updated' in app_dict:
+			app_dict['Updated'] = datetime.datetime.strptime(app_dict['Updated'], '%B %d, %Y').date().isoformat()
+		if 'Offered_By' in app_dict:
+			app_dict.pop('Offered_By', None)
 		
-	# Return app_dict to write back to JSON file	
-# 	app_info = {}
-# 	app_info_json = open("googlePlayStoreAppData.json",'r').read()
-# 	if len(app_info_json) > 0:
-# 		app_info = json.loads(app_info_json)
-# 	app_info[app_dict['app_pkg_name']] = app_dict 
-# 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
-	#Write to SQL now
-	createSQLStatementAndInsert(dbHandle,app_dict)
+		for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link'}):
+			for child in div.children:
+				if child.name == 'a':
+					if child.string.strip() == 'Visit Website':
+						app_dict['dev_website'] = child.attrs['href']
+					elif child.string.strip().startswith('Email'):
+						app_dict['dev_email'] = str(child.attrs['href']).split(":")[-1]
+	
+		for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link', 'class': 'physical-address'}):
+			app_dict['dev_location'] = div.string
+			
+		# Return app_dict to write back to JSON file	
+	# 	app_info = {}
+	# 	app_info_json = open("googlePlayStoreAppData.json",'r').read()
+	# 	if len(app_info_json) > 0:
+	# 		app_info = json.loads(app_info_json)
+	# 	app_info[app_dict['app_pkg_name']] = app_dict 
+	# 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
+		#Write to SQL now
+		createSQLStatementAndInsert(dbHandle,app_dict)
+	except urllib2.HTTPError, e:
+		print 'HTTPError = ', str(e.code)
+		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.URLError, e:
+		print 'URLError = ' + str(e.reason)
+	except httplib.HTTPException, e:
+		print 'HTTPException'
+	except Exception:
+		print 'generic exception: ' + traceback.format_exc()
 
 # Update "parsed" column to mark app data has been parsed
 def updateParsed(dbHandle, tableId):

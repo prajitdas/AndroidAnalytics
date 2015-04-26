@@ -32,7 +32,7 @@ def deleteTempFiles():
     except:
         print "Exception during deletion"
 
-def get_permissions (file_contents,tid,url):
+def get_permissions(file_contents,tid,url):
     html_p = etree.HTMLParser()
     tree = etree.parse(StringIO.StringIO(file_contents), html_p)
     #FirstPerms = tree.xpath("//*[@class='permission-bucket']")
@@ -81,7 +81,7 @@ def get_permissions_url(inp_url,tid,browser):
         writeToFile(tid, op)
         driver.close()
 
-def readInputFile (fileName,nooft,browser):
+def readInputFile(fileName,nooft,browser):
     files = open(fileName, "r")
     cnt = 0
     thr = []

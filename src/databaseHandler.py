@@ -20,7 +20,7 @@ def dbManipulateData(dbHandle, sqlStatement):
         cursor.execute(sqlStatement)
         dbHandle.commit()
     except _mysql_exceptions.IntegrityError:
-        print "data already there"
+        print "data present"
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise

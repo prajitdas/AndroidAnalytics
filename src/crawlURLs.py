@@ -120,7 +120,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	if 'app_name' in app_dict:
 		app_name = app_dict['app_name']
 		app_name = conversion.MySQLConverter().escape(app_name)
-		print app_name
+		#print app_name
 
 		app_pkg_name = app_dict['app_pkg_name']
 		developer_id = getDeveloperId(dbHandle,app_dict)
@@ -174,7 +174,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 			content_rating = ''
 
 		sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
-		print sqlStatement
+		#print sqlStatement
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB

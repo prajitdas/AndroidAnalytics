@@ -174,7 +174,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 			content_rating = ''
 
 		sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
-		#print sqlStatement
+		print sqlStatement
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
@@ -267,14 +267,14 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link', 'class': 'physical-address'}):
 			app_dict['dev_location'] = div.string
 			
-		# Return app_dict to write back to JSON file	
+	# Return app_dict to write back to JSON file	
 	# 	app_info = {}
 	# 	app_info_json = open("googlePlayStoreAppData.json",'r').read()
 	# 	if len(app_info_json) > 0:
 	# 		app_info = json.loads(app_info_json)
 	# 	app_info[app_dict['app_pkg_name']] = app_dict 
 	# 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
-		#Write to SQL now
+	#Write to SQL now
 		createSQLStatementAndInsert(dbHandle,app_dict)
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)

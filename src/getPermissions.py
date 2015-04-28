@@ -19,6 +19,7 @@ from lxml import etree
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
+import databaseHandler
 
 def deleteTempFiles():
 	try:
@@ -122,17 +123,17 @@ def readInputFile(fileName,nooft,browser):
 
 # Get URLs for extracting more URLs
 def getURLsForExtractingPermissions(dbHandle):
-    cursor = dbHandle.cursor()
-    sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `perm_extracted` = 0;"
-    try:
-        cursor.execute(sqlStatement)
-        queryOutput = cursor.fetchall()
-    except:
-        print "Unexpected error:", sys.exc_info()[0]
-        raise
-    for row in queryOutput:
-        updateURLsExtracted(dbHandle,row[0])
-        extractMoreURLsAndStore(dbHandle,row[1])
+	cursor = dbHandle.cursor()
+	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `perm_extracted` = 0;"
+	try:
+		cursor.execute(sqlStatement)
+		queryOutput = cursor.fetchall()
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	for row in queryOutput:
+		databaseHandler.updateURLsExtracted(dbHandle,row[0])
+		databaseHandler.extractMoreURLsAndStore(dbHandle,row[1])
 
 def doTask():
 	noOfArg = len(sys.argv)

@@ -17,10 +17,44 @@ import os
 import shutil
 from lxml import etree
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import databaseHandler
+from StringIO import StringIO
+import urllib2
+import httplib
+import traceback
 
+# Hit a URL, extract URLs and Store new URLs back
+def extractMoreURLsAndStore(dbHandle, urlExtract):
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(urlExtract, None, headers)
+	try: 
+		page = urllib2.urlopen(req).read()
+		soup = BeautifulSoup(''.join(page))
+		data = soup.findAll(attrs={'class': 'card-click-target'})
+	
+		for chunk in data:
+			url = "https://play.google.com"+chunk['href']
+			packageName = url.split("=")
+			sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.HTTPError, e:
+		print 'HTTPError = ', str(e.code)
+		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.URLError, e:
+		print 'URLError = ' + str(e.reason)
+	except httplib.HTTPException, e:
+		print 'HTTPException'
+	except Exception:
+		print 'generic exception: ' + traceback.format_exc()
+
+# Update "urls_extracted" column to mark urls have been extracted
+def updateURLsExtracted(dbHandle, tableId):
+	sqlStatement = "UPDATE `appurls` SET `urls_extracted`=1 WHERE `id`="+str(tableId)+";"
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	
 def deleteTempFiles():
 	try:
 		path = "/tmp/"
@@ -37,7 +71,7 @@ def deleteTempFiles():
 
 def get_permissions(file_contents,tid,url):
 	html_p = etree.HTMLParser()
-	tree = etree.parse(StringIO.StringIO(file_contents), html_p)
+	tree = etree.parse(StringIO(file_contents), html_p)
 	#FirstPerms = tree.xpath("//*[@class='permission-bucket']")
 	FirstPerms = tree.xpath("//*[@class='bucket-description']/li")
 	SecondPerms = tree.xpath("//*[@class='bucket-description']/jsl/li")
@@ -132,8 +166,8 @@ def getURLsForExtractingPermissions(dbHandle):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		databaseHandler.updateURLsExtracted(dbHandle,row[0])
-		databaseHandler.extractMoreURLsAndStore(dbHandle,row[1])
+		updateURLsExtracted(dbHandle,row[0])
+		extractMoreURLsAndStore(dbHandle,row[1])
 
 def doTask():
 	noOfArg = len(sys.argv)

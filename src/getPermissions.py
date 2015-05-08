@@ -5,8 +5,8 @@ Created on Apr 4, 2015
 @author: Sandeep Nair
 @edited_by: Prajit Kumar Das
 
-Usage: python getPermissions.py
-Outpur format:-
+Usage: python getPermissions.py <inp_fileName> <number of threads>\n
+Output format:-
 "1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
 The script will create n output files named like thread_1, thread_2 ... thread_n for each thread you start..
 '''
@@ -118,42 +118,44 @@ def get_permissions_url(inp_url,tid,browser):
 		writeToFile(tid, op)
 		driver.close()
 
-def readInputFile(fileName,nooft,browser):
-	files = open(fileName, "r")
-	cnt = 0
-	thr = []
-	url = []
-	slp_cnt = 0
+def readInputFile(numberOfThreads, browser):
+	count = 0
+	threads = []
+	urls = []
+	sleepCount = 0
+	line = "https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb"
+	"1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
 	for line in files:
-		slp_cnt += 1
+		sleepCount += 1
 		cont = line.split(";")
 		var = cont[2]
-		finalVar = var[1:len(var)-1]
+		finalVar = "1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
+		line = "https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb"
 		print finalVar
-		if slp_cnt * nooft < 50:
+		if sleepCount * numberOfThreads < 50:
 			deleteTempFiles()
-			slp_cnt = 0
-		if cnt < nooft:
-			url.append(finalVar)
-			cnt += 1
+			sleepCount = 0
+		if count < numberOfThreads:
+			urls.append(finalVar)
+			count += 1
 		else:
 			tcnt = 0
-			for i in url:
+			for i in urls:
 				this_thr = threading.Thread (target=get_permissions_url, args = [i, tcnt, browser])
-				thr.append(this_thr)
+				threads.append(this_thr)
 				this_thr.start()
 				print "thread " + str (tcnt) + "started"
 				tcnt += 1
 			ii = 0
-			for j in thr:
+			for j in threads:
 				print "thread " + str(ii) + "is joining"
 				j.join()
 				ii+= 1
-			thr = []
-			cnt = 0
-			url = []
-			url.append(finalVar)
-			cnt+=1
+			threads = []
+			count = 0
+			urls = []
+			urls.append(finalVar)
+			count+=1
 
 # Get URLs for extracting more URLs
 def getURLsForExtractingPermissions(dbHandle):
@@ -170,26 +172,15 @@ def getURLsForExtractingPermissions(dbHandle):
 		extractMoreURLsAndStore(dbHandle,row[1])
 
 def doTask():
-	noOfArg = len(sys.argv)
-	fileName = ""
-	noOfThr = 1
 	browser = "firefox"
-	if noOfArg <= 1:
-		print 'Usage \n python getPermissions.py <inp_fileName> <number of threads>'
-		return
-	if noOfArg > 1:
-		fileName = sys.argv[1]
-	if noOfArg > 2:
-		noOfThr = int(sys.argv[2])
-	if noOfArg > 3:
-		browser = sys.argv[3]
-		if browser != "firefox":
-			return
-	readInputFile(fileName, noOfThr, browser)
+	numberOfThreads = int(sys.argv[1])
+	print numberOfThreads, browser	
+	#https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb
+	readInputFile(numberOfThreads, browser)
 
 def main(argv):
-	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python getPermissions.py\n')
+	if len(sys.argv) != 2:
+		sys.stderr.write('Usage: python getPermissions.py <number of threads>prajit\n')
 		sys.exit(1)
 		
 	startTime = time.time()

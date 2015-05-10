@@ -120,7 +120,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 	if 'app_name' in app_dict:
 		app_name = app_dict['app_name']
 		app_name = conversion.MySQLConverter().escape(app_name)
-		print app_name
+		#print app_name
 
 		app_pkg_name = app_dict['app_pkg_name']
 		developer_id = getDeveloperId(dbHandle,app_dict)
@@ -267,14 +267,14 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		for div in soup.findAll(attrs={'class': 'content', 'class': 'contains-text-link', 'class': 'physical-address'}):
 			app_dict['dev_location'] = div.string
 			
-		# Return app_dict to write back to JSON file	
+	# Return app_dict to write back to JSON file	
 	# 	app_info = {}
 	# 	app_info_json = open("googlePlayStoreAppData.json",'r').read()
 	# 	if len(app_info_json) > 0:
 	# 		app_info = json.loads(app_info_json)
 	# 	app_info[app_dict['app_pkg_name']] = app_dict 
 	# 	open("googlePlayStoreAppData.json",'w').write(json.dumps(app_info, sort_keys=True, indent=4))
-		#Write to SQL now
+	#Write to SQL now
 		createSQLStatementAndInsert(dbHandle,app_dict)
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)

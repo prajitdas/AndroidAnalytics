@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `appurls`(
   `app_url` text(1000) NOT NULL,
   `urls_extracted` int(1) DEFAULT 0,
   `parsed` int(1) DEFAULT 0,
+  `perm_extracted` int(1) DEFAULT 0,
   `downloaded` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
@@ -48,7 +49,8 @@ CREATE TABLE IF NOT EXISTS `appurls`(
 ALTER TABLE `appurls` 
 	ADD UNIQUE KEY `app_pkg_name` (`app_pkg_name`(255)),
 	ADD KEY `urls_extracted_idx` (`urls_extracted`),
-	ADD KEY `parsed_idx` (`parsed`),
+  ADD KEY `parsed_idx` (`parsed`),
+  ADD KEY `perm_extracted_idx` (`perm_extracted`),
 	ADD KEY `downloaded_idx` (`downloaded`);
 
 -- --------------------------------------------------------

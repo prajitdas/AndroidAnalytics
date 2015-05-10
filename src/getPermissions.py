@@ -159,8 +159,15 @@ def readInputFile(numberOfThreads, browser):
 
 # Get URLs for extracting more URLs
 def getURLsForExtractingPermissions(dbHandle):
+		
+		extractMoreURLsAndStore(dbHandle,row[1])
+
+def doTask():
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `perm_extracted` = 0;"
+	countOfURLs = 0
+	numberOfSteps = 0
+	sqlStatement = "SELECT COUNT(`id`) FROM `appurls` WHERE `downloaded` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -168,19 +175,22 @@ def getURLsForExtractingPermissions(dbHandle):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		updateURLsExtracted(dbHandle,row[0])
-		extractMoreURLsAndStore(dbHandle,row[1])
-
-def doTask():
+		countOfURLs=row[0]
+		numberOfSteps = countOfURLs/10000
+		for rowCount in range(0,countOfURLs):
+			offset=rowCount+1
+			sqlStatement = "SELECT `id`, `appurl` FROM `appurls` WHERE `downloaded` = 0 LIMIT("+offset+","+10000+");"
+			print sqlStatement
+	
 	browser = "firefox"
 	numberOfThreads = int(sys.argv[1])
 	print numberOfThreads, browser	
 	#https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb
-	readInputFile(numberOfThreads, browser)
+	#readInputFile(numberOfThreads, browser)
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python getPermissions.py <number of threads>prajit\n')
+		sys.stderr.write('Usage: python getPermissions.py <number of threads>\n')
 		sys.exit(1)
 		
 	startTime = time.time()

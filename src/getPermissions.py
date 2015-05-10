@@ -50,9 +50,9 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 	except Exception:
 		print 'generic exception: ' + traceback.format_exc()
 
-# Update "urls_extracted" column to mark urls have been extracted
-def updateURLsExtracted(dbHandle, tableId):
-	sqlStatement = "UPDATE `appurls` SET `urls_extracted`=1 WHERE `id`="+str(tableId)+";"
+# Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
+def updateDownloaded(dbHandle, tableId):
+	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	
 def deleteTempFiles():
@@ -118,19 +118,24 @@ def get_permissions_url(inp_url,tid,browser):
 		writeToFile(tid, op)
 		driver.close()
 
-def readInputFile(numberOfThreads, browser):
+# Get URLs for extracting more URLs
+def extractPermissions(dbHandle,queryOutput,browser,numberOfThreads):
 	count = 0
 	threads = []
 	urls = []
 	sleepCount = 0
-	line = "https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb"
-	"1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
-	for line in files:
+# 	line = "https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb"
+# 	"1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
+	for row in queryOutput:
+		updateDownloaded(dbHandle,row[0])
+		#line = row[1]#The first column holds the "line" or as such the url to be used for extracting permissions
 		sleepCount += 1
-		cont = line.split(";")
-		var = cont[2]
-		finalVar = "1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
-		line = "https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb"
+# 		cont = line.split(";")
+# 		var = cont[2]
+		finalVar = row[1]#var[1:len(var)-1] 
+		#The first column holds the "line" or as such the url to be used for extracting permissions
+# 		finalVar = "1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
+# 		line = "https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb"
 		print finalVar
 		if sleepCount * numberOfThreads < 50:
 			deleteTempFiles()
@@ -157,12 +162,13 @@ def readInputFile(numberOfThreads, browser):
 			urls.append(finalVar)
 			count+=1
 
-# Get URLs for extracting more URLs
-def getURLsForExtractingPermissions(dbHandle):
-		
-		extractMoreURLsAndStore(dbHandle,row[1])
-
 def doTask():
+	browser = "firefox"
+	numberOfThreads = int(sys.argv[1])
+	print numberOfThreads, browser	
+	#https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb
+	#readInputFile(numberOfThreads, browser)
+
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 	cursor = dbHandle.cursor()
 	countOfURLs = 0
@@ -175,18 +181,20 @@ def doTask():
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		countOfURLs=row[0]
-		numberOfSteps = countOfURLs/10000
-		for rowCount in range(0,countOfURLs):
-			offset=rowCount+1
-			sqlStatement = "SELECT `id`, `appurl` FROM `appurls` WHERE `downloaded` = 0 LIMIT("+offset+","+10000+");"
-			print sqlStatement
-	
-	browser = "firefox"
-	numberOfThreads = int(sys.argv[1])
-	print numberOfThreads, browser	
-	#https://play.google.com/store/apps/details?id=com.syntellia.fleksy.kb
-	#readInputFile(numberOfThreads, browser)
+		countOfURLs = row[0]
+		stepSize = 10#0000
+		numberOfSteps = 1#countOfURLs/stepSize
+		for stepCount in range(0,numberOfSteps):
+			rowCount = stepCount * stepSize 
+			offset = rowCount + 1
+			sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `downloaded` = 0 LIMIT "+str(offset)+","+str(stepSize)+";"
+			try:
+				cursor.execute(sqlStatement)
+				queryOutput = cursor.fetchall()
+			except:
+				print "Unexpected error:", sys.exc_info()[0]
+				raise
+			extractPermissions(dbHandle,queryOutput,browser,numberOfThreads)
 
 def main(argv):
 	if len(sys.argv) != 2:

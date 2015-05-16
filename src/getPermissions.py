@@ -5,6 +5,10 @@ Created on Apr 4, 2015
 @author: Sandeep Nair
 @edited_by: Prajit Kumar Das
 
+********************************************************************************************
+WE ARE SUSPENDING CHANGES TO THIS CODE FOR NOW AS THE OTHER CODE IS WORKING IN GooglePlayAPI
+********************************************************************************************
+
 Usage: python getPermissions.py <inp_fileName> <number of threads>\n
 Output format:-
 "1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"

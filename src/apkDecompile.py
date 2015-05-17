@@ -32,9 +32,11 @@ def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
 	try:
 		cursor.execute(sqlStatement)
-		if cursor.rowcount > 0:
-			return True
-		return False
+		queryOutput = cursor.fetchall()
+		for row in queryOutput:
+			if row[0] > 0:
+				return True
+			return False
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise

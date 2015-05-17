@@ -121,7 +121,7 @@ def main(argv):
 		sys.exit(1)
 		
 	startTime = time.time()
-	while(1)
+	while(1):
 		doTask()
 		time.sleep(3600)
 	executionTime = str((time.time()-startTime)*1000)

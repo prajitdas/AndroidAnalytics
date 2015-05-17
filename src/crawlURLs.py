@@ -35,6 +35,7 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)
+		#This is risky!!!!
 		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.URLError, e:

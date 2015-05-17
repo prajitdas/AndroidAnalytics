@@ -18,8 +18,10 @@ def getPackagePermission(packagenames):
     if (len(packagenames) == 1):
         response = api.details(packagenames[0])
         permissionList = []
-        print "\n".join(i.encode('utf8') for i in response.docV2.details.appDetails.permission)
-        permissionList.append(i.encode('utf8') for i in response.docV2.details.appDetails.permission)
+        #print "\n".join(i.encode('utf8') for i in response.docV2.details.appDetails.permission)
+        for permission in response.docV2.details.appDetails.permission:
+            permissionList.append(permission.encode('utf8'))
+        for permission in permissionList: print permission
         return permissionList
     
     else: # More than one app

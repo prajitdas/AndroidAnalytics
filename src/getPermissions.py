@@ -9,11 +9,6 @@ Usage: python getPermissions.py\n
 import time
 import sys
 import databaseHandler
-import urllib2
-import httplib
-import traceback
-
-from bs4 import BeautifulSoup
 
 from GooglePlayAPI import permissions
 
@@ -22,37 +17,79 @@ def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
 	try:
 		cursor.execute(sqlStatement)
-		if cursor.rowcount > 0:
-			return True
-		return False
+		queryOutput = cursor.fetchall()
+		for row in queryOutput:
+			if row[0] > 0:
+				return True
+			return False
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	
-# Hit a URL, extract URLs and Store new URLs back
-def extractMoreURLsAndStore(dbHandle, urlExtract):
-	headers = { 'User-Agent' : 'Mozilla/5.0' }
-	req = urllib2.Request(urlExtract, None, headers)
-	try: 
-		page = urllib2.urlopen(req).read()
-		soup = BeautifulSoup(''.join(page))
-		data = soup.findAll(attrs={'class': 'card-click-target'})
+def getAppId(dbHandle,sqlStatement,pkgName):
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement)
+		if cursor.rowcount > 0:
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				appId = row[0]
+		else:
+			print "Probably the app data for: "+pkgName+" has not been collected because we could not find that app in the database:", sys.exc_info()[0]
+			return -1
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	return appId
+
+def getPermissionId(dbHandle,sqlStatement,permissionName):
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement)
+		if cursor.rowcount > 0:
+			# If permission is found permission table great, just return the permission id to be inserted into the appperm table
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				permissionId = row[0]
+		else:
+			# If permission is NOT found permission table then insert it in the table and return the permission id to be inserted into the appperm table
+			# We are inserting protection level as signature by default.
+			# The data quality can be improved further by analyzing the apks or 
+			# by carrying out post analysis on the `AndroidManifest.xml file <https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml>`_
+			sqlStatement = "INSERT INTO `permissions`(`name`,`protection_level`) VALUES ('"+permissionName+"','signature');"
+			permissionId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	return permissionId
+
+def extractPermissionsInfo(dbHandle,pkgName):
+	if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
+		print "Moving on to decompiling the next app. This one is already in the database."
+	else:
+		# Extract permissions using the API and store in the DB
+		pkgNameList=[]
+		pkgNameList.append(pkgName)
+		listOfPermissions = permissions.getPackagePermission(pkgNameList)
+		
+		for permissionName in listOfPermissions:
+			dbHandle = databaseHandler.dbConnectionCheck()
 	
-		for chunk in data:
-			url = "https://play.google.com"+chunk['href']
-			packageName = url.split("=")
-			sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
-			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-	except urllib2.HTTPError, e:
-		print 'HTTPError = ', str(e.code)
-		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
-		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-	except urllib2.URLError, e:
-		print 'URLError = ' + str(e.reason)
-	except httplib.HTTPException, e:
-		print 'HTTPException'
-	except Exception:
-		print 'generic exception: ' + traceback.format_exc()
+			# See if the permission is in the table if not insert it and get its id
+			sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
+			permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)
+	
+			# Find the App's Id in the DB
+			# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
+			# If that is not true this step will fail and we will
+			sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
+			appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
+			if appId > 0:
+				# Insert the App_Id and corresponding Perm_Id in to the DB
+				sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
+				databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			else:
+				print "Moving on to the next app"
 
 # Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
 def updateDownloaded(dbHandle, tableId):
@@ -61,8 +98,13 @@ def updateDownloaded(dbHandle, tableId):
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+# TEST
+# 	extractPermissionsInfo(dbHandle,"a.a.a.A")
+# 	extractPermissionsInfo(dbHandle,"com.expedia.bookings")
+# 	sys.exit(0)
+# TEST
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT COUNT(`id`) FROM `appurls` WHERE `downloaded` = 0;"
+	sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -70,21 +112,8 @@ def doTask():
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		countOfURLs = row[0]
-		stepSize = 10#0000
-		numberOfSteps = 1#countOfURLs/stepSize
-		for stepCount in range(0,numberOfSteps):
-			rowCount = stepCount * stepSize 
-			offset = rowCount + 1
-# 			sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `downloaded` = 0 LIMIT "+str(offset)+","+str(stepSize)+";"
-			sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `downloaded` = 0 LIMIT "+str(50000)+","+str(stepSize)+";"
-			try:
-				cursor.execute(sqlStatement)
-				queryOutput = cursor.fetchall()
-			except:
-				print "Unexpected error:", sys.exc_info()[0]
-				raise
-			extractPermissions(dbHandle,queryOutput,browser,numberOfThreads)
+		extractPermissionsInfo(dbHandle,row[1])
+		updateDownloaded(dbHandle,row[0])
 
 def main(argv):
 	if len(sys.argv) != 1:

@@ -104,7 +104,7 @@ def doTask():
 # 	sys.exit(0)
 # TEST
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0;"
+	sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 100;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -121,7 +121,9 @@ def main(argv):
 		sys.exit(1)
 		
 	startTime = time.time()
-	doTask()
+	while(1)
+		doTask()
+		time.sleep(3600)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

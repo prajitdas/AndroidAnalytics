@@ -1,19 +1,117 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
+Created on May 16, 2015
+@author: Prajit Kumar Das
+
+Usage: python getPermissions.py\n
+'''
+import time
+import sys
+import databaseHandler
+import urllib2
+import httplib
+import traceback
+
+from bs4 import BeautifulSoup
+
+from GooglePlayAPI import permissions
+
+def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
+	cursor = dbHandle.cursor()
+	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
+	try:
+		cursor.execute(sqlStatement)
+		if cursor.rowcount > 0:
+			return True
+		return False
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	
+# Hit a URL, extract URLs and Store new URLs back
+def extractMoreURLsAndStore(dbHandle, urlExtract):
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(urlExtract, None, headers)
+	try: 
+		page = urllib2.urlopen(req).read()
+		soup = BeautifulSoup(''.join(page))
+		data = soup.findAll(attrs={'class': 'card-click-target'})
+	
+		for chunk in data:
+			url = "https://play.google.com"+chunk['href']
+			packageName = url.split("=")
+			sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.HTTPError, e:
+		print 'HTTPError = ', str(e.code)
+		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except urllib2.URLError, e:
+		print 'URLError = ' + str(e.reason)
+	except httplib.HTTPException, e:
+		print 'HTTPException'
+	except Exception:
+		print 'generic exception: ' + traceback.format_exc()
+
+# Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
+def updateDownloaded(dbHandle, tableId):
+	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+
+def doTask():
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+	cursor = dbHandle.cursor()
+	sqlStatement = "SELECT COUNT(`id`) FROM `appurls` WHERE `downloaded` = 0;"
+	try:
+		cursor.execute(sqlStatement)
+		queryOutput = cursor.fetchall()
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	for row in queryOutput:
+		countOfURLs = row[0]
+		stepSize = 10#0000
+		numberOfSteps = 1#countOfURLs/stepSize
+		for stepCount in range(0,numberOfSteps):
+			rowCount = stepCount * stepSize 
+			offset = rowCount + 1
+# 			sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `downloaded` = 0 LIMIT "+str(offset)+","+str(stepSize)+";"
+			sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `downloaded` = 0 LIMIT "+str(50000)+","+str(stepSize)+";"
+			try:
+				cursor.execute(sqlStatement)
+				queryOutput = cursor.fetchall()
+			except:
+				print "Unexpected error:", sys.exc_info()[0]
+				raise
+			extractPermissions(dbHandle,queryOutput,browser,numberOfThreads)
+
+def main(argv):
+	if len(sys.argv) != 1:
+		sys.stderr.write('Usage: python getPermissions.py\n')
+		sys.exit(1)
+		
+	startTime = time.time()
+	doTask()
+	executionTime = str((time.time()-startTime)*1000)
+	print "Execution time was: "+executionTime+" ms"
+
+if __name__ == "__main__":
+	sys.exit(main(sys.argv))
+
+'''
+*******************************************************************************************************
+WE ARE SUSPENDING CHANGES TO THE REST OF THE CODE FOR NOW AS THE OTHER CODE IS WORKING IN GooglePlayAPI
+*******************************************************************************************************
 Created on Apr 4, 2015
 @author: Sandeep Nair
 @edited_by: Prajit Kumar Das
-
-********************************************************************************************
-WE ARE SUSPENDING CHANGES TO THIS CODE FOR NOW AS THE OTHER CODE IS WORKING IN GooglePlayAPI
-********************************************************************************************
 
 Usage: python getPermissions.py <inp_fileName> <number of threads>\n
 Output format:-
 "1";"a.akakao.neon_simple";"https://play.google.com/store/apps/details?id=a.akakao.neon_simple";"1";"1";"1"
 The script will create n output files named like thread_1, thread_2 ... thread_n for each thread you start..
-'''
+
 import threading
 import time
 import sys
@@ -213,3 +311,4 @@ def main(argv):
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))
+'''

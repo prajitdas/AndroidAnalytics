@@ -83,7 +83,8 @@ ALTER TABLE `appcategories`
 CREATE TABLE IF NOT EXISTS `permissions`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` text(500) NOT NULL,
-  `protection_level` varchar(200)
+  `protection_level` varchar(200),
+  `permission_group` text(500)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -93,7 +94,8 @@ CREATE TABLE IF NOT EXISTS `permissions`(
 --
 ALTER TABLE `permissions` 
   ADD UNIQUE KEY `name_idx` (`name`(255)),
-  ADD KEY `protection_level_idx` (`protection_level`);
+  ADD KEY `protection_level_idx` (`protection_level`),
+  ADD KEY `permission_group_idx` (`permission_group`(255));
 
 -- --------------------------------------------------------
 

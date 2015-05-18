@@ -6,7 +6,7 @@ Created on Apr 4, 2015
 Usage: python createDatbase.py
 '''
 
-from org.ebiquity.data.collection import databaseHandler
+import databaseHandler
 import sys
 import time
 import os

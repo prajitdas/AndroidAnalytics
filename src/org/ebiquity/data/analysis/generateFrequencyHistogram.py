@@ -8,9 +8,23 @@ Usage: python generateFrequencyHistogram.py
 
 import sys
 import time
+from org.ebiquity.data.utils import databaseHandler
 
 def doTask():
-    print "Hello World!\n"
+    dbHandle = databaseHandler.dbConnectionCheck()
+    cursor = dbHandle.cursor()
+    sqlStatement = "SELECT * FROM `app_perm_count`;"
+    try:
+        cursor.execute(sqlStatement)
+        if cursor.rowcount > 0:
+            queryOutput = cursor.fetchall()
+            for row in queryOutput:
+                appPkgName = row[0]
+                permissionsCount = row[1]
+                print appPkgName,permissionsCount
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
 
 def main(argv):
     if len(sys.argv) != 1:

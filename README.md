@@ -47,6 +47,7 @@ The following steps are in sequence and have dependencies on previous steps.
 	+ Usage: python extractApkFromMobile.py
 
 ##Step five: Decompile apks and extract permissions
+* We have two ways to do this now. The first is to call getPermissions.py and the second is as follows.
 * installApkTool.py: This module is a pre-requisite for apkDecompile.py module's execution. It carries out the setup for ApkTool. 
 	+ Usage: python installApkTool.py
 

@@ -14,7 +14,7 @@ import subprocess
 from os import listdir
 from os.path import isfile, join
 from bs4 import BeautifulSoup as Soup
-import databaseHandler
+from org.ebiquity.data.collection import databaseHandler
 import time
 
 def makeSurePathExists(path):
@@ -43,7 +43,7 @@ def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 
 def runAnalysis(inpath,outPath,currentDirectory):
 	#	Run analysis
-	dbHandle = databaseHandler.dbConnectionCheck()
+	dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck()
 
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for inputFile in files:
@@ -99,7 +99,7 @@ def extractManifestFiles():
 		print 'The apps folder doesn\'t exist. Create one and download apks to it and then run this script again.'
 
 def verifyIfPermissionIsInTable(permissionName):
-	dbHandle = databaseHandler.dbConnectionCheck()
+	dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck()
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT count(*) FROM `permissions` WHERE `name` = '"+permissionName+"';"
 	try:
@@ -138,8 +138,8 @@ def extractCustomPermissions(soup):
 			permissionProtectionLevel = 'normal'
 		if not verifyIfPermissionIsInTable(permissionName):
 			sqlStatement = "INSERT INTO `permissions`(`name`,`protection_level`) VALUES ('"+permissionName+"','"+permissionProtectionLevel+"');"
-			dbHandle = databaseHandler.dbConnectionCheck()
-			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck()
+			org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def getAppId(dbHandle,sqlStatement,pkgName):
 	cursor = dbHandle.cursor()
@@ -167,7 +167,7 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 				permissionId = row[0]
 		else:
 			sqlStatement = "INSERT INTO `permissions`(`name`) VALUES ('"+permissionName+"');"
-			permissionId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			permissionId = org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
@@ -182,7 +182,7 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 	# Extract permissions used by the app and store in the DB
 	for message in soup.findAll('uses-permission'):
 		permissionName = message.get('android:name')
-		dbHandle = databaseHandler.dbConnectionCheck()
+		dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck()
 
 		# See if the permission is in the table if not insert it and get its id
 		sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
@@ -196,7 +196,7 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 		if appId > 0:
 			# Insert the App_Id and corresponding Perm_Id in to the DB
 			sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
-			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 		else:
 			print "Moving on to the next app"
 

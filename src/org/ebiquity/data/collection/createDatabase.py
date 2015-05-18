@@ -6,14 +6,14 @@ Created on Apr 4, 2015
 Usage: python createDatbase.py
 '''
 
-import databaseHandler
+from org.ebiquity.data.collection import databaseHandler
 import sys
 import time
 import os
 import platform
 
 def doTask():
-    dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+    dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck() # DB Open
 
     # If the apps download directory doesn't exist just create it
     currentDirectory = os.getcwd()
@@ -33,7 +33,7 @@ def doTask():
 
 def runSQLFile(sqlScriptPath, dbHandle):
     for sqlStatement in file(sqlScriptPath).read().split(';'):
-        databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+        org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def main(argv):
     if len(sys.argv) != 1:

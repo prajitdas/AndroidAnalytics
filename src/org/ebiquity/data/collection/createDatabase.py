@@ -13,7 +13,7 @@ import os
 import platform
 
 def doTask():
-    dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck() # DB Open
+    dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
     # If the apps download directory doesn't exist just create it
     currentDirectory = os.getcwd()
@@ -33,7 +33,7 @@ def doTask():
 
 def runSQLFile(sqlScriptPath, dbHandle):
     for sqlStatement in file(sqlScriptPath).read().split(';'):
-        org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+        databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def main(argv):
     if len(sys.argv) != 1:

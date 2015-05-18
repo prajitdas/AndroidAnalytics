@@ -32,12 +32,12 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 			url = "https://play.google.com"+chunk['href']
 			packageName = url.split("=")
 			sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
-			org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)
 		#This is risky!!!!
 		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
-		org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.URLError, e:
 		print 'URLError = ' + str(e.reason)
 	except httplib.HTTPException, e:
@@ -48,7 +48,7 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 # Update "urls_extracted" column to mark urls have been extracted
 def updateURLsExtracted(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `urls_extracted`=1 WHERE `id`="+str(tableId)+";"
-	org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for extracting more URLs
 def getURLsForExtractingMoreURLs(dbHandle):
@@ -98,7 +98,7 @@ def getDeveloperId(dbHandle,app_dict):
 				return row[0]
 		else:
 			sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
-			return org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
+			return databaseHandler.dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
@@ -176,7 +176,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 
 		sqlStatement = "INSERT INTO `appdata`(`app_pkg_name`,`app_name`,`developer_id`,`app_category_id`,`review_rating`,`review_count`,`desc`,`whats_new`,`updated`,`installs`,`version`,`android_reqd`,`content_rating`) VALUES('" + app_pkg_name + "','" + app_name + "'," + str(developer_id) +","+ str(app_category_id) +","+ str(review_rating) +","+ str(review_count) +",'"+ escaped_text_desc +"','"+ escaped_text_whats_new +"','" + updated + "',"+ str(installs)+",'" + version + "','" + android_reqd + "','" + content_rating + "');"
 		print sqlStatement
-		org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Extract app data and store in DB
 def extractAppDataAndStore(dbHandle, urlExtract):
@@ -280,7 +280,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)
 		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
-		org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.URLError, e:
 		print 'URLError = ' + str(e.reason)
 	except httplib.HTTPException, e:
@@ -291,7 +291,7 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 # Update "parsed" column to mark app data has been parsed
 def updateParsed(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `parsed`=1 WHERE `id`="+str(tableId)+";"
-	org.ebiquity.data.collection.databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 # Get URLs for app data parsing
 def getURLsForParsingAppData(dbHandle):
@@ -308,7 +308,7 @@ def getURLsForParsingAppData(dbHandle):
 		updateParsed(dbHandle,row[0])
 
 def doTask(cmdLineArg):
-	dbHandle = org.ebiquity.data.collection.databaseHandler.dbConnectionCheck() # DB Open
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
 	if cmdLineArg == "i":
 		oneTimeCreateListOfAppsFromAlphabeticalSearch(dbHandle) # First level of search for app urls

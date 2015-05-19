@@ -8,7 +8,7 @@ Usage: python getPermissions.py\n
 '''
 import time
 import sys
-from org.ebiquity.data.collection import databaseHandler
+import databaseHandler
 
 from GooglePlayAPI import permissions
 

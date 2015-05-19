@@ -14,7 +14,7 @@ import subprocess
 from os import listdir
 from os.path import isfile, join
 from bs4 import BeautifulSoup as Soup
-from org.ebiquity.data.collection import databaseHandler
+import databaseHandler
 import time
 
 def makeSurePathExists(path):

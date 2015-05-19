@@ -11,7 +11,7 @@ import urllib2
 import os 
 import sys
 import subprocess
-from org.ebiquity.data.utils import databaseHandler
+from utils import databaseHandler
 import platform
 import _mysql_exceptions
 import time

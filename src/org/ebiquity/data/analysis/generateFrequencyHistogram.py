@@ -10,9 +10,61 @@ import sys
 import time
 import databaseHandler
 import plotly.tools as tls
+# Learn about API authentication here: https://plot.ly/python/getting-started
+# Find your api_key here: https://plot.ly/settings/api
 import plotly.plotly as py
 from plotly.graph_objs import *
 
+# This is a plot for Permissions count vs Frequency of apps requesting that many permissions
+def generatePlot(username, api_key, permCount, permCountFreq):
+    tls.set_credentials_file(username, api_key)
+    trace = Bar(
+        x=permCount,
+        y=permCountFreq,
+        name='App frequency',
+        marker=Marker(
+            color='rgb(55, 83, 109)'
+        )
+    )
+    data = Data([trace])
+    layout = Layout(
+        title='App Frequency vs Permissions requested',
+        xaxis=XAxis(
+            title='Number of Permissions requested',
+            titlefont=Font(
+                size=16,
+                color='rgb(107, 107, 107)'
+            ),
+            tickfont=Font(
+                size=14,
+                color='rgb(107, 107, 107)'
+            )
+        ),
+        yaxis=YAxis(
+            title='App frequency',
+            titlefont=Font(
+                size=16,
+                color='rgb(107, 107, 107)'
+            ),
+            tickfont=Font(
+                size=14,
+                color='rgb(107, 107, 107)'
+            )
+        ),
+        legend=Legend(
+            x=0,
+            y=1.0,
+            bgcolor='rgba(255, 255, 255, 0)',
+            bordercolor='rgba(255, 255, 255, 0)'
+        ),
+        barmode='group',
+        bargap=0.15,
+        bargroupgap=0.1
+    )
+    fig = Figure(data=data, layout=layout)
+    plot_url = py.plot(fig, filename='style-bar')
+    print "Check out the URL: "+plot_url+" for your plot"
+  
 def extractAppPermData():
     dbHandle = databaseHandler.dbConnectionCheck()
     cursor = dbHandle.cursor()
@@ -41,14 +93,7 @@ def doTask(username, api_key):
     for permissionCount, permissionCountFreq in permCountDict.iteritems():
         permCount.append(permissionCount)
         permCountFreq.append(permissionCountFreq)
-    tls.set_credentials_file(username, api_key)
-    data = Data([
-        Bar(
-            x=permCount,
-            y=permCountFreq
-        )
-    ])
-    plot_url = py.plot(data, filename='basic-bar')
+    generatePlot(username, api_key, permCount, permCountFreq)
     
 def main(argv):
     if len(sys.argv) != 3:

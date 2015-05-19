@@ -9,7 +9,7 @@ Usage: python downloadAPKs.py
 import os 
 import urllib2
 import sys
-from utils import databaseHandler
+from org.ebiquity.data.collection import databaseHandler
 import time
 
 # Update "downloaded" column to mark app has been downloaded

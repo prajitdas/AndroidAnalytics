@@ -19,7 +19,7 @@ from lxml import etree
 from selenium import webdriver
 #from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-from utils import databaseHandler
+from org.ebiquity.data.collection import databaseHandler
 from StringIO import StringIO
 import urllib2
 import httplib

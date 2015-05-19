@@ -12,7 +12,7 @@ Option a is for appending data for apps into the database
 from bs4 import BeautifulSoup
 import urllib2
 import sys
-from utils import databaseHandler
+from org.ebiquity.data.collection import databaseHandler
 from mysql.connector import conversion
 import time
 import datetime

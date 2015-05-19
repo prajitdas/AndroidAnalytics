@@ -10,7 +10,8 @@ import time
 from config import *
 from googleplay import GooglePlayAPI
 
-def getPackagePermission(packagenames):
+def getPackagePermission(packagenames):#,androidId):
+    #api = GooglePlayAPI(androidId)
     api = GooglePlayAPI(ANDROID_ID)
     api.login(GOOGLE_LOGIN, GOOGLE_PASSWORD, AUTH_TOKEN)
     
@@ -25,12 +26,19 @@ def getPackagePermission(packagenames):
         return permissionList
     
     else: # More than one app
+        permissionListDict = {}
         response = api.bulkDetails(packagenames)
-    
         for entry in response.entry:
             if (not not entry.ListFields()): # if the entry is not empty
-                print entry.doc.docid + ":"
-                print "\n".join("    "+i.encode('utf8') for i in entry.doc.details.appDetails.permission)
+                permissionList = []
+#                 print entry.doc.docid + ":"
+#                 print "\n".join("    "+i.encode('utf8') for i in entry.doc.details.appDetails.permission)
+                for permission in entry.doc.details.appDetails.permission:
+                    permissionList.append(permission.encode('utf8'))
+                for permission in permissionList: print permission
+
+                permissionListDict[entry.doc.docid] = permissionList
+                return permissionListDict
 
 def main(argv):
     if (len(sys.argv) < 2):

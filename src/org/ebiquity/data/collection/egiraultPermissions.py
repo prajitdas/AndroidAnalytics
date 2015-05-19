@@ -5,6 +5,9 @@ Created on May 16, 2015
 @author: Prajit Kumar Das
 
 Usage: python getPermissions.py\n
+
+THIS CODE WHICH USES THE EGIRAULT API SIMPLY DOESN'T COLLECT THE RIGHT DATA.
+HAVE TO STOP USIGN THIS NOW!
 '''
 import time
 import sys
@@ -71,6 +74,7 @@ def extractPermissionsInfo(dbHandle,pkgName):
 		pkgNameList=[]
 		pkgNameList.append(pkgName)
 		listOfPermissions = permissions.getPackagePermission(pkgNameList)
+		sys.exit(0)
 		
 		for permissionName in listOfPermissions:
 			dbHandle = databaseHandler.dbConnectionCheck()
@@ -91,6 +95,35 @@ def extractPermissionsInfo(dbHandle,pkgName):
 			else:
 				print "Moving on to the next app"
 
+def extractBulkPermissions(dbHandle,pkgNameList):
+	for pkgName in pkgNameList:
+		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
+			print "Moving on to decompiling the next app. This one is already in the database."
+			pkgNameList.remove(pkgName)
+	print pkgNameList
+	# Extract permissions using the API and store in the DB
+	permissionListDict = permissions.getPackagePermission(pkgNameList)
+	
+	for appName, permissionList in permissionListDict.iteritems():
+		print appName, permissionList
+# 		dbHandle = databaseHandler.dbConnectionCheck()
+# 
+# 		# See if the permission is in the table if not insert it and get its id
+# 		sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
+# 		permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)
+# 
+# 		# Find the App's Id in the DB
+# 		# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
+# 		# If that is not true this step will fail and we will
+# 		sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
+# 		appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
+# 		if appId > 0:
+# 			# Insert the App_Id and corresponding Perm_Id in to the DB
+# 			sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
+# 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+# 		else:
+# 			print "Moving on to the next app"
+
 # Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
 def updateDownloaded(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
@@ -101,19 +134,24 @@ def doTask():
 # TEST
 # 	extractPermissionsInfo(dbHandle,"a.a.a.A")
 # 	extractPermissionsInfo(dbHandle,"com.expedia.bookings")
-# 	sys.exit(0)
+	extractPermissionsInfo(dbHandle,"com.ioob.openmovies")
+	sys.exit(0)
 # TEST
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 100;"
+	sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 50000,5;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
+	pkgNameList = []
 	for row in queryOutput:
-		extractPermissionsInfo(dbHandle,row[1])
-		updateDownloaded(dbHandle,row[0])
+		pkgNameList.append(row[1])
+# 		extractPermissionsInfo(dbHandle,row[1])
+# 		updateDownloaded(dbHandle,row[0])
+# 	print pkgNameList
+	extractBulkPermissions(dbHandle,pkgNameList)
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -121,9 +159,9 @@ def main(argv):
 		sys.exit(1)
 		
 	startTime = time.time()
-	while(1):
-		doTask()
-		time.sleep(3600)
+# 	while(1):
+	doTask()
+# 		time.sleep(3600)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

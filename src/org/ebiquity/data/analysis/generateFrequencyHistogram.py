@@ -8,7 +8,7 @@ Usage: python generateFrequencyHistogram.py
 
 import sys
 import time
-from org.ebiquity.data.utils import databaseHandler
+from utils import databaseHandler
 
 def doTask():
     dbHandle = databaseHandler.dbConnectionCheck()

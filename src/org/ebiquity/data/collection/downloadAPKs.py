@@ -21,6 +21,7 @@ def updateDownloaded(dbHandle, tableId):
 def downloadAPK(dbHandle, tableId, appPackageName):
 	URLPrefix = "http://dl3.apk-dl.com/store/download/details?id="
 	APKURL = URLPrefix+appPackageName
+	print "Downloading: ", APKURL
 
 	# If the apps download directory doesn't exist just create it
 	currentDirectory = os.getcwd()

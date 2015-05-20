@@ -21,6 +21,10 @@ def updateDownloaded(dbHandle, tableId):
 def downloadAPK(dbHandle, tableId, appPackageName):
 	URLPrefix = "http://dl3.apk-dl.com/store/download/details?id="
 	APKURL = URLPrefix+appPackageName
+
+	#Headers added because of HTTP 404 errors
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(APKURL, None, headers)
 	print "Downloading: ", APKURL
 
 	# If the apps download directory doesn't exist just create it
@@ -31,7 +35,7 @@ def downloadAPK(dbHandle, tableId, appPackageName):
 
 	appDownloadFileLocation = appsDownloadDirectory+appPackageName+".apk"
 
-	outFile = urllib2.urlopen(APKURL)
+	outFile = urllib2.urlopen(req)
 	apkFile = open(appDownloadFileLocation,'wb')
 	apkFile.write(outFile.read())
 	apkFile.close()

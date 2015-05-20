@@ -50,8 +50,14 @@ def getAppURL(dbHandle):
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
+	downloadCounter = 0
 	for row in queryOutput:
+		downloadCounter += 1
 		downloadAPK(dbHandle,row[0],row[1])
+		#After downloading 100 apps sleep for an hour
+		if downloadCounter == 100:
+			downloadCounter = 0
+			time.sleep(3600)
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open

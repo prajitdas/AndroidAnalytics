@@ -72,7 +72,8 @@ def extractPermissionsInfo(dbHandle,pkgName):
 		# Extract permissions using the API and store in the DB
 		pkgNameList=[]
 		pkgNameList.append(pkgName)
-		listOfPermissions = permissions.getPackagePermission(pkgNameList)
+		# API call to unofficial Google Play API written in Python by egirault
+		listOfPermissions = permissions.getPackagePermission(pkgNameList,"325BFE7EA8016DB9")
 #		print listOfPermissions
 		
 		for permissionName in listOfPermissions:

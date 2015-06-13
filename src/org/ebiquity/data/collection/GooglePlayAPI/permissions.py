@@ -10,9 +10,14 @@ import time
 from config import *
 from googleplay import GooglePlayAPI
 
-def getPackagePermission(packagenames):#,androidId):
-    #api = GooglePlayAPI(androidId)
-    api = GooglePlayAPI(ANDROID_ID)
+def getPackagePermission(packagenames,androidId):
+    api = GooglePlayAPI(androidId)
+    '''
+        Prajit Das: Cycling through the different androidIds we have 
+        to ensure that we are not blocked by Google
+        The following statement was the original code
+    '''
+    #api = GooglePlayAPI(ANDROID_ID)
     api.login(GOOGLE_LOGIN, GOOGLE_PASSWORD, AUTH_TOKEN)
     
     # Only one app

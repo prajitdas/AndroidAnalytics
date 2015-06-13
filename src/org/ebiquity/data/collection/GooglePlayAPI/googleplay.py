@@ -121,7 +121,8 @@ class GooglePlayAPI(object):
                                 "sdk_version": "16"}
             headers = {
                 "Accept-Encoding": "",
-            }
+                "User-Agent" : "Mozilla/5.0",
+            } # Prajit Das: Added the Mozilla/5.0 header to mitigate call disconnection issue
             response = requests.post(self.URL_LOGIN, data=params, headers=headers, verify=False)
             data = response.text.split()
             params = {}

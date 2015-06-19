@@ -184,7 +184,7 @@ def doTask():
 
 	cursor = dbHandle.cursor()
 	loopcount = findCountOfLoopsForURLsToBeParsed(cursor)
-	for loopcounter in loopcount:
+	for i in range(0,loopcount):
 		currentId = getGSFId(currentId)
 		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 100;"
 		try:

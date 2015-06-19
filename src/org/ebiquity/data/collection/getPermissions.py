@@ -90,9 +90,9 @@ def getGSFId(currentId):
 		id.append(parser.get('androidIdConfig', 'id6'))
 	else:
 		currentIdIndex = find_element_in_list(currentId,id)
-		newIndex = randint(0,6)
+		newIndex = randint(0,5)
 		while(newIndex == currentIdIndex):
-			newIndex = randint(0,6)
+			newIndex = randint(0,5)
 		return id[newIndex]
 
 def extractPermissionsInfo(dbHandle,pkgName,GSFId):

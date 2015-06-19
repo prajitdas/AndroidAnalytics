@@ -12,7 +12,11 @@ import time
 import sys
 import databaseHandler
 
+from ConfigParser import SafeConfigParser
 from GooglePlayAPI import permissions
+from random import randint
+
+id=[]
 
 def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 	cursor = dbHandle.cursor()
@@ -65,7 +69,33 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 		raise
 	return permissionId
 
-def extractPermissionsInfo(dbHandle,pkgName):
+def find_element_in_list(element,list_element):
+	try:
+		index_element=list_element.index(element)
+		return index_element
+	except ValueError:
+		return -1
+
+def getGSFId(currentId):
+	print currentId
+	if not id:
+		parser = SafeConfigParser()
+		parser.read('androidIdConfig.ini')
+		#Can we do a for loop here for the line count on the config file? Let's try this eventually.
+		id.append(parser.get('androidIdConfig', 'id1'))
+		id.append(parser.get('androidIdConfig', 'id2'))
+		id.append(parser.get('androidIdConfig', 'id3'))
+		id.append(parser.get('androidIdConfig', 'id4'))
+		id.append(parser.get('androidIdConfig', 'id5'))
+		id.append(parser.get('androidIdConfig', 'id6'))
+	else:
+		currentIdIndex = find_element_in_list(currentId,id)
+		newIndex = randint(0,6)
+		while(newIndex == currentIdIndex):
+			newIndex = randint(0,6)
+		return id[newIndex]
+
+def extractPermissionsInfo(dbHandle,pkgName,GSFId):
 	if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
 		print "Moving on to extracting permissions for the next app. This one is already in the database."
 	else:
@@ -73,7 +103,7 @@ def extractPermissionsInfo(dbHandle,pkgName):
 		pkgNameList=[]
 		pkgNameList.append(pkgName)
 		# API call to unofficial Google Play API written in Python by egirault
-		listOfPermissions = permissions.getPackagePermission(pkgNameList,"325BFE7EA8016DB9")
+		listOfPermissions = permissions.getPackagePermission(pkgNameList,GSFId)
 #		print listOfPermissions
 		
 		for permissionName in listOfPermissions:
@@ -131,7 +161,19 @@ def updateDownloaded(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
+def findCountOfLoopsForURLsToBeParsed(cursor):
+	sqlStatement = "SELECT count(`app_pkg_name`) FROM `appurls` WHERE `downloaded` = 0;"
+	try:
+		cursor.execute(sqlStatement)
+		queryOutput = cursor.fetchall()
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	for row in queryOutput:
+		return row[0]/100
+	
 def doTask():
+	currentId = ""
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 # TEST CODE FOR ONE APP
 # 	extractPermissionsInfo(dbHandle,"a.a.a.A")
@@ -141,21 +183,23 @@ def doTask():
 # TEST CODE FOR ONE APP
 
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0;"
-	# We are not limiting at the moment
-	# LIMIT 50000,5;"
-	try:
-		cursor.execute(sqlStatement)
-		queryOutput = cursor.fetchall()
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	pkgNameList = []
-	for row in queryOutput:
-		pkgNameList.append(row[1])
- 		extractPermissionsInfo(dbHandle,row[1])
- 		updateDownloaded(dbHandle,row[0])
-# 	print pkgNameList
+	loopcount = findCountOfLoopsForURLsToBeParsed(cursor)
+	for loopcounter in loopcount:
+		currentId = getGSFId(currentId)
+		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 100;"
+		try:
+			cursor.execute(sqlStatement)
+			queryOutput = cursor.fetchall()
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+		pkgNameList = []
+		for row in queryOutput:
+			pkgNameList.append(row[1])
+	 		extractPermissionsInfo(dbHandle,row[1],currentId)
+	 		updateDownloaded(dbHandle,row[0])
+	 	time.sleep(300) # Sleep for 5 minutes every GSF ID call for 100 app's permission extraction request
+	# 	print pkgNameList
 
 '''
 Bulk permissions extraction code might get complicated. 
@@ -169,9 +213,7 @@ def main(argv):
 		sys.exit(1)
 		
 	startTime = time.time()
-# 	while(1):
 	doTask()
-# 		time.sleep(3600)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

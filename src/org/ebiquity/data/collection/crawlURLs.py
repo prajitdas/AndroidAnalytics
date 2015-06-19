@@ -36,8 +36,11 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)
 		#This is risky!!!!
-		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
-		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		# June 19, 2015: Yes, this was risky commenting out this piece of code - Prajit
+		# Don't be ridiculous, once you have collected some data you should not be deleting that data, right?
+		# Have to monitor this properly
+		#sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
+		#databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.URLError, e:
 		print 'URLError = ' + str(e.reason)
 	except httplib.HTTPException, e:
@@ -279,8 +282,12 @@ def extractAppDataAndStore(dbHandle, urlExtract):
 		createSQLStatementAndInsert(dbHandle,app_dict)
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)
-		sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
-		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		#This is risky!!!!
+		# June 19, 2015: Yes, this was risky commenting out this piece of code - Prajit
+		# Don't be ridiculous, once you have collected some data you should not be deleting that data, right?
+		# Have to monitor this properly
+		#sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
+		#databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.URLError, e:
 		print 'URLError = ' + str(e.reason)
 	except httplib.HTTPException, e:

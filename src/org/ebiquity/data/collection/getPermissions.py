@@ -14,9 +14,8 @@ import databaseHandler
 
 from ConfigParser import SafeConfigParser
 from GooglePlayAPI import permissions
-from random import randint
 
-id=[]
+listOfGSFIds=[]
 
 def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 	cursor = dbHandle.cursor()
@@ -76,24 +75,27 @@ def find_element_in_list(element,list_element):
 	except ValueError:
 		return -1
 
+#	This is a hard coded loop. A more elegant solution would be preferred.
 def getGSFId(currentId):
-	print currentId
-	if not id:
+	if not listOfGSFIds:
 		parser = SafeConfigParser()
 		parser.read('androidIdConfig.ini')
 		#Can we do a for loop here for the line count on the config file? Let's try this eventually.
-		id.append(parser.get('androidIdConfig', 'id1'))
-		id.append(parser.get('androidIdConfig', 'id2'))
-		id.append(parser.get('androidIdConfig', 'id3'))
-		id.append(parser.get('androidIdConfig', 'id4'))
-		id.append(parser.get('androidIdConfig', 'id5'))
-		id.append(parser.get('androidIdConfig', 'id6'))
+		listOfGSFIds.append(parser.get('androidIdConfig', 'id1'))
+		listOfGSFIds.append(parser.get('androidIdConfig', 'id2'))
+		listOfGSFIds.append(parser.get('androidIdConfig', 'id3'))
+		listOfGSFIds.append(parser.get('androidIdConfig', 'id4'))
+		listOfGSFIds.append(parser.get('androidIdConfig', 'id5'))
+		listOfGSFIds.append(parser.get('androidIdConfig', 'id6'))
 	else:
-		currentIdIndex = find_element_in_list(currentId,id)
-		newIndex = randint(0,5)
-		while(newIndex == currentIdIndex):
-			newIndex = randint(0,5)
-		return id[newIndex]
+		newIndex = 0
+		if currentId != "":
+			currentIdIndex = find_element_in_list(currentId,listOfGSFIds)
+			newIndex = (currentIdIndex+1)%6
+#		Used this code for the random index thing. It still gets blocked by Google so just cycling through the indexes.
+# 		while(newIndex == currentIdIndex):
+# 			newIndex = randint(0,5)
+		return listOfGSFIds[newIndex]
 
 def extractPermissionsInfo(dbHandle,pkgName,GSFId):
 	if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
@@ -184,7 +186,7 @@ def doTask():
 
 	cursor = dbHandle.cursor()
 	loopcount = findCountOfLoopsForURLsToBeParsed(cursor)
-	for i in range(0,loopcount):
+	for counter in range(0,loopcount):
 		currentId = getGSFId(currentId)
 		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 100;"
 		try:
@@ -194,11 +196,12 @@ def doTask():
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 		pkgNameList = []
+		print "loop: ",counter
 		for row in queryOutput:
 			pkgNameList.append(row[1])
-	 		extractPermissionsInfo(dbHandle,row[1],currentId)
-	 		updateDownloaded(dbHandle,row[0])
-	 	time.sleep(300) # Sleep for 5 minutes every GSF ID call for 100 app's permission extraction request
+			extractPermissionsInfo(dbHandle,row[1],currentId)
+			updateDownloaded(dbHandle,row[0])
+		time.sleep(300) # Sleep for 5 minutes every GSF ID call for 100 app's permission extraction request
 	# 	print pkgNameList
 
 '''

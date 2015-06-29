@@ -1,7 +1,6 @@
 On Archive.org we have the data source for the [Playdrone Project](http://systems.cs.columbia.edu/projects/playdrone/) as [Android Apps](https://archive.org/details/android_apps&tab=about): This collection contains Android apps and metadata. The Android apps and metadata have been collected based on research and open-source tools that were created at Columbia University as part of the PlayDrone project.
 
-DESCRIPTION
------------
+##DESCRIPTION
 
 This collection contains Android apps and metadata. The Android apps and metadata have been collected based on research and open-source tools that were created at Columbia University as part of the PlayDrone project.
 

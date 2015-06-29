@@ -172,7 +172,7 @@ def findCountOfLoopsForURLsToBeParsed(cursor):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		return row[0]/200
+		return row[0]/150
 	
 def doTask():
 	currentId = ""
@@ -188,7 +188,7 @@ def doTask():
 	loopcount = findCountOfLoopsForURLsToBeParsed(cursor)
 	for counter in range(0,loopcount):
 		currentId = getGSFId(currentId)
-		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 200;"
+		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 150;"
 		try:
 			cursor.execute(sqlStatement)
 			queryOutput = cursor.fetchall()
@@ -201,7 +201,7 @@ def doTask():
 			pkgNameList.append(row[1])
 			extractPermissionsInfo(dbHandle,row[1],currentId)
 			updateDownloaded(dbHandle,row[0])
-		time.sleep(1800) # Sleep for 5 minutes every GSF ID call for 100 app's permission extraction request
+		time.sleep(1800) # Sleep for 30 minutes every GSF ID call for 150 app's permission extraction request
 	# 	print pkgNameList
 
 '''

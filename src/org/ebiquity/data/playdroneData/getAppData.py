@@ -13,7 +13,8 @@ import sys
 import databaseHandler
 
 from ConfigParser import SafeConfigParser
-from GooglePlayAPI import permissions
+import json
+from pprint import pprint
 
 listOfGSFIds=[]
 
@@ -97,67 +98,6 @@ def getGSFId(currentId):
 # 			newIndex = randint(0,5)
 		return listOfGSFIds[newIndex]
 
-def extractPermissionsInfo(dbHandle,pkgName,GSFId):
-	if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
-		print "Moving on to extracting permissions for the next app. This one is already in the database."
-	else:
-		# Extract permissions using the API and store in the DB
-		pkgNameList=[]
-		pkgNameList.append(pkgName)
-		# API call to unofficial Google Play API written in Python by egirault
-		listOfPermissions = permissions.getPackagePermission(pkgNameList,GSFId)
-#		print listOfPermissions
-		
-		for permissionName in listOfPermissions:
-			dbHandle = databaseHandler.dbConnectionCheck()
-	
-			# See if the permission is in the table if not insert it and get its id
-			sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
-			permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)
-	
-			# Find the App's Id in the DB
-			# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
-			# If that is not true this step will fail and we will have to skip and go to the next app
-			sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
-			appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
-				
-			if appId > 0:
-				# Insert the App_Id and corresponding Perm_Id in to the DB
-				sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
-				print sqlStatement
-				databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-			else:
-				print "Moving on to the next app. This app has not been extracted from Google Play Store."
-
-def extractBulkPermissions(dbHandle,pkgNameList):
-	for pkgName in pkgNameList:
-		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
-			print "Moving on to decompiling the next app. This one is already in the database."
-			pkgNameList.remove(pkgName)
-	print pkgNameList
-	# Extract permissions using the API and store in the DB
-	permissionListDict = permissions.getPackagePermission(pkgNameList)
-	
-	for appName, permissionList in permissionListDict.iteritems():
-		print appName, permissionList
-# 		dbHandle = databaseHandler.dbConnectionCheck()
-# 
-# 		# See if the permission is in the table if not insert it and get its id
-# 		sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
-# 		permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)
-# 
-# 		# Find the App's Id in the DB
-# 		# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
-# 		# If that is not true this step will fail and we will
-# 		sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
-# 		appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
-# 		if appId > 0:
-# 			# Insert the App_Id and corresponding Perm_Id in to the DB
-# 			sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
-# 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-# 		else:
-# 			print "Moving on to the next app"
-
 # Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
 def updateDownloaded(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
@@ -175,6 +115,23 @@ def findCountOfLoopsForURLsToBeParsed(cursor):
 		return row[0]/150
 	
 def doTask():
+	for appinfo in json.loads(open('test.json', 'r').read().decode('utf8')):
+		print appinfo["app_id"]
+		print appinfo["title"]
+		print appinfo["developer_name"]
+		print appinfo["category"]
+		print appinfo["free"]
+		print appinfo["version_code"]
+		print appinfo["version_string"]
+		print appinfo["installation_size"]
+		print appinfo["downloads"]
+		print appinfo["star_rating"]
+		print appinfo["snapshot_date"]
+		print appinfo["metadata_url"]
+		print appinfo["apk_url"]
+	# print output
+#	playDroneJSONFileObject.close()
+	sys.exit(1)
 	currentId = ""
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 # TEST CODE FOR ONE APP

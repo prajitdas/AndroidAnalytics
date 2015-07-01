@@ -26,7 +26,9 @@ def doTask(baseURL):
 		app_pkg_name = appinfo["app_id"]
 		app_url = baseURL + app_pkg_name
 		playdrone_metadata_url = appinfo["metadata_url"]
-		playdrone_apk_url = appinfo["apk_url"]
+		playdrone_apk_url = ""
+		if 'apk_url' in appinfo:
+			playdrone_apk_url = appinfo["apk_url"]
 		updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url)
 		# print appinfo["title"], 
 		# print appinfo["developer_name"]

@@ -22,7 +22,7 @@ def updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdron
 def doTask(baseURL):
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
-	for appinfo in json.loads(open('test.json', 'r').read().decode('utf8')):
+	for appinfo in json.loads(open('Playdrone_Dataset_2014_10_31.json', 'r').read().decode('utf8')):
 		app_pkg_name = appinfo["app_id"]
 		app_url = baseURL + app_pkg_name
 		playdrone_metadata_url = appinfo["metadata_url"]

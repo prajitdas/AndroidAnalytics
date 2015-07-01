@@ -11,169 +11,44 @@ Extract data from Playdrone data set
 import time
 import sys
 import databaseHandler
-
-from ConfigParser import SafeConfigParser
 import json
-from pprint import pprint
 
-listOfGSFIds=[]
-
-def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
-	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
-	try:
-		cursor.execute(sqlStatement)
-		queryOutput = cursor.fetchall()
-		for row in queryOutput:
-			if row[0] > 0:
-				return True
-			return False
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	
-def getAppId(dbHandle,sqlStatement,pkgName):
-	cursor = dbHandle.cursor()
-	try:
-		cursor.execute(sqlStatement)
-		if cursor.rowcount > 0:
-			queryOutput = cursor.fetchall()
-			for row in queryOutput:
-				appId = row[0]
-		else:
-			print "Probably the app data for: "+pkgName+" has not been collected because we could not find that app in the database:", sys.exc_info()[0]
-			return -1
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	return appId
-
-def getPermissionId(dbHandle,sqlStatement,permissionName):
-	cursor = dbHandle.cursor()
-	try:
-		cursor.execute(sqlStatement)
-		if cursor.rowcount > 0:
-			# If permission is found permission table great, just return the permission id to be inserted into the appperm table
-			queryOutput = cursor.fetchall()
-			for row in queryOutput:
-				permissionId = row[0]
-		else:
-			# If permission is NOT found permission table then insert it in the table and return the permission id to be inserted into the appperm table
-			# We are inserting protection level as signature by default.
-			# The data quality can be improved further by analyzing the apks or 
-			# by carrying out post analysis on the `AndroidManifest.xml file <https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml>`_
-			sqlStatement = "INSERT INTO `permissions`(`name`,`protection_level`) VALUES ('"+permissionName+"','signature');"
-			permissionId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	return permissionId
-
-def find_element_in_list(element,list_element):
-	try:
-		index_element=list_element.index(element)
-		return index_element
-	except ValueError:
-		return -1
-
-#	This is a hard coded loop. A more elegant solution would be preferred.
-def getGSFId(currentId):
-	if not listOfGSFIds:
-		parser = SafeConfigParser()
-		parser.read('androidIdConfig.ini')
-		#Can we do a for loop here for the line count on the config file? Let's try this eventually.
-		listOfGSFIds.append(parser.get('androidIdConfig', 'id1'))
-		listOfGSFIds.append(parser.get('androidIdConfig', 'id2'))
-		listOfGSFIds.append(parser.get('androidIdConfig', 'id3'))
-		listOfGSFIds.append(parser.get('androidIdConfig', 'id4'))
-		listOfGSFIds.append(parser.get('androidIdConfig', 'id5'))
-		listOfGSFIds.append(parser.get('androidIdConfig', 'id6'))
-	else:
-		newIndex = 0
-		if currentId != "":
-			currentIdIndex = find_element_in_list(currentId,listOfGSFIds)
-			newIndex = (currentIdIndex+1)%6
-#		Used this code for the random index thing. It still gets blocked by Google so just cycling through the indexes.
-# 		while(newIndex == currentIdIndex):
-# 			newIndex = randint(0,5)
-		return listOfGSFIds[newIndex]
-
-# Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
-def updateDownloaded(dbHandle, tableId):
-	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
+# Update "urls" column to put playdrone data
+def updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url):
+	sqlStatement = "INSERT INTO `appurls` (`app_pkg_name`,`app_url`,`playdrone_metadata_url`,`playdrone_apk_url`) VALUES ("+app_pkg_name+","+app_url+","+playdrone_metadata_url+","+playdrone_apk_url+") ON DUPLICATE KEY UPDATE `playdrone_metadata_url`=VALUES("+playdrone_metadata_url+"),`playdrone_apk_url`=VALUES("+playdrone_apk_url+");"
+	print sqlStatement
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
-def findCountOfLoopsForURLsToBeParsed(cursor):
-	sqlStatement = "SELECT count(`app_pkg_name`) FROM `appurls` WHERE `downloaded` = 0;"
-	try:
-		cursor.execute(sqlStatement)
-		queryOutput = cursor.fetchall()
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-	for row in queryOutput:
-		return row[0]/150
-	
-def doTask():
-	for appinfo in json.loads(open('test.json', 'r').read().decode('utf8')):
-		print appinfo["app_id"]
-		print appinfo["title"]
-		print appinfo["developer_name"]
-		print appinfo["category"]
-		print appinfo["free"]
-		print appinfo["version_code"]
-		print appinfo["version_string"]
-		print appinfo["installation_size"]
-		print appinfo["downloads"]
-		print appinfo["star_rating"]
-		print appinfo["snapshot_date"]
-		print appinfo["metadata_url"]
-		print appinfo["apk_url"]
-	# print output
-#	playDroneJSONFileObject.close()
-	sys.exit(1)
-	currentId = ""
+def doTask(baseURL):
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
-# TEST CODE FOR ONE APP
-# 	extractPermissionsInfo(dbHandle,"a.a.a.A")
-# 	extractPermissionsInfo(dbHandle,"com.expedia.bookings")
-#	extractPermissionsInfo(dbHandle,"com.ioob.openmovies")
-#	sys.exit(0)
-# TEST CODE FOR ONE APP
 
-	cursor = dbHandle.cursor()
-	loopcount = findCountOfLoopsForURLsToBeParsed(cursor)
-	for counter in range(0,loopcount):
-		currentId = getGSFId(currentId)
-		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 150;"
-		try:
-			cursor.execute(sqlStatement)
-			queryOutput = cursor.fetchall()
-		except:
-			print "Unexpected error:", sys.exc_info()[0]
-			raise
-		pkgNameList = []
-		print "loop: ",counter
-		for row in queryOutput:
-			pkgNameList.append(row[1])
-			extractPermissionsInfo(dbHandle,row[1],currentId)
-			updateDownloaded(dbHandle,row[0])
-		time.sleep(1800) # Sleep for 30 minutes every GSF ID call for 150 app's permission extraction request
-	# 	print pkgNameList
+	for appinfo in json.loads(open('test.json', 'r').read().decode('utf8')):
+		app_pkg_name = appinfo["app_id"]
+		app_url = baseURL + app_pkg_name
+		playdrone_metadata_url = appinfo["metadata_url"]
+		playdrone_apk_url = appinfo["apk_url"]
+		updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url)
+		# print appinfo["title"], 
+		# print appinfo["developer_name"]
+		# print appinfo["category"]
+		# print appinfo["free"]
+		# print appinfo["version_code"]
+		# print appinfo["version_string"]
+		# print appinfo["installation_size"]
+		# print appinfo["downloads"]
+		# print appinfo["star_rating"]
+		# print appinfo["snapshot_date"]
 
-'''
-Bulk permissions extraction code might get complicated. 
-We will have to see this later.
-'''
-#	extractBulkPermissions(dbHandle,pkgNameList)
+	dbHandle.close() #DB Close
 
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python getPermissions.py\n')
 		sys.exit(1)
-		
+
+	baseURL = "https://play.google.com/store/apps/details?id="		
 	startTime = time.time()
-	doTask()
+	doTask(baseURL)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

@@ -15,7 +15,7 @@ import json
 
 # Update "urls" column to put playdrone data
 def updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url):
-	sqlStatement = "INSERT INTO `appurls` (`app_pkg_name`,`app_url`,`playdrone_metadata_url`,`playdrone_apk_url`) VALUES ("+app_pkg_name+","+app_url+","+playdrone_metadata_url+","+playdrone_apk_url+") ON DUPLICATE KEY UPDATE `playdrone_metadata_url`=VALUES("+playdrone_metadata_url+"),`playdrone_apk_url`=VALUES("+playdrone_apk_url+");"
+	sqlStatement = "INSERT INTO `appurls` (`app_pkg_name`,`app_url`,`playdrone_metadata_url`,`playdrone_apk_url`) VALUES('"+app_pkg_name+"','"+app_url+"','"+playdrone_metadata_url+"','"+playdrone_apk_url+"') ON DUPLICATE KEY UPDATE `playdrone_metadata_url`='"+playdrone_metadata_url+"',`playdrone_apk_url`='"+playdrone_apk_url+"';"
 	print sqlStatement
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 

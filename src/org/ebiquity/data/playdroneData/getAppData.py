@@ -6,7 +6,7 @@ Created on June 29, 2015
 
 Usage: python getAppData.py\n
 
-Extract data from Playdrone data set
+One time extraction code for data from Playdrone data set.
 '''
 import time
 import sys

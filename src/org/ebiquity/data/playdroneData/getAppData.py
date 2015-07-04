@@ -30,7 +30,7 @@ def doTask(baseURL):
 		if 'apk_url' in appinfo:
 			playdrone_apk_url = appinfo["apk_url"]
 		updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url)
-		# print appinfo["title"], 
+		# print appinfo["title"],
 		# print appinfo["developer_name"]
 		# print appinfo["category"]
 		# print appinfo["free"]
@@ -45,10 +45,10 @@ def doTask(baseURL):
 
 def main(argv):
 	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python getPermissions.py\n')
+		sys.stderr.write('Usage: python getAppData.py\n')
 		sys.exit(1)
 
-	baseURL = "https://play.google.com/store/apps/details?id="		
+	baseURL = "https://play.google.com/store/apps/details?id="
 	startTime = time.time()
 	doTask(baseURL)
 	executionTime = str((time.time()-startTime)*1000)

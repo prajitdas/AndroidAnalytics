@@ -4,7 +4,7 @@
 Created on June 29, 2015
 @author: Prajit Kumar Das
 
-Usage: python getAppData.py\n
+Usage: python getAppJSONs.py\n
 
 One time extraction code for data from Playdrone data set.
 '''
@@ -12,45 +12,65 @@ import time
 import sys
 import databaseHandler
 import json
+import os
+import urllib2
 
-# Update "urls" column to put playdrone data
-def updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url):
-	sqlStatement = "INSERT INTO `appurls` (`app_pkg_name`,`app_url`,`playdrone_metadata_url`,`playdrone_apk_url`) VALUES('"+app_pkg_name+"','"+app_url+"','"+playdrone_metadata_url+"','"+playdrone_apk_url+"') ON DUPLICATE KEY UPDATE `playdrone_metadata_url`='"+playdrone_metadata_url+"',`playdrone_apk_url`='"+playdrone_apk_url+"';"
-	print sqlStatement
-	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+# Download Playdrone App Metadata JSON
+def downloadAppJSON(JSONUrl, appJSONDownloadFileLocation):
+	#Headers added because of HTTP 404 errors
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(JSONUrl, None, headers)
+	print "Downloading: ", JSONUrl
 
-def doTask(baseURL):
+	outFile = urllib2.urlopen(req)
+	jsonFile = open(appJSONDownloadFileLocation,'wb')
+	jsonFile.write(outFile.read())
+	jsonFile.close()
+
+def readAppJSONForPermissionInfo(JSONUrl, app_pkg_name):
+	# If the apps download directory doesn't exist just create it
+	currentDirectory = os.getcwd()
+	appJSONDownloadDirectory = currentDirectory+"/appJSONs/"
+	if not os.path.isdir(os.path.dirname(appJSONDownloadDirectory)):
+		os.makedirs(appJSONDownloadDirectory)
+	appJSONDownloadFileLocation = appJSONDownloadDirectory+app_pkg_name+".json"
+	downloadAppJSON(JSONUrl, appJSONDownloadFileLocation)
+
+def extractPermissionInfo(appJSONDownloadFileLocation):
+	appJSONDownloadFileLocation = 'appJSONs/com.google.android.youtube.json'
+	for appinfo in json.loads(open(appJSONDownloadFileLocation, 'r').read().decode('utf8')):
+		#print type(appinfo)
+		print appinfo
+		#print appinfo['details']
+		#print appinfo["details"]
+
+def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
-	for appinfo in json.loads(open('Playdrone_Dataset_2014_10_31.json', 'r').read().decode('utf8')):
-		app_pkg_name = appinfo["app_id"]
-		app_url = baseURL + app_pkg_name
-		playdrone_metadata_url = appinfo["metadata_url"]
-		playdrone_apk_url = ""
-		if 'apk_url' in appinfo:
-			playdrone_apk_url = appinfo["apk_url"]
-		updateURLs(dbHandle, app_pkg_name, app_url, playdrone_metadata_url, playdrone_apk_url)
-		# print appinfo["title"], 
-		# print appinfo["developer_name"]
-		# print appinfo["category"]
-		# print appinfo["free"]
-		# print appinfo["version_code"]
-		# print appinfo["version_string"]
-		# print appinfo["installation_size"]
-		# print appinfo["downloads"]
-		# print appinfo["star_rating"]
-		# print appinfo["snapshot_date"]
+	#Created a view for this data, i.e. valid_app_playdrone_metadata_url_view using that now
+	#sqlStatement = "SELECT a.`playdrone_metadata_url`, a.`app_pkg_name` FROM `appurls` a, `appdata` b WHERE `playdrone_metadata_url` IS NOT NULL AND a.`app_pkg_name` = b.`app_pkg_name`;"
+	sqlStatement = "SELECT * FROM `valid_app_playdrone_metadata_url_view`;"
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement)
+		queryOutput = cursor.fetchall()
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	for row in queryOutput:
+		readAppJSONForPermissionInfo(row[0],row[1])
+		sys.exit(1)
 
 	dbHandle.close() #DB Close
 
 def main(argv):
 	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python getPermissions.py\n')
+		sys.stderr.write('Usage: python getAppJSONs.py\n')
 		sys.exit(1)
 
-	baseURL = "https://play.google.com/store/apps/details?id="
 	startTime = time.time()
-	doTask(baseURL)
+	#doTask()
+	extractPermissionInfo("")
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

@@ -74,7 +74,7 @@ def extractPermissionInfo(dbHandle, appJSONDownloadFileLocation, pkgName):
 						
 					if appId > 0:
 						# Insert the App_Id and corresponding Perm_Id in to the DB
-						sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+") ON DUPLICATE KEY IGNORE;"
+						sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+") ON DUPLICATE KEY UPDATE `app_id`='"+str(appId)+"',`perm_id`='"+str(permissionId)+"';"
 						print sqlStatement
 						databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 					else:

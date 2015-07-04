@@ -15,6 +15,11 @@ import json
 import os
 import urllib2
 
+# Update "perm_extracted" column to mark permissions have been extracted
+def updatePermExtracted(dbHandle, tableId):
+	sqlStatement = "UPDATE `appurls` SET `perm_extracted`=1 WHERE `id`="+str(tableId)+";"
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+
 def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
@@ -120,7 +125,7 @@ def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
 	#Created a view for this data, i.e. valid_app_playdrone_metadata_url_view using that now
-	#sqlStatement = "SELECT a.`playdrone_metadata_url`, a.`app_pkg_name` FROM `appurls` a, `appdata` b WHERE `playdrone_metadata_url` IS NOT NULL AND a.`app_pkg_name` = b.`app_pkg_name`;"
+	#sqlStatement = "SELECT a.`playdrone_metadata_url`, a.`app_pkg_name`, a.`id` FROM `appurls` a, `appdata` b WHERE `playdrone_metadata_url` IS NOT NULL AND a.`app_pkg_name` = b.`app_pkg_name` AND a.`perm_extracted` = 0;"
 	sqlStatement = "SELECT * FROM `valid_app_playdrone_metadata_url_view`;"
 	cursor = dbHandle.cursor()
 	try:
@@ -136,6 +141,7 @@ def doTask():
 			print "Moving on to extracting permissions for the next app. This one is already in the database."
 		else:
 			readAppJSONForPermissionInfo(dbHandle,row[0],row[1])
+		updatePermExtracted(dbHandle,row[2]) # Update the perm_extracted flag in the appurls table to ensure we don't repeatedly look for the same app info
 
 	dbHandle.close() #DB Close
 

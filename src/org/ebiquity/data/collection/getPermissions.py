@@ -158,13 +158,13 @@ def extractBulkPermissions(dbHandle,pkgNameList):
 # 		else:
 # 			print "Moving on to the next app"
 
-# Update "downloaded" column should be permissions_extracted column, but its okay for the moment, to mark permissions have been extracted
-def updateDownloaded(dbHandle, tableId):
-	sqlStatement = "UPDATE `appurls` SET `downloaded`=1 WHERE `id`="+str(tableId)+";"
+# Update "perm_extracted" column to mark permissions have been extracted
+def updatePermExtracted(dbHandle, tableId):
+	sqlStatement = "UPDATE `appurls` SET `perm_extracted`=1 WHERE `id`="+str(tableId)+";"
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def findCountOfLoopsForURLsToBeParsed(cursor):
-	sqlStatement = "SELECT count(`app_pkg_name`) FROM `appurls` WHERE `downloaded` = 0;"
+	sqlStatement = "SELECT count(`app_pkg_name`) FROM `appurls` WHERE `perm_extracted` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		queryOutput = cursor.fetchall()
@@ -188,7 +188,7 @@ def doTask():
 	loopcount = findCountOfLoopsForURLsToBeParsed(cursor)
 	for counter in range(0,loopcount):
 		currentId = getGSFId(currentId)
-		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `downloaded` = 0 LIMIT 150;"
+		sqlStatement = "SELECT `id`, `app_pkg_name` FROM `appurls` WHERE `perm_extracted` = 0 LIMIT 150;"
 		try:
 			cursor.execute(sqlStatement)
 			queryOutput = cursor.fetchall()
@@ -200,7 +200,7 @@ def doTask():
 		for row in queryOutput:
 			pkgNameList.append(row[1])
 			extractPermissionsInfo(dbHandle,row[1],currentId)
-			updateDownloaded(dbHandle,row[0])
+			updatePermExtracted(dbHandle,row[0])
 		time.sleep(1800) # Sleep for 30 minutes every GSF ID call for 150 app's permission extraction request
 	# 	print pkgNameList
 

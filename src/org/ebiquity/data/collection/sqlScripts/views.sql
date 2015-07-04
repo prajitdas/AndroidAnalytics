@@ -45,8 +45,11 @@ SELECT count(DISTINCT app_id) FROM `appperm`;
 --
 
 CREATE VIEW `valid_app_playdrone_metadata_url_view` AS
-SELECT a.`playdrone_metadata_url`, a.`app_pkg_name`
+SELECT a.`playdrone_metadata_url`, a.`app_pkg_name`, a.`id`
 FROM `appurls` a, `appdata` b
-WHERE `playdrone_metadata_url` IS NOT NULL
+WHERE
+`playdrone_metadata_url` IS NOT NULL
 AND
-a.`app_pkg_name` = b.`app_pkg_name`;
+a.`app_pkg_name` = b.`app_pkg_name`
+AND
+a.`perm_extracted` = 0;

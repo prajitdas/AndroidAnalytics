@@ -15,8 +15,74 @@ import json
 import os
 import urllib2
 
+def getAppId(dbHandle,sqlStatement,pkgName):
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement)
+		if cursor.rowcount > 0:
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				appId = row[0]
+		else:
+			print "Probably the app data for: "+pkgName+" has not been collected because we could not find that app in the database:", sys.exc_info()[0]
+			return -1
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	return appId
+
+def getPermissionId(dbHandle,sqlStatement,permissionName):
+	cursor = dbHandle.cursor()
+	try:
+		cursor.execute(sqlStatement)
+		if cursor.rowcount > 0:
+			# If permission is found permission table great, just return the permission id to be inserted into the appperm table
+			queryOutput = cursor.fetchall()
+			for row in queryOutput:
+				permissionId = row[0]
+		else:
+			# If permission is NOT found permission table then insert it in the table and return the permission id to be inserted into the appperm table
+			# We are inserting protection level as signature by default.
+			# The data quality can be improved further by analyzing the apks or 
+			# by carrying out post analysis on the `AndroidManifest.xml file <https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml>`_
+			sqlStatement = "INSERT INTO `permissions`(`name`,`protection_level`) VALUES ('"+permissionName+"','signature');"
+			permissionId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+	return permissionId
+
+# Permission info extraction from the App JSON on Playdrone dataset
+def extractPermissionInfo(dbHandle, appJSONDownloadFileLocation, pkgName):
+	appJSONDownloadFileLocation = 'appJSONs/com.google.android.youtube.json'
+	appInfoDict = json.loads(open(appJSONDownloadFileLocation, 'r').read().decode('utf8'))
+	if 'details' in appInfoDict:
+		details = appInfoDict['details']
+		if 'app_details' in details:
+			app_details = details['app_details']
+			if 'permission' in app_details:
+				permissionList = app_details['permission']
+				for permissionName in permissionList:
+					# See if the permission is in the table if not insert it and get its id
+					sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
+					permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)
+			
+					# Find the App's Id in the DB
+					# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
+					# If that is not true this step will fail and we will have to skip and go to the next app
+					sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
+					appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
+						
+					if appId > 0:
+						# Insert the App_Id and corresponding Perm_Id in to the DB
+						sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+") ON DUPLICATE KEY IGNORE;"
+						print sqlStatement
+						databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+					else:
+						print "Moving on to the next app. This app has not been extracted from Google Play Store."
+
 # Download Playdrone App Metadata JSON
-def downloadAppJSON(JSONUrl, appJSONDownloadFileLocation):
+def downloadAppJSON(dbHandle, JSONUrl, appJSONDownloadFileLocation, app_pkg_name):
 	#Headers added because of HTTP 404 errors
 	headers = { 'User-Agent' : 'Mozilla/5.0' }
 	req = urllib2.Request(JSONUrl, None, headers)
@@ -26,23 +92,16 @@ def downloadAppJSON(JSONUrl, appJSONDownloadFileLocation):
 	jsonFile = open(appJSONDownloadFileLocation,'wb')
 	jsonFile.write(outFile.read())
 	jsonFile.close()
+	extractPermissionInfo(dbHandle, appJSONDownloadFileLocation, app_pkg_name)
 
-def readAppJSONForPermissionInfo(JSONUrl, app_pkg_name):
+def readAppJSONForPermissionInfo(dbHandle, JSONUrl, app_pkg_name):
 	# If the apps download directory doesn't exist just create it
 	currentDirectory = os.getcwd()
 	appJSONDownloadDirectory = currentDirectory+"/appJSONs/"
 	if not os.path.isdir(os.path.dirname(appJSONDownloadDirectory)):
 		os.makedirs(appJSONDownloadDirectory)
 	appJSONDownloadFileLocation = appJSONDownloadDirectory+app_pkg_name+".json"
-	downloadAppJSON(JSONUrl, appJSONDownloadFileLocation)
-
-def extractPermissionInfo(appJSONDownloadFileLocation):
-	appJSONDownloadFileLocation = 'appJSONs/com.google.android.youtube.json'
-	for appinfo in json.loads(open(appJSONDownloadFileLocation, 'r').read().decode('utf8')):
-		#print type(appinfo)
-		print appinfo
-		#print appinfo['details']
-		#print appinfo["details"]
+	downloadAppJSON(dbHandle, JSONUrl, appJSONDownloadFileLocation, app_pkg_name)
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
@@ -58,8 +117,7 @@ def doTask():
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		readAppJSONForPermissionInfo(row[0],row[1])
-		sys.exit(1)
+		readAppJSONForPermissionInfo(dbHandle,row[0],row[1])
 
 	dbHandle.close() #DB Close
 
@@ -69,8 +127,7 @@ def main(argv):
 		sys.exit(1)
 
 	startTime = time.time()
-	#doTask()
-	extractPermissionInfo("")
+	doTask()
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

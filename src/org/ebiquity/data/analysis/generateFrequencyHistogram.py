@@ -68,7 +68,7 @@ def generatePlot(username, api_key, permCount, permCountFreq):
 def extractAppPermData():
     dbHandle = databaseHandler.dbConnectionCheck()
     cursor = dbHandle.cursor()
-    sqlStatement = "SELECT * FROM `app_perm_count`;"
+    sqlStatement = "SELECT * FROM `app_perm_count_view`;"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-Created on May 18, 2015
+Created on July 4, 2015
 @author: Prajit
 Usage: python generateFrequencyHistogram.py username api_key
 '''
@@ -107,7 +107,7 @@ def main(argv):
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
-
+'''
 -- --------------------------------------------------------
 
 --
@@ -118,3 +118,4 @@ CREATE VIEW `app_desc_pkg_name_view` AS
 SELECT `app_pkg_name`, `desc`
 FROM `appdata`
 WHERE `desc` IS IN English;
+'''

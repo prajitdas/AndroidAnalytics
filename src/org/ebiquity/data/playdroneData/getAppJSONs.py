@@ -54,7 +54,6 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 
 # Permission info extraction from the App JSON on Playdrone dataset
 def extractPermissionInfo(dbHandle, appJSONDownloadFileLocation, pkgName):
-	appJSONDownloadFileLocation = 'appJSONs/com.google.android.youtube.json'
 	appInfoDict = json.loads(open(appJSONDownloadFileLocation, 'r').read().decode('utf8'))
 	if 'details' in appInfoDict:
 		details = appInfoDict['details']

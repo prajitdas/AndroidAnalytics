@@ -15,6 +15,20 @@ import json
 import os
 import urllib2
 
+def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
+	cursor = dbHandle.cursor()
+	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
+	try:
+		cursor.execute(sqlStatement)
+		queryOutput = cursor.fetchall()
+		for row in queryOutput:
+			if row[0] > 0:
+				return True
+			return False
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+		raise
+
 def getAppId(dbHandle,sqlStatement,pkgName):
 	cursor = dbHandle.cursor()
 	try:
@@ -116,7 +130,12 @@ def doTask():
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 	for row in queryOutput:
-		readAppJSONForPermissionInfo(dbHandle,row[0],row[1])
+		# If we want to update the permissions that we have not extracted we must avoid doing the following as it will skip an app if even a single permission for it has been extracted before.
+		# For the time being we are doing this so that we are not blocked by the servers.
+		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
+			print "Moving on to extracting permissions for the next app. This one is already in the database."
+		else:
+			readAppJSONForPermissionInfo(dbHandle,row[0],row[1])
 
 	dbHandle.close() #DB Close
 

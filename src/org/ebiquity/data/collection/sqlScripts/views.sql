@@ -7,7 +7,7 @@ USE `googleplaystore`;
 -- --------------------------------------------------------
 
 --
--- View app_perm_info
+-- View app_perm_info_view
 --
 
 CREATE VIEW `app_perm_info_view` AS
@@ -19,7 +19,7 @@ ORDER BY a.`app_pkg_name`;
 -- --------------------------------------------------------
 
 --
--- View app_perm_count
+-- View app_perm_count_view
 --
 
 CREATE VIEW `app_perm_count_view` AS
@@ -32,7 +32,7 @@ ORDER BY perm_count DESC;
 -- --------------------------------------------------------
 
 --
--- View count_of_app_perm_collected
+-- View count_of_app_perm_collected_view
 --
 
 CREATE VIEW `count_of_app_perm_collected_view` AS
@@ -41,7 +41,7 @@ SELECT count(DISTINCT app_id) FROM `appperm`;
 -- --------------------------------------------------------
 
 --
--- View valid_app_playdrone_metadata_url
+-- View valid_app_playdrone_metadata_url_view
 --
 
 CREATE VIEW `valid_app_playdrone_metadata_url_view` AS

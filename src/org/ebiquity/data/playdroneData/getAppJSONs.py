@@ -132,7 +132,7 @@ def doTask():
 	for row in queryOutput:
 		# If we want to update the permissions that we have not extracted we must avoid doing the following as it will skip an app if even a single permission for it has been extracted before.
 		# For the time being we are doing this so that we are not blocked by the servers.
-		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == True:
+		if isAPKPermissionsAlreadyInTable(dbHandle,row[1]) == True:
 			print "Moving on to extracting permissions for the next app. This one is already in the database."
 		else:
 			readAppJSONForPermissionInfo(dbHandle,row[0],row[1])

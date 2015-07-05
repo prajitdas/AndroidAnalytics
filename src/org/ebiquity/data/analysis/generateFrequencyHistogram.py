@@ -66,7 +66,8 @@ def generatePlot(username, api_key, permCount, permCountFreq):
     print "Check out the URL: "+plot_url+" for your plot"
   
 def extractAppPermData():
-    dbHandle = databaseHandler.dbConnectionCheck()
+    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+
     cursor = dbHandle.cursor()
     sqlStatement = "SELECT * FROM `app_perm_count_view`;"
     try:
@@ -84,6 +85,9 @@ def extractAppPermData():
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
+    dbHandle.close() #DB Close
+    
     return permCountDict
  
 def doTask(username, api_key):

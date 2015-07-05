@@ -3,7 +3,7 @@
 '''
 Created on July 4, 2015
 @author: Prajit
-Usage: python generateFrequencyHistogram.py username api_key
+Usage: python convertAppDescriptionsUsingWord2Vec.py
 '''
 
 import sys
@@ -86,22 +86,30 @@ def extractAppPermData():
         raise
     return permCountDict
  
-def doTask(username, api_key):
-    permCountDict = extractAppPermData()
-    permCount = []
-    permCountFreq = []
-    for permissionCount, permissionCountFreq in permCountDict.iteritems():
-        permCount.append(permissionCount)
-        permCountFreq.append(permissionCountFreq)
-    generatePlot(username, api_key, permCount, permCountFreq)
-    
+def doTask():
+    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+
+    cursor = dbHandle.cursor()
+    sqlStatement = "SELECT `app_pkg_name`, `desc` FROM `appdata`"
+    try:
+        cursor.execute(sqlStatement)
+        queryOutput = cursor.fetchall()
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+    for row in queryOutput:
+        print row[0], row[1]
+        sys.exit(1)
+
+    dbHandle.close() #DB Close
+
 def main(argv):
-    if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python generateFrequencyHistogram.py username api_key\n')
+    if len(sys.argv) != 1:
+        sys.stderr.write('Usage: python convertAppDescriptionsUsingWord2Vec.py\n')
         sys.exit(1)
 
     startTime = time.time()
-    doTask(sys.argv[1], sys.argv[2])
+    doTask()
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

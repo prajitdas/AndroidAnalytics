@@ -45,13 +45,26 @@ ORDER BY app_count DESC;
 -- --------------------------------------------------------
 
 --
--- View perm_app_cat_count_view
+-- View perm_app_medical_cat_count_view
 --
 
-CREATE VIEW `perm_app_cat_count_view` AS
+CREATE VIEW `perm_app_medical_cat_count_view` AS
 SELECT count(a.`app_pkg_name`) app_count, p.`name`
 FROM `appdata` a, `permissions` p, `appperm` ap 
-WHERE ap.`app_id` = a.`id` AND ap.`perm_id` = p.`id`
+WHERE ap.`app_id` = a.`id` AND ap.`perm_id` = p.`id` AND a.`app_category_id` = 13
+GROUP BY p.`name`
+ORDER BY app_count DESC;
+
+-- --------------------------------------------------------
+
+--
+-- View perm_app_heatlth_and_fitness_cat_count_view
+--
+
+CREATE VIEW `perm_app_heatlth_and_fitness_cat_count_view` AS
+SELECT count(a.`app_pkg_name`) app_count, p.`name`
+FROM `appdata` a, `permissions` p, `appperm` ap 
+WHERE ap.`app_id` = a.`id` AND ap.`perm_id` = p.`id` AND a.`app_category_id` = 8
 GROUP BY p.`name`
 ORDER BY app_count DESC;
 

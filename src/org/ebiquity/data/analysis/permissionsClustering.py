@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-Created on July 4, 2015
+Created on May 18, 2015
 @author: Prajit
-Usage: python convertAppDescriptionsUsingWord2Vec.py
+Usage: python permissionsClustering.py username api_key
 '''
 
 import sys
@@ -21,14 +21,14 @@ def generatePlot(username, api_key, permCount, permCountFreq):
     trace = Bar(
         x=permCount,
         y=permCountFreq,
-        name='App frequency',
+        name='App Permission frequency of Medical Apps',
         marker=Marker(
             color='rgb(55, 83, 109)'
         )
     )
     data = Data([trace])
     layout = Layout(
-        title='App Frequency vs Permissions requested',
+        title='App Frequency vs Permission requested',
         xaxis=XAxis(
             title='Number of Permissions requested',
             titlefont=Font(
@@ -65,65 +65,65 @@ def generatePlot(username, api_key, permCount, permCountFreq):
     plot_url = py.plot(fig, filename='style-bar')
     print "Check out the URL: "+plot_url+" for your plot"
   
-def extractAppPermData():
-    dbHandle = databaseHandler.dbConnectionCheck()
+def extractPermisionVector(dbHandle):
     cursor = dbHandle.cursor()
-    sqlStatement = "SELECT * FROM `app_perm_count`;"
+    # Get the complete permissions vector and then use that as the vector rep for each app
+    # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+    sqlStatement = "SELECT `name` FROM `permissions`"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
-            permCountDict = {}
+            permVector = []
             for row in queryOutput:
-                permissionCount = row[1]
-                if permCountDict.has_key(permissionCount):
-                    currentValue = permCountDict[permissionCount]
-                    permCountDict[permissionCount] = currentValue + 1
-                else:
-                    permCountDict[permissionCount] = 1
+                permVector.append(row[0])
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
-    return permCountDict
- 
-def doTask():
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+    
+    return permVector
 
+def generateAppVector(dbHandle):
     cursor = dbHandle.cursor()
-    sqlStatement = "SELECT `app_pkg_name`, `desc` FROM `appdata`"
+    # Get the complete permissions vector and then use that as the vector rep for each app
+    # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+    sqlStatement = "SELECT `name` FROM `permissions`"
     try:
         cursor.execute(sqlStatement)
-        queryOutput = cursor.fetchall()
+        if cursor.rowcount > 0:
+            queryOutput = cursor.fetchall()
+            permVector = []
+            for row in queryOutput:
+                permVector.append(row[0])
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
-    for row in queryOutput:
-        print row[0], row[1]
-        sys.exit(1)
+    
+    return permVector
+ 
+def doTask():#username, api_key):
+    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+
+    permVector = extractPermisionVector(dbHandle)
+    appVector = generateAppVector(dbHandle)
+    # permCount = []
+    # permCountFreq = []
+    # for permissionCount, permissionCountFreq in permCountDict.iteritems():
+    #     permCount.append(permissionCount)
+    #     permCountFreq.append(permissionCountFreq)
+    # generatePlot(username, api_key, permCount, permCountFreq)
 
     dbHandle.close() #DB Close
-
+    
 def main(argv):
-    if len(sys.argv) != 1:
-        sys.stderr.write('Usage: python convertAppDescriptionsUsingWord2Vec.py\n')
+    if len(sys.argv) != 1:#3:
+        sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
 
     startTime = time.time()
-    doTask()
+    doTask()#sys.argv[1], sys.argv[2])
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
-'''
--- --------------------------------------------------------
-
---
--- View app_desc_pkg_name_view
---
-
-CREATE VIEW `app_desc_pkg_name_view` AS
-SELECT `app_pkg_name`, `desc`
-FROM `appdata`
-WHERE `desc` IS IN English;
-'''

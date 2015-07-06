@@ -32,6 +32,32 @@ ORDER BY perm_count DESC;
 -- --------------------------------------------------------
 
 --
+-- View perm_app_count_view
+--
+
+CREATE VIEW `perm_app_count_view` AS
+SELECT count(a.`app_pkg_name`) app_count, p.`name`
+FROM `appdata` a, `permissions` p, `appperm` ap 
+WHERE ap.`app_id` = a.`id` AND ap.`perm_id` = p.`id`
+GROUP BY p.`name`
+ORDER BY app_count DESC;
+
+-- --------------------------------------------------------
+
+--
+-- View perm_app_cat_count_view
+--
+
+CREATE VIEW `perm_app_cat_count_view` AS
+SELECT count(a.`app_pkg_name`) app_count, p.`name`
+FROM `appdata` a, `permissions` p, `appperm` ap 
+WHERE ap.`app_id` = a.`id` AND ap.`perm_id` = p.`id`
+GROUP BY p.`name`
+ORDER BY app_count DESC;
+
+-- --------------------------------------------------------
+
+--
 -- View count_of_app_perm_collected_view
 --
 

@@ -39,7 +39,7 @@ INSERT INTO `appcategories` (`id`, `name`, `url`) VALUES
 (33,'Casino','https://play.google.com/store/apps/category/GAME_CASINO'),
 (34,'Casual','https://play.google.com/store/apps/category/GAME_CASUAL'),
 (35,'Educational','https://play.google.com/store/apps/category/GAME_EDUCATIONAL'),
-(36,'Family','https://play.google.com/store/apps/category/GAME_FAMILY'),
+(36,'Family','https://play.google.com/store/apps/category/FAMILY'),
 (37,'Music','https://play.google.com/store/apps/category/GAME_MUSIC'),
 (38,'Puzzle','https://play.google.com/store/apps/category/GAME_PUZZLE'),
 (39,'Racing','https://play.google.com/store/apps/category/GAME_RACING'),
@@ -48,6 +48,15 @@ INSERT INTO `appcategories` (`id`, `name`, `url`) VALUES
 (42,'Sports','https://play.google.com/store/apps/category/GAME_SPORTS'),
 (43,'Strategy','https://play.google.com/store/apps/category/GAME_STRATEGY'),
 (44,'Trivia','https://play.google.com/store/apps/category/GAME_TRIVIA'),
-(45,'Word','https://play.google.com/store/apps/category/GAME_WORD');
+(45,'Word','https://play.google.com/store/apps/category/GAME_WORD'),
+(46,'Ages 5 & Under','https://play.google.com/store/apps/category/FAMILY?age=AGE_RANGE1'),
+(47,'Ages 6-8','https://play.google.com/store/apps/category/FAMILY?age=AGE_RANGE2'),
+(48,'Ages 9 & Up','https://play.google.com/store/apps/category/FAMILY?age=AGE_RANGE3'),
+(49,'Action & Adventure','https://play.google.com/store/apps/category/FAMILY_ACTION'),
+(50,'Brain Games','https://play.google.com/store/apps/category/FAMILY_BRAINGAMES'),
+(51,'Creativity','https://play.google.com/store/apps/category/FAMILY_CREATE'),
+(52,'Education','https://play.google.com/store/apps/category/FAMILY_EDUCATION'),
+(53,'Music & Video','https://play.google.com/store/apps/category/FAMILY_MUSICVIDEO'),
+(54,'Pretend Play','https://play.google.com/store/apps/category/FAMILY_PRETEND');
 
 COMMIT;

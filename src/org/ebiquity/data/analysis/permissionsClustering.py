@@ -69,7 +69,7 @@ def extractPermisionVector(dbHandle):
     cursor = dbHandle.cursor()
     # Get the complete permissions vector and then use that as the vector rep for each app
     # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-    sqlStatement = "SELECT `name` FROM `permissions`"
+    sqlStatement = "SELECT `name` FROM `permissions` LIMIT 10"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:
@@ -87,7 +87,7 @@ def generateAppVector(dbHandle):
     cursor = dbHandle.cursor()
     # Get the complete permissions vector and then use that as the vector rep for each app
     # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-    sqlStatement = "SELECT `name` FROM `permissions`"
+    sqlStatement = "SELECT `name` FROM `permissions` LIMIT 10"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:
@@ -106,6 +106,7 @@ def doTask():#username, api_key):
 
     permVector = extractPermisionVector(dbHandle)
     appVector = generateAppVector(dbHandle)
+    print appVector
     # permCount = []
     # permCountFreq = []
     # for permissionCount, permissionCountFreq in permCountDict.iteritems():

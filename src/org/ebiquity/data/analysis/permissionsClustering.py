@@ -14,6 +14,9 @@ import plotly.tools as tls
 # Find your api_key here: https://plot.ly/settings/api
 import plotly.plotly as py
 from plotly.graph_objs import *
+import sklearn.cluster as skcl
+#Use this for Python debug
+#import pdb
 
 # This is a plot for Permissions count vs Frequency of apps requesting that many permissions
 def generatePlot(username, api_key, permCount, permCountFreq):
@@ -64,49 +67,75 @@ def generatePlot(username, api_key, permCount, permCountFreq):
     fig = Figure(data=data, layout=layout)
     plot_url = py.plot(fig, filename='style-bar')
     print "Check out the URL: "+plot_url+" for your plot"
-  
-def extractPermisionVector(dbHandle):
+
+def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
-    # Get the complete permissions vector and then use that as the vector rep for each app
-    # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-    sqlStatement = "SELECT `name` FROM `permissions` LIMIT 10"
+    sqlStatement = "SELECT count(*) FROM `permissions`;"
+    permissionsCount = 0
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
-            permVector = []
             for row in queryOutput:
-                permVector.append(row[0])
+                permissionsCount = row[0]
     except:
-        print "Unexpected error:", sys.exc_info()[0]
+        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
+        raise
+    return permissionsCount
+
+def extractAppPermisionVector(dbHandle,appId):
+    cursor = dbHandle.cursor()
+    # Get the complete permissions vector and then use that as the vector rep for each app
+    # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+    sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
+    #sqlStatement = "SELECT p.`id` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
+    try:
+        cursor.execute(sqlStatement)
+        permVector = [0] * getPermissionsCount(dbHandle)
+        if cursor.rowcount > 0:
+            queryOutput = cursor.fetchall()
+            for row in queryOutput:
+                permVector[row[0]] = 1
+    except:
+        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
         raise
     
     return permVector
 
-def generateAppVector(dbHandle):
+def generateAppMatrix(dbHandle):
     cursor = dbHandle.cursor()
-    # Get the complete permissions vector and then use that as the vector rep for each app
-    # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-    sqlStatement = "SELECT `name` FROM `permissions` LIMIT 10"
+    # Get a bunch of apps from which you want to get the permissions
+    # Select apps which have had their permissions extracted
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"#LIMIT 10;"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
-            permVector = []
+            appMatrix = []
+            appVector =[]
             for row in queryOutput:
-                permVector.append(row[0])
+                permVector = extractAppPermisionVector(dbHandle,row[0])
+                appVector.append(row[1])
+                appMatrix.append(permVector)
     except:
-        print "Unexpected error:", sys.exc_info()[0]
+        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
     
-    return permVector
+    return appMatrix, appVector
  
 def doTask():#username, api_key):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    permVector = extractPermisionVector(dbHandle)
-    appVector = generateAppVector(dbHandle)
-    print appVector
+    numberOfClusters = 50
+    appMatrix, appVector = generateAppMatrix(dbHandle)
+    KMeansObject = skcl.KMeans(numberOfClusters)
+    clusters = KMeansObject.fit_predict(appMatrix)
+    counter = 0
+    for appName in appVector:
+        print appName, clusters[counter]
+        counter = counter + 1
+#     for appPerm in appMatrix:
+#         print appPerm
     # permCount = []
     # permCountFreq = []
     # for permissionCount, permissionCountFreq in permCountDict.iteritems():

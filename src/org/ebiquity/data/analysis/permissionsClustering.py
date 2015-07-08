@@ -109,6 +109,7 @@ def generateAppMatrix(dbHandle):
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"#LIMIT 10;"
     try:
         cursor.execute(sqlStatement)
+        print "Extracting app data"
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
             appMatrix = []
@@ -116,12 +117,14 @@ def generateAppMatrix(dbHandle):
             for row in queryOutput:
                 permVector = extractAppPermisionVector(dbHandle,row[0])
                 appVector.append(row[1])
+                print "Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
     except:
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
     #Write the app permissions matrix to a JSON file
+    print "Writing app permissions matrix to JSON file"
     with io.open('appMatrix.txt', 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(appMatrix, ensure_ascii=False)))
    
@@ -133,6 +136,7 @@ def doTask():#username, api_key):
     numberOfClusters = 50
     appMatrix, appVector = generateAppMatrix(dbHandle)
     KMeansObject = skcl.KMeans(numberOfClusters)
+    print "Running clustering algorithm"
     clusters = KMeansObject.fit_predict(appMatrix)
     counter = 0
     predictedClusters = {}
@@ -141,6 +145,7 @@ def doTask():#username, api_key):
         counter = counter + 1
     
     #Write the predicted clusters to a JSON file
+    print "Writing predicted clusters to JSON file"
     with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
 #     for appPerm in appMatrix:

@@ -120,7 +120,11 @@ def generateAppMatrix(dbHandle):
     except:
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
-    
+
+    #Write the app permissions matrix to a JSON file
+    with io.open('appMatrix.txt', 'w', encoding='utf-8') as f:
+        f.write(unicode(json.dumps(appMatrix, ensure_ascii=False)))
+   
     return appMatrix, appVector
  
 def doTask():#username, api_key):
@@ -131,9 +135,14 @@ def doTask():#username, api_key):
     KMeansObject = skcl.KMeans(numberOfClusters)
     clusters = KMeansObject.fit_predict(appMatrix)
     counter = 0
+    predictedClusters = {}
     for appName in appVector:
-        print appName, clusters[counter]
+        predictedClusters[appName] = clusters[counter]
         counter = counter + 1
+    
+    #Write the predicted clusters to a JSON file
+    with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:
+        f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
 #     for appPerm in appMatrix:
 #         print appPerm
     # permCount = []

@@ -15,6 +15,8 @@ import plotly.tools as tls
 import plotly.plotly as py
 from plotly.graph_objs import *
 import sklearn.cluster as skcl
+import io
+import json
 #Use this for Python debug
 #import pdb
 

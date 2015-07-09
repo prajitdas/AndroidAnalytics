@@ -106,7 +106,7 @@ def generateAppMatrix(dbHandle):
     cursor = dbHandle.cursor()
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
-    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"#LIMIT 10;"
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 LIMIT 1000;"
     try:
         cursor.execute(sqlStatement)
         print "Extracting app data"

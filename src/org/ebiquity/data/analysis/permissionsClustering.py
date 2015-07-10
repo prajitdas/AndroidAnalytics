@@ -146,6 +146,7 @@ def doTask():#username, api_key):
         predictedClusters[appName] = clusters[counter]
         counter = counter + 1
 
+    print predictedClusters
     #Write the predicted clusters to a file
     print "Writing predicted clusters to a file"
     with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:

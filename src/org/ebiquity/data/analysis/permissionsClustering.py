@@ -108,7 +108,7 @@ def generateAppMatrix(dbHandle):
     cursor = dbHandle.cursor()
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
-    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 LIMIT 1000;"
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 LIMIT 10000;"
     try:
         cursor.execute(sqlStatement)
         print "Extracting app data"
@@ -121,15 +121,15 @@ def generateAppMatrix(dbHandle):
                 appVector.append(row[1])
                 print "Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
+                #Write the app permissions matrix to a file
+                print "Writing app permission vector to a file"
+                with io.open('appMatrix.txt', 'a', encoding='utf-8') as f:
+                    f.write(unicode(permVector))
+                    f.write(unicode("\n"))
     except:
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
-    #Write the app permissions matrix to a JSON file
-    print "Writing app permissions matrix to JSON file"
-    with io.open('appMatrix.txt', 'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(appMatrix, ensure_ascii=False)))
-   
     return appMatrix, appVector
  
 def doTask():#username, api_key):
@@ -145,9 +145,9 @@ def doTask():#username, api_key):
     for appName in appVector:
         predictedClusters[appName] = clusters[counter]
         counter = counter + 1
-    
-    #Write the predicted clusters to a JSON file
-    print "Writing predicted clusters to JSON file"
+
+    #Write the predicted clusters to a file
+    print "Writing predicted clusters to a file"
     with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
 #     for appPerm in appMatrix:
@@ -166,6 +166,14 @@ def main(argv):
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
 
+    text_file = open("appMatrix.txt", "w")
+    text_file.write("")
+    text_file.close()
+    
+    text_file = open("predictedClusters.txt", "w")
+    text_file.write("")
+    text_file.close()
+        
     startTime = time.time()
     doTask()#sys.argv[1], sys.argv[2])
     executionTime = str((time.time()-startTime)*1000)

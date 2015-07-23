@@ -172,6 +172,8 @@ def getLabelsTrue(clusterInfo):
     print "labels predicted: "+ str(labels_pred)
     print "labels true: " + str(labels_true)
     print "adjusted_rand_score: " + str(metrics.adjusted_rand_score(labels_true, labels_pred))
+    print "adjusted_mutual_info_score: " + str(metrics.adjusted_mutual_info_score(labels_true, labels_pred))
+    print "homogeneity_completeness_v_measure: " + str(metrics.homogeneity_completeness_v_measure(labels_true, labels_pred))
 
     dbHandle.close() #DB Close
 

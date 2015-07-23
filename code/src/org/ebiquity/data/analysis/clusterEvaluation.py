@@ -132,49 +132,44 @@ def generateAppMatrix(dbHandle):
 
     return appMatrix, appVector
  
-def doTask():#username, api_key):
+def getLabelsTrue(clusterInfo):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    numberOfClusters = 50
-    appMatrix, appVector = generateAppMatrix(dbHandle)
-    KMeansObject = skcl.KMeans(numberOfClusters)
-    print "Running clustering algorithm"
-    clusters = KMeansObject.fit_predict(appMatrix)
-    counter = 0
-    predictedClusters = {}
-    for appName in appVector:
-        predictedClusters[appName] = clusters[counter]
-        counter = counter + 1
+    numberOfClusters = 50    
+    for currentClusterNumber in range(0,numberOfClusters):
+        print "\nInfo for cluster number: ", currentClusterNumber
+        for appName, clusterNumber in clusterInfo.iteritems():
+            if clusterNumber == currentClusterNumber:
+                print appName
 
-    print predictedClusters
-    #Write the predicted clusters to a file
-    print "Writing predicted clusters to a file"
-    with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
-#     for appPerm in appMatrix:
-#         print appPerm
-    # permCount = []
-    # permCountFreq = []
-    # for permissionCount, permissionCountFreq in permCountDict.iteritems():
-    #     permCount.append(permissionCount)
-    #     permCountFreq.append(permissionCountFreq)
-    # generatePlot(username, api_key, permCount, permCountFreq)
+#     for appName in appVector:
+#         predictedClusters[appName] = clusters[counter]
+#         counter = counter + 1
+# 
+#     print predictedClusters
+#     #Write the actual clusters to a file
+#     print "Writing actual clusters to a file"
+#     with io.open('actualClusters.txt', 'w', encoding='utf-8') as f:
+#         f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
+# #     for appPerm in appMatrix:
+# #         print appPerm
+#     # permCount = []
+#     # permCountFreq = []
+#     # for permissionCount, permissionCountFreq in permCountDict.iteritems():
+#     #     permCount.append(permissionCount)
+#     #     permCountFreq.append(permissionCountFreq)
+#     # generatePlot(username, api_key, permCount, permCountFreq)
 
     dbHandle.close() #DB Close
+
+def doTask():
+    getLabelsTrue(json.loads(open('predictedClusters.txt', 'r').read().decode('utf8')))
     
 def main(argv):
     if len(sys.argv) != 1:#3:
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
 
-    text_file = open("appMatrix.txt", "r")
-    text_file.write("")
-    text_file.close()
-    
-    text_file = open("predictedClusters.txt", "r")
-    text_file.write("")
-    text_file.close()
-        
     startTime = time.time()
     doTask()#sys.argv[1], sys.argv[2])
     executionTime = str((time.time()-startTime)*1000)

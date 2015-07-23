@@ -15,6 +15,7 @@ import plotly.tools as tls
 import plotly.plotly as py
 from plotly.graph_objs import *
 import sklearn.cluster as skcl
+from sklearn import metrics
 import io
 import json
 #Use this for Python debug
@@ -131,34 +132,46 @@ def generateAppMatrix(dbHandle):
         raise
 
     return appMatrix, appVector
+
+def getCategoryNumbers(appNames,dbHandle):
+    appList = '\'' + '\',\''.join(appNames) + '\''
+    cursor = dbHandle.cursor()
+    
+    appCategoriesDict = {}
+    labels_true = []
+    sqlStatement = "SELECT `app_pkg_name`,`app_category_id` FROM `appdata` WHERE `app_pkg_name` IN ("+appList+");"
+    try:
+        cursor.execute(sqlStatement)
+        if cursor.rowcount > 0:
+            queryOutput = cursor.fetchall()
+            for row in queryOutput:
+                appCategoriesDict[row[0]] = int(row[1])
+    except:
+        print "Unexpected error in getCategoryNumber:", sys.exc_info()[0]
+        raise
+    
+    keylist = appCategoriesDict.keys()
+    keylist.sort()
+    for key in keylist:
+        labels_true.append(appCategoriesDict[key])
+    return labels_true
  
 def getLabelsTrue(clusterInfo):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+    
+    labels_pred = []
+    appNames = []
+    keylist = clusterInfo.keys()
+    keylist.sort()
+    for key in keylist:
+        labels_pred.append(clusterInfo[key])
+        appNames.append(key)
 
-    numberOfClusters = 50    
-    for currentClusterNumber in range(0,numberOfClusters):
-        print "\nInfo for cluster number: ", currentClusterNumber
-        for appName, clusterNumber in clusterInfo.iteritems():
-            if clusterNumber == currentClusterNumber:
-                print appName
-
-#     for appName in appVector:
-#         predictedClusters[appName] = clusters[counter]
-#         counter = counter + 1
-# 
-#     print predictedClusters
-#     #Write the actual clusters to a file
-#     print "Writing actual clusters to a file"
-#     with io.open('actualClusters.txt', 'w', encoding='utf-8') as f:
-#         f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
-# #     for appPerm in appMatrix:
-# #         print appPerm
-#     # permCount = []
-#     # permCountFreq = []
-#     # for permissionCount, permissionCountFreq in permCountDict.iteritems():
-#     #     permCount.append(permissionCount)
-#     #     permCountFreq.append(permissionCountFreq)
-#     # generatePlot(username, api_key, permCount, permCountFreq)
+    labels_true = getCategoryNumbers(appNames,dbHandle)
+    
+    print "labels predicted: "+ str(labels_pred)
+    print "labels true: " + str(labels_true)
+    print "adjusted_rand_score: " + str(metrics.adjusted_rand_score(labels_true, labels_pred))
 
     dbHandle.close() #DB Close
 

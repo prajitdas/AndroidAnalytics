@@ -20,6 +20,7 @@ import json
 import os
 from os.path import isfile, join
 import platform
+import clusterEvaluation
 #Use this for Python debug
 #import pdb
 
@@ -211,6 +212,8 @@ def doTask(predictedClustersFile,appMatrixFile):
     #     permCountFreq.append(permissionCountFreq)
     # generatePlot(username, api_key, permCount, permCountFreq)
 
+    #Clustering task is complete.
+    clusterEvalutaion.getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
     dbHandle.close() #DB Close
     
 def main(argv):

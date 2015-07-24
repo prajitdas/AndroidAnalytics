@@ -17,6 +17,7 @@ from plotly.graph_objs import *
 import sklearn.cluster as skcl
 import io
 import json
+import clusterEvaluation
 #Use this for Python debug
 #import pdb
 
@@ -123,7 +124,7 @@ def generateAppMatrix(dbHandle):
                 appMatrix.append(permVector)
                 #Write the app permissions matrix to a file
                 print "Writing app permission vector to a file"
-                with io.open('appMatrix.txt', 'a', encoding='utf-8') as f:
+                with io.open(appMatrixFile, 'a', encoding='utf-8') as f:
                     f.write(unicode(permVector))
                     f.write(unicode("\n"))
     except:
@@ -131,7 +132,7 @@ def generateAppMatrix(dbHandle):
         raise
 
     return appMatrix, appVector
- 
+
 def doTask():#username, api_key):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
@@ -149,7 +150,7 @@ def doTask():#username, api_key):
     print predictedClusters
     #Write the predicted clusters to a file
     print "Writing predicted clusters to a file"
-    with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:
+    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
 #     for appPerm in appMatrix:
 #         print appPerm
@@ -160,6 +161,8 @@ def doTask():#username, api_key):
     #     permCountFreq.append(permissionCountFreq)
     # generatePlot(username, api_key, permCount, permCountFreq)
 
+    #Clustering task is complete.
+    clusterEvalutaion.getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
     dbHandle.close() #DB Close
     
 def main(argv):
@@ -167,11 +170,15 @@ def main(argv):
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
 
-    text_file = open("appMatrix.txt", "w")
+    ticks = time.time()
+    appMatrixFile = "appMatrix"+str(ticks)+".txt"
+    predictedClustersFile = "predictedClusters"+str(ticks)+".txt"
+
+    text_file = open(appMatrixFile, "w")
     text_file.write("")
     text_file.close()
     
-    text_file = open("predictedClusters.txt", "w")
+    text_file = open(predictedClustersFile, "w")
     text_file.write("")
     text_file.close()
         

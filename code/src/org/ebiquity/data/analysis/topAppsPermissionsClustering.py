@@ -110,21 +110,28 @@ def extractAppPermisionVector(dbHandle,appId):
 
 def isDataCollected(packageName,dbHandle):
     cursor = dbHandle.cursor()
-    sqlStatement = "SELECT perm_extracted FROM `appurls` WHERE `app_pkg_name` = '"+packageName+"';"
+    sqlStatement = "SELECT perm_extracted,parsed FROM `appurls` WHERE `app_pkg_name` = '"+packageName+"';"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount == 0:
-#             print "data not collected", packageName
+            print packageName,",error was: url not collected"
             return False
         else:
             queryOutput = cursor.fetchall()
             for row in queryOutput:
                 if row[0] == 0:
-                    print packageName#"data collected but permission not extracted"
+                    if row[1] == 0:
+                        print packageName,",error was: data and permissions not collected"
+                    else:
+                        print packageName,",error was: permissions not collected but data collected"
                     return False
                 else:
-#                     print "permission extracted"
-                    return True
+                    if row[1] == 0:
+                        print packageName,",error was: permissions collected but data not collected"
+                        return False
+                    else:
+                        #print packageName,"data and permissions collected"
+                        return True
     except:
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise

@@ -25,12 +25,27 @@ def verifyPresentInAppMarket(urlExtract):
     sorryString = "We're sorry, the requested URL was not found on this server."
     headers = { 'User-Agent' : 'Mozilla/5.0' }
     req = urllib2.Request(urlExtract, None, headers)
-    page = urllib2.urlopen(req).read()
-    soup = BeautifulSoup(''.join(page))
-    for data in soup.findAll(attrs={'class': 'rounded'}):
-        if sorryString in data.string:
-            return False
-    return True
+    try:
+        page = urllib2.urlopen(req).read()
+        soup = BeautifulSoup(''.join(page))
+        for data in soup.findAll(attrs={'class': 'rounded'}):
+            if sorryString in data.string:
+                return False
+        return True
+    except urllib2.HTTPError, e:
+        print 'HTTPError = ', str(e.code)
+        #This is risky!!!!
+        # June 19, 2015: Yes, this was risky commenting out this piece of code - Prajit
+        # Don't be ridiculous, once you have collected some data you should not be deleting that data, right?
+        # Have to monitor this properly
+        #sqlStatement = "DELETE FROM `appurls` WHERE `app_url` = '"+urlExtract+"';"
+        #databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+    except urllib2.URLError, e:
+        print 'URLError = ' + str(e.reason)
+    except httplib.HTTPException, e:
+        print 'HTTPException'
+    except Exception:
+        print 'generic exception: ' + traceback.format_exc()
 
 def downloadAPK(appsDownloadDirectory,path):
     if not os.path.isdir(os.path.dirname(appsDownloadDirectory)):

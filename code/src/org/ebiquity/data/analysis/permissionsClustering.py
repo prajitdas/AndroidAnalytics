@@ -17,7 +17,7 @@ from plotly.graph_objs import *
 import sklearn.cluster as skcl
 import io
 import json
-import clusterEvaluation
+import clusterEvaluation as clEval
 #Use this for Python debug
 #import pdb
 
@@ -162,7 +162,7 @@ def doTask():#username, api_key):
     # generatePlot(username, api_key, permCount, permCountFreq)
 
     #Clustering task is complete.
-    clusterEvalutaion.getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
+    clEval.getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
     dbHandle.close() #DB Close
     
 def main(argv):

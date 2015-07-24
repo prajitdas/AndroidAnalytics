@@ -107,7 +107,28 @@ def extractAppPermisionVector(dbHandle,appId):
     
     return permVector
 
-def getTopAppsFromDownloadedJSONs():
+def isDataCollected(packageName,dbHandle):
+    cursor = dbHandle.cursor()
+    sqlStatement = "SELECT perm_extracted FROM `appurls` WHERE `app_pkg_name` = '"+packageName+"';"
+    try:
+        cursor.execute(sqlStatement)
+        if cursor.rowcount == 0:
+#             print "data not collected", packageName
+            return False
+        else:
+            queryOutput = cursor.fetchall()
+            for row in queryOutput:
+                if row[0] == 0:
+                    print packageName#"data collected but permission not extracted"
+                    return False
+                else:
+#                     print "permission extracted"
+                    return True
+    except:
+        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
+        raise
+
+def getTopAppsFromDownloadedJSONs(dbHandle):
     # Detect operating system and takes actions accordingly
     osInfo = platform.system()
     currentDirectory = os.getcwd()
@@ -121,15 +142,18 @@ def getTopAppsFromDownloadedJSONs():
         topAppDict = json.loads(open(os.path.join(topAppJsonsFrom42MattersAPIDirectory,filename), 'r').read().decode('utf8'))
         for appData in topAppDict['appList']:
             if 'package_name' in appData:
-                pkgName = str('\'')+str(appData['package_name'])+str('\',')
-                appNameList.append(pkgName) 
+                packageName = str(appData['package_name'])
+                isDataCollected(packageName,dbHandle)
+                processedPackageName = str('\'')+packageName+str('\',')
+                appNameList.append(processedPackageName) 
 
     return ''.join(appNameList)[:-1]
     
 def generateAppMatrix(dbHandle,appMatrixFile):
     cursor = dbHandle.cursor()
     
-    appNameList = getTopAppsFromDownloadedJSONs()
+    appNameList = getTopAppsFromDownloadedJSONs(dbHandle)
+    sys.exit(1)
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appNameList+");"

@@ -122,18 +122,17 @@ def getTopAppsFromDownloadedJSONs():
         for appData in topAppDict['appList']:
             if 'package_name' in appData:
                 pkgName = str('\'')+str(appData['package_name'])+str('\',')
-                print pkgName
                 appNameList.append(pkgName) 
 
-    return ''.join(appNameList)
+    return ''.join(appNameList)[:-1]
     
-def generateAppMatrix(dbHandle):
+def generateAppMatrix(dbHandle,appMatrixFile):
     cursor = dbHandle.cursor()
     
     appNameList = getTopAppsFromDownloadedJSONs()
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
-    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN '"+appNameList+"';"
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appNameList+");"
     try:
         cursor.execute(sqlStatement)
         print "Extracting app data"
@@ -144,24 +143,27 @@ def generateAppMatrix(dbHandle):
             for row in queryOutput:
                 permVector = extractAppPermisionVector(dbHandle,row[0])
                 appVector.append(row[1])
-                print "Extracting permission data for app:", row[1]
+#                 print "Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
                 #Write the app permissions matrix to a file
-                print "Writing app permission vector to a file"
-                with io.open('appMatrix.txt', 'a', encoding='utf-8') as f:
+#                 print "Writing app permission vector to a file"
+                with io.open(appMatrixFile, 'a', encoding='utf-8') as f:
                     f.write(unicode(permVector))
                     f.write(unicode("\n"))
     except:
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
+    print appVector
+    print appNameList
+    print "\n\n\n"
     return appMatrix, appVector
  
-def doTask():#username, api_key):
+def doTask(predictedClustersFile,appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
     numberOfClusters = 50
-    appMatrix, appVector = generateAppMatrix(dbHandle)
+    appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
     KMeansObject = skcl.KMeans(numberOfClusters)
     print "Running clustering algorithm"
     clusters = KMeansObject.fit_predict(appMatrix)
@@ -174,7 +176,7 @@ def doTask():#username, api_key):
     print predictedClusters
     #Write the predicted clusters to a file
     print "Writing predicted clusters to a file"
-    with io.open('predictedClusters.txt', 'w', encoding='utf-8') as f:
+    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
 #     for appPerm in appMatrix:
 #         print appPerm
@@ -205,7 +207,7 @@ def main(argv):
     text_file.close()
         
     startTime = time.time()
-    doTask()#sys.argv[1], sys.argv[2])
+    doTask(predictedClustersFile,appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

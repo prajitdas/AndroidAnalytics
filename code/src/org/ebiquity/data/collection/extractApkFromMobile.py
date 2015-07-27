@@ -33,7 +33,7 @@ def verifyPresentInAppMarket(urlExtract):
                 return False
         return True
     except urllib2.HTTPError, e:
-        print 'HTTPError = ', str(e.code)
+        print 'HTTPError = ', str(e.code), "for the app", urlExtract
         #This is risky!!!!
         # June 19, 2015: Yes, this was risky commenting out this piece of code - Prajit
         # Don't be ridiculous, once you have collected some data you should not be deleting that data, right?

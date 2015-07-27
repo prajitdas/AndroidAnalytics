@@ -70,6 +70,7 @@ def downloadAPKFromPhone():
             try:
                 databaseHandler.dbManipulateData(dbHandle, sqlStatement)
             except _mysql_exceptions.IntegrityError:
+                print "package",package,"was present, updating now"
                 sqlStatement = "SELECT `id` FROM `appurls` WHERE app_pkg_name = '"+package+"';"
                 cursor = dbHandle.cursor()
                 try:

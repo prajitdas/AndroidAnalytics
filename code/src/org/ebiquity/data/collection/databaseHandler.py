@@ -21,6 +21,7 @@ def dbManipulateData(dbHandle, sqlStatement):
         dbHandle.commit()
     except _mysql_exceptions.IntegrityError:
         print "data present"
+        return -1
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise

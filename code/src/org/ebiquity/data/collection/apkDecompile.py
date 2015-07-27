@@ -173,6 +173,11 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 		raise
 	return permissionId
 
+# Update "perm_extracted" column to mark permissions for app have been extracted
+def updatePermExtracted(dbHandle, pkgName):
+	sqlStatement = "UPDATE `appurls` SET `perm_extracted`=1 WHERE `app_pkg_name`='"+pkgName+"';"
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+
 def extractPermissionsInfo(pkgName,renamedManifestFile):
 	XMLFileHandler = open(renamedManifestFile).read()
 	soup = Soup(XMLFileHandler)
@@ -190,13 +195,15 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 		
 		# Find the App's Id in the DB
 		# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
-		# If that is not true this step will fail and we will
+		# If that is not true this step will fail and we will move on to the next app
 		sqlStatementAppPkgName = "SELECT id FROM `appdata` WHERE `app_pkg_name` = '"+pkgName+"';"
 		appId = getAppId(dbHandle,sqlStatementAppPkgName,pkgName)
 		if appId > 0:
 			# Insert the App_Id and corresponding Perm_Id in to the DB
 			sqlStatement = "INSERT INTO `appperm`(`app_id`,`perm_id`) VALUES ("+str(appId)+","+str(permissionId)+");"
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			# The permissions have been inserted so now we can update the appurls table stating the same
+			updatePermExtracted(dbHandle, pkgName)
 		else:
 			print "Moving on to the next app"
 

@@ -194,33 +194,54 @@ def generateAppMatrix(dbHandle,appMatrixFile):
 def doTask(predictedClustersFile,appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    numberOfClusters = 50
-    appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
-    KMeansObject = skcl.KMeans(numberOfClusters)
-    print "Running clustering algorithm"
-    clusters = KMeansObject.fit_predict(appMatrix)
-    counter = 0
-    predictedClusters = {}
-    for appName in appVector:
-        predictedClusters[appName] = clusters[counter]
-        counter = counter + 1
+    evaluatedClusterResultsDict = {}
+    loopCounter = 0
+    # We want to verify if the number of clusters are "strong with this one" (or not)
+    for numberOfClusters in range(20,71):
+        loopListEvaluatedCluster = []
+        appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
+        KMeansObject = skcl.KMeans(numberOfClusters)
+        print "Running clustering algorithm"
+        clusters = KMeansObject.fit_predict(appMatrix)
+        counter = 0
+        predictedClusters = {}
+        for appName in appVector:
+            predictedClusters[appName] = clusters[counter]
+            counter = counter + 1
+            
+        loopListEvaluatedCluster.append(predictedClusters)
+#         print predictedClusters
+    #     for appPerm in appMatrix:
+    #         print appPerm
+        # permCount = []
+        # permCountFreq = []
+        # for permissionCount, permissionCountFreq in permCountDict.iteritems():
+        #     permCount.append(permissionCount)
+        #     permCountFreq.append(permissionCountFreq)
+        # generatePlot(username, api_key, permCount, permCountFreq)
+    
+        #Clustering task is complete. Now evaluate
+#         evaluationOutput = clEval.evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
+        clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
 
-    print predictedClusters
+        print clusterEvaluationResults["adjusted_rand_score"]
+        print clusterEvaluationResults["adjusted_mutual_info_score"]
+        print clusterEvaluationResults["homogeneity_score"]
+        print clusterEvaluationResults["completeness_score"]
+        print clusterEvaluationResults["v_measure_score"]
+
+        loopListEvaluatedCluster.append(clusterEvaluationResults)
+        
+        stringLoopCounter = 'Loop'+str(loopCounter)
+        print type(stringLoopCounter)
+        evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
+        loopCounter = loopCounter + 1
+    
+    print evaluatedClusterResultsDict
     #Write the predicted clusters to a file
     print "Writing predicted clusters to a file"
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
-#     for appPerm in appMatrix:
-#         print appPerm
-    # permCount = []
-    # permCountFreq = []
-    # for permissionCount, permissionCountFreq in permCountDict.iteritems():
-    #     permCount.append(permissionCount)
-    #     permCountFreq.append(permissionCountFreq)
-    # generatePlot(username, api_key, permCount, permCountFreq)
-
-    #Clustering task is complete.
-    clEval.getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
+        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     dbHandle.close() #DB Close
     
 def main(argv):

@@ -42,7 +42,7 @@ def getCategoryNumbers(appNames,dbHandle):
         labels_true.append(appCategoriesDict[key])
     return labels_true
  
-def getLabelsTrue(clusterInfo):
+def evaluateCluster(clusterInfo):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
     
     labels_pred = []
@@ -55,16 +55,25 @@ def getLabelsTrue(clusterInfo):
 
     labels_true = getCategoryNumbers(appNames,dbHandle)
     
-    print "labels predicted: "+ str(labels_pred)
-    print "labels true: " + str(labels_true)
-    print "adjusted_rand_score: " + str(metrics.adjusted_rand_score(labels_true, labels_pred))
-    print "adjusted_mutual_info_score: " + str(metrics.adjusted_mutual_info_score(labels_true, labels_pred))
-    print "homogeneity_completeness_v_measure: " + str(metrics.homogeneity_completeness_v_measure(labels_true, labels_pred))
+    clusterEvaluationResults = {}
+    clusterEvaluationResults["adjusted_rand_score"] = str(metrics.adjusted_rand_score(labels_true, labels_pred))
+    clusterEvaluationResults["adjusted_mutual_info_score"] = str(metrics.adjusted_mutual_info_score(labels_true, labels_pred))
+    clusterEvaluationResults["homogeneity_score"] = str(metrics.homogeneity_score(labels_true, labels_pred))
+    clusterEvaluationResults["completeness_score"] = str(metrics.completeness_score(labels_true, labels_pred))
+    clusterEvaluationResults["v_measure_score"] = str(metrics.v_measure_score(labels_true, labels_pred))
 
     dbHandle.close() #DB Close
+    
+    return clusterEvaluationResults
 
 def doTask(predictedClustersFile):
-    getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
+    clusterEvaluationResults = evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
+
+    print clusterEvaluationResults["adjusted_rand_score"]
+    print clusterEvaluationResults["adjusted_mutual_info_score"]
+    print clusterEvaluationResults["homogeneity_score"]
+    print clusterEvaluationResults["completeness_score"]
+    print clusterEvaluationResults["v_measure_score"]
     
 def main(argv):
     if len(sys.argv) != 2:

@@ -71,6 +71,12 @@ def getPermissionId(dbHandle,sqlStatement,permissionName):
 		raise
 	return permissionId
 
+'''
+In the JSON for com.iqmobile.iqburpingphone.json we found a permission denoted as: "'android.permission.INTERNET'". So, we have to sanitize the data now!!!
+'''
+def sanitizeInput(permissionName):
+	return permissionName.replace("'", "")
+	
 # Permission info extraction from the App JSON on Playdrone dataset
 def extractPermissionInfo(dbHandle, appJSONDownloadFileLocation, pkgName):
 	appInfoDict = json.loads(open(appJSONDownloadFileLocation, 'r').read().decode('utf8'))
@@ -81,6 +87,7 @@ def extractPermissionInfo(dbHandle, appJSONDownloadFileLocation, pkgName):
 			if 'permission' in app_details:
 				permissionList = app_details['permission']
 				for permissionName in permissionList:
+					permissionName = sanitizeInput(permissionName)
 					# See if the permission is in the table if not insert it and get its id
 					sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
 					permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)

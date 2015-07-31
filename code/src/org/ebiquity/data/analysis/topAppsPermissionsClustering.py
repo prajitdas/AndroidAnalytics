@@ -60,20 +60,20 @@ def isDataCollected(packageName,dbHandle):
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount == 0:
-            print packageName,",error was: url not collected"
+#             print packageName,",error was: url not collected"
             return False
         else:
             queryOutput = cursor.fetchall()
             for row in queryOutput:
                 if row[0] == 0:
-                    if row[1] == 0:
-                        print packageName,",error was: data and permissions not collected"
-                    else:
-                        print packageName,",error was: permissions not collected but data collected"
+#                     if row[1] == 0:
+#                         print packageName,",error was: data and permissions not collected"
+#                     else:
+#                         print packageName,",error was: permissions not collected but data collected"
                     return False
                 else:
                     if row[1] == 0:
-                        print packageName,",error was: permissions collected but data not collected"
+#                         print packageName,",error was: permissions collected but data not collected"
                         return False
                     else:
                         #print packageName,"data and permissions collected"
@@ -132,10 +132,10 @@ def generateAppMatrix(dbHandle,appMatrixFile):
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
-    print appVector
-    print appNameList
-    print "\n\n\n"
-    return appMatrix, appVector
+#     print appVector
+#     print appNameList
+#     print "\n\n\n"
+#     return appMatrix, appVector
  
 def doTask(username, api_key, predictedClustersFile,appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
@@ -172,20 +172,19 @@ def doTask(username, api_key, predictedClustersFile,appMatrixFile):
 #         evaluationOutput = clEval.evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
         clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
 
-        print clusterEvaluationResults["adjusted_rand_score"]
-        print clusterEvaluationResults["adjusted_mutual_info_score"]
-        print clusterEvaluationResults["homogeneity_score"]
-        print clusterEvaluationResults["completeness_score"]
-        print clusterEvaluationResults["v_measure_score"]
+#         print clusterEvaluationResults["adjusted_rand_score"]
+#         print clusterEvaluationResults["adjusted_mutual_info_score"]
+#         print clusterEvaluationResults["homogeneity_score"]
+#         print clusterEvaluationResults["completeness_score"]
+#         print clusterEvaluationResults["v_measure_score"]
 
         loopListEvaluatedCluster.append(clusterEvaluationResults)
         
         stringLoopCounter = 'Loop'+str(loopCounter)
-        print type(stringLoopCounter)
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
         loopCounter = loopCounter + 1
     
-    print evaluatedClusterResultsDict
+#     print evaluatedClusterResultsDict
     #Write the predicted clusters to a file
     print "Writing predicted clusters to a file"
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:

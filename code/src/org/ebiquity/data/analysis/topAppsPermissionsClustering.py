@@ -142,16 +142,19 @@ def generateAppMatrix(dbHandle,appMatrixFile):
 def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    startingNumberOfClusters = 10
-    endingNumberOfClusters = 12
+    #Generate app matrix file once
+    appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
+
+    startingNumberOfClusters = 70
+    endingNumberOfClusters = 72
     loopCounter = startingNumberOfClusters
     evaluatedClusterResultsDict = {}
     # We want to verify if the number of clusters are "strong with this one" (or not)
+    #Run clustering with a varying number of clusters
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
         loopListEvaluatedCluster = []
-        appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
         KMeansObject = skcl.KMeans(numberOfClusters)
-        print "Running clustering algorithm"
+        print "Running clustering algorithm with", numberOfClusters, "clusters"
         clusters = KMeansObject.fit_predict(appMatrix)
         counter = 0
         predictedClusters = {}

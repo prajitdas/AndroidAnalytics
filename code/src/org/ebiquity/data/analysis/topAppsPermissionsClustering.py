@@ -135,9 +135,11 @@ def generateAppMatrix(dbHandle,appMatrixFile):
 #     print appVector
 #     print appNameList
 #     print "\n\n\n"
-#     return appMatrix, appVector
+
+    #Return app matrix and app vector
+    return appMatrix, appVector
  
-def doTask(username, api_key, predictedClustersFile,appMatrixFile):
+def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
     startingNumberOfClusters = 10

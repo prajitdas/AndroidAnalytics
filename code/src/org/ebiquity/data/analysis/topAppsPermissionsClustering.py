@@ -141,7 +141,7 @@ def doTask(username, api_key, predictedClustersFile,appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
     startingNumberOfClusters = 10
-    endingNumberOfClusters = 100
+    endingNumberOfClusters = 12
     loopCounter = startingNumberOfClusters
     evaluatedClusterResultsDict = {}
     # We want to verify if the number of clusters are "strong with this one" (or not)
@@ -193,36 +193,6 @@ def doTask(username, api_key, predictedClustersFile,appMatrixFile):
     dbHandle.close() #DB Close
     genGraph.plotResults(username, api_key, predictedClustersFile)
 
-def plotResults(username, api_key, fileToRead):
-    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
-    clusterCountList = []
-    homogeneityScoreList = []
-    completenessScoreList = []
-    adjustedRandScoreList = []
-    adjustedMutualInfoScoreList = []
-    vMeasureScoreList = []
-    for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
-        clusterCountList.append(int(clusterCount.replace("Loop",""))+20)
-        clusterInfo = loopInfo[1]
-        if "adjusted_rand_score" in clusterInfo:
-            print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
-            adjustedRandScoreList.append(float(clusterInfo["homogeneity_score"]))
-        if "adjusted_mutual_info_score" in clusterInfo:
-            print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
-            adjustedMutualInfoScoreList.append(float(clusterInfo["homogeneity_score"]))
-        if "homogeneity_score" in clusterInfo:
-            print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
-            homogeneityScoreList.append(float(clusterInfo["homogeneity_score"]))
-        if "completeness_score" in clusterInfo:
-            print "In", clusterCount, "we have completeness_score of", clusterInfo["completeness_score"]
-            completenessScoreList.append(float(clusterInfo["completeness_score"]))
-        if "v_measure_score" in clusterInfo:
-            print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
-            vMeasureScoreList.append(float(clusterInfo["homogeneity_score"]))
-
-    print clusterCountList, homogeneityScoreList, completenessScoreList
-    generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList)
-    
 def main(argv):
     if len(sys.argv) != 3:
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')

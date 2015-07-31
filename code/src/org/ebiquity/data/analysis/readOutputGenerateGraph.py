@@ -17,7 +17,7 @@ from plotly.graph_objs import *
 import json
 
 # This is a plot for Goodness of Cluster measure using homogeneity_score, completeness_score
-def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList=[], adjustedMutualInfoScoreList=[], vMeasureScoreList=[]):
+def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList):
     tls.set_credentials_file(username, api_key)
     trace0 = Bar(
         x=clusterCountList,
@@ -35,7 +35,8 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
             color='rgb(155, 8, 19)'
         )
     )
-    if adjustedRandScoreList.len > 0:
+    data = Data([trace0,trace1])
+    if len(adjustedRandScoreList) > 0:
         trace2 = Bar(
             x=clusterCountList,
             y=adjustedRandScoreList,
@@ -44,7 +45,8 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
                 color='rgb(15, 18, 190)'
             )
         )
-        if adjustedMutualInfoScoreList.len > 0:
+        data = Data([trace0,trace1,trace2])
+        if len(adjustedMutualInfoScoreList) > 0:
             trace3 = Bar(
                 x=clusterCountList,
                 y=adjustedMutualInfoScoreList,
@@ -53,7 +55,8 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
                     color='rgb(255, 81, 219)'
                 )
             )
-            if vMeasureScoreList.len > 0:
+            data = Data([trace0,trace1,trace2,trace3])
+            if len(vMeasureScoreList) > 0:
                 trace4 = Bar(
                     x=clusterCountList,
                     y=vMeasureScoreList,
@@ -63,9 +66,6 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
                     )
                 )
                 data = Data([trace0,trace1,trace2,trace3,trace4])
-            data = Data([trace0,trace1,trace2,trace3])
-        data = Data([trace0,trace1,trace2])
-    data = Data([trace0,trace1])
     layout = Layout(
         title='Number of Clusters vs Homogeneity and Completeness',
         xaxis=XAxis(
@@ -134,13 +134,18 @@ def plotResults(username, api_key, fileToRead):
     clusterCountList = []
     homogeneityScoreList = []
     completenessScoreList = []
+    adjustedRandScoreList = []
+    adjustedMutualInfoScoreList = []
+    vMeasureScoreList = []
     for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
         clusterCountList.append(int(clusterCount.replace("Loop",""))+20)
         clusterInfo = loopInfo[1]
         if "adjusted_rand_score" in clusterInfo:
             print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
+            adjustedRandScoreList.append(float(clusterInfo["homogeneity_score"]))
         if "adjusted_mutual_info_score" in clusterInfo:
             print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
+            adjustedMutualInfoScoreList.append(float(clusterInfo["homogeneity_score"]))
         if "homogeneity_score" in clusterInfo:
             print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
             homogeneityScoreList.append(float(clusterInfo["homogeneity_score"]))
@@ -149,9 +154,10 @@ def plotResults(username, api_key, fileToRead):
             completenessScoreList.append(float(clusterInfo["completeness_score"]))
         if "v_measure_score" in clusterInfo:
             print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
+            vMeasureScoreList.append(float(clusterInfo["homogeneity_score"]))
 
-    print clusterCountList, homogeneityScoreList, completenessScoreList
-    generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList)
+    print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
+    generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList)
     
 def main(argv):
     if len(sys.argv) != 4:

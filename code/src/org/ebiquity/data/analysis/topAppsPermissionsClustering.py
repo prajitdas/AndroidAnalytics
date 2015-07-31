@@ -145,8 +145,8 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     #Generate app matrix file once
     appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
 
-    startingNumberOfClusters = 70
-    endingNumberOfClusters = 72
+    startingNumberOfClusters = 1
+    endingNumberOfClusters = 100
     loopCounter = startingNumberOfClusters
     evaluatedClusterResultsDict = {}
     # We want to verify if the number of clusters are "strong with this one" (or not)

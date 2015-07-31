@@ -24,7 +24,7 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
         y=homogeneityScoreList,
         name='Homogeneity Score',
         marker=Marker(
-            color='rgb(55, 83, 109)'
+            color='rgb(0, 255, 0)'
         )
     )
     trace1 = Bar(
@@ -32,17 +32,18 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
         y=completenessScoreList,
         name='Completeness Score',
         marker=Marker(
-            color='rgb(155, 8, 19)'
+            color='rgb(255, 0, 0)'
         )
     )
     data = Data([trace0,trace1])
+    '''
     if len(adjustedRandScoreList) > 0:
         trace2 = Bar(
             x=clusterCountList,
             y=adjustedRandScoreList,
-            name='Adjusted Rand Score',
+            name='V Measure Score',
             marker=Marker(
-                color='rgb(15, 18, 190)'
+                color='rgb(0, 0, 255)'
             )
         )
         data = Data([trace0,trace1,trace2])
@@ -52,20 +53,21 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
                 y=adjustedMutualInfoScoreList,
                 name='Adjusted Mutual Info Score',
                 marker=Marker(
-                    color='rgb(255, 81, 219)'
+                    color='rgb(100, 100, 100)'
                 )
             )
             data = Data([trace0,trace1,trace2,trace3])
-            if len(vMeasureScoreList) > 0:
+            if len(adjustedRandScoreList) > 0:
                 trace4 = Bar(
                     x=clusterCountList,
-                    y=vMeasureScoreList,
-                    name='V Measure Score',
+                    y=adjustedRandScoreList,
+                    name='Adjusted Rand Score',
                     marker=Marker(
-                        color='rgb(15, 8, 19)'
+                        color='rgb(200, 200, 200)'
                     )
                 )
                 data = Data([trace0,trace1,trace2,trace3,trace4])
+    '''
     layout = Layout(
         title='Number of Clusters vs Homogeneity and Completeness',
         xaxis=XAxis(
@@ -142,10 +144,10 @@ def plotResults(username, api_key, fileToRead):
         clusterInfo = loopInfo[1]
         if "adjusted_rand_score" in clusterInfo:
             print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
-            adjustedRandScoreList.append(float(clusterInfo["homogeneity_score"]))
+            adjustedRandScoreList.append(float(clusterInfo["adjusted_rand_score"]))
         if "adjusted_mutual_info_score" in clusterInfo:
             print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
-            adjustedMutualInfoScoreList.append(float(clusterInfo["homogeneity_score"]))
+            adjustedMutualInfoScoreList.append(float(clusterInfo["adjusted_mutual_info_score"]))
         if "homogeneity_score" in clusterInfo:
             print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
             homogeneityScoreList.append(float(clusterInfo["homogeneity_score"]))
@@ -154,7 +156,7 @@ def plotResults(username, api_key, fileToRead):
             completenessScoreList.append(float(clusterInfo["completeness_score"]))
         if "v_measure_score" in clusterInfo:
             print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
-            vMeasureScoreList.append(float(clusterInfo["homogeneity_score"]))
+            vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
 
     print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
     generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList)

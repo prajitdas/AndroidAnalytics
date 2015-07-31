@@ -138,7 +138,7 @@ def plotResults(username, api_key, fileToRead):
     adjustedMutualInfoScoreList = []
     vMeasureScoreList = []
     for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
-        clusterCountList.append(int(clusterCount.replace("Loop",""))+20)
+        clusterCountList.append(int(clusterCount.replace("Loop","")))
         clusterInfo = loopInfo[1]
         if "adjusted_rand_score" in clusterInfo:
             print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]

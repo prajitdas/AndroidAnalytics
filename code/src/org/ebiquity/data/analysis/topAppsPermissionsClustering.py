@@ -9,11 +9,6 @@ Usage: python permissionsClustering.py username api_key
 import sys
 import time
 import databaseHandler
-import plotly.tools as tls
-# Learn about API authentication here: https://plot.ly/python/getting-started
-# Find your api_key here: https://plot.ly/settings/api
-import plotly.plotly as py
-from plotly.graph_objs import *
 import sklearn.cluster as skcl
 import io
 import json
@@ -23,56 +18,7 @@ import platform
 import clusterEvaluation as clEval
 #Use this for Python debug
 #import pdb
-
-# This is a plot for Permissions count vs Frequency of apps requesting that many permissions
-def generatePlot(username, api_key, permCount, permCountFreq):
-    tls.set_credentials_file(username, api_key)
-    trace = Bar(
-        x=permCount,
-        y=permCountFreq,
-        name='App Permission frequency of Medical Apps',
-        marker=Marker(
-            color='rgb(55, 83, 109)'
-        )
-    )
-    data = Data([trace])
-    layout = Layout(
-        title='App Frequency vs Permission requested',
-        xaxis=XAxis(
-            title='Number of Permissions requested',
-            titlefont=Font(
-                size=16,
-                color='rgb(107, 107, 107)'
-            ),
-            tickfont=Font(
-                size=14,
-                color='rgb(107, 107, 107)'
-            )
-        ),
-        yaxis=YAxis(
-            title='App frequency',
-            titlefont=Font(
-                size=16,
-                color='rgb(107, 107, 107)'
-            ),
-            tickfont=Font(
-                size=14,
-                color='rgb(107, 107, 107)'
-            )
-        ),
-        legend=Legend(
-            x=0,
-            y=1.0,
-            bgcolor='rgba(255, 255, 255, 0)',
-            bordercolor='rgba(255, 255, 255, 0)'
-        ),
-        barmode='group',
-        bargap=0.15,
-        bargroupgap=0.1
-    )
-    fig = Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='style-bar')
-    print "Check out the URL: "+plot_url+" for your plot"
+import readOutputGenerateGraph as genGraph
 
 def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
@@ -191,13 +137,15 @@ def generateAppMatrix(dbHandle,appMatrixFile):
     print "\n\n\n"
     return appMatrix, appVector
  
-def doTask(predictedClustersFile,appMatrixFile):
+def doTask(username, api_key, predictedClustersFile,appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
+    startingNumberOfClusters = 10
+    endingNumberOfClusters = 100
+    loopCounter = startingNumberOfClusters
     evaluatedClusterResultsDict = {}
-    loopCounter = 0
     # We want to verify if the number of clusters are "strong with this one" (or not)
-    for numberOfClusters in range(20,71):
+    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
         loopListEvaluatedCluster = []
         appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
         KMeansObject = skcl.KMeans(numberOfClusters)
@@ -243,15 +191,46 @@ def doTask(predictedClustersFile,appMatrixFile):
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     dbHandle.close() #DB Close
+    genGraph.plotResults(username, api_key, predictedClustersFile)
+
+def plotResults(username, api_key, fileToRead):
+    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
+    clusterCountList = []
+    homogeneityScoreList = []
+    completenessScoreList = []
+    adjustedRandScoreList = []
+    adjustedMutualInfoScoreList = []
+    vMeasureScoreList = []
+    for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
+        clusterCountList.append(int(clusterCount.replace("Loop",""))+20)
+        clusterInfo = loopInfo[1]
+        if "adjusted_rand_score" in clusterInfo:
+            print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
+            adjustedRandScoreList.append(float(clusterInfo["homogeneity_score"]))
+        if "adjusted_mutual_info_score" in clusterInfo:
+            print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
+            adjustedMutualInfoScoreList.append(float(clusterInfo["homogeneity_score"]))
+        if "homogeneity_score" in clusterInfo:
+            print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
+            homogeneityScoreList.append(float(clusterInfo["homogeneity_score"]))
+        if "completeness_score" in clusterInfo:
+            print "In", clusterCount, "we have completeness_score of", clusterInfo["completeness_score"]
+            completenessScoreList.append(float(clusterInfo["completeness_score"]))
+        if "v_measure_score" in clusterInfo:
+            print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
+            vMeasureScoreList.append(float(clusterInfo["homogeneity_score"]))
+
+    print clusterCountList, homogeneityScoreList, completenessScoreList
+    generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList)
     
 def main(argv):
-    if len(sys.argv) != 1:#3:
+    if len(sys.argv) != 3:
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
         
     ticks = time.time()
     appMatrixFile = "appMatrix"+str(ticks)+".txt"
-    predictedClustersFile = "predictedClusters"+str(ticks)+".txt"
+    predictedClustersFile = "predictedClusters"+str(ticks)+".json"
 
     text_file = open(appMatrixFile, "w")
     text_file.write("")
@@ -262,7 +241,7 @@ def main(argv):
     text_file.close()
         
     startTime = time.time()
-    doTask(predictedClustersFile,appMatrixFile)
+    doTask(sys.argv[1], sys.argv[2], predictedClustersFile,appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

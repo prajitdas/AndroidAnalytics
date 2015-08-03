@@ -19,18 +19,18 @@ from plotly.graph_objs import *
 def generatePlot(username, api_key, permName, appCount):
     tls.set_credentials_file(username, api_key)
     trace = Bar(
-        x=permCount,
+        x=permName,
         y=appCount,
-        name='App frequency',
+        name='App frequency count',
         marker=Marker(
             color='rgb(55, 83, 109)'
         )
     )
     data = Data([trace])
     layout = Layout(
-        title='App Frequency vs Permissions requested',
+        title='Permission vs App frequency count',
         xaxis=XAxis(
-            title='Permissions requested',
+            title='Permission',
             titlefont=Font(
                 size=16,
                 color='rgb(107, 107, 107)'

@@ -3,7 +3,7 @@
 '''
 Created on May 18, 2015
 @author: Prajit
-Usage: python generateFrequencyHistogram.py username api_key
+Usage: python generateAppPermissionsRequestedFrequencyHistogram.py username api_key
 '''
 
 import sys
@@ -28,7 +28,7 @@ def generatePlot(username, api_key, permCount, permCountFreq):
     )
     data = Data([trace])
     layout = Layout(
-        title='App Frequency vs Permissions requested',
+        title='App Frequency vs Number of Permissions requested',
         xaxis=XAxis(
             title='Number of Permissions requested',
             titlefont=Font(
@@ -101,7 +101,7 @@ def doTask(username, api_key):
     
 def main(argv):
     if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python generateFrequencyHistogram.py username api_key\n')
+        sys.stderr.write('Usage: python generateAppPermissionsRequestedFrequencyHistogram.py username api_key\n')
         sys.exit(1)
 
     startTime = time.time()

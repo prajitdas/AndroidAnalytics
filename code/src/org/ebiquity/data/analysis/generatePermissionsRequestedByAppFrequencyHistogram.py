@@ -98,11 +98,11 @@ def crawlUrl(dbHandle, urlExtract):
 def doTask(username, api_key):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    crawlUrl(dbHandle, "https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml")    
-    sys.exit(1)
+#     crawlUrl(dbHandle, "https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml")    
+#     sys.exit(1)
 
     cursor = dbHandle.cursor()
-    sqlStatement = "SELECT * FROM `perm_app_count_view`;"
+    sqlStatement = "SELECT * FROM `perm_app_count_view` LIMIT 50;"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:

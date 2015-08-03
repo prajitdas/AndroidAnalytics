@@ -102,7 +102,7 @@ def doTask(username, api_key):
 #     sys.exit(1)
 
     cursor = dbHandle.cursor()
-    sqlStatement = "SELECT * FROM `perm_app_count_view` LIMIT 50;"
+    sqlStatement = "SELECT * FROM `perm_app_count_view` LIMIT 25;"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount > 0:

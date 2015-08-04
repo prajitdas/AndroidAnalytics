@@ -185,7 +185,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         KMeansObject = skcl.KMeans(numberOfClusters)
         clusterLabelsAssigned = KMeansObject.fit_predict(appMatrix)
         
-        clusterLabelsAssignedWithShape = numpy.array(clusterLabelsAssigned)
+        clusterLabelsAssignedWithShape = np.array(clusterLabelsAssigned)
         
         counter = 0
         predictedClusters = {}

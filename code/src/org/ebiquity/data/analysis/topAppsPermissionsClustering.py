@@ -5,6 +5,9 @@ Created on May 18, 2015
 @author: Prajit
 Usage: python permissionsClustering.py username api_key
 '''
+# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+from __future__ import print_function
+# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import sys
 import time
@@ -21,7 +24,6 @@ import clusterEvaluation as clEval
 import readOutputGenerateGraph as genGraph
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-from __future__ import print_function
 from sklearn.datasets import make_blobs
 import sklearn.cluster as skcl
 from sklearn.metrics import silhouette_samples, silhouette_score

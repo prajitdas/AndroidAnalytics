@@ -136,11 +136,10 @@ def generateAppMatrix(dbHandle,appMatrixFile):
                 appVector.append(row[1])
 #                 print("Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
-                #Write the app permissions matrix to a file
-#                 print("Writing app permission vector to a file"
-                with io.open(appMatrixFile, 'a', encoding='utf-8') as f:
-                    f.write(unicode(permVector))
-                    f.write(unicode("\n"))
+            #Write the app permissions matrix to a file
+#           print("Writing app permission vector to a file"
+            with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
+                f.write(appMatrix)
     except:
         print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
         raise

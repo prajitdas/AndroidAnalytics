@@ -176,7 +176,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         ax1.set_xlim([-0.1, 1])
         # The (numberOfClusters+1)*10 is for inserting blank space between silhouette
         # plots of individual clusters, to demarcate them clearly.
-        ax1.set_ylim([0, len(X) + (numberOfClusters + 1) * 10])
+        ax1.set_ylim([0, len(appMatrix) + (numberOfClusters + 1) * 10])
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
         print("Running clustering algorithm with", numberOfClusters, "clusters")

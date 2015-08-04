@@ -20,6 +20,17 @@ import clusterEvaluation as clEval
 #import pdb
 import readOutputGenerateGraph as genGraph
 
+# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+from __future__ import print_function
+from sklearn.datasets import make_blobs
+import sklearn.cluster as skcl
+from sklearn.metrics import silhouette_samples, silhouette_score
+
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import numpy as np
+# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+
 def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
     sqlStatement = "SELECT count(*) FROM `permissions`;"
@@ -31,7 +42,7 @@ def getPermissionsCount(dbHandle):
             for row in queryOutput:
                 permissionsCount = row[0]
     except:
-        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
+        print("Unexpected error in extractPermisionVector:", sys.exc_info()[0])
         raise
     return permissionsCount
 
@@ -49,7 +60,7 @@ def extractAppPermisionVector(dbHandle,appId):
             for row in queryOutput:
                 permVector[row[0]] = 1
     except:
-        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
+        print("Unexpected error in extractPermisionVector:", sys.exc_info()[0])
         raise
     
     return permVector
@@ -60,26 +71,26 @@ def isDataCollected(packageName,dbHandle):
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount == 0:
-#             print packageName,",error was: url not collected"
+#             printpackageName,",error was: url not collected"
             return False
         else:
             queryOutput = cursor.fetchall()
             for row in queryOutput:
                 if row[0] == 0:
 #                     if row[1] == 0:
-#                         print packageName,",error was: data and permissions not collected"
+#                         printpackageName,",error was: data and permissions not collected"
 #                     else:
-#                         print packageName,",error was: permissions not collected but data collected"
+#                         printpackageName,",error was: permissions not collected but data collected"
                     return False
                 else:
                     if row[1] == 0:
-#                         print packageName,",error was: permissions collected but data not collected"
+#                         printpackageName,",error was: permissions collected but data not collected"
                         return False
                     else:
-                        #print packageName,"data and permissions collected"
+                        #printpackageName,"data and permissions collected"
                         return True
     except:
-        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
+        print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
         raise
 
 def getTopAppsFromDownloadedJSONs(dbHandle):
@@ -113,7 +124,7 @@ def generateAppMatrix(dbHandle,appMatrixFile):
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appNameList+");"
     try:
         cursor.execute(sqlStatement)
-        print "Extracting app data"
+        print("Extracting app data")
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
             appMatrix = []
@@ -121,24 +132,24 @@ def generateAppMatrix(dbHandle,appMatrixFile):
             for row in queryOutput:
                 permVector = extractAppPermisionVector(dbHandle,row[0])
                 appVector.append(row[1])
-#                 print "Extracting permission data for app:", row[1]
+#                 print("Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
                 #Write the app permissions matrix to a file
-#                 print "Writing app permission vector to a file"
+#                 print("Writing app permission vector to a file"
                 with io.open(appMatrixFile, 'a', encoding='utf-8') as f:
                     f.write(unicode(permVector))
                     f.write(unicode("\n"))
     except:
-        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
+        print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
         raise
 
-#     print appVector
-#     print appNameList
-#     print "\n\n\n"
+#     printappVector
+#     printappNameList
+#     print("\n\n\n"
 
     #Return app matrix and app vector
     return appMatrix, appVector
- 
+
 def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
@@ -161,14 +172,14 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         # The silhouette coefficient can range from -1, 1 but in this example all
         # lie within [-0.1, 1]
         ax1.set_xlim([-0.1, 1])
-        # The (n_clusters+1)*10 is for inserting blank space between silhouette
+        # The (numberOfClusters+1)*10 is for inserting blank space between silhouette
         # plots of individual clusters, to demarcate them clearly.
-        ax1.set_ylim([0, len(X) + (n_clusters + 1) * 10])
+        ax1.set_ylim([0, len(X) + (numberOfClusters + 1) * 10])
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
-        print "Running clustering algorithm with", numberOfClusters, "clusters"
+        print("Running clustering algorithm with", numberOfClusters, "clusters")
         loopListEvaluatedCluster = []
-        # Initialize the clusterer with numberOfClusters value 
+        # Initialize the KMeansObject with numberOfClusters value 
         KMeansObject = skcl.KMeans(numberOfClusters)
         clusterLabelsAssigned = KMeansObject.fit_predict(appMatrix)
         counter = 0
@@ -178,9 +189,9 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
             counter = counter + 1
             
         loopListEvaluatedCluster.append(predictedClusters)
-#         print predictedClusters
-    #     for appPerm in appMatrix:
-    #         print appPerm
+#         printpredictedClusters
+#         for appPerm in appMatrix:
+#            printappPerm
         # permCount = []
         # permCountFreq = []
         # for permissionCount, permissionCountFreq in permCountDict.iteritems():
@@ -191,11 +202,11 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         #Clustering task is complete. Now evaluate
 #         evaluationOutput = clEval.evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
         clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
-#         print clusterEvaluationResults["adjusted_rand_score"]
-#         print clusterEvaluationResults["adjusted_mutual_info_score"]
-#         print clusterEvaluationResults["homogeneity_score"]
-#         print clusterEvaluationResults["completeness_score"]
-#         print clusterEvaluationResults["v_measure_score"]
+#         printclusterEvaluationResults["adjusted_rand_score"]
+#         printclusterEvaluationResults["adjusted_mutual_info_score"]
+#         printclusterEvaluationResults["homogeneity_score"]
+#         printclusterEvaluationResults["completeness_score"]
+#         printclusterEvaluationResults["v_measure_score"]
 
         loopListEvaluatedCluster.append(clusterEvaluationResults)
 
@@ -211,21 +222,21 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     
         # Compute the silhouette scores for each sample
         sample_silhouette_values = silhouette_samples(appMatrix, clusterLabelsAssigned)
-        print sample_silhouette_values
+        print(sample_silhouette_values)
     
         y_lower = 10
-        for i in range(n_clusters):
+        for i in range(numberOfClusters):
             # Aggregate the silhouette scores for samples belonging to
             # cluster i, and sort them
             ith_cluster_silhouette_values = \
-                sample_silhouette_values[cluster_labels == i]
+                sample_silhouette_values[clusterLabelsAssigned == i]
     
             ith_cluster_silhouette_values.sort()
     
             size_cluster_i = ith_cluster_silhouette_values.shape[0]
             y_upper = y_lower + size_cluster_i
     
-            color = cm.spectral(float(i) / n_clusters)
+            color = cm.spectral(float(i) / numberOfClusters)
             ax1.fill_betweenx(np.arange(y_lower, y_upper),
                               0, ith_cluster_silhouette_values,
                               facecolor=color, edgecolor=color, alpha=0.7)
@@ -247,12 +258,12 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         ax1.set_xticks([-0.1, 0, 0.2, 0.4, 0.6, 0.8, 1])
     
         # 2nd Plot showing the actual clusters formed
-        colors = cm.spectral(cluster_labels.astype(float) / n_clusters)
-        ax2.scatter(X[:, 0], X[:, 1], marker='.', s=30, lw=0, alpha=0.7,
+        colors = cm.spectral(clusterLabelsAssigned.astype(float) / numberOfClusters)
+        ax2.scatter(appMatrix[:, 0], appMatrix[:, 1], marker='.', s=30, lw=0, alpha=0.7,
                     c=colors)
     
         # Labeling the clusters
-        centers = clusterer.cluster_centers_
+        centers = KMeansObject.cluster_centers_
         # Draw white circles at cluster centers
         ax2.scatter(centers[:, 0], centers[:, 1],
                     marker='o', c="white", alpha=1, s=200)
@@ -265,7 +276,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         ax2.set_ylabel("Feature space for the 2nd feature")
     
         plt.suptitle(("Silhouette analysis for KMeans clustering on sample data "
-                      "with n_clusters = %d" % n_clusters),
+                      "with numberOfClusters = %d" % numberOfClusters),
                      fontsize=14, fontweight='bold')
     
         plt.show()
@@ -278,9 +289,9 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
         loopCounter = loopCounter + 1
     
-#     print evaluatedClusterResultsDict
-    #Write the predicted clusters to a file
-    print "Writing predicted clusters to a file"
+#    printevaluatedClusterResultsDict
+#    Write the predicted clusters to a file
+    print("Writing predicted clusters to a file")
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     dbHandle.close() #DB Close
@@ -306,7 +317,7 @@ def main(argv):
     startTime = time.time()
     doTask(sys.argv[1], sys.argv[2], predictedClustersFile,appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
-    print "Execution time was: "+executionTime+" ms"
+    print("Execution time was: "+executionTime+" ms")
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

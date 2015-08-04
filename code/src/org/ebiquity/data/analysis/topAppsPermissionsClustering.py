@@ -185,8 +185,6 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         KMeansObject = skcl.KMeans(numberOfClusters)
         clusterLabelsAssigned = KMeansObject.fit_predict(appMatrix)
         
-        clusterLabelsAssignedWithShape = np.array(clusterLabelsAssigned)
-        
         counter = 0
         predictedClusters = {}
         for appName in appVector:
@@ -219,14 +217,14 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
         # clusters
-        silhouette_avg = silhouette_score(appMatrix, clusterLabelsAssignedWithShape)
+        silhouette_avg = silhouette_score(appMatrix, clusterLabelsAssigned)
         clusterSilhouetteAverage = {}
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print("For number of clusters =", numberOfClusters,
               "The average silhouette_score is :", silhouette_avg)
     
         # Compute the silhouette scores for each sample
-        sample_silhouette_values = silhouette_samples(appMatrix, clusterLabelsAssignedWithShape)
+        sample_silhouette_values = silhouette_samples(appMatrix, clusterLabelsAssigned)
         print(sample_silhouette_values)
     
         y_lower = 10
@@ -263,7 +261,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         ax1.set_xticks([-0.1, 0, 0.2, 0.4, 0.6, 0.8, 1])
     
         # 2nd Plot showing the actual clusters formed
-        colors = cm.spectral(clusterLabelsAssignedWithShape.astype(float) / numberOfClusters)
+        colors = cm.spectral(clusterLabelsAssigned.astype(float) / numberOfClusters)
         ax2.scatter(appMatrix[:, 0], appMatrix[:, 1], marker='.', s=30, lw=0, alpha=0.7,
                     c=colors)
     

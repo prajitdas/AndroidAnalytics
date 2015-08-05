@@ -120,7 +120,6 @@ def generateAppMatrix(dbHandle,appMatrixFile):
     cursor = dbHandle.cursor()
     
     appNameList = getTopAppsFromDownloadedJSONs(dbHandle)
-    #sys.exit(1)
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appNameList+");"
@@ -155,6 +154,8 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
 
     #Generate app matrix file once
     appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
+    
+    print(appMatrix)
 
     startingNumberOfClusters = 1
     endingNumberOfClusters = 100

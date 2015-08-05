@@ -181,6 +181,8 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     # We want to verify if the number of clusters are "strong with this one" (or not)
     #Run clustering with a varying number of clusters
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
+        print("Running clustering algorithm with", numberOfClusters, "clusters")
+        '''
         # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
         # Create a subplot with 1 row and 2 columns
         fig, (ax1, ax2) = plt.subplots(1, 2)
@@ -194,8 +196,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         # plots of individual clusters, to demarcate them clearly.
         ax1.set_ylim([0, len(X) + (numberOfClusters + 1) * 10])
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-
-        print("Running clustering algorithm with", numberOfClusters, "clusters")
+        '''
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
         KMeansObject = skcl.KMeans(numberOfClusters)
@@ -228,7 +229,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
 #         printclusterEvaluationResults["v_measure_score"]
 
         loopListEvaluatedCluster.append(clusterEvaluationResults)
-
+        '''
         # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
@@ -299,11 +300,11 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
                      fontsize=14, fontweight='bold')
     
         plt.show()
-        # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-        
+
         # Insert the silhouette_avg for the cluster into the Json for further evaluation
         loopListEvaluatedCluster.append(clusterSilhouetteAverage)
-        
+        # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
+        '''        
         stringLoopCounter = 'Loop'+str(loopCounter)
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
         loopCounter = loopCounter + 1

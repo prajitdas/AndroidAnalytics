@@ -154,8 +154,25 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
 
     #Generate app matrix file once
     appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
-    
     print(appMatrix)
+    
+    '''
+    appVector = []
+    appVector.append("com.facebook.katana")
+    appMatrix = [[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
+                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,]]
+    '''
+    X = np.array(appMatrix)
 
     startingNumberOfClusters = 1
     endingNumberOfClusters = 100
@@ -175,14 +192,14 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         ax1.set_xlim([-0.1, 1])
         # The (numberOfClusters+1)*10 is for inserting blank space between silhouette
         # plots of individual clusters, to demarcate them clearly.
-        ax1.set_ylim([0, len(appMatrix) + (numberOfClusters + 1) * 10])
+        ax1.set_ylim([0, len(X) + (numberOfClusters + 1) * 10])
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
         print("Running clustering algorithm with", numberOfClusters, "clusters")
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
         KMeansObject = skcl.KMeans(numberOfClusters)
-        clusterLabelsAssigned = KMeansObject.fit_predict(appMatrix)
+        clusterLabelsAssigned = KMeansObject.fit_predict(X)
         
         counter = 0
         predictedClusters = {}
@@ -192,7 +209,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
             
         loopListEvaluatedCluster.append(predictedClusters)
 #         printpredictedClusters
-#         for appPerm in appMatrix:
+#         for appPerm in X:
 #            printappPerm
         # permCount = []
         # permCountFreq = []
@@ -216,14 +233,14 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
         # clusters
-        silhouette_avg = silhouette_score(appMatrix, clusterLabelsAssigned)
+        silhouette_avg = silhouette_score(X, clusterLabelsAssigned)
         clusterSilhouetteAverage = {}
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print("For number of clusters =", numberOfClusters,
               "The average silhouette_score is :", silhouette_avg)
     
         # Compute the silhouette scores for each sample
-        sample_silhouette_values = silhouette_samples(appMatrix, clusterLabelsAssigned)
+        sample_silhouette_values = silhouette_samples(X, clusterLabelsAssigned)
         print(sample_silhouette_values)
     
         y_lower = 10
@@ -261,7 +278,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     
         # 2nd Plot showing the actual clusters formed
         colors = cm.spectral(clusterLabelsAssigned.astype(float) / numberOfClusters)
-        ax2.scatter(appMatrix[:, 0], appMatrix[:, 1], marker='.', s=30, lw=0, alpha=0.7,
+        ax2.scatter(X[:, 0], X[:, 1], marker='.', s=30, lw=0, alpha=0.7,
                     c=colors)
     
         # Labeling the clusters

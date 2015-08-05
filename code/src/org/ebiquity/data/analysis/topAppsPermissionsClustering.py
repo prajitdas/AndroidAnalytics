@@ -101,7 +101,7 @@ def getTopAppsFromDownloadedJSONs(dbHandle):
     currentDirectory = os.getcwd()
     if osInfo == 'Windows':
         topAppJsonsFrom42MattersAPIDirectory = currentDirectory+"\\topAppJsonsFrom42MattersAPI"
-    elif osInfo == 'Linux':
+    elif osInfo == 'Linux' or osInfo == 'Darwin':
         topAppJsonsFrom42MattersAPIDirectory = currentDirectory+"/topAppJsonsFrom42MattersAPI"
     
     appNameList = []
@@ -139,14 +139,11 @@ def generateAppMatrix(dbHandle,appMatrixFile):
             #Write the app permissions matrix to a file
 #           print("Writing app permission vector to a file"
             with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
-                f.write(appMatrix)
+                for permVector in appMatrix:
+                    appMatrixFile.write("%s\n" % permVector)
     except:
         print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
         raise
-
-#     printappVector
-#     printappNameList
-#     print("\n\n\n"
 
     #Return app matrix and app vector
     return appMatrix, appVector

@@ -304,7 +304,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     dbHandle.close() #DB Close
-    genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
+    #genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
     genGraph.plotResults(username, api_key, predictedClustersFile)
 
 def main(argv):

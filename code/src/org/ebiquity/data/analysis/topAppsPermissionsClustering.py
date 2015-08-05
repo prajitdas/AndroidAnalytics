@@ -22,6 +22,7 @@ import clusterEvaluation as clEval
 #Use this for Python debug
 #import pdb
 import readOutputGenerateGraph as genGraph
+import cPickle
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 from sklearn.datasets import make_blobs
@@ -137,8 +138,10 @@ def generateAppMatrix(dbHandle,appMatrixFile):
                 appMatrix.append(permVector)
             #Write the app permissions matrix to a file
 #           print("Writing app permission vector to a file"
-            matrixToWriteToFile=np.matrix(appMatrix)
-            np.savetxt(appMatrixFile,matrixToWriteToFile,fmt='%d')
+            
+            cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
+#             matrixToWriteToFile=np.matrix(appMatrix)
+#             np.savetxt(appMatrixFile,matrixToWriteToFile,fmt='%d')
 #             with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
 #                 for permVector in appMatrix:
 #                     f.write("%s\n" % permVector)
@@ -239,7 +242,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print("For number of clusters =", numberOfClusters,
               "The average silhouette_score is :", silhouette_avg)
-    
+        
         # Compute the silhouette scores for each sample
         sample_silhouette_values = silhouette_samples(X, clusterLabelsAssigned)
         print(sample_silhouette_values)
@@ -300,7 +303,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
                      fontsize=14, fontweight='bold')
     
         plt.show()
-
+        
         # Insert the silhouette_avg for the cluster into the Json for further evaluation
         loopListEvaluatedCluster.append(clusterSilhouetteAverage)
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        

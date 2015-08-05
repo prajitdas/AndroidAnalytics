@@ -106,6 +106,56 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
     plot_url = py.plot(fig, filename='cluster-measures')
     print "Check out the URL: "+plot_url+" for your plot"
   
+# This is a plot for Goodness of Cluster measure using silhouette_avg
+def generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList):
+    tls.set_credentials_file(username, api_key)
+    trace = Bar(
+        x=clusterCountList,
+        y=silhouetteAvgList,
+        name='Silhouette Average Score',
+        marker=Marker(
+            color='rgb(0, 255, 0)'
+        )
+    )
+    data = Data([trace])
+    layout = Layout(
+        title='Number of Clusters vs Silhouette Average Score',
+        xaxis=XAxis(
+            title='Number of Clusters',
+            titlefont=Font(
+                size=16,
+                color='rgb(107, 107, 107)'
+            ),
+            tickfont=Font(
+                size=14,
+                color='rgb(107, 107, 107)'
+            )
+        ),
+        yaxis=YAxis(
+            title='Silhouette Average Score',
+            titlefont=Font(
+                size=16,
+                color='rgb(107, 107, 107)'
+            ),
+            tickfont=Font(
+                size=14,
+                color='rgb(107, 107, 107)'
+            )
+        ),
+        legend=Legend(
+            x=0,
+            y=1.0,
+            bgcolor='rgba(255, 255, 255, 0)',
+            bordercolor='rgba(255, 255, 255, 0)'
+        ),
+        barmode='group',
+        bargap=0.15,
+        bargroupgap=0.1
+    )
+    fig = Figure(data=data, layout=layout)
+    plot_url = py.plot(fig, filename='silhouette-average-score')
+    print "Check out the URL: "+plot_url+" for your plot"
+
 def extractAppPermData():
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
@@ -131,14 +181,34 @@ def extractAppPermData():
     
     return permCountDict
  
+def plotSilhouetteSamples(username, api_key, fileToRead):
+    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
+    
+    clusterCountList = []
+    
+    silhouetteAvgList = []
+    
+    for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
+        clusterCountList.append(int(clusterCount.replace("Loop","")))
+        clusterInfo = loopInfo[1]
+        if "silhouette_avg" in clusterInfo:
+            print "In", clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
+            adjustedRandScoreList.append(float(clusterInfo["silhouette_avg"]))
+
+    print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
+    generatePlotSilhouette(username, api_key, silhouetteAvgList)
+
 def plotResults(username, api_key, fileToRead):
     evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
+    
     clusterCountList = []
+    
     homogeneityScoreList = []
     completenessScoreList = []
     adjustedRandScoreList = []
     adjustedMutualInfoScoreList = []
     vMeasureScoreList = []
+    
     for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
         clusterCountList.append(int(clusterCount.replace("Loop","")))
         clusterInfo = loopInfo[1]

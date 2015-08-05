@@ -62,7 +62,7 @@ def generatePlot(username, api_key, permCount, permCountFreq):
         bargroupgap=0.1
     )
     fig = Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='style-bar')
+    plot_url = py.plot(fig, filename='app-perm')
     print "Check out the URL: "+plot_url+" for your plot"
   
 def extractAppPermData():

@@ -140,6 +140,7 @@ def generateAppMatrix(dbHandle,appMatrixFile):
 #           print("Writing app permission vector to a file"
             
             cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
+            #obj = cPickle.load(open(appMatrixFile, 'rb'))
 #             matrixToWriteToFile=np.matrix(appMatrix)
 #             np.savetxt(appMatrixFile,matrixToWriteToFile,fmt='%d')
 #             with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
@@ -157,24 +158,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
 
     #Generate app matrix file once
     appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
-    print(appMatrix)
     
-    '''
-    appVector = []
-    appVector.append("com.facebook.katana")
-    appMatrix = [[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,],
-                 [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,]]
-    '''
     X = np.array(appMatrix)
 
     startingNumberOfClusters = 1
@@ -232,7 +216,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
 #         printclusterEvaluationResults["v_measure_score"]
 
         loopListEvaluatedCluster.append(clusterEvaluationResults)
-        '''
+        
         # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
@@ -242,7 +226,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print("For number of clusters =", numberOfClusters,
               "The average silhouette_score is :", silhouette_avg)
-        
+        '''
         # Compute the silhouette scores for each sample
         sample_silhouette_values = silhouette_samples(X, clusterLabelsAssigned)
         print(sample_silhouette_values)
@@ -303,11 +287,11 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
                      fontsize=14, fontweight='bold')
     
         plt.show()
-        
+        '''
         # Insert the silhouette_avg for the cluster into the Json for further evaluation
         loopListEvaluatedCluster.append(clusterSilhouetteAverage)
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
-        '''        
+                
         stringLoopCounter = 'Loop'+str(loopCounter)
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
         loopCounter = loopCounter + 1
@@ -318,6 +302,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     dbHandle.close() #DB Close
+    genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
     genGraph.plotResults(username, api_key, predictedClustersFile)
 
 def main(argv):

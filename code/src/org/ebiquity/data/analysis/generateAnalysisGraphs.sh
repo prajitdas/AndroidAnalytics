@@ -1,4 +1,0 @@
-#!/bin/bash
-python generateAppPermissionsRequestedFrequencyHistogram.py prajitdas 15irk8yvf3
-python generatePermissionsRequestedByAppFrequencyHistogram.py prajitdas 15irk8yvf3
-python topAppsPermissionsClustering.py prajitdas 15irk8yvf3

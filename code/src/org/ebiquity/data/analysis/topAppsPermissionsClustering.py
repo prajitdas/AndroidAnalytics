@@ -138,9 +138,11 @@ def generateAppMatrix(dbHandle,appMatrixFile):
                 appMatrix.append(permVector)
             #Write the app permissions matrix to a file
 #           print("Writing app permission vector to a file"
-            with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
-                for permVector in appMatrix:
-                    f.write("%s\n" % permVector)
+            matrixToWriteToFile=np.matrix(appMatrix)
+            np.savetxt(appMatrixFile,matrixToWriteToFile,fmt='%d')
+#             with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
+#                 for permVector in appMatrix:
+#                     f.write("%s\n" % permVector)
     except:
         print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
         raise

@@ -35,8 +35,8 @@ def computeSilhouette(appMatrixFile):
     #for listVec in X:
     #    print(listVec)
 
-    startingNumberOfClusters = 10
-    endingNumberOfClusters = 15
+    startingNumberOfClusters = 2
+    endingNumberOfClusters = 6
 
     for n_clusters in range(startingNumberOfClusters,endingNumberOfClusters):
         # Create a subplot with 1 row and 2 columns

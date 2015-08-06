@@ -152,8 +152,8 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
     X = np.array(appMatrix)
     
-#     silsam.computeSilhouette(appMatrixFile)
-#     sys.exit(1)
+    silsam.computeSilhouette(appMatrixFile)
+    sys.exit(1)
 
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 100

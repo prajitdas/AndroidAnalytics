@@ -193,7 +193,7 @@ def plotSilhouetteSamples(username, api_key, fileToRead):
         clusterInfo = loopInfo[1]
         if "silhouette_avg" in clusterInfo:
             print "In", clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
-            adjustedRandScoreList.append(float(clusterInfo["silhouette_avg"]))
+            silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))
 
     print silhouetteAvgList
     generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList)

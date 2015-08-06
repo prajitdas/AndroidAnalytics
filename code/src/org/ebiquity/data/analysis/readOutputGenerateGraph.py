@@ -190,7 +190,7 @@ def plotSilhouetteSamples(username, api_key, fileToRead):
     
     for clusterCount, loopInfo in evaluatedClusterResultsDict.iteritems():
         clusterCountList.append(int(clusterCount.replace("Loop","")))
-        clusterInfo = loopInfo[1]
+        clusterInfo = loopInfo[2]
         if "silhouette_avg" in clusterInfo:
             print "In", clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
             silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))

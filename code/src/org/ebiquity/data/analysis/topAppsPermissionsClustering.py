@@ -7,12 +7,19 @@ Usage: python permissionsClustering.py username api_key
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 from __future__ import print_function
+
+from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_samples, silhouette_score
+
+import numpy as np
+
+print(__doc__)
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import sys
 import time
 import databaseHandler
-import sklearn.cluster as skcl
 import io
 import json
 import os
@@ -23,16 +30,6 @@ import clusterEvaluation as clEval
 #import pdb
 import readOutputGenerateGraph as genGraph
 import cPickle
-
-# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-from sklearn.datasets import make_blobs
-import sklearn.cluster as skcl
-from sklearn.metrics import silhouette_samples, silhouette_score
-
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
-import numpy as np
-# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
@@ -169,24 +166,10 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     #Run clustering with a varying number of clusters
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
         print("Running clustering algorithm with", numberOfClusters, "clusters")
-        '''
-        # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-        # Create a subplot with 1 row and 2 columns
-        fig, (ax1, ax2) = plt.subplots(1, 2)
-        fig.set_size_inches(18, 7)
-    
-        # The 1st subplot is the silhouette plot
-        # The silhouette coefficient can range from -1, 1 but in this example all
-        # lie within [-0.1, 1]
-        ax1.set_xlim([-0.1, 1])
-        # The (numberOfClusters+1)*10 is for inserting blank space between silhouette
-        # plots of individual clusters, to demarcate them clearly.
-        ax1.set_ylim([0, len(X) + (numberOfClusters + 1) * 10])
-        # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-        '''
+
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
-        KMeansObject = skcl.KMeans(numberOfClusters)
+        KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         
         counter = 0
@@ -196,27 +179,12 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
             counter = counter + 1
             
         loopListEvaluatedCluster.append(predictedClusters)
-#         printpredictedClusters
-#         for appPerm in X:
-#            printappPerm
-        # permCount = []
-        # permCountFreq = []
-        # for permissionCount, permissionCountFreq in permCountDict.iteritems():
-        #     permCount.append(permissionCount)
-        #     permCountFreq.append(permissionCountFreq)
-        # generatePlot(username, api_key, permCount, permCountFreq)
-    
+
         #Clustering task is complete. Now evaluate
-#         evaluationOutput = clEval.evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
         clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
-#         printclusterEvaluationResults["adjusted_rand_score"]
-#         printclusterEvaluationResults["adjusted_mutual_info_score"]
-#         printclusterEvaluationResults["homogeneity_score"]
-#         printclusterEvaluationResults["completeness_score"]
-#         printclusterEvaluationResults["v_measure_score"]
 
         loopListEvaluatedCluster.append(clusterEvaluationResults)
-        '''
+        
         # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
@@ -226,74 +194,11 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print("For number of clusters =", numberOfClusters,
               "The average silhouette_score is :", silhouette_avg)
-        '''
-        '''
-        # Compute the silhouette scores for each sample
-        sample_silhouette_values = silhouette_samples(X, clusterLabelsAssigned)
-        print(sample_silhouette_values)
-    
-        y_lower = 10
-        for i in range(numberOfClusters):
-            # Aggregate the silhouette scores for samples belonging to
-            # cluster i, and sort them
-            ith_cluster_silhouette_values = \
-                sample_silhouette_values[clusterLabelsAssignedWithShape == i]
-    
-            ith_cluster_silhouette_values.sort()
-    
-            size_cluster_i = ith_cluster_silhouette_values.shape[0]
-            y_upper = y_lower + size_cluster_i
-    
-            color = cm.spectral(float(i) / numberOfClusters)
-            ax1.fill_betweenx(np.arange(y_lower, y_upper),
-                              0, ith_cluster_silhouette_values,
-                              facecolor=color, edgecolor=color, alpha=0.7)
-    
-            # Label the silhouette plots with their cluster numbers at the middle
-            ax1.text(-0.05, y_lower + 0.5 * size_cluster_i, str(i))
-    
-            # Compute the new y_lower for next plot
-            y_lower = y_upper + 10  # 10 for the 0 samples
-    
-        ax1.set_title("The silhouette plot for the various clusters.")
-        ax1.set_xlabel("The silhouette coefficient values")
-        ax1.set_ylabel("Cluster label")
-    
-        # The vertical line for average silhoutte score of all the values
-        ax1.axvline(x=silhouette_avg, color="red", linestyle="--")
-    
-        ax1.set_yticks([])  # Clear the yaxis labels / ticks
-        ax1.set_xticks([-0.1, 0, 0.2, 0.4, 0.6, 0.8, 1])
-    
-        # 2nd Plot showing the actual clusters formed
-        colors = cm.spectral(clusterLabelsAssigned.astype(float) / numberOfClusters)
-        ax2.scatter(X[:, 0], X[:, 1], marker='.', s=30, lw=0, alpha=0.7,
-                    c=colors)
-    
-        # Labeling the clusters
-        centers = KMeansObject.cluster_centers_
-        # Draw white circles at cluster centers
-        ax2.scatter(centers[:, 0], centers[:, 1],
-                    marker='o', c="white", alpha=1, s=200)
-    
-        for i, c in enumerate(centers):
-            ax2.scatter(c[0], c[1], marker='$%d$' % i, alpha=1, s=50)
-    
-        ax2.set_title("The visualization of the clustered data.")
-        ax2.set_xlabel("Feature space for the 1st feature")
-        ax2.set_ylabel("Feature space for the 2nd feature")
-    
-        plt.suptitle(("Silhouette analysis for KMeans clustering on sample data "
-                      "with numberOfClusters = %d" % numberOfClusters),
-                     fontsize=14, fontweight='bold')
-    
-        plt.show()
-        '''
-        '''
+                
         # Insert the silhouette_avg for the cluster into the Json for further evaluation
         loopListEvaluatedCluster.append(clusterSilhouetteAverage)
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
-        '''        
+                
         stringLoopCounter = 'Loop'+str(loopCounter)
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
         loopCounter = loopCounter + 1
@@ -304,7 +209,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     dbHandle.close() #DB Close
-    #genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
+    genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
     genGraph.plotResults(username, api_key, predictedClustersFile)
 
 def main(argv):

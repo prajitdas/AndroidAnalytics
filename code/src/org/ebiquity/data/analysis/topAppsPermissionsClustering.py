@@ -133,29 +133,22 @@ def generateAppMatrix(dbHandle,appMatrixFile):
                 appVector.append(row[1])
 #                 print("Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
-            #Write the app permissions matrix to a file
-#           print("Writing app permission vector to a file"
-            
+            #Write the app permissions matrix to a file            
             cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-            #obj = cPickle.load(open(appMatrixFile, 'rb'))
-#             matrixToWriteToFile=np.matrix(appMatrix)
-#             np.savetxt(appMatrixFile,matrixToWriteToFile,fmt='%d')
-#             with io.open(appMatrixFile, 'w', encoding='utf-8') as f:
-#                 for permVector in appMatrix:
-#                     f.write("%s\n" % permVector)
+
     except:
         print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
         raise
 
-    #Return app matrix and app vector
-    return appMatrix, appVector
+    #Return app vector appMatrix will be read from File
+    return appVector
 
 def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
     #Generate app matrix file once
-    appMatrix, appVector = generateAppMatrix(dbHandle,appMatrixFile)
-    
+    appVector = generateAppMatrix(dbHandle,appMatrixFile)
+    appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
     X = np.array(appMatrix)
 
     startingNumberOfClusters = 1

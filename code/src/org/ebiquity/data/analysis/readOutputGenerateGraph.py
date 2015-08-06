@@ -196,7 +196,7 @@ def plotSilhouetteSamples(username, api_key, fileToRead):
             adjustedRandScoreList.append(float(clusterInfo["silhouette_avg"]))
 
     print silhouetteAvgList
-    generatePlotSilhouette(username, api_key, silhouetteAvgList)
+    generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList)
 
 def plotResults(username, api_key, fileToRead):
     evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))

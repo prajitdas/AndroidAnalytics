@@ -30,7 +30,7 @@ import cPickle
 #import pdb
 import clusterEvaluation as clEval
 import readOutputGenerateGraph as genGraph
-import kMeansSilhouetteAnalysis as kmeans
+import kMeansSilhouetteAnalysis as silsam
 
 def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
@@ -152,7 +152,8 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
     X = np.array(appMatrix)
     
-#     kmeans.computeSilhouette(appMatrixFile)
+#     silsam.computeSilhouette(appMatrixFile)
+#     sys.exit(1)
 
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 100

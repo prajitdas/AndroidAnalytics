@@ -25,11 +25,12 @@ import json
 import os
 from os.path import isfile, join
 import platform
-import clusterEvaluation as clEval
+import cPickle
 #Use this for Python debug
 #import pdb
+import clusterEvaluation as clEval
 import readOutputGenerateGraph as genGraph
-import cPickle
+import kMeansSilhouetteAnalysis as kmeans
 
 def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
@@ -150,8 +151,10 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     appVector = generateAppMatrix(dbHandle,appMatrixFile)
     appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
     X = np.array(appMatrix)
+    
+#     kmeans.computeSilhouette(appMatrixFile)
 
-    startingNumberOfClusters = 1
+    startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 100
     loopCounter = startingNumberOfClusters
     evaluatedClusterResultsDict = {}

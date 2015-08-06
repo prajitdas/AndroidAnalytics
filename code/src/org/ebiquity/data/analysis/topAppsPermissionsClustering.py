@@ -11,6 +11,7 @@ from __future__ import print_function
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn.metrics.pairwise import pairwise_distances
 
 import numpy as np
 
@@ -150,10 +151,21 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     #Generate app matrix file once
     appVector = generateAppMatrix(dbHandle,appMatrixFile)
     appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
-    X = np.array(appMatrix)
+    newAppMatrix = np.array(appMatrix)
+    '''
+    sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
+    We will now compute the pairwise distance metric for our input array.
+    The distance metric options are:-
+    From scikit-learn: [‘cityblock’, ‘cosine’, ‘euclidean’, ‘l1’, ‘l2’, ‘manhattan’]. These metrics support sparse matrix inputs.
+    From scipy.spatial.distance: [‘braycurtis’, ‘canberra’, ‘chebyshev’, ‘correlation’, ‘dice’, ‘hamming’, ‘jaccard’, ‘kulsinski’, 
+    ‘mahalanobis’, ‘matching’, ‘minkowski’, ‘rogerstanimoto’, ‘russellrao’, ‘seuclidean’, ‘sokalmichener’, ‘sokalsneath’, ‘sqeuclidean’, ‘yule’]
+    See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
+    '''
+    X = pairwise_distances(newAppMatrix, metric='manhattan', n_jobs=4)
     
-    silsam.computeSilhouette(appMatrixFile)
-    sys.exit(1)
+    #This is to generate the plots for small set of cluster numbers using kMeansSilhouetteAnalysis.py
+#     silsam.computeSilhouette(appMatrixFile)
+#     sys.exit(1)
 
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 100
@@ -186,7 +198,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
         # clusters
-        silhouette_avg = silhouette_score(X, clusterLabelsAssigned)
+        silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric='manhattan') 
         clusterSilhouetteAverage = {}
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print("For number of clusters =", numberOfClusters,

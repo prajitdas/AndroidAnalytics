@@ -27,8 +27,18 @@ def computeSilhouette(appMatrixFile):
 #     print(y)
 
     appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
-    X = np.array(appMatrix)
-    #
+    newAppMatrix = np.array(appMatrix)
+    '''
+    sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
+    We will now compute the pairwise distance metric for our input array.
+    The distance metric options are:-
+    From scikit-learn: [‘cityblock’, ‘cosine’, ‘euclidean’, ‘l1’, ‘l2’, ‘manhattan’]. These metrics support sparse matrix inputs.
+    From scipy.spatial.distance: [‘braycurtis’, ‘canberra’, ‘chebyshev’, ‘correlation’, ‘dice’, ‘hamming’, ‘jaccard’, ‘kulsinski’, 
+    ‘mahalanobis’, ‘matching’, ‘minkowski’, ‘rogerstanimoto’, ‘russellrao’, ‘seuclidean’, ‘sokalmichener’, ‘sokalsneath’, ‘sqeuclidean’, ‘yule’]
+    See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
+    '''
+    X = pairwise_distances(newAppMatrix, metric='manhattan', n_jobs=4)
+   #
 #     print(X.shape)
     #print(X.shape[0])
     #
@@ -61,12 +71,12 @@ def computeSilhouette(appMatrixFile):
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
         # clusters
-        silhouette_avg = silhouette_score(X, cluster_labels)
+        silhouette_avg = silhouette_score(X, cluster_labels, metric='euclidean')
         print("For n_clusters =", n_clusters,
               "The average silhouette_score is :", silhouette_avg)
 
         # Compute the silhouette scores for each sample
-        sample_silhouette_values = silhouette_samples(X, cluster_labels)
+        sample_silhouette_values = silhouette_samples(X, cluster_labels, metric='euclidean')
     
         y_lower = 10
         for i in range(n_clusters):

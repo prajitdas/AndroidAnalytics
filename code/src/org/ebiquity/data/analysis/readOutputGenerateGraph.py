@@ -195,7 +195,7 @@ def plotSilhouetteSamples(username, api_key, fileToRead):
             print "In", clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
             adjustedRandScoreList.append(float(clusterInfo["silhouette_avg"]))
 
-    print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
+    print silhouetteAvgList
     generatePlotSilhouette(username, api_key, silhouetteAvgList)
 
 def plotResults(username, api_key, fileToRead):
@@ -238,6 +238,7 @@ def main(argv):
 
     startTime = time.time()
     plotResults(sys.argv[1], sys.argv[2], sys.argv[3])
+    plotSilhouetteSamples(sys.argv[1], sys.argv[2], sys.argv[3])
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

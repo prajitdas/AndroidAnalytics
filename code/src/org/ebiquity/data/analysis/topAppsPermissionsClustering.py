@@ -161,65 +161,68 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
     'mahalanobis', 'matching', 'minkowski', 'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean', 'yule']
     See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
     '''
-    X = pairwise_distances(newAppMatrix, metric='manhattan', n_jobs=4)
-    
+    metricList = ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']
+    metricList = ['manhattan']
+    for metric in metricList:
+        X = pairwise_distances(newAppMatrix, metric=metric, n_jobs=4)
+        
     #This is to generate the plots for small set of cluster numbers using kMeansSilhouetteAnalysis.py
-#     silsam.computeSilhouette(appMatrixFile)
-#     sys.exit(1)
-
-    startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 100
-    loopCounter = startingNumberOfClusters
-    evaluatedClusterResultsDict = {}
-    # We want to verify if the number of clusters are "strong with this one" (or not)
-    #Run clustering with a varying number of clusters
-    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
-        print("Running clustering algorithm with", numberOfClusters, "clusters")
-
-        loopListEvaluatedCluster = []
-        # Initialize the KMeansObject with numberOfClusters value 
-        KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
-        clusterLabelsAssigned = KMeansObject.fit_predict(X)
-        
-        counter = 0
-        predictedClusters = {}
-        for appName in appVector:
-            predictedClusters[appName] = clusterLabelsAssigned[counter]
-            counter = counter + 1
-            
-        loopListEvaluatedCluster.append(predictedClusters)
-
-        #Clustering task is complete. Now evaluate
-        clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
-
-        loopListEvaluatedCluster.append(clusterEvaluationResults)
-        
-        # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-        # The silhouette_score gives the average value for all the samples.
-        # This gives a perspective into the density and separation of the formed
-        # clusters
-        silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric='manhattan') 
-        clusterSilhouetteAverage = {}
-        clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
-        print("For number of clusters =", numberOfClusters,
-              "The average silhouette_score is :", silhouette_avg)
-                
-        # Insert the silhouette_avg for the cluster into the Json for further evaluation
-        loopListEvaluatedCluster.append(clusterSilhouetteAverage)
-        # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
-                
-        stringLoopCounter = 'Loop'+str(loopCounter)
-        evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
-        loopCounter = loopCounter + 1
+    #     silsam.computeSilhouette(appMatrixFile)
+    #     sys.exit(1)
     
-#    printevaluatedClusterResultsDict
-#    Write the predicted clusters to a file
-    print("Writing predicted clusters to a file")
-    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
-    dbHandle.close() #DB Close
-    genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
-    genGraph.plotResults(username, api_key, predictedClustersFile)
+        startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+        endingNumberOfClusters = 100
+        loopCounter = startingNumberOfClusters
+        evaluatedClusterResultsDict = {}
+        # We want to verify if the number of clusters are "strong with this one" (or not)
+        #Run clustering with a varying number of clusters
+        for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
+            print("Running clustering algorithm with", numberOfClusters, "clusters")
+    
+            loopListEvaluatedCluster = []
+            # Initialize the KMeansObject with numberOfClusters value 
+            KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
+            clusterLabelsAssigned = KMeansObject.fit_predict(X)
+            
+            counter = 0
+            predictedClusters = {}
+            for appName in appVector:
+                predictedClusters[appName] = clusterLabelsAssigned[counter]
+                counter = counter + 1
+                
+            loopListEvaluatedCluster.append(predictedClusters)
+    
+            #Clustering task is complete. Now evaluate
+            clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
+    
+            loopListEvaluatedCluster.append(clusterEvaluationResults)
+            
+            # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+            # The silhouette_score gives the average value for all the samples.
+            # This gives a perspective into the density and separation of the formed
+            # clusters
+            silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric=metric) 
+            clusterSilhouetteAverage = {}
+            clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
+            print("For number of clusters =", numberOfClusters,
+                  "The average silhouette_score is :", silhouette_avg)
+                    
+            # Insert the silhouette_avg for the cluster into the Json for further evaluation
+            loopListEvaluatedCluster.append(clusterSilhouetteAverage)
+            # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
+                    
+            stringLoopCounter = 'Loop'+str(loopCounter)
+            evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
+            loopCounter = loopCounter + 1
+        
+    #    printevaluatedClusterResultsDict
+    #    Write the predicted clusters to a file
+        print("Writing predicted clusters to a file")
+        with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
+            f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
+        dbHandle.close() #DB Close
+        genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile)
+        genGraph.plotResults(username, api_key, predictedClustersFile)
 
 def main(argv):
     if len(sys.argv) != 3:

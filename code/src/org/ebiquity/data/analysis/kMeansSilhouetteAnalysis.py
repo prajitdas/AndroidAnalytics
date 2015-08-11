@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score
@@ -9,8 +7,6 @@ import matplotlib.cm as cm
 import numpy as np
 import cPickle
 import sys
-
-print(__doc__)
 
 def computeSilhouette(appMatrixFile):
     ## Generating the sample data from make_blobs
@@ -72,8 +68,7 @@ def computeSilhouette(appMatrixFile):
         # This gives a perspective into the density and separation of the formed
         # clusters
         silhouette_avg = silhouette_score(X, cluster_labels, metric='euclidean')
-        print("For n_clusters =", n_clusters,
-              "The average silhouette_score is :", silhouette_avg)
+        print "For n_clusters =", n_clusters, "The average silhouette_score is :", silhouette_avg
 
         # Compute the silhouette scores for each sample
         sample_silhouette_values = silhouette_samples(X, cluster_labels, metric='euclidean')

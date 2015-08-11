@@ -6,16 +6,12 @@ Created on May 18, 2015
 Usage: python permissionsClustering.py username api_key
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-from __future__ import print_function
-
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score
 from sklearn.metrics.pairwise import pairwise_distances
 
 import numpy as np
-
-print(__doc__)
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import sys
@@ -44,7 +40,7 @@ def getPermissionsCount(dbHandle):
             for row in queryOutput:
                 permissionsCount = row[0]
     except:
-        print("Unexpected error in extractPermisionVector:", sys.exc_info()[0])
+        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
         raise
     return permissionsCount
 
@@ -62,7 +58,7 @@ def extractAppPermisionVector(dbHandle,appId):
             for row in queryOutput:
                 permVector[row[0]] = 1
     except:
-        print("Unexpected error in extractPermisionVector:", sys.exc_info()[0])
+        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
         raise
     
     return permVector
@@ -92,7 +88,7 @@ def isDataCollected(packageName,dbHandle):
                         #printpackageName,"data and permissions collected"
                         return True
     except:
-        print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
+        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
 def getTopAppsFromDownloadedJSONs(dbHandle):
@@ -125,7 +121,7 @@ def generateAppMatrix(dbHandle,appMatrixFile):
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appNameList+");"
     try:
         cursor.execute(sqlStatement)
-        print("Extracting app data")
+        print "Extracting app data"
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
             appMatrix = []
@@ -133,13 +129,13 @@ def generateAppMatrix(dbHandle,appMatrixFile):
             for row in queryOutput:
                 permVector = extractAppPermisionVector(dbHandle,row[0])
                 appVector.append(row[1])
-#                 print("Extracting permission data for app:", row[1]
+#                 print "Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
             #Write the app permissions matrix to a file            
             cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
 
     except:
-        print("Unexpected error in generateAppMatrix:", sys.exc_info()[0])
+        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
     #Return app vector appMatrix will be read from File
@@ -177,7 +173,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         # We want to verify if the number of clusters are "strong with this one" (or not)
         #Run clustering with a varying number of clusters
         for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
-            print("Running clustering algorithm with", numberOfClusters, "clusters")
+            print "Running clustering algorithm with", numberOfClusters, "clusters"
     
             loopListEvaluatedCluster = []
             # Initialize the KMeansObject with numberOfClusters value 
@@ -204,8 +200,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
             silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric=metric) 
             clusterSilhouetteAverage = {}
             clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
-            print("For number of clusters =", numberOfClusters,
-                  "The average silhouette_score is :", silhouette_avg)
+            print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
                     
             # Insert the silhouette_avg for the cluster into the Json for further evaluation
             loopListEvaluatedCluster.append(clusterSilhouetteAverage)
@@ -217,7 +212,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
         
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
-        print("Writing predicted clusters to a file")
+        print "Writing predicted clusters to a file"
         with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
             f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
         dbHandle.close() #DB Close
@@ -244,7 +239,7 @@ def main(argv):
     startTime = time.time()
     doTask(sys.argv[1], sys.argv[2], predictedClustersFile,appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
-    print("Execution time was: "+executionTime+" ms")
+    print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

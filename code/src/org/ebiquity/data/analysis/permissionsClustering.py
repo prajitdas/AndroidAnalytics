@@ -53,7 +53,6 @@ def extractAppPermisionVector(dbHandle,appId,permissionRestrictionList):
     else:
         sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND a.`name` NOT IN ("+permissionRestrictionList+");"
     #sqlStatement = "SELECT p.`id` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
-    print sqlStatement
     try:
         cursor.execute(sqlStatement)
         permVector = [0] * getPermissionsCount(dbHandle)
@@ -74,7 +73,6 @@ def generateAppMatrix(dbHandle,appMatrixFile,appCategoryList,permissionRestricti
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` LIKE "+appCategorySQLStatement+" AND a.`app_category_id` = cat.`id`;"
-    print sqlStatement
     try:
         cursor.execute(sqlStatement)
         print "Extracting app data"

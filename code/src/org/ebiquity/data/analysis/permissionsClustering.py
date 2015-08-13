@@ -1,75 +1,33 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-Created on May 18, 2015
+Created on August 14, 2015
 @author: Prajit
 Usage: python permissionsClustering.py username api_key
 '''
+# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn.metrics.pairwise import pairwise_distances
+
+import numpy as np
+# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import sys
 import time
 import databaseHandler
-import plotly.tools as tls
-# Learn about API authentication here: https://plot.ly/python/getting-started
-# Find your api_key here: https://plot.ly/settings/api
-import plotly.plotly as py
-from plotly.graph_objs import *
-import sklearn.cluster as skcl
 import io
 import json
-import clusterEvaluation as clEval
+import os
+from os.path import isfile, join
+import platform
+import cPickle
 #Use this for Python debug
 #import pdb
-
-# This is a plot for Permissions count vs Frequency of apps requesting that many permissions
-def generatePlot(username, api_key, permCount, permCountFreq):
-    tls.set_credentials_file(username, api_key)
-    trace = Bar(
-        x=permCount,
-        y=permCountFreq,
-        name='App Permission frequency of Medical Apps',
-        marker=Marker(
-            color='rgb(55, 83, 109)'
-        )
-    )
-    data = Data([trace])
-    layout = Layout(
-        title='App Frequency vs Permission requested',
-        xaxis=XAxis(
-            title='Number of Permissions requested',
-            titlefont=Font(
-                size=16,
-                color='rgb(107, 107, 107)'
-            ),
-            tickfont=Font(
-                size=14,
-                color='rgb(107, 107, 107)'
-            )
-        ),
-        yaxis=YAxis(
-            title='App frequency',
-            titlefont=Font(
-                size=16,
-                color='rgb(107, 107, 107)'
-            ),
-            tickfont=Font(
-                size=14,
-                color='rgb(107, 107, 107)'
-            )
-        ),
-        legend=Legend(
-            x=0,
-            y=1.0,
-            bgcolor='rgba(255, 255, 255, 0)',
-            bordercolor='rgba(255, 255, 255, 0)'
-        ),
-        barmode='group',
-        bargap=0.15,
-        bargroupgap=0.1
-    )
-    fig = Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='style-bar')
-    print "Check out the URL: "+plot_url+" for your plot"
+import clusterEvaluation as clEval
+import readOutputGenerateGraph as genGraph
+import kMeansSilhouetteAnalysis as silsam
 
 def getPermissionsCount(dbHandle):
     cursor = dbHandle.cursor()
@@ -86,12 +44,16 @@ def getPermissionsCount(dbHandle):
         raise
     return permissionsCount
 
-def extractAppPermisionVector(dbHandle,appId):
+def extractAppPermisionVector(dbHandle,appId,permissionRestrictionList):
     cursor = dbHandle.cursor()
     # Get the complete permissions vector and then use that as the vector rep for each app
     # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-    sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
+    if not permissionRestrictionList: 
+        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND a.`name`;"
+    else:
+        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND a.`name` NOT IN ("+permissionRestrictionList+");"
     #sqlStatement = "SELECT p.`id` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
+    print sqlStatement
     try:
         cursor.execute(sqlStatement)
         permVector = [0] * getPermissionsCount(dbHandle)
@@ -105,11 +67,14 @@ def extractAppPermisionVector(dbHandle,appId):
     
     return permVector
 
-def generateAppMatrix(dbHandle):
+def generateAppMatrix(dbHandle,appMatrixFile,appCategoryList,permissionRestrictionList):
     cursor = dbHandle.cursor()
+    
+    appCategorySQLStatement = '\'%' + '\' OR LIKE \'%'.join(appCategoryList)+'\''
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
-    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 LIMIT 1000;"
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` LIKE "+appCategorySQLStatement+" AND a.`app_category_id` = cat.`id`;"
+    print sqlStatement
     try:
         cursor.execute(sqlStatement)
         print "Extracting app data"
@@ -118,61 +83,118 @@ def generateAppMatrix(dbHandle):
             appMatrix = []
             appVector =[]
             for row in queryOutput:
-                permVector = extractAppPermisionVector(dbHandle,row[0])
+                permVector = extractAppPermisionVector(dbHandle,row[0],permissionRestrictionList)
                 appVector.append(row[1])
-                print "Extracting permission data for app:", row[1]
+#                 print "Extracting permission data for app:", row[1]
                 appMatrix.append(permVector)
-                #Write the app permissions matrix to a file
-                print "Writing app permission vector to a file"
-                with io.open(appMatrixFile, 'a', encoding='utf-8') as f:
-                    f.write(unicode(permVector))
-                    f.write(unicode("\n"))
+            #Write the app permissions matrix to a file            
+            cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
+
     except:
         print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
         raise
 
-    return appMatrix, appVector
+    #Return app vector appMatrix will be read from File
+    return appVector
 
-def doTask():#username, api_key):
+def doTask(username, api_key, appCategoryList, permissionRestrictionList, predictedClustersFile, appMatrixFile):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    numberOfClusters = 50
-    appMatrix, appVector = generateAppMatrix(dbHandle)
-    KMeansObject = skcl.KMeans(numberOfClusters)
-    print "Running clustering algorithm"
-    clusters = KMeansObject.fit_predict(appMatrix)
-    counter = 0
-    predictedClusters = {}
-    for appName in appVector:
-        predictedClusters[appName] = clusters[counter]
-        counter = counter + 1
-
-    print predictedClusters
-    #Write the predicted clusters to a file
-    print "Writing predicted clusters to a file"
-    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(predictedClusters, ensure_ascii=False)))
-#     for appPerm in appMatrix:
-#         print appPerm
-    # permCount = []
-    # permCountFreq = []
-    # for permissionCount, permissionCountFreq in permCountDict.iteritems():
-    #     permCount.append(permissionCount)
-    #     permCountFreq.append(permissionCountFreq)
-    # generatePlot(username, api_key, permCount, permCountFreq)
-
-    #Clustering task is complete.
-    clEval.getLabelsTrue(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
-    dbHandle.close() #DB Close
+    #Generate app matrix file once
+    appVector = generateAppMatrix(dbHandle,appMatrixFile,appCategoryList,permissionRestrictionList)
+    appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
+    newAppMatrix = np.array(appMatrix)
+    '''
+    sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
+    We will now compute the pairwise distance metric for our input array.
+    The distance metric options are:-
+    From scikit-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']. These metrics support sparse matrix inputs.
+    From scipy.spatial.distance: ['braycurtis', 'canberra', 'chebyshev', 'correlation', 'dice', 'hamming', 'jaccard', 'kulsinski', 
+    'mahalanobis', 'matching', 'minkowski', 'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean', 'yule']
+    See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
+    '''
+    metricList = ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']
+    metricList = ['manhattan']
+    for metric in metricList:
+        X = pairwise_distances(newAppMatrix, metric=metric, n_jobs=4)
+        
+    #This is to generate the plots for small set of cluster numbers using kMeansSilhouetteAnalysis.py
+    #     silsam.computeSilhouette(appMatrixFile)
+    #     sys.exit(1)
     
+        startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+        endingNumberOfClusters = 100
+        loopCounter = startingNumberOfClusters
+        evaluatedClusterResultsDict = {}
+        # We want to verify if the number of clusters are "strong with this one" (or not)
+        #Run clustering with a varying number of clusters
+        for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
+            print "Running clustering algorithm with", numberOfClusters, "clusters"
+    
+            loopListEvaluatedCluster = []
+            # Initialize the KMeansObject with numberOfClusters value 
+            KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
+            clusterLabelsAssigned = KMeansObject.fit_predict(X)
+            
+            counter = 0
+            predictedClusters = {}
+            for appName in appVector:
+                predictedClusters[appName] = clusterLabelsAssigned[counter]
+                counter = counter + 1
+                
+            loopListEvaluatedCluster.append(predictedClusters)
+    
+            #Clustering task is complete. Now evaluate
+            clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
+    
+            loopListEvaluatedCluster.append(clusterEvaluationResults)
+            
+            # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+            # The silhouette_score gives the average value for all the samples.
+            # This gives a perspective into the density and separation of the formed
+            # clusters
+            silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric=metric) 
+            clusterSilhouetteAverage = {}
+            clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
+            print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
+                    
+            # Insert the silhouette_avg for the cluster into the Json for further evaluation
+            loopListEvaluatedCluster.append(clusterSilhouetteAverage)
+            # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
+                    
+            stringLoopCounter = 'Loop'+str(loopCounter)
+            evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
+            loopCounter = loopCounter + 1
+        
+    #    printevaluatedClusterResultsDict
+    #    Write the predicted clusters to a file
+        print "Writing predicted clusters to a file"
+        with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
+            f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
+        dbHandle.close() #DB Close
+        categories = ''.join(appCategoryList)
+        genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile, categories)
+        genGraph.plotResults(username, api_key, predictedClustersFile, categories)
+
 def main(argv):
-    if len(sys.argv) != 1:#3:
+    if len(sys.argv) != 3:
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
-
+        
+    #appCategoryList = ['APP_WALLPAPER','APP_WIDGETS','BOOKS_AND_REFERENCE','BUSINESS','COMICS','COMMUNICATION','EDUCATION','ENTERTAINMENT','FAMILY','FAMILY?age=AGE_RANGE1','FAMILY?age=AGE_RANGE2','FAMILY?age=AGE_RANGE3','FAMILY_ACTION','FAMILY_BRAINGAMES','FAMILY_CREATE','FAMILY_EDUCATION','FAMILY_MUSICVIDEO','FAMILY_PRETEND','FINANCE','GAME','GAME_ACTION','GAME_ADVENTURE','GAME_ARCADE','GAME_BOARD','GAME_CARD','GAME_CASINO','GAME_CASUAL','GAME_EDUCATIONAL','GAME_MUSIC','GAME_PUZZLE','GAME_RACING','GAME_ROLE_PLAYING','GAME_SIMULATION','GAME_SPORTS','GAME_STRATEGY','GAME_TRIVIA','GAME_WORD','HEALTH_AND_FITNESS','LIBRARIES_AND_DEMO','LIFESTYLE','MEDIA_AND_VIDEO','MEDICAL','MUSIC_AND_AUDIO','NEWS_AND_MAGAZINES','PERSONALIZATION','PHOTOGRAPHY','PRODUCTIVITY','SHOPPING','SOCIAL','SPORTS','TOOLS','TRANSPORTATION','TRAVEL_AND_LOCAL','WEATHER']
+    appCategoryList = ['HEALTH_AND_FITNESS','MEDICAL']
+    
+    permissionRestrictionList = []
+    permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
+    if not permissionRestrictionList:
+        permissionRestrictionListString = ''
+    else:
+        permissionRestrictionListString = '\'' + '\',\''.join(permissionRestrictionList) + '\''
+    print permissionRestrictionListString
+    sys.exit(1)
     ticks = time.time()
     appMatrixFile = "appMatrix"+str(ticks)+".txt"
-    predictedClustersFile = "predictedClusters"+str(ticks)+".txt"
+    predictedClustersFile = "predictedClusters"+str(ticks)+".json"
 
     text_file = open(appMatrixFile, "w")
     text_file.write("")
@@ -183,7 +205,7 @@ def main(argv):
     text_file.close()
         
     startTime = time.time()
-    doTask()#sys.argv[1], sys.argv[2])
+    doTask(sys.argv[1], sys.argv[2], appCategoryList, permissionRestrictionListString, predictedClustersFile, appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

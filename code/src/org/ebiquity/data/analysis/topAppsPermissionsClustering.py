@@ -3,7 +3,7 @@
 '''
 Created on May 18, 2015
 @author: Prajit
-Usage: python permissionsClustering.py username api_key
+Usage: python topAppsPermissionsClustering.py username api_key
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 from sklearn.datasets import make_blobs
@@ -221,7 +221,7 @@ def doTask(username, api_key, predictedClustersFile, appMatrixFile):
 
 def main(argv):
     if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
+        sys.stderr.write('Usage: python topAppsPermissionsClustering.py username api_key\n')
         sys.exit(1)
         
     ticks = time.time()
@@ -237,7 +237,7 @@ def main(argv):
     text_file.close()
         
     startTime = time.time()
-    doTask(sys.argv[1], sys.argv[2], predictedClustersFile,appMatrixFile)
+    doTask(sys.argv[1], sys.argv[2], predictedClustersFile, appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

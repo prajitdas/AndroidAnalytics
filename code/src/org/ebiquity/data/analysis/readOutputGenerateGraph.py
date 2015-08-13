@@ -17,7 +17,7 @@ from plotly.graph_objs import *
 import json
 
 # This is a plot for Goodness of Cluster measure using homogeneity_score, completeness_score
-def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList):
+def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix):
     tls.set_credentials_file(username, api_key)
     trace0 = Bar(
         x=clusterCountList,
@@ -103,11 +103,12 @@ def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, comp
         bargroupgap=0.1
     )
     fig = Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='cluster-measures')
+    name = 'cluster-measures'+postfix
+    plot_url = py.plot(fig, filename=name)
     print "Check out the URL: "+plot_url+" for your plot"
   
 # This is a plot for Goodness of Cluster measure using silhouette_avg
-def generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList):
+def generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList, postfix):
     tls.set_credentials_file(username, api_key)
     trace = Bar(
         x=clusterCountList,
@@ -153,35 +154,11 @@ def generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgLis
         bargroupgap=0.1
     )
     fig = Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='silhouette-average-score')
+    name = 'silhouette-average-score'+postfix
+    plot_url = py.plot(fig, filename=name)
     print "Check out the URL: "+plot_url+" for your plot"
 
-def extractAppPermData():
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
-
-    cursor = dbHandle.cursor()
-    sqlStatement = "SELECT * FROM `app_perm_count_view`;"
-    try:
-        cursor.execute(sqlStatement)
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
-            permCountDict = {}
-            for row in queryOutput:
-                permissionCount = row[1]
-                if permCountDict.has_key(permissionCount):
-                    currentValue = permCountDict[permissionCount]
-                    permCountDict[permissionCount] = currentValue + 1
-                else:
-                    permCountDict[permissionCount] = 1
-    except:
-        print "Unexpected error:", sys.exc_info()[0]
-        raise
-
-    dbHandle.close() #DB Close
-    
-    return permCountDict
- 
-def plotSilhouetteSamples(username, api_key, fileToRead):
+def plotSilhouetteSamples(username, api_key, fileToRead, postfix=None):
     evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
     
     clusterCountList = []
@@ -196,9 +173,9 @@ def plotSilhouetteSamples(username, api_key, fileToRead):
             silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))
 
     print silhouetteAvgList
-    generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList)
+    generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList, postfix)
 
-def plotResults(username, api_key, fileToRead):
+def plotResults(username, api_key, fileToRead, postfix=None):
     evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
     
     clusterCountList = []
@@ -229,18 +206,4 @@ def plotResults(username, api_key, fileToRead):
             vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
 
     print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
-    generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList)
-    
-def main(argv):
-    if len(sys.argv) != 4:
-        sys.stderr.write('Usage: python readOutputGenerateGraph.py username api_key fileToRead\n')
-        sys.exit(1)
-
-    startTime = time.time()
-    plotResults(sys.argv[1], sys.argv[2], sys.argv[3])
-    plotSilhouetteSamples(sys.argv[1], sys.argv[2], sys.argv[3])
-    executionTime = str((time.time()-startTime)*1000)
-    print "Execution time was: "+executionTime+" ms"
-
-if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)

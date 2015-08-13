@@ -70,7 +70,7 @@ def extractAppPermisionVector(dbHandle,appId,permissionRestrictionList):
 def generateAppMatrix(dbHandle,appMatrixFile,appCategoryList,permissionRestrictionList):
     cursor = dbHandle.cursor()
     
-    appCategorySQLStatement = '\'%' + '\' OR LIKE \'%'.join(appCategoryList)+'\''
+    appCategorySQLStatement = '\'%' + '\' OR cat.`url` LIKE \'%'.join(appCategoryList)+'\''
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` LIKE "+appCategorySQLStatement+" AND a.`app_category_id` = cat.`id`;"

@@ -198,14 +198,14 @@ def preProcess():
     text_file.write("")
     text_file.close()
     
-    return appCategoryList, permissionRestrictionList, appMatrixFile, predictedClustersFile
+    return appCategoryList, permissionRestrictionListString, appMatrixFile, predictedClustersFile
 
 def main(argv):
     if len(sys.argv) != 3:
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
         
-    appCategoryList, permissionRestrictionList, appMatrixFile, predictedClustersFile = preProcess()        
+    appCategoryList, permissionRestrictionListString, appMatrixFile, predictedClustersFile = preProcess()        
 
     startTime = time.time()
     doTask(sys.argv[1], sys.argv[2], appCategoryList, permissionRestrictionListString, predictedClustersFile, appMatrixFile)

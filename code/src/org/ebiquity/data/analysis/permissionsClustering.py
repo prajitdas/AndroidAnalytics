@@ -114,7 +114,6 @@ def doTask(username, api_key, appCategoryList, permissionRestrictionList, predic
     See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
     '''
     metricList = ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']
-    metricList = ['manhattan']
     for metric in metricList:
         X = pairwise_distances(newAppMatrix, metric=metric, n_jobs=4)
         
@@ -172,38 +171,42 @@ def doTask(username, api_key, appCategoryList, permissionRestrictionList, predic
         with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
             f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
         dbHandle.close() #DB Close
-        categories = ''.join(appCategoryList)
+        #We will generate separate graphs with this info
+        categories = ''.join(appCategoryList,metric)
         genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile, categories)
         genGraph.plotResults(username, api_key, predictedClustersFile, categories)
+
+def preProcess():
+    #appCategoryList = ['APP_WALLPAPER','APP_WIDGETS','BOOKS_AND_REFERENCE','BUSINESS','COMICS','COMMUNICATION','EDUCATION','ENTERTAINMENT','FAMILY','FAMILY?age=AGE_RANGE1','FAMILY?age=AGE_RANGE2','FAMILY?age=AGE_RANGE3','FAMILY_ACTION','FAMILY_BRAINGAMES','FAMILY_CREATE','FAMILY_EDUCATION','FAMILY_MUSICVIDEO','FAMILY_PRETEND','FINANCE','GAME','GAME_ACTION','GAME_ADVENTURE','GAME_ARCADE','GAME_BOARD','GAME_CARD','GAME_CASINO','GAME_CASUAL','GAME_EDUCATIONAL','GAME_MUSIC','GAME_PUZZLE','GAME_RACING','GAME_ROLE_PLAYING','GAME_SIMULATION','GAME_SPORTS','GAME_STRATEGY','GAME_TRIVIA','GAME_WORD','HEALTH_AND_FITNESS','LIBRARIES_AND_DEMO','LIFESTYLE','MEDIA_AND_VIDEO','MEDICAL','MUSIC_AND_AUDIO','NEWS_AND_MAGAZINES','PERSONALIZATION','PHOTOGRAPHY','PRODUCTIVITY','SHOPPING','SOCIAL','SPORTS','TOOLS','TRANSPORTATION','TRAVEL_AND_LOCAL','WEATHER']
+    appCategoryList = ['HEALTH_AND_FITNESS','MEDICAL']
+    
+    permissionRestrictionList = []
+    #permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
+    if not permissionRestrictionList:
+        permissionRestrictionListString = ''
+    else:
+        permissionRestrictionListString = '\'' + '\',\''.join(permissionRestrictionList) + '\''
+
+    ticks = time.time()
+    appMatrixFile = "appMatrix"+str(ticks)+".txt"
+    text_file = open(appMatrixFile, "w")
+    text_file.write("")
+    text_file.close()
+    
+    predictedClustersFile = "predictedClusters"+str(ticks)+".json"
+    text_file = open(predictedClustersFile, "w")
+    text_file.write("")
+    text_file.close()
+    
+    return appCategoryList, permissionRestrictionList, appMatrixFile, predictedClustersFile
 
 def main(argv):
     if len(sys.argv) != 3:
         sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')
         sys.exit(1)
         
-    #appCategoryList = ['APP_WALLPAPER','APP_WIDGETS','BOOKS_AND_REFERENCE','BUSINESS','COMICS','COMMUNICATION','EDUCATION','ENTERTAINMENT','FAMILY','FAMILY?age=AGE_RANGE1','FAMILY?age=AGE_RANGE2','FAMILY?age=AGE_RANGE3','FAMILY_ACTION','FAMILY_BRAINGAMES','FAMILY_CREATE','FAMILY_EDUCATION','FAMILY_MUSICVIDEO','FAMILY_PRETEND','FINANCE','GAME','GAME_ACTION','GAME_ADVENTURE','GAME_ARCADE','GAME_BOARD','GAME_CARD','GAME_CASINO','GAME_CASUAL','GAME_EDUCATIONAL','GAME_MUSIC','GAME_PUZZLE','GAME_RACING','GAME_ROLE_PLAYING','GAME_SIMULATION','GAME_SPORTS','GAME_STRATEGY','GAME_TRIVIA','GAME_WORD','HEALTH_AND_FITNESS','LIBRARIES_AND_DEMO','LIFESTYLE','MEDIA_AND_VIDEO','MEDICAL','MUSIC_AND_AUDIO','NEWS_AND_MAGAZINES','PERSONALIZATION','PHOTOGRAPHY','PRODUCTIVITY','SHOPPING','SOCIAL','SPORTS','TOOLS','TRANSPORTATION','TRAVEL_AND_LOCAL','WEATHER']
-    appCategoryList = ['HEALTH_AND_FITNESS','MEDICAL']
-    
-    permissionRestrictionList = []
-    permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
-    if not permissionRestrictionList:
-        permissionRestrictionListString = ''
-    else:
-        permissionRestrictionListString = '\'' + '\',\''.join(permissionRestrictionList) + '\''
-    print permissionRestrictionListString
-    sys.exit(1)
-    ticks = time.time()
-    appMatrixFile = "appMatrix"+str(ticks)+".txt"
-    predictedClustersFile = "predictedClusters"+str(ticks)+".json"
+    appCategoryList, permissionRestrictionList, appMatrixFile, predictedClustersFile = preProcess()        
 
-    text_file = open(appMatrixFile, "w")
-    text_file.write("")
-    text_file.close()
-    
-    text_file = open(predictedClustersFile, "w")
-    text_file.write("")
-    text_file.close()
-        
     startTime = time.time()
     doTask(sys.argv[1], sys.argv[2], appCategoryList, permissionRestrictionListString, predictedClustersFile, appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)

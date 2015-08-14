@@ -69,28 +69,30 @@ def extractAppPermisionVector(dbHandle,appId,permissionRestrictionList):
 def generateAppMatrix(dbHandle,appMatrixFile,appCategoryList,permissionRestrictionList):
     cursor = dbHandle.cursor()
     
-    appCategorySQLStatement = '\'%' + '\' OR cat.`url` LIKE \'%'.join(appCategoryList)+'\''
-    # Get a bunch of apps from which you want to get the permissions
-    # Select apps which have had their permissions extracted
-    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` LIKE "+appCategorySQLStatement+" AND a.`app_category_id` = cat.`id`;"
-    try:
-        cursor.execute(sqlStatement)
-        print "Extracting app data"
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
-            appMatrix = []
-            appVector =[]
-            for row in queryOutput:
-                permVector = extractAppPermisionVector(dbHandle,row[0],permissionRestrictionList)
-                appVector.append(row[1])
-#                 print "Extracting permission data for app:", row[1]
-                appMatrix.append(permVector)
-            #Write the app permissions matrix to a file            
-            cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
+    #appCategorySQLStatement = '\'%' + '\' OR cat.`url` LIKE \'%'.join(appCategoryList)+'\''
+    for appCategory in appCategoryList:
+        # Get a bunch of apps from which you want to get the permissions
+        # Select apps which have had their permissions extracted
+        sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` LIKE '%"+appCategory+"' AND a.`app_category_id` = cat.`id`;"
+        try:
+            cursor.execute(sqlStatement)
+            print "Extracting app data"
+            if cursor.rowcount > 0:
+                queryOutput = cursor.fetchall()
+                appMatrix = []
+                appVector =[]
+                for row in queryOutput:
+                    permVector = extractAppPermisionVector(dbHandle,row[0],permissionRestrictionList)
+                    appVector.append(row[1])
+    #                 print "Extracting permission data for app:", row[1]
+                    appMatrix.append(permVector)
 
-    except:
-        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
-        raise
+        except:
+            print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
+            raise
+
+    #Write the app permissions matrix to a file            
+    cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
 
     #Return app vector appMatrix will be read from File
     return appVector

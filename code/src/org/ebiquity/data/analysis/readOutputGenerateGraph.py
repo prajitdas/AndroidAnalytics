@@ -14,7 +14,6 @@ from sklearn.metrics.pairwise import pairwise_distances
 import numpy as np
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 import clusterEvaluation as clEval
-import readOutputGenerateGraph as genGraph
 import kMeansSilhouetteAnalysis as silsam
 
 import sys

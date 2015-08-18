@@ -15,62 +15,41 @@ import selectApps
 import selectPermissions
 import cPickle
 
-#generate the permission matrix for category list apps
-def generateAppMatrixCatApps(dbHandle,appCategoryList):
-    cursor = dbHandle.cursor()
-    
-    #select the apps to be processed
-    appDict = selectApps.getCategoryApps(dbHandle,appCategoryList)
-    appMatrix = []
-    appVector = []
-    for appPackageName, appId in appDict.iteritems():
-        #extract the permissions vector for each app
-        permVector = selectPermissions.extractAppPermisionVector(dbHandle,appId)
-        appVector.append(appPackageName)
-        appMatrix.append(permVector)
-    
-    #Return app vector appMatrix will be read from File
-    return appVector, appMatrix
-
-#generate the permission matrix for all apps
-def generateAppMatrixAllApps(dbHandle):
-    cursor = dbHandle.cursor()
-    
-    #select the apps to be processed
-    appDict = selectApps.getTopApps(dbHandle)
-    appMatrix = []
-    appVector = []
-    for appPackageName, appId in appDict.iteritems():
-        #extract the permissions vector for each app
-        permVector = selectPermissions.extractAppPermisionVector(dbHandle,appId)
-        appVector.append(appPackageName)
-        appMatrix.append(permVector)
-    
-    #Return app vector appMatrix will be read from File
-    return appVector, appMatrix
-
-#generate the permission matrix for top apps
-def generateAppMatrixTopApps(dbHandle):
-    cursor = dbHandle.cursor()
-    
-    #select the apps to be processed
-    appDict = selectApps.getTopApps(dbHandle)
-    appMatrix = []
-    appVector = []
-    for appPackageName, appId in appDict.iteritems():
-        #extract the permissions vector for each app
-        permVector = selectPermissions.extractAppPermisionVector(dbHandle,appId)
-        appVector.append(appPackageName)
-        appMatrix.append(permVector)
-    
-    #Return app vector appMatrix will be read from File
-    return appVector, appMatrix
-
 def writeMatrixToFile(appMatrix,appMatrixFile):
     #Once the whole matrix is created then dump to a file
     #Write the app permissions matrix to a file            
     cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
     return cPickle.load(open(appMatrixFile, 'rb'))
+
+def getPermMatrix(appDict):
+    appMatrix = []
+    appVector = []
+    for appPackageName, appId in appDict.iteritems():
+        #extract the permissions vector for each app
+        permVector = selectPermissions.extractAppPermisionVector(dbHandle,appId)
+        appVector.append(appPackageName)
+        appMatrix.append(permVector)
+    
+    #Return app vector appMatrix will be read from File
+    return appVector, appMatrix
+
+#generate the permission matrix for category list apps
+def generateAppMatrixCatApps(dbHandle,appCategoryList):
+    #select the apps to be processed
+    appDict = selectApps.getCategoryApps(dbHandle,appCategoryList)
+    return getPermMatrix(appDict)
+
+#generate the permission matrix for all apps
+def generateAppMatrixAllApps(dbHandle):
+    #select the apps to be processed
+    appDict = selectApps.getTopApps(dbHandle)
+    return getPermMatrix(appDict)
+
+#generate the permission matrix for top apps
+def generateAppMatrixTopApps(dbHandle):
+    #select the apps to be processed
+    appDict = selectApps.getTopApps(dbHandle)
+    return getPermMatrix(appDict)
 
 #Initiate the clustering process
 def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, selectionType):

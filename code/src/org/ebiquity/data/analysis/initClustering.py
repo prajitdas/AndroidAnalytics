@@ -16,7 +16,7 @@ import selectPermissions
 import cPickle
 
 #generate the permission matrix for category list apps
-def generateAppMatrixCatApps(dbHandle):
+def generateAppMatrixCatApps(dbHandle,appCategoryList):
     cursor = dbHandle.cursor()
     
     #select the apps to be processed
@@ -31,22 +31,6 @@ def generateAppMatrixCatApps(dbHandle):
     
     #Return app vector appMatrix will be read from File
     return appVector, appMatrix
-
-#Initiate the clustering process for category list apps
-def initClusteringCatApps(username, api_key, appCategoryList, predictedClustersFile, appMatrixFile):
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
-
-    #Generate app matrix file once
-    appVector, appMatrix = selectPermissions.generateAppMatrix(dbHandle,appCategoryList)
-
-    #Once the whole matrix is created then dump to a file
-    #Write the app permissions matrix to a file            
-    cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-    appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
-    newAppMatrix = np.array(appMatrix)
-
-    runCl.runClustering(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector)
-    dbHandle.close() #DB Close
 
 #generate the permission matrix for all apps
 def generateAppMatrixAllApps(dbHandle):
@@ -65,22 +49,6 @@ def generateAppMatrixAllApps(dbHandle):
     #Return app vector appMatrix will be read from File
     return appVector, appMatrix
 
-#Initiate the clustering process for all apps
-def initClusteringAllApps(username, api_key, predictedClustersFile, appMatrixFile):
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
-
-    #Generate app matrix file once
-    appVector, appMatrix = selectPermissions.generateAppMatrix(dbHandle)
-
-    #Once the whole matrix is created then dump to a file
-    #Write the app permissions matrix to a file            
-    cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-    appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
-    newAppMatrix = np.array(appMatrix)
-
-    runCl.runClustering(username, api_key, ['all'], predictedClustersFile, newAppMatrix, appVector)
-    dbHandle.close() #DB Close
-
 #generate the permission matrix for top apps
 def generateAppMatrixTopApps(dbHandle):
     cursor = dbHandle.cursor()
@@ -98,31 +66,40 @@ def generateAppMatrixTopApps(dbHandle):
     #Return app vector appMatrix will be read from File
     return appVector, appMatrix
 
-#Initiate the clustering process for top apps
-def initClusteringTopApps(username, api_key, predictedClustersFile, appMatrixFile):
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
-
-    #Generate app matrix file once
-    appVector, appMatrix = generateAppMatrixTopApps(dbHandle)
-
+def writeMatrixToFile(appMatrix,appMatrixFile):
     #Once the whole matrix is created then dump to a file
     #Write the app permissions matrix to a file            
     cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-    appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
-    newAppMatrix = np.array(appMatrix)
+    return cPickle.load(open(appMatrixFile, 'rb'))
 
-    runCl.runClustering(username, api_key, ['top'], predictedClustersFile, newAppMatrix, appVector)
+#Initiate the clustering process
+def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, selectionType):
+    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+
+    if selectionType == 'top':
+        #generate the permission matrix for top apps
+        appVector, appMatrix = generateAppMatrixTopApps(dbHandle)
+    elif selectionType == 'all':
+        #generate the permission matrix for all apps
+        appVector, appMatrix = generateAppMatrixAllApps(dbHandle)
+    else:
+        #generate the permission matrix for category list apps
+        appVector, appMatrix = generateAppMatrixCatApps(dbHandle,appCategoryList)
+
+    newAppMatrix = np.array(writeMatrixToFile(appMatrix,appMatrixFile))
+    runCl.runClustering(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector)
+
     dbHandle.close() #DB Close
 
 def preProcess(selectionType):
-    if selectionType == 'top':
-        appCategoryList = ['top']
-    elif selectionType == 'med':
+    if selectionType == 'med':
         appCategoryList = ['https://play.google.com/store/apps/category/MEDICAL']
     elif selectionType == 'hea':
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS']
     elif selectionType == 'hmd':
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS','https://play.google.com/store/apps/category/MEDICAL']
+    elif selectionType == 'top':
+        appCategoryList = ['top']
     elif selectionType == 'all':
         appCategoryList = ['all']
     '''
@@ -154,14 +131,8 @@ def main(argv):
     appMatrixFile, predictedClustersFile, appCategoryList = preProcess(selectionType)
     
     startTime = time.time()
-    if appCategoryList[0] == 'top':
-        #Initiate the clustering process for top apps
-        initClusteringTopApps(username, api_key, predictedClustersFile, appMatrixFile)
-    elif appCategoryList[0] == 'all':
-        #Initiate the clustering process for top apps
-        initClusteringAllApps(username, api_key, predictedClustersFile, appMatrixFile)
-    else:
-        initClusteringCatApps(username, api_key, appCategoryList, predictedClustersFile, appMatrixFile)
+    #Initiate the clustering process
+    initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, selectionType)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

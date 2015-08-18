@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 Created on July 31, 2015
+Code for generating the Plotly graphs are here. It takes as input the files it would use to store the results and the input matrix.
 @author: Prajit
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
@@ -218,7 +219,7 @@ def plotResults(username, api_key, fileToRead, postfix=None):
     print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
     generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
 
-def processMatrix(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector):
+def runClustering(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector):
     '''
     sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
     We will now compute the pairwise distance metric for our input array.
@@ -228,7 +229,8 @@ def processMatrix(username, api_key, appCategoryList, predictedClustersFile, new
     'mahalanobis', 'matching', 'minkowski', 'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean', 'yule']
     See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
     '''
-    metricList = ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']
+    #metricList = ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']
+    metricList = ['manhattan'] # We are just doing Manhattan because we saw best results with that
     for metric in metricList:
         X = pairwise_distances(newAppMatrix, metric=metric, n_jobs=4)
         

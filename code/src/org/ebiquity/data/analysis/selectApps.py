@@ -14,33 +14,49 @@ import os
 from os.path import isfile, join
 import platform
 
-def isDataCollected(packageName,dbHandle):
+#No longer necessary to call this
+def isDataCollected(dbHandle,packageName):
     cursor = dbHandle.cursor()
     sqlStatement = "SELECT perm_extracted,parsed FROM `appurls` WHERE `app_pkg_name` = '"+packageName+"';"
     try:
         cursor.execute(sqlStatement)
         if cursor.rowcount == 0:
-#             printpackageName,",error was: url not collected"
+            print packageName,",error was: url not collected"
             return False
         else:
             queryOutput = cursor.fetchall()
             for row in queryOutput:
                 if row[0] == 0:
-#                     if row[1] == 0:
-#                         printpackageName,",error was: data and permissions not collected"
-#                     else:
-#                         printpackageName,",error was: permissions not collected but data collected"
+                    if row[1] == 0:
+                        print packageName,",error was: data and permissions not collected"
+                    else:
+                        print packageName,",error was: permissions not collected but data collected"
                     return False
                 else:
                     if row[1] == 0:
-#                         printpackageName,",error was: permissions collected but data not collected"
+                        print packageName,",error was: permissions collected but data not collected"
                         return False
                     else:
-                        #printpackageName,"data and permissions collected"
+                        print packageName,"data and permissions collected"
                         return True
     except:
-        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
+        print "Unexpected error in isDataCollected:", sys.exc_info()[0]
         raise
+
+def getAppDict(dbHandle,sqlStatement):
+    cursor = dbHandle.cursor()
+    appDict = {}
+    try:
+        cursor.execute(sqlStatement)
+        print "Extracting app package names and ids"
+        if cursor.rowcount > 0:
+            queryOutput = cursor.fetchall()
+            for row in queryOutput:
+                appDict[row[1]] = row[0]
+    except:
+        print "Unexpected error in extractAllApps:", sys.exc_info()[0]
+        raise
+    return appDict
 
 def getTopAppsFromDownloadedJSONs(dbHandle):
     # Detect operating system and takes actions accordingly
@@ -57,49 +73,23 @@ def getTopAppsFromDownloadedJSONs(dbHandle):
         for appData in topAppDict['appList']:
             if 'package_name' in appData:
                 packageName = str(appData['package_name'])
-                isDataCollected(packageName,dbHandle)
+                #isDataCollected(dbHandle,packageName)
                 appNameList.append(packageName) 
 
-    return databaseHandler.convertPythonListToSQLQueryList(appNameList)
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+databaseHandler.convertPythonListToSQLQueryList(appNameList)+");"
+    return getAppDict(dbHandle,sqlStatement)
 
-def extractAllApps(dbHandle):
-    cursor = dbHandle.cursor()
-    
-    appNameList = []
-    sqlStatement = "SELECT a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"
-    try:
-        cursor.execute(sqlStatement)
-        print "Extracting all app package names"
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
-            for row in queryOutput:
-                appNameList.append(row[0]) 
-    except:
-        print "Unexpected error in extractAllApps:", sys.exc_info()[0]
-        raise
-
-    return databaseHandler.convertPythonListToSQLQueryList(appNameList)
+def extractAllApps(dbHandle):    
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"
+    return getAppDict(dbHandle,sqlStatement)
 
 def extractAppsFromCategory(dbHandle,appCategoryList):
-    cursor = dbHandle.cursor()
     appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
-    
-    appNameList = []
-    sqlStatement = "SELECT a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id`;"
-    print sqlStatement
-    try:
-        cursor.execute(sqlStatement)
-        print "Extracting categorywise app package names"
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
-            for row in queryOutput:
-                appNameList.append(row[0]) 
-    except:
-        print "Unexpected error in extractAppsFromCategory:", sys.exc_info()[0]
-        raise
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id`;"
+    return getAppDict(dbHandle,sqlStatement)
 
-    return databaseHandler.convertPythonListToSQLQueryList(appNameList)
-
+# Get a bunch of apps from which you want to get the permissions
+# Select apps which have had their permissions extracted
 def getCategoryApps(dbHandle,appCategoryList):
     return extractAppsFromCategory(dbHandle,appCategoryList)
 
@@ -134,15 +124,17 @@ def main(argv):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
     startTime = time.time()
     appCategoryList = preProcess(sys.argv[1])
+    # Get a bunch of apps from which you want to get the permissions
+    # Select apps which have had their permissions extracted
     if appCategoryList[0] == 'top':
-        appNameList = getTopApps(dbHandle)
+        appDict = getTopApps(dbHandle)
     elif appCategoryList[0] == 'all':
-        appNameList = getAllApps(dbHandle)
+        appDict = getAllApps(dbHandle)
     else:
-        appNameList = getCategoryApps(dbHandle,appCategoryList)
+        appDict = getCategoryApps(dbHandle,appCategoryList)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
-    print appNameList
+#     print appDict
     dbHandle.close() #DB Close
 
 if __name__ == "__main__":

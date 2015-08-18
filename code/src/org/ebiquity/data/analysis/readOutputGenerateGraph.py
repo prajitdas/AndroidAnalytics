@@ -3,7 +3,6 @@
 '''
 Created on July 31, 2015
 @author: Prajit
-Usage: python readOutputGenerateGraph.py username api_key fileToRead
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 from sklearn.datasets import make_blobs
@@ -15,17 +14,17 @@ import numpy as np
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 import clusterEvaluation as clEval
 import kMeansSilhouetteAnalysis as silsam
+import databaseHandler
 
 import sys
 import time
-import databaseHandler
+import io
 import plotly.tools as tls
 # Learn about API authentication here: https://plot.ly/python/getting-started
 # Find your api_key here: https://plot.ly/settings/api
 import plotly.plotly as py
 from plotly.graph_objs import *
 import json
-import cPickle
 
 # This is a plot for Goodness of Cluster measure using homogeneity_score, completeness_score
 def generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix):
@@ -219,9 +218,7 @@ def plotResults(username, api_key, fileToRead, postfix=None):
     print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
     generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
 
-def processMatrix(username, api_key, appCategoryList, predictedClustersFile, appMatrixFile, appVector):
-    appMatrix = cPickle.load(open(appMatrixFile, 'rb'))
-    newAppMatrix = np.array(appMatrix)
+def processMatrix(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector):
     '''
     sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
     We will now compute the pairwise distance metric for our input array.
@@ -288,36 +285,12 @@ def processMatrix(username, api_key, appCategoryList, predictedClustersFile, app
         print "Writing predicted clusters to a file"
         with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
             f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
-        dbHandle.close() #DB Close
         #We will generate separate graphs with this info
-        categories = ''.join(appCategoryList,metric)
-        genGraph.plotSilhouetteSamples(username, api_key, predictedClustersFile, categories)
-        genGraph.plotResults(username, api_key, predictedClustersFile, categories)
-
-def preProcess():
-    #appCategoryList = ['APP_WALLPAPER','APP_WIDGETS','BOOKS_AND_REFERENCE','BUSINESS','COMICS','COMMUNICATION','EDUCATION','ENTERTAINMENT','FAMILY','FAMILY?age=AGE_RANGE1','FAMILY?age=AGE_RANGE2','FAMILY?age=AGE_RANGE3','FAMILY_ACTION','FAMILY_BRAINGAMES','FAMILY_CREATE','FAMILY_EDUCATION','FAMILY_MUSICVIDEO','FAMILY_PRETEND','FINANCE','GAME','GAME_ACTION','GAME_ADVENTURE','GAME_ARCADE','GAME_BOARD','GAME_CARD','GAME_CASINO','GAME_CASUAL','GAME_EDUCATIONAL','GAME_MUSIC','GAME_PUZZLE','GAME_RACING','GAME_ROLE_PLAYING','GAME_SIMULATION','GAME_SPORTS','GAME_STRATEGY','GAME_TRIVIA','GAME_WORD','HEALTH_AND_FITNESS','LIBRARIES_AND_DEMO','LIFESTYLE','MEDIA_AND_VIDEO','MEDICAL','MUSIC_AND_AUDIO','NEWS_AND_MAGAZINES','PERSONALIZATION','PHOTOGRAPHY','PRODUCTIVITY','SHOPPING','SOCIAL','SPORTS','TOOLS','TRANSPORTATION','TRAVEL_AND_LOCAL','WEATHER']
-    appCategoryList = ['HEALTH_AND_FITNESS','MEDICAL']
-    
-    permissionRestrictionList = []
-    #permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
-    if not permissionRestrictionList:
-        permissionRestrictionListString = ''
-    else:
-        permissionRestrictionListString = '\'' + '\',\''.join(permissionRestrictionList) + '\''
-    
-    return appCategoryList, permissionRestrictionListString
-
-def main(argv):
-    if len(sys.argv) != 5:
-        sys.stderr.write('Usage: python permissionsClustering.py username api_key predictedClustersFile appMatrixFile\n')
-        sys.exit(1)
-        
-    appCategoryList, permissionRestrictionListString = preProcess()        
-
-    startTime = time.time()
-    processMatrix(sys.argv[1], sys.argv[2], appCategoryList, permissionRestrictionListString, sys.argv[3], sys.argv[4])
-    executionTime = str((time.time()-startTime)*1000)
-    print "Execution time was: "+executionTime+" ms"
-
-if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+        if not appCategoryList:
+            categories = ''
+        else:
+            categories = ''.join(appCategoryList)
+        metrics = ''.join(metric)
+        fileName = categories+metrics
+        plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
+        plotResults(username, api_key, predictedClustersFile, fileName)

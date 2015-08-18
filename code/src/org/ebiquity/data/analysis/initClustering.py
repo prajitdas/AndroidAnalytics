@@ -3,7 +3,7 @@
 '''
 Created on August 14, 2015
 @author: Prajit
-Usage: python initClustering.py username api_key
+Usage: python initClustering.py username api_key selectionType
 '''
 import numpy as np
 import sys
@@ -143,21 +143,25 @@ def preProcess(selectionType):
     return appMatrixFile, predictedClustersFile, appCategoryList
 
 def main(argv):
-    if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python initClustering.py username api_key\n')
+    if len(sys.argv) != 4:
+        sys.stderr.write('Usage: python initClustering.py username api_key selectionType\n')
         sys.exit(1)
-        
-    appMatrixFile, predictedClustersFile = preProcess()
+
+    username = sys.argv[1]
+    api_key = sys.argv[2]
+    selectionType = sys.argv[3]
+    
+    appMatrixFile, predictedClustersFile, appCategoryList = preProcess(selectionType)
     
     startTime = time.time()
     if appCategoryList[0] == 'top':
         #Initiate the clustering process for top apps
-        initClusteringTopApps(sys.argv[1], sys.argv[2], predictedClustersFile, appMatrixFile)
+        initClusteringTopApps(username, api_key, predictedClustersFile, appMatrixFile)
     elif appCategoryList[0] == 'all':
         #Initiate the clustering process for top apps
-        initClusteringAllApps(sys.argv[1], sys.argv[2], predictedClustersFile, appMatrixFile)
+        initClusteringAllApps(username, api_key, predictedClustersFile, appMatrixFile)
     else:
-        initClusteringCatApps(sys.argv[1], sys.argv[2], appCategoryList, predictedClustersFile, appMatrixFile)
+        initClusteringCatApps(username, api_key, appCategoryList, predictedClustersFile, appMatrixFile)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

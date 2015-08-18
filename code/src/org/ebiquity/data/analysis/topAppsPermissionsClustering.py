@@ -63,59 +63,10 @@ def extractAppPermisionVector(dbHandle,appId):
     
     return permVector
 
-def isDataCollected(packageName,dbHandle):
-    cursor = dbHandle.cursor()
-    sqlStatement = "SELECT perm_extracted,parsed FROM `appurls` WHERE `app_pkg_name` = '"+packageName+"';"
-    try:
-        cursor.execute(sqlStatement)
-        if cursor.rowcount == 0:
-#             printpackageName,",error was: url not collected"
-            return False
-        else:
-            queryOutput = cursor.fetchall()
-            for row in queryOutput:
-                if row[0] == 0:
-#                     if row[1] == 0:
-#                         printpackageName,",error was: data and permissions not collected"
-#                     else:
-#                         printpackageName,",error was: permissions not collected but data collected"
-                    return False
-                else:
-                    if row[1] == 0:
-#                         printpackageName,",error was: permissions collected but data not collected"
-                        return False
-                    else:
-                        #printpackageName,"data and permissions collected"
-                        return True
-    except:
-        print "Unexpected error in generateAppMatrix:", sys.exc_info()[0]
-        raise
-
-def getTopAppsFromDownloadedJSONs(dbHandle):
-    # Detect operating system and takes actions accordingly
-    osInfo = platform.system()
-    currentDirectory = os.getcwd()
-    if osInfo == 'Windows':
-        topAppJsonsFrom42MattersAPIDirectory = currentDirectory+"\\topAppJsonsFrom42MattersAPI"
-    elif osInfo == 'Linux' or osInfo == 'Darwin':
-        topAppJsonsFrom42MattersAPIDirectory = currentDirectory+"/topAppJsonsFrom42MattersAPI"
-    
-    appNameList = []
-    for filename in os.listdir(topAppJsonsFrom42MattersAPIDirectory):
-        topAppDict = json.loads(open(os.path.join(topAppJsonsFrom42MattersAPIDirectory,filename), 'r').read().decode('utf8'))
-        for appData in topAppDict['appList']:
-            if 'package_name' in appData:
-                packageName = str(appData['package_name'])
-                isDataCollected(packageName,dbHandle)
-                processedPackageName = str('\'')+packageName+str('\',')
-                appNameList.append(processedPackageName) 
-
-    return ''.join(appNameList)[:-1]
-    
 def generateAppMatrix(dbHandle,appMatrixFile):
     cursor = dbHandle.cursor()
     
-    appNameList = getTopAppsFromDownloadedJSONs(dbHandle)
+    appNameList = selectApps.getTopApps(dbHandle)
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appNameList+");"

@@ -3,7 +3,7 @@
 '''
 Created on August 18, 2015
 @author: Prajit
-Usage: python selectApps.py selectionType
+Usage: python selectPermissions.py restrictionListSelection restrictionType
 '''
 import sys
 import time
@@ -57,27 +57,16 @@ def preProcess():
     else:
         permissionRestrictionListString = '\'' + '\',\''.join(permissionRestrictionList) + '\''
 
-    ticks = time.time()
-    appMatrixFile = "appMatrix"+str(ticks)+".txt"
-    text_file = open(appMatrixFile, "w")
-    text_file.write("")
-    text_file.close()
-    
-    predictedClustersFile = "predictedClusters"+str(ticks)+".json"
-    text_file = open(predictedClustersFile, "w")
-    text_file.write("")
-    text_file.close()
-    
-    return appCategoryList, permissionRestrictionListString, appMatrixFile, predictedClustersFile
+    return permissionRestrictionListString
 
 def main(argv):
-    if len(sys.argv) != 2:
-        sys.stderr.write('Usage: python selectApps.py selectionType\n')
+    if len(sys.argv) != 3:
+        sys.stderr.write('Usage: python selectApps.py restrictionListSelection restrictionType\n')
         sys.exit(1)
         
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
     startTime = time.time()
-    appCategoryList = preProcess(sys.argv[1])
+    permissionRestrictionListString = preProcess(sys.argv[1])
     # Get a bunch of apps from which you want to get the permissions
     # Select apps which have had their permissions extracted
     if appCategoryList[0] == 'top':

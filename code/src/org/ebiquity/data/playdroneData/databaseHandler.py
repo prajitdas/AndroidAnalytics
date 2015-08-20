@@ -40,3 +40,9 @@ def dbConnectionCheck():
     dbHandle = MySQLdb.connect(host,user,passwd,db);
     dbHandle.set_character_set('utf8')
     return dbHandle
+
+def convertPythonListToSQLQueryList(pythonList):
+    if not pythonList:
+        return ''#List was empty return empty string
+    else:
+        return '\''+'\',\''.join(pythonList)+'\''#Joining the Strings in the list to each other for use in SQL IN LIST query

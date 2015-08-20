@@ -45,15 +45,21 @@ def generatePermVector(dbHandle, sqlStatement):
 
 def extractAppPermisionVector(dbHandle, appId, permissionRestrictionList, restrictionType):    
     permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
-    if restrictionType == 'allow':
+    if permissionRestrictionSQLQueryList == '':
         # Get the complete permissions vector and then use that as the vector rep for each app
         # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-        # Select only permissions which have been allowed
-        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND p.`name` IN ("+permissionRestrictionSQLQueryList+");"
+        # Select no restrictions doesn't matter what restrictionType we have
+        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
     else:
-        # Get the complete permissions vector and then use that as the vector rep for each app
-        # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-        # Select only permissions which have not been restricted
-        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND p.`name` NOT IN ("+permissionRestrictionSQLQueryList+");"
-
+        if restrictionType == 'allow':
+            # Get the complete permissions vector and then use that as the vector rep for each app
+            # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+            # Select only permissions which have been allowed
+            sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND p.`name` IN ("+permissionRestrictionSQLQueryList+");"
+        else:
+            # Get the complete permissions vector and then use that as the vector rep for each app
+            # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+            # Select only permissions which have not been restricted
+            sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND p.`name` NOT IN ("+permissionRestrictionSQLQueryList+");"
+    
     return generatePermVector(dbHandle, sqlStatement)

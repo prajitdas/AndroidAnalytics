@@ -219,7 +219,7 @@ def plotResults(username, api_key, fileToRead, postfix=None):
     print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
     generatePlot(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
 
-def runClustering(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector):
+def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, newAppMatrix, appVector):
     '''
     sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
     We will now compute the pairwise distance metric for our input array.
@@ -288,10 +288,10 @@ def runClustering(username, api_key, appCategoryList, predictedClustersFile, new
         with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
             f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
         #We will generate separate graphs with this info
-        if not appCategoryList:
+        if not appCategoryListSelection:
             categories = ''
         else:
-            categories = ''.join(appCategoryList)
+            categories = ''.join(appCategoryListSelection)
         metrics = ''.join(metric)
         fileName = categories+metrics
         plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)

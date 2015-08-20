@@ -52,34 +52,34 @@ def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionTyp
     return getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #Initiate the clustering process
-def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, selectionType, permissionRestrictionList, restrictionType):
+def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
-    if selectionType == 'top':
+    if appCategoryListSelection == 'top':
         #generate the permission matrix for top apps
         appVector, appMatrix = generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType)
-    elif selectionType == 'all':
+    elif appCategoryListSelection == 'all':
         #generate the permission matrix for all apps
         appVector, appMatrix = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
     else:
         #generate the permission matrix for category list apps
-        appVector, appMatrix = generateAppMatrixCatApps(dbHandle,appCategoryList, permissionRestrictionList, restrictionType)
+        appVector, appMatrix = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 
     newAppMatrix = np.array(writeMatrixToFile(appMatrix,appMatrixFile))
-    runCl.runClustering(username, api_key, appCategoryList, predictedClustersFile, newAppMatrix, appVector)
+    runCl.runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, newAppMatrix, appVector)
 
     dbHandle.close() #DB Close
 
-def preProcess(selectionType, restrictionListSelection):
-    if selectionType == 'med':
+def preProcess(appCategoryListSelection, restrictionListSelection):
+    if appCategoryListSelection == 'med':
         appCategoryList = ['https://play.google.com/store/apps/category/MEDICAL']
-    elif selectionType == 'hea':
+    elif appCategoryListSelection == 'hea':
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS']
-    elif selectionType == 'hmd':
+    elif appCategoryListSelection == 'hmd':
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS','https://play.google.com/store/apps/category/MEDICAL']
-    elif selectionType == 'top':
+    elif appCategoryListSelection == 'top':
         appCategoryList = ['top']
-    elif selectionType == 'all':
+    elif appCategoryListSelection == 'all':
         appCategoryList = ['all']
     '''
     This is the full list:-
@@ -88,9 +88,12 @@ def preProcess(selectionType, restrictionListSelection):
         
     if restrictionListSelection == 'int':
         permissionRestrictionList = ['android.permission.INTERNET']
-    elif restrictionListSelection == 'inet':
+    elif restrictionListSelection == 'top25':
         permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
-    
+    elif restrictionListSelection == 'google':
+        permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
+    else:#Select no permission restriction as we did not choose any restriction list
+        permissionRestrictionList = []
 
     ticks = time.time()
     appMatrixFile = "appMatrix"+str(ticks)+".txt"
@@ -112,15 +115,15 @@ def main(argv):
 
     username = sys.argv[1]
     api_key = sys.argv[2]
-    selectionType = sys.argv[3]
+    appCategoryListSelection = sys.argv[3]
     restrictionListSelection = sys.argv[4]
     restrictionType = sys.argv[5]
     
-    appMatrixFile, predictedClustersFile, appCategoryList, permissionRestrictionList = preProcess(selectionType, restrictionListSelection)
+    appMatrixFile, predictedClustersFile, appCategoryList, permissionRestrictionList = preProcess(appCategoryListSelection, restrictionListSelection)
     
     startTime = time.time()
     #Initiate the clustering process
-    initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, selectionType, permissionRestrictionList, restrictionType)
+    initClustering(username, api_key, predictedClustersFile, appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

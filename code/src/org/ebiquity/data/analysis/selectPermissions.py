@@ -30,12 +30,23 @@ def getPermissionsCount(dbHandle):
         raise
     return permissionsCount
 
-def extractAppPermisionVector(dbHandle,appId):
+def extractAppPermisionVector(appId,permissionRestrictionList,restrictionType):
+    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
     cursor = dbHandle.cursor()
-    # Get the complete permissions vector and then use that as the vector rep for each app
-    # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
-    sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
-    #sqlStatement = "SELECT p.`id` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id`;"
+    
+    permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
+    if restrictionType == 'allow':
+        # Get the complete permissions vector and then use that as the vector rep for each app
+        # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+        # Select only permissions which have been allowed
+        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND p.`name` IN ("+permissionRestrictionSQLQueryList+");"
+        print sqlStatement
+    else:
+        # Get the complete permissions vector and then use that as the vector rep for each app
+        # If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
+        # Select only permissions which have not been restricted
+        sqlStatement = "SELECT p.`id`, p.`name` FROM `appperm` a, `permissions` p WHERE a.`app_id` = "+str(appId)+" AND a.`perm_id` = p.`id` AND p.`name` NOT IN ("+permissionRestrictionSQLQueryList+");"
+        print sqlStatement
     try:
         cursor.execute(sqlStatement)
         permVector = [0] * getPermissionsCount(dbHandle)
@@ -47,38 +58,28 @@ def extractAppPermisionVector(dbHandle,appId):
         print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
         raise
     
+    dbHandle.close() #DB Close
     return permVector
 
-def preProcess():
-    permissionRestrictionList = []
-    #permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
-    if not permissionRestrictionList:
-        permissionRestrictionListString = ''
-    else:
-        permissionRestrictionListString = '\'' + '\',\''.join(permissionRestrictionList) + '\''
-
-    return permissionRestrictionListString
+def preProcess(restrictionListSelection):
+    if restrictionListSelection == 'int':
+        permissionRestrictionList = ['android.permission.INTERNET']
+    elif restrictionListSelection == 'inet':
+        permissionRestrictionList = ['android.permission.INTERNET','android.permission.ACCESS_NETWORK_STATE']
+    return permissionRestrictionList
 
 def main(argv):
     if len(sys.argv) != 3:
         sys.stderr.write('Usage: python selectApps.py restrictionListSelection restrictionType\n')
         sys.exit(1)
         
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
     startTime = time.time()
-    permissionRestrictionListString = preProcess(sys.argv[1])
-    # Get a bunch of apps from which you want to get the permissions
-    # Select apps which have had their permissions extracted
-    if appCategoryList[0] == 'top':
-        appDict = getTopApps(dbHandle)
-    elif appCategoryList[0] == 'all':
-        appDict = getAllApps(dbHandle)
-    else:
-        appDict = getCategoryApps(dbHandle,appCategoryList)
+    permissionRestrictionList = preProcess(sys.argv[1])
+    # Get a app permissions for apps based on allow restrict list 
+    permDict = extractAppPermisionVector("10047",permissionRestrictionList,sys.argv[2])
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
-    print appDict
-    dbHandle.close() #DB Close
+    print permDict
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

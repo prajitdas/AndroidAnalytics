@@ -43,6 +43,8 @@ def generatePermVector(dbHandle, sqlStatement):
         print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
         raise
 
+    return permVector
+
 def extractAppPermisionVector(dbHandle, appId, permissionRestrictionList, restrictionType):    
     permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
     if permissionRestrictionSQLQueryList == '':

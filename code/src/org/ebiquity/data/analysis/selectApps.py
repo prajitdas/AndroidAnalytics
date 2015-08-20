@@ -47,6 +47,7 @@ def getTopAppsFromDownloadedJSONs():
                 #isDataCollected(dbHandle,packageName)
                 appNameList.append(packageName) 
 
+    print appNameList
     return appNameList
 
 # Get a bunch of apps from which you want to get the permissions

@@ -26,7 +26,7 @@ def getPermissionsCount(dbHandle):
             for row in queryOutput:
                 permissionsCount = row[0]
     except:
-        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
+        print "Unexpected error in getPermissionsCount:", sys.exc_info()[0]
         raise
     return permissionsCount
 
@@ -40,12 +40,12 @@ def generatePermVector(dbHandle, sqlStatement):
             for row in queryOutput:
                 permVector[row[0]] = 1
     except:
-        print "Unexpected error in extractPermisionVector:", sys.exc_info()[0]
+        print "Unexpected error in generatePermVector:", sys.exc_info()[0]
         raise
 
     return permVector
 
-def extractAppPermisionVector(dbHandle, appId, permissionRestrictionList, restrictionType):    
+def extractAppPermisionVector(dbHandle, appId, permissionRestrictionList, restrictionType):
     permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
     if permissionRestrictionSQLQueryList == '':
         # Get the complete permissions vector and then use that as the vector rep for each app

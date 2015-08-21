@@ -43,7 +43,6 @@ def generatePermVector(dbHandle, sqlStatement):
                 for perm in permissionsDict[app]:
                     appMatrix[appVector.index(app)][permissionsList.index(perm)] = 1
                   
-            print appMatrix
     except:
         print "Unexpected error in generatePermVector:", sys.exc_info()[0]
         raise

@@ -22,20 +22,17 @@ def writeMatrixToFile(appMatrix,appMatrixFile):
     return cPickle.load(open(appMatrixFile, 'rb'))
 
 def getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType):
-    appMatrix = []
-    appVector = []
-    for appPackageName, appId in appDict.iteritems():
-        #extract the permissions vector for each app
-        permVector = selectPermissions.extractAppPermisionVector(dbHandle, appId, permissionRestrictionList, restrictionType)
-        appVector.append(appPackageName)
-        appMatrix.append(permVector)
+    appIdVector = []
+    for appId in appDict.itervalues():
+        appIdVector.append(str(appId))#Convert the appids to string as we want to ensure that the concatenation in convertPythonListToSQLQueryList() works
     
     '''
+    Extract the permissions vector for all the appIds
     The app matrix returned is a big one and it has some columns with only zero values we have to remove them if possible
     This is where dimensionality reduction will probably help!
     Return app vector appMatrix will be read from File
     '''
-    return appVector, appMatrix
+    return selectPermissions.extractAppPermisionVector(dbHandle, appIdVector, permissionRestrictionList, restrictionType)
 
 #generate the permission matrix for category list apps
 def generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):

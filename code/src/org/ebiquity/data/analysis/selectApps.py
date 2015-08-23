@@ -94,4 +94,12 @@ def isDataCollected(dbHandle,packageName):
     except:
         print "Unexpected error in isDataCollected:", sys.exc_info()[0]
         raise
+
+def main(argv):
+    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+    for app in getTopAppsFromDownloadedJSONs():
+        isDataCollected(dbHandle,app)
+    dbHandle.close()
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
 '''

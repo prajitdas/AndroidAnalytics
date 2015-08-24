@@ -93,7 +93,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
 #         KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
 #         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         X = np.array(writeMatrixToFile(appMatrix, appMatrixFile))
-        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters,affinity='precomputed')
+        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters,affinity="jaccard")
         clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         
         counter = 0
@@ -113,7 +113,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed
         # clusters
-        silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric="precomputed") 
+        silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric="jaccard") 
         clusterSilhouetteAverage = {}
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
         print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
@@ -136,7 +136,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         categories = ''
     else:
         categories = ''.join(appCategoryListSelection)
-    metrics = "precomputed"
+    metrics = "jaccard"
     fileName = categories+metrics
     plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
     plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)

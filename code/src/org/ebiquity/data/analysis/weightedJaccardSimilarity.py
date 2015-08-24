@@ -11,6 +11,7 @@ import databaseHandler
 import json
 import os.path as path
 import io
+from numpy.core.test_rational import denominator
 
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
 
@@ -32,6 +33,35 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
     permissionsList = list(permissionsSet)
     appVector = permissionsDict.keys()
 
+    # Creates a list containing 5 lists initialized to 0
+    appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
+    
+    with io.open(idfPermissionsDictJSONFile, 'r', encoding='utf-8') as f:
+        idfPermissionsDictJSONRead = unicode(json.loads(f))
+    
+    for app1 in appVector:
+        for app2 in appVector:
+            if app1 != app2:
+                app1PermSet = set(permissionsDict[app1])
+                app2PermSet = set(permissionsDict[app2])
+                
+                intersectionSet = app1PermSet.intersect(app2PermSet)
+                unionSet = app1PermSet.union(app2PermSet)
+                
+                numerator = 0.0
+                denominator = 0.0
+                
+                for perm in intersectionSet:
+                    if perm in idfPermissionsDictJSONRead:
+                        numerator = numerator + idfPermissionsDictJSONRead[perm]
+
+                for perm in unionSet:
+                    if perm in idfPermissionsDictJSONRead:
+                        denominator = denominator + idfPermissionsDictJSONRead[perm]
+                
+                appMatrix[appVector.index(app1)][appVector.index(app2)] = numerator/denominator
+    
+    print appMatrix
     
     return generatePermVector(dbHandle, sqlStatement)
 
@@ -68,6 +98,7 @@ def getAppCountRequestingPermissions(dbHandle):
                 This warrants a further look from our perspective.
                 '''
                 idfPermissionsDict[row[1]] = countOfApps/row[0]
+                print idfPermissionsDict[row[1]]
     except:
         print "Unexpected error in getAppCountRequestingPermissions:", sys.exc_info()[0]
         raise

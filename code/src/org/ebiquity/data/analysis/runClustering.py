@@ -157,7 +157,7 @@ def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile,
     metricList = ['manhattan'] # We are just doing Manhattan because we saw best results with that
     for metric in metricList:
         X = pairwise_distances(newAppMatrix, metric=metric, n_jobs=4)
-        
+        print "pairwise_distances in KMeans complete"
         evaluatedClusterResultsDict = kMeans(X, appVector, metric)
 
     #    printevaluatedClusterResultsDict

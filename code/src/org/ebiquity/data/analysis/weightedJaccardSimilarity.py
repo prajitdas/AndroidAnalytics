@@ -15,18 +15,7 @@ from numpy.core.test_rational import denominator
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
 
 def writeToFile(idfPermissionsDict):    
-#     if path.isfile(idfPermissionsDictJSONFile):
-#         with io.open(idfPermissionsDictJSONFile, 'r', encoding='utf-8') as f:
-#             idfPermissionsDictJSONRead = unicode(json.loads(f.read()))
-#             if 'countOfApps' in idfPermissionsDictJSONRead:
-#                 print idfPermissionsDictJSONRead['countOfApps']
-#     else:
     with open(idfPermissionsDictJSONFile, 'w') as f:
-#         print type(f)
-#         print type(idfPermissionsDict)
-#         print len(idfPermissionsDict)
-#         print idfPermissionsDict['android.permission.INTERNET']
-#         json.dumps(idfPermissionsDict)
         print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
         f.write(json.dumps(idfPermissionsDict))
 
@@ -48,8 +37,7 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
             if app1 != app2:
                 app1PermSet = set(permissionsDict[app1])
                 app2PermSet = set(permissionsDict[app2])
-#                 print app1PermSet
-#                 print app2PermSet
+
                 intersectionSet = app1PermSet.intersection(app2PermSet)
                 unionSet = app1PermSet.union(app2PermSet)
                 
@@ -66,41 +54,41 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
                 
                 appMatrix[appVector.index(app1)][appVector.index(app2)] = numerator/denominator
                 
-                if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
-                    print "fb and insta:", numerator/denominator
-                    print sorted(permissionsDict[app1])
-                    print sorted(permissionsDict[app2])
-                    print intersectionSet
-                    print app1PermSet.difference(app2PermSet)
-                    print app2PermSet.difference(app1PermSet)
-                elif app1 == 'com.ubercab' and app2 == 'com.ubercab.driver':
-                    print "uber and uber driver:", numerator/denominator
-                    print sorted(permissionsDict[app1])
-                    print sorted(permissionsDict[app2])
-                    print intersectionSet
-                    print app1PermSet.difference(app2PermSet)
-                    print app2PermSet.difference(app1PermSet)
-                elif app1 == 'com.ubercab' and app2 == 'com.facebook.katana':
-                    print "uber and facebook:", numerator/denominator
-                    print sorted(permissionsDict[app1])
-                    print sorted(permissionsDict[app2])
-                    print intersectionSet
-                    print app1PermSet.difference(app2PermSet)
-                    print app2PermSet.difference(app1PermSet)
-                elif app1 == 'com.surpax.ledflashlight.panel' and app2 == 'com.facebook.katana':
-                    print "flash light and fb:", numerator/denominator
-                    print sorted(permissionsDict[app1])
-                    print sorted(permissionsDict[app2])
-                    print intersectionSet
-                    print app1PermSet.difference(app2PermSet)
-                    print app2PermSet.difference(app1PermSet)
-                elif app1 == 'com.zynga.wwf2.free' and app2 == 'com.imangi.templerun':
-                    print "zynga and templerun:", numerator/denominator
-                    print sorted(permissionsDict[app1])
-                    print sorted(permissionsDict[app2])
-                    print intersectionSet
-                    print app1PermSet.difference(app2PermSet)
-                    print app2PermSet.difference(app1PermSet)
+#                 if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
+#                     print "fb and insta:", numerator/denominator
+#                     print sorted(permissionsDict[app1])
+#                     print sorted(permissionsDict[app2])
+#                     print intersectionSet
+#                     print app1PermSet.difference(app2PermSet)
+#                     print app2PermSet.difference(app1PermSet)
+#                 elif app1 == 'com.ubercab' and app2 == 'com.ubercab.driver':
+#                     print "uber and uber driver:", numerator/denominator
+#                     print sorted(permissionsDict[app1])
+#                     print sorted(permissionsDict[app2])
+#                     print intersectionSet
+#                     print app1PermSet.difference(app2PermSet)
+#                     print app2PermSet.difference(app1PermSet)
+#                 elif app1 == 'com.ubercab' and app2 == 'com.facebook.katana':
+#                     print "uber and facebook:", numerator/denominator
+#                     print sorted(permissionsDict[app1])
+#                     print sorted(permissionsDict[app2])
+#                     print intersectionSet
+#                     print app1PermSet.difference(app2PermSet)
+#                     print app2PermSet.difference(app1PermSet)
+#                 elif app1 == 'com.surpax.ledflashlight.panel' and app2 == 'com.facebook.katana':
+#                     print "flash light and fb:", numerator/denominator
+#                     print sorted(permissionsDict[app1])
+#                     print sorted(permissionsDict[app2])
+#                     print intersectionSet
+#                     print app1PermSet.difference(app2PermSet)
+#                     print app2PermSet.difference(app1PermSet)
+#                 elif app1 == 'com.zynga.wwf2.free' and app2 == 'com.imangi.templerun':
+#                     print "zynga and templerun:", numerator/denominator
+#                     print sorted(permissionsDict[app1])
+#                     print sorted(permissionsDict[app2])
+#                     print intersectionSet
+#                     print app1PermSet.difference(app2PermSet)
+#                     print app2PermSet.difference(app1PermSet)
     #print appMatrix
     
     return appMatrix, appVector

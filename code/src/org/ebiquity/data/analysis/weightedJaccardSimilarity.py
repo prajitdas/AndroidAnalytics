@@ -16,15 +16,15 @@ from numpy.core.test_rational import denominator
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
 
 def writeToFile(idfPermissionsDict):    
-    if path.isfile(idfPermissionsDictJSONFile):
-        with io.open(idfPermissionsDictJSONFile, 'r', encoding='utf-8') as f:
-            idfPermissionsDictJSONRead = unicode(json.loads(f.read()))
-            if 'countOfApps' in idfPermissionsDictJSONRead:
-                print idfPermissionsDictJSONRead['countOfApps']
-    else:
-        with io.open(idfPermissionsDictJSONFile, 'w', encoding='utf-8') as f:
-            print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
-            f.write(unicode(json.dumps(idfPermissionsDict, ensure_ascii=False, encoding='utf-8')))
+#     if path.isfile(idfPermissionsDictJSONFile):
+#         with io.open(idfPermissionsDictJSONFile, 'r', encoding='utf-8') as f:
+#             idfPermissionsDictJSONRead = unicode(json.loads(f.read()))
+#             if 'countOfApps' in idfPermissionsDictJSONRead:
+#                 print idfPermissionsDictJSONRead['countOfApps']
+#     else:
+    with io.open(idfPermissionsDictJSONFile, 'w', encoding='utf-8') as f:
+        print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
+        f.write(unicode(json.dumps(idfPermissionsDict, ensure_ascii=False, encoding='utf-8')))
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):    
     numberOfPermissions = len(permissionsSet)

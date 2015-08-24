@@ -18,7 +18,7 @@ idfPermissionsDictJSONFile = "idfPermissionsDict.json"
 def writeToFile(idfPermissionsDict):    
     if path.isfile(idfPermissionsDictJSONFile):
         with io.open(idfPermissionsDictJSONFile, 'r', encoding='utf-8') as f:
-            idfPermissionsDictJSONRead = unicode(json.loads(f))
+            idfPermissionsDictJSONRead = unicode(json.loads(f.read()))
             if 'countOfApps' in idfPermissionsDictJSONRead:
                 print idfPermissionsDictJSONRead['countOfApps']
     else:
@@ -91,6 +91,7 @@ def getAppCountRequestingPermissions(dbHandle):
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
             for row in queryOutput:
+                print row[0],row[1]
                 '''
                 Computing an "Inverse Document Frequency" of apps requesting a permission. 
                 This will tell us if a particular permission is unique and rare or a popular one.

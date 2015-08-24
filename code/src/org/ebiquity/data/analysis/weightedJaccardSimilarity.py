@@ -91,6 +91,7 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
 #                     print app2PermSet.difference(app1PermSet)
     #print appMatrix
     
+    print "computeJaccardMatrix complete"
     return appMatrix, appVector
 
 # def getCountOfAppPermissionsCollected(dbHandle):

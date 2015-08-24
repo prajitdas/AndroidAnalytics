@@ -49,7 +49,8 @@ def generatePermVector(dbHandle, sqlStatement):
     except:
         print "Unexpected error in generatePermVector:", sys.exc_info()[0]
         raise
-
+    
+    print "generatePermVector complete"
     return permissionsSet, permissionsDict
 
 def getSQLStatement(dbHandle, appIdVector, permissionRestrictionList, restrictionType):

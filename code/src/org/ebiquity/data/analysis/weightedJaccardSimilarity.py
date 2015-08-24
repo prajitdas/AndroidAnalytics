@@ -24,7 +24,7 @@ def writeToFile(idfPermissionsDict):
 #     else:
     with io.open(idfPermissionsDictJSONFile, 'w', encoding='utf-8') as f:
         print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
-        f.write(unicode(json.dumps(idfPermissionsDict, ensure_ascii=False, encoding='utf-8')))
+        f.write(json.dumps(idfPermissionsDict))
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):    
     numberOfPermissions = len(permissionsSet)

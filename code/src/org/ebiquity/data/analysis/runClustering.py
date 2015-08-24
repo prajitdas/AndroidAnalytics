@@ -7,7 +7,7 @@ Code for generating the Plotly graphs are here. It takes as input the files it w
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, SpectralClustering
 from sklearn.metrics import silhouette_samples, silhouette_score
 from sklearn.metrics.pairwise import pairwise_distances
 
@@ -81,8 +81,70 @@ def runClustering(username, api_key, appCategoryListSelection, predictedClusters
     doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
     
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
-    appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+    X, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+    startingNumberOfClusters = 99 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+    endingNumberOfClusters = 100
+    loopCounter = startingNumberOfClusters
+    evaluatedClusterResultsDict = {}
+    # We want to verify if the number of clusters are "strong with this one" (or not)
+    #Run clustering with a varying number of clusters
+    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
+        print "Running clustering algorithm with", numberOfClusters, "clusters"
+
+        loopListEvaluatedCluster = []
+#         # Initialize the KMeansObject with numberOfClusters value 
+#         KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
+#         clusterLabelsAssigned = KMeansObject.fit_predict(X)
+
+        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)
+        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+        
+        counter = 0
+        predictedClusters = {}
+        for appName in appVector:
+            predictedClusters[appName] = clusterLabelsAssigned[counter]
+            counter = counter + 1
+            
+        loopListEvaluatedCluster.append(predictedClusters)
+
+        #Clustering task is complete. Now evaluate
+        clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
+
+        loopListEvaluatedCluster.append(clusterEvaluationResults)
+        
+        # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
+        # The silhouette_score gives the average value for all the samples.
+        # This gives a perspective into the density and separation of the formed
+        # clusters
+#         silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric="") 
+#         clusterSilhouetteAverage = {}
+#         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
+#         print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
+                
+        # Insert the silhouette_avg for the cluster into the Json for further evaluation
+#         loopListEvaluatedCluster.append(clusterSilhouetteAverage)
+        # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
+                
+        stringLoopCounter = 'Loop'+str(loopCounter)
+        evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
+        loopCounter = loopCounter + 1
     
+    #    printevaluatedClusterResultsDict
+    #    Write the predicted clusters to a file
+    print "Writing predicted clusters to a file"
+    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
+        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
+    #We will generate separate graphs with this info
+    if not appCategoryListSelection:
+        categories = ''
+    else:
+        categories = ''.join(appCategoryListSelection)
+#     metrics = ''.join(metric)
+#     fileName = categories+metrics
+    fileName = 'spectral'
+#     plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
+    plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
+
 def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     appMatrix, appVector = sp.computeMatrix(permissionsSet, permissionsDict)
     newAppMatrix = np.array(writeMatrixToFile(appMatrix, appMatrixFile))

@@ -16,6 +16,21 @@ import platform
 import selectApps
 import sets
 
+def computeMatrix(permissionsSet, permissionsDict):
+    numberOfPermissions = len(permissionsSet)
+    numberOfApps = len(permissionsDict.keys())
+    
+    permissionsList = list(permissionsSet)
+    appVector = permissionsDict.keys()
+
+    # Creates a list containing 5 lists initialized to 0
+    appMatrix = [[0 for x in range(numberOfPermissions)] for x in range(numberOfApps)]
+    for app in appVector:
+        for perm in permissionsDict[app]:
+            appMatrix[appVector.index(app)][permissionsList.index(perm)] = 1
+
+    return appVector, appMatrix
+
 def generatePermVector(dbHandle, sqlStatement):
     cursor = dbHandle.cursor()
     permissionsSet = set()
@@ -30,26 +45,14 @@ def generatePermVector(dbHandle, sqlStatement):
                     permissionsDict[str(row[0])].append(row[1])
                 else:
                     permissionsDict[str(row[0])] = [row[1]]
-                            
-            numberOfPermissions = len(permissionsSet)
-            numberOfApps = len(permissionsDict.keys())
-            
-            permissionsList = list(permissionsSet)
-            appVector = permissionsDict.keys()
 
-            # Creates a list containing 5 lists initialized to 0
-            appMatrix = [[0 for x in range(numberOfPermissions)] for x in range(numberOfApps)]
-            for app in appVector:
-                for perm in permissionsDict[app]:
-                    appMatrix[appVector.index(app)][permissionsList.index(perm)] = 1
-                  
     except:
         print "Unexpected error in generatePermVector:", sys.exc_info()[0]
         raise
 
-    return appVector, appMatrix
+    return permissionsSet, permissionsDict
 
-def extractAppPermisionVector(dbHandle, appIdVector, permissionRestrictionList, restrictionType):
+def getSQLStatement(dbHandle, appIdVector, permissionRestrictionList, restrictionType):
     permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
     appIdVectorSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appIdVector)
     if permissionRestrictionSQLQueryList == '':
@@ -69,4 +72,4 @@ def extractAppPermisionVector(dbHandle, appIdVector, permissionRestrictionList, 
             # Select only permissions which have not been restricted
             sqlStatement = "SELECT app.`app_pkg_name`, p.`name` FROM `appperm` a, `permissions` p, `appdata` app WHERE a.`perm_id` = p.`id` AND a.`app_id` = app.`id` AND a.`app_id` IN ("+appIdVectorSQLQueryList+") AND p.`name` NOT IN ("+permissionRestrictionSQLQueryList+");"
     
-    return generatePermVector(dbHandle, sqlStatement)
+    return sqlStatement

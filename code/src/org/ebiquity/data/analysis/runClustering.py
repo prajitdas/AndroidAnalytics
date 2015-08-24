@@ -15,9 +15,19 @@ from sklearn.metrics.pairwise import pairwise_distances
 import clusterEvaluation as clEval
 import plotResults as plot
 
+import numpy as np
 import time
 import io
 import json
+import selectPermissions as sp
+import cPickle
+import weightedJaccardSimilarity as wjs
+
+def writeMatrixToFile(appMatrix, appMatrixFile):
+    #Once the whole matrix is created then dump to a file
+    #Write the app permissions matrix to a file            
+    cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
+    return cPickle.load(open(appMatrixFile, 'rb'))
 
 def kMeans(X, appVector, metric):
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
@@ -66,7 +76,16 @@ def kMeans(X, appVector, metric):
     
     return evaluatedClusterResultsDict
 
-def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, newAppMatrix, appVector):
+def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
+    #doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
+    doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
+    
+def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
+    appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+    
+def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
+    appMatrix, appVector = sp.computeMatrix(permissionsSet, permissionsDict)
+    newAppMatrix = np.array(writeMatrixToFile(appMatrix, appMatrixFile))
     '''
     sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
     We will now compute the pairwise distance metric for our input array.

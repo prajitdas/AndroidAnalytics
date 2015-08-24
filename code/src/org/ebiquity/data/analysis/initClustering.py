@@ -5,21 +5,13 @@ Created on August 14, 2015
 @author: Prajit
 Usage: python initClustering.py username api_key selectionType restrictionListSelection restrictionType
 '''
-import numpy as np
 import sys
 import time
 import databaseHandler
 import io
 import runClustering as runCl
 import selectApps
-import selectPermissions
-import cPickle
-
-def writeMatrixToFile(appMatrix,appMatrixFile):
-    #Once the whole matrix is created then dump to a file
-    #Write the app permissions matrix to a file            
-    cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-    return cPickle.load(open(appMatrixFile, 'rb'))
+import selectPermissions as sp
 
 def getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType):
     appIdVector = []
@@ -32,7 +24,7 @@ def getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
     This is where dimensionality reduction will probably help!
     Return app vector appMatrix will be read from File
     '''
-    return selectPermissions.extractAppPermisionVector(dbHandle, appIdVector, permissionRestrictionList, restrictionType)
+    return sp.generatePermVector(dbHandle, sp.getSQLStatement(dbHandle, appIdVector, permissionRestrictionList, restrictionType))
 
 #generate the permission matrix for category list apps
 def generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
@@ -58,16 +50,15 @@ def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appC
 
     if appCategoryListSelection == 'top':
         #generate the permission matrix for top apps
-        appVector, appMatrix = generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType)
+        permissionsSet, permissionsDict = generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType)
     elif appCategoryListSelection == 'all':
         #generate the permission matrix for all apps
-        appVector, appMatrix = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
+        permissionsSet, permissionsDict = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
     else:
         #generate the permission matrix for category list apps
-        appVector, appMatrix = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
+        permissionsSet, permissionsDict = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 
-    newAppMatrix = np.array(writeMatrixToFile(appMatrix,appMatrixFile))
-    runCl.runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, newAppMatrix, appVector)
+    runCl.runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
 
     dbHandle.close() #DB Close
 

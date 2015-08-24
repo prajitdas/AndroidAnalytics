@@ -189,8 +189,7 @@ def generateGroundTruthResults(username, api_key, clusterCountList, homogeneityS
             color='rgb(255, 0, 0)'
         )
     )
-    data = Data([trace0,trace1])
-    '''
+    #data = Data([trace0,trace1])
     if len(adjustedRandScoreList) > 0:
         trace2 = Bar(
             x=clusterCountList,
@@ -221,7 +220,7 @@ def generateGroundTruthResults(username, api_key, clusterCountList, homogeneityS
                     )
                 )
                 data = Data([trace0,trace1,trace2,trace3,trace4])
-    '''
+    
     layout = Layout(
         title='Number of Clusters vs Homogeneity and Completeness',
         xaxis=XAxis(

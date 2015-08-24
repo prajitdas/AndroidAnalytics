@@ -326,7 +326,7 @@ def plotSilhouetteSamples(username, api_key, fileToRead, postfix=None):
             print "In", clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
             silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))
 
-    print silhouetteAvgList
+    #print silhouetteAvgList
     generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList, postfix)
 
 def plotGroundTruthResults(username, api_key, fileToRead, postfix=None):
@@ -359,7 +359,7 @@ def plotGroundTruthResults(username, api_key, fileToRead, postfix=None):
             print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
             vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
 
-    print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
+    #print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
     generateGroundTruthResults(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
 
 def main(argv):

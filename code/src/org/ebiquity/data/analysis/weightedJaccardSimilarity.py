@@ -38,8 +38,8 @@ def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissi
             if str(perm) in idfPermissionsDictJSONRead:
                 unionSumOfPermissionWeights = unionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
         
-        print intersectionSumOfPermissionWeights
-        print unionSumOfPermissionWeights
+#        print intersectionSumOfPermissionWeights
+#        print unionSumOfPermissionWeights
         result = intersectionSumOfPermissionWeights/unionSumOfPermissionWeights
 #                 if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
 #                     print "fb and insta:", numerator/denominator

@@ -19,29 +19,28 @@ def writeToFile(idfPermissionsDict):
         f.write(json.dumps(idfPermissionsDict))
 
 def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead):
+    result = 0.0
     if app1 != app2:
         app1PermSet = set(permissionsDict[app1])
         app2PermSet = set(permissionsDict[app2])
-
-        s2 = time.time()
-        intersectionSet = app1PermSet.intersection(app2PermSet)
-        unionSet = app1PermSet.union(app2PermSet)
-        print str((time.time()-s2)*1000000)
         
+        intersectionList = sorted(list(app1PermSet.intersection(app2PermSet)))
+        unionList = sorted(list(app1PermSet.union(app2PermSet)))
+
         intersectionSumOfPermissionWeights = 0
         unionSumOfPermissionWeights = 0
         
-        s3 = time.time()
-        for perm in intersectionSet:
-            if perm in idfPermissionsDictJSONRead:
-                intersectionSumOfPermissionWeights = intersectionSumOfPermissionWeights + idfPermissionsDictJSONRead[perm]
-        print str((time.time()-s3)*1000000)
-    
-        s4 = time.time()
-        for perm in unionSet:
-            if perm in idfPermissionsDictJSONRead:
-                unionSumOfPermissionWeights = unionSumOfPermissionWeights + idfPermissionsDictJSONRead[perm]
-        print str((time.time()-s4)*1000000)
+        for perm in intersectionList:
+            if str(perm) in idfPermissionsDictJSONRead:
+                intersectionSumOfPermissionWeights = intersectionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
+
+        for perm in unionList:
+            if str(perm) in idfPermissionsDictJSONRead:
+                unionSumOfPermissionWeights = unionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
+        
+        print intersectionSumOfPermissionWeights
+        print unionSumOfPermissionWeights
+        result = intersectionSumOfPermissionWeights/unionSumOfPermissionWeights
 #                 if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
 #                     print "fb and insta:", numerator/denominator
 #                     print sorted(permissionsDict[app1])
@@ -77,7 +76,7 @@ def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissi
 #                     print intersectionSet
 #                     print app1PermSet.difference(app2PermSet)
 #                     print app2PermSet.difference(app1PermSet)
-    return intersectionSumOfPermissionWeights/unionSumOfPermissionWeights
+    return result
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):    
     numberOfApps = len(permissionsDict.keys())
@@ -94,6 +93,7 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
         for app2 in appVector:
             appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead)
     
+    print appMatrix
     print "computeJaccardMatrix complete"
     return appMatrix, appVector
 
@@ -113,7 +113,7 @@ def getCountOfAppPermissionsCollected(dbHandle):
     return float(countOfApps)
  
 def getAppCountRequestingPermissions(dbHandle):
-    sqlStatement = "SELECT * FROM `perm_app_medical_cat_count_view`;"
+    sqlStatement = "SELECT * FROM `perm_app_count_view`;"
     countOfApps = getCountOfAppPermissionsCollected(dbHandle)
     cursor = dbHandle.cursor()
     idfPermissionsDict = {'countOfApps':countOfApps}

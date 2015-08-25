@@ -36,7 +36,7 @@ ORDER BY perm_count DESC;
 --
 
 CREATE VIEW `perm_app_count_view` AS
-SELECT count(a.`app_pkg_name`) app_count, p.`name`
+SELECT count(a.`app_pkg_name`) app_count, p.`name`, p.`id`
 FROM `appdata` a, `permissions` p, `appperm` ap 
 WHERE ap.`app_id` = a.`id` AND ap.`perm_id` = p.`id`
 GROUP BY p.`name`

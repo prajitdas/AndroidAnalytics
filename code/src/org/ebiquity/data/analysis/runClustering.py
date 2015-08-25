@@ -38,7 +38,7 @@ def kMeans(X, appVector, metric):
     # We want to verify if the number of clusters are "strong with this one" (or not)
     #Run clustering with a varying number of clusters
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
-        print "Running clustering algorithm with", numberOfClusters, "clusters"
+        #print "Running clustering algorithm with", numberOfClusters, "clusters"
 
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
@@ -65,7 +65,7 @@ def kMeans(X, appVector, metric):
         silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric=metric) 
         clusterSilhouetteAverage = {}
         clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
-        print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
+        #print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
                 
         # Insert the silhouette_avg for the cluster into the Json for further evaluation
         loopListEvaluatedCluster.append(clusterSilhouetteAverage)

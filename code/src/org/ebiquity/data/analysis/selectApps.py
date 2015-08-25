@@ -6,12 +6,9 @@ Created on August 18, 2015
 Usage: python selectApps.py selectionType
 '''
 import sys
-import time
 import databaseHandler
-import io
 import json
 import os
-from os.path import isfile, join
 import platform
 
 def createAppDict(dbHandle,sqlStatement):

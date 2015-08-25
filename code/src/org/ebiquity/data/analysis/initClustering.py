@@ -28,18 +28,21 @@ def getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #generate the permission matrix for category list apps
 def generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
+    print "in generateAppMatrixCatApps"
     #select the apps to be processed
     appDict = selectApps.getCategoryApps(dbHandle, appCategoryList)
     return getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #generate the permission matrix for all apps
 def generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType):
+    print "in generateAppMatrixAllApps"
     #select the apps to be processed
     appDict = selectApps.getTopApps(dbHandle)
     return getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #generate the permission matrix for top apps
 def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType):
+    print "in generateAppMatrixTopApps"
     #select the apps to be processed
     appDict = selectApps.getTopApps(dbHandle)
     return getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)

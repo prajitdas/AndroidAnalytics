@@ -6,9 +6,9 @@ Code for generating the Plotly graphs are here. It takes as input the files it w
 @author: Prajit
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans, SpectralClustering
-from sklearn.metrics import silhouette_samples, silhouette_score
+#from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans#, SpectralClustering
+from sklearn.metrics import silhouette_score#, silhouette_samples
 from sklearn.metrics.pairwise import pairwise_distances
 
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
@@ -16,14 +16,14 @@ import clusterEvaluation as clEval
 import plotResults as plot
 
 import numpy as np
-import time
-import sys
+#import time
+#import sys
 import io
 import json
 import selectPermissions as sp
 import cPickle
 import weightedJaccardSimilarity as wjs
-import os
+#import os
 from sklearn.decomposition import TruncatedSVD
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
@@ -89,7 +89,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     evaluatedClusterResultsDict = {}
 
     appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
-    writeMatrixToFile(appMatrix, appMatrixFile)
+    #writeMatrixToFile(appMatrix, appMatrixFile)
 
     #Dimensionality reduction
     svd = TruncatedSVD(n_components=reducedDimensions)

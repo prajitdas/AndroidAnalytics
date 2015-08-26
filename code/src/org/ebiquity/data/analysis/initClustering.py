@@ -8,7 +8,7 @@ Usage: python initClustering.py username api_key selectionType restrictionListSe
 import sys
 import time
 import databaseHandler
-import io
+#import io
 import runClustering as runCl
 import selectApps
 import selectPermissions as sp

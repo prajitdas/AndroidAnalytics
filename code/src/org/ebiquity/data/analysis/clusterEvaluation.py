@@ -9,14 +9,14 @@ Usage: python permissionsClustering.py username api_key
 import sys
 import time
 import databaseHandler
-import plotly.tools as tls
+#import plotly.tools as tls
 # Learn about API authentication here: https://plot.ly/python/getting-started
 # Find your api_key here: https://plot.ly/settings/api
-import plotly.plotly as py
+#import plotly.plotly as py
 from plotly.graph_objs import *
-import sklearn.cluster as skcl
+#import sklearn.cluster as skcl
 from sklearn import metrics
-import io
+#import io
 import json
 
 def getCategoryNumbers(appNames,dbHandle):

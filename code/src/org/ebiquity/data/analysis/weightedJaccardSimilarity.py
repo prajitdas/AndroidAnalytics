@@ -9,8 +9,6 @@ import sys
 import time
 import databaseHandler
 import json
-import collections
-#import itertools
 import numpy as np
 
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
@@ -39,6 +37,11 @@ def jaccardSimOperation(app1,app2):
 
         for perm in unionSet:
             #if perm in idfPermissionsDictJSONRead:
+            print perm
+            print idfPermissionsDictJSONRead
+            print int(perm)
+            sys.exit(1)
+            perm = int(perm)
             unionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
             if perm in intersectionSet:
                 intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
@@ -95,7 +98,8 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
     appVector = permissionsDict.keys()
 
     # Creates a list containing 5 lists initialized to 0
-    appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
+    #appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
+    appMatrix = np.zeros((numberOfApps, numberOfApps))
     
     with open(idfPermissionsDictJSONFile, 'r') as f:
         idfPermissionsDictJSONRead = json.loads(f.read())
@@ -126,10 +130,10 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
                 print "Computed JS for loops:", counter           
     
     
-    X = np.array(appMatrix)
-    X.shape = (numberOfApps,numberOfApps)
+#    X = np.array(appMatrix)
+#    X.shape = (numberOfApps,numberOfApps)
     print "computeJaccardMatrix complete"
-    return X, appVector
+    return appMatrix, appVector
 
 def getCountOfAppPermissionsCollected(dbHandle):
     sqlStatement = "SELECT * FROM `count_of_app_perm_collected_view`;"
@@ -163,18 +167,18 @@ def getAppCountRequestingPermissions(dbHandle):
                 This will tell us if a particular permission is unique and rare or a popular one.
                 If an app asks for permissions which are rare then they are outliers with respect to commonly asked permissions.
                 This warrants a further look from our perspective.
+                We are using permission ids to store less data.
                 '''
-                idfPermissionsDict[row[2]] = countOfApps/row[0] # We are using permission ids to store less data
+                idfPermissionsDict[row[2]] = countOfApps/row[0]
                 #print idfPermissionsDict[str(row[2])]
     except:
         print "Unexpected error in getAppCountRequestingPermissions:", sys.exc_info()[0]
         raise
 
-    sortedDict = collections.OrderedDict(sorted(idfPermissionsDict.items()))
-    #print sortedDict
-    writeToFile(sortedDict)
+    #print idfPermissionsDict
+    writeToFile(idfPermissionsDict)
     print "Completed the IDF computation process"
-#     return sortedDict
+#     return idfPermissionsDict
  
 def main(argv):
     if len(sys.argv) != 1:

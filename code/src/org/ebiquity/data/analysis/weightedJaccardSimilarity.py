@@ -78,6 +78,7 @@ def jaccardSimOperation(app1,app2):
 #                     print intersectionSet
 #                     print app1PermSet.difference(app2PermSet)
 #                     print app2PermSet.difference(app1PermSet)
+    print "Computed JS for: ", app1, app2
     return result
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):

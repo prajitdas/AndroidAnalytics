@@ -35,14 +35,16 @@ def jaccardSimOperation(app1,app2):
         for perm in intersectionList:
             if str(perm) in idfPermissionsDictJSONRead:
                 intersectionSumOfPermissionWeights = intersectionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
-
+    	print "intersection done for:", app1, "and", app2
         for perm in unionList:
             if str(perm) in idfPermissionsDictJSONRead:
                 unionSumOfPermissionWeights = unionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
+    	print "union done for:", app1, "and", app2
         
 #        print intersectionSumOfPermissionWeights
 #        print unionSumOfPermissionWeights
         result = intersectionSumOfPermissionWeights/unionSumOfPermissionWeights
+    	print "result computed for:", app1, "and", app2
 #                 if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
 #                     print "fb and insta:", numerator/denominator
 #                     print sorted(permissionsDict[app1])

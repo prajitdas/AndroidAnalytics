@@ -10,7 +10,7 @@ import time
 import databaseHandler
 import json
 import collections
-import itertools
+#import itertools
 import numpy as np
 
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
@@ -23,23 +23,25 @@ def writeToFile(idfPermissionsDict):
 def jaccardSimOperation(app1,app2):
     result = 0.0
     if app1 != app2:
-        app1PermSet = set(localPermissionsDict[app1])
-        app2PermSet = set(localPermissionsDict[app2])
+        app1PermSet = localPermissionsDict[app1]
+        app2PermSet = localPermissionsDict[app2]
         
-        intersectionList = sorted(list(app1PermSet.intersection(app2PermSet)))
-        unionList = sorted(list(app1PermSet.union(app2PermSet)))
+        intersectionSet = app1PermSet.intersection(app2PermSet)
+        unionSet = app1PermSet.union(app2PermSet)
 
-        intersectionSumOfPermissionWeights = 0
-        unionSumOfPermissionWeights = 0
+        intersectionSumOfPermissionWeights = 0.0
+        unionSumOfPermissionWeights = 0.0
         
-        for perm in intersectionList:
-            if str(perm) in idfPermissionsDictJSONRead:
-                intersectionSumOfPermissionWeights = intersectionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
+#        for perm in intersectionSet:
+#            if perm in idfPermissionsDictJSONRead:
+#                intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
         #print "intersection done for:", app1, "and", app2
 
-        for perm in unionList:
-            if str(perm) in idfPermissionsDictJSONRead:
-                unionSumOfPermissionWeights = unionSumOfPermissionWeights + idfPermissionsDictJSONRead[str(perm)]
+        for perm in unionSet:
+            #if perm in idfPermissionsDictJSONRead:
+            unionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
+            if perm in intersectionSet:
+                intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
         #print "union done for:", app1, "and", app2
         
 #        print intersectionSumOfPermissionWeights
@@ -102,14 +104,27 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
 #    allzeniths, allazimuths = zip(*itertools.product(appVector, appVector))
 #    appMatrix = map(jaccardSimOperation, allzeniths, allazimuths)
     
+#    counter = 0
+#    # Non parallel solution
+#    for app1 in appVector:
+#        for app2 in appVector:
+#            counter += 1
+#            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
+#            if counter % 100000 == 0:
+#                print "Computed JS for loops:", counter
+    
+    # reducing computation by half by replicating the upper half of the matrix
     counter = 0
-    # Non parallel solution
-    for app1 in appVector:
-        for app2 in appVector:
+    for i in range(len(appVector)):
+        for j in range(i, len(appVector)):
+            score  = jaccardSimOperation(appVector[i], appVector[j])
+            appMatrix[i, j] = score
+            if i!=j:
+                appMatrix[j, i] = score
             counter += 1
-            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
             if counter % 100000 == 0:
-                print "Computed JS for loops:", counter
+                print "Computed JS for loops:", counter           
+    
     
     X = np.array(appMatrix)
     X.shape = (numberOfApps,numberOfApps)
@@ -149,7 +164,7 @@ def getAppCountRequestingPermissions(dbHandle):
                 If an app asks for permissions which are rare then they are outliers with respect to commonly asked permissions.
                 This warrants a further look from our perspective.
                 '''
-                idfPermissionsDict[str(row[2])] = countOfApps/row[0] # We are using permission ids to store less data
+                idfPermissionsDict[row[2]] = countOfApps/row[0] # We are using permission ids to store less data
                 #print idfPermissionsDict[str(row[2])]
     except:
         print "Unexpected error in getAppCountRequestingPermissions:", sys.exc_info()[0]

@@ -35,9 +35,9 @@ def generatePermVector(dbHandle, sqlStatement):
             for row in queryOutput:
                 permissionsSet.add(row[1])
                 if permissionsDict.has_key(row[0]):
-                    permissionsDict[str(row[0])].append(row[1]) # We are using permission ids to store less data
+                    permissionsDict[str(row[0])].add(row[1]) # We are using permission ids to store less data
                 else:
-                    permissionsDict[str(row[0])] = [row[1]] # We are using permission ids to store less data
+                    permissionsDict[str(row[0])] = set([row[1]]) # We are using permission ids to store less data
 
     except:
         print "Unexpected error in generatePermVector:", sys.exc_info()[0]

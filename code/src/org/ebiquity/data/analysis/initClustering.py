@@ -74,6 +74,9 @@ def preProcess(appCategoryListSelection, restrictionListSelection):
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS','https://play.google.com/store/apps/category/MEDICAL']
     elif appCategoryListSelection == 'top':
         appCategoryList = ['top']
+    elif appCategoryListSelection == 'famusicvid':
+        appCategoryList = ['famusicvid']
+        ["https://play.google.com/store/apps/category/FAMILY_MUSICVIDEO"]
     elif appCategoryListSelection == 'all':
         appCategoryList = ['all']
     '''

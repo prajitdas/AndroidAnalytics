@@ -10,6 +10,8 @@ import time
 import databaseHandler
 import json
 import collections
+import itertools
+from IPython.parallel import Client
 
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
 
@@ -18,11 +20,12 @@ def writeToFile(idfPermissionsDict):
         print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
         f.write(json.dumps(idfPermissionsDict))
 
-def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead):
+#def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead):
+def jaccardSimOperation(app1,app2):
     result = 0.0
     if app1 != app2:
-        app1PermSet = set(permissionsDict[app1])
-        app2PermSet = set(permissionsDict[app2])
+        app1PermSet = set(localPermissionsDict[app1])
+        app2PermSet = set(localPermissionsDict[app2])
         
         intersectionList = sorted(list(app1PermSet.intersection(app2PermSet)))
         unionList = sorted(list(app1PermSet.union(app2PermSet)))
@@ -79,8 +82,11 @@ def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissi
     return result
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):    
-    numberOfApps = len(permissionsDict.keys())
+    global localPermissionsDict
+    global idfPermissionsDictJSONRead
     
+    localPermissionsDict = permissionsDict
+    numberOfApps = len(permissionsDict.keys())
     appVector = permissionsDict.keys()
 
     # Creates a list containing 5 lists initialized to 0
@@ -89,11 +95,14 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
     with open(idfPermissionsDictJSONFile, 'r') as f:
         idfPermissionsDictJSONRead = json.loads(f.read())
     
-    for app1 in appVector:
-        for app2 in appVector:
-            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead)
+    allzeniths, allazimuths = zip(*itertools.product(appVector, appVector))
+    appMatrix = map(jaccardSimOperation, allzeniths, allazimuths)
     
-    print appMatrix
+#    for app1 in appVector:
+#        for app2 in appVector:
+#            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead)
+    
+    #print appMatrix
     print "computeJaccardMatrix complete"
     return appMatrix, appVector
 

@@ -11,7 +11,7 @@ import json
 import os
 import platform
 
-def createAppDict(dbHandle,sqlStatement):
+def generateAppDict(dbHandle,sqlStatement):
     cursor = dbHandle.cursor()
     appDict = {}
     try:
@@ -25,7 +25,7 @@ def createAppDict(dbHandle,sqlStatement):
         print "Unexpected error in extractAllApps:", sys.exc_info()[0]
         raise
 
-    print "createAppDict complete"
+    print "generateAppDict complete"
     return appDict
 
 def getTopAppsFromDownloadedJSONs():
@@ -53,16 +53,16 @@ def getTopAppsFromDownloadedJSONs():
 def getTopApps(dbHandle):
     appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(getTopAppsFromDownloadedJSONs())
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appCategorySQLQueryList+");"
-    return createAppDict(dbHandle,sqlStatement)
+    return generateAppDict(dbHandle,sqlStatement)
 
 def getCategoryApps(dbHandle,appCategoryList):
     appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id`;"
-    return createAppDict(dbHandle,sqlStatement)
+    return generateAppDict(dbHandle,sqlStatement)
 
 def getAllApps(dbHandle):    
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"
-    return createAppDict(dbHandle,sqlStatement)
+    return generateAppDict(dbHandle,sqlStatement)
 
 '''
 No longer necessary to call this

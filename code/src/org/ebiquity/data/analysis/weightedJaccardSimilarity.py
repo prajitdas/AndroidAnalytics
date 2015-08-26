@@ -11,7 +11,7 @@ import databaseHandler
 import json
 import collections
 import itertools
-from IPython.parallel import Client
+import numpy as np
 
 idfPermissionsDictJSONFile = "idfPermissionsDict.json"
 
@@ -20,7 +20,6 @@ def writeToFile(idfPermissionsDict):
         print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
         f.write(json.dumps(idfPermissionsDict))
 
-#def jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead):
 def jaccardSimOperation(app1,app2):
     result = 0.0
     if app1 != app2:
@@ -81,7 +80,7 @@ def jaccardSimOperation(app1,app2):
 #                     print app2PermSet.difference(app1PermSet)
     return result
 
-def computeJaccardMatrix(permissionsSet, permissionsDict):    
+def computeJaccardMatrix(permissionsSet, permissionsDict):
     global localPermissionsDict
     global idfPermissionsDictJSONRead
     
@@ -95,16 +94,19 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
     with open(idfPermissionsDictJSONFile, 'r') as f:
         idfPermissionsDictJSONRead = json.loads(f.read())
     
+    # Parallelized solution
     allzeniths, allazimuths = zip(*itertools.product(appVector, appVector))
     appMatrix = map(jaccardSimOperation, allzeniths, allazimuths)
     
+    # Non parallel solution
 #    for app1 in appVector:
 #        for app2 in appVector:
-#            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2, permissionsSet, permissionsDict, idfPermissionsDictJSONRead)
+#            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
     
-    #print appMatrix
+    X = np.array(appMatrix)
+    X.shape = (numberOfApps,numberOfApps)
     print "computeJaccardMatrix complete"
-    return appMatrix, appVector
+    return X, appVector
 
 def getCountOfAppPermissionsCollected(dbHandle):
     sqlStatement = "SELECT * FROM `count_of_app_perm_collected_view`;"

@@ -343,19 +343,19 @@ def plotGroundTruthResults(username, api_key, fileToRead, postfix=None):
         clusterCountList.append(int(clusterCount.replace("Loop","")))
         clusterInfo = loopInfo[1]
         if "adjusted_rand_score" in clusterInfo:
-            print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
+            #print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
             adjustedRandScoreList.append(float(clusterInfo["adjusted_rand_score"]))
         if "adjusted_mutual_info_score" in clusterInfo:
-            print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
+            #print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
             adjustedMutualInfoScoreList.append(float(clusterInfo["adjusted_mutual_info_score"]))
         if "homogeneity_score" in clusterInfo:
-            print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
+            #print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
             homogeneityScoreList.append(float(clusterInfo["homogeneity_score"]))
         if "completeness_score" in clusterInfo:
-            print "In", clusterCount, "we have completeness_score of", clusterInfo["completeness_score"]
+            #print "In", clusterCount, "we have completeness_score of", clusterInfo["completeness_score"]
             completenessScoreList.append(float(clusterInfo["completeness_score"]))
         if "v_measure_score" in clusterInfo:
-            print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
+            #print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
             vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
 
     #print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList

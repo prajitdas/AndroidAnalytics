@@ -29,6 +29,7 @@ def generatePermVector(dbHandle, sqlStatement):
     permissionsDict = {}
     try:
         cursor.execute(sqlStatement)
+        print "Extracting app permissions"
         if cursor.rowcount > 0:
             queryOutput = cursor.fetchall()
             for row in queryOutput:

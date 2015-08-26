@@ -81,7 +81,6 @@ def jaccardSimOperation(app1,app2):
 #                     print intersectionSet
 #                     print app1PermSet.difference(app2PermSet)
 #                     print app2PermSet.difference(app1PermSet)
-    print "Computed JS for:", app1, "and", app2
     return result
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):
@@ -100,13 +99,17 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
         idfPermissionsDictJSONRead = json.loads(f.read())
     
     # Parallelized solution
-    allzeniths, allazimuths = zip(*itertools.product(appVector, appVector))
-    appMatrix = map(jaccardSimOperation, allzeniths, allazimuths)
+#    allzeniths, allazimuths = zip(*itertools.product(appVector, appVector))
+#    appMatrix = map(jaccardSimOperation, allzeniths, allazimuths)
     
+    counter = 0
     # Non parallel solution
-#    for app1 in appVector:
-#        for app2 in appVector:
-#            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
+    for app1 in appVector:
+        for app2 in appVector:
+            counter += 1
+            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
+            if counter % 100000 == 0:
+                print "Computed JS for loops:", counter
     
     X = np.array(appMatrix)
     X.shape = (numberOfApps,numberOfApps)

@@ -82,6 +82,7 @@ def jaccardSimOperation(app1,app2):
     return result
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):
+    print "Inside computeJaccardMatrix"
     global localPermissionsDict
     global idfPermissionsDictJSONRead
     

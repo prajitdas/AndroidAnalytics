@@ -24,12 +24,13 @@ import selectPermissions as sp
 import cPickle
 import weightedJaccardSimilarity as wjs
 import os
+from sklearn.decomposition import TruncatedSVD
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
     #Once the whole matrix is created then dump to a file
     #Write the app permissions matrix to a file            
     cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-    return cPickle.load(open(appMatrixFile, 'rb'))
+    #return cPickle.load(open(appMatrixFile, 'rb'))
 
 def kMeans(X, appVector, metric):
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
@@ -79,28 +80,36 @@ def kMeans(X, appVector, metric):
     return evaluatedClusterResultsDict
 
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
-    appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
-    appMatrix = writeMatrixToFile(appMatrix, appMatrixFile)
-    X = np.array(appMatrix)
-    startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 100
+    #init
+    reducedDimensions = 100
+    startingNumberOfClusters = 25 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+    endingNumberOfClusters = 75
     loopCounter = startingNumberOfClusters
+    step = 5
     evaluatedClusterResultsDict = {}
+
+    appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+    writeMatrixToFile(appMatrix, appMatrixFile)
+
+    #Dimensionality reduction
+    svd = TruncatedSVD(n_components=reducedDimensions)
+    X = svd.fit_transform(appMatrix)
+    
     # We want to verify if the number of clusters are "strong with this one" (or not)
     #Run clustering with a varying number of clusters
-    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters):
+    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, step):
         loopListEvaluatedCluster = []
-#         # Initialize the KMeansObject with numberOfClusters value 
-#         KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
-#         clusterLabelsAssigned = KMeansObject.fit_predict(X)
-        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters,affinity='precomputed')
-        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+        # Initialize the KMeansObject with numberOfClusters value 
+        KMeansObject = KMeans(n_clusters=numberOfClusters)
+        clusterLabelsAssigned = KMeansObject.fit_predict(X)
+#        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
+#        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         
-        counter = 0
+        counter = startingNumberOfClusters
         predictedClusters = {}
         for appName in appVector:
             predictedClusters[appName] = clusterLabelsAssigned[counter]
-            counter = counter + 1
+            counter = counter + step
             
         loopListEvaluatedCluster.append(predictedClusters)
 
@@ -179,4 +188,4 @@ def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile,
 def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
     doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
-    os.remove(appMatrixFile)
+    #os.remove(appMatrixFile)

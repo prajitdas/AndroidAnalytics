@@ -80,6 +80,8 @@ def kMeans(X, appVector, metric):
 
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+    appMatrix = writeMatrixToFile(appMatrix, appMatrixFile)
+    X = np.array(appMatrix)
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 100
     loopCounter = startingNumberOfClusters
@@ -91,7 +93,6 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
 #         # Initialize the KMeansObject with numberOfClusters value 
 #         KMeansObject = KMeans(n_clusters=numberOfClusters, random_state=10)
 #         clusterLabelsAssigned = KMeansObject.fit_predict(X)
-        X = np.array(writeMatrixToFile(appMatrix, appMatrixFile))
         SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters,affinity='precomputed')
         clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         

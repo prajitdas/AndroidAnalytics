@@ -82,10 +82,10 @@ def kMeans(X, appVector, metric):
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
     reducedDimensions = 100
-    startingNumberOfClusters = 25 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 75
+    startingNumberOfClusters = 10 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+    endingNumberOfClusters = 200
     loopCounter = startingNumberOfClusters
-    step = 5
+    clusterLoopStepSize = 10
     evaluatedClusterResultsDict = {}
 
     appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
@@ -97,7 +97,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     
     # We want to verify if the number of clusters are "strong with this one" (or not)
     #Run clustering with a varying number of clusters
-    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, step):
+    for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, clusterLoopStepSize):
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
         KMeansObject = KMeans(n_clusters=numberOfClusters)
@@ -105,11 +105,11 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
 #        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
 #        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         
-        counter = startingNumberOfClusters
+        counter = 0
         predictedClusters = {}
         for appName in appVector:
             predictedClusters[appName] = clusterLabelsAssigned[counter]
-            counter = counter + step
+            counter = counter + 1
             
         loopListEvaluatedCluster.append(predictedClusters)
 
@@ -133,7 +133,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
                 
         stringLoopCounter = 'Loop'+str(loopCounter)
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
-        loopCounter = loopCounter + 1
+        loopCounter = loopCounter + clusterLoopStepSize
         print "Finished clustering algorithm with", numberOfClusters, "clusters"
     
     #    printevaluatedClusterResultsDict

@@ -11,18 +11,17 @@ import databaseHandler
 import json
 import numpy as np
 
-idfPermissionsDictJSONFile = "idfPermissionsDict.json"
-
 def writeToFile(idfPermissionsDict):    
+    idfPermissionsDictJSONFile = "idfPermissionsDict.json"
     with open(idfPermissionsDictJSONFile, 'w') as f:
         print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
         f.write(json.dumps(idfPermissionsDict))
 
-def jaccardSimOperation(app1,app2):
+def jaccardSimOperation(app1, app2, permissionsDict, idfPermissionsDictJSONRead):
     result = 0.0
     if app1 != app2:
-        app1PermSet = localPermissionsDict[app1]
-        app2PermSet = localPermissionsDict[app2]
+        app1PermSet = permissionsDict[app1]
+        app2PermSet = permissionsDict[app2]
         
         intersectionSet = app1PermSet.intersection(app2PermSet)
         unionSet = app1PermSet.union(app2PermSet)
@@ -37,14 +36,10 @@ def jaccardSimOperation(app1,app2):
 
         for perm in unionSet:
             #if perm in idfPermissionsDictJSONRead:
-            print perm
-            print idfPermissionsDictJSONRead
-            print int(perm)
-            sys.exit(1)
-            perm = int(perm)
-            unionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
+            strperm = str(perm)
+            unionSumOfPermissionWeights += idfPermissionsDictJSONRead[strperm]
             if perm in intersectionSet:
-                intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
+                intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[strperm]
         #print "union done for:", app1, "and", app2
         
 #        print intersectionSumOfPermissionWeights
@@ -90,10 +85,8 @@ def jaccardSimOperation(app1,app2):
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):
     print "Inside computeJaccardMatrix"
-    global localPermissionsDict
-    global idfPermissionsDictJSONRead
     
-    localPermissionsDict = permissionsDict
+    idfPermissionsDictJSONRead = {}
     numberOfApps = len(permissionsDict.keys())
     appVector = permissionsDict.keys()
 
@@ -101,6 +94,7 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
     #appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
     appMatrix = np.zeros((numberOfApps, numberOfApps))
     
+    idfPermissionsDictJSONFile = "idfPermissionsDict.json"
     with open(idfPermissionsDictJSONFile, 'r') as f:
         idfPermissionsDictJSONRead = json.loads(f.read())
     
@@ -121,7 +115,7 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
     counter = 0
     for i in range(len(appVector)):
         for j in range(i, len(appVector)):
-            score  = jaccardSimOperation(appVector[i], appVector[j])
+            score  = jaccardSimOperation(appVector[i], appVector[j], permissionsDict, idfPermissionsDictJSONRead)
             appMatrix[i, j] = score
             if i!=j:
                 appMatrix[j, i] = score

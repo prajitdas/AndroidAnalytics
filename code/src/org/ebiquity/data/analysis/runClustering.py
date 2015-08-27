@@ -16,14 +16,10 @@ import clusterEvaluation as clEval
 import plotResults as plot
 
 import numpy as np
-#import time
-#import sys
-import io
 import json
 import selectPermissions as sp
 import cPickle
 import weightedJaccardSimilarity as wjs
-#import os
 from sklearn.decomposition import TruncatedSVD
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
@@ -81,9 +77,9 @@ def kMeans(X, appVector, metric):
 
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
-    reducedDimensions = 100
+    reducedDimensions = 200
     startingNumberOfClusters = 10 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 200
+    endingNumberOfClusters = 100
     loopCounter = startingNumberOfClusters
     clusterLoopStepSize = 10
     evaluatedClusterResultsDict = {}
@@ -139,8 +135,10 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
     print "Writing predicted clusters to a file"
-    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
+    with open(predictedClustersFile, 'w') as outfile:
+        outfile.write(json.dumps(evaluatedClusterResultsDict))
+#    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
+#        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     #We will generate separate graphs with this info
     if not appCategoryListSelection:
         categories = ''
@@ -173,8 +171,8 @@ def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile,
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
         print "Writing predicted clusters to a file"
-        with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
-            f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
+        with open(predictedClustersFile, 'w') as f:
+            f.write(json.dumps(evaluatedClusterResultsDict))
         #We will generate separate graphs with this info
         if not appCategoryListSelection:
             categories = ''

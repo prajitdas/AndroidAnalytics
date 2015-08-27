@@ -21,6 +21,7 @@ import selectPermissions as sp
 import cPickle
 import weightedJaccardSimilarity as wjs
 from sklearn.decomposition import TruncatedSVD
+import os
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
     #Once the whole matrix is created then dump to a file
@@ -85,7 +86,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     evaluatedClusterResultsDict = {}
 
     appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
-    #writeMatrixToFile(appMatrix, appMatrixFile)
+    writeMatrixToFile(appMatrix, appMatrixFile)
 
     #Dimensionality reduction
     svd = TruncatedSVD(n_components=reducedDimensions)
@@ -134,9 +135,10 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
-    print "Writing predicted clusters to a file"
-    with open(predictedClustersFile, 'w') as outfile:
-        outfile.write(json.dumps(evaluatedClusterResultsDict))
+        predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json"
+        print "Writing predicted clusters to a file"
+        with open(predictedClustersFile, 'w') as outfile:
+            outfile.write(json.dumps(evaluatedClusterResultsDict))
 #    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
 #        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     #We will generate separate graphs with this info
@@ -186,4 +188,4 @@ def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile,
 def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
     doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
-    #os.remove(appMatrixFile)
+    os.remove(appMatrixFile)

@@ -60,6 +60,11 @@ def getCategoryApps(dbHandle,appCategoryList):
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id`;"
     return generateAppDict(dbHandle,sqlStatement)
 
+def getCategoryAppsTopFewThousands(dbHandle,appCategoryList):
+    appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 5000;"
+    return generateAppDict(dbHandle,sqlStatement)
+
 def getAllApps(dbHandle):    
     sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"
     return generateAppDict(dbHandle,sqlStatement)

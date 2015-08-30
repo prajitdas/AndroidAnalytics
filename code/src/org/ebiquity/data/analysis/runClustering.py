@@ -80,7 +80,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     #init
     reducedDimensions = 200
     startingNumberOfClusters = 10 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 100
+    endingNumberOfClusters = 200
     loopCounter = startingNumberOfClusters
     clusterLoopStepSize = 10
     evaluatedClusterResultsDict = {}

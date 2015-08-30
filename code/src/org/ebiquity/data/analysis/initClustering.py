@@ -30,7 +30,13 @@ def getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
 def generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
     print "in generateAppMatrixCatApps"
     #select the apps to be processed
-    #appDict = selectApps.getCategoryApps(dbHandle, appCategoryList)
+    appDict = selectApps.getCategoryApps(dbHandle, appCategoryList)
+    return getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
+
+#generate the permission matrix for category list apps
+def generateAppMatrixCatTopApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
+    print "in generateAppMatrixCatTopApps"
+    #select the apps to be processed
     #Since the execution is not working for more than a few thousand probably we are going to run this for a few thousand
     appDict = selectApps.getCategoryAppsTopFewThousands(dbHandle, appCategoryList)
     return getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType)
@@ -59,6 +65,9 @@ def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appC
     elif appCategoryListSelection == 'all':
         #generate the permission matrix for all apps
         permissionsSet, permissionsDict = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
+    elif appCategoryListSelection == 'hmdtop':
+        #generate the permission matrix for hmd top apps
+        permissionsSet, permissionsDict = generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restrictionType)
     else:
         #generate the permission matrix for category list apps
         permissionsSet, permissionsDict = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
@@ -73,6 +82,8 @@ def preProcess(appCategoryListSelection, restrictionListSelection):
     elif appCategoryListSelection == 'hea':
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS']
     elif appCategoryListSelection == 'hmd':
+        appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS','https://play.google.com/store/apps/category/MEDICAL']
+    elif appCategoryListSelection == 'hmdtop':
         appCategoryList = ['https://play.google.com/store/apps/category/HEALTH_AND_FITNESS','https://play.google.com/store/apps/category/MEDICAL']
     elif appCategoryListSelection == 'fabra':
         appCategoryList = ['https://play.google.com/store/apps/category/FAMILY_BRAINGAMES']

@@ -21,9 +21,9 @@ import selectPermissions as sp
 import cPickle
 import weightedJaccardSimilarity as wjs
 from sklearn.decomposition import TruncatedSVD, PCA
-import os
+#import os
 import matplotlib.pyplot as plt
-import sys
+#import sys
 import NumpyEncoder
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
@@ -90,9 +90,51 @@ def reducePrecisionEncode(array, length, breadth, precision):
                 newArray[i][j] = result
     return NumpyEncoder.encodeNDArray(newArray)
 
+def doScatterPlot(X, numberOfClusters, KMeansObject):
+    #Plotting results
+    reduced_data = PCA(n_components=2).fit_transform(X)
+    kmeans = KMeans(init='k-means++', n_clusters=numberOfClusters)
+    kmeans.fit(reduced_data)
+    # Step size of the mesh. Decrease to increase the quality of the VQ.
+    h = .02     # point in the mesh [x_min, m_max]x[y_min, y_max].
+    
+    # Plot the decision boundary. For that, we will assign a color to each
+    x_min, x_max = reduced_data[:, 0].min() + 1, reduced_data[:, 0].max() - 1
+    y_min, y_max = reduced_data[:, 1].min() + 1, reduced_data[:, 1].max() - 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+    
+    print "before predict"
+    # Obtain labels for each point in mesh. Use last trained model.
+    Z = KMeansObject.predict(np.c_[xx.ravel(), yy.ravel()])
+    
+    print "before reshape"
+    # Put the result into a color plot
+    Z = Z.reshape(xx.shape)
+    plt.figure(1)
+    plt.clf()
+    plt.imshow(Z, interpolation='nearest',
+               extent=(xx.min(), xx.max(), yy.min(), yy.max()),
+               cmap=plt.cm.Paired,
+               aspect='auto', origin='lower')
+    
+    print "before plot"
+    plt.plot(reduced_data[:, 0], reduced_data[:, 1], 'k.', markersize=2)
+    # Plot the centroids as a white X
+    centroids = KMeansObject.cluster_centers_
+    plt.scatter(centroids[:, 0], centroids[:, 1],
+                marker='x', s=169, linewidths=3,
+                color='w', zorder=10)
+    plt.title('K-means clustering on the digits dataset (PCA-reduced data)\n'
+              'Centroids are marked with white cross')
+    plt.xlim(x_min, x_max)
+    plt.ylim(y_min, y_max)
+    plt.xticks(())
+    plt.yticks(())
+    plt.show()
+    
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
-    reducedDimensions = 25
+    reducedDimensions = 50
     startingNumberOfClusters = 10 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 200
     loopCounter = startingNumberOfClusters
@@ -123,57 +165,10 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         KMeansObject = KMeans(n_clusters=numberOfClusters)
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         centroids = KMeansObject.cluster_centers_
-#        print centroids.shape
-#        print centroids
-#        sys.exit(1)
-#        for sampleNum in range(centroids.shape[0]):
-#            print X[sampleNum,:]
-#        sys.exit(1)
+        #Plotting results
+        doScatterPlot(X, numberOfClusters, KMeansObject)
 #        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
 #        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
-        
-        '''
-        #Plotting results
-        reduced_data = PCA(n_components=2).fit_transform(X)
-        kmeans = KMeans(init='k-means++', n_clusters=numberOfClusters)
-        kmeans.fit(reduced_data)
-        # Step size of the mesh. Decrease to increase the quality of the VQ.
-        h = .02     # point in the mesh [x_min, m_max]x[y_min, y_max].
-        
-        # Plot the decision boundary. For that, we will assign a color to each
-        x_min, x_max = reduced_data[:, 0].min() + 1, reduced_data[:, 0].max() - 1
-        y_min, y_max = reduced_data[:, 1].min() + 1, reduced_data[:, 1].max() - 1
-        xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-        
-        print "before predict"
-        # Obtain labels for each point in mesh. Use last trained model.
-        Z = KMeansObject.predict(np.c_[xx.ravel(), yy.ravel()])
-        
-        print "before reshape"
-        # Put the result into a color plot
-        Z = Z.reshape(xx.shape)
-        plt.figure(1)
-        plt.clf()
-        plt.imshow(Z, interpolation='nearest',
-                   extent=(xx.min(), xx.max(), yy.min(), yy.max()),
-                   cmap=plt.cm.Paired,
-                   aspect='auto', origin='lower')
-        
-        print "before plot"
-        plt.plot(reduced_data[:, 0], reduced_data[:, 1], 'k.', markersize=2)
-        # Plot the centroids as a white X
-        centroids = KMeansObject.cluster_centers_
-        plt.scatter(centroids[:, 0], centroids[:, 1],
-                    marker='x', s=169, linewidths=3,
-                    color='w', zorder=10)
-        plt.title('K-means clustering on the digits dataset (PCA-reduced data)\n'
-                  'Centroids are marked with white cross')
-        plt.xlim(x_min, x_max)
-        plt.ylim(y_min, y_max)
-        plt.xticks(())
-        plt.yticks(())
-        plt.show()
-        '''
         
         #Silhouette Evaluation starts
         counter = 0
@@ -280,4 +275,4 @@ def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile,
 def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
     doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
-    os.remove(appMatrixFile)
+    #os.remove(appMatrixFile)

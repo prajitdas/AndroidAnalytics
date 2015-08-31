@@ -153,9 +153,6 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     In plotSilhouetteSamples.clusterCount() and plotSilhouetteSamples.plotGroundTruthResults() we have to handle this issue.
     '''
     evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
-#    print evaluatedClusterResultsDict["appVectors"]
-#    print NumpyEncoder.decodeNDArray(evaluatedClusterResultsDict["appVectors"]).shape
-#    sys.exit(1)
     
     # We want to verify if the number of clusters are "strong with this one" (or not)
     #Run clustering with a varying number of clusters
@@ -166,7 +163,8 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         centroids = KMeansObject.cluster_centers_
         #Plotting results
-        doScatterPlot(X, numberOfClusters, KMeansObject)
+        #This is not working so commenting out right now
+        #doScatterPlot(X, numberOfClusters, KMeansObject)
 #        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
 #        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         

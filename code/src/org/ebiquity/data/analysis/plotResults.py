@@ -221,7 +221,7 @@ def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneitySc
                     )
                 )
                 data = Data([trace0,trace1,trace2,trace3,trace4])
-    
+    '''
     layout = Layout(
         title='Number of Clusters vs Homogeneity and Completeness',
         xaxis=XAxis(
@@ -256,7 +256,7 @@ def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneitySc
         bargap=0.15,
         bargroupgap=0.1
     )
-    '''
+    
     fig = Figure(data=data, layout=layout)
     name = 'cluster-measures'+postfix
     plot_url = py.plot(fig, filename=name)

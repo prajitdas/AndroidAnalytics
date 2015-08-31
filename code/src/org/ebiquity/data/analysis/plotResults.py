@@ -3,7 +3,7 @@
 '''
 Created on May 18, 2015
 @author: Prajit
-Usage: python plotResults.py username api_key
+Usage: python plotResults.py username apiKey
 '''
 
 import sys
@@ -11,13 +11,13 @@ import time
 import databaseHandler
 import plotly.tools as tls
 # Learn about API authentication here: https://plot.ly/python/getting-started
-# Find your api_key here: https://plot.ly/settings/api
+# Find your apiKey here: https://plot.ly/settings/api
 import plotly.plotly as py
 from plotly.graph_objs import *
 import json
 
 # This is a plot for Permissions count vs Frequency of apps requesting that many permissions
-def generateAppPermissionsRequestedFrequencyHistogram(username, api_key):
+def generateAppPermissionsRequestedFrequencyHistogram(username, apiKey):
     permCountDict = extractAppPermData()
     permCount = []
     permCountFreq = []
@@ -25,7 +25,7 @@ def generateAppPermissionsRequestedFrequencyHistogram(username, api_key):
         permCount.append(permissionCount)
         permCountFreq.append(permissionCountFreq)
 
-    tls.set_credentials_file(username, api_key)
+    tls.set_credentials_file(username, apiKey)
     trace = Bar(
         x=permCount,
         y=permCountFreq,
@@ -99,7 +99,7 @@ def extractAppPermData():
     return permCountDict
     
 # This is a plot for Permissions count vs Frequency of apps requesting that many permissions
-def generatePermissionsRequestedByAppFrequencyHistogram(username, api_key):
+def generatePermissionsRequestedByAppFrequencyHistogram(username, apiKey):
     dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 
 #     crawlUrl(dbHandle, "https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml")    
@@ -122,7 +122,7 @@ def generatePermissionsRequestedByAppFrequencyHistogram(username, api_key):
 
     dbHandle.close() #DB Close
 
-    tls.set_credentials_file(username, api_key)
+    tls.set_credentials_file(username, apiKey)
     tracePerm = Bar(
         x=permName,
         y=appCount,
@@ -171,8 +171,8 @@ def generatePermissionsRequestedByAppFrequencyHistogram(username, api_key):
     print "Check out the URL: "+plot_url+" for your plot"
 
 # This is a plot for Goodness of Cluster measure using homogeneity_score, completeness_score
-def generateGroundTruthResults(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix):
-    tls.set_credentials_file(username, api_key)
+def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix):
+    tls.set_credentials_file(username, apiKey)
     trace0 = Bar(
         x=clusterCountList,
         y=homogeneityScoreList,
@@ -189,7 +189,8 @@ def generateGroundTruthResults(username, api_key, clusterCountList, homogeneityS
             color='rgb(255, 0, 0)'
         )
     )
-    #data = Data([trace0,trace1])
+    data = Data([trace0,trace1])
+    '''
     if len(adjustedRandScoreList) > 0:
         trace2 = Bar(
             x=clusterCountList,
@@ -255,14 +256,15 @@ def generateGroundTruthResults(username, api_key, clusterCountList, homogeneityS
         bargap=0.15,
         bargroupgap=0.1
     )
+    '''
     fig = Figure(data=data, layout=layout)
     name = 'cluster-measures'+postfix
     plot_url = py.plot(fig, filename=name)
     print "Check out the URL: "+plot_url+" for your plot"
   
 # This is a plot for Goodness of Cluster measure using silhouette_avg
-def generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList, postfix):
-    tls.set_credentials_file(username, api_key)
+def generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList, postfix):
+    tls.set_credentials_file(username, apiKey)
     trace = Bar(
         x=clusterCountList,
         y=silhouetteAvgList,
@@ -311,7 +313,7 @@ def generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgLis
     plot_url = py.plot(fig, filename=name)
     print "Check out the URL: "+plot_url+" for your plot"
 
-def plotSilhouetteSamples(username, api_key, fileToRead, postfix=None):
+def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
     evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
     
     clusterCountList = []
@@ -327,9 +329,9 @@ def plotSilhouetteSamples(username, api_key, fileToRead, postfix=None):
                 silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))
 
     #print silhouetteAvgList
-    generatePlotSilhouette(username, api_key, clusterCountList, silhouetteAvgList, postfix)
+    generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList, postfix)
 
-def plotGroundTruthResults(username, api_key, fileToRead, postfix=None):
+def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
     evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
     
     clusterCountList = []
@@ -361,16 +363,22 @@ def plotGroundTruthResults(username, api_key, fileToRead, postfix=None):
                 vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
 
     #print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
-    generateGroundTruthResults(username, api_key, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
+    generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
 
 def main(argv):
-    if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python plotResults.py username api_key\n')
+    if len(sys.argv) != 4:
+        sys.stderr.write('Usage: python plotResults.py username apiKey resultsFile\n')
         sys.exit(1)
 
+    username = sys.argv[1]
+    apiKey = sys.argv[2]
+    resultsFile = sys.argv[3]
+
     startTime = time.time()
-    generateAppPermissionsRequestedFrequencyHistogram(sys.argv[1], sys.argv[2])
-    generatePermissionsRequestedByAppFrequencyHistogram(sys.argv[1], sys.argv[2])
+    generateAppPermissionsRequestedFrequencyHistogram(username, apiKey)
+    generatePermissionsRequestedByAppFrequencyHistogram(username, apiKey)
+    plotSilhouetteSamples(username, apiKey, resultsFile, postfix=None)
+    plotGroundTruthResults(username, apiKey, resultsFile, postfix=None)
     executionTime = str((time.time()-startTime)*1000)
     print "Execution time was: "+executionTime+" ms"
 

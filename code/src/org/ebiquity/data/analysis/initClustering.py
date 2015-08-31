@@ -105,12 +105,13 @@ def preProcess(appCategoryListSelection, restrictionListSelection):
         permissionRestrictionList = []
 
     ticks = time.time()
-    appMatrixFile = "appMatrix"+str(ticks)+".txt"
+    uniformString = str(ticks).replace(".","")
+    appMatrixFile = "appMatrix"+uniformString+".txt"
     text_file = open(appMatrixFile, "w")
     text_file.write("")
     text_file.close()
     
-    predictedClustersFile = "predictedClusters"+str(ticks)+".json"
+    predictedClustersFile = "predictedClusters"+uniformString+".json"
     text_file = open(predictedClustersFile, "w")
     text_file.write("")
     text_file.close()

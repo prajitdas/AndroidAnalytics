@@ -135,8 +135,8 @@ def doScatterPlot(X, numberOfClusters, KMeansObject):
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
     reducedDimensions = 50
-    startingNumberOfClusters = 10 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 200
+    startingNumberOfClusters = 100 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+    endingNumberOfClusters = 110
     loopCounter = startingNumberOfClusters
     clusterLoopStepSize = 10
     evaluatedClusterResultsDict = {}

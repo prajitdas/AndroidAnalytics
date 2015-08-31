@@ -67,7 +67,7 @@ def initClustering(username, api_key, predictedClustersFile, appMatrixFile, appC
         permissionsSet, permissionsDict = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
     elif appCategoryListSelection == 'hmdtop':
         #generate the permission matrix for hmd top apps
-        permissionsSet, permissionsDict = generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restrictionType)
+        permissionsSet, permissionsDict = generateAppMatrixCatTopApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
     else:
         #generate the permission matrix for category list apps
         permissionsSet, permissionsDict = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)

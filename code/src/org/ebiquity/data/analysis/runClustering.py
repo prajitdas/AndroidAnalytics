@@ -20,9 +20,11 @@ import json
 import selectPermissions as sp
 import cPickle
 import weightedJaccardSimilarity as wjs
-from sklearn.decomposition import TruncatedSVD
+from sklearn.decomposition import TruncatedSVD, PCA
 import os
 import matplotlib.pyplot as plt
+import sys
+import NumpyEncoder
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
     #Once the whole matrix is created then dump to a file
@@ -76,10 +78,21 @@ def kMeans(X, appVector, metric):
         loopCounter = loopCounter + 1
     
     return evaluatedClusterResultsDict
+    
+def reducePrecisionEncode(array, length, breadth, precision):
+    newArray = np.zeros((length, breadth))
+    for i in range(length):
+        for j in range(breadth):
+            result = round(array[i][j],precision)
+            if result == -0:
+                newArray[i][j] = 0
+            else:
+                newArray[i][j] = result
+    return NumpyEncoder.encodeNDArray(newArray)
 
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
-    reducedDimensions = 200
+    reducedDimensions = 25
     startingNumberOfClusters = 10 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
     endingNumberOfClusters = 200
     loopCounter = startingNumberOfClusters
@@ -90,8 +103,17 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     writeMatrixToFile(appMatrix, appMatrixFile)
 
     #Dimensionality reduction
-    svd = TruncatedSVD(n_components=reducedDimensions)
-    X = svd.fit_transform(appMatrix)
+    X = TruncatedSVD(n_components=reducedDimensions).fit_transform(appMatrix)
+    
+    '''
+    An interesting problem occurs due to use of 'appVectors' as a index.
+    Later on we try to find the integer loop counter and that causes an issue.
+    In plotSilhouetteSamples.clusterCount() and plotSilhouetteSamples.plotGroundTruthResults() we have to handle this issue.
+    '''
+    evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
+#    print evaluatedClusterResultsDict["appVectors"]
+#    print NumpyEncoder.decodeNDArray(evaluatedClusterResultsDict["appVectors"]).shape
+#    sys.exit(1)
     
     # We want to verify if the number of clusters are "strong with this one" (or not)
     #Run clustering with a varying number of clusters
@@ -100,21 +122,34 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         # Initialize the KMeansObject with numberOfClusters value 
         KMeansObject = KMeans(n_clusters=numberOfClusters)
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
+        centroids = KMeansObject.cluster_centers_
+#        print centroids.shape
+#        print centroids
+#        sys.exit(1)
+#        for sampleNum in range(centroids.shape[0]):
+#            print X[sampleNum,:]
+#        sys.exit(1)
 #        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
 #        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         
+        '''
         #Plotting results
+        reduced_data = PCA(n_components=2).fit_transform(X)
+        kmeans = KMeans(init='k-means++', n_clusters=numberOfClusters)
+        kmeans.fit(reduced_data)
         # Step size of the mesh. Decrease to increase the quality of the VQ.
         h = .02     # point in the mesh [x_min, m_max]x[y_min, y_max].
         
         # Plot the decision boundary. For that, we will assign a color to each
-        x_min, x_max = X[:, 0].min() + 1, X[:, 0].max() - 1
-        y_min, y_max = X[:, 1].min() + 1, X[:, 1].max() - 1
+        x_min, x_max = reduced_data[:, 0].min() + 1, reduced_data[:, 0].max() - 1
+        y_min, y_max = reduced_data[:, 1].min() + 1, reduced_data[:, 1].max() - 1
         xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
         
+        print "before predict"
         # Obtain labels for each point in mesh. Use last trained model.
         Z = KMeansObject.predict(np.c_[xx.ravel(), yy.ravel()])
         
+        print "before reshape"
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
         plt.figure(1)
@@ -124,7 +159,8 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
                    cmap=plt.cm.Paired,
                    aspect='auto', origin='lower')
         
-        plt.plot(X[:, 0], X[:, 1], 'k.', markersize=2)
+        print "before plot"
+        plt.plot(reduced_data[:, 0], reduced_data[:, 1], 'k.', markersize=2)
         # Plot the centroids as a white X
         centroids = KMeansObject.cluster_centers_
         plt.scatter(centroids[:, 0], centroids[:, 1],
@@ -137,12 +173,14 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         plt.xticks(())
         plt.yticks(())
         plt.show()
+        '''
         
         #Silhouette Evaluation starts
         counter = 0
         predictedClusters = {}
         for appName in appVector:
             predictedClusters[appName] = clusterLabelsAssigned[counter]
+            #predictedClusters[appName] = permissionsDict[appName]
             counter = counter + 1
             
         loopListEvaluatedCluster.append(predictedClusters)
@@ -164,18 +202,35 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         # Insert the silhouette_avg for the cluster into the Json for further evaluation
         loopListEvaluatedCluster.append(clusterSilhouetteAverage)
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
-                
+        
+        #Storing the centroid values in the results dictionary
+        centroidsDict = {}
+        centroidsDict["centroids"] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
+        loopListEvaluatedCluster.append(centroidsDict)
+ 
+        '''
+        #Usage of NumpyEncoder is shown here so that the centroids can be encoded and decoded easily. Look in NumpyEncoder.py for details
+        expected = np.arange(100, dtype=np.float)
+        dumped = json.dumps(newCentroids, cls=NumpyEncoder)
+        result = json.loads(dumped, object_hook=json_numpy_obj_hook)
+        
+        # None of the following assertions will be broken.
+        assert result.dtype == expected.dtype, "Wrong Type"
+        assert result.shape == expected.shape, "Wrong Shape"
+        assert np.allclose(expected, result), "Wrong Values"
+        '''
+        
         stringLoopCounter = 'Loop'+str(loopCounter)
         evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
         loopCounter = loopCounter + clusterLoopStepSize
-        print "Finished clustering algorithm with", numberOfClusters, "clusters"
+        print "Finished clustering algorithm with", numberOfClusters, "clusters. Writing predicted clusters to file."
     
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
         predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json"
-        print "Writing predicted clusters to a file"
+
         with open(predictedClustersFile, 'w') as outfile:
-            outfile.write(json.dumps(evaluatedClusterResultsDict))
+            outfile.write(json.dumps(evaluatedClusterResultsDict, indent=4))
 #    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
 #        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     #We will generate separate graphs with this info

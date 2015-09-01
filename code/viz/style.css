@@ -1,0 +1,46 @@
+h1 {
+		text-align: center;
+}
+h2 {
+		text-align: center;
+}
+/*
+#infobox {
+		display: inline-block;
+		float:left;
+		width:100px;
+		height:500px;
+
+}
+
+#container {
+	float:left;
+	width: 1700px;
+}*/
+
+#infobox, #container {
+    border: 1px solid white;
+    float: left;
+    min-height: 450px;
+    color: white;
+}
+#infobox {
+     width: 20%;
+     background-color: #111;
+}
+#container {
+     width: 70%;
+     height: 800px;
+     /*background-color: #777;*/
+}
+#clusterinfo, #nameinfo {
+	padding: 4px;
+	margin: 4px;
+	width: 80%;
+	text-align: left;
+}
+
+#classify {
+	margin: 20px;
+	text-align: center;
+}

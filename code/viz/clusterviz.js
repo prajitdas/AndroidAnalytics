@@ -4,8 +4,8 @@ $("#classify").click(function(){
   //setTimeout(function(){d3.selectAll(".c"+clusterNum).style("fill", 'red');},1000);
   d3.selectAll(".c"+clusterNum).style("fill", 'red');
   setTimeout(function(){d3.selectAll(".c"+clusterNum).style("fill",curstyle);setTimeout(function(){d3.selectAll(".c"+clusterNum).style("fill", 'red');setTimeout(function(){d3.selectAll(".c"+clusterNum).style("fill",curstyle);},500);},500);},500);
-  
-  
+
+
 })
 
 var width = $('#container').width(),
@@ -39,7 +39,7 @@ d3.json('clusters.json', function(error, data){
     nodes = nodes.sort(function(a,b){
       return a.cluster-b.cluster;
     });
-        
+
 
     var color = d3.scale.category20()
         .domain(d3.range(m));

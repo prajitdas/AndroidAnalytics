@@ -13,7 +13,7 @@ if(isset($_GET['appid'])){
 	<h1>App Malware Clusters Visualization</h1>
 	<div id = "infobox">
 	    <h2>App Information</h2>
-	    <p id = "clusterinfo">To the right the first 2000 samples from the JSON file are plotted by cluster. Mouse over or click on a cluster for info.  Click the button below to highlight cluster 1.  This functionality will be used to highlight the clusters new data gets classified to in the demo.</p>
+	    <p id = "clusterinfo">The nodes to the right represent apps plotted by cluster. The newly-installed app is enlarged and circled in black.  Choose an app from the dropdown list and click "Highlight App" to view the corresponding cluster.  Hit "Tag Malicious" or "Tag Benign" to tag the cluster and then "Show Distance" to visualize the distance between the newly installed app and each of the tagged apps.</p>
 	    <p id = "nameinfo"></p>
 	    <h2>Tagging</h2>
 	    <select id="highlightoptions">
@@ -21,7 +21,7 @@ if(isset($_GET['appid'])){
 	    <button id= "highlight">Highlight App</button>
 	    <button id= "tagMalicious">Tag Malicious</button>
 	    <button id= "tagBenign">Tag Benign</button>
-	    <h2>Visualize Distance of New App</h2>
+	    <h2>Visualize Uncommon Permission Similarity of New App</h2>
 	<!--     <p>ref1:
 	    <select id="ref1options">
 	    </select></p>
@@ -42,9 +42,9 @@ if(isset($_GET['appid'])){
   <rect id = "dangerbar" x="30" y="50" width="240" height="21" fill="url(#grad1)" />
       <image x="0" y="45" height="30" width="30" xlink:href="thumbsup.png"></image>
       <image x="270" y="45" height="30" width="30" xlink:href="thumbsdown.png"></image>
-  	<g id="appslider" transform="translate(90,60)">
+  	<g id="appslider" transform="translate(50,60)">
   	<circle id="top" r="15" fill="#E5E4E2" stroke="white" stroke-width="1px"/>
-  	<text dy="-28" dx="-8" fill="white">22.3</text>
+  	<text dy="-28" dx="-8" fill="white">0</text>
   	</g>
 </svg>
 </div>

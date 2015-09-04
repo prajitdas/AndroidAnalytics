@@ -1,8 +1,3 @@
-
-
-
-
-
 d3.selection.prototype.moveToFront = function() {
   return this.each(function(){
   this.parentNode.appendChild(this);
@@ -21,9 +16,6 @@ var width = $('#container').width(),
     clusterPadding = 6, // separation between different-color nodes
     maxRadius = 12;
     radius = 6;
-//var width = $('#container').width();
-
-
 
 d3.json('clusters.json', function(error, data){
     var apps = data.Loop100[0]; //get the list of apps and their clusters

@@ -1,19 +1,11 @@
-
-
 var radius = 15,
     dwidth = $('#dangerbar')[0].width.baseVal.value-(2*radius),
     dheight =  $('#dangersvg').height(),
     paddingw = Math.floor(($('#dangersvg').width()-dwidth-2*radius)/2)+radius;
-    //paddingw = radius;
-    
-
-
 $("#showdistance").click(function(){  
         showDistance(appID,MAL_NODE.attr('id'),BEN_NODE.attr('id'));
         $('#dangercontainer').attr('style','visibility:visible');
 })
-
-
 function showDistance(app1,app2,app3){
     //data = {'appname':appname};
     //data = JSON.stringify({appname:app_name});
@@ -25,12 +17,11 @@ function showDistance(app1,app2,app3){
         var flightdist = data.flightdist;
         var fbnormed = fbdist/(fbdist+flightdist);
         var flightnormed = flightdist/(fbdist+flightdist);
-        var fbnormedpx = paddingw + Math.floor(flightnormed*dwidth)
+        var fbnormedpx = paddingw + Math.floor(fbnormed*dwidth)
         d3.select("#appslider")
             .attr("transform", "translate("+fbnormedpx+","+Math.floor(dheight/2)+")")
             .select("text")
-                .text(100-Math.floor(100*fbnormed));
+			.text(100-Math.floor(100*fbnormed));
 
     })
-
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<h1>App Malware Clusters Visualization</h1>
+<div id = "infobox">
+    <h2>App Information</h2>
+    <p id = "clusterinfo">To the right the first 2000 samples from the JSON file are plotted by cluster. Mouse over or click on a cluster for info.  Click the button below to highlight cluster 1.  This functionality will be used to highlight the clusters new data gets classified to in the demo.</p>
+    <p id = "nameinfo"></p>
+    <button id= "getdistance">Get Distance</button>
+</div>
+<div id = "container">
+<svg id = "dangersvg" width="1000" height="400">
+	  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(64,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect id = "dangerbar" x="100" y="165" width="800" height="70" fill="url(#grad1)" />
+      <image x="0" y="150" height="100" width="100" xlink:href="facebook.png"></image>
+      <image x="900" y="150" height="100" width="100" xlink:href="flashlight.png"></image>
+  	<g id='appslider' transform="translate(300,200)">
+  	<circle id='top' r="50" fill="#E5E4E2" stroke="white" stroke-width="4px"/>
+  	<text dx="-15" style="text-align:center">22.3</text>
+  	</g>
+</svg>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+
+<script src="distanceviz.js"></script>
+
+</body>

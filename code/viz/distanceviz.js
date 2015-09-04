@@ -9,17 +9,17 @@ var radius = 15,
 
 
 $("#showdistance").click(function(){  
-        showDistance('test');
+        showDistance(appID,MAL_NODE.attr('id'),BEN_NODE.attr('id'));
         $('#dangercontainer').attr('style','visibility:visible');
 })
 
 
-function showDistance(app_name){
+function showDistance(app1,app2,app3){
     //data = {'appname':appname};
     //data = JSON.stringify({appname:app_name});
     data = []
     //url = 'getdistances.php';
-    url = 'getdistances.php?appname='+app_name;
+    url = 'getdistances.php?app1='+app1.replace()+'&app2='+app2.replace(/-/g,'.')+'&app3='+app3.replace(/-/g,'.');
     d3.json(url).post(data,function(error, data){
         var fbdist = data.fbdist;
         var flightdist = data.flightdist;

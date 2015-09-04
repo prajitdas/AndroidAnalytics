@@ -60,18 +60,24 @@ def doTask():
     # assert np.allclose(expected, result), "Wrong Values"
 
 def main(argv):
-    if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python readJsonDecode.py app1 app2\n')
+    if len(sys.argv) != 4:
+        sys.stderr.write('Usage: python readJsonDecode.py app1 app2 app3\n')
         sys.exit(1)
 
     app1 = sys.argv[1]
     app2 = sys.argv[2]
+    app3 = sys.argv[3]
     
     startTime = time.time()
     #doTask()
-    print getJaccardSimilarity(app1, app2)
-    executionTime = str((time.time()-startTime)*1000)
-    print "Execution time was: "+executionTime+" ms"
+    dist1 = getJaccardSimilarity(app1, app2)
+    dist2 = getJaccardSimilarity(app1, app3)
+    distances = []
+    distances['fbdist'] = dist1
+    distances['flightdist'] = dist2
+    print json.dumps(distances)
+    #executionTime = str((time.time()-startTime)*1000)
+    #print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

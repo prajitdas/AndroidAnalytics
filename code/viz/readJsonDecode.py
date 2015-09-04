@@ -40,8 +40,11 @@ def getJaccardSimilarity(app1, app2):
     dbHandle = databaseHandler.dbConnectionCheck()
     appIdVectorSQLQueryList = "'"+app1+"','"+app2+"'"
     sqlStatement = "SELECT app.`app_pkg_name`, a.`perm_id` FROM `appperm` a, `appdata` app WHERE a.`app_id` = app.`id` AND app.`app_pkg_name` IN ("+appIdVectorSQLQueryList+");"
+    print sqlStatement
     permissionsSet, permissionsDict = generatePermVector(dbHandle, sqlStatement)
-    return (wjs.computeJaccardMatrix(permissionsSet, permissionsDict)[0])[0][1]
+    print wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+    result = (wjs.computeJaccardMatrix(permissionsSet, permissionsDict)[0])[0][1]
+    return result
 
 def doTask():
     with open("clusters.json", 'r') as f:
@@ -60,18 +63,24 @@ def doTask():
     # assert np.allclose(expected, result), "Wrong Values"
 
 def main(argv):
-    if len(sys.argv) != 3:
-        sys.stderr.write('Usage: python readJsonDecode.py app1 app2\n')
+    if len(sys.argv) != 4:
+        sys.stderr.write('Usage: python readJsonDecode.py app1 app2 app3\n')
         sys.exit(1)
 
-    app1 = sys.argv[1]
-    app2 = sys.argv[2]
+    app1 = sys.argv[1].replace("-",".")
+    app2 = sys.argv[2].replace("-",".")
+    app3 = sys.argv[3].replace("-",".")
     
     startTime = time.time()
     #doTask()
-    print getJaccardSimilarity(app1, app2)
-    executionTime = str((time.time()-startTime)*1000)
-    print "Execution time was: "+executionTime+" ms"
+    dist1 = getJaccardSimilarity(app1, app2)
+    dist2 = getJaccardSimilarity(app1, app3)
+    distances = {}
+    distances['fbdist'] = dist1
+    distances['flightdist'] = dist2
+    print json.dumps(distances)
+    #executionTime = str((time.time()-startTime)*1000)
+    #print "Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

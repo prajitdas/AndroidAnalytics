@@ -28,6 +28,35 @@ h2 {
      width: 20%;
      background-color: #111;
 }
+p {
+	margin:20px;
+}
+select {
+	width:100px;
+	margin:20px;
+}
+button {
+	margin:20px;
+}
+
+#highlight{
+	background-color: yellow;
+}
+
+#tagMalicious {
+	color: white;
+	background-color: red;
+}
+
+#tagBenign {
+	color: white;
+	background-color: green;
+}
+
+#highlightnew{
+	background-color: yellow;
+}
+
 #container {
      width: 70%;
      height: 800px;

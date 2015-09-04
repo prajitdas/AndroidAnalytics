@@ -1,15 +1,16 @@
 
 
-var radius = 45,
-    width = $('#dangerbar')[0].width.baseVal.value-(2*radius),
-    height =  $('#dangersvg').height(),
-    paddingw = Math.floor(($('#dangersvg').width()-width-2*radius)/2)+radius;
+var radius = 15,
+    dwidth = $('#dangerbar')[0].width.baseVal.value-(2*radius),
+    dheight =  $('#dangersvg').height(),
+    paddingw = Math.floor(($('#dangersvg').width()-dwidth-2*radius)/2)+radius;
     //paddingw = radius;
     
 
 
-$("#getdistance").click(function(){  
+$("#showdistance").click(function(){  
         showDistance('test');
+        $('#dangercontainer').attr('style','visibility:visible');
 })
 
 
@@ -24,9 +25,9 @@ function showDistance(app_name){
         var flightdist = data.flightdist;
         var fbnormed = fbdist/(fbdist+flightdist);
         var flightnormed = flightdist/(fbdist+flightdist);
-        var fbnormedpx = paddingw + Math.floor(fbnormed*width)
+        var fbnormedpx = paddingw + Math.floor(fbnormed*dwidth)
         d3.select("#appslider")
-            .attr("transform", "translate("+fbnormedpx+","+Math.floor(height/2)+")")
+            .attr("transform", "translate("+fbnormedpx+","+Math.floor(dheight/2)+")")
             .select("text")
                 .text(Math.floor(100*fbnormed));
 

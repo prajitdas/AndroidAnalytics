@@ -128,7 +128,8 @@ d3.json('clusters.json', function(error, data){
     function info(node){
         $('#clusterinfo').text("Cluster: "+node.cluster);
         $('#nameinfo').text("App Name: "+node.appName);
-    }
+		window.open('https://play.google.com/store/apps/details?id='+node.appName, '_blank');
+	}
     // Move d to be adjacent to the cluster node.
     function cluster(alpha) {
       return function(d) {

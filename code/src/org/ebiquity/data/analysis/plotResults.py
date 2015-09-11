@@ -15,6 +15,7 @@ import plotly.tools as tls
 import plotly.plotly as py
 from plotly.graph_objs import *
 import json
+import gzip
 
 # This is a plot for Permissions count vs Frequency of apps requesting that many permissions
 def generateAppPermissionsRequestedFrequencyHistogram(username, apiKey):
@@ -314,7 +315,8 @@ def generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList
     print "Check out the URL: "+plot_url+" for your plot"
 
 def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
-    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
+    evaluatedClusterResultsDict = json.loads(gzip.open(fileToRead, "rb").read().decode("utf8"))
+#    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
     
     clusterCountList = []
     
@@ -332,7 +334,8 @@ def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
     generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList, postfix)
 
 def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
-    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
+    evaluatedClusterResultsDict = json.loads(gzip.open(fileToRead, "rb").read().decode("utf8"))
+#    evaluatedClusterResultsDict = json.loads(open(fileToRead, 'r').read().decode('utf8'))
     
     clusterCountList = []
     

@@ -111,7 +111,7 @@ def preProcess(appCategoryListSelection, restrictionListSelection):
     text_file.write("")
     text_file.close()
     
-    predictedClustersFile = "predictedClusters"+uniformString+".json"
+    predictedClustersFile = "predictedClusters"+uniformString+".json.gz"
     text_file = open(predictedClustersFile, "w")
     text_file.write("")
     text_file.close()

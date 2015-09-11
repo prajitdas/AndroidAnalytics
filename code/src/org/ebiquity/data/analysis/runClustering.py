@@ -25,6 +25,7 @@ from sklearn.decomposition import TruncatedSVD, PCA
 import matplotlib.pyplot as plt
 #import sys
 import NumpyEncoder
+import gzip
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
     #Once the whole matrix is created then dump to a file
@@ -134,9 +135,9 @@ def doScatterPlot(X, numberOfClusters, KMeansObject):
     
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
-    reducedDimensions = 50
-    startingNumberOfClusters = 100 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 110
+    reducedDimensions = 200
+    startingNumberOfClusters = 50 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+    endingNumberOfClusters = 200
     loopCounter = startingNumberOfClusters
     clusterLoopStepSize = 10
     evaluatedClusterResultsDict = {}
@@ -220,10 +221,12 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
-        predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json"
+        predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
 
-        with open(predictedClustersFile, 'w') as outfile:
-            outfile.write(json.dumps(evaluatedClusterResultsDict, indent=4))
+        compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4))
+#        with open(predictedClustersFile, 'w') as outfile:
+#            outfile.write(json.dumps(evaluatedClusterResultsDict, indent=4))
+
 #    with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
 #        f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
     #We will generate separate graphs with this info
@@ -235,6 +238,12 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     fileName = categories+metrics
     plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
     plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
+
+# From: http://www.saltycrane.com/blog/2012/11/using-pythons-gzip-and-stringio-compress-data-memory/
+def compressWriteData(fileTowWrite,dataObject):
+    # writing
+    with gzip.GzipFile(fileTowWrite, 'w') as outfile:
+        outfile.write(dataObject)
 
 def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     appMatrix, appVector = sp.computeMatrix(permissionsSet, permissionsDict)

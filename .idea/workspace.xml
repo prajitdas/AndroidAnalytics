@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fde8d81-d530-47ac-9239-80e8c649fd5e" name="Default" comment="run for 25000 apps">
+    <list default="true" id="5fde8d81-d530-47ac-9239-80e8c649fd5e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/initClustering.py" afterPath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/initClustering.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/plotResults.py" afterPath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/plotResults.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/runClustering.py" afterPath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/runClustering.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/selectApps.py" afterPath="$PROJECT_DIR$/code/src/org/ebiquity/data/analysis/selectApps.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PlayStoreDataCollection.iws" />
@@ -79,6 +76,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -225,8 +224,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -516,7 +513,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441385659686</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="run for 25000 apps and 200 dimensions">
+      <created>1441964835836</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1441964835836</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -564,7 +567,8 @@
     <MESSAGE value="added info on cluster centroids and app vectors" />
     <MESSAGE value="clustering will now use a higher number of dimensions" />
     <MESSAGE value="run for 25000 apps" />
-    <option name="LAST_COMMIT_MESSAGE" value="run for 25000 apps" />
+    <MESSAGE value="run for 25000 apps and 200 dimensions" />
+    <option name="LAST_COMMIT_MESSAGE" value="run for 25000 apps and 200 dimensions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

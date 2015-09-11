@@ -12,6 +12,7 @@ import databaseHandler
 import runClustering as runCl
 import selectApps
 import selectPermissions as sp
+import PathDetails as pd
 
 def getPermMatrix(dbHandle, appDict, permissionRestrictionList, restrictionType):
     appIdVector = []
@@ -111,7 +112,7 @@ def preProcess(appCategoryListSelection, restrictionListSelection):
     text_file.write("")
     text_file.close()
     
-    predictedClustersFile = "predictedClusters"+uniformString+".json.gz"
+    predictedClustersFile = pd.getPath()+"predictedClusters"+uniformString+".json.gz"
     text_file = open(predictedClustersFile, "w")
     text_file.write("")
     text_file.close()

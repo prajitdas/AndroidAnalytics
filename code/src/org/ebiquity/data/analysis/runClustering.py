@@ -81,14 +81,14 @@ def kMeans(X, appVector, metric):
     return evaluatedClusterResultsDict
     
 def reducePrecisionEncode(array, length, breadth, precision):
-    newArray = np.zeros((length, breadth))
+    newArray = np.zeros((length, breadth), dtype=np.int)
     for i in range(length):
         for j in range(breadth):
             result = round(array[i][j],precision)
             if result == -0:
-                newArray[i][j] = 0
+                newArray[i][j] = int(0)
             else:
-                newArray[i][j] = result
+                newArray[i][j] = float(result)
     return NumpyEncoder.encodeNDArray(newArray)
 
 def doScatterPlot(X, numberOfClusters, KMeansObject):
@@ -173,10 +173,16 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         counter = 0
         predictedClusters = {}
         for appName in appVector:
-            predictedClusters[appName] = clusterLabelsAssigned[counter]
-            #predictedClusters[appName] = permissionsDict[appName]
+            predictedClusters[appName] = int(clusterLabelsAssigned[counter])
+            if(type(predictedClusters[appName]) != 'str'):
+		print "found value!"
+            if(type(appName)!= 'str'):
+		print "found appname!" + str(type(appName))
             counter = counter + 1
-            
+	
+	print predictedClusters
+	print type(predictedClusters)
+        
         loopListEvaluatedCluster.append(predictedClusters)
 
         #Clustering task is complete. Now evaluate
@@ -222,7 +228,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
         predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
-
+	
         compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4))
 #        with open(predictedClustersFile, 'w') as outfile:
 #            outfile.write(json.dumps(evaluatedClusterResultsDict, indent=4))

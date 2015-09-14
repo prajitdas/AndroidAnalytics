@@ -174,14 +174,6 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         predictedClusters = {}
         for appName in appVector:
             predictedClusters[appName] = int(clusterLabelsAssigned[counter])
-            if(type(predictedClusters[appName]) != 'str'):
-		print "found value!"
-            if(type(appName)!= 'str'):
-		print "found appname!" + str(type(appName))
-            counter = counter + 1
-	
-	print predictedClusters
-	print type(predictedClusters)
         
         loopListEvaluatedCluster.append(predictedClusters)
 

@@ -107,7 +107,7 @@ def preProcess(appCategoryListSelection, restrictionListSelection):
 
     ticks = time.time()
     uniformString = str(ticks).replace(".","")
-    appMatrixFile = "appMatrix"+uniformString+".txt"
+    appMatrixFile = pd.getPath()+"appMatrix"+uniformString+".txt"
     text_file = open(appMatrixFile, "w")
     text_file.write("")
     text_file.close()

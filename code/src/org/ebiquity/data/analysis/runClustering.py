@@ -223,7 +223,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     #    Write the predicted clusters to a file
         predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
 
-        compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4))
+        compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4, ensure_ascii=False).encode('utf8'))
 #        with open(predictedClustersFile, 'w') as outfile:
 #            outfile.write(json.dumps(evaluatedClusterResultsDict, indent=4))
 

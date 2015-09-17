@@ -29,7 +29,7 @@ import gzip
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
     #Once the whole matrix is created then dump to a file
-    #Write the app permissions matrix to a file            
+    #Write the app permissions matrix to a file
     cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
     #return cPickle.load(open(appMatrixFile, 'rb'))
 

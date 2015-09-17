@@ -259,7 +259,9 @@ def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneitySc
     )
     
     fig = Figure(data=data, layout=layout)
-    name = 'cluster-measures'+postfix
+    name = 'cluster-measures'
+    if postfix != None:
+    	name += postfix
     plot_url = py.plot(fig, filename=name)
     print "Check out the URL: "+plot_url+" for your plot"
   

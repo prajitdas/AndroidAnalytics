@@ -310,7 +310,9 @@ def generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList
         bargroupgap=0.1
     )
     fig = Figure(data=data, layout=layout)
-    name = 'silhouette-average-score'+postfix
+    name = 'silhouette-average-score'
+    if postfix != None:
+    	name += postfix
     plot_url = py.plot(fig, filename=name)
     print "Check out the URL: "+plot_url+" for your plot"
 

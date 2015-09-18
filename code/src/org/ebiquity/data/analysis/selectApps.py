@@ -49,7 +49,7 @@ def getTopAppsFromDownloadedJSONs():
     return appNameList
 
 def getSpecificCategoryAppsTopFewThousands(dbHandle,categoryId):
-    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = "+str(categoryId)+" AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 25000;"
+    sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = "+str(categoryId)+" AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 1000;"
     return generateAppDict(dbHandle,sqlStatement)
 
 # Get a bunch of apps from which you want to get the permissions

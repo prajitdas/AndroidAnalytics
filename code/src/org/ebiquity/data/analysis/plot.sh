@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python plotResults.py prajitdas 15irk8yvf3 predictedClusters14422364380.Loop190.json.gz
+python plotResults.py prajitdas 15irk8yvf3 predictedClusters144253581419.Loop19.json.gz

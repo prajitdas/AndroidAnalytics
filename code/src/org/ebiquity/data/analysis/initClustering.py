@@ -154,7 +154,7 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 
 def main(argv):
     if len(sys.argv) != 6:
-        sys.stderr.write('Usage: Usage: python initClustering.py username api_key appCategoryListSelection restrictionListSelection restrictionType\n\nappCategoryListSelection = [med|hea|hmd|hmdtop|fabra|top|all]\nmed: medical apps\nhea: health & fitness apps\nhmd: health & fitness and medical apps\nhmdtop: health & fitness and medical top apps\nfabra: family brain games apps\ntop: top Google apps\nall: all apps\n\nrestrictionListSelection = [int|top25|google]\nint: internet permissions\ntop25: top 25 permissions\ngoogle: google permissions\n\nrestrictionType = [allow|'']\nallow: allow selection\n"": deny\n')
+        sys.stderr.write('Usage: python initClustering.py username api_key appCategoryListSelection restrictionListSelection restrictionType\n\nappCategoryListSelection = [med|hea|hmd|hmdtop|fabra|top|all]\nmed: medical apps\nhea: health & fitness apps\nhmd: health & fitness and medical apps\nhmdtop: health & fitness and medical top apps\nfabra: family brain games apps\ntop: top Google apps\nall: all apps\n\nrestrictionListSelection = [int|top25|google]\nint: internet permissions\ntop25: top 25 permissions\ngoogle: google permissions\n\nrestrictionType = [allow|'']\nallow: allow selection\n"": deny\n')
         sys.exit(1)
 
     username = sys.argv[1]

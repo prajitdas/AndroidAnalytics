@@ -146,7 +146,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     writeMatrixToFile(appMatrix, appMatrixFile)
 
     #Dimensionality reduction
-    X = TruncatedSVD(n_components=reducedDimensions).fit_transform(appMatrix)
+    X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
     
     '''
     An interesting problem occurs due to use of 'appVectors' as a index.
@@ -160,7 +160,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, clusterLoopStepSize):
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
-        KMeansObject = KMeans(n_clusters=numberOfClusters)
+        KMeansObject = KMeans(n_clusters=numberOfClusters, init='k-means++')
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         centroids = KMeansObject.cluster_centers_
         #Plotting results

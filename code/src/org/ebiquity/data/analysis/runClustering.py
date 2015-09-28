@@ -135,9 +135,9 @@ def doScatterPlot(X, numberOfClusters, KMeansObject):
     
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
-    reducedDimensions = 200
+    reducedDimensions = 20
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 100
+    endingNumberOfClusters = 20
     loopCounter = startingNumberOfClusters
     clusterLoopStepSize = 1
     evaluatedClusterResultsDict = {}
@@ -160,7 +160,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, clusterLoopStepSize):
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
-        KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
+        KMeansObject = KMeans(n_clusters=numberOfClusters, init='k-means++')
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         centroids = KMeansObject.cluster_centers_
         #Plotting results

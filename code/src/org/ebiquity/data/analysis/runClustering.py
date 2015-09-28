@@ -7,7 +7,7 @@ Code for generating the Plotly graphs are here. It takes as input the files it w
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 #from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans#, SpectralClustering
+from sklearn.cluster import KMeans, SpectralClustering
 from sklearn.metrics import silhouette_score#, silhouette_samples
 from sklearn.metrics.pairwise import pairwise_distances
 
@@ -146,8 +146,9 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     writeMatrixToFile(appMatrix, appMatrixFile)
 
     #Dimensionality reduction
-    X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
-    
+    # X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
+    X = appMatrix
+
     '''
     An interesting problem occurs due to use of 'appVectors' as a index.
     Later on we try to find the integer loop counter and that causes an issue.
@@ -160,15 +161,16 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, clusterLoopStepSize):
         loopListEvaluatedCluster = []
         # Initialize the KMeansObject with numberOfClusters value 
-        KMeansObject = KMeans(n_clusters=numberOfClusters, init='k-means++')
-        clusterLabelsAssigned = KMeansObject.fit_predict(X)
-        centroids = KMeansObject.cluster_centers_
+        # KMeansObject = KMeans(n_clusters=numberOfClusters, init='k-means++')
+        # clusterLabelsAssigned = KMeansObject.fit_predict(X)
+        # Initialize the KMeansObject with numberOfClusters value
+        # centroids = KMeansObject.cluster_centers_
+        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', n_neighbors=10, eigen_tol=1E-04, assign_labels='discretize')#,affinity='precomputed')
+        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
         #Plotting results
         #This is not working so commenting out right now
         #doScatterPlot(X, numberOfClusters, KMeansObject)
-#        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
-#        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
-        
+
         #Silhouette Evaluation starts
         counter = 0
         predictedClusters = {}
@@ -196,9 +198,9 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
         # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html        
         
         #Storing the centroid values in the results dictionary
-        centroidsDict = {}
-        centroidsDict["centroids"] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
-        loopListEvaluatedCluster.append(centroidsDict)
+        # centroidsDict = {}
+        # centroidsDict["centroids"] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
+        # loopListEvaluatedCluster.append(centroidsDict)
  
         '''
         #Usage of NumpyEncoder is shown here so that the centroids can be encoded and decoded easily. Look in NumpyEncoder.py for details
@@ -220,7 +222,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     #    printevaluatedClusterResultsDict
     #    Write the predicted clusters to a file
         predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
-	
+
         compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4))
 #        with open(predictedClustersFile, 'w') as outfile:
 #            outfile.write(json.dumps(evaluatedClusterResultsDict, indent=4))

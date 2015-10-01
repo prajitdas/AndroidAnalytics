@@ -7,7 +7,7 @@ Code for generating the Plotly graphs are here. It takes as input the files it w
 '''
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 #from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans#, SpectralClustering
+from sklearn.cluster import KMeans, SpectralClustering
 from sklearn.metrics import silhouette_score#, silhouette_samples
 from sklearn.metrics.pairwise import pairwise_distances
 
@@ -135,9 +135,9 @@ def doScatterPlot(X, numberOfClusters, KMeansObject):
     
 def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
     #init
-    reducedDimensions = 20
+    reducedDimensions = 100
     startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-    endingNumberOfClusters = 20
+    endingNumberOfClusters = 100
     loopCounter = startingNumberOfClusters
     clusterLoopStepSize = 1
     evaluatedClusterResultsDict = {}
@@ -147,7 +147,7 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
 
     #Dimensionality reduction
     X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
-    
+
     '''
     An interesting problem occurs due to use of 'appVectors' as a index.
     Later on we try to find the integer loop counter and that causes an issue.
@@ -159,16 +159,16 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
     #Run clustering with a varying number of clusters
     for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, clusterLoopStepSize):
         loopListEvaluatedCluster = []
-        # Initialize the KMeansObject with numberOfClusters value 
-        KMeansObject = KMeans(n_clusters=numberOfClusters, init='k-means++')
+        # Initialize the KMeansObject with numberOfClusters value
+        KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
         clusterLabelsAssigned = KMeansObject.fit_predict(X)
         centroids = KMeansObject.cluster_centers_
         #Plotting results
         #This is not working so commenting out right now
         #doScatterPlot(X, numberOfClusters, KMeansObject)
-#        SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#,affinity='precomputed')
-#        clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
-        
+        # SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
+        # clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+
         #Silhouette Evaluation starts
         counter = 0
         predictedClusters = {}

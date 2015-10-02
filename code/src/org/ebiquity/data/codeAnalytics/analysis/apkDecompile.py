@@ -11,8 +11,6 @@ import sys
 import platform
 import shutil
 import subprocess
-from os import listdir
-from os.path import isfile, join
 from bs4 import BeautifulSoup as Soup
 import time
 import installApkTool as apktool
@@ -46,8 +44,15 @@ def runAnalysis(inpath,outPath,currentDirectory):
 	#	Run analysis
 	# dbHandle = databaseHandler.dbConnectionCheck()
 
-	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
-	print files
+	f = []
+	filenames = os.walk(inpath)
+	for filename in filenames:
+		print filename
+	for dirname in dirnammes:
+		print dirname
+
+	files = [ f for f in os.listdir(inpath) if os.path.isfile(os.path.join(inpath,f)) ]
+	print files 
 	for inputFile in files:
 		print inputFile
 		sys.exit(1)

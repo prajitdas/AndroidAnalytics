@@ -15,7 +15,7 @@ def getPath():
     
     currentDirectory = os.getcwd()
 
-    # Detect operating system and takes actions accordingly
+    # Detect operating system and take actions accordingly
     osInfo = platform.system()
     if osInfo == 'Windows':
         return currentDirectory+"\\"

@@ -25,7 +25,13 @@ def copyRequiredFilesToDestinationFolder(wrapperSrc,jarSrc,des):
 	shutil.copy(wrapperSrc, des)
 	shutil.copy(jarSrc, des)
 
-def run():
+def doCopy(des,wrapperSrc,jarSrc):
+	if not(isPathPresent(des)) or not(isPathPresent(wrapperSrc)) or not(isPathPresent(jarSrc)):
+		print 'Either the ApkTool folder does not exist or the destination folder does not exist. Please create them and download the ApkTool files there and then execute this script again.'
+	else:
+		copyRequiredFilesToDestinationFolder(wrapperSrc,jarSrc,des)
+
+def run(isForceInstallTrue):
 	'''
 		Detect operating system and takes installation actions accordingly
 	'''
@@ -55,8 +61,10 @@ def run():
 	else:
 		print 'The current os not supported at the moment.'
 
-	if not(isPathPresent(wrapperDes)) or not(isPathPresent(jarDes)):
-		if not(isPathPresent(des)) or not(isPathPresent(wrapperSrc)) or not(isPathPresent(jarSrc)):
-			print 'Either the ApkTool folder does not exist or the destination folder does not exist. Please create them and download the ApkTool files there and then execute this script again.'
-		else:
-			copyRequiredFilesToDestinationFolder(wrapperSrc,jarSrc,des)
+	# If force install is true copy apktool anyway
+	# If it's not true copy it only if the destination files don't exist
+	if (isForceInstallTrue):
+		doCopy(des,wrapperSrc,jarSrc)
+	else:
+		if not(isPathPresent(wrapperDes)) or not(isPathPresent(jarDes)):
+			doCopy(des,wrapperSrc,jarSrc)

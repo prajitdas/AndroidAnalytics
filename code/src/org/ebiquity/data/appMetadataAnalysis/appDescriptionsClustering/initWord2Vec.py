@@ -25,17 +25,17 @@ def exampleLDAExecution():
 	titles = data.load_reuters_titles()
 
 	# document-term matrix
-	X = lda.datasets.load_reuters()
+	X = data.load_reuters()
 	print("type(X): {}".format(type(X)))
 	print("shape: {}\n".format(X.shape))
 
 	# the vocab
-	vocab = lda.datasets.load_reuters_vocab()
+	vocab = data.load_reuters_vocab()
 	print("type(vocab): {}".format(type(vocab)))
 	print("len(vocab): {}\n".format(len(vocab)))
 
 	# titles for each story
-	titles = lda.datasets.load_reuters_titles()
+	titles = data.load_reuters_titles()
 	print("type(titles): {}".format(type(titles)))
 	print("len(titles): {}\n".format(len(titles)))
 

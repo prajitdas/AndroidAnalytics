@@ -24,24 +24,42 @@ def exampleLDAExecution():
 	vocab = data.load_reuters_vocab()
 	titles = data.load_reuters_titles()
 
-	print X
-	print vocab
-	print titles
+	# document-term matrix
+	X = lda.datasets.load_reuters()
+	print("type(X): {}".format(type(X)))
+	print("shape: {}\n".format(X.shape))
 
-	X.shape
-	X.sum()
-	model = LDA(n_topics=20, n_iter=1500, random_state=1)
-	model.fit(X)  # model.fit_transform(X) is also available
+	# the vocab
+	vocab = lda.datasets.load_reuters_vocab()
+	print("type(vocab): {}".format(type(vocab)))
+	print("len(vocab): {}\n".format(len(vocab)))
+
+	# titles for each story
+	titles = lda.datasets.load_reuters_titles()
+	print("type(titles): {}".format(type(titles)))
+	print("len(titles): {}\n".format(len(titles)))
+
+
+	doc_id = 0
+	word_id = 3117
+
+	print("doc id: {} word id: {}".format(doc_id, word_id))
+	print("-- count: {}".format(X[doc_id, word_id]))
+	print("-- word : {}".format(vocab[word_id]))
+	print("-- doc  : {}".format(titles[doc_id]))
 	
-	topic_word = model.topic_word_  # model.components_ also works
-	n_top_words = 8
-	for i, topic_dist in enumerate(topic_word):
-		topic_words = np.array(vocab)[np.argsort(topic_dist)][:-n_top_words:-1]
-		print('Topic {}: {}'.format(i, ' '.join(topic_words)))
+	# model = LDA(n_topics=20, n_iter=1500, random_state=1)
+	# model.fit(X)  # model.fit_transform(X) is also available
+	
+	# topic_word = model.topic_word_  # model.components_ also works
+	# n_top_words = 8
+	# for i, topic_dist in enumerate(topic_word):
+	# 	topic_words = np.array(vocab)[np.argsort(topic_dist)][:-n_top_words:-1]
+	# 	print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 
-	doc_topic = model.doc_topic_
-	for i in range(10):
-		print("{} (top topic: {})".format(titles[i], doc_topic[i].argmax()))
+	# doc_topic = model.doc_topic_
+	# for i in range(10):
+	# 	print("{} (top topic: {})".format(titles[i], doc_topic[i].argmax()))
 
 def appDescriptionsLDA():
 	X = data.load_reuters()

@@ -16,24 +16,56 @@ import databaseHandler
 import selectAppDescriptions as sad
 import json
 import numpy as np
-import lda
-import lda.datasets
+from lda import LDA
+import lda.datasets as data
 
-def lda():
-    X = lda.datasets.load_reuters()
-    vocab = lda.datasets.load_reuters_vocab()
-    titles = lda.datasets.load_reuters_titles()
-    X.shape
-    (395, 4258)
-    X.sum()
-    84010
-    model = lda.LDA(n_topics=20, n_iter=1500, random_state=1)
-    model.fit(X)  # model.fit_transform(X) is also available
-    topic_word = model.topic_word_  # model.components_ also works
-    n_top_words = 8
-    for i, topic_dist in enumerate(topic_word):
-        topic_words = np.array(vocab)[np.argsort(topic_dist)][:-n_top_words:-1]
-        print('Topic {}: {}'.format(i, ' '.join(topic_words)))
+def exampleLDAExecution():
+	X = data.load_reuters()
+	vocab = data.load_reuters_vocab()
+	titles = data.load_reuters_titles()
+
+	print X
+	print vocab
+	print titles
+
+	X.shape
+	X.sum()
+	model = LDA(n_topics=20, n_iter=1500, random_state=1)
+	model.fit(X)  # model.fit_transform(X) is also available
+	
+	topic_word = model.topic_word_  # model.components_ also works
+	n_top_words = 8
+	for i, topic_dist in enumerate(topic_word):
+		topic_words = np.array(vocab)[np.argsort(topic_dist)][:-n_top_words:-1]
+		print('Topic {}: {}'.format(i, ' '.join(topic_words)))
+
+	doc_topic = model.doc_topic_
+	for i in range(10):
+		print("{} (top topic: {})".format(titles[i], doc_topic[i].argmax()))
+
+def appDescriptionsLDA():
+	X = data.load_reuters()
+	vocab = data.load_reuters_vocab()
+	titles = data.load_reuters_titles()
+
+	print X
+	print vocab
+	print titles
+
+	X.shape
+	X.sum()
+	model = LDA(n_topics=20, n_iter=1500, random_state=1)
+	model.fit(X)  # model.fit_transform(X) is also available
+	
+	topic_word = model.topic_word_  # model.components_ also works
+	n_top_words = 8
+	for i, topic_dist in enumerate(topic_word):
+		topic_words = np.array(vocab)[np.argsort(topic_dist)][:-n_top_words:-1]
+		print('Topic {}: {}'.format(i, ' '.join(topic_words)))
+
+	doc_topic = model.doc_topic_
+	for i in range(10):
+		print("{} (top topic: {})".format(titles[i], doc_topic[i].argmax()))
 
 def getPath():
     if socket.gethostname() == 'eclipse':
@@ -53,26 +85,29 @@ def getPath():
 
 #Initiate the word2vec process
 def initWord2Vec(appCategoryList, appCategoryListSelection, appDescriptionsFile):
-    dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+	exampleLDAExecution()
+	sys.exit(1)
+	
+	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
+	
+	with open(appDescriptionsFile, 'w') as fp:
+		if appCategoryListSelection == 'top':
+			#get the descriptions for top apps
+			json.dump(sad.getTopApps(dbHandle), fp, indent=4)
+		elif appCategoryListSelection == 'all':
+			#get the descriptions for all apps
+			json.dump(sad.getAllApps(dbHandle), fp, indent=4)
+		elif appCategoryListSelection == 'cattop':
+			#get the descriptions for category wise top apps
+			json.dump(sad.getCategoryAppsTopFewThousands(dbHandle), fp, indent=4)
+		elif appCategoryListSelection == 'hmdtop':
+			#get the descriptions for hmd top apps
+			json.dump(sad.getHMDAppsTopFewThousands(dbHandle, appCategoryList), fp, indent=4)
+		else:
+			#get the descriptions for category list apps
+			json.dump(sad.getCategoryApps(dbHandle, appCategoryList), fp, indent=4)
 
-    with open(appDescriptionsFile, 'w') as fp:
-        if appCategoryListSelection == 'top':
-            #get the descriptions for top apps
-            json.dump(sad.getTopApps(dbHandle), fp, indent=4)
-        elif appCategoryListSelection == 'all':
-            #get the descriptions for all apps
-            json.dump(sad.getAllApps(dbHandle), fp, indent=4)
-        elif appCategoryListSelection == 'cattop':
-            #get the descriptions for category wise top apps
-            json.dump(sad.getCategoryAppsTopFewThousands(dbHandle), fp, indent=4)
-        elif appCategoryListSelection == 'hmdtop':
-            #get the descriptions for hmd top apps
-            json.dump(sad.getHMDAppsTopFewThousands(dbHandle, appCategoryList), fp, indent=4)
-        else:
-            #get the descriptions for category list apps
-            json.dump(sad.getCategoryApps(dbHandle, appCategoryList), fp, indent=4)
-
-    dbHandle.close() #DB Close
+	dbHandle.close() #DB Close
 
 def preProcess(appCategoryListSelection):
     if appCategoryListSelection == 'med':

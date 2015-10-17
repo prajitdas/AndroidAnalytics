@@ -7,6 +7,7 @@ The fact that personal and sensitive data is handled by these devices presents a
 Hence we require a faster and dynamic setup to detect unsafe or rather potentially unsafe applications. [Paper to be referred Dr B]Even though not totally accurate, there are some intuitions which we can utilize from the meta-data available with each application. The different meta-data available with each of these applications include App description, Permissions required, Number of downloads, Broad Application categories etc. As an example of our intuition let us take the case of “brightestlight” application, which is available in Google Play Store. The description of the application says that it is a flash light app, which shows some unobtrusive Ads. But on analyzing the Permissions required, we can see that the application requests permissions for location (accurate GPS and approximate network based), file manipulation (read, modify and delete USB storage), camera (curiously it includes auto-focus permission) etc. This does seem suspicious. But still we cannot say that the application is unsafe, rather we need further investigation. 
 \section{Related Work}
 \label{RelatedWork}
+\begin{comment}
 Playdrone : Crawls Playstore- how playstore evolved - source code analysis of library usage - similar app detection-secret authentication key storage (can be found by decompilation)
 (1) native libraries are heavily used by popular Android applications, limiting the benets of Java portability and the ability of Android server ooading systems to run these applications, (2) 25%
 of Google Play is duplicative application content, and (3) Android applications contain thousands of leaked secret au-thentication keys which
@@ -45,4 +46,4 @@ identifies applications whose behavior would be unexpected
 given their description.
 Recommendations for android eco system
 
-
+\end{commit}

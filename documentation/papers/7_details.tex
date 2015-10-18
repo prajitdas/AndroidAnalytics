@@ -1,2 +1,24 @@
 \section{Vulnerability Description}
-\label{policyControl}
+\label{vuln}
+When it comes to content providers we observed that Google's Android documentation describes to possible scenarios. The first states that any provider that has not got an associated permission should not be accessible from another app.
+\begin{itemize}
+	\item ``[...]If a provider's application doesn't specify any permissions, then other applications have no access to the provider's data. However, components in the provider's application always have full read and write access, regardless of the specified permissions.''~\footnote{Error in specification~\url{http://developer.android.com/guide/topics/providers/content-provider-basics.html#Permissions}}
+	\item ``[...]All applications can read from or write to your provider, even if the underlying data is private, because by default your provider does not have permissions set. To change this, set permissions for your provider in your manifest file, using attributes or child elements of the <provider> element. You can set permissions that apply to the entire provider, or to certain tables, or even to certain records, or all three.''~\footnote{Installing permissions~\url{http://developer.android.com/guide/topics/providers/content-provider-creating.html#Permissions}}
+\end{itemize}
+
+Unfortunately, we found the first statement to be untrue. The following table shows that when a content provider app is not associating a permission to its provider then we have data leakage. This happens because Android does not verify that each provider has an associated permission. The possible solution that we can have to mitigate this issue would either require a change in how content provider access control is handled on android or a change in the app developer's code. 
+\begin{center}
+	\begin{tabular}{ | p{2.5cm} | p{2.5cm} | p{2cm} | }
+		\hline
+		\textbf{Content Provider app} & \textbf{Content accessing app} & \textbf{Remark} \\
+		\hline \hline
+		No permission associated with provider & No permission used & \textcolor[rgb]{0.55,0,0}{\textbf{Potential data leakage}} \\
+		\hline
+		Permission associated with provider & No permission used & Permission denied \\
+		\hline
+		Permission associated with provider & Permission used & \textcolor[rgb]{0,0.33,0}{Ideal scenario} \\
+		\hline
+		No permission associated with provider & Permission used & Instillation error \\
+		\hline
+	\end{tabular}
+\end{center}

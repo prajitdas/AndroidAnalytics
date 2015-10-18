@@ -1,6 +1,6 @@
 \section{System Overview}
 \label{overview}
-
+\noindent
 Heimdall has two components: the first is an app installed on a user's mobile device and the second is a Web service that receives install, uninstall and update notifications when these events occur on the device. Upon notification, the server processes all heuristics that apply to the app and generates a set of actions for a system administrator. At this point the system administrator can take an appropriate action based on the detected threat level. Our present prototype, includes a simple content provider heuristic that estimates the impact of a vulnerability. The only solution that is possible, at the moment, is to uninstall the app and that notification is then sent back to the user's device automatically.
 
 \begin{figure}[tb]

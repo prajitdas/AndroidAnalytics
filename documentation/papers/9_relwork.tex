@@ -1,6 +1,24 @@
 \section{Related Work}
 \label{RelatedWork}
-Research being done to predict user's preferences by a number of people~\cite{Benisch2011,Sadeh2009,lin2014soups,liu2014www}. Owing to that research we make an assumption that it is possible to fairly accurately create user permission choices on Android devices. However, our goal is separate from theirs in a threefold manner. Firstly we are defining policy rules for users which may allow, deny or allow with caveat specific permissions depending on the user context. Secondly we are not trying to show that it is possible to learn a user's policy from scratch rather we are agreeing with their observation that it is possible to use privacy profiles to define or group user preferences~\cite{liu2014www}. Instead we are trying to show that with user feedback it is possible to reach an individual user's ``perfect'' policy with a certain probability. Thirdly, we are researching ways to include app provenance information, api usage and observed mobile behavior~\cite{enck2010taintdroid} to compute a metric that will accurately measure the trustworthiness of an app.
+
+Significant research has been done on predicting users' preferences
+for
+permission-granting~\cite{Benisch2011,Sadeh2009,lin2014soups,liu2014www}.
+We build on this work and make the assumption that it is (or soon will
+be) possible to fairly accurately create user permission choices on
+Android devices. Our research goal differs in three ways. First, we
+define policy rules for users which may allow, deny or allow with
+caveat specific permissions depending on the user context. Second, we
+are not trying to show that it is possible to learn a user's policy
+from scratch but rather we are agreeing with their observation that it
+is possible to use privacy profiles to define or group user
+preferences~\cite{liu2014www}. Instead we are trying to show that
+given user feedback it is possible to reach an individual user's
+``perfect'' policy with a certain probability. Third, we are exploring
+ways to include app provenance information, API usage and observed
+mobile behavior~\cite{enck2010taintdroid} to compute metrics that will
+accurately predict the trustworthiness of an app.
+
 \hl{
 Playdrone : Crawls Playstore- how playstore evolved - source code analysis of library usage - similar app detection-secret authentication key storage (can be found by decompilation)
 (1) native libraries are heavily used by popular Android applications, limiting the benefits of Java portability and the ability of Android server overloading systems to run these applications, (2) 25\% of Google Play is duplicative application content, and (3) Android applications contain thousands of leaked secret authentication keys which
@@ -13,10 +31,10 @@ ANDRUBIS:, a fully automated, publicly available and comprehensive analysis syst
 
 changes in the malware threat landscape and trends amongst goodware developers. Dynamic code loading, previously used as an indicator for malicious behavior, is especially gaining popularity amongst goodware App analysis for astma!!
 
-App behavoir against description CHABADA tool clustering apps by description topics, and identifying outliers
+App behavior against description CHABADA tool clustering apps by description topics, and identifying outliers
 by API usage within each cluster, our CHABADA approach effectively
 identifies applications whose behavior would be unexpected
 given their description.
-Recommendations for android eco system}
+Recommendations for the Android ecosystem}
 
-author et.al. developed a formal android permission model to analyze the permission protocol used using Alloy. Using Alloy analyzer, they reasoned over the model to detect possible vulnerabilities in the protocol. It also generated counter examples which can possibly exploit the vulnerabilities in the protocol. Their work could detect a vulnerability in which an application with normal security level permission was able to access another application's dangerous level custom permission given the following conditions. First, both the permission names are the same and second the application with lesser security level is installed first. But we differentiate from them such that instead on just focusing on
+author et.al. developed a formal Android permission model to analyze the permission protocol used using Alloy. Using Alloy analyzer, they reasoned over the model to detect possible vulnerabilities in the protocol. It also generated counter examples which can possibly exploit the vulnerabilities in the protocol. Their work could detect a vulnerability in which an application with normal security level permission was able to access another application's dangerous level custom permission given the following conditions. First, both the permission names are the same and second the application with lesser security level is installed first. But we differentiate from them such that instead on just focusing on

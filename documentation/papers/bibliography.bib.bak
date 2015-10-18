@@ -1,6 +1,16 @@
 % This file was created with JabRef 2.10.
 % Encoding: Cp1252
 
+@INPROCEEDINGS{Zhou2012MalwareGenomeProject, 
+author={Yajin Zhou and Xuxian Jiang}, 
+booktitle={Security and Privacy (SP), 2012 IEEE Symposium on}, 
+title={Dissecting Android Malware: Characterization and Evolution}, 
+year={2012}, 
+pages={95-109}, 
+keywords={computer viruses;mobile computing;operating systems (computers);smart phones;Android malware family;Android platform;activation mechanisms;carried malicious payloads;defense capability;evolution-based study;installation methods;mobile antivirus software;mobile malware;next-generation antimobile-malware solutions;representative family;representative mobile security software;smart phones;Androids;Humanoid robots;Malware;Mobile communication;Payloads;Smart phones;Android malware;smartphone security}, 
+doi={10.1109/SP.2012.16}, 
+ISSN={1081-6011}, 
+month={May},}
 
 @InProceedings{MichalskiMHL86,
   Title                    = {The Multi-Purpose Incremental Learning System AQ15 and Its Testing Application to Three Medical Domains},
@@ -1289,19 +1299,6 @@ in Mobile Peer-To-Peer Environments},
   Author                   = {Laura Zavala and Radhika Dharurkar and Pramod Jagtap and Tim Finin and Anupam Joshi},
   Booktitle                = {Proc. AAAI Workshop on Activity Context Representation: Techniques and Languages, AAAI. AAAI Press},
   Year                     = {2011}
-}
-
-@InProceedings{Zhou2012MalwareGenomeProject,
-  Title                    = {Dissecting Android Malware: Characterization and Evolution},
-  Author                   = {Yajin Zhou and Xuxian Jiang},
-  Booktitle                = {Security and Privacy (SP), 2012 IEEE Symposium on},
-  Year                     = {2012},
-  Month                    = {May},
-  Pages                    = {95-109},
-
-  Doi                      = {10.1109/SP.2012.16},
-  ISSN                     = {1081-6011},
-  Keywords                 = {computer viruses;mobile computing;operating systems (computers);smart phones;Android malware family;Android platform;activation mechanisms;carried malicious payloads;defense capability;evolution-based study;installation methods;mobile antivirus software;mobile malware;next-generation antimobile-malware solutions;representative family;representative mobile security software;smart phones;Androids;Humanoid robots;Malware;Mobile communication;Payloads;Smart phones;Android malware;smartphone security}
 }
 
 @Proceedings{DBLP:conf/aaai/1986-2,

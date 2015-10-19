@@ -1,10 +1,7 @@
 \section{Vulnerability Description}
 \label{vuln}
 \noindent
-When it comes to content providers, Google's Android documentation
-describes two possible scenarios. The first states that data from
-a provider
-that specifies no permissions should not be accessible from other apps.
+When it comes to content providers, Google's Android documentation describes two possible scenarios. The first states that data from a provider that specifies no permissions should not be accessible from other apps.
 \begin{itemize}
  \item ``[...] If a provider's application doesn't specify any permissions, then other applications have no access to the provider's data. However, components in the provider's application always have full read and write access, regardless of the specified permissions.''~\footnote{Error in specification~\url{http://developer.android.com/guide/topics/providers/content-provider-basics.html#Permissions}}
  \item ``[...] All applications can read from or write to your provider, even if the underlying data is private, because by default your provider does not have permissions set. To change this, set permissions for your provider in your manifest file, using attributes or child elements of the <provider> element. You can set permissions that apply to the entire provider, or to certain tables, or even to certain records, or all three.''~\footnote{Correct specification~\url{http://developer.android.com/guide/topics/providers/content-provider-creating.html#Permissions}}
@@ -33,9 +30,9 @@ Unfortunately, we found the first statement to be untrue. Table~\ref{tableErrors
 \begin{lstlisting}[caption={Provider exported tag set as true},label={providerCode},language=XML]
 ...
 <provider
-	android:name=``contentProviderName''
-	android:authorities=``authorityName''
-	android:exported=``true''>
+	android:name="contentProviderName"
+	android:authorities="authorityName"
+	android:exported="true">
 ...
 \end{lstlisting}
 

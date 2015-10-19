@@ -1,3 +1,4 @@
+*.bak
 workspace.xml
 .DS_Store
 

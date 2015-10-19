@@ -25,6 +25,7 @@ When it comes to content providers, Google's Android documentation describes two
 		\caption{Scenario when data leakage may happen}
 	\end{table}
 \end{center}
+\noindent
 Unfortunately, we found the first statement to be untrue. Table~\ref{tableErrors} lists the various scenarios and points out when a content provider app is not associated with a permission we may have data leakage. This happens because Android does not verify that each provider has an associated permission. There is one more condition required for this vulnerability to open up the provider to potential attacks and that is the exported setting to be set as true in the Manifest file for the provider app, as shown in code Listing~\ref{providerCode}. Possible solutions to mitigate this issue would require, either a change in how Android handles content provider access control or a change in the app developer's code.
 
 \begin{lstlisting}[caption={Provider exported tag set as true},label={providerCode},language=XML]

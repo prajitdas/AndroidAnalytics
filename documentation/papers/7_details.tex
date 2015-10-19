@@ -7,23 +7,36 @@ a provider
 that specifies no permissions should not be accessible from other apps.
 \begin{itemize}
  \item ``[...] If a provider's application doesn't specify any permissions, then other applications have no access to the provider's data. However, components in the provider's application always have full read and write access, regardless of the specified permissions.''~\footnote{Error in specification~\url{http://developer.android.com/guide/topics/providers/content-provider-basics.html#Permissions}}
- \item ``[...] All applications can read from or write to your provider, even if the underlying data is private, because by default your provider does not have permissions set. To change this, set permissions for your provider in your manifest file, using attributes or child elements of the <provider> element. You can set permissions that apply to the entire provider, or to certain tables, or even to certain records, or all three.''~\footnote{Installing permissions~\url{http://developer.android.com/guide/topics/providers/content-provider-creating.html#Permissions}}
+ \item ``[...] All applications can read from or write to your provider, even if the underlying data is private, because by default your provider does not have permissions set. To change this, set permissions for your provider in your manifest file, using attributes or child elements of the <provider> element. You can set permissions that apply to the entire provider, or to certain tables, or even to certain records, or all three.''~\footnote{Correct specification~\url{http://developer.android.com/guide/topics/providers/content-provider-creating.html#Permissions}}
 \end{itemize}
-
-Unfortunately, we found the first statement to be untrue. The following table shows that when a content provider app is not associating a permission to its provider then we have data leakage. This happens because Android does not verify that each provider has an associated permission. Possible solutions to mitigate this issue would either require a change in how Android handles content provider access control or a change in the app developer's code.
-
 \begin{center}
-	\begin{tabular}{ | p{2.5cm} | p{2.5cm} | p{2cm} | }
-		\hline
-		\textbf{Content Provider app} & \textbf{Content accessing app} & \textbf{Remark} \\
-		\hline \hline
-		No permission associated with provider & No permission used & \textcolor[rgb]{0.55,0,0}{\textbf{Potential data leakage}} \\
-		\hline
-		Permission associated with provider & No permission used & Permission denied \\
-		\hline
-		Permission associated with provider & Permission used & \textcolor[rgb]{0,0.33,0}{Ideal scenario} \\
-		\hline
-		No permission associated with provider & Permission used & Instillation error \\
-		\hline
-	\end{tabular}
+	\begin{table}
+		\label{tableErrors}
+		\begin{tabular}{ | p{2.5cm} | p{2.5cm} | p{2cm} | }
+			\hline
+			\textbf{Content Provider app} & \textbf{Content accessing app} & \textbf{Remark} \\
+			\hline \hline
+			No permission associated with provider & No permission used & \textcolor[rgb]{1,0,0}{\textbf{Potential data leakage}} \\
+			\hline
+			Permission associated with provider & No permission used & Permission denied \\
+			\hline
+			Permission associated with provider & Permission used & Ideal scenario \\
+			\hline
+			No permission associated with provider & Permission used & No error \\
+			\hline
+		\end{tabular}
+		\caption{Scenario when data leakage may happen}
+	\end{table}
 \end{center}
+Unfortunately, we found the first statement to be untrue. Table~\ref{tableErrors} lists the various scenarios and points out when a content provider app is not associated with a permission we may have data leakage. This happens because Android does not verify that each provider has an associated permission. There is one more condition required for this vulnerability to open up the provider to potential attacks and that is the exported setting to be set as true in the Manifest file for the provider app, as shown in code Listing~\ref{providerCode}. Possible solutions to mitigate this issue would require, either a change in how Android handles content provider access control or a change in the app developer's code.
+
+\begin{lstlisting}[caption={Provider exported tag set as true},label={providerCode},language=XML]
+...
+<provider
+	android:name=``contentProviderName''
+	android:authorities=``authorityName''
+	android:exported=``true''>
+...
+\end{lstlisting}
+
+Such a vulnerability can also be created deliberately. As shown in the work by Zhou et. al.~\cite{Zhou2012MalwareGenomeProject} app repackaging is one of the most common techniques for android malware creation, we show that it is possible through a simple change in code to introduce such a vulnerability in any app. There are some obvious ways to check for such manipulations and top developers in the Google Play Store usually do include such checks. However, these checks are not part of the android framework or operating systems and therefore a repackaged app can be used to fool users into installing a rogue application and allow their data to be stolen.

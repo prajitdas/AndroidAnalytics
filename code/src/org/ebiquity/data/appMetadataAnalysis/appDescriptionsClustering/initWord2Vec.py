@@ -32,7 +32,7 @@ def exampleLDAExecution():
 	# the vocab
 	vocab = data.load_reuters_vocab()
 	print("type(vocab): {}".format(type(vocab)))
-	print("len(vocab): {}\n".foarmat(len(vocab)))
+	print("len(vocab): {}\n".format(len(vocab)))
 
 	# titles for each story
 	titles = data.load_reuters_titles()

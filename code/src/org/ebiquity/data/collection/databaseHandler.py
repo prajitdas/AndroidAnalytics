@@ -46,8 +46,3 @@ def convertPythonListToSQLQueryList(pythonList):
         return ''#List was empty return empty string
     else:
         return '\''+'\',\''.join(pythonList)+'\''#Joining the Strings in the list to each other for use in SQL IN LIST query
-
-def getAmazonRDSConnector():
-    cnx= {'host': 'mithrildb-cluster.cluster-ctxv1hdbc9wh.us-east-1.rds.amazonaws.com', 'username': 'mithrildb', 'password': 'prajitkumardas', 'db': 'mithrildb-cluster'}
-    dbHandle = MySQLdb.connect(cnx['host'],cnx['username'],cnx['password'], cnx['db'])
-    return dbHandle

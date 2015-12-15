@@ -18,7 +18,6 @@ def findApiUsages(walk_dir):
 	outputDict = {}
 	for root, subdirs, files in os.walk(walk_dir):
 		for filename in files:
-			print filename
 			with open(join(root, filename), 'rb') as f:
 				source = ((f.name).split('smali\\')[1]).replace('\\','/')
 				for line in f:
@@ -54,13 +53,12 @@ def findApiUsages(walk_dir):
 	orderedDict = collections.OrderedDict(sorted(outputDict.items()))
 
 	outputFilename = walk_dir.split('\\')[-1]+'analyticsResults\\''ResultsWithFile.json'
-	print outputFilename
-	# with open(outputFilename, 'w') as fp:
-	# 	json.dump(orderedDict, fp, indent=4)
+	with open(outputFilename, 'w') as fp:
+		json.dump(orderedDict, fp, indent=4)
 
-	# outputFilename = walk_dir.split('\\')[-1]+'ResultsJLT.json'
-	# with open(outputFilename, 'w') as fp:
-	# 	json.dump(sorted(list(set(outputList))), fp, indent=4)
+	outputFilename = walk_dir.split('\\')[-1]+'ResultsJLT.json'
+	with open(outputFilename, 'w') as fp:
+		json.dump(sorted(list(set(outputList))), fp, indent=4)
 
 def main(argv):
 	if len(sys.argv) != 1:

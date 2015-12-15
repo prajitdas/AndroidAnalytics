@@ -11,7 +11,7 @@ DROP DATABASE IF EXISTS `googleplaystore`;
 -- User: `googleplaystore`
 --
 
-CREATE USER `googleplaystore`@`%` IDENTIFIED BY 'prajitkumardas';
+CREATE USER `googleplaystore`@`%` IDENTIFIED BY 'password';
 
 -- --------------------------------------------------------
 

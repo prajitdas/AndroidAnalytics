@@ -18,6 +18,7 @@ def findApiUsages(walk_dir):
 	outputDict = {}
 	for root, subdirs, files in os.walk(walk_dir):
 		for filename in files:
+			print filename
 			with open(join(root, filename), 'rb') as f:
 				source = ((f.name).split('smali\\')[1]).replace('\\','/')
 				for line in f:
@@ -53,21 +54,26 @@ def findApiUsages(walk_dir):
 	orderedDict = collections.OrderedDict(sorted(outputDict.items()))
 
 	outputFilename = walk_dir.split('\\')[-1]+'analyticsResults\\''ResultsWithFile.json'
-	with open(outputFilename, 'w') as fp:
-		json.dump(orderedDict, fp, indent=4)
+	print outputFilename
+	# with open(outputFilename, 'w') as fp:
+	# 	json.dump(orderedDict, fp, indent=4)
 
-	outputFilename = walk_dir.split('\\')[-1]+'ResultsJLT.json'
-	with open(outputFilename, 'w') as fp:
-		json.dump(sorted(list(set(outputList))), fp, indent=4)
+	# outputFilename = walk_dir.split('\\')[-1]+'ResultsJLT.json'
+	# with open(outputFilename, 'w') as fp:
+	# 	json.dump(sorted(list(set(outputList))), fp, indent=4)
 
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python myAnalysis.py\n')
 		sys.exit(1)
 
-	# inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
+	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
+	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
+	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
+
+	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
 	# inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
-	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
+	# inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
 	startTime = time.time()
 	findApiUsages(inputFile)
 	executionTime = str((time.time()-startTime)*1000)

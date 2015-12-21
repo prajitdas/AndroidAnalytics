@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">பிரகாசமான மின்னும் விளக்குகளில்</string>
+    <string name="EulaDialogTitle">அநுமதியளி</string>
+    <string name="EulaButtonAccept">ஏற்கவும்</string>
+    <string name="EulaButtonRefuse">மறுத்துவிடு</string>
+    <string name="SettingsCategoriesDialogTitle">அமைப்புகள்</string>
+    <string name="SettingsSoundLabel">பயமற்ற</string>
+    <string name="SettingsTimerLabel">காலத்தை பதிவு செய்வது</string>
+    <string name="SettingsDisplayLabel">காட்டு</string>
+    <string name="SettingsSoundDialogTitle">ஒலி அமைப்புகள்</string>
+    <string name="SettingsSilentModeLabel">அமைதியாக முறை</string>
+    <string name="SettingsTimerDialogTitle">கார் நிறுத்தம்</string>
+    <string name="Settings2MinutesLabel">2 நிமிடங்கள்</string>
+    <string name="Settings10MinutesLabel">10 நிமிடங்கள்</string>
+    <string name="SettingsNeverLabel">இல்லை</string>
+    <string name="SettingsDisplayDialogTitle">அமைப்புகள் காட்ட</string>
+    <string name="SettingsCameraLEDLabel">கேமரா எல்இடி</string>
+    <string name="SettingsScreenLabel">திரை</string>
+    <string name="SettingsOtherLightsLabel">மற்ற விளக்குகள்</string>
+</resources>

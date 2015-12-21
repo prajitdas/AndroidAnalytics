@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lampu suluh terang Percuma</string>
+    <string name="EulaDialogTitle">Lesen</string>
+    <string name="EulaButtonAccept">Terima</string>
+    <string name="EulaButtonRefuse">Tolak</string>
+    <string name="SettingsCategoriesDialogTitle">Tetapan</string>
+    <string name="SettingsSoundLabel">Bunyi</string>
+    <string name="SettingsTimerLabel">Pemasa</string>
+    <string name="SettingsDisplayLabel">Memaparkan</string>
+    <string name="SettingsSoundDialogTitle">Tetapan Bunyi</string>
+    <string name="SettingsSilentModeLabel">Mod Senyap</string>
+    <string name="SettingsTimerDialogTitle">Pemasa automatik</string>
+    <string name="Settings2MinutesLabel">2 Minit</string>
+    <string name="Settings10MinutesLabel">10 Minit</string>
+    <string name="SettingsNeverLabel">Tidak pernah</string>
+    <string name="SettingsDisplayDialogTitle">Papar Seting</string>
+    <string name="SettingsCameraLEDLabel">Kamera LED</string>
+    <string name="SettingsScreenLabel">Skrin</string>
+    <string name="SettingsOtherLightsLabel">Lampu lain-lain</string>
+</resources>

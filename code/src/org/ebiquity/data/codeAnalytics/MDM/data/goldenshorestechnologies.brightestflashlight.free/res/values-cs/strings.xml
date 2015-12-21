@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nejjasnější Svítilna Zdarma</string>
+    <string name="EulaDialogTitle">Licence</string>
+    <string name="EulaButtonAccept">Akceptovat</string>
+    <string name="EulaButtonRefuse">Odmítnout</string>
+    <string name="SettingsCategoriesDialogTitle">Nastavení</string>
+    <string name="SettingsSoundLabel">Zvuk</string>
+    <string name="SettingsTimerLabel">Časovač</string>
+    <string name="SettingsDisplayLabel">Zobrazení</string>
+    <string name="SettingsSoundDialogTitle">Nastavení Zvuku</string>
+    <string name="SettingsSilentModeLabel">Tichý Režim</string>
+    <string name="SettingsTimerDialogTitle">Automatické Vypnutí</string>
+    <string name="Settings2MinutesLabel">2 Minuty</string>
+    <string name="Settings10MinutesLabel">10 Minut</string>
+    <string name="SettingsNeverLabel">Nikdy</string>
+    <string name="SettingsDisplayDialogTitle">Nastavení Zobrazení</string>
+    <string name="SettingsCameraLEDLabel">Fotoaparát LED</string>
+    <string name="SettingsScreenLabel">Obrazovka</string>
+    <string name="SettingsOtherLightsLabel">Ostatní Světla</string>
+</resources>

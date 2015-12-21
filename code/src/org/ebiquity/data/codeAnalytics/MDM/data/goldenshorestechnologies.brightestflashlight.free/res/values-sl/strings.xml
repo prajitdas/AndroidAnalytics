@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Najsvetlejša Svetilka Brezplačna</string>
+    <string name="EulaDialogTitle">Licenca</string>
+    <string name="EulaButtonAccept">Sprejmem</string>
+    <string name="EulaButtonRefuse">Zavrne</string>
+    <string name="SettingsCategoriesDialogTitle">Nastavitve</string>
+    <string name="SettingsSoundLabel">Zvok</string>
+    <string name="SettingsTimerLabel">Časovnik</string>
+    <string name="SettingsDisplayLabel">Zaslon</string>
+    <string name="SettingsSoundDialogTitle">Zvočne nastavitve</string>
+    <string name="SettingsSilentModeLabel">Tihi način</string>
+    <string name="SettingsTimerDialogTitle">Samodejno zaprli</string>
+    <string name="Settings2MinutesLabel">2 minuta</string>
+    <string name="Settings10MinutesLabel">10 minuta</string>
+    <string name="SettingsNeverLabel">Nikoli</string>
+    <string name="SettingsDisplayDialogTitle">Nastavitve zaslona</string>
+    <string name="SettingsCameraLEDLabel">Fotoaparat LED</string>
+    <string name="SettingsScreenLabel">Zaslon</string>
+    <string name="SettingsOtherLightsLabel">Drugi Luči</string>
+</resources>

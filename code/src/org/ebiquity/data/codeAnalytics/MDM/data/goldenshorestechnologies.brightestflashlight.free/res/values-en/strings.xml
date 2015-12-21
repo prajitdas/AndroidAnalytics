@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="EulaDialogTitle">Brightest Flashlight License</string>
+    <string name="EulaButtonAccept">Accept</string>
+    <string name="EulaButtonRefuse">Refuse</string>
+</resources>

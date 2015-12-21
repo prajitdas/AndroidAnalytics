@@ -1,0 +1,145 @@
+User
+|-> Context
+	|-> Location
+		|-> Lat
+		|-> Long
+		|-> Location Address
+		|-> Place
+			|-> Type
+			|-> Address
+			|-> Lat, Long
+			|-> Locale
+			|-> Name
+			|-> Rating
+			|-> Price Level
+				|-> Free
+				|-> Inexpensive
+				|-> Moderate
+				|-> Expensive
+				|-> Very Expensive
+	|-> Activity (https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionApi, https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity)
+		|-> Device motion related
+			|-> IN_VEHICLE	The device is in a vehicle, such as a car.
+			|-> ON_BICYCLE	The device is on a bicycle.
+			|-> ON_FOOT	The device is on a user who is walking or running.
+			|-> RUNNING	The device is on a user who is running.
+			|-> STILL	The device is still (not moving).
+			|-> TILTING	The device angle relative to gravity changed significantly.
+			|-> UNKNOWN	Unable to detect the current activity.
+			|-> WALKING	The device is on a user who is walking. 
+		|-> Calendar and other sensor info related
+			|-> Work
+				|-> Meeting
+					|-> Group Meeting
+						|-> Private Meeting
+								|-> Team Meeting
+								|-> Department Meeting
+						|-> Public Meeting
+							|-> Public Rally
+							|-> Company Event
+					|-> Personal Meeting
+						|-> Supervisor Meeting
+						|-> Subordinate Meeting
+			|-> Leisure
+				|-> Meeting
+					|-> Date
+					|-> Party
+				|-> Entertainment
+					|-> Movies
+					|-> Concert
+				|-> Chores
+				|-> Unknown
+	|-> Time (obtained from system and based on calendar history)
+		|-> Work Hours
+		|-> Weekends
+		|-> Holidays and Vacations
+	|-> Identity
+		|-> Occupation 	
+			|-> Accounting
+			|-> Admin & Clerical
+			|-> Automotive
+			|-> Banking & Finance
+			|-> Biotech and Pharma
+			|-> Business Opportunities
+			|-> Construction
+			|-> Contract & Freelance
+			|-> Customer Service
+			|-> Design
+			|-> Education
+			|-> Engineering
+			|-> Executive
+			|-> Government
+			|-> Health Care
+			|-> Health Care
+			|-> Homemaker
+			|-> Hospitality
+			|-> Human Resources
+			|-> Information Technology
+			|-> Insurance
+			|-> Journalism
+			|-> Legal
+			|-> Management
+			|-> Manufacturing
+			|-> Marketing
+			|-> Media 
+			|-> Nonprofit
+			|-> Not Applicable
+			|-> Part Time
+			|-> QA 
+			|-> Real Estate
+			|-> Research
+			|-> Retail
+			|-> Retired
+			|-> Sales
+			|-> Sales & Marketing
+			|-> Science & Tech
+			|-> Skilled Labor 
+			|-> Telecommunications
+			|-> Transportation
+		|-> Security Classification (https://en.wikipedia.org/wiki/Classified_information, https://en.wikipedia.org/wiki/Government_Security_Classifications_Policy#/media/File:Government_Security_Classifications_Policy.png - Unclassified, Protect,Restricted, Confidential, Secret, Top Secret
+		https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf)
+			|-> Restricted
+			|-> Confidential
+			|-> Secret
+			|-> Top Secret
+		|-> Age
+|-> Device
+	|-> Id
+		|-> Mac Address
+			|-> WiFi Mac Address
+			|-> Bluetooth Mac Address
+		|-> IP Address
+		|-> Android ID
+		|-> IMEI
+		|-> GSF ID
+		|-> SIM Subscriber ID
+		|-> SIM Card Serial
+		|-> Hardware Serial
+	|-> App List
+		|-> Permission List
+	|-> Components
+		|-> Service
+		|-> Content Provider
+		|-> Broadcast Receiver
+	|-> Resources
+		|-> Calendar
+		|-> Camera
+		|-> Contacts (contacts and accounts info)
+		|-> Location (fine and coarse location)
+		|-> Microphone
+		|-> Telephony
+		|-> Sensors
+			|-> accelerometer	The application uses motion readings from an accelerometer on the device.	
+			|-> barometer	The application uses the device's barometer.	
+			|-> compass	The application uses directional readings from a magnetometer (compass) on the device.	
+			|-> gyroscope	The application uses the device's gyroscope sensor.	
+			|-> light	The application uses the device's light sensor.	
+			|-> proximity	The application uses the device's proximity sensor.	
+			|-> stepcounter	The application uses the device's step counter.	
+			|-> stepdetector	The application uses the device's step detector.
+		|-> SMS
+		|-> Storage
+		|-> Bluetooth
+		|-> NFC
+		|-> IR
+		|-> WiFi

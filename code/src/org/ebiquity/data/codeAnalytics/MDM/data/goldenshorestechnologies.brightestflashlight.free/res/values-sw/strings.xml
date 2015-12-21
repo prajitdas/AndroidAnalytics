@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mwanga mkali sana Tochi Bure</string>
+    <string name="EulaDialogTitle">Leseni</string>
+    <string name="EulaButtonAccept">Kukubali</string>
+    <string name="EulaButtonRefuse">Kukataa</string>
+    <string name="SettingsCategoriesDialogTitle">Mazingira</string>
+    <string name="SettingsSoundLabel">Sauti</string>
+    <string name="SettingsTimerLabel">Timer</string>
+    <string name="SettingsDisplayLabel">Kuonyesha</string>
+    <string name="SettingsSoundDialogTitle">Sauti Mazingira</string>
+    <string name="SettingsSilentModeLabel">Kimya Hali</string>
+    <string name="SettingsTimerDialogTitle">kipima saa</string>
+    <string name="Settings2MinutesLabel">Dakika 2</string>
+    <string name="Settings10MinutesLabel">Dakika 10</string>
+    <string name="SettingsNeverLabel">Abadan</string>
+    <string name="SettingsDisplayDialogTitle">Sehemu Mipangilio</string>
+    <string name="SettingsCameraLEDLabel">Kamera LED</string>
+    <string name="SettingsScreenLabel">Kuzinza</string>
+    <string name="SettingsOtherLightsLabel">Nyingine Taa</string>
+</resources>

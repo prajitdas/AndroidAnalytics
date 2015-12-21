@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ពិល​ភ្លឺ​ឥតគិតថ្លៃ</string>
+    <string name="EulaDialogTitle">អាជ្ញាបណ្ណ</string>
+    <string name="EulaButtonAccept">​ព្រមទទួល</string>
+    <string name="EulaButtonRefuse">បដិេសធ</string>
+    <string name="SettingsCategoriesDialogTitle">ការកំណត់</string>
+    <string name="SettingsSoundLabel">សំឡេង</string>
+    <string name="SettingsTimerLabel">ឧបករណ៍កំណត់ពេលវេលា</string>
+    <string name="SettingsDisplayLabel">បង្ហាញ</string>
+    <string name="SettingsSoundDialogTitle">​ការកំណត់​សំឡេង</string>
+    <string name="SettingsSilentModeLabel">​របៀប​ស្ងៀម</string>
+    <string name="SettingsTimerDialogTitle">បិទ​ដោយស្វ័យប្រវត្តិ</string>
+    <string name="Settings2MinutesLabel">​2 នាទី</string>
+    <string name="Settings10MinutesLabel">10 នាទី</string>
+    <string name="SettingsNeverLabel">ពុំធ្លាប់</string>
+    <string name="SettingsDisplayDialogTitle">​ការកំណត់បង្ហាញ</string>
+    <string name="SettingsCameraLEDLabel">ពន្លឺ​កាមេរ៉ា</string>
+    <string name="SettingsScreenLabel">​អេក្រង់</string>
+    <string name="SettingsOtherLightsLabel">ទំព័រ​ផ្សេងទៀត</string>
+</resources>

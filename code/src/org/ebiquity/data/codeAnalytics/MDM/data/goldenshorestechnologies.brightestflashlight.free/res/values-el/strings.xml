@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Φωτεινότερο Φακός Δωρεάν</string>
+    <string name="EulaDialogTitle">άδεια</string>
+    <string name="EulaButtonAccept">Αποδεχτείτε</string>
+    <string name="EulaButtonRefuse">Αρνούνται</string>
+    <string name="SettingsCategoriesDialogTitle">Ρυθμίσεις</string>
+    <string name="SettingsSoundLabel">Ήχος</string>
+    <string name="SettingsTimerLabel">Χρονόμετρο</string>
+    <string name="SettingsDisplayLabel">Προβολή</string>
+    <string name="SettingsSoundDialogTitle">Ρυθμίσεις ήχου</string>
+    <string name="SettingsSilentModeLabel">Λειτουργία σίγασης</string>
+    <string name="SettingsTimerDialogTitle">Αυτόματη Έξοδος</string>
+    <string name="Settings2MinutesLabel">2 λεπτά</string>
+    <string name="Settings10MinutesLabel">10 λεπτά</string>
+    <string name="SettingsNeverLabel">Ποτέ</string>
+    <string name="SettingsDisplayDialogTitle">Ρυθμίσεις προβολής</string>
+    <string name="SettingsCameraLEDLabel">Φλας κάμερας</string>
+    <string name="SettingsScreenLabel">Οθόνη</string>
+    <string name="SettingsOtherLightsLabel">Άλλα φώτα</string>
+</resources>

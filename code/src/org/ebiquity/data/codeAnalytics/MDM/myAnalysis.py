@@ -73,9 +73,9 @@ def main(argv):
 		sys.exit(1)
 
 	startTime = time.time()
-	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
-	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
-	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
+	# inputFile = "C:\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
+	# inputFile = "C:\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
+	# inputFile = "C:\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
 
 	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
 	findApiUsages(inputFile)

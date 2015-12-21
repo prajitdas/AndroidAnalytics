@@ -1,11 +1,11 @@
 '''
-Created on December 14, 2015
+Created on December 15, 2015
 @author: Prajit Kumar Das
 Usage: python myAnalysis.py
 '''
 
 import os
-from os.path import join
+from os.path import join, split
 import sys
 import time
 import json
@@ -13,6 +13,7 @@ import collections
 
 def findApiUsages(walk_dir):
 	currentDirectory = os.getcwd()
+	subFolderName = walk_dir.split('\\')[-1]
 	walk_dir = currentDirectory+'\\'+walk_dir
 	outputList = []
 	outputDict = {}
@@ -21,8 +22,14 @@ def findApiUsages(walk_dir):
 			with open(join(root, filename), 'rb') as f:
 				source = ((f.name).split('smali\\')[1]).replace('\\','/')
 				for line in f:
+					# print line
+					line.replace('$', 'PKD')
 					if "invoke-" in line:
-						if "->" in line:
+						if "-><" in line:
+							continue
+						elif "->$" in line:
+							continue
+						elif "->" in line:
 							key = ''
 							partString = line.split('->')[1]
 							if ":" in partString:
@@ -52,11 +59,11 @@ def findApiUsages(walk_dir):
 						# 	 	outputList.append(partString.split(')')[0])
 	orderedDict = collections.OrderedDict(sorted(outputDict.items()))
 
-	outputFilename = walk_dir.split('\\')[-1]+'analyticsResults\\''ResultsWithFile.json'
+	outputFilename = currentDirectory+'\\analyticsResults\\'+subFolderName+'ResultsWithFile.json'
 	with open(outputFilename, 'w') as fp:
 		json.dump(orderedDict, fp, indent=4)
 
-	outputFilename = walk_dir.split('\\')[-1]+'ResultsJLT.json'
+	outputFilename = currentDirectory+'\\analyticsResults\\'+subFolderName+'ResultsJLT.json'
 	with open(outputFilename, 'w') as fp:
 		json.dump(sorted(list(set(outputList))), fp, indent=4)
 
@@ -65,11 +72,18 @@ def main(argv):
 		sys.stderr.write('Usage: python myAnalysis.py\n')
 		sys.exit(1)
 
-	# inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
-	# inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
-	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
 	startTime = time.time()
+	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
+	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
+	# inputFile = "C:\\Users\\Prajit\\Documents\\code\\PyCharmProjects\\PlayStoreDataCollection\\code\\src\\org\\ebiquity\\data\\codeAnalytics\\MDM\\data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
+
+	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\goldenshorestechnologies"
 	findApiUsages(inputFile)
+	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\android"
+	findApiUsages(inputFile)
+	inputFile = "data\\goldenshorestechnologies.brightestflashlight.free\\smali\\com"
+	findApiUsages(inputFile)
+
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

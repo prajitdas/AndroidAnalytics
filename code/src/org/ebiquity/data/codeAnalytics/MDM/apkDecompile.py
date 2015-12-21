@@ -25,7 +25,6 @@ def deleteAndReCreateFolder(path):
 	os.makedirs(path)
 
 def runAnalysis(inpath,outPath,currentDirectory):
-	print inpath,outPath,currentDirectory
 	#	Run analysis
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for inputFile in files:

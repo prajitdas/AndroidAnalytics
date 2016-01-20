@@ -6,7 +6,7 @@ Created on Apr 4, 2015
 Usage: python getPrivacyGradeData.py
 1) Hit our own database and find an app package name
 2) Hit privacy grade's website and collect information and store in json
-Optional step - 3) Develop other ways of gettign privacy grade data (if necessary)
+Optional step - 3) Develop other ways of getting privacy grade data (if necessary)
 4) Store data in database
 5) Analyze data and do stuff
 Smaple URL for app_pkg_name com.facebook.katana: "http://privacygrade.org/apps/com.facebook.katana.html"
@@ -303,8 +303,8 @@ def updateParsed(dbHandle, tableId):
 	sqlStatement = "UPDATE `appurls` SET `parsed`=1 WHERE `id`="+str(tableId)+";"
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
-# Get URLs for app data parsing
-def getURLsForParsingAppData(dbHandle):
+# Get URLs for privacy grade app data parsing
+def getPrivacyGradeURLs(dbHandle):
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT `id`, `app_url` FROM `appurls` WHERE `parsed` = 0;"
 	try:
@@ -319,7 +319,7 @@ def getURLsForParsingAppData(dbHandle):
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
-	getURLsForExtractingMoreURLs(dbHandle) # Get package names from extracting app details
+	getPrivacyGradeURLs(dbHandle) # Get package names from extracting app details
 	dbHandle.close() #DB Close
 
 def main(argv):

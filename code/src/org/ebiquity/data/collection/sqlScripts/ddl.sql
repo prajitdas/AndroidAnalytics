@@ -29,6 +29,7 @@ USE `googleplaystore`;
 
 --
 -- Table structure for table `appurls`
+-- privacy_grade_data 0 - data not collected, 1 - data collected, 2 - no data found
 --
 
 CREATE TABLE IF NOT EXISTS `appurls`(
@@ -40,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `appurls`(
   `perm_extracted` int(1) DEFAULT 0,
   `downloaded` int(1) DEFAULT 0,
   `playdrone_metadata_url` text(1000) NOT NULL,
-  `playdrone_apk_url` text(1000) NOT NULL
+  `playdrone_apk_url` text(1000) NOT NULL,
+  `privacy_grade_data` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 -- --------------------------------------------------------

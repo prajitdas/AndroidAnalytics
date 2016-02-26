@@ -186,7 +186,5 @@ def get_all_app_stats():
         app_count+=1
         print "Completed app %s, %d out of %d completed"%(app, app_count, len(remaining))
         
-        exit()
-             
 get_all_app_stats()             
     

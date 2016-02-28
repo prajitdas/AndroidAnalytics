@@ -184,6 +184,8 @@ def get_all_app_stats():
         open(os.path.join('data',app),'w').write(json.dumps(app_dict[app],indent=4))
         del app_dict[app]
         app_count+=1
+	if(app_count%200==0):
+		time.sleep(900)
         print "Completed app %s, %d out of %d completed"%(app, app_count, len(remaining))
         
 get_all_app_stats()             

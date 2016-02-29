@@ -1,0 +1,62 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=cn.ssdl.bluedict", 
+    "id": "cn.ssdl.bluedict", 
+    "name": "BlueDict", 
+    "versions": {
+        "5.8.6": {
+            "url": "https://crowd.xprivacy.eu/?package_name=cn.ssdl.bluedict&package_version=5.8.6", 
+            "version": "5.8.6", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "2", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-04 15:56:32", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-04 15:56:52", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "3", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-04 15:56:26", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

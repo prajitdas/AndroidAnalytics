@@ -1,0 +1,77 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.arriva", 
+    "id": "com.arriva", 
+    "name": "Arriva m-Ticket", 
+    "versions": {
+        "2.45": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.arriva&package_version=2.45", 
+            "version": "2.45", 
+            "stats": {
+                "calendar": {
+                    "restriction": "calendar", 
+                    "used": false, 
+                    "methods": {}, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#calendar", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-05 12:17:15", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }, 
+                "calling": {
+                    "restriction": "calling", 
+                    "used": false, 
+                    "methods": {}, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#calling", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-05 12:17:26", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }, 
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {}, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-05 12:16:47", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }, 
+                "browser": {
+                    "restriction": "browser", 
+                    "used": false, 
+                    "methods": {}, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#browser", 
+                    "updates": "-", 
+                    "cur_allow": 0, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-05 12:17:02", 
+                    "ci95": 43.6, 
+                    "all_deny": 1, 
+                    "all_allow": 0, 
+                    "cur_deny": 1, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

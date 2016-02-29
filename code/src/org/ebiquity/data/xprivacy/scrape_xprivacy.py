@@ -186,7 +186,7 @@ def get_all_app_stats():
         del app_dict[app]
         app_count+=1
 	if(app_count%200==0):
-		time.sleep(300)
+		time.sleep(600)
         print "Completed app %s, %d out of %d completed"%(app, app_count, len(remaining))
         
 get_all_app_stats()             

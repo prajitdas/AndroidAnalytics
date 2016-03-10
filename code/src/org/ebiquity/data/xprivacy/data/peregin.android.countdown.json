@@ -1,0 +1,126 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=peregin.android.countdown", 
+    "id": "peregin.android.countdown", 
+    "name": "Countdown Days", 
+    "versions": {
+        "1.01.00": {
+            "url": "https://crowd.xprivacy.eu/?package_name=peregin.android.countdown&package_version=1.01.00", 
+            "version": "1.01.00", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "getAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-13 23:01:16", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccounts": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-13 23:00:47", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAccounts", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-13 23:00:30", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByType": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-13 23:00:56", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAccountsByType", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByTypeAndFeatures": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-13 23:00:59", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAccountsByTypeAndFeatures", 
+                            "exception_no": 1
+                        }, 
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-13 23:00:27", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 0, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-10-13 23:00:15", 
+                    "ci95": 43.6, 
+                    "all_deny": 1, 
+                    "all_allow": 0, 
+                    "cur_deny": 1, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

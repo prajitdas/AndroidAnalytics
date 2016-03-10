@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">最亮的手电筒免费</string>
+    <string name="EulaDialogTitle">许可证</string>
+    <string name="EulaButtonAccept">接受</string>
+    <string name="EulaButtonRefuse">拒绝</string>
+    <string name="SettingsCategoriesDialogTitle">设置</string>
+    <string name="SettingsSoundLabel">声音</string>
+    <string name="SettingsTimerLabel">定时器</string>
+    <string name="SettingsDisplayLabel">显示</string>
+    <string name="SettingsSoundDialogTitle">声音设置</string>
+    <string name="SettingsSilentModeLabel">静音模式</string>
+    <string name="SettingsTimerDialogTitle">自动关机</string>
+    <string name="Settings2MinutesLabel">2分钟</string>
+    <string name="Settings10MinutesLabel">10分钟</string>
+    <string name="SettingsNeverLabel">从来没有</string>
+    <string name="SettingsDisplayDialogTitle">显示设置</string>
+    <string name="SettingsCameraLEDLabel">相机闪光灯</string>
+    <string name="SettingsScreenLabel">屏幕</string>
+    <string name="SettingsOtherLightsLabel">其他灯</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kirkkain Taskulamppu Vapaa</string>
+    <string name="EulaDialogTitle">Lisenssi</string>
+    <string name="EulaButtonAccept">Hyväksyä</string>
+    <string name="EulaButtonRefuse">Kieltäytyä</string>
+    <string name="SettingsCategoriesDialogTitle">Asetukset</string>
+    <string name="SettingsSoundLabel">Ääni</string>
+    <string name="SettingsTimerLabel">Ajastin</string>
+    <string name="SettingsDisplayLabel">Näyttö</string>
+    <string name="SettingsSoundDialogTitle">Ääniasetukset</string>
+    <string name="SettingsSilentModeLabel">Äänetön Tila</string>
+    <string name="SettingsTimerDialogTitle">Automaattinen Sammutus</string>
+    <string name="Settings2MinutesLabel">2 Minuuttia</string>
+    <string name="Settings10MinutesLabel">10 Minuuttia</string>
+    <string name="SettingsNeverLabel">Älä</string>
+    <string name="SettingsDisplayDialogTitle">Näytön Asetukset</string>
+    <string name="SettingsCameraLEDLabel">Kameran Valo</string>
+    <string name="SettingsScreenLabel">Näytön</string>
+    <string name="SettingsOtherLightsLabel">Muut Valot</string>
+</resources>

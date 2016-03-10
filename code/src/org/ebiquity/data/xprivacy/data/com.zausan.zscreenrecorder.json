@@ -1,0 +1,94 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.zausan.zscreenrecorder", 
+    "id": "com.zausan.zscreenrecorder", 
+    "name": "Z-ScreenRecorder", 
+    "versions": {
+        "1.0.7": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.zausan.zscreenrecorder&package_version=1.0.7", 
+            "version": "1.0.7", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-06 16:02:23", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-06 16:02:27", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccounts": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-06 16:02:30", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccounts", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByType": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-06 16:02:43", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByType", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-06 16:02:06", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

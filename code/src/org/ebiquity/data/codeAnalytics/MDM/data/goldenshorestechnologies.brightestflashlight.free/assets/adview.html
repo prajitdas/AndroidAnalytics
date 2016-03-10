@@ -1,0 +1,56 @@
+<html> 
+<head> 
+<script type="text/javascript">
+		%JS_CONTENT_HERE%
+</script >
+	<style type='text/css'>
+		
+		.jtad {
+			text-align: center; 
+			overflow-x: hidden; 
+			overflow-y: hidden; 
+			margin: 0;
+			-webkit-touch-callout: none;
+		    -webkit-user-select: none;
+		    -webkit-text-size-adjust: none;
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+		}
+	</style>
+</head> 
+<body class='jtad' >
+%AD_CONTENT_HERE%
+<script type="text/javascript">
+	if (typeof  jt_set_frame_size2 !== 'function') {
+		var jt_set_frame_size2 = jt_set_frame_size;
+		var isExpanded = false;
+		var jt_set_frame_size = function(x, y, width, height, transition, callback) {
+			jt_set_frame_size2(x, y, width, height, transition, callback);
+			
+			if (!isExpanded) {
+                isExpanded = true;
+                Tracking.startInteraction();
+            } else {
+                isExpanded = false;
+                Tracking.stopInteraction();
+            }
+            JtVwCb.setSize(x, y, width, height,isExpanded);
+		}
+	}
+	
+	if (typeof TrayController === 'function') {
+		var initialTouchStart = TrayController.prototype.touchstart;
+		TrayController.prototype.touchstart = function () {
+			Tracking.startInteraction();
+			return initialTouchStart.apply(this, arguments);
+		};
+		
+		var initialTouchEnd = TrayController.prototype.touchend;
+        TrayController.prototype.touchend = function () {
+            Tracking.stopInteraction();
+            return initialTouchEnd.apply(this, arguments);
+        };
+	}
+	
+</script> 
+</body> 
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Najjasnejší Baterka Zadarmo</string>
+    <string name="EulaDialogTitle">Licencia</string>
+    <string name="EulaButtonAccept">Akceptovať</string>
+    <string name="EulaButtonRefuse">Odmietnuť</string>
+    <string name="SettingsCategoriesDialogTitle">Nastavenia</string>
+    <string name="SettingsSoundLabel">Zvuk</string>
+    <string name="SettingsTimerLabel">Časovač</string>
+    <string name="SettingsDisplayLabel">Zobraziť</string>
+    <string name="SettingsSoundDialogTitle">Nastavenia zvuku</string>
+    <string name="SettingsSilentModeLabel">Tichý režim</string>
+    <string name="SettingsTimerDialogTitle">Automatické vypnutie</string>
+    <string name="Settings2MinutesLabel">2 minúty</string>
+    <string name="Settings10MinutesLabel">10 minút</string>
+    <string name="SettingsNeverLabel">Nikdy</string>
+    <string name="SettingsDisplayDialogTitle">Nastavenia zobrazenia</string>
+    <string name="SettingsCameraLEDLabel">Fotoaparát svetla</string>
+    <string name="SettingsScreenLabel">Obrazovke</string>
+    <string name="SettingsOtherLightsLabel">Ostatné svetla</string>
+</resources>

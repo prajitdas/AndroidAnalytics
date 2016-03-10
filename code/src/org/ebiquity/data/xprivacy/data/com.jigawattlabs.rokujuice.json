@@ -1,0 +1,126 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.jigawattlabs.rokujuice", 
+    "id": "com.jigawattlabs.rokujuice", 
+    "name": "Juice for Roku", 
+    "versions": {
+        "2.26": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.jigawattlabs.rokujuice&package_version=2.26", 
+            "version": "2.26", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "getAccounts": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 05:05:01", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccounts", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByTypeForPackage": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 05:05:16", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByTypeForPackage", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 05:04:52", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByType": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 05:05:09", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByType", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByTypeAndFeatures": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 05:05:12", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByTypeAndFeatures", 
+                            "exception_no": 1
+                        }, 
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 05:04:51", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-10-04 05:04:31", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

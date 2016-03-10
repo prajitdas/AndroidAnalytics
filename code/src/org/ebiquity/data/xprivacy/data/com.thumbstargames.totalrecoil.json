@@ -1,0 +1,110 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.thumbstargames.totalrecoil", 
+    "id": "com.thumbstargames.totalrecoil", 
+    "name": "Total Recoil", 
+    "versions": {
+        "2.0.4": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.thumbstargames.totalrecoil&package_version=2.0.4", 
+            "version": "2.0.4", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 06:41:51", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 06:41:54", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccounts": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 06:42:15", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAccounts", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByType": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 06:42:22", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAccountsByType", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByTypeAndFeatures": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-10-04 06:42:25", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "getAccountsByTypeAndFeatures", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 0, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-10-04 06:41:34", 
+                    "ci95": 43.6, 
+                    "all_deny": 1, 
+                    "all_allow": 0, 
+                    "cur_deny": 1, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

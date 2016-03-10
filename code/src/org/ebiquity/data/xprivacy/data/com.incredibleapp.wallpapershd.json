@@ -1,0 +1,142 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.incredibleapp.wallpapershd", 
+    "id": "com.incredibleapp.wallpapershd", 
+    "name": "Wallpapers HD", 
+    "versions": {
+        "1.4.7": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.incredibleapp.wallpapershd&package_version=1.4.7", 
+            "version": "1.4.7", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "getAccounts": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:55:52", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccounts", 
+                            "exception_no": 1
+                        }, 
+                        "getAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:56:19", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByTypeForPackage": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:56:17", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByTypeForPackage", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:55:50", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByType": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:56:05", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByType", 
+                            "exception_no": 1
+                        }, 
+                        "getAccountsByTypeAndFeatures": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:56:15", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "getAccountsByTypeAndFeatures", 
+                            "exception_no": 1
+                        }, 
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-02 12:55:46", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-02 12:55:37", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

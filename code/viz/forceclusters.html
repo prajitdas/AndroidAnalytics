@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<h1>App Malware Clusters Visualization</h1>
+<div id = "infobox">
+    <h2>App Information</h2>
+    <p id = "clusterinfo">To the right the first 2000 samples from the JSON file are plotted by cluster. Mouse over or click on a cluster for info.  Click the button below to highlight cluster 1.  This functionality will be used to highlight the clusters new data gets classified to in the demo.</p>
+    <h2>Tagging</h2>
+    <p id = "nameinfo"></p>
+    <select id='highlightoptions'>
+    </select>
+    <button id= "highlight">Highlight App</button>
+    <button id= "tagMalicious">Tag Malicious</button>
+    <button id= "tagBenign">Tag Benign</button>
+    <h2>Visualize Distance of New App</h2>
+<!--     <p>ref1:
+    <select id='ref1options'>
+    </select></p>
+    <p>ref2:
+    <select id='ref2options'>
+    </select></p> -->
+    <button id= "highlightnew">Highlight New App</button>
+
+</div>
+<div id = "container">
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+
+<script src="clusterviz.js"></script>
+
+</body>

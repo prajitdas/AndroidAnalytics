@@ -1,0 +1,40 @@
+\section{Vulnerability Description}
+\label{vuln}
+\noindent
+In Android, a content provider is a data repository for an application, which offers a consistent and standard interface for secure data access. It is mainly used for sharing data across applications and hence need to be protected with adequate permissions to prevent inadvertent data leakages. Unfortunately, Google's Android documentation has conflicting information in its documentation of access control mechanism for content providers. The first document states that data from a provider that specifies no permissions should not be accessible from other apps, while the second scenario states a conflicting view as quoted below.
+\begin{itemize}
+ \item ``[...] If a provider's application doesn't specify any permissions, then other applications have no access to the provider's data. However, components in the provider's application always have full read and write access, regardless of the specified permissions.''~\footnote{Error in specification~\url{http://developer.Android.com/guide/topics/providers/content-provider-basics.html#Permissions}}
+ \item ``[...] All applications can read from or write to your provider, even if the underlying data is private, because by default your provider does not have permissions set. To change this, set permissions for your provider in your manifest file, using attributes or child elements of the <provider> element. You can set permissions that apply to the entire provider, or to certain tables, or even to certain records, or all three.''~\footnote{Correct specification~\url{http://developer.Android.com/guide/topics/providers/content-provider-creating.html#Permissions}}
+\end{itemize}
+\begin{center}
+	\begin{table}
+		\label{tableErrors}
+		\begin{tabular}{ | p{2.5cm} | p{2.5cm} | p{2cm} | }
+			\hline
+			\textbf{Content Provider app} & \textbf{Content accessing app} & \textbf{Remark} \\
+			\hline \hline
+			No permission associated with provider & No permission used & \textcolor[rgb]{1,0,0}{\textbf{Potential data leakage}} \\
+			\hline
+			Permission associated with provider & No permission used & Permission denied \\
+			\hline
+			Permission associated with provider & Permission used & Ideal scenario \\
+			\hline
+			No permission associated with provider & Permission used & \textcolor[rgb]{1,0,0}{\textbf{Potential data leakage}} \\
+			\hline
+		\end{tabular}
+		\caption{Scenario when data leakage may happen}
+	\end{table}
+\end{center}
+\noindent
+We found the first document to be untrue. Table~\ref{tableErrors} lists the various scenarios and points out when a content provider app is not associated with a permission we may have data leakage. This happens because Android does not verify that each provider has an associated permission. There is one more condition required for this vulnerability to open up the provider to potential attacks and that is the exported setting to be set as true in the Manifest file for the provider app, as shown in code Listing~\ref{providerCode}. Possible solutions to mitigate this issue would require, either a change in how Android handles content provider access control or a change in the app developer's code.
+
+\begin{lstlisting}[caption={Provider exported tag set as true},label={providerCode},language=XML]
+...
+<provider
+	Android:name="contentProviderName"
+	Android:authorities="authorityName"
+	Android:exported="true">
+...
+\end{lstlisting}
+
+Such a vulnerability can also be created deliberately. As shown in the work by Zhou et. al.~\cite{Zhou2012MalwareGenomeProject} app repackaging is one of the most common techniques for Android malware creation, we show that it is possible through a simple change in code to introduce such a vulnerability in any app. There are some obvious ways to check for such manipulations and top developers in the Google Play Store usually do include such checks. However, these checks are not part of the Android framework or operating system and therefore a repackaged app can be used to fool users into installing a rogue application and allow their data to be stolen.

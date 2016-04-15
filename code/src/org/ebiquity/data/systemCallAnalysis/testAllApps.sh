@@ -1,6 +1,60 @@
 # Apps to test
-sh automatingStrace.sh goldenshorestechnologies.brightestflashlight.free.apk
-# syscall stats from cat goldenshorestechnologies.brightestflashlight.free.out  | cut -f1 -d"(" | sort | uniq -c
+# syscall stats using
+# cat <app_pkg_name>.out  | cut -f1 -d"(" | sort | uniq -c | sort -r
+# get permissions using
+# aapt d permissions <app_apk_file_name>
+
+
+# sh automatingStrace.sh com.saranomy.flashlight.apk #Too little calls
+
+
+sh automatingStrace.sh com.logizap.mytorch.mytorch.apk
+# syscall stats from cat com.logizap.mytorch.mytorch.out  | cut -f1 -d"(" | sort | uniq -c | sort -r 
+# #OfCalls	syscall
+# 676	clock_gettime
+# 350	recvfrom
+# 244	ioctl
+# 199	sendto
+# 129	epoll_pwait
+# 118	futex
+# 97	getuid32
+# 94	write
+# 83	rt_sigprocmask
+# 73	mmap2
+# 71	pread64
+# 50	munmap
+# 48	close
+# 41	openat
+# 36	read
+# 36	mprotect
+# 14	epoll_ctl
+# 13	writev
+# 12	prctl
+# 12	dup
+# 11	fstat64
+# 9	fcntl64
+# 8	fstatat64
+# 5	madvise
+# 3	clone
+# 2	gettimeofday
+# 2	faccessat
+# 1	readlinkat
+# 1	getsockopt
+# 1	getppid
+# 1	eventfd2
+# 1	epoll_create1
+# 1	+++ killed by SIGKILL +++
+
+
+#Permissions requested
+# uses-permission: name='android.permission.CAMERA'
+# uses-permission: name='android.permission.WAKE_LOCK'
+# uses-permission: name='android.permission.INTERNET'
+# uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
+
+
+#sh automatingStrace.sh goldenshorestechnologies.brightestflashlight.free.apk
+# syscall stats from cat goldenshorestechnologies.brightestflashlight.free.out  | cut -f1 -d"(" | sort | uniq -c | sort -r 
 # #OfCalls	syscall
 # 568	clock_gettime
 # 480	ioctl
@@ -69,7 +123,7 @@ sh automatingStrace.sh goldenshorestechnologies.brightestflashlight.free.apk
 # Millennialmedia	Targeted ad libraries allows developers to monetize their app by allowing their app to serve advertisments to app users.
 
 #sh automatingStrace.sh com.rvappstudios.flashlight.apk
-# syscall stats from cat com.rvappstudios.flashlight.out | cut -f1 -d"(" | sort | uniq -c
+# syscall stats from cat com.rvappstudios.flashlight.out | cut -f1 -d"(" | sort | uniq -c | sort -r
 # #OfCalls	syscall
 # 17581	clock_gettime
 # 4904	futex

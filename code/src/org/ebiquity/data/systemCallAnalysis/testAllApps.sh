@@ -4,11 +4,12 @@
 # get permissions using
 # aapt d permissions <app_apk_file_name>
 
+sh automatingStrace.sh com.saranomy.flashlightHacked.apk
 
 # sh automatingStrace.sh com.saranomy.flashlight.apk #Too little calls
 
 
-sh automatingStrace.sh com.logizap.mytorch.mytorch.apk
+# sh automatingStrace.sh com.logizap.mytorch.mytorch.apk
 # syscall stats from cat com.logizap.mytorch.mytorch.out  | cut -f1 -d"(" | sort | uniq -c | sort -r 
 # #OfCalls	syscall
 # 676	clock_gettime

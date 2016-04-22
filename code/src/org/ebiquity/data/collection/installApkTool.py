@@ -18,12 +18,12 @@ def makeSurePathExists(wrapperSrc,jarSrc,des):
 		return True
 	return False
 
-def installApkTool(wrapperSrc,jarSrc,des):
+def installApkTool(wrapperSrc,jarSrc,wrapperDes,jarDes):
 	'''
 		Install ApkTool
 	'''
-	shutil.copy(wrapperSrc, des)
-	shutil.copy(jarSrc, des)
+	shutil.copy(wrapperSrc,wrapperDes)
+	shutil.copy(jarSrc,jarDes)
 
 def doTask():
 	'''
@@ -36,22 +36,34 @@ def doTask():
 		wrapperSrc = src+"\\apktool.bat"
 		jarSrc = src+"\\apktool.jar"
 		des = os.environ['WINDIR']
+		wrapperDes = des+"\\apktool.bat"
+		jarDes = os.environ['WINDIR']+"\\apktool.jar"
 	elif osInfo == 'Linux':
 		src = os.path.abspath(dirpath+"/apktool")
 		wrapperSrc = src+"/apktool"
 		jarSrc = src+"/apktool.jar"
 		des = "/usr/local/bin"
+		wrapperDes = des+"/apktool"
+		jarDes = des+"/apktool.jar"
+	elif osInfo == 'Darwin':
+		src = os.path.abspath(dirpath+"/apktool")
+		wrapperSrc = src+"/apktoolMac"
+		jarSrc = src+"/apktool.jar"
+		des = "/usr/local/bin"
+		wrapperDes = des+"/apktool"
+		jarDes = des+"/apktool.jar"
 	else:
 		print 'The current os not supported at the moment.'
+		return
 
 	if makeSurePathExists(wrapperSrc,jarSrc,des):
-		installApkTool(wrapperSrc,jarSrc,des)
+		installApkTool(wrapperSrc,jarSrc,wrapperDes,jarDes)
 	else:
 		print 'The ApkTool folder does not exist. Please create it and download the ApkTool files there and then execute this script again.'
 
-	if osInfo == 'Linux':
-		subprocess.call(['chmod', '0755', wrapperSrc])
-		subprocess.call(['chmod', '0755', jarSrc])
+	if osInfo == 'Linux' or 'Darwin':
+		subprocess.call(['chmod', '0755', wrapperDes])
+		subprocess.call(['chmod', '0755', jarDes])
 
 def main(argv):
 	if len(sys.argv) != 1:

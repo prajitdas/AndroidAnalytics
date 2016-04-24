@@ -1,1 +1,0 @@
-emulator -avd nexus6

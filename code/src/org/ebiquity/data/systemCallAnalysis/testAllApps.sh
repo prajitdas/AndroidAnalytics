@@ -9,7 +9,8 @@ value=`cat apkconfig.ini | grep apkLocation | cut -f2 -d'='`
 
 echo $value
 
-if [[ $value != *[* ]]; then
+if [ $value != *[* ]
+then
 	echo "I came here!"
 else
 	echo "fix the config file"

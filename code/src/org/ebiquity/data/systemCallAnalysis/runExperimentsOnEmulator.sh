@@ -9,7 +9,7 @@ do
 	if [ "$result" == "stopped" ]
     then
 		echo "match"
-		sh testAllApps.sh
+		bash testAllApps.sh
         break;
     fi;
 done;

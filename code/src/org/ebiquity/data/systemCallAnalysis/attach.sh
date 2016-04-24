@@ -1,4 +1,5 @@
 #!/system/bin/sh
+# This is a code to be run on the android shell
 strace -o /sdcard/strace.out am start -n com.google.android.apps.fitness/com.google.android.apps.fitness.welcome.WelcomeActivity
 #/system/bin/sh
 # start the browser

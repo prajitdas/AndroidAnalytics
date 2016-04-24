@@ -1,3 +1,4 @@
+#!/bin/bash
 # Install the app
 adb install $1
 

@@ -15,9 +15,15 @@ echo $package
 echo $activity
 echo $processId
 echo $outputFile
+touch $outputFile
 
 # Starting the trace process on the app's process id. This is assuming that we have the root shell
 adb shell "nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&"
+
+# Output directory creation for $package
+outDir="out/"$package
+mkdir -p $outDir
+cd $outDir
 
 # Using monkey to generate a certain number of pseudo-random events
 adb shell monkey -p $package -v 100 > "$package"monkey.out
@@ -33,3 +39,4 @@ adb uninstall $package
 
 # Extract the out file containing the output of strace
 adb pull $outputFile
+cd -

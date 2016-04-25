@@ -18,8 +18,12 @@ then
             sleep 30
             result="emptyString"
             result=`adb shell getprop init.svc.bootanim | tr -d '\n' | tr -d '\r'`
-            echo $result
-            if [ "$result" == "stopped" ]
+            if [ "$result" == "" ]
+            then
+                echo "Something went wrong, probably can't start emulator for some reason!"
+                echo "Check if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+                exit
+            elif [ "$result" == "stopped" ]
             then
                 echo "AVD is ready"
                 bash automatingStrace.sh $file

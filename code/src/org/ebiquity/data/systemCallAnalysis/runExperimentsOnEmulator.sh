@@ -11,6 +11,7 @@ if [ "$testAppDirName" != "[*" ]
 then
     for file in $testAppDirName
     do
+        echo "Processing file: "$file
         emulator -avd nexus6 -wipe-data &
         while true
         do
@@ -22,7 +23,6 @@ then
             then
                 echo "AVD is ready"
                 bash automatingStrace.sh $file
-                echo "Processing file: "$file
                 break;
             fi;
         done;

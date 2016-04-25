@@ -26,9 +26,9 @@ mkdir -p $outDir
 cd $outDir
 
 # Using monkey to generate a certain number of pseudo-random events
-adb shell monkey -p $package -v 100 > "$package"monkey.out
-# adb shell monkey -p $package --pct-touch 95 -v 100 > "$package"monkey.out
-# adb shell monkey -p $package -c android.intent.category.LAUNCHER 100
+adb shell monkey -p $package -v 1000 > "$package"monkey.out
+# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
+# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
 
 # strace is still running so we just make a copy of the out file
 # straceOutFilePath=$(echo "/sdcard/"$package"Strace.out")

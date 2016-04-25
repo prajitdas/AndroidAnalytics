@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install the app
-adb install $1
+adb install $1syscallAnalysis
 
 # Extract package and launcher activity information
 package=$(aapt dump badging $1|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')

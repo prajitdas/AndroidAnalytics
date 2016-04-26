@@ -29,7 +29,7 @@ def findAllFilesWithExtension(root, ext):
 	apkDict = {}
 	for file in files:
 		if file.endswith(ext):
-			apkDict[file] = os.path.join(root,file)
+			apkDict[file.split('.apk')[0]] = os.path.join(root,file)
 	return apkDict
 
 def getOutputDirectoryPath(currentPath):

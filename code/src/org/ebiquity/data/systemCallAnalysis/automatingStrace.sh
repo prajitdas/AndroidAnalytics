@@ -4,10 +4,9 @@ installationResult=`adb install -r $1`
 
 if [[ $installationResult == *"Failure"* ]]
 then
-    echo "Oh, no! Something went wrong with the installation for "$1
+    echo "Failure"
+    exit 1
 else
-    echo "Installation Success! Let's continue with the next steps";
-
     # Extract package and launcher activity information
     package=$(aapt dump badging $1|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')
     activity=$(aapt dump badging $1|awk -F" " '/launchable-activity/ {print $2}'|awk -F"'" '/name=/ {print $2}')
@@ -46,4 +45,6 @@ else
     # Extract the out file containing the output of strace
     adb pull $outputFile
     cd -
+    echo "Success";
+    exit 0
 fi

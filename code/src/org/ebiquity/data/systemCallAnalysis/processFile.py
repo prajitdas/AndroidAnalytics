@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-Created on April 26, 2016
+Created on April 26,2016
 @author: Prajit Kumar Das
 
 Usage: python processFile.py\n
@@ -17,33 +17,33 @@ import json
 
 def processFile(filePath):
 	syscallDict = {}
-	with open(filePath, 'r') as fp:
+	with open(filePath,'r') as fp:
 		for line in fp:
 			syscall = line.split('(')[0].strip()
 			if syscall in syscallDict:
 				syscallDict[syscall] += 1
 			else:
 				syscallDict[syscall] = 1
-	# for i, (k,v) in enumerate(od(sorted(syscallDict.items(), key=lambda k:k[1], reverse=True)).iteritems()):
+	# for i,(k,v) in enumerate(od(sorted(syscallDict.items(),key=lambda k:k[1],reverse=True)).iteritems()):
 	# 	print k,v
 	return syscallDict
 
-def storeFeaturesInJsonFile(jsonPath, syscallDict, appPkgName):
-	masterJsonFile = os.path.join(jsonPath, "masterJsonOutputFile.json")
+def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())
 	except:
 		jsonDict = {}
 	jsonDict[appPkgName] = syscallDict
-	open(masterJsonFile,"w").write(json.dumps(jsonDict))
+	open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 
-def extractFeatures(jsonPath, root, appPkgName):
+def extractFeatures(jsonPath,root,appPkgName):
 	appOutputFolder = os.path.join(root,appPkgName)
 	syscallDict = {}
 	for file in os.listdir(appOutputFolder):
-		if not fm.fnmatch(file, '*monkey.out'):
+		if not fm.fnmatch(file,'*monkey.out'):
 			syscallDict = processFile(os.path.join(appOutputFolder,file))
-	storeFeaturesInJsonFile(jsonPath, syscallDict, appPkgName)
+	storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask():
 	# The following 2 lines are for testing purposes only

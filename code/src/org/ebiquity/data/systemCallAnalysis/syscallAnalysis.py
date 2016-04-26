@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-Created on April 25, 2016
+Created on April 25,2016
 @author: Prajit Kumar Das
 
 Usage: python syscallAnalysis.py\n
@@ -17,14 +17,17 @@ import subprocess as s
 import processFile as pf
 import runClustering as rc
 
+class RunExpException(Exception):
+	pass
+
 def getApkFolderPath():
 	parser = SafeConfigParser()
 	parser.read('apkconfig.ini')
 
-	path = parser.get('apkconfig', 'apkLocation')
+	path = parser.get('apkconfig','apkLocation')
 	return path
 
-def findAllFilesWithExtension(root, ext):
+def findAllFilesWithExtension(root,ext):
 	files = os.listdir(root)
 	apkDict = {}
 	for file in files:
@@ -39,12 +42,12 @@ def getOutputDirectoryPath(currentPath):
 	elif osInfo == 'Linux' or 'Darwin':
 		outputDirectoryPath = currentPath + "/out"
 	else:
-		print "The current OS is not supported at the moment. Try Windows, Linux or OS X."
+		print "The current OS is not supported at the moment. Try Windows,Linux or OS X."
 		sys.exit(1)
 	return outputDirectoryPath
 
 def isBootAnimationComplete():
-	time.sleep(30)
+	time.sleep(10)
 	cmd = 'adb shell getprop init.svc.bootanim'
 	output = []
 	try:
@@ -59,34 +62,46 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 		result = isBootAnimationComplete()
 		print result
 		if result == "":
-			print "Something went wrong, probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+			print "Something went wrong,probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+			return
 		elif result == "stopped":
 			print "AVD is ready"
 			# Executing the test scenario for Android monkey
 			runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
 			print runExperimentsCmd
-			s.call(runExperimentsCmd.split())
-			break;
+			try:
+				s.check_output(runExperimentsCmd.split())
+			except:
+				print "Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
+				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
+			return
 		else:
 			print "Still waiting for emulator to complete stage: "+result
-			continue;
+			continue
 
-def runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, apkDict):
+def runExperimentsOnEmulator(currentPath,apkFolderPath,outputDirectoryPath,apkDict):
 	for key in apkDict.keys():
-		# For each app execution start emulator for AVD nexus6, in wiped mode.
+		# For each app execution start emulator for AVD nexus6,in wiped mode.
 		# Make sure you have created the AVD first.
 		emulatorStartCmd = 'bash startEmulator.sh'
 		s.call(emulatorStartCmd.split())
 		# Executing the test scenario for Android monkey for a particular app apk
-		executeTestScenarioForAndroidMonkey(apkDict[key])
-		# After finishing with one app's experiments, we kill the emulator, wipe it and start it again
+		try:
+			executeTestScenarioForAndroidMonkey(apkDict[key])
+		except RunExpException:
+			del apkDict[key]
+			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
+			emulatorKillCmd = 'bash killEmulator.sh'
+			s.call(emulatorKillCmd.split())
+			continue
+		# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
 		emulatorKillCmd = 'bash killEmulator.sh'
 		s.call(emulatorKillCmd.split())
-		# At this point we have to process the results and extract the features of an app, to run ml algorithms later.
+		# At this point we have to process the results and extract the features of an app,to run ml algorithms later.
 		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 
-	# After all the apps have been processed and features extracted, we may run the ML algos.
-	rc.runClustering()
+	# After all the apps have been processed and features extracted,we may run the ML algos.
+	rc.runClustering(currentPath)
 
 def doTask():
 	currentPath = os.getcwd()
@@ -95,9 +110,9 @@ def doTask():
 		print "Fix the config file!"
 		return
 	else:
-		apkDict = findAllFilesWithExtension(apkFolderPath, '.apk')
+		apkDict = findAllFilesWithExtension(apkFolderPath,'.apk')
 	outputDirectoryPath = getOutputDirectoryPath(currentPath)
-	runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, apkDict)
+	runExperimentsOnEmulator(currentPath,apkFolderPath,outputDirectoryPath,apkDict)
 
 def main(argv):
 	if len(sys.argv) != 1:

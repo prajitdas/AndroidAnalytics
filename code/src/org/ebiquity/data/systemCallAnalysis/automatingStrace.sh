@@ -2,7 +2,7 @@
 # Install the app
 installationResult=`adb install -r $1`
 
-if [[ $string == *"Failure"* ]]
+if [[ $installationResult == *"Failure"* ]]
 then
     echo "Oh, no! Something went wrong with the installation for "$1
 else

@@ -15,6 +15,7 @@ import platform
 from ConfigParser import SafeConfigParser
 import subprocess as s
 import processFiles as pf
+import runClustering as rc
 
 def getApkFolderPath():
 	parser = SafeConfigParser()
@@ -77,9 +78,11 @@ def runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, ap
 		# After finishing with one app's experiments, we kill the emulator, wipe it and start it again
 		emulatorKillCmd = 'bash killEmulator.sh'
 		s.call(emulatorKillCmd.split())
-		# At this point we have to process the results
+		# At this point we have to process the results and extract the features of an app, to run ml algorithms later.
 		pf.extractFeatures(outputDirectoryPath,key)
-		runClustering()
+
+	# After all the apps have been processed and features extracted, we may run the ML algos.
+	rc.runClustering()
 
 def doTask():
 	currentPath = os.getcwd()

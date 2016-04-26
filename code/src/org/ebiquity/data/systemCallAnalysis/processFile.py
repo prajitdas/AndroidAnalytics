@@ -12,7 +12,6 @@ import time
 import sys
 import os
 import fnmatch as fm
-import runClustering as rc
 
 def processFile(file,appPkgName):
 	print "Processing file: "+file
@@ -22,10 +21,6 @@ def extractFeatures(root,appPkgName):
 	for file in appOutputFolder:
 		if not fm.fnmatch(file, '*monkey*'):
 			processFile(file,appPkgName)
-
-def runClustering():
-	print "In runClustering method"
-	rc.runClustering()
 
 def doTask():
 	outDir = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis/out"

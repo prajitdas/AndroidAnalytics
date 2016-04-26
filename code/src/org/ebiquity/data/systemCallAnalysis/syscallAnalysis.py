@@ -44,7 +44,7 @@ def getOutputDirectoryPath(currentPath):
 	return outputDirectoryPath
 
 def isBootAnimationComplete():
-	time.sleep(30)
+	time.sleep(10)
 	cmd = 'adb shell getprop init.svc.bootanim'
 	output = s.check_output(cmd.split()).split('\r\n')
 	return output[0]

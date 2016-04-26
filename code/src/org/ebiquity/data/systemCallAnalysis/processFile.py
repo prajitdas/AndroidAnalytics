@@ -19,7 +19,7 @@ def processFile(file,appPkgName):
 def extractFeatures(root,appPkgName):
 	appOutputFolder = os.path.join(root,appPkgName)
 	for file in appOutputFolder:
-		if not fm.fnmatch(file, '*monkey*'):
+		if not fm.fnmatch(file, '*monkey.out'):
 			processFile(file,appPkgName)
 
 def doTask():

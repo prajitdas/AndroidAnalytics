@@ -1,9 +1,11 @@
 #!/bin/bash
 # Install the app
-installationResult=`adb install $1`
+installationResult=`adb install -r $1`
 
-if [[ $string == *"Success"* ]]
+if [[ $string == *"Failure"* ]]
 then
+    echo "Oh, no! Something went wrong with the installation for "$1
+else
     echo "Installation Success! Let's continue with the next steps";
 
     # Extract package and launcher activity information
@@ -19,7 +21,7 @@ then
     echo $activity
     echo $processId
     echo $outputFile
-    touch $outputFile
+    adb shell touch $outputFile
 
     # Starting the trace process on the app's process id. This is assuming that we have the root shell
     adb shell "nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&"
@@ -44,6 +46,4 @@ then
     # Extract the out file containing the output of strace
     adb pull $outputFile
     cd -
-else
-    echo "Oh, no! Something went wrong with the installation for "$1
 fi

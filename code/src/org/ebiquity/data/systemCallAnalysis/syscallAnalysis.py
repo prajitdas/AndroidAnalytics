@@ -44,9 +44,13 @@ def getOutputDirectoryPath(currentPath):
 	return outputDirectoryPath
 
 def isBootAnimationComplete():
-	time.sleep(10)
+	time.sleep(30)
 	cmd = 'adb shell getprop init.svc.bootanim'
-	output = s.check_output(cmd.split()).split('\r\n')
+	output = []
+	try:
+		output = s.check_output(cmd.split()).split('\r\n')
+	except:
+		output.append("Device must be offline")
 	return output[0]
 
 def executeTestScenarioForAndroidMonkey(pathToApk):

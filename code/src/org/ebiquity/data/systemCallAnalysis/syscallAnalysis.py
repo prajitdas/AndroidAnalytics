@@ -6,7 +6,7 @@ Created on April 25, 2016
 
 Usage: python syscallAnalysis.py\n
 
-One time extraction code for data from Playdrone data set.
+Syscall analysis code.
 '''
 import time
 import sys
@@ -14,6 +14,7 @@ import os
 import platform
 from ConfigParser import SafeConfigParser
 import subprocess as s
+import processFiles as pf
 
 def getApkFolderPath():
 	parser = SafeConfigParser()
@@ -77,6 +78,8 @@ def runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, ap
 		emulatorKillCmd = 'bash killEmulator.sh'
 		s.call(emulatorKillCmd.split())
 		# At this point we have to process the results
+		pf.extractFeatures(outputDirectoryPath,key)
+		runClustering()
 
 def doTask():
 	currentPath = os.getcwd()

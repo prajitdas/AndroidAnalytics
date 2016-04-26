@@ -79,7 +79,7 @@ def runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, ap
 		emulatorKillCmd = 'bash killEmulator.sh'
 		s.call(emulatorKillCmd.split())
 		# At this point we have to process the results and extract the features of an app, to run ml algorithms later.
-		pf.extractFeatures(outputDirectoryPath,key)
+		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 
 	# After all the apps have been processed and features extracted, we may run the ML algos.
 	rc.runClustering()

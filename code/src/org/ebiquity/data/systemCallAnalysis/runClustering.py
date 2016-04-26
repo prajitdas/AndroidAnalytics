@@ -12,8 +12,20 @@ import time
 import sys
 import os
 
+def getClusteringDataInput():
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
+	try:
+		return json.loads(open(masterJsonFile).read())
+	except IOError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
+	except ValueError:
+		print "JSON decoding errors"
+	except:
+		print "Unexpected error"
+	sys.exit(1)
+
 def runClustering():
-	print "In runClustering method"
+	jsonDict = getClusteringDataInput()
 
 def doTask():
 	runClustering()

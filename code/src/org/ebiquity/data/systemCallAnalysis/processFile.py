@@ -28,12 +28,8 @@ def processFile(filePath):
 	# 	print k,v
 	return syscallDict
 
-def extractFeatures(root,appPkgName,masterJsonFile):
-	appOutputFolder = os.path.join(root,appPkgName)
-	syscallDict = {}
-	for file in os.listdir(appOutputFolder):
-		if not fm.fnmatch(file, '*monkey.out'):
-			syscallDict = processFile(os.path.join(appOutputFolder,file))
+def storeFeaturesInJsonFile(jsonPath, syscallDict, appPkgName):
+	masterJsonFile = os.path.join(jsonPath, "masterJsonOutputFile.json")
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())
 	except:
@@ -41,11 +37,20 @@ def extractFeatures(root,appPkgName,masterJsonFile):
 	jsonDict[appPkgName] = syscallDict
 	open(masterJsonFile,"w").write(json.dumps(jsonDict))
 
+def extractFeatures(jsonPath, root, appPkgName):
+	appOutputFolder = os.path.join(root,appPkgName)
+	syscallDict = {}
+	for file in os.listdir(appOutputFolder):
+		if not fm.fnmatch(file, '*monkey.out'):
+			syscallDict = processFile(os.path.join(appOutputFolder,file))
+	storeFeaturesInJsonFile(jsonPath, syscallDict, appPkgName)
+
 def doTask():
-	masterJsonFile = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis/masterJsonOutputFile.json"
+	# The following 2 lines are for testing purposes only
+	jsonPath = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis"
 	outDir = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis/out"
 	appPkgName = "com.rvappstudios.flashlight"
-	extractFeatures(outDir,appPkgName,masterJsonFile)
+	extractFeatures(jsonPath,outDir,appPkgName)
 
 def main(argv):
 	if len(sys.argv) != 1:

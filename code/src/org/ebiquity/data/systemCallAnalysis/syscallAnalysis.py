@@ -14,7 +14,7 @@ import os
 import platform
 from ConfigParser import SafeConfigParser
 import subprocess as s
-import processFiles as pf
+import processFile as pf
 import runClustering as rc
 
 def getApkFolderPath():

@@ -16,78 +16,78 @@ from ConfigParser import SafeConfigParser
 import subprocess as s
 
 def getApkFolderPath():
-    parser = SafeConfigParser()
-    parser.read('apkconfig.ini')
+	parser = SafeConfigParser()
+	parser.read('apkconfig.ini')
 
-    path = parser.get('apkconfig', 'apkLocation')
-    return path
+	path = parser.get('apkconfig', 'apkLocation')
+	return path
 
 def findAllFilesWithExtension(root, ext):
-    files = os.listdir(root)
-    apkDict = {}
-    for file in files:
-        if file.endswith(ext):
-            apkDict[file] = os.path.join(root,file)
-    return apkDict
+	files = os.listdir(root)
+	apkDict = {}
+	for file in files:
+		if file.endswith(ext):
+			apkDict[file] = os.path.join(root,file)
+	return apkDict
 
 def getOutputDirectoryPath(currentPath):
-    osInfo = platform.system()
-    if osInfo == 'Windows':
-        outputDirectoryPath = currentPath + "\\out"
-    elif osInfo == 'Linux' or 'Darwin':
-        outputDirectoryPath = currentPath + "/out"
-    else:
-        print "The current OS is not supported at the moment. Try Windows, Linux or OS X."
-        sys.exit(1)
-    return outputDirectoryPath
+	osInfo = platform.system()
+	if osInfo == 'Windows':
+		outputDirectoryPath = currentPath + "\\out"
+	elif osInfo == 'Linux' or 'Darwin':
+		outputDirectoryPath = currentPath + "/out"
+	else:
+		print "The current OS is not supported at the moment. Try Windows, Linux or OS X."
+		sys.exit(1)
+	return outputDirectoryPath
 
 def isBootAnimationComplete():
-    time.sleep(30)
-    cmd = 'adb shell getprop init.svc.bootanim'
-    output = s.check_output(cmd.split()).split('\r\n')
-    return output[0]
+	time.sleep(30)
+	cmd = 'adb shell getprop init.svc.bootanim'
+	output = s.check_output(cmd.split()).split('\r\n')
+	return output[0]
 
 def executeTestScenarioForAndroidMonkey(pathToApk):
-    while True:
-        result = "emptyString"
-            result = isBootAnimationComplete()
-            print result
-            if result == "":
-                print "Something went wrong, probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
-        elif result == "stopped":
-            print "AVD is ready"
-                # Executing the test scenario for Android monkey
-                runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
-                print runExperimentsCmd
-                s.call(runExperimentsCmd.split())
-                break;
-            else:
-                print "Still waiting for emulator to complete stage: "+result
-                continue;
+	while True:
+		result = "emptyString"
+		result = isBootAnimationComplete()
+		print result
+		if result == "":
+			print "Something went wrong, probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+		elif result == "stopped":
+			print "AVD is ready"
+			# Executing the test scenario for Android monkey
+			runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
+			print runExperimentsCmd
+			s.call(runExperimentsCmd.split())
+			break;
+		else:
+			print "Still waiting for emulator to complete stage: "+result
+			continue;
 
 def runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, apkDict):
-    for key in apkDict.keys():
-        # For each app execution start emulator for AVD nexus6, in wiped mode.
-        # Make sure you have created the AVD first.
-        emulatorStartCmd = 'bash startEmulator.sh'
-        s.call(emulatorStartCmd.split())
-        # Executing the test scenario for Android monkey for a particular app apk
-        executeTestScenarioForAndroidMonkey(apkDict[key])
-        # After finishing with one app's experiments, we kill the emulator, wipe it and start it again
-        emulatorKillCmd = 'bash killEmulator.sh'
-        s.call(emulatorKillCmd.split())
-        # At this point we have to process the results
+	for key in apkDict.keys():
+		# For each app execution start emulator for AVD nexus6, in wiped mode.
+		# Make sure you have created the AVD first.
+		emulatorStartCmd = 'bash startEmulator.sh'
+		s.call(emulatorStartCmd.split())
+		# Executing the test scenario for Android monkey for a particular app apk
+		executeTestScenarioForAndroidMonkey(apkDict[key])
+		# After finishing with one app's experiments, we kill the emulator, wipe it and start it again
+		emulatorKillCmd = 'bash killEmulator.sh'
+		s.call(emulatorKillCmd.split())
+		# At this point we have to process the results
 
 def doTask():
-    currentPath = os.getcwd()
-    apkFolderPath = getApkFolderPath()
-    outputDirectoryPath = getOutputDirectoryPath(currentPath)
-    if apkFolderPath != "defaultPath":
-        apkDict = findAllFilesWithExtension(apkFolderPath, '.apk')
-    else:
-        print "fix the config file\n"
-        return
-    runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, apkDict)
+	currentPath = os.getcwd()
+	apkFolderPath = getApkFolderPath()
+	if '[' in apkFolderPath:
+		print "Fix the config file!"
+		return
+	else:
+		apkDict = findAllFilesWithExtension(apkFolderPath, '.apk')
+	outputDirectoryPath = getOutputDirectoryPath(currentPath)
+	runExperimentsOnEmulator(currentPath, apkFolderPath, outputDirectoryPath, apkDict)
 
 def main(argv):
 	if len(sys.argv) != 1:

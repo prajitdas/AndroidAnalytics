@@ -4,7 +4,7 @@ installationResult=`adb install $1`
 
 if [[ $string == *"Success"* ]]
 then
-    echo "It's there!";
+    echo "Installation Success! Let's continue with the next steps";
 
     # Extract package and launcher activity information
     package=$(aapt dump badging $1|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')

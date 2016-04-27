@@ -6,12 +6,12 @@ Usage: python plotResults.py username apiKey
 
 import sys
 import time
-import databaseHandler
-import plotly.tools as tls
+#import databaseHandler
+#import plotly.tools as tls
 # Learn about API authentication here: https://plot.ly/python/getting-started
 # Find your apiKey here: https://plot.ly/settings/api
-import plotly.plotly as py
-from plotly.graph_objs import *
+#import plotly.plotly as py
+#from plotly.graph_objs import *
 import json
 import gzip
 

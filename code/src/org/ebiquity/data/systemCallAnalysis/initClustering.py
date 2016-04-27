@@ -6,7 +6,7 @@ Usage: python initClustering.py username api_key
 '''
 import sys
 import time
-import databaseHandler
+#import databaseHandler
 import runClustering as runCl
 import PathDetails as pd
 

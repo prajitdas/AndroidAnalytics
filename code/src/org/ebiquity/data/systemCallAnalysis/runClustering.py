@@ -12,7 +12,7 @@ Run clustering.
 from sklearn.cluster import KMeans, SpectralClustering
 from sklearn.metrics import silhouette_score#, silhouette_samples
 from sklearn.metrics.pairwise import pairwise_distances
-#from sklearn.decomposition import TruncatedSVD, PCA
+from sklearn.decomposition import TruncatedSVD, PCA
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import clusterEvaluation as clEval
@@ -112,7 +112,7 @@ def kMeans(X, appVector, metric):
 	
 def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
 	#init
-	reducedDimensions = 100
+	reducedDimensions = 2
 	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 100
 	loopCounter = startingNumberOfClusters
@@ -120,11 +120,11 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	evaluatedClusterResultsDict = {}
 
 	appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
-	sys.exit(1)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
-	X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
+	# X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
+	X = appMatrix
 
 	'''
 	An interesting problem occurs due to use of 'appVectors' as a index.
@@ -135,7 +135,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	
 	# We want to verify if the number of clusters are "strong with this one" (or not)
 	#Run clustering with a varying number of clusters
-	for numberOfClusters in range(startingNumberOfClusters,endingNumberOfClusters, clusterLoopStepSize):
+	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
 		loopListEvaluatedCluster = []
 		# Initialize the KMeansObject with numberOfClusters value
 		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
@@ -219,6 +219,8 @@ def runClustering(username, api_key, appMatrixFile, predictedClustersFile):
 	jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
+	# kMeans(appMatrix, appVector, "precomputed")
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#doCosineSim(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#os.remove(appMatrixFile)

@@ -6,7 +6,7 @@ Usage: python permissionsClustering.py username api_key
 
 import sys
 import time
-#import databaseHandler
+import databaseHandler
 #import plotly.tools as tls
 # Learn about API authentication here: https://plot.ly/python/getting-started
 # Find your api_key here: https://plot.ly/settings/api

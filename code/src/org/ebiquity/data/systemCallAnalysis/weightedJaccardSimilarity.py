@@ -7,86 +7,24 @@ Usage: python weightedJaccardSimilarity.py selectionType
 '''
 import sys
 import time
-#import databaseHandler
-import json
 import numpy as np
 
-def writeToFile(idfPermissionsDict):	
-	idfPermissionsDictJSONFile = "idfPermissionsDict.json"
-	with open(idfPermissionsDictJSONFile, 'w') as f:
-		print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
-		f.write(json.dumps(idfPermissionsDict))
+def jaccardSimOperation(app1Syscalls,app2Syscalls):
+	return len(app1Syscalls.intersection(app2Syscalls))/len(app1Syscalls.union(app1Syscalls))
 
-def jaccardSimOperation(app1, app2, permissionsDict, idfPermissionsDictJSONRead):
-	result = 0.0
-	if app1 != app2:
-		app1PermSet = permissionsDict[app1]
-		app2PermSet = permissionsDict[app2]
-		
-		intersectionSet = app1PermSet.intersection(app2PermSet)
-		unionSet = app1PermSet.union(app2PermSet)
+def getAllSyscallsVector(jsonDict):
+	allSyscallsVector = []
+	for app in jsonDict:
+		for call in jsonDict[app]:
+			allSyscallsVector.append(call)
 
-		intersectionSumOfPermissionWeights = 0.0
-		unionSumOfPermissionWeights = 0.0
-		
-#		for perm in intersectionSet:
-#			if perm in idfPermissionsDictJSONRead:
-#				intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
-		#print "intersection done for:", app1, "and", app2
-
-		for perm in unionSet:
-			#if perm in idfPermissionsDictJSONRead:
-			strperm = str(perm)
-			unionSumOfPermissionWeights += idfPermissionsDictJSONRead[strperm]
-			if perm in intersectionSet:
-				intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[strperm]
-		#print "union done for:", app1, "and", app2
-		
-#		print intersectionSumOfPermissionWeights
-#		print unionSumOfPermissionWeights
-		result = intersectionSumOfPermissionWeights/unionSumOfPermissionWeights
-		#print "result computed for:", app1, "and", app2
-#				 if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
-#					 print "fb and insta:", numerator/denominator
-#					 print sorted(permissionsDict[app1])
-#					 print sorted(permissionsDict[app2])
-#					 print intersectionSet
-#					 print app1PermSet.difference(app2PermSet)
-#					 print app2PermSet.difference(app1PermSet)
-#				 elif app1 == 'com.ubercab' and app2 == 'com.ubercab.driver':
-#					 print "uber and uber driver:", numerator/denominator
-#					 print sorted(permissionsDict[app1])
-#					 print sorted(permissionsDict[app2])
-#					 print intersectionSet
-#					 print app1PermSet.difference(app2PermSet)
-#					 print app2PermSet.difference(app1PermSet)
-#				 elif app1 == 'com.ubercab' and app2 == 'com.facebook.katana':
-#					 print "uber and facebook:", numerator/denominator
-#					 print sorted(permissionsDict[app1])
-#					 print sorted(permissionsDict[app2])
-#					 print intersectionSet
-#					 print app1PermSet.difference(app2PermSet)
-#					 print app2PermSet.difference(app1PermSet)
-#				 elif app1 == 'com.surpax.ledflashlight.panel' and app2 == 'com.facebook.katana':
-#					 print "flash light and fb:", numerator/denominator
-#					 print sorted(permissionsDict[app1])
-#					 print sorted(permissionsDict[app2])
-#					 print intersectionSet
-#					 print app1PermSet.difference(app2PermSet)
-#					 print app2PermSet.difference(app1PermSet)
-#				 elif app1 == 'com.zynga.wwf2.free' and app2 == 'com.imangi.templerun':
-#					 print "zynga and templerun:", numerator/denominator
-#					 print sorted(permissionsDict[app1])
-#					 print sorted(permissionsDict[app2])
-#					 print intersectionSet
-#					 print app1PermSet.difference(app2PermSet)
-#					 print app2PermSet.difference(app1PermSet)
-	return result
+	allSyscallsVector = list(set(allSyscallsVector))
+	return allSyscallsVector.sort()
 
 def computeJaccardMatrix(jsonDict):
 	print "Inside computeJaccardMatrix"
 	
-	allSyscallsDict = {}
+	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
 	appVector = jsonDict.keys()
 
@@ -94,42 +32,22 @@ def computeJaccardMatrix(jsonDict):
 	#appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
 	appMatrix = np.zeros((numberOfApps, numberOfApps))
 	
-	for app in jsonDict:
-		for call in app:
-			print syscall
-
-	idfPermissionsDictJSONFile = "idfPermissionsDict.json"
-	with open(idfPermissionsDictJSONFile, 'r') as f:
-		idfPermissionsDictJSONRead = json.loads(f.read())
-	
-	# Parallelized solution
-#	allzeniths, allazimuths = zip(*itertools.product(appVector, appVector))
-#	appMatrix = map(jaccardSimOperation, allzeniths, allazimuths)
-	
-#	counter = 0
-#	# Non parallel solution
-#	for app1 in appVector:
-#		for app2 in appVector:
-#			counter += 1
-#			appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
-#			if counter % 100000 == 0:
-#				print "Computed JS for loops:", counter
-	
 	# reducing computation by half by replicating the upper half of the matrix
 	counter = 0
 	for i in range(len(appVector)):
 		for j in range(i, len(appVector)):
-			score  = jaccardSimOperation(appVector[i], appVector[j], permissionsDict, idfPermissionsDictJSONRead)
-			appMatrix[i, j] = score
-			if i!=j:
-				appMatrix[j, i] = score
-			counter += 1
-			if counter % 100000 == 0:
-				print "Computed JS for loops:", counter		   
+			if i != j:
+				score = jaccardSimOperation(set(jsonDict[appVector[i]].keys()),set(jsonDict[appVector[j]].keys())
+				appMatrix[i,j] = score
+				appMatrix[j,i] = score
+				counter += 1
+				if counter % 100000 == 0:
+					print "Computed computeJaccardSim for loops: ", counter		   
 	
 	
-#	X = np.array(appMatrix)
-#	X.shape = (numberOfApps,numberOfApps)
+	#X = np.array(appMatrix)
+	#X.shape = (numberOfApps,numberOfApps)
+	#print X,appMatrix,appVector
 	print "computeJaccardMatrix complete"
 	return appMatrix, appVector
 

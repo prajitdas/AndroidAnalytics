@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 '''
 Created on April 26,2016
 @author: Prajit Kumar Das

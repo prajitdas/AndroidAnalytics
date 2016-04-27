@@ -94,6 +94,10 @@ def computeJaccardMatrix(jsonDict):
     #appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
     appMatrix = np.zeros((numberOfApps, numberOfApps))
     
+	for app in jsonDict:
+		for call in app:
+			print syscall
+
     idfPermissionsDictJSONFile = "idfPermissionsDict.json"
     with open(idfPermissionsDictJSONFile, 'r') as f:
         idfPermissionsDictJSONRead = json.loads(f.read())

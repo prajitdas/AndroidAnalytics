@@ -120,6 +120,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	evaluatedClusterResultsDict = {}
 
 	appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
+	sys.exit(1)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction

@@ -86,9 +86,9 @@ def jaccardSimOperation(app1, app2, permissionsDict, idfPermissionsDictJSONRead)
 def computeJaccardMatrix(jsonDict):
     print "Inside computeJaccardMatrix"
     
-    idfPermissionsDictJSONRead = {}
-    numberOfApps = len(permissionsDict.keys())
-    appVector = permissionsDict.keys()
+    allSyscallsDict = {}
+    numberOfApps = len(jsonDict.keys())
+    appVector = jsonDict.keys()
 
     # Creates a list containing 5 lists initialized to 0
     #appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]

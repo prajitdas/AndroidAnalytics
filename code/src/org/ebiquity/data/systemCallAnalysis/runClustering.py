@@ -21,7 +21,7 @@ import numpy as np
 import json
 #import selectPermissions as sp
 import cPickle
-#import weightedJaccardSimilarity as wjs
+import weightedJaccardSimilarity as wjs
 import matplotlib.pyplot as plt
 import os
 import time
@@ -29,6 +29,34 @@ import sys
 import NumpyEncoder
 import gzip
 
+def getSyscallClusteringDataInput(jsonPath):
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
+	try:
+		return json.loads(open(masterJsonFile).read())
+	except IOError as e:
+		print "I/O error({0}): {1}".format(e.errno,e.strerror)
+	except ValueError:
+		print "JSON decoding errors"
+	except:
+		print "Unexpected error"
+
+def reducePrecisionEncode(array, length, breadth, precision):
+	newArray = np.zeros((length, breadth), dtype=np.int)
+	for i in range(length):
+		for j in range(breadth):
+			result = round(array[i][j],precision)
+			if result == -0:
+				newArray[i][j] = int(0)
+			else:
+				newArray[i][j] = float(result)
+	return NumpyEncoder.encodeNDArray(newArray)
+	
+# From: http://www.saltycrane.com/blog/2012/11/using-pythons-gzip-and-stringio-compress-data-memory/
+def compressWriteData(fileTowWrite,dataObject):
+	# writing
+	with gzip.GzipFile(fileTowWrite, 'w') as outfile:
+		outfile.write(dataObject)
+		
 def writeMatrixToFile(appMatrix, appMatrixFile):
 	#Once the whole matrix is created then dump to a file
 	#Write the app permissions matrix to a file
@@ -82,69 +110,16 @@ def kMeans(X, appVector, metric):
 	
 	return evaluatedClusterResultsDict
 	
-def reducePrecisionEncode(array, length, breadth, precision):
-	newArray = np.zeros((length, breadth), dtype=np.int)
-	for i in range(length):
-		for j in range(breadth):
-			result = round(array[i][j],precision)
-			if result == -0:
-				newArray[i][j] = int(0)
-			else:
-				newArray[i][j] = float(result)
-	return NumpyEncoder.encodeNDArray(newArray)
-
-def doScatterPlot(X, numberOfClusters, KMeansObject):
-	#Plotting results
-	reduced_data = PCA(n_components=2).fit_transform(X)
-	kmeans = KMeans(init='k-means++', n_clusters=numberOfClusters)
-	kmeans.fit(reduced_data)
-	# Step size of the mesh. Decrease to increase the quality of the VQ.
-	h = .02	 # point in the mesh [x_min, m_max]x[y_min, y_max].
-	
-	# Plot the decision boundary. For that, we will assign a color to each
-	x_min, x_max = reduced_data[:, 0].min() + 1, reduced_data[:, 0].max() - 1
-	y_min, y_max = reduced_data[:, 1].min() + 1, reduced_data[:, 1].max() - 1
-	xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-	
-	print "before predict"
-	# Obtain labels for each point in mesh. Use last trained model.
-	Z = KMeansObject.predict(np.c_[xx.ravel(), yy.ravel()])
-	
-	print "before reshape"
-	# Put the result into a color plot
-	Z = Z.reshape(xx.shape)
-	plt.figure(1)
-	plt.clf()
-	plt.imshow(Z, interpolation='nearest',
-			   extent=(xx.min(), xx.max(), yy.min(), yy.max()),
-			   cmap=plt.cm.Paired,
-			   aspect='auto', origin='lower')
-	
-	print "before plot"
-	plt.plot(reduced_data[:, 0], reduced_data[:, 1], 'k.', markersize=2)
-	# Plot the centroids as a white X
-	centroids = KMeansObject.cluster_centers_
-	plt.scatter(centroids[:, 0], centroids[:, 1],
-				marker='x', s=169, linewidths=3,
-				color='w', zorder=10)
-	plt.title('K-means clustering on the digits dataset (PCA-reduced data)\n'
-			  'Centroids are marked with white cross')
-	plt.xlim(x_min, x_max)
-	plt.ylim(y_min, y_max)
-	plt.xticks(())
-	plt.yticks(())
-	plt.show()
-	
-def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
+def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
 	#init
 	reducedDimensions = 100
-	startingNumberOfClusters = 2 # This is very interesting the Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 100
 	loopCounter = startingNumberOfClusters
-	clusterLoopStepSize = 1
+	clusterLoopStepSize = 10
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appVector = wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+	appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
@@ -239,94 +214,10 @@ def doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
-# From: http://www.saltycrane.com/blog/2012/11/using-pythons-gzip-and-stringio-compress-data-memory/
-def compressWriteData(fileTowWrite,dataObject):
-	# writing
-	with gzip.GzipFile(fileTowWrite, 'w') as outfile:
-		outfile.write(dataObject)
-
-def doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
-	appMatrix, appVector = sp.computeMatrix(permissionsSet, permissionsDict)
-	newAppMatrix = np.array(writeMatrixToFile(appMatrix, appMatrixFile))
-	'''
-	sklearn.metrics.pairwise.pairwise_distances(X, Y=None, metric='euclidean', n_jobs=1, **kwds)
-	We will now compute the pairwise distance metric for our input array.
-	The distance metric options are:-
-	From scikit-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']. These metrics support sparse matrix inputs.
-	From scipy.spatial.distance: ['braycurtis', 'canberra', 'chebyshev', 'correlation', 'dice', 'hamming', 'jaccard', 'kulsinski', 
-	'mahalanobis', 'matching', 'minkowski', 'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean', 'yule']
-	See the documentation for scipy.spatial.distance for details on these metrics. These metrics do not support sparse matrix inputs.
-	'''
-	#metricList = ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan']
-	metricList = ['manhattan'] # We are just doing Manhattan because we saw best results with that
-	for metric in metricList:
-		X = pairwise_distances(newAppMatrix, metric=metric, n_jobs=4)
-		print "pairwise_distances in KMeans complete"
-		evaluatedClusterResultsDict = kMeans(X, appVector, metric)
-
-	#	printevaluatedClusterResultsDict
-	#	Write the predicted clusters to a file
-		print "Writing predicted clusters to a file"
-		with open(predictedClustersFile, 'w') as f:
-			f.write(json.dumps(evaluatedClusterResultsDict))
-		#We will generate separate graphs with this info
-		if not appCategoryListSelection:
-			categories = ''
-		else:
-			categories = ''.join(appCategoryListSelection)
-		metrics = ''.join(metric)
-		fileName = categories+metrics
-		plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
-		plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
-
-def runClustering(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile):
-	#doOthers(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
-	doJaccard(username, api_key, appCategoryListSelection, predictedClustersFile, permissionsSet, permissionsDict, appMatrixFile)
+def runClustering(username, api_key, appMatrixFile, predictedClustersFile):
+	jsonDict = getSyscallClusteringDataInput(os.getcwd())
+	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	#doCosineSim(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#os.remove(appMatrixFile)
-
-def getClusteringDataInput(jsonPath):
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
-	print masterJsonFile
-	try:
-		return json.loads(open(masterJsonFile).read())
-	except IOError as e:
-		print "I/O error({0}): {1}".format(e.errno,e.strerror)
-	except ValueError:
-		print "JSON decoding errors"
-	except:
-		print "Unexpected error"
-
-def simpleDistanceMetric(app1Calls,app2Calls):
-	s1 = set(app1Calls)
-	s2 = set(app2Calls)
-	return len(s1.union(s2)) - len(s1.intersection(s2))
-
-def runClusteringSimpleDistanceMetric(jsonPath):
-	jsonDict = getClusteringDataInput(jsonPath)
-	numberOfApps = len(jsonDict.keys())
-	appVector = jsonDict.keys()
-	appMatrix = np.zeros((numberOfApps,numberOfApps))
-
-	for i in range(numberOfApps):
-		for j in range(i,numberOfApps):
-			if i != j:
-				appMatrix[i,j] = simpleDistanceMetric(jsonDict[appVector[i]],jsonDict[appVector[j]])
-			print str(appMatrix[i,j])+","
-	
-	kMeans(appMatrix, appVector, "precomputed")
-	
-def doTask():
-	runClusteringSimpleDistanceMetric(os.getcwd())
-
-def main(argv):
-	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python runClustering.py\n')
-		sys.exit(1)
-
-	startTime = time.time()
-	doTask()
-	executionTime = str((time.time()-startTime)*1000)
-	print "Execution time was: "+executionTime+" ms"
-
-if __name__ == "__main__":
-	sys.exit(main(sys.argv))

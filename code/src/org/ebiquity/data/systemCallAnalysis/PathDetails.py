@@ -19,6 +19,8 @@ def getPath():
 		return currentDirectory+"\\"
 	elif osInfo == 'Linux':
 		return currentDirectory+"/"
+	elif osInfo == 'Darwin':
+		return currentDirectory+"/"
 	else:
 		print 'The current OS is not supported at the moment.'
 		return None

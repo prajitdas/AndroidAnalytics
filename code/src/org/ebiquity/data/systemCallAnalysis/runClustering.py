@@ -9,10 +9,10 @@ Run clustering.
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 #from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans, SpectralClustering
+from sklearn.cluster import KMeans#, SpectralClustering
 from sklearn.metrics import silhouette_score#, silhouette_samples
-from sklearn.metrics.pairwise import pairwise_distances
-from sklearn.decomposition import TruncatedSVD, PCA
+# from sklearn.metrics.pairwise import pairwise_distances
+# from sklearn.decomposition import TruncatedSVD, PCA
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import clusterEvaluation as clEval
@@ -65,7 +65,7 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	
 def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
 	#init
-	reducedDimensions = 2
+	reducedDimensions = 100
 	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 100
 	loopCounter = startingNumberOfClusters

@@ -2,13 +2,24 @@
 Created on April 27, 2016
 @author: Prajit Kumar Das
 
-Usage: python initClustering.py username api_key
+Usage: python initClustering.py username api_key jsonDict
 '''
 import sys
 import time
 #import databaseHandler
 import runClustering as runCl
 import PathDetails as pd
+
+def getSyscallClusteringDataInput(jsonPath):
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
+	try:
+		return json.loads(open(masterJsonFile).read())
+	except IOError as e:
+		print "I/O error({0}): {1}".format(e.errno,e.strerror)
+	except ValueError:
+		print "JSON decoding errors"
+	except:
+		print "Unexpected error"
 
 def preProcess():
 	ticks = time.time()
@@ -26,22 +37,23 @@ def preProcess():
 	return appMatrixFile, predictedClustersFile
 
 #Initiate the clustering process
-def initClustering(username, api_key, appMatrixFile, predictedClustersFile):
+def initClustering(username, api_key, jsonPath):
 	appMatrixFile, predictedClustersFile = preProcess()
-	runCl.runClustering(username, api_key, appMatrixFile, predictedClustersFile)
+	jsonDict = getSyscallClusteringDataInput(jsonPath)
+	runCl.runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 
 def main(argv):
-	if len(sys.argv) != 3:
-		sys.stderr.write('Usage: python initClustering.py username api_key')
+	if len(sys.argv) != 4:
+		sys.stderr.write('Usage: python initClustering.py username api_key jsonDict')
 		sys.exit(1)
 
 	username = sys.argv[1]
 	api_key = sys.argv[2]
+	jsonPath = sys.argv[3]
 
-	appMatrixFile, predictedClustersFile = preProcess()
 	startTime = time.time()
 	#Initiate the clustering process
-	initClustering(username, api_key, appMatrixFile, predictedClustersFile)
+	initClustering(username, api_key, jsonPath)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

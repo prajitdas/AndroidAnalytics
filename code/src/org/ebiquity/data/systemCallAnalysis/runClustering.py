@@ -2,8 +2,6 @@
 Created on April 26, 2016
 @author: Prajit Kumar Das
 
-Usage: python runClustering.py\n
-
 Run clustering.
 '''
 
@@ -28,17 +26,6 @@ import time
 import sys
 import NumpyEncoder
 import gzip
-
-def getSyscallClusteringDataInput(jsonPath):
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
-	try:
-		return json.loads(open(masterJsonFile).read())
-	except IOError as e:
-		print "I/O error({0}): {1}".format(e.errno,e.strerror)
-	except ValueError:
-		print "JSON decoding errors"
-	except:
-		print "Unexpected error"
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)
@@ -169,8 +156,8 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
-def runClustering(username, api_key, appMatrixFile, predictedClustersFile):
-	jsonDict = getSyscallClusteringDataInput(os.getcwd())
+def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
+	# jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)

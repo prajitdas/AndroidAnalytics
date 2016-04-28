@@ -2,7 +2,7 @@
 Created on April 25,2016
 @author: Prajit Kumar Das
 
-Usage: python syscallAnalysis.py\n
+Usage: python syscallAnalysis.py username api_key\n
 
 Syscall analysis code.
 '''
@@ -13,7 +13,7 @@ import platform
 from ConfigParser import SafeConfigParser
 import subprocess as s
 import processFile as pf
-import runClustering as rc
+import initClustering as initCl
 
 class RunExpException(Exception):
 	pass
@@ -77,7 +77,7 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 			print "Still waiting for emulator to complete stage: "+result
 			continue
 
-def runExperimentsOnEmulator(currentPath,apkFolderPath,outputDirectoryPath,apkDict):
+def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict):
 	for key in apkDict.keys():
 		# For each app execution start emulator for AVD nexus6,in wiped mode.
 		# Make sure you have created the AVD first.
@@ -99,9 +99,9 @@ def runExperimentsOnEmulator(currentPath,apkFolderPath,outputDirectoryPath,apkDi
 		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 
 	# After all the apps have been processed and features extracted,we may run the ML algos.
-	rc.runClustering(currentPath)
+	initCl.initClustering(username,api_key,currentPath)
 
-def doTask():
+def doTask(username,api_key):
 	currentPath = os.getcwd()
 	apkFolderPath = getApkFolderPath()
 	if '[' in apkFolderPath:
@@ -110,15 +110,18 @@ def doTask():
 	else:
 		apkDict = findAllFilesWithExtension(apkFolderPath,'.apk')
 	outputDirectoryPath = getOutputDirectoryPath(currentPath)
-	runExperimentsOnEmulator(currentPath,apkFolderPath,outputDirectoryPath,apkDict)
+	runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict)
 
 def main(argv):
-	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python syscallAnalysis.py\n')
+	if len(sys.argv) != 3:
+		sys.stderr.write('Usage: python syscallAnalysis.py username api_key\n')
 		sys.exit(1)
 
+	username = sys.argv[1]
+	api_key = sys.argv[2]
+
 	startTime = time.time()
-	doTask()
+	doTask(username,api_key)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

@@ -6,9 +6,11 @@ Usage: python initClustering.py username api_key jsonDict
 '''
 import sys
 import time
+import os
 #import databaseHandler
 import runClustering as runCl
 import PathDetails as pd
+import json
 
 def getSyscallClusteringDataInput(jsonPath):
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")

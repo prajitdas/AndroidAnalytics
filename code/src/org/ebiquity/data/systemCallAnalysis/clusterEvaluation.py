@@ -53,12 +53,18 @@ def evaluateCluster(clusterInfo):
 
 	labels_true = getCategoryNumbers(appNames,dbHandle)
 	
+	print "Right before cluster evaluation"
 	clusterEvaluationResults = {}
 	clusterEvaluationResults["adjusted_rand_score"] = str(metrics.adjusted_rand_score(labels_true, labels_pred))
+	print "Right before cluster evaluation1"
 	clusterEvaluationResults["adjusted_mutual_info_score"] = str(metrics.adjusted_mutual_info_score(labels_true, labels_pred))
+	print "Right before cluster evaluation2"
 	clusterEvaluationResults["homogeneity_score"] = str(metrics.homogeneity_score(labels_true, labels_pred))
+	print "Right before cluster evaluation3"
 	clusterEvaluationResults["completeness_score"] = str(metrics.completeness_score(labels_true, labels_pred))
+	print "Right before cluster evaluation4"
 	clusterEvaluationResults["v_measure_score"] = str(metrics.v_measure_score(labels_true, labels_pred))
+	print "Right before cluster evaluation5"
 
 	dbHandle.close() #DB Close
 	

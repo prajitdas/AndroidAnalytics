@@ -89,6 +89,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# We want to verify if the number of clusters are "strong with this one" (or not)
 	#Run clustering with a varying number of clusters
 	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
+		print "Inside doJaccard's loop"
 		loopListEvaluatedCluster = []
 		# Initialize the KMeansObject with numberOfClusters value
 		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')

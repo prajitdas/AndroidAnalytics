@@ -34,10 +34,16 @@ def dbConnectionCheck():
 	user = parser.get('dbconfig', 'user')
 	passwd = parser.get('dbconfig', 'passwd')
 	db = parser.get('dbconfig', 'db')
-	
-	dbHandle = MySQLdb.connect(host,user,passwd,db);
-	dbHandle.set_character_set('utf8')
-	return dbHandle
+	print host,user,passwd,db
+	try:
+		dbHandle = MySQLdb.connect(host,user,passwd,db)
+		dbHandle.set_character_set('utf8')
+		return dbHandle
+	except mysql.connector.Error as err:
+		print "Something went wrong: {}".format(err)
+	except:
+		print "Something unexpected happened!"
+	return None
 
 def convertPythonListToSQLQueryList(pythonList):
 	if not pythonList:

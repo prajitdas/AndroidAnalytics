@@ -2,7 +2,7 @@
 Created on April 27, 2016
 @author: Prajit Kumar Das
 
-Usage: python initClustering.py username api_key jsonDict
+Usage: python initClustering.py username api_key jsonPath
 '''
 import sys
 import time
@@ -46,7 +46,7 @@ def initClustering(username, api_key, jsonPath):
 
 def main(argv):
 	if len(sys.argv) != 4:
-		sys.stderr.write('Usage: python initClustering.py username api_key jsonDict')
+		sys.stderr.write('Usage: python initClustering.py username api_key jsonPath')
 		sys.exit(1)
 
 	username = sys.argv[1]

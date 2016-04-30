@@ -19,16 +19,24 @@ def downloadAPK(appsDownloadDirectory,path):
 		os.makedirs(appsDownloadDirectory)
 
 	os.chdir(appsDownloadDirectory)
-	subprocess.call(["adb", "pull", path])
+	cmdToExecute = "adb pull "+path
+	try:
+	   subprocess.check_output(cmdToExecute.split())
+	   print "Success in getting app @ "+path
+	except subprocess.CalledProcessError as e:
+		print "Fatal error - {0}".format(e.output)
+        sys.exit(1)
 
-def downloadAPKFromPhone(): 
-	listOfPackages = subprocess.check_output(["adb", "shell", "pm", "list", "packages"])
+def downloadAPKFromPhone():
+	listOfPackagesCmdToExecute = "adb shell pm list packages"
+	listOfPackages = subprocess.check_output(listOfPackagesCmdToExecute.split()).split('\n')
 #	This is a brilliant Python line I learnt from AK
 #	 lines = [line.strip() for line in listOfPackages.split()]
-	for line in listOfPackages.split():
+	for line in listOfPackages:
 		package = line.strip().split(":")[-1]
 		# Get the path of the apk and extract it
-		path = subprocess.check_output(["adb", "shell", "pm", "path", package]).strip().split(":")[-1]
+		cmdToGetAppPath = "adb shell pm path "+package
+		path = subprocess.check_output(cmdToGetAppPath.split()).strip().split(":")[-1]
 
 		# If the apps download directory doesn't exist just create it
 		currentDirectory = os.getcwd()
@@ -37,10 +45,9 @@ def downloadAPKFromPhone():
 		if osInfo == 'Windows':
 			appsDownloadDirectory = currentDirectory+"\\apps\\"
 			downloadAPK(appsDownloadDirectory,path)
-		elif osInfo == 'Linux':
+		elif osInfo == 'Linux' or osInfo == 'Darwin':
 			appsDownloadDirectory = currentDirectory+"/apps/"
 			downloadAPK(appsDownloadDirectory,path)
-		elif
 		else:
 			sys.stderr.write('The current os not supported at the moment.\n')
 			sys.exit(1)
@@ -48,7 +55,7 @@ def downloadAPKFromPhone():
 		realPackageBasedAPKName = appsDownloadDirectory+package+".apk"
 		try:
 			os.rename(copiedFromPhoneAPKName, realPackageBasedAPKName)
-		except WindowsError:
+		except Exception:
 			# The file already exists, we should copy the new apk over it
 			os.remove(realPackageBasedAPKName)
 			os.rename(copiedFromPhoneAPKName, realPackageBasedAPKName)

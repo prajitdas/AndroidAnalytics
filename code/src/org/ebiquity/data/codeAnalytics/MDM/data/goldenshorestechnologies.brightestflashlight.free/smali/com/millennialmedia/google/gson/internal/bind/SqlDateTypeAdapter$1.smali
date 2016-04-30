@@ -8,64 +8,64 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/google/gson/internal/bind/SqlDateTypeAdapter;
+	value = Lcom/millennialmedia/google/gson/internal/bind/SqlDateTypeAdapter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
+	accessFlags = 0x8
+	name = null
 .end annotation
 
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 40
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 40
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method
 
 
 # virtual methods
 .method public create(Lcom/millennialmedia/google/gson/Gson;Lcom/millennialmedia/google/gson/reflect/TypeToken;)Lcom/millennialmedia/google/gson/TypeAdapter;
-    .locals 2
-    .param p1, "gson"    # Lcom/millennialmedia/google/gson/Gson;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/millennialmedia/google/gson/Gson;",
-            "Lcom/millennialmedia/google/gson/reflect/TypeToken",
-            "<TT;>;)",
-            "Lcom/millennialmedia/google/gson/TypeAdapter",
-            "<TT;>;"
-        }
-    .end annotation
+	.locals 2
+	.param p1, "gson"	# Lcom/millennialmedia/google/gson/Gson;
+	.annotation system Ldalvik/annotation/Signature;
+		value = {
+			"<T:",
+			"Ljava/lang/Object;",
+			">(",
+			"Lcom/millennialmedia/google/gson/Gson;",
+			"Lcom/millennialmedia/google/gson/reflect/TypeToken",
+			"<TT;>;)",
+			"Lcom/millennialmedia/google/gson/TypeAdapter",
+			"<TT;>;"
+		}
+	.end annotation
 
-    .prologue
-    .line 43
-    .local p2, "typeToken":Lcom/millennialmedia/google/gson/reflect/TypeToken;, "Lcom/millennialmedia/google/gson/reflect/TypeToken<TT;>;"
-    invoke-virtual {p2}, Lcom/millennialmedia/google/gson/reflect/TypeToken;->getRawType()Ljava/lang/Class;
+	.prologue
+	.line 43
+	.local p2, "typeToken":Lcom/millennialmedia/google/gson/reflect/TypeToken;, "Lcom/millennialmedia/google/gson/reflect/TypeToken<TT;>;"
+	invoke-virtual {p2}, Lcom/millennialmedia/google/gson/reflect/TypeToken;->getRawType()Ljava/lang/Class;
 
-    move-result-object v0
+	move-result-object v0
 
-    const-class v1, Ljava/sql/Date;
+	const-class v1, Ljava/sql/Date;
 
-    if-ne v0, v1, :cond_0
+	if-ne v0, v1, :cond_0
 
-    new-instance v0, Lcom/millennialmedia/google/gson/internal/bind/SqlDateTypeAdapter;
+	new-instance v0, Lcom/millennialmedia/google/gson/internal/bind/SqlDateTypeAdapter;
 
-    invoke-direct {v0}, Lcom/millennialmedia/google/gson/internal/bind/SqlDateTypeAdapter;-><init>()V
+	invoke-direct {v0}, Lcom/millennialmedia/google/gson/internal/bind/SqlDateTypeAdapter;-><init>()V
 
-    :goto_0
-    return-object v0
+	:goto_0
+	return-object v0
 
-    :cond_0
-    const/4 v0, 0x0
+	:cond_0
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Brightest Latarki Darmowe</string>
-    <string name="EulaDialogTitle">Licencja</string>
-    <string name="EulaButtonAccept">Przyjąć</string>
-    <string name="EulaButtonRefuse">Odmawiać</string>
-    <string name="SettingsCategoriesDialogTitle">Ustawienia</string>
-    <string name="SettingsSoundLabel">Dźwięk</string>
-    <string name="SettingsTimerLabel">Timera</string>
-    <string name="SettingsDisplayLabel">Wyświetlacz</string>
-    <string name="SettingsSoundDialogTitle">Ustawienia Dźwięku</string>
-    <string name="SettingsSilentModeLabel">Tryb Cichy</string>
-    <string name="SettingsTimerDialogTitle">Automatyczne Zamykanie</string>
-    <string name="Settings2MinutesLabel">2 Minuty</string>
-    <string name="Settings10MinutesLabel">10 Minuty</string>
-    <string name="SettingsNeverLabel">Nigdy</string>
-    <string name="SettingsDisplayDialogTitle">Ustawienia Wyświetlacza</string>
-    <string name="SettingsCameraLEDLabel">Lampa Błyskowa</string>
-    <string name="SettingsScreenLabel">Ekran</string>
-    <string name="SettingsOtherLightsLabel">Inne Lights</string>
+	<string name="app_name">Brightest Latarki Darmowe</string>
+	<string name="EulaDialogTitle">Licencja</string>
+	<string name="EulaButtonAccept">Przyjąć</string>
+	<string name="EulaButtonRefuse">Odmawiać</string>
+	<string name="SettingsCategoriesDialogTitle">Ustawienia</string>
+	<string name="SettingsSoundLabel">Dźwięk</string>
+	<string name="SettingsTimerLabel">Timera</string>
+	<string name="SettingsDisplayLabel">Wyświetlacz</string>
+	<string name="SettingsSoundDialogTitle">Ustawienia Dźwięku</string>
+	<string name="SettingsSilentModeLabel">Tryb Cichy</string>
+	<string name="SettingsTimerDialogTitle">Automatyczne Zamykanie</string>
+	<string name="Settings2MinutesLabel">2 Minuty</string>
+	<string name="Settings10MinutesLabel">10 Minuty</string>
+	<string name="SettingsNeverLabel">Nigdy</string>
+	<string name="SettingsDisplayDialogTitle">Ustawienia Wyświetlacza</string>
+	<string name="SettingsCameraLEDLabel">Lampa Błyskowa</string>
+	<string name="SettingsScreenLabel">Ekran</string>
+	<string name="SettingsOtherLightsLabel">Inne Lights</string>
 </resources>

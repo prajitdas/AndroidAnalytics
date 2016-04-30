@@ -5,10 +5,10 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/MMAdView;
+	value = Lcom/millennialmedia/android/MMAdView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
+	accessFlags = 0x1008
+	name = null
 .end annotation

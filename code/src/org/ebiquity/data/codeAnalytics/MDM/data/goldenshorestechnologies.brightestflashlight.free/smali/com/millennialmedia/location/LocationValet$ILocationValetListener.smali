@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/location/LocationValet;
+	value = Lcom/millennialmedia/location/LocationValet;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ILocationValetListener"
+	accessFlags = 0x609
+	name = "ILocationValetListener"
 .end annotation
 
 

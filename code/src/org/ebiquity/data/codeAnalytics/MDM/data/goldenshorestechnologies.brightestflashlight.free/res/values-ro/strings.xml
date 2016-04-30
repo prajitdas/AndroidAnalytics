@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strălucitoare Lanternă Gratuit</string>
-    <string name="EulaDialogTitle">Licenţă</string>
-    <string name="EulaButtonAccept">Accepta</string>
-    <string name="EulaButtonRefuse">Refuza</string>
-    <string name="SettingsCategoriesDialogTitle">Setări</string>
-    <string name="SettingsSoundLabel">Sunet</string>
-    <string name="SettingsTimerLabel">Temporizator</string>
-    <string name="SettingsDisplayLabel">Afişare</string>
-    <string name="SettingsSoundDialogTitle">Setări de Sunet</string>
-    <string name="SettingsSilentModeLabel">Mod Silenţios</string>
-    <string name="SettingsTimerDialogTitle">Automată Închidere</string>
-    <string name="Settings2MinutesLabel">2 Minut</string>
-    <string name="Settings10MinutesLabel">10 Minut</string>
-    <string name="SettingsNeverLabel">Niciodată</string>
-    <string name="SettingsDisplayDialogTitle">Setări de Afişare</string>
-    <string name="SettingsCameraLEDLabel">LED</string>
-    <string name="SettingsScreenLabel">Ecran</string>
-    <string name="SettingsOtherLightsLabel">Alte Lumini</string>
+	<string name="app_name">Strălucitoare Lanternă Gratuit</string>
+	<string name="EulaDialogTitle">Licenţă</string>
+	<string name="EulaButtonAccept">Accepta</string>
+	<string name="EulaButtonRefuse">Refuza</string>
+	<string name="SettingsCategoriesDialogTitle">Setări</string>
+	<string name="SettingsSoundLabel">Sunet</string>
+	<string name="SettingsTimerLabel">Temporizator</string>
+	<string name="SettingsDisplayLabel">Afişare</string>
+	<string name="SettingsSoundDialogTitle">Setări de Sunet</string>
+	<string name="SettingsSilentModeLabel">Mod Silenţios</string>
+	<string name="SettingsTimerDialogTitle">Automată Închidere</string>
+	<string name="Settings2MinutesLabel">2 Minut</string>
+	<string name="Settings10MinutesLabel">10 Minut</string>
+	<string name="SettingsNeverLabel">Niciodată</string>
+	<string name="SettingsDisplayDialogTitle">Setări de Afişare</string>
+	<string name="SettingsCameraLEDLabel">LED</string>
+	<string name="SettingsScreenLabel">Ecran</string>
+	<string name="SettingsOtherLightsLabel">Alte Lumini</string>
 </resources>

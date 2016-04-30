@@ -5,9 +5,9 @@
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/millennialmedia/android/RequestListener$RequestListenerImpl;
-    }
+	value = {
+		Lcom/millennialmedia/android/RequestListener$RequestListenerImpl;
+	}
 .end annotation
 
 

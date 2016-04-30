@@ -9,29 +9,29 @@ outputDir="out/"
 mkdir -p out
 if [ "$testAppDirName" != "[*" ]
 then
-    for file in $testAppDirName
-    do
-        echo "Processing file: "$file
-        emulator -avd nexus6 -wipe-data &
-        while true
-        do
-            sleep 30
-            result="emptyString"
-            result=`adb shell getprop init.svc.bootanim | tr -d '\n' | tr -d '\r'`
-            if [ "$result" == "" ]
-            then
-                echo "Something went wrong, probably can't start emulator for some reason!"
-                echo "Check if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
-                exit
-            elif [ "$result" == "stopped" ]
-            then
-                echo "AVD is ready"
-                bash automatingStrace.sh $file
-                break;
-            fi;
-        done;
-        adb emu kill
-    done
+	for file in $testAppDirName
+	do
+		echo "Processing file: "$file
+		emulator -avd nexus6 -wipe-data &
+		while true
+		do
+			sleep 30
+			result="emptyString"
+			result=`adb shell getprop init.svc.bootanim | tr -d '\n' | tr -d '\r'`
+			if [ "$result" == "" ]
+			then
+				echo "Something went wrong, probably can't start emulator for some reason!"
+				echo "Check if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+				exit
+			elif [ "$result" == "stopped" ]
+			then
+				echo "AVD is ready"
+				bash automatingStrace.sh $file
+				break;
+			fi;
+		done;
+		adb emu kill
+	done
 else
-    echo "fix the config file"
+	echo "fix the config file"
 fi

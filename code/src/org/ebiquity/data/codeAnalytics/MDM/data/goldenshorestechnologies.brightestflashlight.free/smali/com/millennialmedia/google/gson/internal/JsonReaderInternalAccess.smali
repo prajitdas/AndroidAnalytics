@@ -9,21 +9,21 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 26
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 26
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method
 
 
 # virtual methods
 .method public abstract promoteNameToValue(Lcom/millennialmedia/google/gson/stream/JsonReader;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+	.annotation system Ldalvik/annotation/Throws;
+		value = {
+			Ljava/io/IOException;
+		}
+	.end annotation
 .end method

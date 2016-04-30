@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Яскравий ліхтарик Безкоштовно</string>
-    <string name="EulaDialogTitle">Ліцензія</string>
-    <string name="EulaButtonAccept">Прийняти</string>
-    <string name="EulaButtonRefuse">Заперечувати</string>
+	<string name="app_name">Яскравий ліхтарик Безкоштовно</string>
+	<string name="EulaDialogTitle">Ліцензія</string>
+	<string name="EulaButtonAccept">Прийняти</string>
+	<string name="EulaButtonRefuse">Заперечувати</string>
 </resources>

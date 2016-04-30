@@ -8,14 +8,14 @@
 
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/os/Parcelable$Creator",
-            "<",
-            "Lcom/millennialmedia/android/OverlaySettings;",
-            ">;"
-        }
-    .end annotation
+	.annotation system Ldalvik/annotation/Signature;
+		value = {
+			"Landroid/os/Parcelable$Creator",
+			"<",
+			"Lcom/millennialmedia/android/OverlaySettings;",
+			">;"
+		}
+	.end annotation
 .end field
 
 .field static final PROPERTIES_ACCELEROMETER:Ljava/lang/String; = "enableNativeAccelerometer"
@@ -61,9 +61,9 @@
 .field isFromInterstitial:Z
 
 .field private isTransparent:Z
-    .annotation runtime Lcom/millennialmedia/google/gson/annotations/SerializedName;
-        value = "transparent"
-    .end annotation
+	.annotation runtime Lcom/millennialmedia/google/gson/annotations/SerializedName;
+		value = "transparent"
+	.end annotation
 .end field
 
 .field mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
@@ -79,9 +79,9 @@
 .field private transition:Ljava/lang/String;
 
 .field private transitionTimeInMillis:J
-    .annotation runtime Lcom/millennialmedia/google/gson/annotations/SerializedName;
-        value = "transitionDuration"
-    .end annotation
+	.annotation runtime Lcom/millennialmedia/google/gson/annotations/SerializedName;
+		value = "transitionDuration"
+	.end annotation
 .end field
 
 .field urlToLoad:Ljava/lang/String;
@@ -93,927 +93,927 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 140
-    new-instance v0, Lcom/millennialmedia/android/OverlaySettings$1;
+	.prologue
+	.line 140
+	new-instance v0, Lcom/millennialmedia/android/OverlaySettings$1;
 
-    invoke-direct {v0}, Lcom/millennialmedia/android/OverlaySettings$1;-><init>()V
+	invoke-direct {v0}, Lcom/millennialmedia/android/OverlaySettings$1;-><init>()V
 
-    sput-object v0, Lcom/millennialmedia/android/OverlaySettings;->CREATOR:Landroid/os/Parcelable$Creator;
+	sput-object v0, Lcom/millennialmedia/android/OverlaySettings;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    return-void
+	return-void
 .end method
 
 .method constructor <init>()V
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 93
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 93
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
-    const-string v0, ""
+	.line 33
+	const-string v0, ""
 
-    iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    .line 35
-    const-string v0, ""
+	.line 35
+	const-string v0, ""
 
-    iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
+	iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
 
-    .line 36
-    const-string v0, ""
+	.line 36
+	const-string v0, ""
 
-    iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    .line 40
-    const/4 v0, 0x1
+	.line 40
+	const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
+	iput-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
 
-    .line 41
-    const-string v0, ""
+	.line 41
+	const-string v0, ""
 
-    iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
+	iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
 
-    .line 42
-    const-string v0, ""
+	.line 42
+	const-string v0, ""
 
-    iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
+	iput-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
 
-    .line 46
-    const/4 v0, 0x0
+	.line 46
+	const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
+	iput-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
 
-    .line 95
-    return-void
+	.line 95
+	return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 7
-    .param p1, "in"    # Landroid/os/Parcel;
+	.locals 7
+	.param p1, "in"	# Landroid/os/Parcel;
 
-    .prologue
-    const-wide/16 v2, 0x0
+	.prologue
+	const-wide/16 v2, 0x0
 
-    const/4 v6, 0x1
+	const/4 v6, 0x1
 
-    const/4 v5, 0x0
+	const/4 v5, 0x0
 
-    .line 61
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.line 61
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
-    const-string v4, ""
+	.line 33
+	const-string v4, ""
 
-    iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    .line 35
-    const-string v4, ""
+	.line 35
+	const-string v4, ""
 
-    iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
+	iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
 
-    .line 36
-    const-string v4, ""
+	.line 36
+	const-string v4, ""
 
-    iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    .line 40
-    iput-boolean v6, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
+	.line 40
+	iput-boolean v6, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
 
-    .line 41
-    const-string v4, ""
+	.line 41
+	const-string v4, ""
 
-    iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
+	iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
 
-    .line 42
-    const-string v4, ""
+	.line 42
+	const-string v4, ""
 
-    iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
+	iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
 
-    .line 46
-    iput-boolean v5, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
+	.line 46
+	iput-boolean v5, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
 
-    .line 64
-    const/4 v4, 0x7
+	.line 64
+	const/4 v4, 0x7
 
-    :try_start_0
-    new-array v0, v4, [Z
+	:try_start_0
+	new-array v0, v4, [Z
 
-    .line 65
-    .local v0, "booleanValues":[Z
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readBooleanArray([Z)V
+	.line 65
+	.local v0, "booleanValues":[Z
+	invoke-virtual {p1, v0}, Landroid/os/Parcel;->readBooleanArray([Z)V
 
-    .line 66
-    const/4 v4, 0x0
+	.line 66
+	const/4 v4, 0x0
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldLaunchToOverlay:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldLaunchToOverlay:Z
 
-    .line 67
-    const/4 v4, 0x1
+	.line 67
+	const/4 v4, 0x1
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
 
-    .line 68
-    const/4 v4, 0x2
+	.line 68
+	const/4 v4, 0x2
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->canAccelerate:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->canAccelerate:Z
 
-    .line 69
-    const/4 v4, 0x3
+	.line 69
+	const/4 v4, 0x3
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
 
-    .line 70
-    const/4 v4, 0x4
+	.line 70
+	const/4 v4, 0x4
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->modal:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->modal:Z
 
-    .line 71
-    const/4 v4, 0x5
+	.line 71
+	const/4 v4, 0x5
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
 
-    .line 72
-    const/4 v4, 0x6
+	.line 72
+	const/4 v4, 0x6
 
-    aget-boolean v4, v0, v4
+	aget-boolean v4, v0, v4
 
-    iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
+	iput-boolean v4, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
 
-    .line 73
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+	.line 73
+	invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+	move-result v4
 
-    iput v4, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldResizeOverlay:I
+	iput v4, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldResizeOverlay:I
 
-    .line 74
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	.line 74
+	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v4
+	move-result-object v4
 
-    iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	iput-object v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    .line 75
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+	.line 75
+	invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v4
+	move-result-wide v4
 
-    iput-wide v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	iput-wide v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    .line 76
-    iget-wide v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	.line 76
+	iget-wide v4, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    cmp-long v4, v4, v2
+	cmp-long v4, v4, v2
 
-    if-gez v4, :cond_0
+	if-gez v4, :cond_0
 
-    :goto_0
-    iput-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	:goto_0
+	iput-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    .line 77
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	.line 77
+	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+	move-result-object v2
 
-    iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
+	iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
 
-    .line 78
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+	.line 78
+	invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+	move-result-wide v2
 
-    iput-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
+	iput-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
 
-    .line 79
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	.line 79
+	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+	move-result-object v2
 
-    iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    .line 80
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+	.line 80
+	invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+	move-result v2
 
-    iput v2, p0, Lcom/millennialmedia/android/OverlaySettings;->height:I
+	iput v2, p0, Lcom/millennialmedia/android/OverlaySettings;->height:I
 
-    .line 81
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+	.line 81
+	invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+	move-result v2
 
-    iput v2, p0, Lcom/millennialmedia/android/OverlaySettings;->width:I
+	iput v2, p0, Lcom/millennialmedia/android/OverlaySettings;->width:I
 
-    .line 82
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	.line 82
+	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+	move-result-object v2
 
-    iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
+	iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
 
-    .line 83
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	.line 83
+	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+	move-result-object v2
 
-    iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
+	iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
 
-    .line 84
-    const-class v2, Lcom/millennialmedia/android/HttpMMHeaders;
+	.line 84
+	const-class v2, Lcom/millennialmedia/android/HttpMMHeaders;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+	invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v2
+	move-result-object v2
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+	invoke-virtual {p1, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
-    move-result-object v2
+	move-result-object v2
 
-    check-cast v2, Lcom/millennialmedia/android/HttpMMHeaders;
+	check-cast v2, Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iput-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    .line 90
-    .end local v0    # "booleanValues":[Z
-    :goto_1
-    return-void
+	.line 90
+	.end local v0	# "booleanValues":[Z
+	:goto_1
+	return-void
 
-    .line 76
-    .restart local v0    # "booleanValues":[Z
-    :cond_0
-    iget-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+	.line 76
+	.restart local v0	# "booleanValues":[Z
+	:cond_0
+	iget-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	:try_end_0
+	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+	goto :goto_0
 
-    .line 86
-    .end local v0    # "booleanValues":[Z
-    :catch_0
-    move-exception v1
+	.line 86
+	.end local v0	# "booleanValues":[Z
+	:catch_0
+	move-exception v1
 
-    .line 88
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+	.line 88
+	.local v1, "e":Ljava/lang/Exception;
+	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+	goto :goto_1
 .end method
 
 .method static final createFromJson(Ljava/lang/String;)Lcom/millennialmedia/android/OverlaySettings;
-    .locals 3
-    .param p0, "json"    # Ljava/lang/String;
+	.locals 3
+	.param p0, "json"	# Ljava/lang/String;
 
-    .prologue
-    .line 53
-    new-instance v0, Lcom/millennialmedia/google/gson/Gson;
+	.prologue
+	.line 53
+	new-instance v0, Lcom/millennialmedia/google/gson/Gson;
 
-    invoke-direct {v0}, Lcom/millennialmedia/google/gson/Gson;-><init>()V
+	invoke-direct {v0}, Lcom/millennialmedia/google/gson/Gson;-><init>()V
 
-    .line 54
-    .local v0, "gson":Lcom/millennialmedia/google/gson/Gson;
-    const-class v2, Lcom/millennialmedia/android/OverlaySettings;
+	.line 54
+	.local v0, "gson":Lcom/millennialmedia/google/gson/Gson;
+	const-class v2, Lcom/millennialmedia/android/OverlaySettings;
 
-    invoke-virtual {v0, p0, v2}, Lcom/millennialmedia/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+	invoke-virtual {v0, p0, v2}, Lcom/millennialmedia/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+	move-result-object v1
 
-    check-cast v1, Lcom/millennialmedia/android/OverlaySettings;
+	check-cast v1, Lcom/millennialmedia/android/OverlaySettings;
 
-    .line 55
-    .local v1, "settings":Lcom/millennialmedia/android/OverlaySettings;
-    return-object v1
+	.line 55
+	.local v1, "settings":Lcom/millennialmedia/android/OverlaySettings;
+	return-object v1
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 116
-    const/4 v0, 0x0
+	.prologue
+	.line 116
+	const/4 v0, 0x0
 
-    return v0
+	return v0
 .end method
 
 .method enableHardwareAccel()Z
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 237
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.prologue
+	.line 237
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    if-eqz v0, :cond_0
+	if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-boolean v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->enableHardwareAccel:Z
+	iget-boolean v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->enableHardwareAccel:Z
 
-    if-eqz v0, :cond_0
+	if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+	const/4 v0, 0x1
 
-    :goto_0
-    return v0
+	:goto_0
+	return v0
 
-    :cond_0
-    const/4 v0, 0x0
+	:cond_0
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method getIsTransparent()Z
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 228
-    iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
+	.prologue
+	.line 228
+	iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
 
-    if-nez v0, :cond_0
+	if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    if-eqz v0, :cond_1
+	if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-boolean v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->isTransparent:Z
+	iget-boolean v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->isTransparent:Z
 
-    if-eqz v0, :cond_1
+	if-eqz v0, :cond_1
 
-    :cond_0
-    const/4 v0, 0x1
+	:cond_0
+	const/4 v0, 0x1
 
-    :goto_0
-    return v0
+	:goto_0
+	return v0
 
-    :cond_1
-    const/4 v0, 0x0
+	:cond_1
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method getTransition()Ljava/lang/String;
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 203
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	.prologue
+	.line 203
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+	move-result v0
 
-    if-nez v0, :cond_0
+	if-nez v0, :cond_0
 
-    .line 204
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	.line 204
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    .line 209
-    :goto_0
-    return-object v0
+	.line 209
+	:goto_0
+	return-object v0
 
-    .line 205
-    :cond_0
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.line 205
+	:cond_0
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    if-eqz v0, :cond_1
+	if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-object v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transition:Ljava/lang/String;
+	iget-object v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transition:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+	if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-object v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transition:Ljava/lang/String;
+	iget-object v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transition:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+	move-result v0
 
-    if-nez v0, :cond_1
+	if-nez v0, :cond_1
 
-    .line 207
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.line 207
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-object v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transition:Ljava/lang/String;
+	iget-object v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transition:Ljava/lang/String;
 
-    goto :goto_0
+	goto :goto_0
 
-    .line 209
-    :cond_1
-    const-string v0, "none"
+	.line 209
+	:cond_1
+	const-string v0, "none"
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method getTransitionDurationInMillis()J
-    .locals 4
+	.locals 4
 
-    .prologue
-    const-wide/16 v0, 0x0
+	.prologue
+	const-wide/16 v0, 0x0
 
-    .line 188
-    iget-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	.line 188
+	iget-wide v2, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    cmp-long v2, v2, v0
+	cmp-long v2, v2, v0
 
-    if-lez v2, :cond_1
+	if-lez v2, :cond_1
 
-    .line 189
-    iget-wide v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	.line 189
+	iget-wide v0, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    .line 194
-    :cond_0
-    :goto_0
-    return-wide v0
+	.line 194
+	:cond_0
+	:goto_0
+	return-wide v0
 
-    .line 190
-    :cond_1
-    iget-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.line 190
+	:cond_1
+	iget-object v2, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    if-eqz v2, :cond_0
+	if-eqz v2, :cond_0
 
-    .line 192
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.line 192
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-wide v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transitionTimeInMillis:J
+	iget-wide v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->transitionTimeInMillis:J
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method getUseCustomClose()Z
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 218
-    iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
+	.prologue
+	.line 218
+	iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
 
-    if-nez v0, :cond_0
+	if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    if-eqz v0, :cond_1
+	if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    iget-boolean v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->useCustomClose:Z
+	iget-boolean v0, v0, Lcom/millennialmedia/android/HttpMMHeaders;->useCustomClose:Z
 
-    if-eqz v0, :cond_1
+	if-eqz v0, :cond_1
 
-    :cond_0
-    const/4 v0, 0x1
+	:cond_0
+	const/4 v0, 0x1
 
-    :goto_0
-    return v0
+	:goto_0
+	return v0
 
-    :cond_1
-    const/4 v0, 0x0
+	:cond_1
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method hasExpandUrl()Z
-    .locals 2
+	.locals 2
 
-    .prologue
-    .line 167
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	.prologue
+	.line 167
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+	if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	iget-object v0, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    const-string v1, ""
+	const-string v1, ""
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+	move-result v0
 
-    if-nez v0, :cond_0
+	if-nez v0, :cond_0
 
-    const/4 v0, 0x1
+	const/4 v0, 0x1
 
-    :goto_0
-    return v0
+	:goto_0
+	return v0
 
-    :cond_0
-    const/4 v0, 0x0
+	:cond_0
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method hasLoadedExpandUrl()Z
-    .locals 2
+	.locals 2
 
-    .prologue
-    const/4 v0, 0x1
+	.prologue
+	const/4 v0, 0x1
 
-    .line 172
-    iget-boolean v1, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
+	.line 172
+	iget-boolean v1, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
 
-    if-nez v1, :cond_0
+	if-nez v1, :cond_0
 
-    .line 174
-    iput-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
+	.line 174
+	iput-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->hasLoadedExpandUrl:Z
 
-    .line 175
-    const/4 v0, 0x0
+	.line 175
+	const/4 v0, 0x0
 
-    .line 177
-    :cond_0
-    return v0
+	.line 177
+	:cond_0
+	return v0
 .end method
 
 .method isExpanded()Z
-    .locals 4
+	.locals 4
 
-    .prologue
-    .line 157
-    iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
+	.prologue
+	.line 157
+	iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
 
-    if-nez v0, :cond_0
+	if-nez v0, :cond_0
 
-    iget-wide v0, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
+	iget-wide v0, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
 
-    const-wide/16 v2, 0x0
+	const-wide/16 v2, 0x0
 
-    cmp-long v0, v0, v2
+	cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_0
+	if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+	const/4 v0, 0x1
 
-    :goto_0
-    return v0
+	:goto_0
+	return v0
 
-    :cond_0
-    const/4 v0, 0x0
+	:cond_0
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method isFromInterstitial()Z
-    .locals 4
+	.locals 4
 
-    .prologue
-    .line 162
-    iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
+	.prologue
+	.line 162
+	iget-boolean v0, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
 
-    if-eqz v0, :cond_0
+	if-eqz v0, :cond_0
 
-    iget-wide v0, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
+	iget-wide v0, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
 
-    const-wide/16 v2, 0x0
+	const-wide/16 v2, 0x0
 
-    cmp-long v0, v0, v2
+	cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_0
+	if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+	const/4 v0, 0x1
 
-    :goto_0
-    return v0
+	:goto_0
+	return v0
 
-    :cond_0
-    const/4 v0, 0x0
+	:cond_0
+	const/4 v0, 0x0
 
-    goto :goto_0
+	goto :goto_0
 .end method
 
 .method log()V
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 99
-    invoke-virtual {p0}, Lcom/millennialmedia/android/OverlaySettings;->toString()Ljava/lang/String;
+	.prologue
+	.line 99
+	invoke-virtual {p0}, Lcom/millennialmedia/android/OverlaySettings;->toString()Ljava/lang/String;
 
-    move-result-object v0
+	move-result-object v0
 
-    invoke-static {v0}, Lcom/millennialmedia/android/MMSDK$Log;->v(Ljava/lang/String;)V
+	invoke-static {v0}, Lcom/millennialmedia/android/MMSDK$Log;->v(Ljava/lang/String;)V
 
-    .line 101
-    return-void
+	.line 101
+	return-void
 .end method
 
 .method setIsTransparent(Z)V
-    .locals 0
-    .param p1, "transparent"    # Z
+	.locals 0
+	.param p1, "transparent"	# Z
 
-    .prologue
-    .line 233
-    iput-boolean p1, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
+	.prologue
+	.line 233
+	iput-boolean p1, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
 
-    .line 234
-    return-void
+	.line 234
+	return-void
 .end method
 
 .method setTransition(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "trans"    # Ljava/lang/String;
+	.locals 0
+	.param p1, "trans"	# Ljava/lang/String;
 
-    .prologue
-    .line 213
-    iput-object p1, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	.prologue
+	.line 213
+	iput-object p1, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    .line 214
-    return-void
+	.line 214
+	return-void
 .end method
 
 .method setTransitionDurationInMillis(J)V
-    .locals 0
-    .param p1, "transTimeMillis"    # J
+	.locals 0
+	.param p1, "transTimeMillis"	# J
 
-    .prologue
-    .line 198
-    iput-wide p1, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	.prologue
+	.line 198
+	iput-wide p1, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    .line 199
-    return-void
+	.line 199
+	return-void
 .end method
 
 .method setUseCustomClose(Z)V
-    .locals 0
-    .param p1, "isUseCustomClose"    # Z
+	.locals 0
+	.param p1, "isUseCustomClose"	# Z
 
-    .prologue
-    .line 223
-    iput-boolean p1, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
+	.prologue
+	.line 223
+	iput-boolean p1, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
 
-    .line 224
-    return-void
+	.line 224
+	return-void
 .end method
 
 .method setWebMMHeaders(Lcom/millennialmedia/android/HttpMMHeaders;)V
-    .locals 0
-    .param p1, "headers"    # Lcom/millennialmedia/android/HttpMMHeaders;
+	.locals 0
+	.param p1, "headers"	# Lcom/millennialmedia/android/HttpMMHeaders;
 
-    .prologue
-    .line 182
-    iput-object p1, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.prologue
+	.line 182
+	iput-object p1, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    .line 183
-    return-void
+	.line 183
+	return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+	.locals 5
 
-    .prologue
-    .line 106
-    const-string v0, "height %d width %d modal %b urlToLoad %s creatorAdImplId %s shouldResizeOverlay: %d transitionTime: %d overlayTransition: %s shouldAccelerate: %b shouldMakeOverlayTransparent: %b shouldShowCustomClose: %b Orientation: %s"
+	.prologue
+	.line 106
+	const-string v0, "height %d width %d modal %b urlToLoad %s creatorAdImplId %s shouldResizeOverlay: %d transitionTime: %d overlayTransition: %s shouldAccelerate: %b shouldMakeOverlayTransparent: %b shouldShowCustomClose: %b Orientation: %s"
 
-    const/16 v1, 0xc
+	const/16 v1, 0xc
 
-    new-array v1, v1, [Ljava/lang/Object;
+	new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+	const/4 v2, 0x0
 
-    iget v3, p0, Lcom/millennialmedia/android/OverlaySettings;->height:I
+	iget v3, p0, Lcom/millennialmedia/android/OverlaySettings;->height:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+	invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x1
+	const/4 v2, 0x1
 
-    iget v3, p0, Lcom/millennialmedia/android/OverlaySettings;->width:I
+	iget v3, p0, Lcom/millennialmedia/android/OverlaySettings;->width:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+	invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x2
+	const/4 v2, 0x2
 
-    iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->modal:Z
+	iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->modal:Z
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+	invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x3
+	const/4 v2, 0x3
 
-    iget-object v3, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	iget-object v3, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x4
+	const/4 v2, 0x4
 
-    iget-wide v3, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
+	iget-wide v3, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
 
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x5
+	const/4 v2, 0x5
 
-    iget v3, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldResizeOverlay:I
+	iget v3, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldResizeOverlay:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+	invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x6
+	const/4 v2, 0x6
 
-    iget-wide v3, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	iget-wide v3, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/4 v2, 0x7
+	const/4 v2, 0x7
 
-    iget-object v3, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	iget-object v3, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/16 v2, 0x8
+	const/16 v2, 0x8
 
-    iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->canAccelerate:Z
+	iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->canAccelerate:Z
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+	invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/16 v2, 0x9
+	const/16 v2, 0x9
 
-    iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
+	iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+	invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/16 v2, 0xa
+	const/16 v2, 0xa
 
-    iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
+	iget-boolean v3, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+	invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+	move-result-object v3
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    const/16 v2, 0xb
+	const/16 v2, 0xb
 
-    iget-object v3, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
+	iget-object v3, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
 
-    aput-object v3, v1, v2
+	aput-object v3, v1, v2
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+	invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+	move-result-object v0
 
-    return-object v0
+	return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 3
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+	.locals 3
+	.param p1, "dest"	# Landroid/os/Parcel;
+	.param p2, "flags"	# I
 
-    .prologue
-    .line 123
-    const/4 v1, 0x7
+	.prologue
+	.line 123
+	const/4 v1, 0x7
 
-    new-array v0, v1, [Z
+	new-array v0, v1, [Z
 
-    const/4 v1, 0x0
+	const/4 v1, 0x0
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldLaunchToOverlay:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldLaunchToOverlay:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    const/4 v1, 0x1
+	const/4 v1, 0x1
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->isTransparent:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    const/4 v1, 0x2
+	const/4 v1, 0x2
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->canAccelerate:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->canAccelerate:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    const/4 v1, 0x3
+	const/4 v1, 0x3
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->useCustomClose:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    const/4 v1, 0x4
+	const/4 v1, 0x4
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->modal:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->modal:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    const/4 v1, 0x5
+	const/4 v1, 0x5
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->isFromInterstitial:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    const/4 v1, 0x6
+	const/4 v1, 0x6
 
-    iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
+	iget-boolean v2, p0, Lcom/millennialmedia/android/OverlaySettings;->allowOrientationChange:Z
 
-    aput-boolean v2, v0, v1
+	aput-boolean v2, v0, v1
 
-    .line 125
-    .local v0, "booleanValues":[Z
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
+	.line 125
+	.local v0, "booleanValues":[Z
+	invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 126
-    iget v1, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldResizeOverlay:I
+	.line 126
+	iget v1, p0, Lcom/millennialmedia/android/OverlaySettings;->shouldResizeOverlay:I
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 127
-    iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
+	.line 127
+	iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->transition:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 128
-    iget-wide v1, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
+	.line 128
+	iget-wide v1, p0, Lcom/millennialmedia/android/OverlaySettings;->transitionTimeInMillis:J
 
-    invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
+	invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 129
-    iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
+	.line 129
+	iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->orientation:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 130
-    iget-wide v1, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
+	.line 130
+	iget-wide v1, p0, Lcom/millennialmedia/android/OverlaySettings;->creatorAdImplId:J
 
-    invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
+	invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 131
-    iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
+	.line 131
+	iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->urlToLoad:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 132
-    iget v1, p0, Lcom/millennialmedia/android/OverlaySettings;->height:I
+	.line 132
+	iget v1, p0, Lcom/millennialmedia/android/OverlaySettings;->height:I
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 133
-    iget v1, p0, Lcom/millennialmedia/android/OverlaySettings;->width:I
+	.line 133
+	iget v1, p0, Lcom/millennialmedia/android/OverlaySettings;->width:I
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 134
-    iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
+	.line 134
+	iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->content:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 135
-    iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
+	.line 135
+	iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->adUrl:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 136
-    iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
+	.line 136
+	iget-object v1, p0, Lcom/millennialmedia/android/OverlaySettings;->mmHeaders:Lcom/millennialmedia/android/HttpMMHeaders;
 
-    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+	invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 137
-    return-void
+	.line 137
+	return-void
 .end method

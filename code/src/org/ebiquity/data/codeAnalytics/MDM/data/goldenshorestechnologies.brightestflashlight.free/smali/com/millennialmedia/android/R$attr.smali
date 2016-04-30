@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/R;
+	value = Lcom/millennialmedia/android/R;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "attr"
+	accessFlags = 0x19
+	name = "attr"
 .end annotation
 
 
@@ -50,98 +50,98 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 19
-    const v0, 0x7f010001
+	.prologue
+	.line 19
+	const v0, 0x7f010001
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->acid:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->acid:I
 
-    .line 27
-    const v0, 0x7f010003
+	.line 27
+	const v0, 0x7f010003
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->age:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->age:I
 
-    .line 35
-    const/high16 v0, 0x7f010000
+	.line 35
+	const/high16 v0, 0x7f010000
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->apid:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->apid:I
 
-    .line 43
-    const v0, 0x7f01000b
+	.line 43
+	const v0, 0x7f01000b
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->children:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->children:I
 
-    .line 51
-    const v0, 0x7f01000c
+	.line 51
+	const v0, 0x7f01000c
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->education:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->education:I
 
-    .line 59
-    const v0, 0x7f010008
+	.line 59
+	const v0, 0x7f010008
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->ethnicity:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->ethnicity:I
 
-    .line 67
-    const v0, 0x7f010004
+	.line 67
+	const v0, 0x7f010004
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->gender:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->gender:I
 
-    .line 75
-    const v0, 0x7f01000e
+	.line 75
+	const v0, 0x7f01000e
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->height:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->height:I
 
-    .line 83
-    const v0, 0x7f010002
+	.line 83
+	const v0, 0x7f010002
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->ignoreDensityScaling:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->ignoreDensityScaling:I
 
-    .line 91
-    const v0, 0x7f010006
+	.line 91
+	const v0, 0x7f010006
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->income:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->income:I
 
-    .line 99
-    const v0, 0x7f010007
+	.line 99
+	const v0, 0x7f010007
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->keywords:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->keywords:I
 
-    .line 107
-    const v0, 0x7f01000a
+	.line 107
+	const v0, 0x7f01000a
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->marital:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->marital:I
 
-    .line 115
-    const v0, 0x7f010009
+	.line 115
+	const v0, 0x7f010009
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->orientation:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->orientation:I
 
-    .line 123
-    const v0, 0x7f01000d
+	.line 123
+	const v0, 0x7f01000d
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->politics:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->politics:I
 
-    .line 131
-    const v0, 0x7f01000f
+	.line 131
+	const v0, 0x7f01000f
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->width:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->width:I
 
-    .line 139
-    const v0, 0x7f010005
+	.line 139
+	const v0, 0x7f010005
 
-    sput v0, Lcom/millennialmedia/android/R$attr;->zip:I
+	sput v0, Lcom/millennialmedia/android/R$attr;->zip:I
 
-    return-void
+	return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 11
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 11
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method

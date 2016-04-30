@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">המבריקים פנס חינם</string>
-    <string name="EulaDialogTitle">רשיון</string>
-    <string name="EulaButtonAccept">להסכים</string>
-    <string name="EulaButtonRefuse">לסרב</string>
-    <string name="SettingsCategoriesDialogTitle">הגדרות</string>
-    <string name="SettingsSoundLabel">קול</string>
-    <string name="SettingsTimerLabel">שעון עצר</string>
-    <string name="SettingsDisplayLabel">צג</string>
-    <string name="SettingsSoundDialogTitle">הגדרות קול</string>
-    <string name="SettingsSilentModeLabel">להשתיק</string>
-    <string name="SettingsTimerDialogTitle">אוטומטיים הכיבוי</string>
-    <string name="Settings2MinutesLabel">2 דקות</string>
-    <string name="Settings10MinutesLabel">10 דקות</string>
-    <string name="SettingsNeverLabel">מעולם לא</string>
-    <string name="SettingsDisplayDialogTitle">הגדרות תצוגה</string>
-    <string name="SettingsCameraLEDLabel">מצלמה פלאש</string>
-    <string name="SettingsScreenLabel">צג</string>
-    <string name="SettingsOtherLightsLabel">אחרים אורות</string>
+	<string name="app_name">המבריקים פנס חינם</string>
+	<string name="EulaDialogTitle">רשיון</string>
+	<string name="EulaButtonAccept">להסכים</string>
+	<string name="EulaButtonRefuse">לסרב</string>
+	<string name="SettingsCategoriesDialogTitle">הגדרות</string>
+	<string name="SettingsSoundLabel">קול</string>
+	<string name="SettingsTimerLabel">שעון עצר</string>
+	<string name="SettingsDisplayLabel">צג</string>
+	<string name="SettingsSoundDialogTitle">הגדרות קול</string>
+	<string name="SettingsSilentModeLabel">להשתיק</string>
+	<string name="SettingsTimerDialogTitle">אוטומטיים הכיבוי</string>
+	<string name="Settings2MinutesLabel">2 דקות</string>
+	<string name="Settings10MinutesLabel">10 דקות</string>
+	<string name="SettingsNeverLabel">מעולם לא</string>
+	<string name="SettingsDisplayDialogTitle">הגדרות תצוגה</string>
+	<string name="SettingsCameraLEDLabel">מצלמה פלאש</string>
+	<string name="SettingsScreenLabel">צג</string>
+	<string name="SettingsOtherLightsLabel">אחרים אורות</string>
 </resources>

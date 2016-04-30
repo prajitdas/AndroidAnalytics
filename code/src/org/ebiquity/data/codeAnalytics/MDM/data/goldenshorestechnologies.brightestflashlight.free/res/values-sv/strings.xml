@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ljusaste Ficklampa Gratis</string>
-    <string name="EulaDialogTitle">Licens</string>
-    <string name="EulaButtonAccept">Acceptera</string>
-    <string name="EulaButtonRefuse">Vägra</string>
-    <string name="SettingsCategoriesDialogTitle">Inställningar</string>
-    <string name="SettingsSoundLabel">Ljud</string>
-    <string name="SettingsTimerLabel">Timer</string>
-    <string name="SettingsDisplayLabel">Skärm</string>
-    <string name="SettingsSoundDialogTitle">Ljudinställningar</string>
-    <string name="SettingsSilentModeLabel">Tyst Läge</string>
-    <string name="SettingsTimerDialogTitle">Automatisk Avstängning</string>
-    <string name="Settings2MinutesLabel">2 Minuter</string>
-    <string name="Settings10MinutesLabel">10 Minuter</string>
-    <string name="SettingsNeverLabel">Aldrig</string>
-    <string name="SettingsDisplayDialogTitle">Skärminställningar</string>
-    <string name="SettingsCameraLEDLabel">Kamerablixt</string>
-    <string name="SettingsScreenLabel">Skärm</string>
-    <string name="SettingsOtherLightsLabel">Andra Lights</string>
+	<string name="app_name">Ljusaste Ficklampa Gratis</string>
+	<string name="EulaDialogTitle">Licens</string>
+	<string name="EulaButtonAccept">Acceptera</string>
+	<string name="EulaButtonRefuse">Vägra</string>
+	<string name="SettingsCategoriesDialogTitle">Inställningar</string>
+	<string name="SettingsSoundLabel">Ljud</string>
+	<string name="SettingsTimerLabel">Timer</string>
+	<string name="SettingsDisplayLabel">Skärm</string>
+	<string name="SettingsSoundDialogTitle">Ljudinställningar</string>
+	<string name="SettingsSilentModeLabel">Tyst Läge</string>
+	<string name="SettingsTimerDialogTitle">Automatisk Avstängning</string>
+	<string name="Settings2MinutesLabel">2 Minuter</string>
+	<string name="Settings10MinutesLabel">10 Minuter</string>
+	<string name="SettingsNeverLabel">Aldrig</string>
+	<string name="SettingsDisplayDialogTitle">Skärminställningar</string>
+	<string name="SettingsCameraLEDLabel">Kamerablixt</string>
+	<string name="SettingsScreenLabel">Skärm</string>
+	<string name="SettingsOtherLightsLabel">Andra Lights</string>
 </resources>

@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/R;
+	value = Lcom/millennialmedia/android/R;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "styleable"
+	accessFlags = 0x19
+	name = "styleable"
 .end annotation
 
 
@@ -58,64 +58,64 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 189
-    const/16 v0, 0x10
+	.prologue
+	.line 189
+	const/16 v0, 0x10
 
-    new-array v0, v0, [I
+	new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+	fill-array-data v0, :array_0
 
-    sput-object v0, Lcom/millennialmedia/android/R$styleable;->MMAdView:[I
+	sput-object v0, Lcom/millennialmedia/android/R$styleable;->MMAdView:[I
 
-    .line 431
-    const/4 v0, 0x2
+	.line 431
+	const/4 v0, 0x2
 
-    new-array v0, v0, [I
+	new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+	fill-array-data v0, :array_1
 
-    sput-object v0, Lcom/millennialmedia/android/R$styleable;->MMBannerAdView:[I
+	sput-object v0, Lcom/millennialmedia/android/R$styleable;->MMBannerAdView:[I
 
-    return-void
+	return-void
 
-    .line 189
-    :array_0
-    .array-data 4
-        0x7f010000
-        0x7f010001
-        0x7f010002
-        0x7f010003
-        0x7f010004
-        0x7f010005
-        0x7f010006
-        0x7f010007
-        0x7f010008
-        0x7f010009
-        0x7f01000a
-        0x7f01000b
-        0x7f01000c
-        0x7f01000d
-        0x7f01000e
-        0x7f01000f
-    .end array-data
+	.line 189
+	:array_0
+	.array-data 4
+		0x7f010000
+		0x7f010001
+		0x7f010002
+		0x7f010003
+		0x7f010004
+		0x7f010005
+		0x7f010006
+		0x7f010007
+		0x7f010008
+		0x7f010009
+		0x7f01000a
+		0x7f01000b
+		0x7f01000c
+		0x7f01000d
+		0x7f01000e
+		0x7f01000f
+	.end array-data
 
-    .line 431
-    :array_1
-    .array-data 4
-        0x7f01000e
-        0x7f01000f
-    .end array-data
+	.line 431
+	:array_1
+	.array-data 4
+		0x7f01000e
+		0x7f01000f
+	.end array-data
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 148
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 148
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method

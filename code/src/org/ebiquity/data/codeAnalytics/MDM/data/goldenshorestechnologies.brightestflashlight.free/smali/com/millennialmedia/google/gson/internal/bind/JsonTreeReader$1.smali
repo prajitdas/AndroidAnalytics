@@ -5,61 +5,61 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/google/gson/internal/bind/JsonTreeReader;
+	value = Lcom/millennialmedia/google/gson/internal/bind/JsonTreeReader;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
+	accessFlags = 0x8
+	name = null
 .end annotation
 
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 41
-    invoke-direct {p0}, Ljava/io/Reader;-><init>()V
+	.prologue
+	.line 41
+	invoke-direct {p0}, Ljava/io/Reader;-><init>()V
 
-    return-void
+	return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+	.locals 1
+	.annotation system Ldalvik/annotation/Throws;
+		value = {
+			Ljava/io/IOException;
+		}
+	.end annotation
 
-    .prologue
-    .line 46
-    new-instance v0, Ljava/lang/AssertionError;
+	.prologue
+	.line 46
+	new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+	throw v0
 .end method
 
 .method public read([CII)I
-    .locals 1
-    .param p1, "buffer"    # [C
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+	.locals 1
+	.param p1, "buffer"	# [C
+	.param p2, "offset"	# I
+	.param p3, "count"	# I
+	.annotation system Ldalvik/annotation/Throws;
+		value = {
+			Ljava/io/IOException;
+		}
+	.end annotation
 
-    .prologue
-    .line 43
-    new-instance v0, Ljava/lang/AssertionError;
+	.prologue
+	.line 43
+	new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+	throw v0
 .end method

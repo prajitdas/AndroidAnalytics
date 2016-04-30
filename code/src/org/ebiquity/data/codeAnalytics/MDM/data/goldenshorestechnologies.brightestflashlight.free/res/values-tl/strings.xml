@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Pinakamaliwanag na flashlight Libreng</string>
-    <string name="EulaDialogTitle">Lisensya</string>
-    <string name="EulaButtonAccept">Tanggapin</string>
-    <string name="EulaButtonRefuse">Tumanggi</string>
-    <string name="SettingsCategoriesDialogTitle">Parametro</string>
-    <string name="SettingsSoundLabel">Tunog</string>
-    <string name="SettingsTimerLabel">Hronometrahisto</string>
-    <string name="SettingsDisplayLabel">Tanghal</string>
-    <string name="SettingsSoundDialogTitle">Tunog Parametro</string>
-    <string name="SettingsSilentModeLabel">Tahimik paraan</string>
-    <string name="SettingsSpaceLabel" />
-    <string name="SettingsTimerDialogTitle">Pagpipinid</string>
-    <string name="Settings2MinutesLabel">2 Minuto</string>
-    <string name="Settings10MinutesLabel">10 Minuto</string>
-    <string name="SettingsNeverLabel">hindi kailanman</string>
-    <string name="SettingsDisplayDialogTitle">Ipakita ang mga Setting</string>
-    <string name="SettingsCameraLEDLabel">Camera LED</string>
-    <string name="SettingsScreenLabel">Kansel</string>
-    <string name="SettingsOtherLightsLabel">Iba Ilaw ng</string>
+	<string name="app_name">Pinakamaliwanag na flashlight Libreng</string>
+	<string name="EulaDialogTitle">Lisensya</string>
+	<string name="EulaButtonAccept">Tanggapin</string>
+	<string name="EulaButtonRefuse">Tumanggi</string>
+	<string name="SettingsCategoriesDialogTitle">Parametro</string>
+	<string name="SettingsSoundLabel">Tunog</string>
+	<string name="SettingsTimerLabel">Hronometrahisto</string>
+	<string name="SettingsDisplayLabel">Tanghal</string>
+	<string name="SettingsSoundDialogTitle">Tunog Parametro</string>
+	<string name="SettingsSilentModeLabel">Tahimik paraan</string>
+	<string name="SettingsSpaceLabel" />
+	<string name="SettingsTimerDialogTitle">Pagpipinid</string>
+	<string name="Settings2MinutesLabel">2 Minuto</string>
+	<string name="Settings10MinutesLabel">10 Minuto</string>
+	<string name="SettingsNeverLabel">hindi kailanman</string>
+	<string name="SettingsDisplayDialogTitle">Ipakita ang mga Setting</string>
+	<string name="SettingsCameraLEDLabel">Camera LED</string>
+	<string name="SettingsScreenLabel">Kansel</string>
+	<string name="SettingsOtherLightsLabel">Iba Ilaw ng</string>
 </resources>

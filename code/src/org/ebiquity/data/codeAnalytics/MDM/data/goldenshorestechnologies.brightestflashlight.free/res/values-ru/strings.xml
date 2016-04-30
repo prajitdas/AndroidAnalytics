@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Яркий Фонарик Бесплатно</string>
-    <string name="EulaDialogTitle">Лицензия</string>
-    <string name="EulaButtonAccept">Принять</string>
-    <string name="EulaButtonRefuse">Отказаться</string>
-    <string name="SettingsCategoriesDialogTitle">Настройки</string>
-    <string name="SettingsSoundLabel">Звук</string>
-    <string name="SettingsTimerLabel">Таймер</string>
-    <string name="SettingsDisplayLabel">Экран</string>
-    <string name="SettingsSoundDialogTitle">Настройки Звука</string>
-    <string name="SettingsSilentModeLabel">Режим без звука</string>
-    <string name="SettingsTimerDialogTitle">Автоматическое выключение</string>
-    <string name="Settings2MinutesLabel">2 минуты</string>
-    <string name="Settings10MinutesLabel">10 минут</string>
-    <string name="SettingsNeverLabel">Никогда</string>
-    <string name="SettingsDisplayDialogTitle">Настройки экрана</string>
-    <string name="SettingsCameraLEDLabel">Вспышка</string>
-    <string name="SettingsScreenLabel">Экран</string>
-    <string name="SettingsOtherLightsLabel">Другие Свет</string>
+	<string name="app_name">Яркий Фонарик Бесплатно</string>
+	<string name="EulaDialogTitle">Лицензия</string>
+	<string name="EulaButtonAccept">Принять</string>
+	<string name="EulaButtonRefuse">Отказаться</string>
+	<string name="SettingsCategoriesDialogTitle">Настройки</string>
+	<string name="SettingsSoundLabel">Звук</string>
+	<string name="SettingsTimerLabel">Таймер</string>
+	<string name="SettingsDisplayLabel">Экран</string>
+	<string name="SettingsSoundDialogTitle">Настройки Звука</string>
+	<string name="SettingsSilentModeLabel">Режим без звука</string>
+	<string name="SettingsTimerDialogTitle">Автоматическое выключение</string>
+	<string name="Settings2MinutesLabel">2 минуты</string>
+	<string name="Settings10MinutesLabel">10 минут</string>
+	<string name="SettingsNeverLabel">Никогда</string>
+	<string name="SettingsDisplayDialogTitle">Настройки экрана</string>
+	<string name="SettingsCameraLEDLabel">Вспышка</string>
+	<string name="SettingsScreenLabel">Экран</string>
+	<string name="SettingsOtherLightsLabel">Другие Свет</string>
 </resources>

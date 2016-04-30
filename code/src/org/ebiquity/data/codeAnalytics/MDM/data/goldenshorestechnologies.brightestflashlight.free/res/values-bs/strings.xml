@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Najsjajnije Baterijska Lampa</string>
-    <string name="EulaDialogTitle">Licenca</string>
-    <string name="EulaButtonAccept">Prihvatiti</string>
-    <string name="EulaButtonRefuse">Odbiti</string>
-    <string name="SettingsCategoriesDialogTitle">Postavke</string>
-    <string name="SettingsSoundLabel">Zvuk</string>
-    <string name="SettingsTimerLabel">Hronometar</string>
-    <string name="SettingsDisplayLabel">Displej</string>
-    <string name="SettingsSoundDialogTitle">Zvuk Postavke</string>
-    <string name="SettingsSilentModeLabel">Nijem Modalitet</string>
-    <string name="SettingsTimerDialogTitle">Automatski Zatvaranje</string>
-    <string name="Settings2MinutesLabel">2 Minuta</string>
-    <string name="Settings10MinutesLabel">10 Minuta</string>
-    <string name="SettingsNeverLabel">Nikada</string>
-    <string name="SettingsDisplayDialogTitle">Displej Postavke</string>
-    <string name="SettingsCameraLEDLabel">Kamera LED</string>
-    <string name="SettingsScreenLabel">Displej</string>
-    <string name="SettingsOtherLightsLabel">Drugi Svjetla</string>
+	<string name="app_name">Najsjajnije Baterijska Lampa</string>
+	<string name="EulaDialogTitle">Licenca</string>
+	<string name="EulaButtonAccept">Prihvatiti</string>
+	<string name="EulaButtonRefuse">Odbiti</string>
+	<string name="SettingsCategoriesDialogTitle">Postavke</string>
+	<string name="SettingsSoundLabel">Zvuk</string>
+	<string name="SettingsTimerLabel">Hronometar</string>
+	<string name="SettingsDisplayLabel">Displej</string>
+	<string name="SettingsSoundDialogTitle">Zvuk Postavke</string>
+	<string name="SettingsSilentModeLabel">Nijem Modalitet</string>
+	<string name="SettingsTimerDialogTitle">Automatski Zatvaranje</string>
+	<string name="Settings2MinutesLabel">2 Minuta</string>
+	<string name="Settings10MinutesLabel">10 Minuta</string>
+	<string name="SettingsNeverLabel">Nikada</string>
+	<string name="SettingsDisplayDialogTitle">Displej Postavke</string>
+	<string name="SettingsCameraLEDLabel">Kamera LED</string>
+	<string name="SettingsScreenLabel">Displej</string>
+	<string name="SettingsOtherLightsLabel">Drugi Svjetla</string>
 </resources>

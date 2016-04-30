@@ -11,17 +11,17 @@ from googleplay import GooglePlayAPI
 from helpers import sizeof_fmt
 
 if (len(sys.argv) < 2):
-    print "Usage: %s packagename [filename]"
-    print "Download an app."
-    print "If filename is not present, will write to packagename.apk."
-    sys.exit(0)
+	print "Usage: %s packagename [filename]"
+	print "Download an app."
+	print "If filename is not present, will write to packagename.apk."
+	sys.exit(0)
 
 packagename = sys.argv[1]
 
 if (len(sys.argv) == 3):
-    filename = sys.argv[2]
+	filename = sys.argv[2]
 else:
-    filename = packagename + ".apk"
+	filename = packagename + ".apk"
 
 # Connect
 api = GooglePlayAPI(ANDROID_ID)

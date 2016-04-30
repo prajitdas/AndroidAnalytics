@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/InlineVideoView;
+	value = Lcom/millennialmedia/android/InlineVideoView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "TransparentFix"
+	accessFlags = 0x608
+	name = "TransparentFix"
 .end annotation
 
 

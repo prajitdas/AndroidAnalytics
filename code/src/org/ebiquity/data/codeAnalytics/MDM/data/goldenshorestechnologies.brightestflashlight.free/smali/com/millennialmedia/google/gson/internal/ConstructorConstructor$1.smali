@@ -8,20 +8,20 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/millennialmedia/google/gson/internal/ConstructorConstructor;->get(Lcom/millennialmedia/google/gson/reflect/TypeToken;)Lcom/millennialmedia/google/gson/internal/ObjectConstructor;
+	value = Lcom/millennialmedia/google/gson/internal/ConstructorConstructor;->get(Lcom/millennialmedia/google/gson/reflect/TypeToken;)Lcom/millennialmedia/google/gson/internal/ObjectConstructor;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
+	accessFlags = 0x0
+	name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/millennialmedia/google/gson/internal/ObjectConstructor",
-        "<TT;>;"
-    }
+	value = {
+		"Ljava/lang/Object;",
+		"Lcom/millennialmedia/google/gson/internal/ObjectConstructor",
+		"<TT;>;"
+	}
 .end annotation
 
 
@@ -35,40 +35,40 @@
 
 # direct methods
 .method constructor <init>(Lcom/millennialmedia/google/gson/internal/ConstructorConstructor;Lcom/millennialmedia/google/gson/InstanceCreator;Ljava/lang/reflect/Type;)V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 60
-    iput-object p1, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->this$0:Lcom/millennialmedia/google/gson/internal/ConstructorConstructor;
+	.prologue
+	.line 60
+	iput-object p1, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->this$0:Lcom/millennialmedia/google/gson/internal/ConstructorConstructor;
 
-    iput-object p2, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$typeCreator:Lcom/millennialmedia/google/gson/InstanceCreator;
+	iput-object p2, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$typeCreator:Lcom/millennialmedia/google/gson/InstanceCreator;
 
-    iput-object p3, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$type:Ljava/lang/reflect/Type;
+	iput-object p3, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$type:Ljava/lang/reflect/Type;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method
 
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
+	.locals 2
+	.annotation system Ldalvik/annotation/Signature;
+		value = {
+			"()TT;"
+		}
+	.end annotation
 
-    .prologue
-    .line 62
-    iget-object v0, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$typeCreator:Lcom/millennialmedia/google/gson/InstanceCreator;
+	.prologue
+	.line 62
+	iget-object v0, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$typeCreator:Lcom/millennialmedia/google/gson/InstanceCreator;
 
-    iget-object v1, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$type:Ljava/lang/reflect/Type;
+	iget-object v1, p0, Lcom/millennialmedia/google/gson/internal/ConstructorConstructor$1;->val$type:Ljava/lang/reflect/Type;
 
-    invoke-interface {v0, v1}, Lcom/millennialmedia/google/gson/InstanceCreator;->createInstance(Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	invoke-interface {v0, v1}, Lcom/millennialmedia/google/gson/InstanceCreator;->createInstance(Ljava/lang/reflect/Type;)Ljava/lang/Object;
 
-    move-result-object v0
+	move-result-object v0
 
-    return-object v0
+	return-object v0
 .end method

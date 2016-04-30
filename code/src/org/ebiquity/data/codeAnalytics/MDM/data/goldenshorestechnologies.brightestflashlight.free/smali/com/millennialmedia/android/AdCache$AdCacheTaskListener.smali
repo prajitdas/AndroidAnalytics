@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/AdCache;
+	value = Lcom/millennialmedia/android/AdCache;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "AdCacheTaskListener"
+	accessFlags = 0x608
+	name = "AdCacheTaskListener"
 .end annotation
 
 

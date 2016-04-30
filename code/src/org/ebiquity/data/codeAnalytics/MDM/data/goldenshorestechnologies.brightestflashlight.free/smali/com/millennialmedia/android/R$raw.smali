@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/R;
+	value = Lcom/millennialmedia/android/R;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "raw"
+	accessFlags = 0x19
+	name = "raw"
 .end annotation
 
 
@@ -20,23 +20,23 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+	.locals 1
 
-    .prologue
-    .line 146
-    const/high16 v0, 0x7f030000
+	.prologue
+	.line 146
+	const/high16 v0, 0x7f030000
 
-    sput v0, Lcom/millennialmedia/android/R$raw;->mm_js_1_3:I
+	sput v0, Lcom/millennialmedia/android/R$raw;->mm_js_1_3:I
 
-    return-void
+	return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 145
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 145
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method

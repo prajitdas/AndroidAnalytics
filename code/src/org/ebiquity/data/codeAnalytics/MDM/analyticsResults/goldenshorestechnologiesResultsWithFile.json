@@ -1,1340 +1,1340 @@
 {
-    "CalcMaxControlFontSize(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "CalcMaxDialogFontSize(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "DisplayEulaDialog(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;ILcom/millennialmedia/location/LocationValet;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "DisplayGeoLocationDialog(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;ILcom/millennialmedia/location/LocationValet;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali"
-    ], 
-    "DisplayRatingRequestDialog(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "LoadExactFile(Ljava/lang/String;Landroid/app/Activity;": [
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "LoadLocalizedFile(Ljava/lang/String;Landroid/app/Activity;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali"
-    ], 
-    "ReadPreferenceBool(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "ReadPreferenceBoolWithDefault(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
-    ], 
-    "ReadPreferenceInt(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "ReadPreferenceIntWithDefault(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "ReadPreferenceSessionCount(Landroid/app/Activity;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "WritePreferenceBool(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
-    ], 
-    "WritePreferenceInt(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "WritePreferenceSessionCount(Landroid/app/Activity;I": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "WritePreferences(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali"
-    ], 
-    "access$0(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "access$0(Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI;Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI$State;": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali"
-    ], 
-    "access$0(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$3.smali"
-    ], 
-    "access$1(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali"
-    ], 
-    "access$1(Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI;": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali"
-    ], 
-    "access$2(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "access$2(Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI;": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali"
-    ], 
-    "access$3(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;Landroid/hardware/Camera;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "access$4(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali"
-    ], 
-    "access$5(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali"
-    ], 
-    "access$6(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali"
-    ], 
-    "acquire(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "acquireWakeLock(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "addCallback(Landroid/view/SurfaceHolder$Callback;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "addRule(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "addRule(II": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "addView(Landroid/view/View;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "afterLayoutChildControls(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "append(C": [
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "append(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "append(Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
-    ], 
-    "append(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "applyDimension(IFLandroid/util/DisplayMetrics;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "arraycopy(Ljava/lang/Object;ILjava/lang/Object;II": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$State.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI$HitTest.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$State.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl$ControlState.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI$HitTest.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI$HitTest.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI$HitTest.smali"
-    ], 
-    "attachToLayout(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;Landroid/widget/RelativeLayout;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "autoFocus(Landroid/hardware/Camera$AutoFocusCallback;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "bIsTimeToDisplay(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "booleanValue(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "bringChildToFront(Landroid/view/View;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "bringToFront(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
-    ], 
-    "cameraLEDCheckboxTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "canFit(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "cancel(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "cancelAutoFocus(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "close(": [
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "closeCameraSamsungMoment(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "commit(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "compareToIgnoreCase(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "contentEquals(Ljava/lang/CharSequence;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "create(Landroid/content/Context;I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "d(Ljava/lang/String;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "deselect(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "deselectAll(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "disableDialog(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "dismiss(": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$4.smali"
-    ], 
-    "displayControlTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "e(Ljava/lang/String;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "edit(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "enableFlashlight(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "equalsIgnoreCase(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "exitIfScreenOff(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "fadeSolidToTransparent(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$5.smali"
-    ], 
-    "fadeToInvisible(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "fadeToSolid(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "fadeTransparentToSolid(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "findViewById(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "finish(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
-    ], 
-    "forName(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "get(": [
-        "goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
-    ], 
-    "get(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "getAction(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getAd(": [
-        "goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
-    ], 
-    "getAssets(": [
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "getAttributes(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getBoolean(Ljava/lang/String;Z": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali"
-    ], 
-    "getBottom(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getCause(": [
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
-    ], 
-    "getChecked(": [
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getClass(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;": [
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
-    ], 
-    "getDefault(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getDefaultAdId(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getDisplayMetrics(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getDrawable(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "getField(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getFlashMode(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getFloat(Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getFocusMode(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getFocusState(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getHolder(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getId(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getInt(Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getIsTimeToTerminate(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali"
-    ], 
-    "getLanguage(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getLeft(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getMessage(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getMethod(Ljava/lang/String;[Ljava/lang/Class;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getPackageInfo(Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getPackageManager(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getPackageName(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
-    ], 
-    "getPaddingLeft(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "getPaddingRight(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "getPaint(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "getParameters(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getRepeatCount(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getResources(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getReturnFocusState(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getRight(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getSharedPreferences(Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getSimCountryIso(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali"
-    ], 
-    "getString(I": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "getSupportedPreviewSizes(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "getSystemService(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali"
-    ], 
-    "getTitlebarIconResID(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
-    ], 
-    "getTitlebarTextResID(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
-    ], 
-    "getTop(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getTopLeftChildControl(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
-    ], 
-    "getWidth(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "getWindow(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "getX(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "getY(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "hideAllChildSettingDialogs(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "hideMeasurementControls(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "inKeyguardRestrictedInputMode(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "inflate(ILandroid/view/ViewGroup;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "initialize(IIIIIFLgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "initialize(Landroid/content/Context;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "instantiateChildControls(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "invoke(Ljava/lang/Object;[Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
-    ], 
-    "isEULAAlreadyAccepted(Landroid/app/Activity;I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali"
-    ], 
-    "isGeoLocationNoticeAlreadyAccepted(Landroid/app/Activity;I": [
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali"
-    ], 
-    "isScreenOn(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "killDialogTimer(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "killTimer(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "launchFadeInScreen(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "layoutChildControls(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "length(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "loadAnimation(Landroid/content/Context;I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "loadLibrary(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "lock(": [
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali"
-    ], 
-    "measureText(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "mutate(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "muteCheckboxTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
-    ], 
-    "neverRadioButtonTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "newWakeLock(ILjava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "notify(ILandroid/app/Notification;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onConfigurationChanged(Landroid/content/res/Configuration;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onCreate(Landroid/os/Bundle;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onDestroy(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onKeyDown(ILandroid/view/KeyEvent;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onPause(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onResume(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali"
-    ], 
-    "onStart(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onStop(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "onTouchEvent(Landroid/view/MotionEvent;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "open(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "open(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "openCameraSamsungMoment(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "ordinal(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "otherLightsCheckboxTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "parse(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
-    ], 
-    "playCountdownAnimation(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "playShutdownSound(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "playStartupSound(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "postDelayed(Ljava/lang/Runnable;J": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "printStackTrace(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "pumpOnKeyDown(ILandroid/view/KeyEvent;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "put(Ljava/lang/Object;Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "putBoolean(Ljava/lang/String;Z": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali"
-    ], 
-    "putInt(Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "readLine(": [
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI$HitTest;": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI$HitTest;": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/SoundSettingsUI$HitTest;": [
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
-    ], 
-    "receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/TimerSettingsUI$HitTest;": [
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "release(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "releaseWakeLock(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "removeCallbacks(Ljava/lang/Runnable;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "removeMessages(I": [
-        "goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
-    ], 
-    "removeView(Landroid/view/View;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "requestWindowFeature(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "resetCountdownTimer(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "restoreMuteState(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "restoreScreenBrightness(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "returnKeyTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "rgb(III": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "screenCheckboxTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "select(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "sendEmptyMessage(I": [
-        "goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
-    ], 
-    "sendEmptyMessageDelayed(IJ": [
-        "goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
-    ], 
-    "sendFlurryEvent(Ljava/lang/String;Ljava/util/Map;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "set(Landroid/graphics/Paint;": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "set(Ljava/lang/Object;Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "set(Ljava/lang/String;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setAlpha(I": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setAnimationListener(Landroid/view/animation/Animation$AnimationListener;": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setApid(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setAttributes(Landroid/view/WindowManager$LayoutParams;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setBackgroundColor(I": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setBackgroundDrawable(Landroid/graphics/drawable/Drawable;": [
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setBackgroundResource(I": [
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setCancelable(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setChecked(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setColor(I": [
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setContentView(Landroid/view/View;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setControlsTextSize(F": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setDialogTimer(": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setDialogTitleTextSize(F": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setEnabled(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setFillAfter(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setFlags(II": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setFlashMode(Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setFlashModeOff(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setFlashModeOn(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setFlashModeTorch(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setFlashSamsungMoment(II": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setFocused(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setGravity(I": [
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setHeight(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setIcon(I": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setId(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setImageResource(I": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setIsTimeToTerminate(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setLabelTextSize(F": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setLayoutParams(Landroid/view/ViewGroup$LayoutParams;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setMMRequest(Lcom/millennialmedia/android/MMRequest;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setMargins(IIII": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setMaxScreenBrightness(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "setMessage(Ljava/lang/CharSequence;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setMotoXTAFLED(II": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setParameters(Landroid/hardware/Camera$Parameters;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setPathEffect(Landroid/graphics/PathEffect;": [
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setPreviewDisplay(Landroid/view/SurfaceHolder;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setPreviewSize(II": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "setReferenceCounted(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setRequestedOrientation(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setReturnFocused(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "setSolidButtonResID(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setSolidButtonSelectedResID(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setStreamMute(IZ": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setStyle(Landroid/graphics/Paint$Style;": [
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setText(I": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setText(Ljava/lang/CharSequence;": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setTextColor(I": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setTextSize(F": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setTextSize(IF": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
-    ], 
-    "setTimer(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setTitle(Ljava/lang/CharSequence;": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "setTransparentIconResID(": [
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setType(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setUpAndShowAds(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali"
-    ], 
-    "setUpCameraPreview(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setUpVideoWidget(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setUserLocation(Landroid/location/Location;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali"
-    ], 
-    "setVideoURI(Landroid/net/Uri;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setVisibility(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "setWidth(I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setZOrderDisplayDialogInFront(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "setZOrderMainUISettingsInFront(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "setZOrderOnTop(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "show(": [
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "showDisplaySettingsDialog(": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "showMainSettingsDialog(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "showSettingsCategoriesDialog(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "showSoundSettingsDialog(": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "showTimerSettingsDialog(": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "showTransparent(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "size(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
-    ], 
-    "sleep(J": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "soundControlTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "start(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "startActivity(Landroid/content/Intent;": [
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
-    ], 
-    "startAnimation(Landroid/view/animation/Animation;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
-    ], 
-    "startAquire(Ljava/lang/Boolean;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali"
-    ], 
-    "startPreview(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "stopAquire(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "stopCameraPreview(Landroid/hardware/Camera;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "stopPlayback(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "stopPreview(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "stopTimer(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "substring(II": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "suppressUnreadWarning(Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "tenMinuteRadioButtonTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "timerControlTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
-    ], 
-    "toString(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "toggleChecked(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
-    ], 
-    "truncateString(Ljava/lang/String;I": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "turnOffCameraFlashLED(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "turnOffNotificationLED(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "turnOffSamsungMomentCameraFlashLED(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "turnOffSoftKeysBacklight(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "turnOnCameraFlashLED(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "turnOnNotificationLED(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "turnOnSamsungMomentCameraFlashLED(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "turnOnSoftKeysBacklight(": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
-    ], 
-    "twoMinuteRadioButtonTapped(": [
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "uncheckAllRadioButtons(": [
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "unlock(": [
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali"
-    ], 
-    "valueOf(F": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "valueOf(I": [
-        "goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
-    ], 
-    "valueOf(Ljava/lang/Class;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/CustomDialog$State.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI$HitTest.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$State.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/PictureListControl$ControlState.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI$HitTest.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI$HitTest.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI$HitTest.smali"
-    ], 
-    "valueOf(Ljava/lang/Object;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
-    ], 
-    "valueOf(Z": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/Globals.smali"
-    ], 
-    "values(": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ], 
-    "w(Ljava/lang/String;Ljava/lang/String;": [
-        "goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
-    ], 
-    "whichControlHit(II": [
-        "goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
-        "goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
-    ]
+	"CalcMaxControlFontSize(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"CalcMaxDialogFontSize(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"DisplayEulaDialog(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;ILcom/millennialmedia/location/LocationValet;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"DisplayGeoLocationDialog(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;ILcom/millennialmedia/location/LocationValet;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali"
+	], 
+	"DisplayRatingRequestDialog(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"LoadExactFile(Ljava/lang/String;Landroid/app/Activity;": [
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"LoadLocalizedFile(Ljava/lang/String;Landroid/app/Activity;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali"
+	], 
+	"ReadPreferenceBool(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"ReadPreferenceBoolWithDefault(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
+	], 
+	"ReadPreferenceInt(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"ReadPreferenceIntWithDefault(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"ReadPreferenceSessionCount(Landroid/app/Activity;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"WritePreferenceBool(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
+	], 
+	"WritePreferenceInt(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"WritePreferenceSessionCount(Landroid/app/Activity;I": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"WritePreferences(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali"
+	], 
+	"access$0(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"access$0(Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI;Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI$State;": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali"
+	], 
+	"access$0(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$3.smali"
+	], 
+	"access$1(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali"
+	], 
+	"access$1(Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI;": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali"
+	], 
+	"access$2(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"access$2(Lgoldenshorestechnologies/brightestflashlight/free/MainSettingsUI;": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali"
+	], 
+	"access$3(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;Landroid/hardware/Camera;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"access$4(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali"
+	], 
+	"access$5(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali"
+	], 
+	"access$6(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali"
+	], 
+	"acquire(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"acquireWakeLock(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"addCallback(Landroid/view/SurfaceHolder$Callback;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"addRule(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"addRule(II": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"addView(Landroid/view/View;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"afterLayoutChildControls(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"append(C": [
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"append(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"append(Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
+	], 
+	"append(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"applyDimension(IFLandroid/util/DisplayMetrics;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"arraycopy(Ljava/lang/Object;ILjava/lang/Object;II": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$State.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI$HitTest.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$State.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl$ControlState.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI$HitTest.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI$HitTest.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI$HitTest.smali"
+	], 
+	"attachToLayout(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;Landroid/widget/RelativeLayout;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"autoFocus(Landroid/hardware/Camera$AutoFocusCallback;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"bIsTimeToDisplay(Lgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"booleanValue(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"bringChildToFront(Landroid/view/View;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"bringToFront(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
+	], 
+	"cameraLEDCheckboxTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"canFit(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"cancel(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"cancelAutoFocus(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"close(": [
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"closeCameraSamsungMoment(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"commit(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"compareToIgnoreCase(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"contentEquals(Ljava/lang/CharSequence;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"create(Landroid/content/Context;I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"d(Ljava/lang/String;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"deselect(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"deselectAll(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"disableDialog(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"dismiss(": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$4.smali"
+	], 
+	"displayControlTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"e(Ljava/lang/String;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"edit(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"enableFlashlight(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"equalsIgnoreCase(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"exitIfScreenOff(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"fadeSolidToTransparent(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$5.smali"
+	], 
+	"fadeToInvisible(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"fadeToSolid(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"fadeTransparentToSolid(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"findViewById(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"finish(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
+	], 
+	"forName(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"get(": [
+		"goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
+	], 
+	"get(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"getAction(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getAd(": [
+		"goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
+	], 
+	"getAssets(": [
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"getAttributes(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getBoolean(Ljava/lang/String;Z": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali"
+	], 
+	"getBottom(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getCause(": [
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
+	], 
+	"getChecked(": [
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getClass(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;": [
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
+	], 
+	"getDefault(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getDefaultAdId(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getDisplayMetrics(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getDrawable(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"getField(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getFlashMode(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getFloat(Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getFocusMode(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getFocusState(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getHolder(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getId(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getInt(Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getIsTimeToTerminate(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali"
+	], 
+	"getLanguage(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getLeft(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getMessage(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getMethod(Ljava/lang/String;[Ljava/lang/Class;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getPackageInfo(Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getPackageManager(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getPackageName(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
+	], 
+	"getPaddingLeft(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"getPaddingRight(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"getPaint(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"getParameters(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getRepeatCount(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getResources(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getReturnFocusState(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getRight(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getSharedPreferences(Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getSimCountryIso(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali"
+	], 
+	"getString(I": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"getSupportedPreviewSizes(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"getSystemService(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali"
+	], 
+	"getTitlebarIconResID(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
+	], 
+	"getTitlebarTextResID(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
+	], 
+	"getTop(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getTopLeftChildControl(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali"
+	], 
+	"getWidth(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"getWindow(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"getX(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"getY(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"hideAllChildSettingDialogs(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"hideMeasurementControls(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"inKeyguardRestrictedInputMode(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"inflate(ILandroid/view/ViewGroup;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"initialize(IIIIIFLgoldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain;": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"initialize(Landroid/content/Context;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"instantiateChildControls(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"invoke(Ljava/lang/Object;[Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali"
+	], 
+	"isEULAAlreadyAccepted(Landroid/app/Activity;I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali"
+	], 
+	"isGeoLocationNoticeAlreadyAccepted(Landroid/app/Activity;I": [
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali"
+	], 
+	"isScreenOn(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"killDialogTimer(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"killTimer(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"launchFadeInScreen(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"layoutChildControls(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"length(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"loadAnimation(Landroid/content/Context;I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"loadLibrary(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"lock(": [
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali"
+	], 
+	"measureText(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"mutate(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"muteCheckboxTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
+	], 
+	"neverRadioButtonTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"newWakeLock(ILjava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"notify(ILandroid/app/Notification;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onConfigurationChanged(Landroid/content/res/Configuration;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onCreate(Landroid/os/Bundle;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onDestroy(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onKeyDown(ILandroid/view/KeyEvent;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onPause(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onResume(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali"
+	], 
+	"onStart(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onStop(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"onTouchEvent(Landroid/view/MotionEvent;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"open(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"open(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"openCameraSamsungMoment(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"ordinal(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"otherLightsCheckboxTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"parse(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
+	], 
+	"playCountdownAnimation(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"playShutdownSound(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"playStartupSound(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"postDelayed(Ljava/lang/Runnable;J": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"printStackTrace(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$4.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"pumpOnKeyDown(ILandroid/view/KeyEvent;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"put(Ljava/lang/Object;Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"putBoolean(Ljava/lang/String;Z": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali"
+	], 
+	"putInt(Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"readLine(": [
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI$HitTest;": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI$HitTest;": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/SoundSettingsUI$HitTest;": [
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
+	], 
+	"receivedUpWhileSelected(Lgoldenshorestechnologies/brightestflashlight/free/TimerSettingsUI$HitTest;": [
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"release(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"releaseWakeLock(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"removeCallbacks(Ljava/lang/Runnable;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"removeMessages(I": [
+		"goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
+	], 
+	"removeView(Landroid/view/View;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"requestWindowFeature(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"resetCountdownTimer(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"restoreMuteState(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"restoreScreenBrightness(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"returnKeyTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"rgb(III": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"screenCheckboxTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"select(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"sendEmptyMessage(I": [
+		"goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
+	], 
+	"sendEmptyMessageDelayed(IJ": [
+		"goldenshorestechnologies/brightestflashlight/free/RefreshHandler.smali"
+	], 
+	"sendFlurryEvent(Ljava/lang/String;Ljava/util/Map;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$2.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"set(Landroid/graphics/Paint;": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"set(Ljava/lang/Object;Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"set(Ljava/lang/String;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setAlpha(I": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setAnimationListener(Landroid/view/animation/Animation$AnimationListener;": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setApid(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setAttributes(Landroid/view/WindowManager$LayoutParams;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setBackgroundColor(I": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setBackgroundDrawable(Landroid/graphics/drawable/Drawable;": [
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setBackgroundResource(I": [
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setCancelable(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setChecked(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setColor(I": [
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setContentView(Landroid/view/View;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setControlsTextSize(F": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setDialogTimer(": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setDialogTitleTextSize(F": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setEnabled(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setFillAfter(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setFlags(II": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setFlashMode(Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setFlashModeOff(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setFlashModeOn(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setFlashModeTorch(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setFlashSamsungMoment(II": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setFocused(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setGravity(I": [
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setHeight(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setIcon(I": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setId(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setImageResource(I": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setIsTimeToTerminate(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$5.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setLabelTextSize(F": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setLayoutParams(Landroid/view/ViewGroup$LayoutParams;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setMMRequest(Lcom/millennialmedia/android/MMRequest;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setMargins(IIII": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setMaxScreenBrightness(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"setMessage(Ljava/lang/CharSequence;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setMotoXTAFLED(II": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setParameters(Landroid/hardware/Camera$Parameters;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setPathEffect(Landroid/graphics/PathEffect;": [
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setPreviewDisplay(Landroid/view/SurfaceHolder;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setPreviewSize(II": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"setReferenceCounted(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setRequestedOrientation(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setReturnFocused(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"setSolidButtonResID(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setSolidButtonSelectedResID(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setStreamMute(IZ": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setStyle(Landroid/graphics/Paint$Style;": [
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setText(I": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setText(Ljava/lang/CharSequence;": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setTextColor(I": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setTextSize(F": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setTextSize(IF": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl.smali"
+	], 
+	"setTimer(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setTitle(Ljava/lang/CharSequence;": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"setTransparentIconResID(": [
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setType(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setUpAndShowAds(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali"
+	], 
+	"setUpCameraPreview(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setUpVideoWidget(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setUserLocation(Landroid/location/Location;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$4.smali"
+	], 
+	"setVideoURI(Landroid/net/Uri;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setVisibility(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$6.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"setWidth(I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setZOrderDisplayDialogInFront(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"setZOrderMainUISettingsInFront(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"setZOrderOnTop(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"show(": [
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"showDisplaySettingsDialog(": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"showMainSettingsDialog(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"showSettingsCategoriesDialog(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"showSoundSettingsDialog(": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"showTimerSettingsDialog(": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"showTransparent(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"size(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali"
+	], 
+	"sleep(J": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"soundControlTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"start(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"startActivity(Landroid/content/Intent;": [
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali"
+	], 
+	"startAnimation(Landroid/view/animation/Animation;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali"
+	], 
+	"startAquire(Ljava/lang/Boolean;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali"
+	], 
+	"startPreview(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain$3.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"stopAquire(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"stopCameraPreview(Landroid/hardware/Camera;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"stopPlayback(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"stopPreview(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"stopTimer(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"substring(II": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"suppressUnreadWarning(Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"tenMinuteRadioButtonTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"timerControlTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali"
+	], 
+	"toString(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"toggleChecked(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali"
+	], 
+	"truncateString(Ljava/lang/String;I": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"turnOffCameraFlashLED(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"turnOffNotificationLED(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"turnOffSamsungMomentCameraFlashLED(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"turnOffSoftKeysBacklight(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"turnOnCameraFlashLED(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"turnOnNotificationLED(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"turnOnSamsungMomentCameraFlashLED(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"turnOnSoftKeysBacklight(": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali"
+	], 
+	"twoMinuteRadioButtonTapped(": [
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"uncheckAllRadioButtons(": [
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"unlock(": [
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali"
+	], 
+	"valueOf(F": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"valueOf(I": [
+		"goldenshorestechnologies/brightestflashlight/free/CameraWrapper.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/RatingRequestUI.smali"
+	], 
+	"valueOf(Ljava/lang/Class;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/CustomDialog$State.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI$HitTest.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/MainSettingsUI$State.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/PictureListControl$ControlState.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI$HitTest.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI$HitTest.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI$HitTest.smali"
+	], 
+	"valueOf(Ljava/lang/Object;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/EulaUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/LocalizedFileReader.smali"
+	], 
+	"valueOf(Z": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/GeoLocationUI$1.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/Globals.smali"
+	], 
+	"values(": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	], 
+	"w(Ljava/lang/String;Ljava/lang/String;": [
+		"goldenshorestechnologies/brightestflashlight/free/BrightestFlashlightMain.smali"
+	], 
+	"whichControlHit(II": [
+		"goldenshorestechnologies/brightestflashlight/free/DisplaySettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SettingsCategoriesUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/SoundSettingsUI.smali", 
+		"goldenshorestechnologies/brightestflashlight/free/TimerSettingsUI.smali"
+	]
 }

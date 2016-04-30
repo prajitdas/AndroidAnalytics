@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/jumptap/adtag/JtAdWidgetSettings;
+	value = Lcom/jumptap/adtag/JtAdWidgetSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AdultContent"
+	accessFlags = 0x609
+	name = "AdultContent"
 .end annotation
 
 

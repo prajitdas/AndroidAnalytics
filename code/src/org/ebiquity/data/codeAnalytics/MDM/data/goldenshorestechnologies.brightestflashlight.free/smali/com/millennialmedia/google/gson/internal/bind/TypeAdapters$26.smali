@@ -8,91 +8,91 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/millennialmedia/google/gson/internal/bind/TypeAdapters;->newEnumTypeHierarchyFactory()Lcom/millennialmedia/google/gson/TypeAdapterFactory;
+	value = Lcom/millennialmedia/google/gson/internal/bind/TypeAdapters;->newEnumTypeHierarchyFactory()Lcom/millennialmedia/google/gson/TypeAdapterFactory;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
+	accessFlags = 0x8
+	name = null
 .end annotation
 
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+	.locals 0
 
-    .prologue
-    .line 752
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+	.prologue
+	.line 752
+	invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
+	return-void
 .end method
 
 
 # virtual methods
 .method public create(Lcom/millennialmedia/google/gson/Gson;Lcom/millennialmedia/google/gson/reflect/TypeToken;)Lcom/millennialmedia/google/gson/TypeAdapter;
-    .locals 2
-    .param p1, "gson"    # Lcom/millennialmedia/google/gson/Gson;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/millennialmedia/google/gson/Gson;",
-            "Lcom/millennialmedia/google/gson/reflect/TypeToken",
-            "<TT;>;)",
-            "Lcom/millennialmedia/google/gson/TypeAdapter",
-            "<TT;>;"
-        }
-    .end annotation
+	.locals 2
+	.param p1, "gson"	# Lcom/millennialmedia/google/gson/Gson;
+	.annotation system Ldalvik/annotation/Signature;
+		value = {
+			"<T:",
+			"Ljava/lang/Object;",
+			">(",
+			"Lcom/millennialmedia/google/gson/Gson;",
+			"Lcom/millennialmedia/google/gson/reflect/TypeToken",
+			"<TT;>;)",
+			"Lcom/millennialmedia/google/gson/TypeAdapter",
+			"<TT;>;"
+		}
+	.end annotation
 
-    .prologue
-    .line 755
-    .local p2, "typeToken":Lcom/millennialmedia/google/gson/reflect/TypeToken;, "Lcom/millennialmedia/google/gson/reflect/TypeToken<TT;>;"
-    invoke-virtual {p2}, Lcom/millennialmedia/google/gson/reflect/TypeToken;->getRawType()Ljava/lang/Class;
+	.prologue
+	.line 755
+	.local p2, "typeToken":Lcom/millennialmedia/google/gson/reflect/TypeToken;, "Lcom/millennialmedia/google/gson/reflect/TypeToken<TT;>;"
+	invoke-virtual {p2}, Lcom/millennialmedia/google/gson/reflect/TypeToken;->getRawType()Ljava/lang/Class;
 
-    move-result-object v0
+	move-result-object v0
 
-    .line 756
-    .local v0, "rawType":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
-    const-class v1, Ljava/lang/Enum;
+	.line 756
+	.local v0, "rawType":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
+	const-class v1, Ljava/lang/Enum;
 
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+	invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v1
+	move-result v1
 
-    if-eqz v1, :cond_0
+	if-eqz v1, :cond_0
 
-    const-class v1, Ljava/lang/Enum;
+	const-class v1, Ljava/lang/Enum;
 
-    if-ne v0, v1, :cond_1
+	if-ne v0, v1, :cond_1
 
-    .line 757
-    :cond_0
-    const/4 v1, 0x0
+	.line 757
+	:cond_0
+	const/4 v1, 0x0
 
-    .line 762
-    :goto_0
-    return-object v1
+	.line 762
+	:goto_0
+	return-object v1
 
-    .line 759
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/Class;->isEnum()Z
+	.line 759
+	:cond_1
+	invoke-virtual {v0}, Ljava/lang/Class;->isEnum()Z
 
-    move-result v1
+	move-result v1
 
-    if-nez v1, :cond_2
+	if-nez v1, :cond_2
 
-    .line 760
-    invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
+	.line 760
+	invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
-    move-result-object v0
+	move-result-object v0
 
-    .line 762
-    :cond_2
-    new-instance v1, Lcom/millennialmedia/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;
+	.line 762
+	:cond_2
+	new-instance v1, Lcom/millennialmedia/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;
 
-    invoke-direct {v1, v0}, Lcom/millennialmedia/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;-><init>(Ljava/lang/Class;)V
+	invoke-direct {v1, v0}, Lcom/millennialmedia/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;-><init>(Ljava/lang/Class;)V
 
-    goto :goto_0
+	goto :goto_0
 .end method

@@ -5,12 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/millennialmedia/android/HttpRedirection;
+	value = Lcom/millennialmedia/android/HttpRedirection;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "Listener"
+	accessFlags = 0x60a
+	name = "Listener"
 .end annotation
 
 

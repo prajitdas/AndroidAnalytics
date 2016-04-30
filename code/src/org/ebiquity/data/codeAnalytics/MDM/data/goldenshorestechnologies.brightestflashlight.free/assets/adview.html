@@ -11,8 +11,8 @@
 			overflow-y: hidden; 
 			margin: 0;
 			-webkit-touch-callout: none;
-		    -webkit-user-select: none;
-		    -webkit-text-size-adjust: none;
+			-webkit-user-select: none;
+			-webkit-text-size-adjust: none;
 			-webkit-tap-highlight-color:rgba(0,0,0,0);
 		}
 	</style>
@@ -27,13 +27,13 @@
 			jt_set_frame_size2(x, y, width, height, transition, callback);
 			
 			if (!isExpanded) {
-                isExpanded = true;
-                Tracking.startInteraction();
-            } else {
-                isExpanded = false;
-                Tracking.stopInteraction();
-            }
-            JtVwCb.setSize(x, y, width, height,isExpanded);
+				isExpanded = true;
+				Tracking.startInteraction();
+			} else {
+				isExpanded = false;
+				Tracking.stopInteraction();
+			}
+			JtVwCb.setSize(x, y, width, height,isExpanded);
 		}
 	}
 	
@@ -45,10 +45,10 @@
 		};
 		
 		var initialTouchEnd = TrayController.prototype.touchend;
-        TrayController.prototype.touchend = function () {
-            Tracking.stopInteraction();
-            return initialTouchEnd.apply(this, arguments);
-        };
+		TrayController.prototype.touchend = function () {
+			Tracking.stopInteraction();
+			return initialTouchEnd.apply(this, arguments);
+		};
 	}
 	
 </script> 

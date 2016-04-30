@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ไฟฉายสว่างที่สุดฟรี</string>
-    <string name="EulaDialogTitle">อนุญาต</string>
-    <string name="EulaButtonAccept">ยอมรับ</string>
-    <string name="EulaButtonRefuse">ปฏิเสธ</string>
-    <string name="SettingsCategoriesDialogTitle">การตั้งค่า</string>
-    <string name="SettingsSoundLabel">เสียง</string>
-    <string name="SettingsTimerLabel">ตัวตั้งเวลา</string>
-    <string name="SettingsDisplayLabel">แสดง</string>
-    <string name="SettingsSoundDialogTitle">การตั้งค่าเสียง</string>
-    <string name="SettingsSilentModeLabel">โหมดปิดเสียง</string>
-    <string name="SettingsTimerDialogTitle">ปิดเครื่องอัตโนมัติ</string>
-    <string name="Settings2MinutesLabel">2 นาที</string>
-    <string name="Settings10MinutesLabel">10 นาที</string>
-    <string name="SettingsNeverLabel">ไม่เคย</string>
-    <string name="SettingsDisplayDialogTitle">การตั้งค่าการแสดงผล</string>
-    <string name="SettingsCameraLEDLabel">แฟลชกล้อง</string>
-    <string name="SettingsScreenLabel">แสดง</string>
-    <string name="SettingsOtherLightsLabel">ไฟอื่น ๆ</string>
+	<string name="app_name">ไฟฉายสว่างที่สุดฟรี</string>
+	<string name="EulaDialogTitle">อนุญาต</string>
+	<string name="EulaButtonAccept">ยอมรับ</string>
+	<string name="EulaButtonRefuse">ปฏิเสธ</string>
+	<string name="SettingsCategoriesDialogTitle">การตั้งค่า</string>
+	<string name="SettingsSoundLabel">เสียง</string>
+	<string name="SettingsTimerLabel">ตัวตั้งเวลา</string>
+	<string name="SettingsDisplayLabel">แสดง</string>
+	<string name="SettingsSoundDialogTitle">การตั้งค่าเสียง</string>
+	<string name="SettingsSilentModeLabel">โหมดปิดเสียง</string>
+	<string name="SettingsTimerDialogTitle">ปิดเครื่องอัตโนมัติ</string>
+	<string name="Settings2MinutesLabel">2 นาที</string>
+	<string name="Settings10MinutesLabel">10 นาที</string>
+	<string name="SettingsNeverLabel">ไม่เคย</string>
+	<string name="SettingsDisplayDialogTitle">การตั้งค่าการแสดงผล</string>
+	<string name="SettingsCameraLEDLabel">แฟลชกล้อง</string>
+	<string name="SettingsScreenLabel">แสดง</string>
+	<string name="SettingsOtherLightsLabel">ไฟอื่น ๆ</string>
 </resources>

@@ -99,7 +99,7 @@ def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDi
 		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 
 	# After all the apps have been processed and features extracted,we may run the ML algos.
-	initCl.initClustering(username,api_key,currentPath)
+	#initCl.initClustering(username,api_key,currentPath)
 
 def doTask(username,api_key):
 	currentPath = os.getcwd()

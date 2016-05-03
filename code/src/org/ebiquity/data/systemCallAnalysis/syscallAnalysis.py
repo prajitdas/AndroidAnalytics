@@ -72,6 +72,10 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 				s.check_output(runExperimentsCmd.split())
 			except:
 				print "Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
+				# Even if there is an exception in running experiments, remove the file to the other folder
+				movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
+				print "moving file to "+movePath
+				shutil.move(pathToApk,movePath)
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
 			#command="mv "+pathToApk+" ../other"
 			#print "moving file "+command
@@ -95,6 +99,7 @@ def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDi
 		try:
 			executeTestScenarioForAndroidMonkey(apkDict[key])
 		except RunExpException:
+			# Experiments are not working delete the apk name from the execution list
 			del apkDict[key]
 			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
 			emulatorKillCmd = 'bash killEmulator.sh'

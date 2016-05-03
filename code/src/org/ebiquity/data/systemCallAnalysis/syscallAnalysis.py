@@ -14,10 +14,7 @@ from ConfigParser import SafeConfigParser
 import subprocess as s
 import processFile as pf
 import initClustering as initCl
-import shutil
-
-class RunExpException(Exception):
-	pass
+import executeTestScenarioForAndroidMonkey as exAndMon
 
 def getApkFolderPath():
 	parser = SafeConfigParser()
@@ -55,39 +52,6 @@ def isBootAnimationComplete():
 		output.append("Device must be offline")
 	return output[0]
 
-def executeTestScenarioForAndroidMonkey(pathToApk):
-	while True:
-		result = "emptyString"
-		result = isBootAnimationComplete()
-		print result
-		if result == "":
-			print "Something went wrong,probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
-			return
-		elif result == "stopped":
-			print "AVD is ready"
-			# Executing the test scenario for Android monkey
-			runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
-			print runExperimentsCmd
-			try:
-				s.check_output(runExperimentsCmd.split())
-			except:
-				print "Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
-				# Even if there is an exception in running experiments, remove the file to the other folder
-				movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-				print "moving file to "+movePath
-				shutil.move(pathToApk,movePath)
-				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
-			#command="mv "+pathToApk+" ../other"
-			#print "moving file "+command
-			#s.call(command.split())
-			movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-			print "moving file to "+movePath
-			shutil.move(pathToApk,movePath)
-			return
-		else:
-			print "Still waiting for emulator to complete stage: "+result
-			continue
-
 def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict):
 	for key in apkDict.keys():
 		print "Working on runExperimentsOnEmulator for the app: "+apkDict[key]
@@ -97,8 +61,9 @@ def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDi
 		s.call(emulatorStartCmd.split())
 		# Executing the test scenario for Android monkey for a particular app apk
 		try:
-			executeTestScenarioForAndroidMonkey(apkDict[key])
-		except RunExpException:
+			exAndMon.executeTestScenarioForAndroidMonkey(apkDict[key])
+		except exAndMon.RunExpException:
+			print "Experiments failed for: "+apkDict[key]
 			# Experiments are not working delete the apk name from the execution list
 			del apkDict[key]
 			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again

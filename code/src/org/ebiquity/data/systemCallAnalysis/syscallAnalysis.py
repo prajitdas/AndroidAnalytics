@@ -79,6 +79,7 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 
 def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict):
 	for key in apkDict.keys():
+		print "Working on runExperimentsOnEmulator for the app: "+apkDict[key]
 		# For each app execution start emulator for AVD nexus6,in wiped mode.
 		# Make sure you have created the AVD first.
 		emulatorStartCmd = 'bash startEmulator.sh'

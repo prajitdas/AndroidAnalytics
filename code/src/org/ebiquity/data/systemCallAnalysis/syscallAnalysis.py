@@ -73,9 +73,12 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 			except:
 				print "Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
-			command="mv "+pathToApk+" ../other"
-			print "moving file "+command
-			s.call(command.split())
+			#command="mv "+pathToApk+" ../other"
+			#print "moving file "+command
+			#s.call(command.split())
+			movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
+			print "moving file to "+movePath
+			shutil.move(pathToApk,movePath)
 			return
 		else:
 			print "Still waiting for emulator to complete stage: "+result

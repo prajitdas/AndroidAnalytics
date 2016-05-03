@@ -14,6 +14,7 @@ from ConfigParser import SafeConfigParser
 import subprocess as s
 import processFile as pf
 import initClustering as initCl
+import shutil
 
 class RunExpException(Exception):
 	pass
@@ -72,6 +73,9 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 			except:
 				print "Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
+			command="mv "+pathToApk+" ../other"
+			print "moving file "+command
+			s.call(command.split())
 			return
 		else:
 			print "Still waiting for emulator to complete stage: "+result

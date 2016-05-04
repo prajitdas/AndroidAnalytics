@@ -44,16 +44,6 @@ def getOutputDirectoryPath(currentPath):
 		sys.exit(1)
 	return outputDirectoryPath
 
-def isBootAnimationComplete():
-	time.sleep(10)
-	cmd = 'adb shell getprop init.svc.bootanim'
-	output = []
-	try:
-		output = s.check_output(cmd.split()).split('\r\n')
-	except:
-		output.append("Device must be offline")
-	return output[0]
-
 def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict):
 	for key in apkDict.keys():
 		logging.debug('Working on runExperimentsOnEmulator for the app: '+apkDict[key])

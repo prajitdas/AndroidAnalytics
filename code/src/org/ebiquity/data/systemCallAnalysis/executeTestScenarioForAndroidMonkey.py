@@ -17,6 +17,16 @@ logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 class RunExpException(Exception):
 	pass
 
+def isBootAnimationComplete():
+	time.sleep(10)
+	cmd = 'adb shell getprop init.svc.bootanim'
+	output = []
+	try:
+		output = s.check_output(cmd.split()).split('\r\n')
+	except:
+		output.append("Device must be offline")
+	return output[0]
+
 def executeTestScenarioForAndroidMonkey(pathToApk):
 	while True:
 		result = "emptyString"

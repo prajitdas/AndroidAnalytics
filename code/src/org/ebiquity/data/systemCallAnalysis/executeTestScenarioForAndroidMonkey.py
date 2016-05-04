@@ -23,27 +23,27 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 		result = isBootAnimationComplete()
 		print result
 		if result == "":
-			logging.debug('Something went wrong,probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+			logging.debug('Something went wrong,probably can\'t start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of "sudo kvm-ok"')
 			return
 		elif result == "stopped":
-			logging.debug('AVD is ready"
+			logging.debug('AVD is ready')
 			# Executing the test scenario for Android monkey
 			runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
 			print runExperimentsCmd
 			try:
 				s.check_output(runExperimentsCmd.split())
 			except:
-				logging.debug('Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
+				logging.debug('Error in running experiments for: '+pathToApk.split("/")[-1].split('.apk')[0])
 				# Even if there is an exception in running experiments, remove the file to the other folder
 				movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-				logging.debug('moving file to "+movePath
+				logging.debug('moving file to '+movePath)
 				shutil.move(pathToApk,movePath)
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
 			#command="mv "+pathToApk+" ../other"
 			#logging.debug('moving file "+command
 			#s.call(command.split())
 			movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-			logging.debug('moving file to "+movePath
+			logging.debug('moving file to '+movePath)
 			shutil.move(pathToApk,movePath)
 			return
 		else:

@@ -60,7 +60,7 @@ def main(argv):
 	startTime = time.time()
 	doTask()
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: "+executionTime+" ms"
+	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

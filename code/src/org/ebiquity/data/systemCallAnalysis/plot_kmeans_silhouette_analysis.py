@@ -13,9 +13,7 @@ import matplotlib.cm as cm
 import numpy as np
 import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
-
 print(__doc__)
-
 # Generating the sample data from make_blobs
 # This particular setting has one distict cluster and 3 clusters placed close
 # together.
@@ -27,7 +25,6 @@ X, y = make_blobs(n_samples=10,
 				  shuffle=True,
 				  random_state=1)  # For reproducibility
 print(X)
-
 range_n_clusters = [2, 3, 4, 5, 6]
 
 for n_clusters in range_n_clusters:
@@ -52,8 +49,7 @@ for n_clusters in range_n_clusters:
 	# This gives a perspective into the density and separation of the formed
 	# clusters
 	silhouette_avg = silhouette_score(X, cluster_labels)
-	print("For n_clusters =", n_clusters,
-		  "The average silhouette_score is :", silhouette_avg)
+	print("For n_clusters =", n_clusters,"The average silhouette_score is :", silhouette_avg)
 
 	# Compute the silhouette scores for each sample
 	sample_silhouette_values = silhouette_samples(X, cluster_labels)
@@ -93,8 +89,7 @@ for n_clusters in range_n_clusters:
 
 	# 2nd Plot showing the actual clusters formed
 	colors = cm.spectral(cluster_labels.astype(float) / n_clusters)
-	ax2.scatter(X[:, 0], X[:, 1], marker='.', s=30, lw=0, alpha=0.7,
-				c=colors)
+	ax2.scatter(X[:, 0], X[:, 1], marker='.', s=30, lw=0, alpha=0.7, c=colors)
 
 	# Labeling the clusters
 	centers = clusterer.cluster_centers_
@@ -109,8 +104,6 @@ for n_clusters in range_n_clusters:
 	ax2.set_xlabel("Feature space for the 1st feature")
 	ax2.set_ylabel("Feature space for the 2nd feature")
 
-	plt.suptitle(("Silhouette analysis for KMeans clustering on sample data "
-				  "with n_clusters = %d" % n_clusters),
-				 fontsize=14, fontweight='bold')
+	plt.suptitle(("Silhouette analysis for KMeans clustering on sample data with n_clusters = %d" % n_clusters), fontsize=14, fontweight='bold')
 
 	plt.show()

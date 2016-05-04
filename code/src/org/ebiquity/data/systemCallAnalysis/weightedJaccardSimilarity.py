@@ -20,7 +20,7 @@ def getAllSyscallsVector(jsonDict):
 	return allSyscallsVector.sort()
 
 def computeJaccardMatrix(jsonDict):
-	logging.debug('Inside computeJaccardMatrix"
+	logging.debug('Inside computeJaccardMatrix')
 	
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
@@ -41,6 +41,6 @@ def computeJaccardMatrix(jsonDict):
 				appMatrix[j,i] = score
 				counter += 1
 				if counter % 100000 == 0:
-					logging.debug('Computed computeJaccardSim for loops: ", counter
-	logging.debug('computeJaccardMatrix complete"
+					logging.debug('Computed computeJaccardSim for loops: '+counter)
+	logging.debug('computeJaccardMatrix complete')
 	return appMatrix, appVector

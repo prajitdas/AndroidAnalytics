@@ -19,11 +19,11 @@ def getSyscallClusteringDataInput(jsonPath):
 	try:
 		return json.loads(open(masterJsonFile).read())
 	except IOError as e:
-		logging.debug('I/O error({0}): {1}".format(e.errno,e.strerror)
+		logging.debug('I/O error({0}): {1}'.format(e.errno,e.strerror))
 	except ValueError:
-		logging.debug('JSON decoding errors"
+		logging.debug('JSON decoding errors')
 	except:
-		logging.debug('Unexpected error"
+		logging.debug('Unexpected error')
 
 def preProcess():
 	ticks = time.time()
@@ -59,7 +59,7 @@ def main(argv):
 	#Initiate the clustering process
 	initClustering(username, api_key, jsonPath)
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: "+executionTime+" ms"
+	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

@@ -19,10 +19,10 @@ def dbManipulateData(dbHandle, sqlStatement):
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
 	except _mysql_exceptions.IntegrityError:
-		logging.debug('data present"
+		logging.debug('data present')
 		return -1
 	except:
-		logging.debug('Unexpected error:", sys.exc_info()[0]
+		logging.debug('Unexpected error:'+sys.exc_info()[0])
 		raise
 	return cursor.lastrowid
 
@@ -41,9 +41,9 @@ def dbConnectionCheck():
 		dbHandle.set_character_set('utf8')
 		return dbHandle
 	except mysql.connector.Error as err:
-		logging.debug('Something went wrong: {}".format(err)
+		logging.debug('Something went wrong: {}'.format(err))
 	except:
-		logging.debug('Something unexpected happened!"
+		logging.debug('Something unexpected happened!')
 	return None
 
 def convertPythonListToSQLQueryList(pythonList):

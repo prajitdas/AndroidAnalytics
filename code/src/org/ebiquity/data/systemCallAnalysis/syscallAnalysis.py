@@ -40,7 +40,7 @@ def getOutputDirectoryPath(currentPath):
 	elif osInfo == 'Linux' or 'Darwin':
 		outputDirectoryPath = currentPath + "/out"
 	else:
-		logging.debug('The current OS is not supported at the moment. Try Windows,Linux or OS X."
+		logging.debug('The current OS is not supported at the moment. Try Windows,Linux or OS X.')
 		sys.exit(1)
 	return outputDirectoryPath
 
@@ -56,7 +56,7 @@ def isBootAnimationComplete():
 
 def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict):
 	for key in apkDict.keys():
-		logging.debug('Working on runExperimentsOnEmulator for the app: "+apkDict[key]
+		logging.debug('Working on runExperimentsOnEmulator for the app: '+apkDict[key])
 		# For each app execution start emulator for AVD nexus6,in wiped mode.
 		# Make sure you have created the AVD first.
 		emulatorStartCmd = 'bash startEmulator.sh'
@@ -65,7 +65,7 @@ def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDi
 		try:
 			exAndMon.executeTestScenarioForAndroidMonkey(apkDict[key])
 		except exAndMon.RunExpException:
-			logging.debug('Experiments failed for: "+apkDict[key]
+			logging.debug('Experiments failed for: '+apkDict[key])
 			# Experiments are not working delete the apk name from the execution list
 			del apkDict[key]
 			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
@@ -85,7 +85,7 @@ def doTask(username,api_key):
 	currentPath = os.getcwd()
 	apkFolderPath = getApkFolderPath()
 	if '[' in apkFolderPath:
-		logging.debug('Fix the config file!"
+		logging.debug('Fix the config file!')
 		return
 	else:
 		apkDict = findAllFilesWithExtension(apkFolderPath,'.apk')
@@ -103,7 +103,7 @@ def main(argv):
 	startTime = time.time()
 	doTask(username,api_key)
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: "+executionTime+" ms"
+	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

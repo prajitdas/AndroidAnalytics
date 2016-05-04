@@ -6,6 +6,8 @@ import os
 import platform
 import socket
 import getpass
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def getPath():
 	if socket.gethostname() == 'eclipse':

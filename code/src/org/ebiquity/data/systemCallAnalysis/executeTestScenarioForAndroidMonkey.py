@@ -11,6 +11,8 @@ import sys
 import subprocess as s
 import initClustering as initCl
 import shutil
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 class RunExpException(Exception):
 	pass

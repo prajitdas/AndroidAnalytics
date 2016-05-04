@@ -11,6 +11,8 @@ from sklearn.metrics import silhouette_samples, silhouette_score
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 print(__doc__)
 

@@ -26,6 +26,8 @@ import time
 import sys
 import NumpyEncoder
 import gzip
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)

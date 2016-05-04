@@ -15,6 +15,8 @@ import subprocess as s
 import processFile as pf
 import initClustering as initCl
 import executeTestScenarioForAndroidMonkey as exAndMon
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def getApkFolderPath():
 	parser = SafeConfigParser()

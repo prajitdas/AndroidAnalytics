@@ -11,6 +11,8 @@ import matplotlib.cm as cm
 import numpy as np
 import cPickle
 import sys
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def computeSilhouette(appMatrixFile):
 	## Generating the sample data from make_blobs

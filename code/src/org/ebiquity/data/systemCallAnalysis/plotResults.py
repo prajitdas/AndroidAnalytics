@@ -14,6 +14,8 @@ import time
 #from plotly.graph_objs import *
 import json
 import gzip
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 # This is a plot for Permissions count vs Frequency of apps requesting that many permissions
 def generateAppPermissionsRequestedFrequencyHistogram(username, apiKey):

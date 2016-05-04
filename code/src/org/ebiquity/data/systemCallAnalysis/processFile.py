@@ -12,6 +12,8 @@ import os
 import fnmatch as fm
 from collections import OrderedDict as od
 import json
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def processFile(filePath):
 	syscallDict = {}

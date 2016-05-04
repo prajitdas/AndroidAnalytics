@@ -11,6 +11,8 @@ import os
 import runClustering as runCl
 import PathDetails as pd
 import json
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def getSyscallClusteringDataInput(jsonPath):
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")

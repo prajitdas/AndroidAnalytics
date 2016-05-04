@@ -16,6 +16,8 @@ import databaseHandler
 from sklearn import metrics
 #import io
 import json
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def getCategoryNumbers(appNames,dbHandle):
 	appList = '\'' + '\',\''.join(appNames) + '\''

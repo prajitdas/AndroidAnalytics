@@ -4,6 +4,8 @@ Created on April 27, 2016
 Usage: python weightedJaccardSimilarity.py
 '''
 import numpy as np
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def jaccardSimOperation(app1Syscalls,app2Syscalls):
 	return float(len(app1Syscalls.intersection(app2Syscalls)))/float(len(app1Syscalls.union(app2Syscalls)))

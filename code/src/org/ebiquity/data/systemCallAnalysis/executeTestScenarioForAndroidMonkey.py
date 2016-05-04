@@ -54,6 +54,7 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 			#s.call(command.split())
 			movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
 			logging.debug('moving file to '+movePath)
+			#sys.exit(1)
 			shutil.move(pathToApk,movePath)
 			return
 		else:

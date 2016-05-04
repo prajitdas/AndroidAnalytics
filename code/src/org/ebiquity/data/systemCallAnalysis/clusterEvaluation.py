@@ -33,7 +33,7 @@ def getCategoryNumbers(appNames,dbHandle):
 			for row in queryOutput:
 				appCategoriesDict[row[0]] = int(row[1])
 	except:
-		print "Unexpected error in getCategoryNumber:", sys.exc_info()[0]
+		logging.debug('Unexpected error in getCategoryNumber:'+sys.exc_info()[0])
 		raise
 	
 	keylist = appCategoriesDict.keys()
@@ -55,18 +55,18 @@ def evaluateCluster(clusterInfo):
 
 	labels_true = getCategoryNumbers(appNames,dbHandle)
 	
-	print "Right before cluster evaluation"
+	logging.debug('Right before cluster evaluation"
 	clusterEvaluationResults = {}
 	clusterEvaluationResults["adjusted_rand_score"] = str(metrics.adjusted_rand_score(labels_true, labels_pred))
-	print "Right before cluster evaluation1"
+	logging.debug('Right before cluster evaluation1"
 	clusterEvaluationResults["adjusted_mutual_info_score"] = str(metrics.adjusted_mutual_info_score(labels_true, labels_pred))
-	print "Right before cluster evaluation2"
+	logging.debug('Right before cluster evaluation2"
 	clusterEvaluationResults["homogeneity_score"] = str(metrics.homogeneity_score(labels_true, labels_pred))
-	print "Right before cluster evaluation3"
+	logging.debug('Right before cluster evaluation3"
 	clusterEvaluationResults["completeness_score"] = str(metrics.completeness_score(labels_true, labels_pred))
-	print "Right before cluster evaluation4"
+	logging.debug('Right before cluster evaluation4"
 	clusterEvaluationResults["v_measure_score"] = str(metrics.v_measure_score(labels_true, labels_pred))
-	print "Right before cluster evaluation5"
+	logging.debug('Right before cluster evaluation5"
 
 	dbHandle.close() #DB Close
 	
@@ -89,7 +89,7 @@ def main(argv):
 	startTime = time.time()
 	doTask(sys.argv[1])
 	executionTime = str((time.time()-startTime)*1000)
-	print "Execution time was: "+executionTime+" ms"
+	logging.debug('Execution time was: "+executionTime+" ms"
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

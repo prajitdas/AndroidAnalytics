@@ -72,7 +72,7 @@ def generateAppPermissionsRequestedFrequencyHistogram(username, apiKey):
 	)
 	fig = Figure(data=data, layout=layout)
 	plot_url = py.plot(fig, filename='app-perm')
-	print "Check out the URL: "+plot_url+" for your plot"
+	logging.debug('Check out the URL: '+plot_url+' for your plot')
   
 def extractAppPermData():
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
@@ -92,7 +92,7 @@ def extractAppPermData():
 				else:
 					permCountDict[permissionCount] = 1
 	except:
-		print "Unexpected error:", sys.exc_info()[0]
+		logging.debug('Unexpected error:'+sys.exc_info()[0])
 		raise
 
 	dbHandle.close() #DB Close
@@ -118,7 +118,7 @@ def generatePermissionsRequestedByAppFrequencyHistogram(username, apiKey):
 				appCount.append(row[0])
 				permName.append(row[1])
 	except:
-		print "Unexpected error:", sys.exc_info()[0]
+		logging.debug('Unexpected error:'+sys.exc_info()[0])
 		raise
 
 	dbHandle.close() #DB Close
@@ -169,7 +169,7 @@ def generatePermissionsRequestedByAppFrequencyHistogram(username, apiKey):
 	)
 	fig = Figure(data=data, layout=layout)
 	plot_url = py.plot(fig, filename='perm-app')
-	print "Check out the URL: "+plot_url+" for your plot"
+	logging.debug('Check out the URL: '+plot_url+' for your plot')
 
 # This is a plot for Goodness of Cluster measure using homogeneity_score, completeness_score
 def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix):
@@ -263,7 +263,7 @@ def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneitySc
 	if postfix != None:
 		name += postfix
 	plot_url = py.plot(fig, filename=name)
-	print "Check out the URL: "+plot_url+" for your plot"
+	logging.debug('Check out the URL: '+plot_url+' for your plot')
   
 # This is a plot for Goodness of Cluster measure using silhouette_avg
 def generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList, postfix):
@@ -316,7 +316,7 @@ def generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList
 	if postfix != None:
 		name += postfix
 	plot_url = py.plot(fig, filename=name)
-	print "Check out the URL: "+plot_url+" for your plot"
+	logging.debug('Check out the URL: '+plot_url+' for your plot')
 
 def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
 	evaluatedClusterResultsDict = json.loads(gzip.open(fileToRead, "rb").read().decode("utf8"))
@@ -331,7 +331,7 @@ def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
 			clusterCountList.append(int(clusterCount.replace("Loop","")))
 			clusterInfo = loopInfo[2]
 			if "silhouette_avg" in clusterInfo:
-				#print "In", clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
+				#logging.debug('In', clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
 				silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))
 
 	#print silhouetteAvgList
@@ -354,19 +354,19 @@ def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
 			clusterCountList.append(int(clusterCount.replace("Loop","")))
 			clusterInfo = loopInfo[1]
 			if "adjusted_rand_score" in clusterInfo:
-				#print "In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
+				#logging.debug('In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
 				adjustedRandScoreList.append(float(clusterInfo["adjusted_rand_score"]))
 			if "adjusted_mutual_info_score" in clusterInfo:
-				#print "In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
+				#logging.debug('In", clusterCount, "we have adjusted_mutual_info_score of", clusterInfo["adjusted_mutual_info_score"]
 				adjustedMutualInfoScoreList.append(float(clusterInfo["adjusted_mutual_info_score"]))
 			if "homogeneity_score" in clusterInfo:
-				#print "In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
+				#logging.debug('In", clusterCount, "we have homogeneity_score of", clusterInfo["homogeneity_score"]
 				homogeneityScoreList.append(float(clusterInfo["homogeneity_score"]))
 			if "completeness_score" in clusterInfo:
-				#print "In", clusterCount, "we have completeness_score of", clusterInfo["completeness_score"]
+				#logging.debug('In", clusterCount, "we have completeness_score of", clusterInfo["completeness_score"]
 				completenessScoreList.append(float(clusterInfo["completeness_score"]))
 			if "v_measure_score" in clusterInfo:
-				#print "In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
+				#logging.debug('In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
 				vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
 
 	#print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
@@ -387,7 +387,7 @@ def main(argv):
 	plotSilhouetteSamples(username, apiKey, resultsFile, postfix=None)
 	plotGroundTruthResults(username, apiKey, resultsFile, postfix=None)
 	executionTime = str((time.time()-startTime)*1000)
-	print "Execution time was: "+executionTime+" ms"
+	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

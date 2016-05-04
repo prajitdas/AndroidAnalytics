@@ -74,7 +74,7 @@ def computeSilhouette(appMatrixFile):
 		# This gives a perspective into the density and separation of the formed
 		# clusters
 		silhouette_avg = silhouette_score(X, cluster_labels, metric='euclidean')
-		print "For n_clusters =", n_clusters, "The average silhouette_score is :", silhouette_avg
+		logging.debug('For n_clusters ='+n_clusters+'The average silhouette_score is :'silhouette_avg')
 
 		# Compute the silhouette scores for each sample
 		sample_silhouette_values = silhouette_samples(X, cluster_labels, metric='euclidean')

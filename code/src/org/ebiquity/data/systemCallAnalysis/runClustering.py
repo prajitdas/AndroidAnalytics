@@ -78,7 +78,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# We want to verify if the number of clusters are "strong with this one" (or not)
 	#Run clustering with a varying number of clusters
 	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
-		print "Inside doJaccard's loop"
+		logging.debug('Inside doJaccard\'s loop')
 		loopListEvaluatedCluster = []
 		# Initialize the KMeansObject with numberOfClusters value
 		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
@@ -110,7 +110,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric='jaccard') 
 		clusterSilhouetteAverage = {}
 		clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
-		#print "For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
+		#logging.debug('For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
 				
 		# Insert the silhouette_avg for the cluster into the Json for further evaluation
 		loopListEvaluatedCluster.append(clusterSilhouetteAverage)
@@ -136,7 +136,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		stringLoopCounter = 'Loop'+str(loopCounter)
 		evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
 		loopCounter = loopCounter + clusterLoopStepSize
-		print "Finished clustering algorithm with", numberOfClusters, "clusters. Writing predicted clusters to file."
+		logging.debug('Finished clustering algorithm with", numberOfClusters, "clusters. Writing predicted clusters to file."
 	
 	#	printevaluatedClusterResultsDict
 	#	Write the predicted clusters to a file

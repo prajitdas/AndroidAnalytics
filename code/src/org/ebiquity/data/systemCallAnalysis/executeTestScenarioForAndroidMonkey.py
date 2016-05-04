@@ -23,31 +23,31 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 		result = isBootAnimationComplete()
 		print result
 		if result == "":
-			print "Something went wrong,probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
+			logging.debug('Something went wrong,probably can't start emulator for some reason! \nCheck if AVD exists or not. Or maybe something else is wrong. Check output of 'sudo kvm-ok'"
 			return
 		elif result == "stopped":
-			print "AVD is ready"
+			logging.debug('AVD is ready"
 			# Executing the test scenario for Android monkey
 			runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
 			print runExperimentsCmd
 			try:
 				s.check_output(runExperimentsCmd.split())
 			except:
-				print "Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
+				logging.debug('Error in running experiments for: "+pathToApk.split("/")[-1].split(".apk")[0]
 				# Even if there is an exception in running experiments, remove the file to the other folder
 				movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-				print "moving file to "+movePath
+				logging.debug('moving file to "+movePath
 				shutil.move(pathToApk,movePath)
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
 			#command="mv "+pathToApk+" ../other"
-			#print "moving file "+command
+			#logging.debug('moving file "+command
 			#s.call(command.split())
 			movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-			print "moving file to "+movePath
+			logging.debug('moving file to "+movePath
 			shutil.move(pathToApk,movePath)
 			return
 		else:
-			print "Still waiting for emulator to complete stage: "+result
+			logging.debug('Still waiting for emulator to complete stage: '+result)
 			continue
 
 def doTask(pathToApk):
@@ -63,7 +63,7 @@ def main(argv):
 	startTime = time.time()
 	doTask(pathToApk)
 	executionTime = str((time.time()-startTime)*1000)
-	print "Execution time was: "+executionTime+" ms"
+	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

@@ -71,7 +71,7 @@ def generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restriction
 def generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType):
 	print "in generateAppMatrixAllApps"
 	#select the apps to be processed
-	appDict = sa.getTopApps(dbHandle)
+	appDict = sa.getAllApps(dbHandle)
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #Generate the permission matrix for top apps

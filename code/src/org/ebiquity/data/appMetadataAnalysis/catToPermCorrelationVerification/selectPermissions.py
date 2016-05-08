@@ -24,6 +24,7 @@ def computeMatrix(permissionsSet, permissionsDict):
 def generatePermVector(dbHandle, appDict, sqlStatement):
 	cursor = dbHandle.cursor()
 	try:
+		print sqlStatement
 		cursor.execute(sqlStatement)
 		print "Extracting app permissions"
 		if cursor.rowcount > 0:

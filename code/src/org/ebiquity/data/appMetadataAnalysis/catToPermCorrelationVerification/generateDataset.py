@@ -74,17 +74,26 @@ def generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionTyp
 	appDict = sa.getTopApps(dbHandle)
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
-#generate the permission matrix for top apps
+#Generate the permission matrix for top apps
 def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType):
 	print "in generateAppMatrixTopApps"
 	#select the apps to be processed
 	appDict = sa.getTopApps(dbHandle)
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
+#Generate permission vector for app
+def getPermVector(appPermList, permissionList):
+	tempVector = [0] * len(permissionList)
+	for index in range(0:len(permissionList)):
+		for permission in appPermList:
+			if permission == permissionList[index]:
+				tempVector[index] = 1
+	return tempVector
+
 #Generate the ARFF file for weka to process
 def generateArffFile(appMatrixFile, appDict, permissionList):
 	for appPkgName, appInfoDict in appDict.iteritems():
-		print appPkgName, appInfoDict['permissions'], appInfoDict['category']
+		print appPkgName, appInfoDict['category'], getPermVector(appInfoDict['permissions'], permissionList)
 	print permissionList
 
 #Generate the dataset for weka to process

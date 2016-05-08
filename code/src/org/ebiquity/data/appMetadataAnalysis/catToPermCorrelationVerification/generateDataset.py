@@ -84,7 +84,7 @@ def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionTyp
 #Generate permission vector for app
 def getPermVector(appPermList, permissionList):
 	tempVector = [0] * len(permissionList)
-	for index in range(0:len(permissionList)):
+	for index in range(0, len(permissionList)):
 		for permission in appPermList:
 			if permission == permissionList[index]:
 				tempVector[index] = 1

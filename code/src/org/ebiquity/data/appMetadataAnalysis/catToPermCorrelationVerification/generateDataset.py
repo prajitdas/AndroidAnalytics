@@ -90,12 +90,19 @@ def getPermVector(appPermList, permissionList):
 				tempVector[index] = 1
 	return tempVector
 
+#Generate app category vector
+def getAppCategoryList(appDict):
+	tempCatVector = set()
+	for appInfoDict in appDict.itervalues():
+		tempCatVector.add(appInfoDict['category'])
+	return list(tempCatVector)
+
 #Generate the ARFF file for weka to process
-def generateArffFile(appMatrixFile, appDict, permissionList, appCategoryList):
+def generateArffFile(appMatrixFile, appDict, permissionList):
 	print "@RELATION playstore"
 	for permission in permissionList:
 		print "@ATTRIBUTE	permission	NUMERIC"
-	print appCategoryList
+	print getAppCategoryList(appDict)
 	# for appPkgName, appInfoDict in appDict.iteritems():
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	print permissionList
@@ -120,7 +127,7 @@ def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, pe
 		#generate the permission matrix for category list apps
 		appDict, permissionList = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 
-	generateArffFile(appMatrixFile, appDict, permissionList, appCategoryList)
+	generateArffFile(appMatrixFile, appDict, permissionList)
 
 	dbHandle.close() #DB Close
 

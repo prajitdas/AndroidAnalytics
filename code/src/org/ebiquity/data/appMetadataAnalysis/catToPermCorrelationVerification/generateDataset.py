@@ -36,8 +36,6 @@ def getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionT
 		appIdVector.append(str(appInfoDict['appId']))
 	#Convert the appids to string as we want to ensure that the concatenation in convertPythonListToSQLQueryList() works
 
-	print appIdVector
-	sys.exit(1)
 	'''
 	Extract the permissions vector for all the appIds
 	The app matrix returned is a big one and it has some columns with only zero values we have to remove them if possible

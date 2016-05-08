@@ -97,6 +97,12 @@ def getAppCategoryList(appDict):
 		tempCatVector.add(appInfoDict['category'].replace(" ", "_"))
 	return list(tempCatVector)
 
+def getAppPermCatVector(appPkgName, appInfoDict, permissionList):
+	appPermCatVector = []
+	appPermCatVector = getPermVector(appInfoDict['permissions'], permissionList)
+	appPermCatVector.append(appInfoDict['category'])
+	return appPermCatVector
+
 #Generate the ARFF file for weka to process
 def generateArffFile(appMatrixFile, appDict, permissionList):
 	arffFileContent="% 1. Title: Playstore Data Category Classification\n"
@@ -113,13 +119,9 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 	arffFileContent+="@DATA\n"
 	# for appPkgName, appInfoDict in appDict.iteritems():
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
-	appPermCatListOfLists = []
+	
 	for appPkgName, appInfoDict in appDict.iteritems():
-		appPermCatVector = []
-		appPermCatVector = getPermVector(appInfoDict['permissions'], permissionList)
-		appPermCatVector.append(appInfoDict['category'])
-		print ",".join(str(appPermCatVector))
-		appPermCatListOfLists.append(appPermCatVector)
+		print getAppPermCatVector(appPkgName, appInfoDict, permissionList)
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):

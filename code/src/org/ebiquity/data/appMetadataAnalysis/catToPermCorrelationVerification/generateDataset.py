@@ -127,6 +127,7 @@ def generateArffFileData(appDict, permissionList):
 	return arffFileContent
 
 def writeArffFile(appMatrixFile, arffFileContent):
+	print "Finally writing arff file!"
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 

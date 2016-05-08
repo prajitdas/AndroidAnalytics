@@ -83,7 +83,8 @@ def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionTyp
 
 #Generate the ARFF file for weka to process
 def generateArffFile(appMatrixFile, appDict):
-	print "ARFF file will be generated now!"
+	for appPkgName, appInfoDict in d.iteritems():
+		print appPkgName, appInfoDict['permissions'], appInfoDict['category']
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):

@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
+'''
 Created on Fri Sep 11 05:54:37 2015
-
 @author: Prajit
-"""
+'''
 import os
 import platform
 import socket

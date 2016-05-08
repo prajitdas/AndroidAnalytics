@@ -29,7 +29,7 @@ def generateAppDict(dbHandle,sqlStatement):
 		logging.debug('Unexpected error in extractAllApps: '+sys.exc_info()[0])
 		raise
 
-	print "generateAppDict complete"
+	logging.debug('generateAppDict complete')
 	return appDict
 
 def getTopAppsFromDownloadedJSONs():

@@ -24,7 +24,7 @@ def dbManipulateData(dbHandle, sqlStatement):
 		logging.debug('data present')
 		return -1
 	except:
-		print "Unexpected error:", sys.exc_info()[0]
+		logging.debug('Unexpected error:'+sys.exc_info()[0])
 		raise
 	return cursor.lastrowid
 

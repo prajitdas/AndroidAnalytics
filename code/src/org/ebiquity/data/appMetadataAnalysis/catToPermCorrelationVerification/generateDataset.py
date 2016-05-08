@@ -114,7 +114,7 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 	# for appPkgName, appInfoDict in appDict.iteritems():
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	for appPkgName, appInfoDict in appDict.iteritems():
-		print ",".join(getPermVector(appInfoDict['permissions']), permissionList),",",appInfoDict['category']
+		print ",".join(getPermVector(appInfoDict['permissions'], permissionList)),",",appInfoDict['category']
 	print arffFileContent
 	return arffFileContent
 

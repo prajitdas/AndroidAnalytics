@@ -15,7 +15,7 @@ def generatePermVector(dbHandle, appDict, sqlStatement):
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:
 				tempPermSet = set(appDict[row[0]]['permissions'])
-				tempPermSet.add(row[1])
+				tempPermSet.add(row[2])
 				appDict[row[0]]['permissions'] = tempPermSet
 	except:
 		print "Unexpected error in generatePermVector:", sys.exc_info()[0]

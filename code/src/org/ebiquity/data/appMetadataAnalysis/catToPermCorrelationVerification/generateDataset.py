@@ -134,7 +134,7 @@ def writeArffFile(appMatrixFile, arffFileContent):
 		fp.write(arffFileContent)
 
 def writeAppDictJson(appMatrixFile, appDict):
-	filename = appMatrixFile+'.json'
+	filename = appMatrixFile.split('.')[0]+'.json'
 	with open(filename, 'w') as fp:
 		json.dump(appDict, fp, sort_keys = True, indent = 4)
 

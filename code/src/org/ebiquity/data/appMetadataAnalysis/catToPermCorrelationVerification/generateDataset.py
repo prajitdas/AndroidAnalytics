@@ -122,6 +122,7 @@ def generateArffFileData(appDict, permissionList):
 	
 	for appPkgName, appInfoDict in appDict.iteritems():
 		arffFileContent+=','.join(getAppPermCatVector(appPkgName, appInfoDict, permissionList))
+		arffFileContent+="\n"
 
 	return arffFileContent
 

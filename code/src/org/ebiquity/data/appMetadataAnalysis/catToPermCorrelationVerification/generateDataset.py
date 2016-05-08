@@ -29,7 +29,6 @@ import databaseHandler
 import selectApps as sa
 import selectPermissions as sp
 import PathDetails as pd
-import arff
 
 def getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType):
 	appIdVector = []

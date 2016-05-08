@@ -16,11 +16,15 @@ def generateAppDict(dbHandle,sqlStatement):
 	appDict = {}
 	try:
 		cursor.execute(sqlStatement)
-		print "Extracting app package names and ids"
+		print "Extracting app package names and category info"
 		if cursor.rowcount > 0:
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:
-				appDict[row[1]] = row[0]
+				appInfoDict = {}
+				appInfoDict['category'] = row[2]
+				appInfoDict['appId'] = row[0]
+				appInfoDict['permissions'] = []
+				appDict[row[1]] = appInfoDict
 	except:
 		print "Unexpected error in extractAllApps:", sys.exc_info()[0]
 		raise
@@ -48,22 +52,6 @@ def getTopAppsFromDownloadedJSONs():
 
 	return appNameList
 
-def getSpecificCategoryAppsTopFewThousands(dbHandle,categoryId):
-	sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = "+str(categoryId)+" AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 1000;"
-	return generateAppDict(dbHandle,sqlStatement)
-
-# Get a bunch of apps from which you want to get the permissions
-# Select apps which have had their permissions extracted
-def getTopApps(dbHandle):
-	appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(getTopAppsFromDownloadedJSONs())
-	sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_pkg_name` IN ("+appCategorySQLQueryList+");"
-	return generateAppDict(dbHandle,sqlStatement)
-
-def getCategoryApps(dbHandle,appCategoryList):
-	appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
-	sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id`;"
-	return generateAppDict(dbHandle,sqlStatement)
-
 def getCategoryAppsTopFewThousands(dbHandle):
 	appDict = {}
 	sqlStatement = "select id from appcategories;"
@@ -80,13 +68,29 @@ def getCategoryAppsTopFewThousands(dbHandle):
 		raise
 	return appDict
 
+def getSpecificCategoryAppsTopFewThousands(dbHandle,categoryId):
+	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = "+str(categoryId)+" AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 1000;"
+	return generateAppDict(dbHandle,sqlStatement)
+
+# Get a bunch of apps from which you want to get the permissions
+# Select apps which have had their permissions extracted
+def getTopApps(dbHandle):
+	appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(getTopAppsFromDownloadedJSONs())
+	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = cat.`id` AND a.`app_pkg_name` IN ("+appCategorySQLQueryList+");"
+	return generateAppDict(dbHandle,sqlStatement)
+
+def getCategoryApps(dbHandle,appCategoryList):
+	appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
+	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id`;"
+	return generateAppDict(dbHandle,sqlStatement)
+
 def getHMDAppsTopFewThousands(dbHandle,appCategoryList):
 	appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
-	sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 25000;"
+	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND cat.`url` IN ("+appCategorySQLQueryList+") AND a.`app_category_id` = cat.`id` ORDER BY a.`installs` DESC, a.`review_rating` DESC, a.`review_count` DESC LIMIT 25000;"
 	return generateAppDict(dbHandle,sqlStatement)
 
 def getAllApps(dbHandle):
-	sqlStatement = "SELECT a.`id`, a.`app_pkg_name` FROM `appdata` a, `appurls` url WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1;"
+	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = cat.`id` ;"
 	return generateAppDict(dbHandle,sqlStatement)
 
 '''

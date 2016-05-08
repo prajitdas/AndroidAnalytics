@@ -100,7 +100,7 @@ def getAppCategoryList(appDict):
 def getAppPermCatVector(appPkgName, appInfoDict, permissionList):
 	appPermCatVector = []
 	appPermCatVector = getPermVector(appInfoDict['permissions'], permissionList)
-	appPermCatVector.append(appInfoDict['category'])
+	appPermCatVector.append(appInfoDict['category'].replace(" ", "_"))
 	return appPermCatVector
 
 #Generate the ARFF file for weka to process
@@ -121,7 +121,7 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	
 	for appPkgName, appInfoDict in appDict.iteritems():
-		print ''.join(getAppPermCatVector(appPkgName, appInfoDict, permissionList))
+		print ','.join(getAppPermCatVector(appPkgName, appInfoDict, permissionList))
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):

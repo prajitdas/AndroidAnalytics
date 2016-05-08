@@ -93,7 +93,7 @@ def getPermVector(appPermList, permissionList):
 #Generate the ARFF file for weka to process
 def generateArffFile(appMatrixFile, appDict, permissionList):
 	for appPkgName, appInfoDict in appDict.iteritems():
-		print appPkgName, appInfoDict['category'], getPermVector(appInfoDict['permissions'], permissionList)
+		print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	print permissionList
 
 #Generate the dataset for weka to process

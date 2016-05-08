@@ -133,6 +133,10 @@ def writeArffFile(appMatrixFile, arffFileContent):
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 
+def writeAppDictJson(appMatrixFile, appDict):
+	with open(appMatrixFile'.json', 'w') as fp:
+		json.dump(appDict, fp, sort_keys = True, indent = 4)
+
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
@@ -153,6 +157,7 @@ def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, pe
 		#generate the permission matrix for category list apps
 		appDict, permissionList = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 
+	writeAppDictJson(appMatrixFile, appDict)
 	writeArffFile(appMatrixFile, generateArffFileData(appDict, permissionList))
 
 	dbHandle.close() #DB Close

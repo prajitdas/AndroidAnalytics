@@ -99,13 +99,13 @@ def getAppCategoryList(appDict):
 
 #Generate the ARFF file for weka to process
 def generateArffFile(appMatrixFile, appDict, permissionList):
-	print "@RELATION playstore"
+	arffHeader="@RELATION playstore"
 	for permission in permissionList:
-		print "@ATTRIBUTE	permission	NUMERIC"
-	print "@ATTRIBUTE	class	{",",".join(getAppCategoryList(appDict)),"}"
+		arffHeader+="@ATTRIBUTE permission NUMERIC\n"
+	arffHeader+="@ATTRIBUTE class {"+",".join(getAppCategoryList(appDict))+"}\n"
 	# for appPkgName, appInfoDict in appDict.iteritems():
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
-	print permissionList
+	print arffHeader
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):

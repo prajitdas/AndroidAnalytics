@@ -94,7 +94,7 @@ def getPermVector(appPermList, permissionList):
 def getAppCategoryList(appDict):
 	tempCatVector = set()
 	for appInfoDict in appDict.itervalues():
-		tempCatVector.add(appInfoDict['category'])
+		tempCatVector.add(appInfoDict['category'].replace(" ", "_"))
 	return list(tempCatVector)
 
 #Generate the ARFF file for weka to process

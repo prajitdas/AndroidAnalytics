@@ -29,6 +29,7 @@ import databaseHandler
 import selectApps as sa
 import selectPermissions as sp
 import PathDetails as pd
+import arff
 
 def getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType):
 	appIdVector = []
@@ -104,7 +105,7 @@ def getAppPermCatVector(appPkgName, appInfoDict, permissionList):
 	return appPermCatVector
 
 #Generate the ARFF file for weka to process
-def generateArffFile(appMatrixFile, appDict, permissionList):
+def generateArffFileData(appDict, permissionList):
 	arffFileContent="% 1. Title: Playstore Data Category Classification\n"
 	arffFileContent+="% \n"
 	arffFileContent+="% 2. Sources:\n"
@@ -121,7 +122,13 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	
 	for appPkgName, appInfoDict in appDict.iteritems():
-		print ','.join(getAppPermCatVector(appPkgName, appInfoDict, permissionList))
+		arffFileContent+=','.join(getAppPermCatVector(appPkgName, appInfoDict, permissionList))
+
+	return arffFileContent
+
+def writeArffFile(appMatrixFile, arffFileContent):
+	with open(appMatrixFile, 'w') as fp:
+		fp.write(arffFileContent)
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):
@@ -143,7 +150,7 @@ def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, pe
 		#generate the permission matrix for category list apps
 		appDict, permissionList = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 
-	generateArffFile(appMatrixFile, appDict, permissionList)
+	writeArffFile(appMatrixFile, generateArffFileData(appDict, permissionList))
 
 	dbHandle.close() #DB Close
 

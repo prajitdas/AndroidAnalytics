@@ -6,25 +6,9 @@ Usage: python selectPermissions.py restrictionListSelection restrictionType
 import sys
 import databaseHandler
 
-def computeMatrix(permissionsSet, permissionsDict):
-	numberOfPermissions = len(permissionsSet)
-	numberOfApps = len(permissionsDict.keys())
-	
-	permissionsList = list(permissionsSet)
-	appVector = permissionsDict.keys()
-
-	# Creates a list containing 5 lists initialized to 0
-	appMatrix = [[0 for x in range(numberOfPermissions)] for x in range(numberOfApps)]
-	for app in appVector:
-		for perm in permissionsDict[app]:
-			appMatrix[appVector.index(app)][permissionsList.index(perm)] = 1
-
-	return appVector, appMatrix
-
 def generatePermVector(dbHandle, appDict, sqlStatement):
 	cursor = dbHandle.cursor()
 	try:
-		print sqlStatement
 		cursor.execute(sqlStatement)
 		print "Extracting app permissions"
 		if cursor.rowcount > 0:
@@ -37,7 +21,6 @@ def generatePermVector(dbHandle, appDict, sqlStatement):
 		print "Unexpected error in generatePermVector:", sys.exc_info()[0]
 		raise
 	print "generatePermVector complete"
-	print appDict
 	return appDict
 
 def getSQLStatement(appIdVector, permissionRestrictionList, restrictionType):

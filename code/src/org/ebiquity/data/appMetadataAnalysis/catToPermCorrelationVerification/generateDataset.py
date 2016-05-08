@@ -121,7 +121,7 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	
 	for appPkgName, appInfoDict in appDict.iteritems():
-		print str(getAppPermCatVector(appPkgName, appInfoDict, permissionList)).strip()
+		print ''.join(getAppPermCatVector(appPkgName, appInfoDict, permissionList))
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):

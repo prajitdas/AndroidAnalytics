@@ -6,6 +6,7 @@ import os
 import platform
 import socket
 import getpass
+import sys
 
 def getPath():
 	if socket.gethostname() == 'eclipse':
@@ -17,8 +18,8 @@ def getPath():
 	osInfo = platform.system()
 	if osInfo == 'Windows':
 		return currentDirectory+"\\"
-	elif osInfo == 'Linux':
+	elif osInfo == 'Linux' or osInfo == 'Darwin':
 		return currentDirectory+"/"
 	else:
 		print 'The current os not supported at the moment.'
-		return None
+		sys.exit(1)

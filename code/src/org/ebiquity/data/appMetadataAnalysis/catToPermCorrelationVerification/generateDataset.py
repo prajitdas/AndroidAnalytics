@@ -99,13 +99,13 @@ def getAppCategoryList(appDict):
 
 #Generate the ARFF file for weka to process
 def generateArffFile(appMatrixFile, appDict, permissionList):
-	arffFileContent="% 1. Title: Playstore Data Category Classification"
-	arffFileContent+="% "
-	arffFileContent+="% 2. Sources:"
-	arffFileContent+="%      (a) Creator: P. K. Das"
-	arffFileContent+="%      (b) Source: Google Play Store and Playdrone dataset"
-	arffFileContent+="%      (c) Date: May, 2016"
-	arffFileContent+="% "
+	arffFileContent="% 1. Title: Playstore Data Category Classification\n"
+	arffFileContent+="% \n"
+	arffFileContent+="% 2. Sources:\n"
+	arffFileContent+="%      (a) Creator: P. K. Das\n"
+	arffFileContent+="%      (b) Source: Google Play Store and Playdrone dataset\n"
+	arffFileContent+="%      (c) Date: May, 2016\n"
+	arffFileContent+="% \n"
 	arffFileContent+="@RELATION playstore\n\n"
 	for permission in permissionList:
 		arffFileContent+="@ATTRIBUTE permission NUMERIC\n"

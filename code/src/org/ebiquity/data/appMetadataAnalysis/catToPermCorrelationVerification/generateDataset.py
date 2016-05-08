@@ -29,6 +29,7 @@ import databaseHandler
 import selectApps as sa
 import selectPermissions as sp
 import PathDetails as pd
+import json
 import logging
 logging.basicConfig(filename='permcat.log',level=logging.DEBUG)
 

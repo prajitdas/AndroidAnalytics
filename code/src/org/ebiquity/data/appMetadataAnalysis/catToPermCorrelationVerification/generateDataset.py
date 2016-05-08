@@ -29,6 +29,8 @@ import databaseHandler
 import selectApps as sa
 import selectPermissions as sp
 import PathDetails as pd
+import logging
+logging.basicConfig(filename='permcat.log',level=logging.DEBUG)
 
 def getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType):
 	appIdVector = []
@@ -46,14 +48,14 @@ def getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionT
 
 #generate the permission matrix for category list apps
 def generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
-	print "in generateAppMatrixCatApps"
+	logging.debug('in generateAppMatrixCatApps')
 	#select the apps to be processed
 	appDict = sa.getCategoryApps(dbHandle, appCategoryList)
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #generate the permission matrix for hmd category list apps
 def generateAppMatrixHMDTopApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
-	print "in generateAppMatrixHMDTopApps"
+	logging.debug('in generateAppMatrixHMDTopApps')
 	#select the apps to be processed
 	#Since the execution is not working for more than a few thousand probably we are going to run this for a few thousand
 	appDict = sa.getHMDAppsTopFewThousands(dbHandle, appCategoryList)
@@ -61,7 +63,7 @@ def generateAppMatrixHMDTopApps(dbHandle, appCategoryList, permissionRestriction
 
 #generate the permission matrix for category wise list apps
 def generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restrictionType):
-	print "in generateAppMatrixCatTopApps"
+	logging.debug('in generateAppMatrixCatTopApps')
 	#select the apps to be processed
 	#Since the execution is not working for more than a few thousand probably we are going to run this for a few thousand
 	appDict = sa.getCategoryAppsTopFewThousands(dbHandle)
@@ -69,14 +71,14 @@ def generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restriction
 
 #generate the permission matrix for all apps
 def generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType):
-	print "in generateAppMatrixAllApps"
+	logging.debug('in generateAppMatrixAllApps')
 	#select the apps to be processed
 	appDict = sa.getAllApps(dbHandle)
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #Generate the permission matrix for top apps
 def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType):
-	print "in generateAppMatrixTopApps"
+	logging.debug('in generateAppMatrixTopApps')
 	#select the apps to be processed
 	appDict = sa.getTopApps(dbHandle)
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
@@ -114,7 +116,7 @@ def generateArffFileData(appDict, permissionList):
 	arffFileContent+="% \n"
 	arffFileContent+="@RELATION playstore\n\n"
 	for permission in permissionList:
-		arffFileContent+="@ATTRIBUTE permission NUMERIC\n"
+		arffFileContent+="@ATTRIBUTE "+permission+" NUMERIC\n"
 	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppCategoryList(appDict))+"}\n\n"
 	arffFileContent+="@DATA\n"
 	# for appPkgName, appInfoDict in appDict.iteritems():
@@ -127,7 +129,7 @@ def generateArffFileData(appDict, permissionList):
 	return arffFileContent
 
 def writeArffFile(appMatrixFile, arffFileContent):
-	print "Finally writing arff file!"
+	logging.debug('Finally writing arff file!')
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 

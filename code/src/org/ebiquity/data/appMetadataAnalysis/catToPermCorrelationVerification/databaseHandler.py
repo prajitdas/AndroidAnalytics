@@ -7,6 +7,8 @@ from ConfigParser import SafeConfigParser
 import MySQLdb
 import _mysql_exceptions
 import sys
+import logging
+logging.basicConfig(filename='permcat.log',level=logging.DEBUG)
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -15,10 +17,11 @@ def dbManipulateData(dbHandle, sqlStatement):
 		cursor.execute('SET NAMES utf8;')
 		cursor.execute('SET CHARACTER SET utf8;')
 		cursor.execute('SET character_set_connection=utf8;')
+		logging.debug('Executing statement: '+sqlStatement)
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
 	except _mysql_exceptions.IntegrityError:
-		print "data present"
+		logging.debug('data present')
 		return -1
 	except:
 		print "Unexpected error:", sys.exc_info()[0]

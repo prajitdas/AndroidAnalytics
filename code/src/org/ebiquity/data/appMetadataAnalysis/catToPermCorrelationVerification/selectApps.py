@@ -8,13 +8,15 @@ import databaseHandler
 import json
 import os
 import platform
+import logging
+logging.basicConfig(filename='permcat.log',level=logging.DEBUG)
 
 def generateAppDict(dbHandle,sqlStatement):
 	cursor = dbHandle.cursor()
 	appDict = {}
 	try:
 		cursor.execute(sqlStatement)
-		print "Extracting app package names and category info"
+		logging.debug('Extracting app package names and category info')
 		if cursor.rowcount > 0:
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:
@@ -24,7 +26,7 @@ def generateAppDict(dbHandle,sqlStatement):
 				appInfoDict['permissions'] = []
 				appDict[row[1]] = appInfoDict
 	except:
-		print "Unexpected error in extractAllApps:", sys.exc_info()[0]
+		logging.debug('Unexpected error in extractAllApps: '+sys.exc_info()[0])
 		raise
 
 	print "generateAppDict complete"
@@ -56,13 +58,13 @@ def getCategoryAppsTopFewThousands(dbHandle):
 	cursor = dbHandle.cursor()
 	try:
 		cursor.execute(sqlStatement)
-		print "Extracting app package names and ids"
+		logging.debug('Extracting app package names and ids')
 		if cursor.rowcount > 0:
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:
 				appDict.update(getSpecificCategoryAppsTopFewThousands(dbHandle,row[0]))
 	except:
-		print "Unexpected error in extractAllApps:", sys.exc_info()[0]
+		logging.debug('Unexpected error in getCategoryAppsTopFewThousands: '+sys.exc_info()[0])
 		raise
 	return appDict
 

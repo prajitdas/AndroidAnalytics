@@ -5,13 +5,15 @@ Usage: python selectPermissions.py restrictionListSelection restrictionType
 '''
 import sys
 import databaseHandler
+import logging
+logging.basicConfig(filename='permcat.log',level=logging.DEBUG)
 
 def generatePermVector(dbHandle, appDict, sqlStatement):
 	cursor = dbHandle.cursor()
 	permissionSet = set()
 	try:
 		cursor.execute(sqlStatement)
-		print "Extracting app permissions"
+		logging.debug('Extracting app permissions')
 		if cursor.rowcount > 0:
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:
@@ -20,7 +22,7 @@ def generatePermVector(dbHandle, appDict, sqlStatement):
 				permissionSet.add(row[2])
 				appDict[row[0]]['permissions'] = list(tempPermSet)
 	except:
-		print "Unexpected error in generatePermVector:", sys.exc_info()[0]
+		logging.debug('Unexpected error in generatePermVector: '+sys.exc_info()[0])
 		raise
 	print "generatePermVector complete"
 	return appDict, list(permissionSet)

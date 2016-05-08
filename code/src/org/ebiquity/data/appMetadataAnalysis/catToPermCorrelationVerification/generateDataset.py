@@ -101,7 +101,7 @@ def getAppCategoryList(appDict):
 def generateArffFile(appMatrixFile, appDict, permissionList):
 	arffFileContent="@RELATION playstore\n\n"
 	for permission in permissionList:
-		arffFileContent+="@ATTRIBUTE permission NUMERIC\n\n"
+		arffFileContent+="@ATTRIBUTE permission NUMERIC\n"
 	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppCategoryList(appDict))+"}\n\n"
 	arffFileContent+="@DATA\n"
 	print arffFileContent

@@ -82,10 +82,10 @@ def generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionTyp
 	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #Generate the ARFF file for weka to process
-def generateArffFile(appMatrixFile, appDict, permissionSet):
+def generateArffFile(appMatrixFile, appDict, permissionList):
 	for appPkgName, appInfoDict in appDict.iteritems():
 		print appPkgName, appInfoDict['permissions'], appInfoDict['category']
-	print permissionSet
+	print permissionList
 
 #Generate the dataset for weka to process
 def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType):
@@ -93,21 +93,21 @@ def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, pe
 
 	if appCategoryListSelection == 'top':
 		#generate the permission matrix for top apps
-		appDict, permissionSet = generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType)
+		appDict, permissionList = generateAppMatrixTopApps(dbHandle, permissionRestrictionList, restrictionType)
 	elif appCategoryListSelection == 'all':
 		#generate the permission matrix for all apps
-		appDict, permissionSet = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
+		appDict, permissionList = generateAppMatrixAllApps(dbHandle, permissionRestrictionList, restrictionType)
 	elif appCategoryListSelection == 'cattop':
 		#generate the permission matrix for category wise top apps
-		appDict, permissionSet = generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restrictionType)
+		appDict, permissionList = generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restrictionType)
 	elif appCategoryListSelection == 'hmdtop':
 		#generate the permission matrix for hmd top apps
-		appDict, permissionSet = generateAppMatrixHMDTopApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
+		appDict, permissionList = generateAppMatrixHMDTopApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 	else:
 		#generate the permission matrix for category list apps
-		appDict, permissionSet = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
+		appDict, permissionList = generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 
-	generateArffFile(appMatrixFile, appDict, permissionSet)
+	generateArffFile(appMatrixFile, appDict, permissionList)
 
 	dbHandle.close() #DB Close
 

@@ -102,7 +102,7 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 	print "@RELATION playstore"
 	for permission in permissionList:
 		print "@ATTRIBUTE	permission	NUMERIC"
-	print str(getAppCategoryList(appDict))
+	print ",".join(getAppCategoryList(appDict))
 	# for appPkgName, appInfoDict in appDict.iteritems():
 	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	print permissionList

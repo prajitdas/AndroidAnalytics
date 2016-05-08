@@ -118,7 +118,7 @@ def generateArffFile(appMatrixFile, appDict, permissionList):
 		appPermCatVector = []
 		appPermCatVector = getPermVector(appInfoDict['permissions'], permissionList)
 		appPermCatVector.append(appInfoDict['category'])
-		print str(appPermCatVector)
+		print ",".join(str(appPermCatVector))
 		appPermCatListOfLists.append(appPermCatVector)
 
 #Generate the dataset for weka to process

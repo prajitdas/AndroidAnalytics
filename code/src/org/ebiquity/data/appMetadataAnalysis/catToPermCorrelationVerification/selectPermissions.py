@@ -8,6 +8,7 @@ import databaseHandler
 
 def generatePermVector(dbHandle, appDict, sqlStatement):
 	cursor = dbHandle.cursor()
+	permissionSet = set()
 	try:
 		cursor.execute(sqlStatement)
 		print "Extracting app permissions"
@@ -16,12 +17,13 @@ def generatePermVector(dbHandle, appDict, sqlStatement):
 			for row in queryOutput:
 				tempPermSet = set(appDict[row[0]]['permissions'])
 				tempPermSet.add(row[2])
-				appDict[row[0]]['permissions'] = tempPermSet
+				permissionSet.add(row[2])
+				appDict[row[0]]['permissions'] = list(tempPermSet)
 	except:
 		print "Unexpected error in generatePermVector:", sys.exc_info()[0]
 		raise
 	print "generatePermVector complete"
-	return appDict
+	return appDict, permissionSet
 
 def getSQLStatement(appIdVector, permissionRestrictionList, restrictionType):
 	permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)

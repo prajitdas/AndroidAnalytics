@@ -1,5 +1,5 @@
 '''
-Created on August 18, 2015
+Updated on May 9, 2016
 @author: Prajit
 Usage: python selectPermissions.py restrictionListSelection restrictionType
 '''
@@ -28,8 +28,8 @@ def generatePermVector(dbHandle, appDict, sqlStatement):
 	return appDict, list(permissionSet)
 
 def getSQLStatement(appIdVector, permissionRestrictionList, restrictionType):
-	permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
 	appIdVectorSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appIdVector)
+	permissionRestrictionSQLQueryList = databaseHandler.convertPythonListToSQLQueryList(permissionRestrictionList)
 	if permissionRestrictionSQLQueryList == '':
 		# Get the complete permissions vector and then use that as the vector rep for each app
 		# If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
@@ -47,5 +47,7 @@ def getSQLStatement(appIdVector, permissionRestrictionList, restrictionType):
 			# If the app has requested said permission then mark that as 1 or else let the vetor index for a permission remain zero
 			# Select only permissions which have not been restricted
 			sqlStatement = "SELECT app.`app_pkg_name`, a.`perm_id`, p.`name` FROM `appperm` a, `permissions` p, `appdata` app WHERE a.`perm_id` = p.`id` AND a.`app_id` = app.`id` AND a.`app_id` IN ("+appIdVectorSQLQueryList+") AND p.`name` NOT IN ("+permissionRestrictionSQLQueryList+");"
+	
+	logging.debug('getSQLStatement returns: '+sqlStatement)
 	
 	return sqlStatement

@@ -1,5 +1,5 @@
 '''
-Created on August 18, 2015
+Updated on May 9, 2016
 @author: Prajit
 Usage: python selectApps.py selectionType
 '''

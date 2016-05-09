@@ -3,7 +3,7 @@ if [ "$1" != "" ];
 then
 	if [ `hostname` == "eclipse" ];
 	then
-		android create avd -n nexus6 -t $1 --skin WVGA800 --abi default/x86_64 -p $ANDROID_AVD_HOME --force
+		android create avd -n nexus6 -t $1 --skin WVGA800 --abi default/x86_64 -p $ANDROID_SDK_HOME/.android/avd --force
 	else
 		android create avd -n nexus6 -t $1 --skin WVGA800 --abi default/x86_64
 	fi

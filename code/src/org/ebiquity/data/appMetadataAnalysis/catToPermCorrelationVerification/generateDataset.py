@@ -248,9 +248,9 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 	else:#Select no permission restriction as we did not choose any restriction list
 		permissionRestrictionList = ['']
 
-	print sqlStatement
 	tempPermissionList = []
 	if sqlStatement != "ignore":
+		print sqlStatement
 		try:
 			cursor.execute(sqlStatement)
 			logging.debug('Extracting permission list')

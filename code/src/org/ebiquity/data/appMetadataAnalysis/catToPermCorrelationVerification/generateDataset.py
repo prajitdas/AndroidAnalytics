@@ -177,6 +177,7 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 	sqlStatement = "SELECT * FROM  `perm_app_count_view` LIMIT 0,"
 
+	appCategoryList = []
 	if appCategoryListSelection == 'med':
 		appCategoryList = ['https://play.google.com/store/apps/category/MEDICAL']
 	elif appCategoryListSelection == 'hea':
@@ -194,7 +195,7 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 	elif appCategoryListSelection == 'cattop':
 		appCategoryList = ['cattop']
 	else:
-		appCategoryList = [appCategoryListSelection]
+		appCategoryList.append(appCategoryListSelection)
 		appCategoryListSelection = 'number'
 	'''
 	This is the full list:-

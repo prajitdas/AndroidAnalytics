@@ -22,7 +22,7 @@ def generatePermVector(dbHandle, appDict, sqlStatement):
 				permissionSet.add(row[2])
 				appDict[row[0]]['permissions'] = list(tempPermSet)
 	except:
-		logging.debug('Unexpected error in generatePermVector: '+sys.exc_info()[0])
+		logging.debug('Unexpected error in generatePermVector: '+str(sys.exc_info()[0]))
 		raise
 	logging.debug('generatePermVector complete')
 	return appDict, list(permissionSet)

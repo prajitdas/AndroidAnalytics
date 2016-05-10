@@ -26,7 +26,7 @@ def generateAppDict(dbHandle,sqlStatement):
 				appInfoDict['permissions'] = []
 				appDict[row[1]] = appInfoDict
 	except:
-		logging.debug('Unexpected error in extractAllApps: '+sys.exc_info()[0])
+		logging.debug('Unexpected error in extractAllApps: '+str(sys.exc_info()[0]))
 		raise
 
 	logging.debug('generateAppDict complete')
@@ -64,7 +64,7 @@ def getCategoryAppsTopFewThousands(dbHandle):
 			for row in queryOutput:
 				appDict.update(getSpecificCategoryAppsTopFewThousands(dbHandle,row[0]))
 	except:
-		logging.debug('Unexpected error in getCategoryAppsTopFewThousands: '+sys.exc_info()[0])
+		logging.debug('Unexpected error in getCategoryAppsTopFewThousands: '+str(sys.exc_info()[0]))
 		raise
 	return appDict
 

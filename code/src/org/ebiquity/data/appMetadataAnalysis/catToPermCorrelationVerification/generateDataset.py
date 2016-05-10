@@ -259,7 +259,7 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 					tempPermissionList.append(row[1])
 		except:
 			print type(sys.exc_info()[0])
-			logging.debug('Unexpected error in preProcess: '+sys.exc_info()[0])
+			logging.debug('Unexpected error in preProcess: '+str(sys.exc_info()[0]))
 			sys.exit(1)		
 		permissionRestrictionList = tempPermissionList
 

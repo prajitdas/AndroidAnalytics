@@ -81,7 +81,7 @@ def getTopApps(dbHandle):
 
 def getNumberApps(dbHandle, appCategoryList):
 	appCategorySQLQueryList = databaseHandler.convertPythonListToSQLQueryList(appCategoryList)
-	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = cat.`id` ORDER BY RAND() LIMIT "+appCategoryList+";"
+	sqlStatement = "SELECT a.`id`, a.`app_pkg_name`, cat.`name` FROM `appdata` a, `appurls` url, `appcategories` cat WHERE a.`app_pkg_name` = url.`app_pkg_name` AND url.`perm_extracted` = 1 AND a.`app_category_id` = cat.`id` ORDER BY RAND() LIMIT "+appCategoryList[0]+";"
 	return generateAppDict(dbHandle,sqlStatement)
 
 def getCategoryApps(dbHandle,appCategoryList):

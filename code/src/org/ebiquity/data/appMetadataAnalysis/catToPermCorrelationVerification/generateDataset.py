@@ -173,6 +173,7 @@ def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, pe
 
 	dbHandle.close() #DB Close
 
+#Preprocessign all the variables that controls the data selection
 def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 	sqlStatement = "SELECT * FROM  `perm_app_count_view` LIMIT 0,"
@@ -257,6 +258,7 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 				for row in queryOutput:
 					tempPermissionList.append(row[1])
 		except:
+			print type(sys.exc_info()[0])
 			logging.debug('Unexpected error in preProcess: '+sys.exc_info()[0])
 			sys.exit(1)		
 		permissionRestrictionList = tempPermissionList

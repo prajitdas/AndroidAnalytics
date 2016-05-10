@@ -252,13 +252,13 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 	if sqlStatement != "ignore":
 		try:
 			cursor.execute(sqlStatement)
+			print sqlStatement
 			logging.debug('Extracting permission list')
 			if cursor.rowcount > 0:
 				queryOutput = cursor.fetchall()
 				for row in queryOutput:
 					tempPermissionList.append(row[1])
 		except:
-			print type(sys.exc_info()[0])
 			logging.debug('Unexpected error in preProcess: '+str(sys.exc_info()[0]))
 			sys.exit(1)		
 		permissionRestrictionList = tempPermissionList

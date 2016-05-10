@@ -262,7 +262,9 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 			logging.debug('Unexpected error in preProcess: '+str(sys.exc_info()[0]))
 			sys.exit(1)		
 		permissionRestrictionList = tempPermissionList
-
+	
+	print permissionRestrictionList
+		
 	ticks = time.time()
 	uniformString = str(ticks).replace(".","_")
 	appMatrixFile = pd.getPath()+"appMatrix"+uniformString+".arff"

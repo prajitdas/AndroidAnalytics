@@ -4,7 +4,7 @@ Created on May 8, 2016
 
 Usage: python generateDataset.py appCategoryListSelection restrictionListSelection restrictionType
 
-appCategoryListSelection = [med|hea|hmd|hmdtop|fabra|top|all]
+appCategoryListSelection = [med|hea|hmd|hmdtop|fabra|top|1000|2000|3000|5000|8000|13000|21000|34000|55000|89000|144000|233000|377000|610000|987000|all]
 	med: medical apps
 	hea: health & fitness apps
 	hmd: health & fitness and medical apps
@@ -45,6 +45,13 @@ def getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionT
 	Return app vector appMatrix will be read from File
 	'''
 	return sp.generatePermVector(dbHandle, appDict, sp.getSQLStatement(appIdVector, permissionRestrictionList, restrictionType))
+
+#Generate the permission matrix for a number of apps
+def generateAppMatrixNumberApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
+	logging.debug('in generateAppMatrixNumberApps')
+	#select the apps to be processed
+	appDict = sa.getNumberApps(dbHandle, appCategoryList)
+	return getPermDictForApp(dbHandle, appDict, permissionRestrictionList, restrictionType)
 
 #generate the permission matrix for category list apps
 def generateAppMatrixCatApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType):
@@ -151,6 +158,9 @@ def generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, pe
 	elif appCategoryListSelection == 'cattop':
 		#generate the permission matrix for category wise top apps
 		appDict, permissionList = generateAppMatrixCatTopApps(dbHandle, permissionRestrictionList, restrictionType)
+	elif appCategoryListSelection == 'number':
+		#generate the permission matrix for a number of apps
+		appDict, permissionList = generateAppMatrixNumberApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
 	elif appCategoryListSelection == 'hmdtop':
 		#generate the permission matrix for hmd top apps
 		appDict, permissionList = generateAppMatrixHMDTopApps(dbHandle, appCategoryList, permissionRestrictionList, restrictionType)
@@ -183,6 +193,9 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 		appCategoryList = ['all']
 	elif appCategoryListSelection == 'cattop':
 		appCategoryList = ['cattop']
+	else:
+		appCategoryList = [appCategoryListSelection]
+		appCategoryListSelection = 'number'
 	'''
 	This is the full list:-
 	appCategoryList = ['https://play.google.com/store/apps/category/APP_WALLPAPER','https://play.google.com/store/apps/category/APP_WIDGETS','https://play.google.com/store/apps/category/BOOKS_AND_REFERENCE','https://play.google.com/store/apps/category/BUSINESS','https://play.google.com/store/apps/category/COMICS','https://play.google.com/store/apps/category/COMMUNICATION','https://play.google.com/store/apps/category/EDUCATION','https://play.google.com/store/apps/category/ENTERTAINMENT','https://play.google.com/store/apps/category/FAMILY','https://play.google.com/store/apps/category/FAMILY?age=AGE_RANGE1','https://play.google.com/store/apps/category/FAMILY?age=AGE_RANGE2','https://play.google.com/store/apps/category/FAMILY?age=AGE_RANGE3','https://play.google.com/store/apps/category/FAMILY_ACTION','https://play.google.com/store/apps/category/FAMILY_BRAINGAMES','https://play.google.com/store/apps/category/FAMILY_CREATE','https://play.google.com/store/apps/category/FAMILY_EDUCATION','https://play.google.com/store/apps/category/FAMILY_MUSICVIDEO','https://play.google.com/store/apps/category/FAMILY_PRETEND','https://play.google.com/store/apps/category/FINANCE','https://play.google.com/store/apps/category/GAME','https://play.google.com/store/apps/category/GAME_ACTION','https://play.google.com/store/apps/category/GAME_ADVENTURE','https://play.google.com/store/apps/category/GAME_ARCADE','https://play.google.com/store/apps/category/GAME_BOARD','https://play.google.com/store/apps/category/GAME_CARD','https://play.google.com/store/apps/category/GAME_CASINO','https://play.google.com/store/apps/category/GAME_CASUAL','https://play.google.com/store/apps/category/GAME_EDUCATIONAL','https://play.google.com/store/apps/category/GAME_MUSIC','https://play.google.com/store/apps/category/GAME_PUZZLE','https://play.google.com/store/apps/category/GAME_RACING','https://play.google.com/store/apps/category/GAME_ROLE_PLAYING','https://play.google.com/store/apps/category/GAME_SIMULATION','https://play.google.com/store/apps/category/GAME_SPORTS','https://play.google.com/store/apps/category/GAME_STRATEGY','https://play.google.com/store/apps/category/GAME_TRIVIA','https://play.google.com/store/apps/category/GAME_WORD','https://play.google.com/store/apps/category/HEALTH_AND_FITNESS','https://play.google.com/store/apps/category/LIBRARIES_AND_DEMO','https://play.google.com/store/apps/category/LIFESTYLE','https://play.google.com/store/apps/category/MEDIA_AND_VIDEO','https://play.google.com/store/apps/category/MEDICAL','https://play.google.com/store/apps/category/MUSIC_AND_AUDIO','https://play.google.com/store/apps/category/NEWS_AND_MAGAZINES','https://play.google.com/store/apps/category/PERSONALIZATION','https://play.google.com/store/apps/category/PHOTOGRAPHY','https://play.google.com/store/apps/category/PRODUCTIVITY','https://play.google.com/store/apps/category/SHOPPING','https://play.google.com/store/apps/category/SOCIAL','https://play.google.com/store/apps/category/SPORTS','https://play.google.com/store/apps/category/TOOLS','https://play.google.com/store/apps/category/TRANSPORTATION','https://play.google.com/store/apps/category/TRAVEL_AND_LOCAL','https://play.google.com/store/apps/category/WEATHER']
@@ -256,20 +269,20 @@ def preProcess(appCategoryListSelection, permissionRestrictionListSelection):
 
 	dbHandle.close() #DB Close
 
-	return appMatrixFile, appCategoryList, permissionRestrictionList
+	return appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList
 
 def main(argv):
 	if len(sys.argv) != 4:
-		sys.stderr.write('Usage: python generateDataset.py appCategoryListSelection restrictionListSelection restrictionType\n\nappCategoryListSelection = [med|hea|hmd|hmdtop|fabra|top|all]\n\tmed: medical apps\n\thea: health & fitness apps\n\thmd: health & fitness and medical apps\n\thmdtop: health & fitness and medical top apps\n\tfabra: family brain games apps\n\ttop: top Google apps\n\tall: all apps\n\nrestrictionListSelection = [int|top25|google]\n\tall: all permissions\n\ttop[25|50|75|100|125|150|175|200|225|250|275|300|500|1000|10000|100000|200000]: top [25|50|75|100|125|150|175|200|225|250|275|300|500|1000|10000|100000|200000] permissions\n\tgoogle: google permissions\n\nrestrictionType = [allow|'']\n\tallow: allow selection\n\t'': deny\n')
+		sys.stderr.write('Usage: python generateDataset.py appCategoryListSelection restrictionListSelection restrictionType\n\nappCategoryListSelection = [med|hea|hmd|hmdtop|fabra|top|1000|2000|3000|5000|8000|13000|21000|34000|55000|89000|144000|233000|377000|610000|987000|all]\n\tmed: medical apps\n\thea: health & fitness apps\n\thmd: health & fitness and medical apps\n\thmdtop: health & fitness and medical top apps\n\tfabra: family brain games apps\n\ttop: top Google apps\n\tall: all apps\n\nrestrictionListSelection = [int|top25|google]\n\tall: all permissions\n\ttop[25|50|75|100|125|150|175|200|225|250|275|300|500|1000|10000|100000|200000]: top [25|50|75|100|125|150|175|200|225|250|275|300|500|1000|10000|100000|200000] permissions\n\tgoogle: google permissions\n\nrestrictionType = [allow|'']\n\tallow: allow selection\n\t'': deny\n')
 		sys.exit(1)
 
 	appCategoryListSelection = sys.argv[1]
 	permissionRestrictionListSelection = sys.argv[2]
 	restrictionType = sys.argv[3]
 
-	appMatrixFile, appCategoryList, permissionRestrictionList = preProcess(appCategoryListSelection, permissionRestrictionListSelection)
+	appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList = preProcess(appCategoryListSelection, permissionRestrictionListSelection)
 	startTime = time.time()
-	#Initiate the clustering process
+	#Initiate the data generation process
 	generateDataset(appMatrixFile, appCategoryList, appCategoryListSelection, permissionRestrictionList, restrictionType)
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"

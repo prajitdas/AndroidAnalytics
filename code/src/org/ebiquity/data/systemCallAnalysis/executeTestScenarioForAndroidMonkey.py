@@ -4,6 +4,8 @@ Created on May 3,2016
 
 Usage: python executeTestScenarioForAndroidMonkey.py pathToApk\n
 
+good help: https://devmaze.wordpress.com/2011/12/12/starting-and-stopping-android-emulators/
+
 Syscall analysis code.
 '''
 import time

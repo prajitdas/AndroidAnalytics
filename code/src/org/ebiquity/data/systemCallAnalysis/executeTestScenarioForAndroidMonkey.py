@@ -49,6 +49,8 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 				# Even if there is an exception in running experiments, remove the file to the other folder
 				movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
 				logging.debug('moving file to '+movePath)
+				print pathToApk
+				print movePath
 				shutil.move(pathToApk,movePath)
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
 			#command="mv "+pathToApk+" ../other"

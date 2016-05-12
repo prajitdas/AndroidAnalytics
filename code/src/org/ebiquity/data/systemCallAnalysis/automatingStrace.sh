@@ -39,12 +39,14 @@ else
 	# straceOutFilePath=$(echo "/sdcard/"$package"Strace.out")
 	# adb shell "cp $outputFile $straceOutFilePath"
 
+	# Extract the out file containing the output of strace
+	adb pull $outputFile
+	sleep 10
+	cd -
+	
 	# Uninstall the app
 	adb uninstall $package
 
-	# Extract the out file containing the output of strace
-	adb pull $outputFile
-	cd -
 	echo "Success";
 	exit 0
 fi

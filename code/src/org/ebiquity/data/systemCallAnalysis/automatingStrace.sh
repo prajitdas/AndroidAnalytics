@@ -11,19 +11,22 @@ else
 	package=$(aapt dump badging $1|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')
 	activity=$(aapt dump badging $1|awk -F" " '/launchable-activity/ {print $2}'|awk -F"'" '/name=/ {print $2}')
 
-	# Start package using ActivityManager in order to determine the process Id of the app
-	adb shell am start -n $package/$activity
-	processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
 	outputFile=$(echo "/sdcard/"$package".out")
+	adb shell touch $outputFile
 	# Verifying the variables (for Debug)
 	echo $package
 	echo $activity
-	echo $processId
 	echo $outputFile
-	adb shell touch $outputFile
+
+	# Start package using ActivityManager in order to determine the process Id of the app
+	adb shell am start -n $package/$activity
+	processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
 
 	# Starting the trace process on the app's process id. This is assuming that we have the root shell
-	adb shell "nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&"
+	adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
+
+	# Verifying the variables (for Debug)
+	echo $processId
 
 	# Output directory creation for $package
 	outDir="out/"$package
@@ -39,14 +42,14 @@ else
 	# straceOutFilePath=$(echo "/sdcard/"$package"Strace.out")
 	# adb shell "cp $outputFile $straceOutFilePath"
 
+	# Uninstall the app
+	adb uninstall $package
+
 	# Extract the out file containing the output of strace
 	adb pull $outputFile
 	sleep 10
 	cd -
 	
-	# Uninstall the app
-	adb uninstall $package
-
 	echo "Success";
 	exit 0
 fi

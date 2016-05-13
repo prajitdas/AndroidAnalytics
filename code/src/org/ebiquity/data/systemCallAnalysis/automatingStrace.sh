@@ -23,6 +23,7 @@ else
 	processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
 
 	# Starting the trace process on the app's process id. This is assuming that we have the root shell
+	#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"
 	adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
 
 	# Verifying the variables (for Debug)
@@ -42,14 +43,14 @@ else
 	# straceOutFilePath=$(echo "/sdcard/"$package"Strace.out")
 	# adb shell "cp $outputFile $straceOutFilePath"
 
-	# Uninstall the app
-	adb uninstall $package
-
 	# Extract the out file containing the output of strace
 	adb pull $outputFile
 	sleep 10
 	cd -
 	
+	# Uninstall the app
+	adb uninstall $package
+
 	echo "Success";
 	exit 0
 fi

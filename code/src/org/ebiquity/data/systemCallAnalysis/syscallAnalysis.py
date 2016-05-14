@@ -69,7 +69,7 @@ def runExperimentsOnEmulator(username,api_key,currentPath,apkFolderPath,outputDi
 		logging.debug('Finished running experiments, extracting features for the app: '+key)
 		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 		logging.debug('Done with extracing features for the app: '+key+' onto the next app!')
-		time.sleep(300)
+		time.sleep(120)
 
 	# After all the apps have been processed and features extracted,we may run the ML algos.
 	#initCl.initClustering(username,api_key,currentPath)

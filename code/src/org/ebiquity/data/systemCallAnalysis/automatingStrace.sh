@@ -18,6 +18,11 @@ else
 	echo $activity
 	echo $outputFile
 
+	# Output directory creation for $package
+	outDir="out/"$package
+	mkdir -p $outDir
+	cd $outDir
+
 	# Start package using ActivityManager in order to determine the process Id of the app
 	adb shell am start -n $package/$activity
 	processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
@@ -28,11 +33,6 @@ else
 
 	# Verifying the variables (for Debug)
 	echo $processId
-
-	# Output directory creation for $package
-	outDir="out/"$package
-	mkdir -p $outDir
-	cd $outDir
 
 	# Using monkey to generate a certain number of pseudo-random events
 	adb shell monkey -p $package -v 1000 > "$package"monkey.out

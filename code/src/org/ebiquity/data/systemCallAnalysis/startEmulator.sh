@@ -1,3 +1,3 @@
 #!/bin/bash
-#adb start-server
+adb start-server
 emulator -avd nexus6 -wipe-data &

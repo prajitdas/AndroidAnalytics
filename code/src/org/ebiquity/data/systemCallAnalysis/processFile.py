@@ -15,10 +15,11 @@ import json
 import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
-def processFile(filePath):
+def processFileGetFunctionNames(filePath):
 	syscallDict = {}
 	with open(filePath,'r') as fp:
 		for line in fp:
+			# This is where we are extracting the actual features from the out files
 			syscall = line.split('(')[0].strip()
 			if syscall in syscallDict:
 				syscallDict[syscall] += 1
@@ -42,7 +43,8 @@ def extractFeatures(jsonPath,root,appPkgName):
 	syscallDict = {}
 	for file in os.listdir(appOutputFolder):
 		if not fm.fnmatch(file,'*monkey.out'):
-			syscallDict = processFile(os.path.join(appOutputFolder,file))
+			# First analysis is to get the function names
+			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file))
 	storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask():

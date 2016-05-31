@@ -56,6 +56,10 @@ def doTask():
 				# print od['@android:icon']
 		for permissions in dict['manifest']['permission']:
 			od = OrderedDict(permissions)
+			name = ''
+			permissionGroup = 'NULL'
+			protectionLevel = ''
+			permissionFlags = 'NULL'
 			if '@android:name' in od:
 				name = od['@android:name']
 			if '@android:permissionGroup' in od:

@@ -34,40 +34,42 @@ def doTask():
 		data = file.read()
 		dict = xmltodict.parse(data)
 
-		with open('permisions.json', 'w') as fp:
+		with open('GoogleAndroidManifestPermissions.json', 'w') as fp:
 			json.dump(dict, fp, indent=4)
 
-		for broadcasts in dict['manifest']['protected-broadcast']:
-			od = OrderedDict(broadcasts)
-			print od['@android:name']
-		for broadcasts in dict['manifest']['permission-group']:
-			od = OrderedDict(broadcasts)
+		# for broadcasts in dict['manifest']['protected-broadcast']:
+			# od = OrderedDict(broadcasts)
+			# print od['@android:name']
+		# for permGroups in dict['manifest']['permission-group']:
+			# od = OrderedDict(permGroups)
+			# if '@android:name' in od:
+				# print od['@android:name']
+			# if '@android:label' in od:
+				# print od['@android:label']
+			# if '@android:description' in od:
+				# print od['@android:description']
+			# if '@android:permissionGroupFlags' in od:
+				# print od['@android:permissionGroupFlags']
+			# if '@android:priority' in od:
+				# print od['@android:priority']
+			# if '@android:icon' in od:
+				# print od['@android:icon']
+		for permissions in dict['manifest']['permission']:
+			od = OrderedDict(permissions)
 			if '@android:name' in od:
-				print od['@android:name']
-			if '@android:label' in od:
-				print od['@android:label']
-			if '@android:description' in od:
-				print od['@android:description']
-			if '@android:permissionGroupFlags' in od:
-				print od['@android:permissionGroupFlags']
-			if '@android:priority' in od:
-				print od['@android:priority']
-			if '@android:icon' in od:
-				print od['@android:icon']
-		for broadcasts in dict['manifest']['permission']:
-			od = OrderedDict(broadcasts)
-			if '@android:name' in od:
-				print od['@android:name']
+				name = od['@android:name']
 			if '@android:permissionGroup' in od:
-				print od['@android:permissionGroup']
+				permissionGroup = od['@android:permissionGroup']
 			if '@android:protectionLevel' in od:
-				print od['@android:protectionLevel']
+				protectionLevel = od['@android:protectionLevel']
 			if '@android:permissionFlags' in od:
-				print od['@android:permissionFlags']
-			if '@android:label' in od:
-				print od['@android:label']
-			if '@android:description' in od:
-				print od['@android:description']
+				permissionFlags = od['@android:permissionFlags']
+			# if '@android:label' in od:
+				# print od['@android:label']
+			# if '@android:description' in od:
+				# print od['@android:description']
+			sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"') on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = '"+permissionFlags+"';"
+			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 		# soup = BeautifulSoup(page, 'xml')
 		# data = soup.findAll(attrs={'class': 'card-click-target'})
 
@@ -93,7 +95,6 @@ def doTask():
 		print 'HTTPException'
 	except Exception:
 		print 'generic exception: ' + traceback.format_exc()
-
 
 def main(argv):
 	if len(sys.argv) != 1:

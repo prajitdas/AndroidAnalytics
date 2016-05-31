@@ -57,9 +57,9 @@ def doTask():
 		for permissions in dict['manifest']['permission']:
 			od = OrderedDict(permissions)
 			name = ''
-			permissionGroup = 'NULL'
+			permissionGroup = ''
 			protectionLevel = ''
-			permissionFlags = 'NULL'
+			permissionFlags = ''
 			if '@android:name' in od:
 				name = od['@android:name']
 			if '@android:permissionGroup' in od:
@@ -67,12 +67,15 @@ def doTask():
 			if '@android:protectionLevel' in od:
 				protectionLevel = od['@android:protectionLevel']
 			if '@android:permissionFlags' in od:
-				permissionFlags = od['@android:permissionFlags']
+				permissionFlags = od['@android:permissionFlags']    
 			# if '@android:label' in od:
 				# print od['@android:label']
 			# if '@android:description' in od:
 				# print od['@android:description']
 			sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"') on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = '"+permissionFlags+"';"
+			if permissionFlags == '':
+				sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', NULL) on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = NULL;"
+
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 		# soup = BeautifulSoup(page, 'xml')
 		# data = soup.findAll(attrs={'class': 'card-click-target'})

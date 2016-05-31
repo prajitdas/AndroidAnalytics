@@ -44,6 +44,7 @@ def preProcess():
 def initClustering(username, api_key, jsonPath):
 	appMatrixFile, predictedClustersFile = preProcess()
 	jsonDict = getSyscallClusteringDataInput(jsonPath)
+	# Things have been initiated, now to run clustering
 	runCl.runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 
 def main(argv):

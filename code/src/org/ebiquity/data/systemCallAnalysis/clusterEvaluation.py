@@ -57,6 +57,7 @@ def evaluateCluster(clusterInfo):
 
 	labels_true = getCategoryNumbers(appNames,dbHandle)
 	print list(set(labels_true) - set(labels_pred))
+	sys.exit(1)
 	
 	logging.debug('Right before cluster evaluation')
 	clusterEvaluationResults = {}

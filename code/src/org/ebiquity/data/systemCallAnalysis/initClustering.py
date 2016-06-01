@@ -44,6 +44,10 @@ def preProcess():
 def initClustering(username, api_key, jsonPath):
 	appMatrixFile, predictedClustersFile = preProcess()
 	jsonDict = getSyscallClusteringDataInput(jsonPath)
+
+	# TODO remove these two line later when you fix the problem with data collection
+	del jsonDict['com.google.android.contacts']
+	del jsonDict['com.motorola.omni']
 	# Things have been initiated, now to run clustering
 	runCl.runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 

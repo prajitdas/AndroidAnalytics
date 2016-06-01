@@ -40,6 +40,8 @@ def getCategoryNumbers(appNames,dbHandle):
 	keylist.sort()
 	for key in keylist:
 		labels_true.append(appCategoriesDict[key])
+
+	print list(set(appNames) - set(labels_true))
 	return labels_true
  
 def evaluateCluster(clusterInfo):

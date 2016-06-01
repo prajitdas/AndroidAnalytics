@@ -13,7 +13,7 @@ from scipy.spatial import distance as spDist
 
 def computeDist(app1SyscallsVector,app2SyscallsVector):
 	# Single method deciding which distance function will be used
-	return jaccard(app1SyscallsVector,app2SyscallsVector)
+	return cosine(app1SyscallsVector,app2SyscallsVector)
 
 def braycurtis(app1SyscallsVector,app2SyscallsVector):
 	return spDist.braycurtis(app1SyscallsVector,app2SyscallsVector)
@@ -152,6 +152,7 @@ def computeJaccardMatrix(jsonDict):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
+				score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector))
 				score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector))
 				appMatrix[i,j] = score
 				appMatrix[j,i] = score

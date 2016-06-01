@@ -29,7 +29,7 @@ def getCategoryNumbers(appNames,dbHandle):
 	sqlStatement = "SELECT `app_pkg_name`,`app_category_id` FROM `appdata` WHERE `app_pkg_name` IN ("+appList+");"
 	try:
 		cursor.execute(sqlStatement)
-		print cursor.rowcount
+		# print cursor.rowcount
 		if cursor.rowcount > 0:
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:
@@ -39,7 +39,7 @@ def getCategoryNumbers(appNames,dbHandle):
 		logging.debug('Unexpected error in getCategoryNumber:'+sys.exc_info()[0])
 		raise
 	
-	print list(set(appNames) - set(foundapps))
+	# print list(set(appNames) - set(foundapps))
 	keylist = appCategoriesDict.keys()
 	keylist.sort()
 	for key in keylist:
@@ -59,7 +59,6 @@ def evaluateCluster(clusterInfo):
 		appNames.append(key)
 
 	labels_true = getCategoryNumbers(appNames,dbHandle)
-	sys.exit(1)
 	
 	logging.debug('Right before cluster evaluation')
 	clusterEvaluationResults = {}

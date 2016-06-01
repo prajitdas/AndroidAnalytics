@@ -149,12 +149,12 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 #	with io.open(predictedClustersFile, 'w', encoding='utf-8') as f:
 #		f.write(unicode(json.dumps(evaluatedClusterResultsDict, ensure_ascii=False)))
 	#We will generate separate graphs with this info
-	if not appCategoryListSelection:
-		categories = ''
-	else:
-		categories = ''.join(appCategoryListSelection)
-	metrics = "jaccard"
-	fileName = categories+metrics
+	# if not appCategoryListSelection:
+	# 	categories = ''
+	# else:
+	# 	categories = ''.join(appCategoryListSelection)
+	# metrics = "jaccard"
+	fileName = "jaccard"#categories+metrics
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 

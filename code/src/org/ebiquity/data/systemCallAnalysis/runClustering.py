@@ -136,7 +136,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		stringLoopCounter = 'Loop'+str(loopCounter)
 		evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
 		loopCounter = loopCounter + clusterLoopStepSize
-		logging.debug('Finished clustering algorithm with '+numberOfClusters+' clusters. Writing predicted clusters to file.')
+		logging.debug('Finished clustering algorithm with '+str(numberOfClusters)+' clusters. Writing predicted clusters to file.')
 	
 	#	printevaluatedClusterResultsDict
 	#	Write the predicted clusters to a file

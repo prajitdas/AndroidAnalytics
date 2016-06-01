@@ -14,7 +14,7 @@ from sklearn.metrics import silhouette_score#, silhouette_samples
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import clusterEvaluation as clEval
-#import plotResults as plot
+import plotResults as plot
 import numpy as np
 import json
 #import selectPermissions as sp

@@ -28,6 +28,7 @@ def getCategoryNumbers(appNames,dbHandle):
 	sqlStatement = "SELECT `app_pkg_name`,`app_category_id` FROM `appdata` WHERE `app_pkg_name` IN ("+appList+");"
 	try:
 		cursor.execute(sqlStatement)
+		print cursor.rowcount
 		if cursor.rowcount > 0:
 			queryOutput = cursor.fetchall()
 			for row in queryOutput:

@@ -42,7 +42,6 @@ def getCategoryNumbers(appNames,dbHandle):
 	for key in keylist:
 		labels_true.append(appCategoriesDict[key])
 
-	print list(set(labels_true) - set(appNames))
 	return labels_true
  
 def evaluateCluster(clusterInfo):
@@ -57,6 +56,7 @@ def evaluateCluster(clusterInfo):
 		appNames.append(key)
 
 	labels_true = getCategoryNumbers(appNames,dbHandle)
+	print list(set(labels_true) - set(labels_pred))
 	
 	logging.debug('Right before cluster evaluation')
 	clusterEvaluationResults = {}

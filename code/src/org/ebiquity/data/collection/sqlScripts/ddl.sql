@@ -181,3 +181,32 @@ CREATE TABLE IF NOT EXISTS `appperm`(
 ALTER TABLE `appperm` 
   ADD KEY `app_id_name` (`app_id`),
   ADD KEY `perm_id_idx` (`perm_id`);
+
+-- --------------------------------------------------------
+
+--
+-- Timestamps added for date modified
+--
+ALTER TABLE  `appcategories`
+  ADD  `dt_modified` TIMESTAMP 
+  ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE  `appdata`
+  ADD  `dt_modified` TIMESTAMP 
+  ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE  `appperm`
+  ADD  `dt_modified` TIMESTAMP 
+  ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE  `appurls`
+  ADD  `dt_modified` TIMESTAMP 
+  ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE  `developer`
+  ADD  `dt_modified` TIMESTAMP 
+  ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE  `permissions`
+  ADD  `dt_modified` TIMESTAMP 
+  ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;

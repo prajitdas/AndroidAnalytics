@@ -58,5 +58,6 @@ INSERT INTO `appcategories` (`id`, `name`, `url`) VALUES
 (52,'Education','https://play.google.com/store/apps/category/FAMILY_EDUCATION'),
 (53,'Music & Video','https://play.google.com/store/apps/category/FAMILY_MUSICVIDEO'),
 (54,'Pretend Play','https://play.google.com/store/apps/category/FAMILY_PRETEND');
+(54,'Android Wear','https://play.google.com/store/apps/category/ANDROID_WEAR');
 
 COMMIT;

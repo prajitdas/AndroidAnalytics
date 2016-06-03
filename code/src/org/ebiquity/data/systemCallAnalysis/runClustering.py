@@ -93,10 +93,14 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		#Silhouette Evaluation starts
 		counter = 0
 		predictedClusters = {}
+		print appVector
 		for appName in appVector:
+			print appName, clusterLabelsAssigned[counter]
 			predictedClusters[appName] = int(clusterLabelsAssigned[counter])
 		
 		loopListEvaluatedCluster.append(predictedClusters)
+
+		sys.exit(1)
 
 		#Clustering task is complete. Now evaluate
 		clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)

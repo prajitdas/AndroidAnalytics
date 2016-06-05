@@ -27,6 +27,7 @@ import sys
 import NumpyEncoder
 import gzip
 import logging
+import mysql.connector
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def reducePrecisionEncode(array, length, breadth, precision):
@@ -55,10 +56,10 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
 	#init
 	reducedDimensions = 100
-	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+	startingNumberOfClusters = 100 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 500
 	loopCounter = startingNumberOfClusters
-	clusterLoopStepSize = 5
+	clusterLoopStepSize = 50
 	evaluatedClusterResultsDict = {}
 
 	appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
@@ -79,7 +80,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#Run clustering with a varying number of clusters
 	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
 		logging.debug('Inside doJaccard\'s loop')
-		loopListEvaluatedCluster = []
+		loopEvaluatedCluster = {}
 		# Initialize the KMeansObject with numberOfClusters value
 		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
 		clusterLabelsAssigned = KMeansObject.fit_predict(X)
@@ -93,20 +94,17 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		#Silhouette Evaluation starts
 		counter = 0
 		predictedClusters = {}
-		print appVector
+		# print "app vector:\n" + str(appVector)
+		# print "clusters assigned:\n" + str(clusterLabelsAssigned)
 		for appName in appVector:
-			print appName, clusterLabelsAssigned[counter]
 			predictedClusters[appName] = int(clusterLabelsAssigned[counter])
+			counter += 1
 		
-		loopListEvaluatedCluster.append(predictedClusters)
-
-		sys.exit(1)
+		loopEvaluatedCluster['clusterAssignment'] = predictedClusters
 
 		#Clustering task is complete. Now evaluate
-		clusterEvaluationResults = clEval.evaluateCluster(predictedClusters)
+		loopEvaluatedCluster['clusterEvaluationResults'] = clEval.evaluateCluster(predictedClusters)
 
-		loopListEvaluatedCluster.append(clusterEvaluationResults)
-		
 		# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 		# The silhouette_score gives the average value for all the samples.
 		# This gives a perspective into the density and separation of the formed
@@ -117,13 +115,11 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		#logging.debug('For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
 				
 		# Insert the silhouette_avg for the cluster into the Json for further evaluation
-		loopListEvaluatedCluster.append(clusterSilhouetteAverage)
+		loopEvaluatedCluster['clusterSilhouetteAverage'] = clusterSilhouetteAverage
 		# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html		
 		
 		#Storing the centroid values in the results dictionary
-		centroidsDict = {}
-		centroidsDict["centroids"] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
-		loopListEvaluatedCluster.append(centroidsDict)
+		loopEvaluatedCluster["centroids"] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
  
 		'''
 		#Usage of NumpyEncoder is shown here so that the centroids can be encoded and decoded easily. Look in NumpyEncoder.py for details
@@ -138,7 +134,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		'''
 		
 		stringLoopCounter = 'Loop'+str(loopCounter)
-		evaluatedClusterResultsDict[stringLoopCounter] = loopListEvaluatedCluster
+		evaluatedClusterResultsDict[stringLoopCounter] = loopEvaluatedCluster
 		loopCounter = loopCounter + clusterLoopStepSize
 		logging.debug('Finished clustering algorithm with '+str(numberOfClusters)+' clusters. Writing predicted clusters to file.')
 	

@@ -39,7 +39,7 @@ def dbConnectionCheck():
 	print "info", user, passwd, host, db
 	try:
 		dbHandle = mysql.connect(user=user, password=passwd, host=host, database=db)
-		dbHandle.set_character_set('utf8')
+		#dbHandle.set_character_set('utf8')
 		return dbHandle
 	except mysql.Error as err:
 		logging.debug('Something went wrong: {}'.format(err))
@@ -60,12 +60,10 @@ def test():
 	sqlStatement = "SHOW TABLES;"
 	try:
 		cursor.execute(sqlStatement)
-		print "Got"+cursor.rowcount+"rows"
-		if cursor.rowcount > 0:
-			queryOutput = cursor.fetchall()
-			for row in queryOutput:
-				print row[0]
+		for Tables_in_googleplaystore in cursor:
+			print Tables_in_googleplaystore
 	except:
+		print 'Unexpected error in test:', sys.exc_info()[0]
 		logging.debug('Unexpected error in test:'+sys.exc_info()[0])
 		raise
 	

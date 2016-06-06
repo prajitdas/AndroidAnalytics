@@ -30,11 +30,13 @@ def getCategoryNumbers(appNames,dbHandle):
 	try:
 		cursor.execute(sqlStatement)
 		# print cursor.rowcount
-		if cursor.rowcount > 0:
-			queryOutput = cursor.fetchall()
-			for row in queryOutput:
-				appCategoriesDict[row[0]] = int(row[1])
-				foundapps.append(row[0])
+		# if cursor.rowcount > 0:
+		# 	queryOutput = cursor.fetchall()
+		# 	for row in queryOutput:
+		for app_pkg_name, app_category_id in cursor:
+			# print app_pkg_name, app_category_id
+			appCategoriesDict[app_pkg_name] = int(app_category_id)
+			foundapps.append(app_pkg_name)
 	except:
 		logging.debug('Unexpected error in getCategoryNumber:'+sys.exc_info()[0])
 		raise

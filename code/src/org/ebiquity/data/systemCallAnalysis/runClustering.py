@@ -140,7 +140,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	
 	#	printevaluatedClusterResultsDict
 	#	Write the predicted clusters to a file
-		predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
+		# predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
 	
 		compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4))
 #		with open(predictedClustersFile, 'w') as outfile:

@@ -36,10 +36,10 @@ def dbConnectionCheck():
 	user = parser.get('dbconfig', 'user')
 	passwd = parser.get('dbconfig', 'passwd')
 	db = parser.get('dbconfig', 'db')
+	print "info", user, passwd, host, db
 	try:
 		dbHandle = mysql.connect(user=user, password=passwd, host=host, database=db)
 		dbHandle.set_character_set('utf8')
-		print "info", user, passwd, host, db
 		return dbHandle
 	except mysql.Error as err:
 		logging.debug('Something went wrong: {}'.format(err))

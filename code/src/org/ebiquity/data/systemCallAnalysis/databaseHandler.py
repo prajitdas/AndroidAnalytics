@@ -1,5 +1,6 @@
 '''
-Created on Apr 27, 2016
+Created on Apr 4, 2015
+Modified on June 6, 2016
 @author: Prajit Kumar Das
 '''
 
@@ -10,6 +11,7 @@ import time
 import logging
 import mysql.connector as mysql
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
+
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
 	cursor = dbHandle.cursor()

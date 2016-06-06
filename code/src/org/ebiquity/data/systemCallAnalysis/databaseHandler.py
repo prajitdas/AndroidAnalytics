@@ -43,8 +43,8 @@ def dbConnectionCheck():
 		return dbHandle
 	except mysql.Error as err:
 		logging.debug('Something went wrong: {}'.format(err))
-	except:
-		logging.debug('Something unexpected happened!')
+	except Exception as err:
+		logging.debug('Something unexpected happened!'.format(err))
 	return None
 
 def convertPythonListToSQLQueryList(pythonList):

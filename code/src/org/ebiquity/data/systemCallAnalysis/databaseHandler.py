@@ -4,12 +4,11 @@ Created on Apr 27, 2016
 '''
 
 from ConfigParser import SafeConfigParser
-import MySQLdb
 import _mysql_exceptions
 import sys
 import time
 import logging
-from mysql.connector import conversion
+import mysql.connector as mysql
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -38,10 +37,10 @@ def dbConnectionCheck():
 	passwd = parser.get('dbconfig', 'passwd')
 	db = parser.get('dbconfig', 'db')
 	try:
-		dbHandle = MySQLdb.connect(host,user,passwd,db)
+		dbHandle = mysql.connect(user=user, password=passwd, host=host, database=db)
 		dbHandle.set_character_set('utf8')
 		return dbHandle
-	except mysql.connector.Error as err:
+	except mysql.Error as err:
 		logging.debug('Something went wrong: {}'.format(err))
 	except:
 		logging.debug('Something unexpected happened!')

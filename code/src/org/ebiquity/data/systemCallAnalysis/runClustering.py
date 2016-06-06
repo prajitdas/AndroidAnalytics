@@ -79,6 +79,10 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# We want to verify if the number of clusters are "strong with this one" (or not)
 	#Run clustering with a varying number of clusters
 	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
+		counter = 0
+		predictedClusters = {}
+		print 'Inside doJaccard\'s loop number:', counter
+
 		logging.debug('Inside doJaccard\'s loop')
 		loopEvaluatedCluster = {}
 		# Initialize the KMeansObject with numberOfClusters value
@@ -91,9 +95,6 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
 		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
 
-		#Silhouette Evaluation starts
-		counter = 0
-		predictedClusters = {}
 		# print "app vector:\n" + str(appVector)
 		# print "clusters assigned:\n" + str(clusterLabelsAssigned)
 		for appName in appVector:
@@ -102,6 +103,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		
 		loopEvaluatedCluster['clusterAssignment'] = predictedClusters
 
+		#Silhouette Evaluation starts
 		#Clustering task is complete. Now evaluate
 		loopEvaluatedCluster['clusterEvaluationResults'] = clEval.evaluateCluster(predictedClusters)
 
@@ -154,7 +156,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# else:
 	# 	categories = ''.join(appCategoryListSelection)
 	# metrics = "jaccard"
-	fileName = "jaccard"#categories+metrics
+	fileName = "jaccard"+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 

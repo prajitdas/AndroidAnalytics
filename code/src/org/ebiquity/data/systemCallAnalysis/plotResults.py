@@ -328,7 +328,7 @@ def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
 	
 	for clusterCount in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
-			clusterCountList.append(int(clusterCount.replace("Loop","")))
+			clusterCountList.append(int(str(clusterCount).replace("Loop","")))
 			clusterInfo = clusterCount['']
 			if "silhouette_avg" in clusterInfo:
 				#logging.debug('In', clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
@@ -351,7 +351,7 @@ def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
 	
 	for clusterCount in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
-			clusterCountList.append(int(clusterCount.replace("Loop","")))
+			clusterCountList.append(int(str(clusterCount).replace("Loop","")))
 			clusterInfo = clusterCount['clusterEvaluationResults']
 			if "adjusted_rand_score" in clusterInfo:
 				#logging.debug('In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]

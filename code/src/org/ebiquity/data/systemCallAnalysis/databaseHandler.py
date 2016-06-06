@@ -8,6 +8,7 @@ import MySQLdb
 import _mysql_exceptions
 import sys
 import logging
+import mysql
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):

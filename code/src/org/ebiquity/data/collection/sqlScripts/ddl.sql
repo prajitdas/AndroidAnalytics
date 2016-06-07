@@ -19,7 +19,7 @@ CREATE USER `googleplaystore`@`%` IDENTIFIED BY 'password';
 -- Database: `googleplaystore`
 --
 
-CREATE DATABASE IF NOT EXISTS `googleplaystore` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `googleplaystore` DEFAULT CHARACTER SET utf8;
 GRANT ALL PRIVILEGES ON `googleplaystore`.* TO `googleplaystore`@`%`;
 GRANT ALL PRIVILEGES ON `googleplaystore\_%`.* TO `googleplaystore`@`%`;
 FLUSH PRIVILEGES;
@@ -33,17 +33,19 @@ USE `googleplaystore`;
 --
 
 CREATE TABLE IF NOT EXISTS `appurls`(
-  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT
   `app_pkg_name` text(750) NOT NULL,
   `app_url` text(1000) NOT NULL,
-  `urls_extracted` int(1) DEFAULT 0,
-  `parsed` int(1) DEFAULT 0,
-  `perm_extracted` int(1) DEFAULT 0,
-  `downloaded` int(1) DEFAULT 0,
+  `urls_extracted` int(1) NOT NULL DEFAULT 0,
+  `parsed` int(1) NOT NULL DEFAULT 0,
+  `parsed_privacy_grade` int(1) NOT NULL DEFAULT 0,
+  `downloaded` int(1) NOT NULL DEFAULT 0,
+  `perm_extracted` int(1) NOT NULL DEFAULT 0,
   `playdrone_metadata_url` text(1000) NOT NULL,
   `playdrone_apk_url` text(1000) NOT NULL,
-  `privacy_grade_data` int(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+  `privacy_grade_url` text(1000) NOT NULL,
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `appcategories`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `url` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `permissions`(
   `name` text(500) NOT NULL,
   `protection_level` varchar(200),
   `permission_group` text(500)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `developer`(
   `website` text(500),
   `email` text(500),
   `country` text(1000)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `appdata`(
   `content_rating` varchar(100) DEFAULT NULL,
   CONSTRAINT `fk_developer_id` FOREIGN KEY (`developer_id`) REFERENCES `developer`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_app_category_id` FOREIGN KEY (`app_category_id`) REFERENCES `appcategories`(`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `appperm`(
   CONSTRAINT pk_apperm PRIMARY KEY (app_id,perm_id),
   CONSTRAINT `fk_app_id` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_perm_id` FOREIGN KEY (`perm_id`) REFERENCES `permissions`(`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
 

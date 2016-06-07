@@ -13,6 +13,7 @@ from scipy.spatial import distance as spDist
 
 def computeDist(app1SyscallsVector,app2SyscallsVector):
 	# Single method deciding which distance function will be used
+	logging.debug('distance'+str(cosine(app1SyscallsVector,app2SyscallsVector)))
 	return cosine(app1SyscallsVector,app2SyscallsVector)
 
 def braycurtis(app1SyscallsVector,app2SyscallsVector):
@@ -93,6 +94,7 @@ def getAllSyscallsVector(jsonDict):
 	# print sorted(allSyscallsVector)
 	return sorted(allSyscallsVector)
 
+#Form vector of number of times a particular system call has been made
 def formVectorNumCalls(appSyscallDict, allSyscallsVector):
 	appVector = range(len(allSyscallsVector))
 	count = 0
@@ -106,6 +108,7 @@ def formVectorNumCalls(appSyscallDict, allSyscallsVector):
 	# print appVector
 	return appVector
 
+#Form a binary value vector of system calls that has been made
 def formVectorJustCalls(appSyscallDict, allSyscallsVector):
 	appVector = range(len(allSyscallsVector))
 	count = 0
@@ -153,7 +156,7 @@ def computeJaccardMatrix(jsonDict):
 			score = 0.0
 			if i != j:
 				score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector))
-				score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector))
+				#score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector))
 				appMatrix[i,j] = score
 				appMatrix[j,i] = score
 				counter += 1

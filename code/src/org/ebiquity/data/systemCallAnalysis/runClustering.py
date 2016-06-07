@@ -53,9 +53,9 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
 	#return cPickle.load(open(appMatrixFile, 'rb'))
 	
-def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
+def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric):
 	#init
-	reducedDimensions = 100
+	#reducedDimensions = 20
 	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 500
 	loopCounter = startingNumberOfClusters
@@ -66,7 +66,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
-	# X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
+	#X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
 	X = appMatrix
 
 	'''
@@ -79,9 +79,9 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# We want to verify if the number of clusters are 'strong with this one' (or not)
 	#Run clustering with a varying number of clusters
 	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
-		print 'Inside doJaccard\'s loop number:', loopCounter
+		print 'Inside doCluster\'s loop number:', loopCounter
+		logging.debug('Inside doCluster\'s loop')
 
-		logging.debug('Inside doJaccard\'s loop')
 		loopEvaluatedCluster = {}
 		# Initialize the KMeansObject with numberOfClusters value
 		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
@@ -111,7 +111,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		# The silhouette_score gives the average value for all the samples.
 		# This gives a perspective into the density and separation of the formed
 		# clusters
-		silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric='jaccard') 
+		silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric=metric) 
 		#logging.debug('For number of clusters =', numberOfClusters, 'The average silhouette_score is :', silhouette_avg
 				
 		# Insert the silhouette_avg for the cluster into the Json for further evaluation
@@ -155,14 +155,14 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# else:
 	# 	categories = ''.join(appCategoryListSelection)
 	# metrics = 'jaccard'
-	fileName = 'jaccard'+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
+	fileName = metric+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
 def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
-	doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine')
 	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
 	# kMeans(appMatrix, appVector, 'precomputed')
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)

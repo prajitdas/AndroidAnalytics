@@ -69,10 +69,6 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
 	#X = appMatrix
 
-	#Replace nan with zero and inf with finite numbers.
-	np.set_printoptions(precision=5)
-	X = np.nan_to_num(X)
-
 	'''
 	An interesting problem occurs due to use of 'appVectors' as a index.
 	Later on we try to find the integer loop counter and that causes an issue.

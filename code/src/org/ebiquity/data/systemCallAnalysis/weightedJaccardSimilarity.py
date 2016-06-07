@@ -15,6 +15,12 @@ def computeDist(app1SyscallsVector,app2SyscallsVector):
 	distance = cosine(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
+	# Verifying if the distance is not a valid finite number 
+	# http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.nan_to_num.html
+	if not np.isfinite(distance):
+		distance = 0
+		print app1SyscallsVector
+		print app2SyscallsVector
 	return distance
 
 def braycurtis(app1SyscallsVector,app2SyscallsVector):

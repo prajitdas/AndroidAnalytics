@@ -10,7 +10,7 @@ import sys
 import time
 import logging
 import mysql.connector as mysql
-logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
+logging.basicConfig(filename='privacyGrade.log',level=logging.DEBUG)
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):

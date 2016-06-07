@@ -20,6 +20,7 @@ import time
 import datetime
 import traceback
 import httplib
+logging.basicConfig(filename='privacyGrade.log',level=logging.DEBUG)
 
 def extractAppDataToJson(privacyGradeUrl):
 	print privacyGradeUrl

@@ -328,7 +328,8 @@ def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
 	
 	for clusterCount in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
-			print clusterCount
+			print type(clusterCount)
+			print type(clusterInfo["silhouette_avg"])
 			clusterCountList.append(int(str(clusterCount).replace("Loop","")))
 			clusterInfo = clusterCount['']
 			if "silhouette_avg" in clusterInfo:

@@ -55,7 +55,7 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric):
 	#init
-	#reducedDimensions = 20
+	reducedDimensions = 20
 	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 500
 	loopCounter = startingNumberOfClusters
@@ -66,15 +66,16 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
-	#X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
-	X = appMatrix
+	X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
+	#X = appMatrix
 
 	'''
 	An interesting problem occurs due to use of 'appVectors' as a index.
 	Later on we try to find the integer loop counter and that causes an issue.
 	In plotSilhouetteSamples.clusterCount() and plotSilhouetteSamples.plotGroundTruthResults() we have to handle this issue.
+	Introduced becasue of -> ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
 	'''
-	#evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
+	evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
 	
 	# We want to verify if the number of clusters are 'strong with this one' (or not)
 	#Run clustering with a varying number of clusters

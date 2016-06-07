@@ -10,7 +10,7 @@ Usage: python runClustering.py username api_key appMatrixFile predictedClustersF
 from sklearn.cluster import KMeans#, SpectralClustering
 from sklearn.metrics import silhouette_score#, silhouette_samples
 # from sklearn.metrics.pairwise import pairwise_distances
-# from sklearn.decomposition import TruncatedSVD, PCA
+from sklearn.decomposition import PCA #,TruncatedSVD
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 
 import clusterEvaluation as clEval
@@ -69,6 +69,10 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	X = PCA(n_components=reducedDimensions).fit_transform(appMatrix)
 	#X = appMatrix
 
+	#Replace nan with zero and inf with finite numbers.
+	np.set_printoptions(precision=5)
+	np.nan_to_num(X)
+	
 	'''
 	An interesting problem occurs due to use of 'appVectors' as a index.
 	Later on we try to find the integer loop counter and that causes an issue.

@@ -74,7 +74,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	Later on we try to find the integer loop counter and that causes an issue.
 	In plotSilhouetteSamples.clusterCount() and plotSilhouetteSamples.plotGroundTruthResults() we have to handle this issue.
 	'''
-	evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
+	#evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
 	
 	# We want to verify if the number of clusters are 'strong with this one' (or not)
 	#Run clustering with a varying number of clusters

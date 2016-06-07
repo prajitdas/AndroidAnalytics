@@ -12,7 +12,7 @@ logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 from scipy.spatial import distance as spDist
 
 def computeDist(app1SyscallsVector,app2SyscallsVector):
-	distance = euclidean(app1SyscallsVector,app2SyscallsVector)
+	distance = cosine(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
 	# Verifying if the distance is not a valid finite number 
@@ -163,8 +163,8 @@ def computeJaccardMatrix(jsonDict):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
-				score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector))
-				#score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector))
+				#score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector))
+				score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector))
 				appMatrix[i,j] = score
 				appMatrix[j,i] = score
 				counter += 1

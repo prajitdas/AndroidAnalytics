@@ -326,12 +326,11 @@ def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
 	
 	silhouetteAvgList = []
 	
-	for clusterCount in evaluatedClusterResultsDict.iteritems():
+	for clusterCount, clusterData in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
-			print type(clusterCount['silhouette_avg'])
-			clusterCountList.append(eval(eval(clusterCount).replace('Loop','')))
+			clusterCountList.append(int(str(clusterCount).replace('Loop','')))
 			#logging.debug('In', clusterCount, 'we have silhouette_avg of', clusterInfo['silhouette_avg']
-			silhouetteAvgList.append(eval(clusterCount['silhouette_avg']))
+			silhouetteAvgList.append(clusterData['silhouette_avg'])
 
 	#print silhouetteAvgList
 	generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList, postfix)
@@ -348,10 +347,10 @@ def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
 	adjustedMutualInfoScoreList = []
 	vMeasureScoreList = []
 	
-	for clusterCount in evaluatedClusterResultsDict.iteritems():
+	for clusterCount, clusterData in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
 			clusterCountList.append(int(str(clusterCount).replace("Loop","")))
-			clusterInfo = clusterCount['clusterEvaluationResults']
+			clusterInfo = clusterData['clusterEvaluationResults']
 			if "adjusted_rand_score" in clusterInfo:
 				#logging.debug('In", clusterCount, "we have adjusted_rand_score of", clusterInfo["adjusted_rand_score"]
 				adjustedRandScoreList.append(float(clusterInfo["adjusted_rand_score"]))

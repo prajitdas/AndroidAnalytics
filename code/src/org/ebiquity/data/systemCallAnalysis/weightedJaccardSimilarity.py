@@ -18,9 +18,10 @@ def computeDist(app1SyscallsVector,app2SyscallsVector):
 	# Verifying if the distance is not a valid finite number 
 	# http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.nan_to_num.html
 	if not np.isfinite(distance):
+		logging.debug('app1'+','.join(str(x) for x in app1SyscallsVector))
+		logging.debug('app2'+','.join(str(x) for x in app2SyscallsVector))
+		logging.debug('distance'+str(distance))
 		distance = 0
-		print app1SyscallsVector
-		print app2SyscallsVector
 	return distance
 
 def braycurtis(app1SyscallsVector,app2SyscallsVector):

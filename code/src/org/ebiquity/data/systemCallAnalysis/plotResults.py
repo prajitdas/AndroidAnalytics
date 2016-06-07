@@ -1,5 +1,5 @@
 '''
-Created on April 27, 2016
+Created on April 27, 2015
 @author: Prajit Kumar Das
 Usage: python plotResults.py username apiKey
 '''
@@ -328,13 +328,10 @@ def plotSilhouetteSamples(username, apiKey, fileToRead, postfix=None):
 	
 	for clusterCount in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
-			print type(clusterCount)
-			print type(clusterInfo["silhouette_avg"])
-			clusterCountList.append(int(str(clusterCount).replace("Loop","")))
-			clusterInfo = clusterCount['']
-			if "silhouette_avg" in clusterInfo:
-				#logging.debug('In', clusterCount, "we have silhouette_avg of", clusterInfo["silhouette_avg"]
-				silhouetteAvgList.append(float(clusterInfo["silhouette_avg"]))
+			print type(clusterCount['silhouette_avg'])
+			clusterCountList.append(eval(eval(clusterCount).replace('Loop','')))
+			#logging.debug('In', clusterCount, 'we have silhouette_avg of', clusterInfo['silhouette_avg']
+			silhouetteAvgList.append(eval(clusterCount['silhouette_avg']))
 
 	#print silhouetteAvgList
 	generatePlotSilhouette(username, apiKey, clusterCountList, silhouetteAvgList, postfix)

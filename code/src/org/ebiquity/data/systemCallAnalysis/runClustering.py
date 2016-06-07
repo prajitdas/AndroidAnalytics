@@ -1,8 +1,8 @@
 '''
-Created on April 26, 2016
+Created on April 26, 2015
+Modified on June 7, 2016
 @author: Prajit Kumar Das
-
-Run clustering.
+Usage: python runClustering.py username api_key appMatrixFile predictedClustersFile jsonDict
 '''
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
@@ -76,7 +76,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	'''
 	evaluatedClusterResultsDict['appVectors'] = reducePrecisionEncode(X, X.shape[0], reducedDimensions, 5)
 	
-	# We want to verify if the number of clusters are "strong with this one" (or not)
+	# We want to verify if the number of clusters are 'strong with this one' (or not)
 	#Run clustering with a varying number of clusters
 	for numberOfClusters in range(startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize):
 		print 'Inside doJaccard\'s loop number:', loopCounter
@@ -96,8 +96,8 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		#Silhouette Evaluation starts
 		counter = 0
 		predictedClusters = {}
-		# print "app vector:\n" + str(appVector)
-		# print "clusters assigned:\n" + str(clusterLabelsAssigned)
+		# print 'app vector:\n' + str(appVector)
+		# print 'clusters assigned:\n' + str(clusterLabelsAssigned)
 		for appName in appVector:
 			predictedClusters[appName] = int(clusterLabelsAssigned[counter])
 			counter += 1
@@ -112,16 +112,15 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		# This gives a perspective into the density and separation of the formed
 		# clusters
 		silhouette_avg = silhouette_score(X, clusterLabelsAssigned, metric='jaccard') 
-		clusterSilhouetteAverage = {}
-		clusterSilhouetteAverage["silhouette_avg"] = silhouette_avg
-		#logging.debug('For number of clusters =", numberOfClusters, "The average silhouette_score is :", silhouette_avg
+		#logging.debug('For number of clusters =', numberOfClusters, 'The average silhouette_score is :', silhouette_avg
 				
 		# Insert the silhouette_avg for the cluster into the Json for further evaluation
-		loopEvaluatedCluster['clusterSilhouetteAverage'] = clusterSilhouetteAverage
+		loopEvaluatedCluster['silhouette_avg'] = silhouette_avg
+		# loopEvaluatedCluster['clusterSilhouetteAverage'] = clusterSilhouetteAverage
 		# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html		
 		
 		#Storing the centroid values in the results dictionary
-		loopEvaluatedCluster["centroids"] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
+		loopEvaluatedCluster['centroids'] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
  
 		'''
 		#Usage of NumpyEncoder is shown here so that the centroids can be encoded and decoded easily. Look in NumpyEncoder.py for details
@@ -130,9 +129,9 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 		result = json.loads(dumped, object_hook=json_numpy_obj_hook)
 		
 		# None of the following assertions will be broken.
-		assert result.dtype == expected.dtype, "Wrong Type"
-		assert result.shape == expected.shape, "Wrong Shape"
-		assert np.allclose(expected, result), "Wrong Values"
+		assert result.dtype == expected.dtype, 'Wrong Type'
+		assert result.shape == expected.shape, 'Wrong Shape'
+		assert np.allclose(expected, result), 'Wrong Values'
 		'''
 		
 		stringLoopCounter = 'Loop'+str(loopCounter)
@@ -142,7 +141,7 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	
 	#	printevaluatedClusterResultsDict
 	#	Write the predicted clusters to a file
-		# predictedClustersFile = predictedClustersFile.split(".")[0] + "." + stringLoopCounter + ".json.gz"
+		# predictedClustersFile = predictedClustersFile.split('.')[0] + '.' + stringLoopCounter + '.json.gz'
 	
 		compressWriteData(predictedClustersFile,json.dumps(evaluatedClusterResultsDict, indent=4))
 #		with open(predictedClustersFile, 'w') as outfile:
@@ -155,8 +154,8 @@ def doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# 	categories = ''
 	# else:
 	# 	categories = ''.join(appCategoryListSelection)
-	# metrics = "jaccard"
-	fileName = "jaccard"+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
+	# metrics = 'jaccard'
+	fileName = 'jaccard'+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
@@ -165,7 +164,7 @@ def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonD
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	doJaccard(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
-	# kMeans(appMatrix, appVector, "precomputed")
+	# kMeans(appMatrix, appVector, 'precomputed')
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#doCosineSim(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#os.remove(appMatrixFile)

@@ -121,7 +121,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 		# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html		
 		
 		#Storing the centroid values in the results dictionary
-		loopEvaluatedCluster['centroids'] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
+		#loopEvaluatedCluster['centroids'] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
  
 		'''
 		#Usage of NumpyEncoder is shown here so that the centroids can be encoded and decoded easily. Look in NumpyEncoder.py for details

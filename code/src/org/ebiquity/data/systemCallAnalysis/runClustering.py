@@ -55,7 +55,7 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric):
 	#init
-	reducedDimensions = 20
+	reducedDimensions = 100
 	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
 	endingNumberOfClusters = 500
 	loopCounter = startingNumberOfClusters

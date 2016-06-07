@@ -163,7 +163,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
-	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine')
+	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard')
 	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
 	# kMeans(appMatrix, appVector, 'precomputed')
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)

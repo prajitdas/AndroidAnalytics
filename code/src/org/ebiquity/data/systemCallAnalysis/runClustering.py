@@ -85,18 +85,15 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 
 		loopEvaluatedCluster = {}
 		# Initialize the KMeansObject with numberOfClusters value
-		# KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
-		# clusterLabelsAssigned = KMeansObject.fit_predict(X)
+		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
+		clusterLabelsAssigned = KMeansObject.fit_predict(X)
 		#Plotting results
 		#This is not working so commenting out right now
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
 		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
-		#DBScan
-		DBSCANObject = DBSCAN(metric='jaccard')
-		clusterLabelsAssigned = DBSCANObject.fit_predict(X)
-		# centroids = SpectralClusteringObject.cluster_centers_
+		centroids = SpectralClusteringObject.cluster_centers_
 
 		#Silhouette Evaluation starts
 		counter = 0

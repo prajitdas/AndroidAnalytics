@@ -92,7 +92,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
 		SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
 		clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
-		centroids = KMeansObject.cluster_centers_
+		centroids = SpectralClusteringObject.cluster_centers_
 
 		#Silhouette Evaluation starts
 		counter = 0

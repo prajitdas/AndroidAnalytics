@@ -7,7 +7,7 @@ Usage: python runClustering.py username api_key appMatrixFile predictedClustersF
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 #from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans#, SpectralClustering
+from sklearn.cluster import KMeans, SpectralClustering
 from sklearn.metrics import silhouette_score#, silhouette_samples
 # from sklearn.metrics.pairwise import pairwise_distances
 from sklearn.decomposition import PCA #,TruncatedSVD

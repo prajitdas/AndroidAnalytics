@@ -90,7 +90,8 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 		#Plotting results
 		#This is not working so commenting out right now
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
-		SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
+		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
+		SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
 		clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
 		# centroids = SpectralClusteringObject.cluster_centers_
 

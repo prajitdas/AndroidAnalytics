@@ -12,7 +12,7 @@ logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 from scipy.spatial import distance as spDist
 
 def computeDist(app1SyscallsVector,app2SyscallsVector):
-	distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	distance = jaccard(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
 	# Verifying if the distance is not a valid finite number 

@@ -94,7 +94,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
 		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
 		#DBScan
-		DBSCANObject = DBSCAN(metric='cosine')
+		DBSCANObject = DBSCAN(metric='jaccard')
 		clusterLabelsAssigned = DBSCANObject.fit_predict(X)
 		# centroids = SpectralClusteringObject.cluster_centers_
 

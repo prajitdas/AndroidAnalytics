@@ -7,7 +7,7 @@ Usage: python runClustering.py username api_key appMatrixFile predictedClustersF
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 #from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans, SpectralClustering
+from sklearn.cluster import KMeans, SpectralClustering, DBSCAN
 from sklearn.metrics import silhouette_score#, silhouette_samples
 # from sklearn.metrics.pairwise import pairwise_distances
 from sklearn.decomposition import PCA #,TruncatedSVD
@@ -91,8 +91,11 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 		#This is not working so commenting out right now
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
-		SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
-		clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
+		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+		#DBScan
+		DBSCANObject = DBSCAN(metric='cosine')
+		clusterLabelsAssigned = DBSCANObject.fit_predict(X)
 		# centroids = SpectralClusteringObject.cluster_centers_
 
 		#Silhouette Evaluation starts

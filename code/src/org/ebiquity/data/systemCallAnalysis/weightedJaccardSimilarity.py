@@ -1,7 +1,8 @@
 '''
-Created on April 27, 2016
+Created on April 27, 2015
+Modified on June 7, 2016
 @author: Prajit Kumar Das
-Usage: python weightedJaccardSimilarity.py
+Usage: python computeDistance.py
 '''
 import numpy as np
 import logging

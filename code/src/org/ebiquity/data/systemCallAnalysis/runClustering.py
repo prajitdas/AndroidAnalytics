@@ -19,7 +19,7 @@ import numpy as np
 import json
 #import selectPermissions as sp
 import cPickle
-import weightedJaccardSimilarity as wjs
+import computeDistance as cd
 #import matplotlib.pyplot as plt
 import os
 import time
@@ -62,7 +62,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	clusterLoopStepSize = 5
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
+	appMatrix, appVector = cd.computeJaccardMatrix(jsonDict)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
@@ -165,7 +165,7 @@ def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonD
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard')
-	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
+	# appMatrix, appVector = cd.computeJaccardMatrix(jsonDict)
 	# kMeans(appMatrix, appVector, 'precomputed')
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#doCosineSim(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)

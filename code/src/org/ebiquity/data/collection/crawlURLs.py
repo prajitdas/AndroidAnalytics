@@ -318,9 +318,11 @@ def getDataForAppList(dbHandle):
 	cursor = dbHandle.cursor()
 	appList = json.loads(open('applist.json', 'r').read())['appNames']
 	appUrlPrefix = 'https://play.google.com/store/apps/details?id='
+	privacyGradePrefix = 'http://privacygrade.org/apps/'
 	for app in appList:
 		appUrl = appUrlPrefix+app
-		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES ('"+app+"','"+appUrl+"')"
+		privacy_grade_url = privacyGradePrefix+app+'.html'
+		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`,`privacy_grade_url`) VALUES ('"+app+"','"+appUrl+"','"+privacy_grade_url+"')"
 		try:
 			cursor.execute(sqlStatement)
 			queryOutput = cursor.lastrowid

@@ -323,15 +323,7 @@ def getDataForAppList(dbHandle):
 		appUrl = appUrlPrefix+app
 		privacy_grade_url = privacyGradePrefix+app+'.html'
 		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`,`privacy_grade_url`) VALUES ('"+app+"','"+appUrl+"','"+privacy_grade_url+"')"
-		try:
-			cursor.execute(sqlStatement)
-			queryOutput = cursor.lastrowid
-		except:
-			print "Unexpected error:", sys.exc_info()[0]
-			raise
-	# Make sure data is committed to the database
-	dbHandle.commit()
-	cursor.close()
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def doTask(cmdLineArg):
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open

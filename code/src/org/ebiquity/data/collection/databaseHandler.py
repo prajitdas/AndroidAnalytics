@@ -5,7 +5,6 @@ Modified on June 6, 2016
 '''
 
 from ConfigParser import SafeConfigParser
-import _mysql_exceptions
 import sys
 import time
 import logging
@@ -21,7 +20,7 @@ def dbManipulateData(dbHandle, sqlStatement):
 		cursor.execute('SET character_set_connection=utf8;')
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
+	except mysql.errors.IntegrityError:
 		logging.debug('data present')
 		return -1
 	except:

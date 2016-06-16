@@ -5,12 +5,11 @@ Modified on June 6, 2016
 '''
 
 from ConfigParser import SafeConfigParser
-import _mysql_exceptions
 import sys
 import time
 import logging
 import mysql.connector as mysql
-logging.basicConfig(filename='privacyGrade.log',level=logging.DEBUG)
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -21,11 +20,12 @@ def dbManipulateData(dbHandle, sqlStatement):
 		cursor.execute('SET character_set_connection=utf8;')
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
-	except _mysql_exceptions.IntegrityError:
+	except mysql.errors.IntegrityError:
 		logging.debug('data present')
 		return -1
 	except:
-		logging.debug('Unexpected error:'+sys.exc_info()[0])
+		print 'Unexpected error in test:', sys.exc_info()[0]
+		logging.debug('Unexpected error:')
 		raise
 	return cursor.lastrowid
 
@@ -66,7 +66,7 @@ def test():
 			print Tables_in_googleplaystore
 	except:
 		print 'Unexpected error in test:', sys.exc_info()[0]
-		logging.debug('Unexpected error in test:'+sys.exc_info()[0])
+		logging.debug('Unexpected error:')
 		raise
 	
 	dbHandle.close() #DB Close
@@ -79,7 +79,7 @@ def main(argv):
 	startTime = time.time()
 	test()
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: '+executionTime+' ms')
+	logging.debug('Execution time was: '+str(executionTime)+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

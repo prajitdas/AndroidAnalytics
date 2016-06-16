@@ -126,6 +126,7 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 
 		app_pkg_name = app_dict['app_pkg_name']
 		developer_id = getDeveloperId(dbHandle,app_dict)
+		sys.exit(1)
 		app_category_id = getCategoryId(dbHandle,app_dict)	
 
 		if 'review_rating' in app_dict:

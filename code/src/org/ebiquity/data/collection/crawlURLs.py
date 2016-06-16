@@ -96,7 +96,6 @@ def getDeveloperId(dbHandle,app_dict):
 		cursor.execute(sqlStatementdDevId)
 		developerId = cursor.fetchone()[0]
 		if developerId is not None:
-			print developerId
 			return developerId
 		else:
 			#If the developer id was not found we will not execute the while loop and execute the following code
@@ -129,7 +128,6 @@ def createSQLStatementAndInsert(dbHandle,app_dict):
 
 		app_pkg_name = app_dict['app_pkg_name']
 		developer_id = getDeveloperId(dbHandle,app_dict)
-		sys.exit(1)
 		app_category_id = getCategoryId(dbHandle,app_dict)	
 
 		if 'review_rating' in app_dict:

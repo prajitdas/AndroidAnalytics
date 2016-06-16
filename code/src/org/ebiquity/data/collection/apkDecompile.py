@@ -59,6 +59,7 @@ def runAnalysis(inpath,outPath,currentDirectory):
 			elif osInfo == 'Linux':
 				manifestFile = outPath+pkgName+"/AndroidManifest.xml"
 			renamedManifestFile = outPath+pkgName+".xml"
+			print manifestFile, renamedManifestFile
 			shutil.copy2(manifestFile, renamedManifestFile)
 			#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
 			'''

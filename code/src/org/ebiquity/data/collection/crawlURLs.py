@@ -95,11 +95,11 @@ def getDeveloperId(dbHandle,app_dict):
 	try:
 		cursor.execute(sqlStatementdDevId)
 		row = cursor.fetchone()
-		if row is not None:
+		while row is not None:
 			return row
-		else:
-			sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
-			return databaseHandler.dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
+		#If the developer id was not found we will not execute the while loop and execute the following code
+		sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
+		return databaseHandler.dbManipulateData(dbHandle, sqlStatementdDevIdInsert)
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise

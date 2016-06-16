@@ -24,7 +24,8 @@ def dbManipulateData(dbHandle, sqlStatement):
 		logging.debug('data present')
 		return -1
 	except:
-		logging.debug('Unexpected error:'+sys.exc_info()[0])
+		print 'Unexpected error in test:', sys.exc_info()[0]
+		logging.debug('Unexpected error:')
 		raise
 	return cursor.lastrowid
 
@@ -65,7 +66,7 @@ def test():
 			print Tables_in_googleplaystore
 	except:
 		print 'Unexpected error in test:', sys.exc_info()[0]
-		logging.debug('Unexpected error in test:'+sys.exc_info()[0])
+		logging.debug('Unexpected error:')
 		raise
 	
 	dbHandle.close() #DB Close

@@ -94,9 +94,9 @@ def getDeveloperId(dbHandle,app_dict):
 	sqlStatementdDevId = "SELECT `id` FROM `developer` WHERE `name` = '"+dev_name+"';"
 	try:
 		cursor.execute(sqlStatementdDevId)
-		for row in cursor:
-			print row
-			return row
+		for developerId in cursor:
+			print developerId
+			return developerId
 		#If the developer id was not found we will not execute the while loop and execute the following code
 		sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"
 		return databaseHandler.dbManipulateData(dbHandle, sqlStatementdDevIdInsert)

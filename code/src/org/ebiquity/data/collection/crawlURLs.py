@@ -16,6 +16,7 @@ import time
 import datetime
 import traceback
 import httplib
+import json
 
 # Hit a URL, extract URLs and Store new URLs back
 def extractMoreURLsAndStore(dbHandle, urlExtract):
@@ -312,6 +313,24 @@ def getURLsForParsingAppData(dbHandle):
 		extractAppDataAndStore(dbHandle,row[1])
 		updateParsed(dbHandle,row[0])
 
+# Extract a curated list of apps from the Google Play Store. Get urls, get related and get app data
+def getDataForAppList(dbHandle):
+	cursor = dbHandle.cursor()
+	appList = json.loads(open('applist.json', 'r').read())['appNames']
+	appUrlPrefix = 'https://play.google.com/store/apps/details?id='
+	for app in appList:
+		appUrl = appUrlPrefix+app
+		sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES ('"+app+"','"+appUrl+"')"
+		try:
+			cursor.execute(sqlStatement)
+			queryOutput = cursor.lastrowid
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+	# Make sure data is committed to the database
+	dbHandle.commit()
+	cursor.close()
+
 def doTask(cmdLineArg):
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 
@@ -321,6 +340,8 @@ def doTask(cmdLineArg):
 		getURLsForExtractingMoreURLs(dbHandle) # Second level of search for app urls
 	elif cmdLineArg == "a":
 		getURLsForParsingAppData(dbHandle) # Extract app data
+	elif cmdLineArg == "s":
+		getDataForAppList(dbHandle) # Extract a curated list of apps from the Google Play Store. Get urls, get related and get app data
 	else:
 		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
 	

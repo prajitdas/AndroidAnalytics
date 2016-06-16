@@ -96,6 +96,7 @@ def getDeveloperId(dbHandle,app_dict):
 		cursor.execute(sqlStatementdDevId)
 		row = cursor.fetchone()
 		while row is not None:
+			print row
 			return row
 		#If the developer id was not found we will not execute the while loop and execute the following code
 		sqlStatementdDevIdInsert = "INSERT into `developer`(`name`,`website`,`email`,`country`) VALUES('"+dev_name+"','"+dev_web+"','"+dev_email+"','"+dev_loc+"');"

@@ -20,8 +20,11 @@ def dbManipulateData(dbHandle, sqlStatement):
 		cursor.execute('SET character_set_connection=utf8;')
 		cursor.execute(sqlStatement)
 		dbHandle.commit()
-	except mysql.errors.IntegrityError:
-		logging.debug('data present')
+	except mysql.errors.IntegrityError as err:
+		logging.debug('data present'.format(err))
+		return -1
+	except mysql.errors.ProgrammingError as err:
+		logging.debug('ProgrammingError:'.format(err))
 		return -1
 	except:
 		print 'Unexpected error in test:', sys.exc_info()[0]

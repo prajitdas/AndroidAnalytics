@@ -79,7 +79,7 @@ def main(argv):
 	startTime = time.time()
 	test()
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: '+executionTime+' ms')
+	logging.debug('Execution time was: '+str(executionTime)+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

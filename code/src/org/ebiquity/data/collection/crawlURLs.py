@@ -95,7 +95,7 @@ def getDeveloperId(dbHandle,app_dict):
 	try:
 		cursor.execute(sqlStatementdDevId)
 		data = cursor.fetchone()
-		if data[0] is not None:
+		if data is not None:
 			return data[0]
 		else:
 			#If the developer id was not found we will not execute the while loop and execute the following code

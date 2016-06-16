@@ -1,7 +1,8 @@
 '''
-Created on April 27, 2016
+Created on April 27, 2015
+Modified on June 7, 2016
 @author: Prajit Kumar Das
-Usage: python weightedJaccardSimilarity.py
+Usage: python computeDistance.py
 '''
 import numpy as np
 import logging
@@ -12,7 +13,7 @@ logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 from scipy.spatial import distance as spDist
 
 def computeDist(app1SyscallsVector,app2SyscallsVector):
-	distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	distance = jaccard(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
 	# Verifying if the distance is not a valid finite number 

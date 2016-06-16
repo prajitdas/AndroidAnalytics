@@ -7,7 +7,7 @@ Usage: python runClustering.py username api_key appMatrixFile predictedClustersF
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 #from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans, SpectralClustering
+from sklearn.cluster import KMeans, SpectralClustering, DBSCAN
 from sklearn.metrics import silhouette_score#, silhouette_samples
 # from sklearn.metrics.pairwise import pairwise_distances
 from sklearn.decomposition import PCA #,TruncatedSVD
@@ -19,7 +19,7 @@ import numpy as np
 import json
 #import selectPermissions as sp
 import cPickle
-import weightedJaccardSimilarity as wjs
+import computeDistance as cd
 #import matplotlib.pyplot as plt
 import os
 import time
@@ -62,7 +62,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	clusterLoopStepSize = 5
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
+	appMatrix, appVector = cd.computeJaccardMatrix(jsonDict)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
@@ -85,15 +85,15 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 
 		loopEvaluatedCluster = {}
 		# Initialize the KMeansObject with numberOfClusters value
-		# KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
-		# clusterLabelsAssigned = KMeansObject.fit_predict(X)
+		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
+		clusterLabelsAssigned = KMeansObject.fit_predict(X)
 		#Plotting results
 		#This is not working so commenting out right now
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
-		SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
-		clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
-		# centroids = SpectralClusteringObject.cluster_centers_
+		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
+		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+		centroids = SpectralClusteringObject.cluster_centers_
 
 		#Silhouette Evaluation starts
 		counter = 0
@@ -165,7 +165,7 @@ def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonD
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard')
-	# appMatrix, appVector = wjs.computeJaccardMatrix(jsonDict)
+	# appMatrix, appVector = cd.computeJaccardMatrix(jsonDict)
 	# kMeans(appMatrix, appVector, 'precomputed')
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
 	#doCosineSim(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)

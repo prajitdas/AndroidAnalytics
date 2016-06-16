@@ -29,7 +29,35 @@ def isBootAnimationComplete():
 		output.append("Device must be offline")
 	return output[0]
 
-def executeTestScenarioForAndroidMonkey(pathToApk):
+def runOnDevice(pathToApk):
+	logging.debug('AVD is ready')
+	# Executing the test scenario for Android monkey
+	runExperimentsCmd = 'bash automatingStrace.sh '+pathToApk
+	print runExperimentsCmd
+	try:
+		s.check_output(runExperimentsCmd.split())
+	except:
+		logging.debug('Error in running experiments for: '+pathToApk.split("/")[-1].split('.apk')[0])
+		# Even if there is an exception in running experiments, remove the file to the other folder
+		movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
+		logging.debug('moving file to '+movePath)
+		print pathToApk
+		print movePath
+		shutil.move(pathToApk,movePath)
+		raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
+	#command="mv "+pathToApk+" ../other"
+	#logging.debug('moving file "+command
+	#s.call(command.split())
+	movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
+	logging.debug('moving file to '+movePath)
+	#sys.exit(1)
+	shutil.move(pathToApk,movePath)
+	return
+else:
+	logging.debug('Still waiting for emulator to complete stage: '+result)
+	continue
+
+def runOnAVD(pathToApk):
 	while True:
 		result = "emptyString"
 		result = isBootAnimationComplete()
@@ -65,18 +93,25 @@ def executeTestScenarioForAndroidMonkey(pathToApk):
 			logging.debug('Still waiting for emulator to complete stage: '+result)
 			continue
 
-def doTask(pathToApk):
-	executeTestScenarioForAndroidMonkey(pathToApk)
+def executeTestScenarioForAndroidMonkey(pathToApk,realOrFake):
+	if realOrFake == 'real':
+		runOnDevice(pathToApk)
+	else:
+		runOnAVD(pathToApk)
+
+def doTask(pathToApk,realOrFake):
+	executeTestScenarioForAndroidMonkey(pathToApk,realOrFake)
 
 def main(argv):
-	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python executeTestScenarioForAndroidMonkey.py pathToApk\n')
+	if len(sys.argv) != 3:
+		sys.stderr.write('Usage: python executeTestScenarioForAndroidMonkey.py pathToApk realOrFake\n')
 		sys.exit(1)
 
 	pathToApk = sys.argv[1]
+	realOrFake = sys.argv[2]
 
 	startTime = time.time()
-	doTask(pathToApk)
+	doTask(pathToApk,realOrFake)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

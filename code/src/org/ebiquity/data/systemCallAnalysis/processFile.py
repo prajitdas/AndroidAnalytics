@@ -13,7 +13,13 @@ import fnmatch as fm
 from collections import OrderedDict as od
 import json
 import logging
+from shutil import copyfile
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
+
+def isPathExists(path):
+	if os.path.exists(path):
+		return True
+	return False
 
 def processFileGetFunctionNames(filePath):
 	syscallDict = {}
@@ -31,6 +37,11 @@ def processFileGetFunctionNames(filePath):
 
 def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
+	if isPathExists(masterJsonFile):
+		ticks = time.time()
+		uniformString = str(ticks).replace(".","")
+		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
+		copyfile(masterJsonFile, masterJsonFileBkp)
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())
 	except:

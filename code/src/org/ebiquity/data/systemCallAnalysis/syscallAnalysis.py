@@ -2,7 +2,7 @@
 Created on April 25,2016
 @author: Prajit Kumar Das
 
-Usage: python syscallAnalysis.py username api_key\n
+Usage: python syscallAnalysis.py username api_key realOrFake\n
 
 Syscall analysis code.
 '''

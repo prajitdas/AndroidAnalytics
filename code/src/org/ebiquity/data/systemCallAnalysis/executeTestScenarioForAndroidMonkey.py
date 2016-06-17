@@ -2,7 +2,7 @@
 Created on May 3,2016
 @author: Prajit Kumar Das
 
-Usage: python executeTestScenarioForAndroidMonkey.py pathToApk\n
+Usage: python executeTestScenarioForAndroidMonkey.py pathToApk realOrFake\n
 
 good help: https://devmaze.wordpress.com/2011/12/12/starting-and-stopping-android-emulators/
 
@@ -11,7 +11,7 @@ Syscall analysis code.
 import time
 import sys
 import subprocess as s
-import initClustering as initCl
+# import initClustering as initCl
 import shutil
 import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
@@ -53,9 +53,6 @@ def runOnDevice(pathToApk):
 	#sys.exit(1)
 	shutil.move(pathToApk,movePath)
 	return
-else:
-	logging.debug('Still waiting for emulator to complete stage: '+result)
-	continue
 
 def runOnAVD(pathToApk):
 	while True:

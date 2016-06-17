@@ -13,7 +13,7 @@ import platform
 from ConfigParser import SafeConfigParser
 import subprocess as s
 import processFile as pf
-import initClustering as initCl
+#import initClustering as initCl
 import executeTestScenarioForAndroidMonkey as exAndMon
 import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)

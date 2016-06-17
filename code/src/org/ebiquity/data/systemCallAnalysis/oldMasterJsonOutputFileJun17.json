@@ -5355,7 +5355,6 @@
         "write": 578, 
         "writev": 1240
     }, 
-    "calendrier.lunaire.duJardinier": {}, 
     "cancionesinfantiles.cantajuegosgratis": {
         "clock_gettime": 7, 
         "clone": 61, 
@@ -7105,7 +7104,6 @@
         "write": 858, 
         "writev": 448
     }, 
-    "com.LEO.Mr_Bartender": {}, 
     "com.Slack": {
         "clone": 2, 
         "close": 169, 
@@ -7278,7 +7276,6 @@
         "write": 561, 
         "writev": 595
     }, 
-    "com.alarmclock.xtreme.free": {}, 
     "com.alfa.fox_and_geese.gplay": {}, 
     "com.altairglobal.AltairAnywhere": {}, 
     "com.amaxlwps.tigers": {
@@ -9086,7 +9083,6 @@
         "write": 236, 
         "writev": 68
     }, 
-    "com.android.lunarcal": {}, 
     "com.android.stock": {}, 
     "com.android2014.tubeclient": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2635, si_uid=10054, si_status=0, si_utime=0, si_stime=0} ---": 1, 
@@ -11430,7 +11426,6 @@
         "write": 2316, 
         "writev": 1128
     }, 
-    "com.apalon.myclockfree": {}, 
     "com.apalon.notepad.free": {}, 
     "com.ape.apps.filebrowser": {
         "clock_gettime": 8, 
@@ -13510,54 +13505,6 @@
     "com.appventive.tasksaddon": {}, 
     "com.apusapps.tools.booster": {}, 
     "com.apusapps.tools.unreadtips": {}, 
-    "com.aqua.apps.cocktails.drinks.recipes": {
-        "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 46, 
-        "clock_gettime": 58, 
-        "clone": 29, 
-        "close": 240, 
-        "dup": 40, 
-        "epoll_create1": 1, 
-        "epoll_ctl": 58, 
-        "epoll_pwait": 756, 
-        "eventfd2": 1, 
-        "faccessat": 26, 
-        "fchmodat": 4, 
-        "fcntl": 93, 
-        "fdatasync": 15, 
-        "fstat": 133, 
-        "futex": 1217, 
-        "getdents64": 4, 
-        "geteuid": 8, 
-        "getppid": 1, 
-        "getrlimit": 1, 
-        "getsockopt": 8, 
-        "getuid": 798, 
-        "ioctl": 2056, 
-        "lseek": 84, 
-        "madvise": 86, 
-        "mkdirat": 4, 
-        "mmap": 446, 
-        "mprotect": 560, 
-        "munmap": 299, 
-        "newfstatat": 322, 
-        "openat": 331, 
-        "prctl": 117, 
-        "pread": 361, 
-        "pwrite": 29, 
-        "read": 16519, 
-        "readlinkat": 15, 
-        "recvfrom": 2291, 
-        "rt_sigaction": 2, 
-        "rt_sigprocmask": 175, 
-        "rt_sigreturn": 46, 
-        "sched_yield": 53, 
-        "sendto": 1374, 
-        "setpriority": 2, 
-        "statfs": 1, 
-        "unlinkat": 4, 
-        "write": 594, 
-        "writev": 983
-    }, 
     "com.arab.cartoon": {
         "clone": 44, 
         "close": 237, 
@@ -14180,7 +14127,6 @@
     }, 
     "com.asus.microfilm": {}, 
     "com.asus.remotelink.full": {}, 
-    "com.asus.todolist": {}, 
     "com.aticod.logosquiz": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0} ---": 2, 
         "clock_gettime": 1, 
@@ -20532,8 +20478,6 @@
         "write": 2033, 
         "writev": 1104
     }, 
-    "com.codeaddictsofcseku.androidmediaplayer": {}, 
-    "com.codeswitch.tasks": {}, 
     "com.crowdtorch.hartfordmarathon": {
         "clock_gettime": 2342, 
         "clone": 5, 
@@ -20573,10 +20517,6 @@
         "write": 213, 
         "writev": 523
     }, 
-    "com.customsolutions.android.utl": {}, 
-    "com.dgtex.MisteriumMoon": {}, 
-    "com.digitalchemy.calculator.freedecimal": {}, 
-    "com.digitaloutcrop.mixology": {}, 
     "com.discoverfinancial.mobile": {}, 
     "com.disney.thoughtbubbles_goo": {
         "_llseek": 89, 
@@ -21069,7 +21009,6 @@
         "write": 358, 
         "writev": 49
     }, 
-    "com.findsdk.lunarcalendar": {}, 
     "com.fitbit.FitbitMobile": {
         "clock_gettime": 12, 
         "clone": 26, 
@@ -21490,7 +21429,6 @@
         "write": 667, 
         "writev": 397
     }, 
-    "com.glis.lunarcalendar": {}, 
     "com.google.android.apps.adm": {}, 
     "com.google.android.apps.authenticator2": {
         "clone": 2, 
@@ -21880,7 +21818,6 @@
     }, 
     "com.google.zxing.client.android": {}, 
     "com.gsamlabs.bbm": {}, 
-    "com.guru.cocktails": {}, 
     "com.handmark.expressweather": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0} ---": 6, 
         "clock_gettime": 1, 
@@ -21922,7 +21859,6 @@
         "write": 20, 
         "writev": 31
     }, 
-    "com.harchali.scientifique.calculatrice": {}, 
     "com.hireteammate.htmandroid": {}, 
     "com.hp.android.printservice": {}, 
     "com.hutchgames.mud": {
@@ -21969,7 +21905,6 @@
     "com.igg.bzbee.deckheroes": {}, 
     "com.ijinshan.kbatterydoctor_en": {}, 
     "com.infonow.bofa": {}, 
-    "com.informaticsdev.multilist": {}, 
     "com.irctc.main": {
         "close": 5, 
         "dup": 1, 
@@ -22042,7 +21977,6 @@
         "writev": 741
     }, 
     "com.jb.emoji.gokeyboard": {}, 
-    "com.jhankis.ScientificCalc": {}, 
     "com.jmz.soft.twrpmanager": {}, 
     "com.joeykrim.rootcheck": {
         "--- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=2557, si_uid=10054} ---": 1, 
@@ -22113,7 +22047,6 @@
         "write": 942, 
         "writev": 7
     }, 
-    "com.kog.alarmclock": {}, 
     "com.konylabs.capitalone": {
         "_llseek": 53, 
         "clock_gettime": 5858, 
@@ -22200,7 +22133,6 @@
         "write": 378, 
         "writev": 379
     }, 
-    "com.liferecipes.drinksrecipes": {}, 
     "com.linkedin.android": {
         "clock_gettime": 84, 
         "clone": 43, 
@@ -22288,9 +22220,6 @@
         "write": 1490, 
         "writev": 1255
     }, 
-    "com.lunafaqt": {}, 
-    "com.macropinch.axe": {}, 
-    "com.mefree.videoplayer": {}, 
     "com.mint": {}, 
     "com.monead.semantic.android.sparql": {
         "clone": 1, 
@@ -22379,30 +22308,6 @@
         "ioctl": 1, 
         "kill": 1, 
         "writev": 1
-    }, 
-    "com.mybarapp.free": {
-        "close": 37, 
-        "dup": 18, 
-        "epoll_ctl": 32, 
-        "epoll_pwait": 635, 
-        "fcntl": 18, 
-        "futex": 424, 
-        "getuid": 361, 
-        "ioctl": 620, 
-        "madvise": 6, 
-        "mmap": 86, 
-        "mprotect": 1, 
-        "munmap": 85, 
-        "newfstatat": 28, 
-        "openat": 2, 
-        "prctl": 6, 
-        "pread": 156, 
-        "read": 203, 
-        "recvfrom": 2624, 
-        "rt_sigprocmask": 4, 
-        "sendto": 1567, 
-        "write": 504, 
-        "writev": 303
     }, 
     "com.mypermissions.mypermissions": {
         "clone": 1, 
@@ -22595,7 +22500,6 @@
         "writev": 11
     }, 
     "com.pandora.android": {}, 
-    "com.pdfviewer.reader": {}, 
     "com.peak6.oh": {
         "clone": 6, 
         "close": 86, 
@@ -22916,8 +22820,6 @@
         "write": 226, 
         "writev": 98
     }, 
-    "com.rosamaria.svegliaparlante": {}, 
-    "com.rotha.calendar2015": {}, 
     "com.roy.gtalkinfo": {}, 
     "com.rvappstudios.flashlight": {
         "+++ killed by SIGKILL +++": 1, 
@@ -22992,7 +22894,6 @@
         "write": 459, 
         "writev": 479
     }, 
-    "com.scientific.calc": {}, 
     "com.sec.spp.push": {}, 
     "com.seedlabs.imfcon": {}, 
     "com.sega.sonicdash": {}, 
@@ -23076,8 +22977,6 @@
         "writev": 5
     }, 
     "com.shameronstudios.christmas": {}, 
-    "com.speedsoftware.allin1calcfree": {}, 
-    "com.splendapps.splendo": {}, 
     "com.stackexchange.marvin": {}, 
     "com.starbucks.mobilecard": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2590, si_uid=10054, si_status=0, si_utime=1, si_stime=0} ---": 1, 
@@ -23135,7 +23034,6 @@
         "write": 12381, 
         "writev": 24
     }, 
-    "com.todoist": {}, 
     "com.ubercab": {}, 
     "com.ubercab.driver": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2650, si_uid=10054, si_status=127, si_utime=0, si_stime=0} ---": 1, 
@@ -23319,49 +23217,6 @@
         "writev": 814
     }, 
     "com.wearclan.watchface.fitwatchface": {}, 
-    "com.webworks.drinkscocktails": {
-        "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 46, 
-        "clock_gettime": 20, 
-        "clone": 45, 
-        "close": 285, 
-        "dup": 53, 
-        "epoll_ctl": 98, 
-        "epoll_pwait": 811, 
-        "faccessat": 23, 
-        "fchmodat": 3, 
-        "fcntl": 88, 
-        "fstat": 84, 
-        "fsync": 2, 
-        "futex": 1004, 
-        "getdents64": 4, 
-        "geteuid": 4, 
-        "getrlimit": 1, 
-        "getsockopt": 9, 
-        "getuid": 905, 
-        "ioctl": 2096, 
-        "lseek": 80, 
-        "madvise": 839, 
-        "mkdirat": 2, 
-        "mmap": 566, 
-        "mprotect": 576, 
-        "munmap": 355, 
-        "newfstatat": 442, 
-        "openat": 273, 
-        "prctl": 111, 
-        "pread": 8753, 
-        "read": 5850, 
-        "readlinkat": 17, 
-        "recvfrom": 2643, 
-        "renameat": 1, 
-        "rt_sigaction": 2, 
-        "rt_sigprocmask": 238, 
-        "rt_sigreturn": 46, 
-        "sendto": 1446, 
-        "setpriority": 2, 
-        "unlinkat": 6, 
-        "write": 609, 
-        "writev": 838
-    }, 
     "com.whatsapp.wallpaper": {}, 
     "com.wsandroid.suite": {}, 
     "com.xabber.android": {
@@ -23602,58 +23457,6 @@
         "unlinkat": 5, 
         "write": 2309, 
         "writev": 368
-    }, 
-    "com.yourchineseastrology.chinesecalendar": {}, 
-    "com.zgz.supervideo": {
-        "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2706, si_uid=10071, si_status=1, si_utime=1, si_stime=0} ---": 1, 
-        "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 46, 
-        "_llseek": 62, 
-        "clock_gettime": 4187, 
-        "clone": 41, 
-        "close": 151, 
-        "dup": 13, 
-        "epoll_create1": 1, 
-        "epoll_ctl": 14, 
-        "epoll_pwait": 193, 
-        "eventfd2": 1, 
-        "faccessat": 34, 
-        "fchmodat": 4, 
-        "fcntl64": 98, 
-        "fdatasync": 20, 
-        "fstat64": 124, 
-        "fstatat64": 288, 
-        "futex": 366, 
-        "getdents64": 4, 
-        "geteuid32": 14, 
-        "getppid": 1, 
-        "getsockopt": 8, 
-        "gettimeofday": 69, 
-        "getuid32": 190, 
-        "ioctl": 1073, 
-        "lseek": 4, 
-        "madvise": 315, 
-        "mkdirat": 4, 
-        "mmap2": 298, 
-        "mprotect": 329, 
-        "munmap": 181, 
-        "openat": 214, 
-        "prctl": 60, 
-        "pread64": 228, 
-        "pwrite64": 37, 
-        "read": 3002, 
-        "readlinkat": 9, 
-        "recvfrom": 462, 
-        "rt_sigprocmask": 102, 
-        "rt_sigreturn": 46, 
-        "sched_yield": 57, 
-        "sendto": 261, 
-        "setpriority": 2, 
-        "statfs64": 1, 
-        "ugetrlimit": 1, 
-        "unlinkat": 5, 
-        "wait4": 1, 
-        "write": 142, 
-        "writev": 211
     }, 
     "com.zimperium.stagefrightdetector": {}, 
     "de.onyxbits.listmyapps": {}, 
@@ -24256,7 +24059,6 @@
     }, 
     "eu.chainfire.supersu": {}, 
     "flipboard.app": {}, 
-    "fr.calendrierlunaire.android": {}, 
     "fr.x_studios.x_laser_2": {
         "--- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=2548, si_uid=10054} ---": 1, 
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 3, 
@@ -24311,36 +24113,6 @@
         "write": 762, 
         "writev": 387
     }, 
-    "hdnasoftware.hdna.piscientificcalculator": {}, 
-    "hu.distinction.cflow": {
-        "clock_gettime": 3, 
-        "clone": 4, 
-        "close": 41, 
-        "dup": 5, 
-        "epoll_ctl": 7, 
-        "epoll_pwait": 183, 
-        "faccessat": 4, 
-        "fcntl": 15, 
-        "fstat": 12, 
-        "futex": 122, 
-        "geteuid": 2, 
-        "getuid": 105, 
-        "ioctl": 283, 
-        "madvise": 7, 
-        "mmap": 81, 
-        "mprotect": 8, 
-        "munmap": 49, 
-        "newfstatat": 22, 
-        "openat": 36, 
-        "prctl": 2, 
-        "pread": 94, 
-        "read": 49, 
-        "recvfrom": 634, 
-        "rt_sigprocmask": 115, 
-        "sendto": 404, 
-        "write": 100, 
-        "writev": 130
-    }, 
     "io.github.importre.android.chromeadb": {
         "clone": 19, 
         "close": 132, 
@@ -24379,44 +24151,7 @@
         "write": 705, 
         "writev": 506
     }, 
-    "it.bisemanuDEV.bismagsimplecalculator": {}, 
     "jackpal.androidterm": {}, 
-    "jakiganicsystems.simplestchecklist": {
-        "clone": 5, 
-        "close": 241, 
-        "dup": 38, 
-        "epoll_ctl": 38, 
-        "epoll_pwait": 782, 
-        "faccessat": 181, 
-        "fchmodat": 18, 
-        "fcntl": 499, 
-        "fdatasync": 54, 
-        "fstat": 586, 
-        "fsync": 1, 
-        "futex": 45, 
-        "geteuid": 95, 
-        "getsockopt": 1, 
-        "getuid": 620, 
-        "ioctl": 1324, 
-        "madvise": 165, 
-        "mmap": 97, 
-        "mprotect": 55, 
-        "munmap": 63, 
-        "newfstatat": 301, 
-        "openat": 178, 
-        "prctl": 8, 
-        "pread": 291, 
-        "pwrite": 116, 
-        "read": 685, 
-        "readlinkat": 1, 
-        "recvfrom": 2186, 
-        "renameat": 1, 
-        "rt_sigprocmask": 167, 
-        "sendto": 1202, 
-        "unlinkat": 1, 
-        "write": 1340, 
-        "writev": 466
-    }, 
     "lv.n3o.shark": {}, 
     "lv.n3o.sharkreader": {
         "clone": 1, 
@@ -24475,7 +24210,6 @@
         "writev": 675
     }, 
     "net.peakgames.amy": {}, 
-    "net.sf.andpdf.pdfviewer": {}, 
     "no.intellicom.lswatchface": {}, 
     "oliver.ehrenmueller.dbadmin": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2775, si_uid=10054, si_status=127, si_utime=0, si_stime=0} ---": 1, 
@@ -24609,7 +24343,6 @@
         "write": 569, 
         "writev": 757
     }, 
-    "org.solovyev.android.calculator": {}, 
     "org.telegram.messenger": {
         "--- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=2549, si_uid=10054} ---": 1, 
         "_llseek": 865, 
@@ -24825,7 +24558,6 @@
     }, 
     "tv.periscope.android": {}, 
     "tv.twitch.android.app": {}, 
-    "veg.network.mediaplayer": {}, 
     "znickq.me.flashclock": {
         "close": 107, 
         "dup": 50, 

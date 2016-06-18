@@ -4,7 +4,7 @@ installationResult=`adb install -r $1`
 
 if [[ $installationResult == *"Failure"* ]]
 then
-	echo "Failure"
+	echo "Failure to install: "$1 >> error.log
 	exit 1
 else
 	# Extract package and launcher activity information
@@ -12,30 +12,47 @@ else
 	activity=$(aapt dump badging $1|awk -F" " '/launchable-activity/ {print $2}'|awk -F"'" '/name=/ {print $2}')
 
 	outputFile=$(echo "/sdcard/"$package".out")
-	adb shell touch $outputFile
-	# Verifying the variables (for Debug)
-	echo $package
-	echo $activity
-	echo $outputFile
+	straceOutFilePath=$(echo "/sdcard/"$package".monkey.out")
 
+	# Verifying the variables (for Debug)
+	echo "Package: "$package
+	echo "Activity: "$activity
+	echo "Output File: "$outputFile
+	echo "Strace Output File: "$straceOutFilePath
+
+	# Prepare AVD for proper testing set aireplane mode off
+	adb shell settings put global airplane_mode_on 0
+	# Press the home button to ensure you are on the home screen
+	adb shell input keyevent 3
+
+	# Cleanup the out file if it exists
+	adb shell "rm $outputFile 2> /dev/null "
+	adb shell "rm $straceOutFilePath 2> /dev/null "
+
+	# Create the initial output files, to be filled later
+	adb shell "touch $outputFile"
+	adb shell "touch $straceOutFilePath"
+	
 	# Output directory creation for $package
-	outDir="out/"$package
+	outDir=`pwd`
+	outDir=$outDir"/out/"$package"/"
 	mkdir -p $outDir
 	cd $outDir
 
 	# Start package using ActivityManager in order to determine the process Id of the app
-	adb shell am start -n $package/$activity
+	adb shell "am start -n $package/$activity"
 	processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
 
 	# Starting the trace process on the app's process id. This is assuming that we have the root shell
 	#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"
-	adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
+	#adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
+	adb shell "nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&"
 
 	# Verifying the variables (for Debug)
-	echo $processId
+	echo "Process Id: "$processId
 
 	# Using monkey to generate a certain number of pseudo-random events
-	adb shell monkey -p $package -v 1000 > "$package"monkey.out
+	adb shell "monkey -p $package -v 1000 > $straceOutFilePath"
 	# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
 	# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
 
@@ -44,13 +61,16 @@ else
 	# adb shell "cp $outputFile $straceOutFilePath"
 
 	# Extract the out file containing the output of strace
-	adb pull $outputFile
+	echo "Strace output file: "$outputFile
+	echo "Local strace output directory: "$outDir
+	echo "adb pull "$outputFile $outDir
+	adb pull $outputFile $outDir
 	sleep 10
 	cd -
 	
 	# Uninstall the app
 	adb uninstall $package
 
-	echo "Success";
+	echo "Success in finishing the current app's experiments";
 	exit 0
 fi

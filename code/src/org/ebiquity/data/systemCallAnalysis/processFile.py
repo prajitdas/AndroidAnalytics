@@ -2,7 +2,7 @@
 Created on April 26,2016
 @author: Prajit Kumar Das
 
-Usage: python processFile.py\n
+Usage: python processFile.py appPkgName\n
 
 Process files for feature generation in syscall analysis.
 '''
@@ -58,24 +58,18 @@ def extractFeatures(jsonPath,root,appPkgName):
 			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file))
 	storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
-def doTask():
-	appPkgNameList = []
+def doTask(appPkgName):
 	# The following 2 lines are for testing purposes only
-	jsonPath = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis"
-	outDir = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis/out"
-	for appPkgName in appPkgNameList:
-		# appPkgName = "com.rvappstudios.flashlight"
-		extractFeatures(jsonPath,outDir,appPkgName)
+	jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis\\apps"
+	outDir = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis\\apps\out"
+	extractFeatures(jsonPath,outDir,appPkgName)
 
 def main(argv):
-	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python processFile.py\n')
+	if len(sys.argv) != 2:
+		sys.stderr.write('Usage: python processFile.py appPkgName\n')
 		sys.exit(1)
-
-	startTime = time.time()
-	doTask()
-	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: '+executionTime+' ms')
+	appPkgName = sys.argv[1]
+	doTask(appPkgName)
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

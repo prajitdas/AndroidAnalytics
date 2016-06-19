@@ -21,12 +21,23 @@ def isPathExists(path):
 		return True
 	return False
 
+def sanitizeCall(inputString):
+	# if '---' in inputString or '%' in inputString or  or hasNumbers(inputString):
+	# 	return ''
+	if 'System ' in inputString:
+		return None
+	if ' ' in inputString:
+		inputString = inputString.split(' ')[0]
+	if re.match("^[a-zA-Z_]*$", inputString):
+		return inputString
+	return None
+
 def processFileGetFunctionNames(filePath):
 	syscallDict = {}
 	with open(filePath,'r') as fp:
 		for line in fp:
 			# This is where we are extracting the actual features from the out files
-			syscall = line.split('(')[0].strip()
+			syscall = sanitizeCall(line)
 			if syscall in syscallDict:
 				syscallDict[syscall] += 1
 			else:

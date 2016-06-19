@@ -59,11 +59,13 @@ def extractFeatures(jsonPath,root,appPkgName):
 	storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask():
+	appPkgNameList = []
 	# The following 2 lines are for testing purposes only
 	jsonPath = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis"
 	outDir = "/Users/prajit/Work/AndroidAnalytics/code/src/org/ebiquity/data/systemCallAnalysis/out"
-	appPkgName = "com.rvappstudios.flashlight"
-	extractFeatures(jsonPath,outDir,appPkgName)
+	for appPkgName in appPkgNameList:
+		# appPkgName = "com.rvappstudios.flashlight"
+		extractFeatures(jsonPath,outDir,appPkgName)
 
 def main(argv):
 	if len(sys.argv) != 1:

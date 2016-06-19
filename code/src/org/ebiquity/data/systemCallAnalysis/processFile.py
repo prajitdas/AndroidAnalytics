@@ -14,6 +14,7 @@ from collections import OrderedDict as od
 import json
 import logging
 from shutil import copyfile
+import re
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def isPathExists(path):

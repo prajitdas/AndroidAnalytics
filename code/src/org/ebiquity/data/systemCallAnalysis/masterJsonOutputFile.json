@@ -4424,6 +4424,7 @@
         "write": 929, 
         "writev": 620
     }, 
+    "br.com.mobicare.oiwifi": {}, 
     "br.com.mobile10.matematica": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0} ---": 10, 
         "clock_gettime": 5, 

@@ -46,8 +46,9 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 		jsonDict = json.loads(open(masterJsonFile).read())
 	except:
 		jsonDict = {}
-	jsonDict[appPkgName] = syscallDict
-	open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+	if len(jsonDict[appPkgName]) < len(syscallDict):
+		jsonDict[appPkgName] = syscallDict
+		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 
 def extractFeatures(jsonPath,root,appPkgName):
 	appOutputFolder = os.path.join(root,appPkgName)

@@ -32,6 +32,9 @@ else
 	# Create the initial output files, to be filled later
 	adb shell "touch $outputFile"
 	adb shell "touch $straceOutFilePath"
+
+	# Push some essential data files
+	adb push data/* /sdcard/
 	
 	# Output directory creation for $package
 	outDir=`pwd`

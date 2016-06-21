@@ -21848,7 +21848,9 @@
         "write": 1385, 
         "writev": 1158
     }, 
-    "com.codeswitch.tasks": {}, 
+    "com.codeswitch.tasks": {
+        "null": 6617
+    }, 
     "com.crowdtorch.hartfordmarathon": {
         "clock_gettime": 2342, 
         "clone": 5, 
@@ -24254,7 +24256,9 @@
         "write": 226, 
         "writev": 98
     }, 
-    "com.rosamaria.svegliaparlante": {}, 
+    "com.rosamaria.svegliaparlante": {
+        "null": 26446
+    }, 
     "com.rotha.calendar2015": {}, 
     "com.roy.gtalkinfo": {}, 
     "com.ruddyrooster.android.megaflashlight": {}, 
@@ -25943,7 +25947,9 @@
         "write": 569, 
         "writev": 757
     }, 
-    "org.solovyev.android.calculator": {}, 
+    "org.solovyev.android.calculator": {
+        "null": 18649
+    }, 
     "org.telegram.messenger": {
         "--- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=2549, si_uid=10054} ---": 1, 
         "_llseek": 865, 

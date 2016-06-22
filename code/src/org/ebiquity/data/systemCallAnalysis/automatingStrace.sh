@@ -4,7 +4,7 @@ installationResult=`adb install -r $1`
 
 if [[ $installationResult == *"Failure"* ]]
 then
-	echo "Failure to install: "$1 >> error.log
+	echo "Error: Failure to install: "$1 >> error.log
 	exit 1
 else
 	# Extract package and launcher activity information
@@ -34,7 +34,8 @@ else
 	adb shell "touch $straceOutFilePath"
 
 	# Push some essential data files
-	adb push data/* /sdcard/
+	#adb push data/* /sdcard/
+	#adb push data/* /storage/emulated/0/Download/
 	
 	# Output directory creation for $package
 	outDir=`pwd`

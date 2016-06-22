@@ -49,7 +49,7 @@ def runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPat
 		logging.debug('Working on runExperiments for the app: '+apkDict[key])
 		# For each app execution start emulator for AVD nexus6,in wiped mode.
 		# Make sure you have created the AVD first.
-		emulatorStartCmd = 'bash startEmulator.sh'
+		emulatorStartCmd = 'bash startEmulator.sh &'
 		s.call(emulatorStartCmd.split())
 		# Executing the test scenario for Android monkey for a particular app apk
 		try:

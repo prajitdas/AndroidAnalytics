@@ -49,7 +49,7 @@ def runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPat
 		logging.debug('Working on runExperiments for the app: '+apkDict[key])
 		# For each app execution start emulator for AVD nexus6,in wiped mode.
 		# Make sure you have created the AVD first.
-		emulatorStartCmd = 'bash startEmulator.sh &'
+		emulatorStartCmd = 'bash startEmulator.sh'
 		s.call(emulatorStartCmd.split())
 		# Executing the test scenario for Android monkey for a particular app apk
 		try:
@@ -69,7 +69,7 @@ def runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPat
 		logging.debug('Finished running experiments, extracting features for the app: '+key)
 		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 		logging.debug('Done with extracing features for the app: '+key+' onto the next app!')
-		time.sleep(120)
+		time.sleep(30)
 
 	# After all the apps have been processed and features extracted,we may run the ML algos.
 	#initCl.initClustering(username,api_key,currentPath)

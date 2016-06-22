@@ -38,7 +38,9 @@ def processFileGetFunctionNames(filePath):
 	with open(filePath,'r') as fp:
 		for line in fp:
 			# This is where we are extracting the actual features from the out files
-			syscall = sanitizeCall(line)
+			# syscall = sanitizeCall(line)
+			# We started getting an error due to this. So changing back to original code.
+			syscall = line.split('(')[0].strip()
 			if syscall in syscallDict:
 				syscallDict[syscall] += 1
 			else:
@@ -59,10 +61,12 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	except:
 		jsonDict = {}
 	if appPkgName in jsonDict:
+		print "Came into is in file"
 		if len(jsonDict[appPkgName]) < len(syscallDict):
 			jsonDict[appPkgName] = syscallDict
 			open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 	else:
+		print "Came into is not file"
 		jsonDict[appPkgName] = syscallDict
 		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 

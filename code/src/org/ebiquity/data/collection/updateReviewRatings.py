@@ -18,10 +18,10 @@ import databaseHandler
 logging.basicConfig(filename='collection.log',level=logging.DEBUG)
 
 def updateReviewRatings(dbHandle,appUrlList):
-    for appUrl in appUrlList:
-        app_pkg_name = appUrl.split('=')[1]
-        print app_pkg_name, appUrl
-        sys.exit(1)
+	for appUrl in appUrlList:
+		app_pkg_name = appUrl.split('=')[1]
+		print app_pkg_name, appUrl
+		sys.exit(1)
 	headers = { 'User-Agent' : 'Mozilla/5.0' }
 	req = urllib2.Request(url, None, headers)
 	try: 
@@ -40,7 +40,7 @@ def updateReviewRatings(dbHandle,appUrlList):
 		pp(app_dict)
 	except urllib2.HTTPError, e:
 		print 'HTTPError =', str(e.code), 'for app:', app[0]
-        logging.debug('HTTPError ='+str(e.code)+'for app:'+app[0])
+		logging.debug('HTTPError ='+str(e.code)+'for app:'+app[0])
 		sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = "+app_pkg_name+";"
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 

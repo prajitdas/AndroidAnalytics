@@ -34,21 +34,23 @@ def sanitizeCall(inputString):
 	return None
 
 def processFileGetFunctionNames(filePath):
-	syscallDict = json.loads(open('syscalls.json', 'r').read())
+	# syscallDict = json.loads(open('syscalls.json', 'r').read())
+	syscallDict = {}
 	with open(filePath,'r') as fp:
 		for line in fp:
 			# This is where we are extracting the actual features from the out files
 			# syscall = sanitizeCall(line)
 			# We started getting an error due to this. So changing back to original code.
-			syscall = line.split('(')[0].strip()
-			if syscall in syscallDict:
-				if syscallDict[syscall] == 0:
-					syscallDict[syscall] = 1
-				else:
-					syscallDict[syscall] += 1
+			if line.startswith('+++') or line.startswith('---') or line.startswith('System'):
+				continue
 			else:
-				print 'something went seriously wrong for',syscall
-				logging.debug('something went seriously wrong for'+syscall)
+				syscall = line.split('(')[0].strip()
+				if syscall in syscallDict:
+					syscallDict[syscall] += 1
+				else:
+					syscallDict[syscall] = 1
+					# print 'something went seriously wrong for',syscall
+					# logging.debug('something went seriously wrong for'+syscall)
 	# for i,(k,v) in enumerate(od(sorted(syscallDict.items(),key=lambda k:k[1],reverse=True)).iteritems()):
 	# 	print k,v
 	return syscallDict
@@ -60,7 +62,7 @@ def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
 		origTotalCalls += freq
 	for freq in newSyscallDict.itervalues():
 		newTotalCalls += freq
-	if origTotalCalls > newTotalCalls:
+	if origTotalCalls >= newTotalCalls:
 		return False
 	return True
 
@@ -71,20 +73,22 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 		uniformString = str(ticks).replace(".","")
 		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
 		copyfile(masterJsonFile, masterJsonFileBkp)
+	jsonDict = {}
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())
 	except:
-		jsonDict = {}
+		print "json was empty"
 	if appPkgName in jsonDict:
-		print "Came into is in file"
+		print "Came into is in file", jsonDict[appPkgName]
 		if hasMoreCallsSyscallDict(jsonDict[appPkgName],syscallDict) == True:
+			print "Came into is in file"
 			jsonDict[appPkgName] = syscallDict
 			open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 	else:
 		print "Came into is not in file"
 		jsonDict[appPkgName] = syscallDict
 		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
-
+	print jsonDict.keys()
 
 def extractFeatures(jsonPath,root,appPkgName):
 	appOutputFolder = os.path.join(root,appPkgName)

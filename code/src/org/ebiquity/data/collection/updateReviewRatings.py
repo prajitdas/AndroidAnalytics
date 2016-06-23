@@ -54,8 +54,6 @@ def getReviewRatings(appUrlList):
 				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name
 				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name)
 
-	#insertInDB()
-
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 	cursor = dbHandle.cursor()
@@ -71,7 +69,8 @@ def doTask():
 	cursor.close()
 	dbHandle.close() #DB Close
 	
-	updateReviewRatings(appUrlList)
+	getReviewRatings(appUrlList)
+	#insertInDB()
 
 def main(argv):
 	if len(sys.argv) != 1:

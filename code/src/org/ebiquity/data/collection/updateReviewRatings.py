@@ -37,7 +37,7 @@ def doTask():
                             app_dict['review_rating'] = round(eval(child.string),1)
                         else:
                             app_dict['review_rating'] = 0.0
-                sqlStatement = "UPDATE `appdata` SET `review_rating`= "+app_dict['review_rating']+" WHERE `app_pkg_name` = "+app_pkg_name+";"
+                sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = "+app_pkg_name+";"
                 databaseHandler.dbManipulateData(dbHandle, sqlStatement)
                 # from pprint import pprint as pp
                 # pp(app_dict)

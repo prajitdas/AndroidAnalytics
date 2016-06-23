@@ -27,7 +27,7 @@ def insertInDB():
 		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	dbHandle.close() #DB Close	
 
-def getReviewRatings(appUrlList):
+def getReviewRatings(dbHandle, appUrlList):
 	for appUrl in appUrlList:
 		app_dict = json.loads(open('appRating.json','r').read())
 		app_pkg_name = appUrl.split('=')[1]
@@ -49,7 +49,7 @@ def getReviewRatings(appUrlList):
 				sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = '"+app_pkg_name+"';"
 				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
 				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
-				databaseHandler.dbManipulateData( sqlStatement)
+				databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 			else:
 				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name
 				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name)
@@ -67,10 +67,10 @@ def doTask():
 		print 'Unexpected error in updateReviewRatings:', sys.exc_info()[0]
 		raise
 	cursor.close()
-	dbHandle.close() #DB Close
-	
 	open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
 	getReviewRatings(appUrlList)
+	dbHandle.close() #DB Close
+	
 	#insertInDB()
 
 def main(argv):

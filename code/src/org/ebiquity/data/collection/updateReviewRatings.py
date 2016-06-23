@@ -12,7 +12,6 @@ import mysql.connector as mysql
 import sys
 import urllib2
 from bs4 import BeautifulSoup as bs
-from pprint import pprint as pp
 import time
 import databaseHandler
 import logging
@@ -35,8 +34,9 @@ def updateReviewRatings(dbHandle,appUrlList):
 					else:
 						app_dict['review_rating'] = 0.0
 			sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = "+app_pkg_name+";"
+			print sqlStatement
+			logging.debug("Statement: "+sqlStatement)
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-			pp(app_dict)
 		except urllib2.HTTPError, e:
 			sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = "+app_pkg_name+";"
 			print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement

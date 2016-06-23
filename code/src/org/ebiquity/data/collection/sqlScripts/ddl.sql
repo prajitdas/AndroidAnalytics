@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `appdata`(
   `app_name` text(750) NOT NULL,
   `developer_id` int(10) unsigned NOT NULL,
   `app_category_id` int(10) unsigned NOT NULL,
-  `review_rating` decimal(1,1) NOT NULL DEFAULT '0.0',
+  `review_rating` decimal(2,1) NOT NULL DEFAULT '0.0',
   `review_count` int(10) NOT NULL DEFAULT '0',
   `desc` text(65535) DEFAULT NULL,
   `whats_new` text(65535),

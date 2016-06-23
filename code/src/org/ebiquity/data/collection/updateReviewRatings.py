@@ -33,12 +33,12 @@ def updateReviewRatings(dbHandle,appUrlList):
 						app_dict['review_rating'] = round(eval(child.string),1)
 					else:
 						app_dict['review_rating'] = 0.0
-			sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = "+app_pkg_name+";"
+			sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = '"+app_pkg_name+"';"
 			print sqlStatement
 			logging.debug("Statement: "+sqlStatement)
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 		except urllib2.HTTPError, e:
-			sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = "+app_pkg_name+";"
+			sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = '"+app_pkg_name+"';"
 			print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
 			logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)

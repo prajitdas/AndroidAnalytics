@@ -69,6 +69,7 @@ def doTask():
 	cursor.close()
 	dbHandle.close() #DB Close
 	
+	open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
 	getReviewRatings(appUrlList)
 	#insertInDB()
 

@@ -36,7 +36,6 @@ def getReviewRatings(dbHandle, appUrlList):
 		try: 
 			page = urllib2.urlopen(req).read()
 			soup = bs(''.join(page))
-			app_dict['app_name'] = app_pkg_name
 			for div in soup.findAll(attrs={'class': 'score'}):
 				for child in div.children:
 					review_rating = 0.0

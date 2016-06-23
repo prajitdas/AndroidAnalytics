@@ -20,27 +20,27 @@ def updateReviewRatings(dbHandle,appUrlList):
         app_pkg_name = appUrl.split('=')[1]
         print app_pkg_name, appUrl
         sys.exit(1)
-	# headers = { 'User-Agent' : 'Mozilla/5.0' }
-	# req = urllib2.Request(url, None, headers)
-	# try: 
-	# 	page = urllib2.urlopen(req).read()
-	# 	soup = bs(''.join(page))
-	# 	app_dict = {}
-	# 	app_dict['app_name'] = app_pkg_name
-	# 	for div in soup.findAll(attrs={'class': 'score'}):
-	# 		for child in div.children:
-	# 			if not child.string == ' ':
-	# 				app_dict['review_rating'] = round(eval(child.string),1)
-	# 			else:
-	# 				app_dict['review_rating'] = 0.0
-	# 	sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = "+app_pkg_name+";"
-	# 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-	# 	# from pprint import pprint as pp
-	# 	# pp(app_dict)
-	# except urllib2.HTTPError, e:
-	# 	print 'HTTPError =', str(e.code), 'for app:', app[0]
-	# 	sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = "+app_pkg_name+";"
-	# 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	headers = { 'User-Agent' : 'Mozilla/5.0' }
+	req = urllib2.Request(url, None, headers)
+	try: 
+		page = urllib2.urlopen(req).read()
+		soup = bs(''.join(page))
+		app_dict = {}
+		app_dict['app_name'] = app_pkg_name
+		for div in soup.findAll(attrs={'class': 'score'}):
+			for child in div.children:
+				if not child.string == ' ':
+					app_dict['review_rating'] = round(eval(child.string),1)
+				else:
+					app_dict['review_rating'] = 0.0
+		sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = "+app_pkg_name+";"
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+		# from pprint import pprint as pp
+		# pp(app_dict)
+	except urllib2.HTTPError, e:
+		print 'HTTPError =', str(e.code), 'for app:', app[0]
+		sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = "+app_pkg_name+";"
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open

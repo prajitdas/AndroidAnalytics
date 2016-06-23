@@ -8,6 +8,7 @@ doing nothing to still_in_googleplaystore if the app is not available in the cur
 '''
 
 import mysql.connector as mysql
+import json
 import sys
 import urllib2
 from bs4 import BeautifulSoup as bs
@@ -16,35 +17,44 @@ import databaseHandler
 import logging
 logging.basicConfig(filename='collection.log',level=logging.DEBUG)
 
-def updateReviewRatings(dbHandle,appUrlList):
+def insertInDB():
+	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
+	app_dict = json.loads(open('appRating.json','r').read())
+	for app_pkg_name, review_rating in app_dict.iteritems():
+		sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(review_rating)+" WHERE `app_pkg_name` = '"+app_pkg_name+"';"
+		print sqlStatement
+		logging.debug("Statement: "+sqlStatement)
+		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	dbHandle.close() #DB Close	
+
+def getReviewRatings(appUrlList):
 	for appUrl in appUrlList:
+		app_dict = json.loads(open('appRating.json','r').read())
 		app_pkg_name = appUrl.split('=')[1]
 		headers = { 'User-Agent' : 'Mozilla/5.0' }
 		req = urllib2.Request(appUrl, None, headers)
 		try: 
 			page = urllib2.urlopen(req).read()
 			soup = bs(''.join(page))
-			app_dict = {}
 			app_dict['app_name'] = app_pkg_name
 			for div in soup.findAll(attrs={'class': 'score'}):
 				for child in div.children:
+					review_rating = 0.0
 					if not child.string == ' ':
-						app_dict['review_rating'] = round(eval(child.string),1)
-					else:
-						app_dict['review_rating'] = 0.0
-			sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(app_dict['review_rating'])+" WHERE `app_pkg_name` = '"+app_pkg_name+"';"
-			print sqlStatement
-			logging.debug("Statement: "+sqlStatement)
-			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+						review_rating = round(eval(child.string),1)
+					app_dict[app_pkg_name] = review_rating
+			open('appRating.json','w').write(json.dumps(app_dict,indent=4,sort_keys=True))
 		except urllib2.HTTPError, e:
 			if str(e.code) == '404':
 				sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = '"+app_pkg_name+"';"
 				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
 				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
-				databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+				databaseHandler.dbManipulateData( sqlStatement)
 			else:
 				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name
 				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name)
+
+	#insertInDB()
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
@@ -59,9 +69,9 @@ def doTask():
 		print 'Unexpected error in updateReviewRatings:', sys.exc_info()[0]
 		raise
 	cursor.close()
-
-	updateReviewRatings(dbHandle,appUrlList)
 	dbHandle.close() #DB Close
+	
+	updateReviewRatings(appUrlList)
 
 def main(argv):
 	if len(sys.argv) != 1:

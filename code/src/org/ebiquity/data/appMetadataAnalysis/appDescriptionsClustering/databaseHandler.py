@@ -48,14 +48,14 @@ def dbConnectionCheck():
 		return dbHandle
 	except mysql.Error as err:
 		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-	        print 'Something is wrong with your user name or password'
-	        logging.debug('Something is wrong with your user name or password')
-	    elif err.errno == errorcode.ER_BAD_DB_ERROR:
-	        print 'Database does not exist'
-	        logging.debug('Database does not exist')
-	    else:
-	        print err
-	        logging.debug('Something went wrong: {}'.format(err))
+			print 'Something is wrong with your user name or password'
+			logging.debug('Something is wrong with your user name or password')
+		elif err.errno == errorcode.ER_BAD_DB_ERROR:
+			print 'Database does not exist'
+			logging.debug('Database does not exist')
+		else:
+			print err
+			logging.debug('Something went wrong: {}'.format(err))
 	except Exception as err:
 		logging.debug('Something unexpected happened!'.format(err))
 	return None

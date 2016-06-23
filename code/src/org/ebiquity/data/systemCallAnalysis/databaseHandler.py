@@ -1,6 +1,6 @@
 '''
 Created on Apr 4, 2015
-Modified on June 6, 2016
+Modified on June 22, 2016
 @author: Prajit Kumar Das
 '''
 
@@ -9,7 +9,7 @@ import sys
 import time
 import logging
 import mysql.connector as mysql
-logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
+logging.basicConfig(filename='databaseHandler.log',level=logging.DEBUG)
 
 # Fire an DML SQL statement and commit data
 def dbManipulateData(dbHandle, sqlStatement):
@@ -47,7 +47,15 @@ def dbConnectionCheck():
 		#dbHandle.set_character_set('utf8')
 		return dbHandle
 	except mysql.Error as err:
-		logging.debug('Something went wrong: {}'.format(err))
+		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+	        print('Something is wrong with your user name or password')
+	        logging.debug('Something is wrong with your user name or password')
+	    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+	        print('Database does not exist')
+	        logging.debug('Database does not exist')
+	    else:
+	        print(err)
+	        logging.debug('Something went wrong: {}'.format(err))
 	except Exception as err:
 		logging.debug('Something unexpected happened!'.format(err))
 	return None

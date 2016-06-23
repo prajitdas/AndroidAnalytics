@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup as bs
 from pprint import pprint as pp
 import time
 import databaseHandler
+import logging
 logging.basicConfig(filename='collection.log',level=logging.DEBUG)
 
 def updateReviewRatings(dbHandle,appUrlList):

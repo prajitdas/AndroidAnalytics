@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `appdata`(
   `app_name` text(750) NOT NULL,
   `developer_id` int(10) unsigned NOT NULL,
   `app_category_id` int(10) unsigned NOT NULL,
-  `review_rating` float(1,1) NOT NULL DEFAULT '0.0',
+  `review_rating` decimal(1,1) NOT NULL DEFAULT '0.0',
   `review_count` int(10) NOT NULL DEFAULT '0',
   `desc` text(65535) DEFAULT NULL,
   `whats_new` text(65535),
@@ -146,6 +146,9 @@ CREATE TABLE IF NOT EXISTS `appdata`(
   `version` varchar(50) DEFAULT NULL,
   `android_reqd` varchar(50) DEFAULT NULL,
   `content_rating` varchar(100) DEFAULT NULL,
+  `paid` int(1) NOT NULL DEFAULT '0',
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `still_in_googleplaystore` int(1) NOT NULL DEFAULT '1',
   CONSTRAINT `fk_developer_id` FOREIGN KEY (`developer_id`) REFERENCES `developer`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_app_category_id` FOREIGN KEY (`app_category_id`) REFERENCES `appcategories`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;

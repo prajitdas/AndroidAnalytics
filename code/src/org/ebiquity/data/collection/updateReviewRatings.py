@@ -69,8 +69,6 @@ def doTask():
 	open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
 	getReviewRatings(dbHandle, appUrlList)
 	dbHandle.close() #DB Close
-	
-	#insertInDB()
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -79,6 +77,7 @@ def main(argv):
 
 	startTime = time.time()
 	doTask()
+	#insertInDB()
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

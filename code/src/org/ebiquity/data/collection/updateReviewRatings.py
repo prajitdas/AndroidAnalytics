@@ -37,14 +37,14 @@ def updateReviewRatings(dbHandle,appUrlList):
 			logging.debug("Statement: "+sqlStatement)
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 		except urllib2.HTTPError, e:
-			if e == '404':
+			if str(e.code) == '404':
 				sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = '"+app_pkg_name+"';"
 				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
 				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
 				databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 			else:
-				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
-				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
+				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name
+				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name)
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open

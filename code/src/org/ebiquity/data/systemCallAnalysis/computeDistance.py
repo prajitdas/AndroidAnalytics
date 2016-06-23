@@ -131,8 +131,8 @@ def formVectorJustCalls(appSyscallDict, allSyscallsVector):
 	# print appVector
 	return appVector
 
-def computeJaccardMatrix(jsonDict):
-	logging.debug('Inside computeJaccardMatrix')
+def computeDistance(jsonDict):
+	logging.debug('Inside computeDistance')
 
 	# Removing all apps which didn't have any calls associated.
 	# Maybe the call to these apps didn't work. We have to try them again, later on.

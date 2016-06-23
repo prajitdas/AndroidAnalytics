@@ -57,12 +57,12 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	#init
 	#reducedDimensions = 100
 	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-	endingNumberOfClusters = 500
+	endingNumberOfClusters = 10
 	loopCounter = startingNumberOfClusters
-	clusterLoopStepSize = 5
+	clusterLoopStepSize = 1
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appVector = cd.computeJaccardMatrix(jsonDict)
+	appMatrix, appVector = cd.computeDistance(jsonDict)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction

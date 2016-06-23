@@ -12,6 +12,8 @@ import mysql.connector as mysql
 import sys
 import urllib2
 from bs4 import BeautifulSoup as bs
+import time
+import databaseHandler
 
 def doTask():
     dbHandle = databaseHandler.dbConnectionCheck() # DB Open

@@ -3,9 +3,8 @@ Created on June 22, 2016
 @author: Prajit Kumar Das
 Usage: python updateReviewRatings.py
 Purpose: To update the appdata table with the correct review_rating or 
-setting still_in_googleplaystore = 0 
-if the app is no longer available on the play store (Error 404)
-or if the app is not available in the current location context on the play store (Error 403)
+setting still_in_googleplaystore = 0 if the app is no longer available on the play store (Error 404)
+doing nothing to still_in_googleplaystore if the app is not available in the current location context on the play store (Error 403)
 '''
 
 import mysql.connector as mysql
@@ -38,10 +37,14 @@ def updateReviewRatings(dbHandle,appUrlList):
 			logging.debug("Statement: "+sqlStatement)
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 		except urllib2.HTTPError, e:
-			sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = '"+app_pkg_name+"';"
-			print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
-			logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
-			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			if e == '404':
+				sqlStatement = "UPDATE `appdata` SET `still_in_googleplaystore`= 0 WHERE `app_pkg_name` = '"+app_pkg_name+"';"
+				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
+				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
+				databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+			else:
+				print 'HTTPError =', str(e.code), 'for app:', app_pkg_name, sqlStatement
+				logging.debug('HTTPError ='+str(e.code)+'for app:'+app_pkg_name+" statement: "+sqlStatement)
 
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open

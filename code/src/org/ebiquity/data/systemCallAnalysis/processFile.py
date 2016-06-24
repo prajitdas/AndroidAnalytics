@@ -55,14 +55,17 @@ def processFileGetFunctionNames(filePath):
 	# 	print k,v
 	return syscallDict
 
+# Returns True if the original syscall dict had more variety of calls or more number of total calls
+# Presence of more syscalls (or words) has higher significance
+# Presence of number of syscalls (or words) has lower significance
 def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
-	origTotalCalls = 0
-	newTotalCalls = 0
-	for freq in origSyscallDict.itervalues():
-		origTotalCalls += freq
-	for freq in newSyscallDict.itervalues():
-		newTotalCalls += freq
-	if origTotalCalls >= newTotalCalls:
+	# origTotalCalls = 0
+	# newTotalCalls = 0
+	# for freq in origSyscallDict.itervalues():
+	# 	origTotalCalls += freq
+	# for freq in newSyscallDict.itervalues():
+	# 	newTotalCalls += freq
+	if len(origSyscallDict) >= len(newSyscallDict):
 		return False
 	return True
 

@@ -85,7 +85,6 @@ def doTask(username,api_key,realOrFake):
 	outputDirectoryPath = getOutputDirectoryPath(currentPath)
 	runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict,realOrFake)
 
-
 def main(argv):
 	if len(sys.argv) != 4:
 		sys.stderr.write('Usage: python syscallAnalysis.py username api_key realOrFake\n')

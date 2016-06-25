@@ -28,6 +28,8 @@ else
 
 		# Prepare AVD for proper testing set aireplane mode off
 		adb shell settings put global airplane_mode_on 0
+		adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false
+		
 		# Press the home button to ensure you are on the home screen
 		adb shell input keyevent 3
 
@@ -49,9 +51,13 @@ else
 		mkdir -p $outDir
 		cd $outDir
 
+		sleep 5
+
 		# Start package using ActivityManager in order to determine the process Id of the app
 		adb shell "am start -n $package/$activity"
 		processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
+		
+		sleep 10
 
 		# Starting the trace process on the app's process id. This is assuming that we have the root shell
 		#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"

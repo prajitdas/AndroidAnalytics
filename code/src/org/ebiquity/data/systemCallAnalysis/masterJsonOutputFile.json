@@ -2748,6 +2748,7 @@
         "write": 1587, 
         "writev": 855
     }, 
+    "arrow.myphoto.newloc": {}, 
     "arrow.passcode.locknew": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2617, si_uid=10054, si_status=0, si_utime=2, si_stime=0} ---": 1, 
         "clone": 28, 
@@ -7808,6 +7809,7 @@
         "write": 493, 
         "writev": 798
     }, 
+    "com.ZaraDesigns.flashalerts": {}, 
     "com.a13softdev.flashlight": {
         "null": 5263
     }, 
@@ -11951,6 +11953,8 @@
         "write": 1817, 
         "writev": 996
     }, 
+    "com.andronicus.torchscreenonly": {}, 
+    "com.androturk.radio": {}, 
     "com.andrwq.recorder": {
         "clock_gettime": 5, 
         "clone": 25, 
@@ -16961,6 +16965,7 @@
         "write": 514, 
         "writev": 382
     }, 
+    "com.axiemsystems.photoeditorminus": {}, 
     "com.axis.mobile": {
         "% time     seconds  usecs/call     calls    errors syscall": 1, 
         "+++ killed by SIGKILL +++": 1, 
@@ -21918,6 +21923,7 @@
         "write": 90, 
         "writev": 39
     }, 
+    "com.budgestudios.ThomasAndFriendsGoGoThomas": {}, 
     "com.buffaloapps.simcard": {
         "clock_gettime": 311, 
         "clone": 21, 
@@ -26859,6 +26865,7 @@
         "write": 459, 
         "writev": 479
     }, 
+    "com.scaleasw.powercalc": {}, 
     "com.scientific.calc": {
         "_llseek": 186, 
         "clock_gettime": 50115, 
@@ -28068,6 +28075,7 @@
         "write": 142, 
         "writev": 211
     }, 
+    "com.zimperium.stagefrightdetector": {}, 
     "cz.webprovider.wifianalyzer": {
         "clock_gettime": 38309, 
         "clone": 58, 
@@ -29938,6 +29946,40 @@
         "unlinkat": 1, 
         "write": 605, 
         "writev": 535
+    }, 
+    "stericson.busybox.donate": {
+        "clone": 7, 
+        "close": 377, 
+        "dup": 137, 
+        "epoll_ctl": 275, 
+        "epoll_pwait": 3153, 
+        "faccessat": 63, 
+        "fchmodat": 32, 
+        "fcntl": 137, 
+        "fstat": 32, 
+        "fsync": 32, 
+        "futex": 1484, 
+        "getsockopt": 32, 
+        "getuid": 1562, 
+        "ioctl": 1992, 
+        "madvise": 57, 
+        "mmap": 169, 
+        "mprotect": 9, 
+        "munmap": 60, 
+        "newfstatat": 70, 
+        "openat": 71, 
+        "pipe2": 16, 
+        "prctl": 39, 
+        "pread": 176, 
+        "read": 808, 
+        "recvfrom": 11321, 
+        "renameat": 31, 
+        "rt_sigprocmask": 682, 
+        "sendto": 6549, 
+        "unlinkat": 31, 
+        "wait4": 4, 
+        "write": 1883, 
+        "writev": 1220
     }, 
     "the.pdfviewer3": {
         "clock_gettime": 1090, 

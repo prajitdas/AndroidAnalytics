@@ -107,6 +107,7 @@ def runExperimentsGenyMotionEmulator(username,api_key,currentPath,outputDirector
 	#initCl.initClustering(username,api_key,currentPath)
 
 def doTask(username,api_key,realOrFake,googleOrGenymotion):
+	apkDict = {}
 	if googleOrGenymotion == 'google':
 		currentPath = os.getcwd()
 		apkFolderPath = getApkFolderPath()
@@ -118,7 +119,9 @@ def doTask(username,api_key,realOrFake,googleOrGenymotion):
 		outputDirectoryPath = getOutputDirectoryPath(currentPath)
 		runExperimentsGoogleEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion)
 	else:
-
+		currentPath = os.getcwd()
+		outputDirectoryPath = getOutputDirectoryPath(currentPath)
+		runExperimentsGenyMotionEmulator(username,api_key,currentPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion)
 
 def main(argv):
 	if len(sys.argv) != 5:

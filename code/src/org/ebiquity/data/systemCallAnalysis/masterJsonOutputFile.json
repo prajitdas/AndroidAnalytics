@@ -2559,6 +2559,7 @@
         "write": 612, 
         "writev": 190
     }, 
+    "arrasol.whowantsamillion": {}, 
     "arrow.background.eraser": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2609, si_uid=10054, si_status=0, si_utime=1, si_stime=1} ---": 1, 
         "clone": 26, 
@@ -3080,6 +3081,7 @@
         "write": 23, 
         "writev": 1
     }, 
+    "at.nerbrothers.SuperJump": {}, 
     "at.nextstop.sanfrancisco": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2635, si_uid=10054, si_status=0, si_utime=1, si_stime=2} ---": 1, 
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0} ---": 9, 
@@ -3786,6 +3788,7 @@
         "write": 1526, 
         "writev": 602
     }, 
+    "best.live_wallpapers.analog_clock_wallpaper_2014": {}, 
     "best.live_wallpapers.romantic_love_wallpaper_2014": {
         "clock_gettime": 13, 
         "clone": 4, 
@@ -4212,6 +4215,7 @@
         "write": 774, 
         "writev": 972
     }, 
+    "bluebrain.ovi.superchargerfree": {}, 
     "br.com.abril.receitas": {
         "clock_gettime": 9, 
         "clone": 31, 
@@ -4637,6 +4641,7 @@
         "write": 1588, 
         "writev": 716
     }, 
+    "br.com.powerdroid.tradutor": {}, 
     "br.com.rodrigokolb.electropads": {
         "clock_gettime": 15, 
         "clone": 72, 
@@ -5197,6 +5202,7 @@
         "write": 577, 
         "writev": 607
     }, 
+    "br.saga.piano": {}, 
     "brain.age.analyzer": {
         "clone": 38, 
         "close": 611, 
@@ -7648,6 +7654,7 @@
         "write": 861, 
         "writev": 564
     }, 
+    "com.FakeCall2": {}, 
     "com.HBO": {
         "clock_gettime": 1937, 
         "clone": 11, 
@@ -7813,6 +7820,8 @@
     "com.a13softdev.flashlight": {
         "null": 5263
     }, 
+    "com.aa.generaladaptiveapps": {}, 
+    "com.abtnprojects.ambatana": {}, 
     "com.acadoid.pdfview": {
         "clock_gettime": 6314, 
         "close": 322, 
@@ -8145,6 +8154,7 @@
         "write": 88, 
         "writev": 190
     }, 
+    "com.amazingsecretdiary": {}, 
     "com.amazon.dee.app": {
         "clone": 6, 
         "close": 87, 
@@ -9897,6 +9907,7 @@
         "write": 1073, 
         "writev": 761
     }, 
+    "com.androarsoft.luvmeter": {}, 
     "com.androarsoft.meditationanimation": {
         "null": 10511
     }, 
@@ -10631,6 +10642,7 @@
         "write": 1229, 
         "writev": 876
     }, 
+    "com.androidteam.mapsworld": {}, 
     "com.androidteam.mirror": {
         "clock_gettime": 17, 
         "clone": 14, 
@@ -11520,6 +11532,7 @@
         "write": 1862, 
         "writev": 1026
     }, 
+    "com.andromo.dev136619.app230407": {}, 
     "com.andromo.dev137436.app200450": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 46, 
         "clock_gettime": 33, 
@@ -13380,6 +13393,7 @@
         "write": 504, 
         "writev": 748
     }, 
+    "com.appeffectsuk.bustracker": {}, 
     "com.appeteria.battery100alarm": {
         "clone": 25, 
         "close": 122, 
@@ -14268,6 +14282,7 @@
         "write": 1617, 
         "writev": 1656
     }, 
+    "com.appsideout.onoffmobiledatawidget": {}, 
     "com.appsilicious.wallpapers": {
         "clock_gettime": 169, 
         "clone": 35, 
@@ -15508,6 +15523,7 @@
         "write": 2215, 
         "writev": 1109
     }, 
+    "com.asobimo.toramonline": {}, 
     "com.asos.app": {
         "_llseek": 53, 
         "clock_gettime": 5443, 
@@ -15708,6 +15724,7 @@
         "write": 911, 
         "writev": 304
     }, 
+    "com.asus.remotelink.full": {}, 
     "com.asus.todolist": {
         "clock_gettime": 1, 
         "ioctl": 1, 
@@ -15868,6 +15885,8 @@
         "write": 2188, 
         "writev": 1711
     }, 
+    "com.atomic.apps.muslim.islamic.names": {}, 
+    "com.atomicadd.fotos": {}, 
     "com.att.android.uverse.easyremote": {
         "clone": 11, 
         "close": 114, 
@@ -18672,6 +18691,7 @@
         "write": 325, 
         "writev": 392
     }, 
+    "com.bestringtonesapps.notificationsounds": {}, 
     "com.bestringtonesapps.oldphoneringtones": {
         "clock_gettime": 4, 
         "clone": 17, 
@@ -19324,6 +19344,7 @@
         "write": 57, 
         "writev": 46
     }, 
+    "com.bikiniabs": {}, 
     "com.bitdefender.antivirus": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0} ---": 4, 
         "_llseek": 73, 
@@ -22387,6 +22408,7 @@
         "write": 2581, 
         "writev": 638
     }, 
+    "com.calintat.sensors": {}, 
     "com.callapp.contacts": {
         "clone": 46, 
         "close": 248, 
@@ -24361,6 +24383,7 @@
         "write": 471, 
         "writev": 1036
     }, 
+    "com.google.android.apps.googlevoice": {}, 
     "com.google.android.apps.hangoutsdialer": {
         "% time     seconds  usecs/call     calls    errors syscall": 1, 
         "+++ killed by SIGKILL +++": 1, 
@@ -24771,6 +24794,7 @@
         "write": 194, 
         "writev": 123
     }, 
+    "com.igg.bzbee.deckheroes": {}, 
     "com.ihandysoft.alarmclock": {
         "_llseek": 266, 
         "clock_gettime": 48864, 
@@ -25758,6 +25782,7 @@
         "write": 694, 
         "writev": 1251
     }, 
+    "com.mint": {}, 
     "com.monead.semantic.android.sparql": {
         "clone": 1, 
         "close": 136, 
@@ -26918,6 +26943,7 @@
         "write": 3131, 
         "writev": 2262
     }, 
+    "com.seedlabs.imfcon": {}, 
     "com.shaadi.android": {
         "clone": 26, 
         "close": 179, 
@@ -26997,6 +27023,7 @@
         "write": 8, 
         "writev": 5
     }, 
+    "com.socialnmobile.hd.flashlight": {}, 
     "com.sologame.batterysaver": {
         "_llseek": 2, 
         "clock_gettime": 10523, 
@@ -27305,6 +27332,7 @@
         "write": 698, 
         "writev": 641
     }, 
+    "com.tortel.syslog": {}, 
     "com.ubercab.driver": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2650, si_uid=10054, si_status=127, si_utime=0, si_stime=0} ---": 1, 
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2653, si_uid=10054, si_status=127, si_utime=0, si_stime=0} ---": 1, 
@@ -27744,6 +27772,7 @@
         "write": 609, 
         "writev": 838
     }, 
+    "com.wsandroid.suite": {}, 
     "com.xabber.android": {
         "+++ killed by SIGKILL +++": 1, 
         "clone": 15, 
@@ -29254,6 +29283,7 @@
         "write": 1017, 
         "writev": 862
     }, 
+    "no.intellicom.lswatchface": {}, 
     "oliver.ehrenmueller.dbadmin": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2775, si_uid=10054, si_status=127, si_utime=0, si_stime=0} ---": 1, 
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2776, si_uid=10054, si_status=127, si_utime=0, si_stime=0} ---": 1, 
@@ -29911,6 +29941,7 @@
         "write": 131, 
         "writev": 6
     }, 
+    "simple.reboot.com": {}, 
     "stericson.busybox": {
         "clone": 15, 
         "close": 159, 
@@ -30023,6 +30054,7 @@
         "write": 113, 
         "writev": 92
     }, 
+    "tv.periscope.android": {}, 
     "us.wifitools.wifiscananalyzer": {
         "_llseek": 162, 
         "clock_gettime": 1617, 

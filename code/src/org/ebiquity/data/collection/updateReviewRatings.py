@@ -17,15 +17,15 @@ import databaseHandler
 import logging
 logging.basicConfig(filename='collection.log',level=logging.DEBUG)
 
-def insertInDB():
+def insertInDB(dbHandle,review_rating,app_pkg_name):
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
-	app_dict = json.loads(open('appRating.json','r').read())
-	for app_pkg_name, review_rating in app_dict.iteritems():
-		sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(review_rating)+" WHERE `app_pkg_name` = '"+app_pkg_name+"';"
-		print sqlStatement
-		logging.debug("Statement: "+sqlStatement)
-		databaseHandler.dbManipulateData(dbHandle, sqlStatement)
-	dbHandle.close() #DB Close	
+	# app_dict = json.loads(open('appRating.json','r').read())
+	# for app_pkg_name, review_rating in app_dict.iteritems():
+	sqlStatement = "UPDATE `appdata` SET `review_rating`= "+str(review_rating)+" WHERE `app_pkg_name` = '"+app_pkg_name+"';"
+	print sqlStatement
+	logging.debug("Statement: "+sqlStatement)
+	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	# dbHandle.close() #DB Close	
 
 def getReviewRatings(dbHandle, appUrlList):
 	for appUrl in appUrlList:
@@ -34,14 +34,15 @@ def getReviewRatings(dbHandle, appUrlList):
 		headers = { 'User-Agent' : 'Mozilla/5.0' }
 		req = urllib2.Request(appUrl, None, headers)
 		try: 
+			review_rating = 0.0
 			page = urllib2.urlopen(req).read()
 			soup = bs(''.join(page))
 			for div in soup.findAll(attrs={'class': 'score'}):
 				for child in div.children:
-					review_rating = 0.0
 					if not child.string == ' ':
 						review_rating = round(eval(child.string),1)
 					app_dict[app_pkg_name] = review_rating
+			insertInDB(dbHandle,review_rating,app_pkg_name)
 			open('appRating.json','w').write(json.dumps(app_dict,indent=4,sort_keys=True))
 		except urllib2.HTTPError, e:
 			if str(e.code) == '404':

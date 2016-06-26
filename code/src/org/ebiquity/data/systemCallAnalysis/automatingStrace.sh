@@ -16,7 +16,6 @@ else
 		echo "activity or package name was null can't run experiments for app: "$1 >> error.log 
 		exit 1
 	else
-
 		outputFile=$(echo "/sdcard/"$package".out")
 		straceOutFilePath=$(echo "/sdcard/"$package".monkey.out")
 

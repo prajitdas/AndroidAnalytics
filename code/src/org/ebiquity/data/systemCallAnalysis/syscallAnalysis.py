@@ -15,6 +15,7 @@ import subprocess as s
 import processFile as pf
 #import initClustering as initCl
 import executeTestScenarioForAndroidMonkey as exAndMon
+import getAppInstalledForExperiments as AI
 import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
@@ -44,7 +45,7 @@ def getOutputDirectoryPath(currentPath):
 		sys.exit(1)
 	return outputDirectoryPath
 
-def runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict,realOrFake):
+def runExperimentsGoogleEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion):
 	for key in apkDict.keys():
 		logging.debug('Working on runExperiments for the app: '+apkDict[key])
 		# For each app execution start emulator for AVD nexus6,in wiped mode.
@@ -53,7 +54,7 @@ def runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPat
 		s.call(emulatorStartCmd.split())
 		# Executing the test scenario for Android monkey for a particular app apk
 		try:
-			exAndMon.executeTestScenarioForAndroidMonkey(apkDict[key],realOrFake)
+			exAndMon.executeTestScenarioForAndroidMonkey(apkDict[key],realOrFake,googleOrGenymotion)
 		except exAndMon.RunExpException:
 			logging.debug('Experiments failed for: '+apkDict[key])
 			# Experiments are not working delete the apk name from the execution list
@@ -74,28 +75,63 @@ def runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPat
 	# After all the apps have been processed and features extracted,we may run the ML algos.
 	#initCl.initClustering(username,api_key,currentPath)
 
-def doTask(username,api_key,realOrFake):
-	currentPath = os.getcwd()
-	apkFolderPath = getApkFolderPath()
-	if '[' in apkFolderPath:
-		logging.debug('Fix the config file!')
-		return
+def runExperimentsGenyMotionEmulator(username,api_key,currentPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion):
+	for key in apkDict.keys():
+		logging.debug('Working on runExperiments for the app: '+apkDict[key])
+		# For each app execution start emulator for AVD nexus6,in wiped mode.
+		# Make sure you have created the AVD first.
+		# emulatorStartCmd = 'bash startEmulator.sh'
+		# s.call(emulatorStartCmd.split())
+		# Executing the test scenario for Android monkey for a particular app apk
+		AI.installApp(key)
+		try:
+			exAndMon.executeTestScenarioForAndroidMonkey(key,realOrFake,googleOrGenymotion)
+		except exAndMon.RunExpException:
+			logging.debug('Experiments failed for: '+apkDict[key])
+			# Experiments are not working delete the apk name from the execution list
+			del apkDict[key]
+			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
+			# emulatorKillCmd = 'bash killEmulator.sh'
+			# s.call(emulatorKillCmd.split())
+			# continue
+		# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
+		# emulatorKillCmd = 'bash killEmulator.sh'
+		# s.call(emulatorKillCmd.split())
+		# At this point we have to process the results and extract the features of an app,to run ml algorithms later.
+		logging.debug('Finished running experiments, extracting features for the app: '+key)
+		pf.extractFeatures(currentPath,outputDirectoryPath,key)
+		logging.debug('Done with extracing features for the app: '+key+' onto the next app!')
+		time.sleep(30)
+
+	# After all the apps have been processed and features extracted,we may run the ML algos.
+	#initCl.initClustering(username,api_key,currentPath)
+
+def doTask(username,api_key,realOrFake,googleOrGenymotion):
+	if googleOrGenymotion == 'google':
+		currentPath = os.getcwd()
+		apkFolderPath = getApkFolderPath()
+		if '[' in apkFolderPath:
+			logging.debug('Fix the config file!')
+			return
+		else:
+			apkDict = findAllFilesWithExtension(apkFolderPath,'.apk')
+		outputDirectoryPath = getOutputDirectoryPath(currentPath)
+		runExperimentsGoogleEmulator(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion)
 	else:
-		apkDict = findAllFilesWithExtension(apkFolderPath,'.apk')
-	outputDirectoryPath = getOutputDirectoryPath(currentPath)
-	runExperiments(username,api_key,currentPath,apkFolderPath,outputDirectoryPath,apkDict,realOrFake)
+
 
 def main(argv):
-	if len(sys.argv) != 4:
-		sys.stderr.write('Usage: python syscallAnalysis.py username api_key realOrFake\n')
+	if len(sys.argv) != 5:
+		sys.stderr.write('Usage: python syscallAnalysis.py username api_key realOrFake googleOrGenymotion\n')
 		sys.exit(1)
 
 	username = sys.argv[1]
 	api_key = sys.argv[2]
 	realOrFake = sys.argv[3]
+	googleOrGenymotion = sys.argv[4]
 
 	startTime = time.time()
-	doTask(username,api_key,realOrFake)
+	doTask(username,api_key,realOrFake,googleOrGenymotion)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

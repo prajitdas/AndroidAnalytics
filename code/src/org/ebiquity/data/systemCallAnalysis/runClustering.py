@@ -54,6 +54,14 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	#return cPickle.load(open(appMatrixFile, 'rb'))
 	
 def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric):
+	#init
+	#reducedDimensions = 100
+	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+	endingNumberOfClusters = 10
+	loopCounter = startingNumberOfClusters
+	clusterLoopStepSize = 1
+	evaluatedClusterResultsDict = {}
+
 	appMatrix, appVector = cd.computeDistance(jsonDict,metric)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
@@ -154,13 +162,6 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
-	#init
-	#reducedDimensions = 100
-	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-	endingNumberOfClusters = 10
-	loopCounter = startingNumberOfClusters
-	clusterLoopStepSize = 1
-	evaluatedClusterResultsDict = {}
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard')
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine')
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'euclidean')

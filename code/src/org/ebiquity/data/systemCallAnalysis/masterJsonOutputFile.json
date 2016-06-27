@@ -12059,6 +12059,7 @@
         "write": 958, 
         "writev": 866
     }, 
+    "com.andymstone.metronome": {}, 
     "com.ansangha.drdriving": {
         "% time     seconds  usecs/call     calls    errors syscall": 1, 
         "+++ killed by SIGKILL +++": 1, 
@@ -12948,6 +12949,7 @@
         "write": 517, 
         "writev": 674
     }, 
+    "com.app.tonosdellamada": {}, 
     "com.app.tonosparawhatsapp": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2577, si_uid=10054, si_status=0, si_utime=0, si_stime=2} ---": 1, 
         "clock_gettime": 19, 
@@ -13961,6 +13963,7 @@
         "write": 547, 
         "writev": 220
     }, 
+    "com.appon.defendthebunker2": {}, 
     "com.appon.gladiatorescape": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0} ---": 1, 
         "clock_gettime": 4, 
@@ -16008,6 +16011,7 @@
         "write": 500, 
         "writev": 493
     }, 
+    "com.att.labs.uversetv.android.tablet": {}, 
     "com.att.myWireless": {
         "_llseek": 100, 
         "clock_gettime": 12460, 

@@ -15,41 +15,41 @@ from scipy.spatial import distance as spDist
 def computeDist(app1SyscallsVector,app2SyscallsVector,metric):
 	if metric == 'jaccard':
 		distance = jaccard(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'cosine':
+	elif metric == 'cosine':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'braycurtis':
+	elif metric == 'braycurtis':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'canberra':
+	elif metric == 'canberra':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'chebyshev':
+	elif metric == 'chebyshev':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'cityblock':
+	elif metric == 'cityblock':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'correlation':
+	elif metric == 'correlation':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'dice':
+	elif metric == 'dice':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'euclidean':
+	elif metric == 'euclidean':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'hamming':
+	elif metric == 'hamming':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'kulsinski':
+	elif metric == 'kulsinski':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'matching':
+	elif metric == 'matching':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'rogerstanimoto':
+	elif metric == 'rogerstanimoto':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'russellrao':
+	elif metric == 'russellrao':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'sokalmichener':
+	elif metric == 'sokalmichener':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'sokalsneath':
+	elif metric == 'sokalsneath':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'sqeuclidean':
+	elif metric == 'sqeuclidean':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'yule':
+	elif metric == 'yule':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
-	else if metric == 'hasNumbers':
+	elif metric == 'hasNumbers':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))

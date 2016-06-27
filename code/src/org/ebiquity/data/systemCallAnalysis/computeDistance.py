@@ -12,8 +12,45 @@ import json
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 from scipy.spatial import distance as spDist
 
-def computeDist(app1SyscallsVector,app2SyscallsVector):
-	distance = jaccard(app1SyscallsVector,app2SyscallsVector)
+def computeDist(app1SyscallsVector,app2SyscallsVector,metric):
+	if metric == 'jaccard':
+		distance = jaccard(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'cosine':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'braycurtis':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'canberra':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'chebyshev':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'cityblock':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'correlation':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'dice':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'euclidean':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'hamming':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'kulsinski':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'matching':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'rogerstanimoto':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'russellrao':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'sokalmichener':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'sokalsneath':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'sqeuclidean':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'yule':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+	else if metric == 'hasNumbers':
+		distance = cosine(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
 	# Verifying if the distance is not a valid finite number 
@@ -131,7 +168,7 @@ def formVectorJustCalls(appSyscallDict, allSyscallsVector):
 	# print appVector
 	return appVector
 
-def computeDistance(jsonDict):
+def computeDistance(jsonDict,metric):
 	logging.debug('Inside computeDistance')
 
 	# Removing all apps which didn't have any calls associated.
@@ -164,8 +201,8 @@ def computeDistance(jsonDict):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
-				#score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector))
-				score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector))
+				#score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
+				score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				appMatrix[i,j] = score
 				appMatrix[j,i] = score
 				counter += 1

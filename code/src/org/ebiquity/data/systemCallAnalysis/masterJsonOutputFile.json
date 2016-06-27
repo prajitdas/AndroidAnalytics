@@ -1014,6 +1014,8 @@
         "write": 1283, 
         "writev": 1078
     }, 
+    "advanced.speed.booster": {}, 
+    "aeffectkey.shortcut.full.lite": {}, 
     "aero.sita.lab.resmobileweb.android.mh": {
         "clock_gettime": 15, 
         "clone": 26, 
@@ -1624,6 +1626,7 @@
         "write": 5955, 
         "writev": 624
     }, 
+    "alpha.aquarium.hd.livewallpaper": {}, 
     "amplified.bible": {
         "clock_gettime": 2, 
         "clone": 12, 
@@ -1739,6 +1742,33 @@
         "unlinkat": 5, 
         "write": 25, 
         "writev": 62
+    }, 
+    "andr.AthensTransportation": {
+        "clone": 5, 
+        "close": 150, 
+        "dup": 26, 
+        "epoll_ctl": 53, 
+        "epoll_pwait": 2226, 
+        "faccessat": 10, 
+        "fcntl": 26, 
+        "futex": 1825, 
+        "getcwd": 10, 
+        "getuid": 1629, 
+        "ioctl": 2526, 
+        "madvise": 56, 
+        "mmap": 561, 
+        "mprotect": 8, 
+        "munmap": 453, 
+        "newfstatat": 122, 
+        "openat": 117, 
+        "prctl": 15, 
+        "pread": 888, 
+        "read": 1008, 
+        "recvfrom": 5886, 
+        "rt_sigprocmask": 264, 
+        "sendto": 1644, 
+        "write": 1980, 
+        "writev": 2388
     }, 
     "andrei.brusentcov.survivalmath": {
         "clock_gettime": 1, 
@@ -6057,6 +6087,7 @@
         "write": 725, 
         "writev": 537
     }, 
+    "cinema.santabanta.com": {}, 
     "cm.du.go.battery.doctor": {
         "_llseek": 60, 
         "clock_gettime": 32850, 
@@ -8410,6 +8441,7 @@
         "write": 1711, 
         "writev": 785
     }, 
+    "com.amfahsoft.amfahexplorer": {}, 
     "com.amfahsoft.bestcomics": {
         "clone": 23, 
         "close": 146, 
@@ -9428,6 +9460,7 @@
         "write": 492, 
         "writev": 115
     }, 
+    "com.anbu.map1": {}, 
     "com.anbu.pictureviewer": {
         "clone": 23, 
         "close": 552, 
@@ -10267,6 +10300,7 @@
         "write": 1169, 
         "writev": 1092
     }, 
+    "com.androidlost": {}, 
     "com.androidmusicpro.youtubestreamviddownloader": {
         "clock_gettime": 12, 
         "clone": 22, 
@@ -10380,6 +10414,7 @@
         "write": 367, 
         "writev": 1304
     }, 
+    "com.androidroboapps.independence": {}, 
     "com.androidsoft.scientificcalc": {
         "clock_gettime": 16, 
         "clone": 29, 
@@ -11533,6 +11568,8 @@
         "writev": 1026
     }, 
     "com.andromo.dev136619.app230407": {}, 
+    "com.andromo.dev136619.app236931": {}, 
+    "com.andromo.dev136619.app283211": {}, 
     "com.andromo.dev137436.app200450": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 46, 
         "clock_gettime": 33, 
@@ -11712,6 +11749,7 @@
         "write": 1367, 
         "writev": 884
     }, 
+    "com.andromo.dev230101.app300711": {}, 
     "com.andromo.dev230101.app313857": {
         "clock_gettime": 11, 
         "clone": 31, 
@@ -11871,6 +11909,7 @@
         "write": 1466, 
         "writev": 931
     }, 
+    "com.andromo.dev236075.app240890": {}, 
     "com.andromo.dev276805.app358726": {
         "--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2542, si_uid=10054, si_status=0, si_utime=2, si_stime=0} ---": 1, 
         "--- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=2528, si_uid=10054} ---": 1, 
@@ -11968,6 +12007,9 @@
     }, 
     "com.andronicus.torchscreenonly": {}, 
     "com.androturk.radio": {}, 
+    "com.androyal.and.w4w1": {}, 
+    "com.androyal.rivercrossing.ar": {}, 
+    "com.androyal.rivercrossing.en": {}, 
     "com.andrwq.recorder": {
         "clock_gettime": 5, 
         "clone": 25, 
@@ -15612,6 +15654,7 @@
         "write": 921, 
         "writev": 287
     }, 
+    "com.astxtz.record": {}, 
     "com.asus.filemanager": {
         "_llseek": 68, 
         "clock_gettime": 67423, 
@@ -15886,6 +15929,7 @@
         "writev": 1711
     }, 
     "com.atomic.apps.muslim.islamic.names": {}, 
+    "com.atomic.apps.sms.messages.collections": {}, 
     "com.atomicadd.fotos": {}, 
     "com.att.android.uverse.easyremote": {
         "clone": 11, 
@@ -16259,6 +16303,7 @@
         "write": 2289, 
         "writev": 1311
     }, 
+    "com.audiomack": {}, 
     "com.augmentedminds.waveAlarm": {
         "_llseek": 184, 
         "clock_gettime": 34407, 
@@ -17391,6 +17436,7 @@
         "write": 988, 
         "writev": 1097
     }, 
+    "com.baloota.dumpster": {}, 
     "com.bananaapps.kidappgames.jigsaw.princess.free": {
         "% time     seconds  usecs/call     calls    errors syscall": 1, 
         "+++ killed by SIGKILL +++": 1, 
@@ -17672,6 +17718,7 @@
         "write": 512, 
         "writev": 1154
     }, 
+    "com.bank.bass.booster": {}, 
     "com.bankifsccodesearch": {
         "clone": 60, 
         "close": 182, 
@@ -19248,6 +19295,7 @@
         "write": 209, 
         "writev": 195
     }, 
+    "com.bigbro.ProcessProfiler": {}, 
     "com.bigleapstudios.free_hidden_object_games_stay_away": {
         "% time     seconds  usecs/call     calls    errors syscall": 1, 
         "+++ killed by SIGABRT +++": 1, 
@@ -20298,6 +20346,7 @@
         "write": 1725, 
         "writev": 1656
     }, 
+    "com.bonanzaapps.photo.effects": {}, 
     "com.botondfm.micropool": {
         "clock_gettime": 90, 
         "clone": 35, 
@@ -22177,6 +22226,7 @@
         "write": 1051, 
         "writev": 303
     }, 
+    "com.buzzpia.aqua.launcher": {}, 
     "com.bvalosek.cpuspy": {
         "close": 151, 
         "dup": 70, 
@@ -22496,6 +22546,7 @@
         "write": 519, 
         "writev": 987
     }, 
+    "com.circleback.circleback": {}, 
     "com.citi.citimobile": {
         "% time     seconds  usecs/call     calls    errors syscall": 1, 
         "+++ exited with 0 +++": 1, 
@@ -23718,6 +23769,7 @@
         "write": 359, 
         "writev": 968
     }, 
+    "com.flash.mode": {}, 
     "com.foodspotting": {
         "clock_gettime": 1, 
         "clone": 14, 
@@ -24000,6 +24052,7 @@
         "write": 41, 
         "writev": 76
     }, 
+    "com.gau.go.launcherex.gowidget.flashlight": {}, 
     "com.geico.mobile": {
         "_llseek": 4, 
         "clock_gettime": 9370, 
@@ -24097,6 +24150,7 @@
         "write": 2980, 
         "writev": 2272
     }, 
+    "com.gijoon.pkgnameviewer": {}, 
     "com.glassdoor.app": {
         "_llseek": 53, 
         "clock_gettime": 7032, 
@@ -24568,6 +24622,7 @@
         "write": 174, 
         "writev": 20
     }, 
+    "com.gsamlabs.bbm": {}, 
     "com.gubbel.nightclock.free": {
         "--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0x8} ---": 46, 
         "clock_gettime": 3, 
@@ -24965,6 +25020,8 @@
         "write": 12, 
         "writev": 2
     }, 
+    "com.ismartcreations.flashlightonclap": {}, 
+    "com.istudio.flashnotification": {}, 
     "com.javali.wifisnr": {
         "clock_gettime": 19788, 
         "clone": 18, 
@@ -25505,6 +25562,7 @@
         "write": 716, 
         "writev": 585
     }, 
+    "com.linkedin.android.jobs.jobseeker": {}, 
     "com.linpus.battery": {
         "clock_gettime": 25697, 
         "clone": 61, 
@@ -25648,6 +25706,7 @@
         "write": 3430, 
         "writev": 2698
     }, 
+    "com.loomatix.flashlight": {}, 
     "com.lunafaqt": {
         "clone": 22, 
         "close": 724, 
@@ -26227,6 +26286,7 @@
         "write": 3509, 
         "writev": 3045
     }, 
+    "com.onegogo.explorer": {}, 
     "com.overlook.android.fing": {
         "clock_gettime": 23650, 
         "clone": 34, 
@@ -26269,6 +26329,7 @@
         "write": 920, 
         "writev": 2775
     }, 
+    "com.pandora.android": {}, 
     "com.pdfviewer.reader": {
         "clock_gettime": 131, 
         "clone": 35, 
@@ -26388,6 +26449,7 @@
         "write": 11, 
         "writev": 6
     }, 
+    "com.pinapps.amped": {}, 
     "com.pnc.ecommerce.mobile": {
         "clock_gettime": 86, 
         "clone": 2, 
@@ -27156,6 +27218,7 @@
         "write": 298, 
         "writev": 309
     }, 
+    "com.splendapps.splendo": {}, 
     "com.srm.wifichannelanalyzer": {
         "_llseek": 172, 
         "clock_gettime": 25841, 
@@ -28826,6 +28889,7 @@
         "write": 762, 
         "writev": 387
     }, 
+    "galaxyapplication.com.alarmclock": {}, 
     "hdnasoftware.hdna.piscientificcalculator": {
         "_llseek": 58, 
         "clock_gettime": 23694, 
@@ -29490,6 +29554,7 @@
         "write": 7519, 
         "writev": 4172
     }, 
+    "org.safepod.app.android": {}, 
     "org.solovyev.android.calculator": {
         "_llseek": 310, 
         "clock_gettime": 18746, 

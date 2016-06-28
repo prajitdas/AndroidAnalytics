@@ -48,15 +48,10 @@ def main(argv):
 	username = sys.argv[1]
 	api_key = sys.argv[2]
 	jsonPath = sys.argv[3]
-	startingNumberOfClusters = sys.argv[4]
-	endingNumberOfClusters = sys.argv[5]
-	clusterLoopStepSize = sys.argv[6]
-	reducedDimensions = sys.argv[7]
-
-	print type(startingNumberOfClusters)
-	print type(endingNumberOfClusters)
-	print type(clusterLoopStepSize)
-	print type(reducedDimensions)
+	startingNumberOfClusters = int(sys.argv[4])
+	endingNumberOfClusters = int(sys.argv[5])
+	clusterLoopStepSize = int(sys.argv[6])
+	reducedDimensions = int(sys.argv[7])
 
 	startTime = time.time()
 	#Initiate the clustering process

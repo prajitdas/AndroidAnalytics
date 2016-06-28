@@ -161,7 +161,7 @@ def formVectorTfIdfCalls(appSyscallDict, allSyscallsVector):
 	count = 0
 	for syscall in allSyscallsVector:
 		if syscall in appSyscallDict:
-			appVector[count] = 1
+			appVector[count] = appSyscallDict[syscall]
 		else:
 			appVector[count] = 0
 		count += 1
@@ -210,6 +210,8 @@ def createTermDocMatrix(jsonDict,type):
 	if type == 'numoc':
 		for app in appVector:
 			termDocMatrix[app] = formVectorNumCalls(jsonDict[app],allSyscallsVector)
+			if len(termDocMatrix[app]) != len(allSyscallsVector):
+				print app, str(len(termDocMatrix[app]))
 	elif type == 'justc':
 		for app in appVector:
 			termDocMatrix[app] = formVectorJustCalls(jsonDict[app],allSyscallsVector)
@@ -223,13 +225,13 @@ def createTermDocMatrix(jsonDict,type):
 	json.dump(termDocMatrix, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
 	return numberOfApps, termDocMatrix, appVector
 
-def computeDistance(jsonDict,metric):
+def computeDistance(jsonDict,metric,type):
 	logging.debug('Inside computeDistance')
 
 	# numoc: use frequency of a call for distance computation
 	# justc: use just a call for distance computation
 	# tfidf: use tf-idf weights of calls for distance computation
-	numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
+	numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,type)
 
 	# Creates a list containing 5 lists initialized to 0
 	#appToAppDistMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
@@ -258,13 +260,14 @@ def main(argv):
 		sys.stderr.write('Usage: python computeDistance.py\n')
 		sys.exit(1)
 
-	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
+	# jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
+	jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
 
 	startTime = time.time()
-	termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
-	print termDocMatrix, appVector
-	appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard')
-	print appToAppDistMatrix, appVector
+	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
+	# print termDocMatrix, appVector
+	appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard','numoc')
+	# print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

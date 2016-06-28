@@ -221,7 +221,7 @@ def createTermDocMatrix(jsonDict,type):
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
 		raise BaseException("Error in input. You didn't choose a known standard for term document matrix format.")
 	json.dump(termDocMatrix, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
-	return termDocMatrix, appVector
+	return numberOfApps, termDocMatrix, appVector
 
 def computeDistance(jsonDict,metric):
 	logging.debug('Inside computeDistance')
@@ -229,7 +229,7 @@ def computeDistance(jsonDict,metric):
 	# numoc: use frequency of a call for distance computation
 	# justc: use just a call for distance computation
 	# tfidf: use tf-idf weights of calls for distance computation
-	termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
+	numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 
 	# Creates a list containing 5 lists initialized to 0
 	#appToAppDistMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
@@ -263,8 +263,8 @@ def main(argv):
 	startTime = time.time()
 	termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 	print termDocMatrix, appVector
-	# appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard')
-	# print appToAppDistMatrix, appVector
+	appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard')
+	print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

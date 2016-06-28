@@ -53,6 +53,11 @@ def main(argv):
 	clusterLoopStepSize = sys.argv[6]
 	reducedDimensions = sys.argv[7]
 
+	print type(startingNumberOfClusters)
+	print type(endingNumberOfClusters)
+	print type(clusterLoopStepSize)
+	print type(reducedDimensions)
+
 	startTime = time.time()
 	#Initiate the clustering process
 	initClustering(username, api_key, jsonPath, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)

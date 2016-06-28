@@ -1,8 +1,7 @@
 '''
-Created on April 26, 2015
-Modified on June 7, 2016
+Created on June 28, 2016
 @author: Prajit Kumar Das
-Usage: python runClustering.py username api_key appMatrixFile predictedClustersFile jsonDict
+Usage: python runClassification.py jsonDict
 '''
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
@@ -28,6 +27,7 @@ import NumpyEncoder
 import gzip
 import logging
 import mysql.connector
+import getSyscallData
 logging.basicConfig(filename='classify.log',level=logging.DEBUG)
 
 def reducePrecisionEncode(array, length, breadth, precision):
@@ -53,4 +53,6 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
 	#return cPickle.load(open(appMatrixFile, 'rb'))
 	
-def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
+def runClassification(predictedClustersFile, jsonDict):
+	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,'tfidf')
+	numberOfApps, termDocMatrix, appVector = cd.createTermDocMatrix(jsonDict,'numoc')

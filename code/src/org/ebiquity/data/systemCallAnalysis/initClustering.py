@@ -13,17 +13,7 @@ import PathDetails as pd
 import json
 import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
-
-def getSyscallClusteringDataInput(jsonPath):
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
-	try:
-		return json.loads(open(masterJsonFile).read())
-	except IOError as e:
-		logging.debug('I/O error({0}): {1}'.format(e.errno,e.strerror))
-	except ValueError:
-		logging.debug('JSON decoding errors')
-	except:
-		logging.debug('Unexpected error')
+import getSyscallDataJson as gs
 
 def preProcess():
 	ticks = time.time()
@@ -41,28 +31,31 @@ def preProcess():
 	return appMatrixFile, predictedClustersFile
 
 #Initiate the clustering process
-def initClustering(username, api_key, jsonPath):
+def initClustering(username, api_key, jsonPath, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	appMatrixFile, predictedClustersFile = preProcess()
-	jsonDict = getSyscallClusteringDataInput(jsonPath)
 
 	# DONE!!! # TODO remove these two line later when you fix the problem with data collection
 	# del jsonDict['com.google.android.contacts']
 	# del jsonDict['com.motorola.omni']
 	# Things have been initiated, now to run clustering
-	runCl.runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	runCl.runClustering(username, api_key, appMatrixFile, predictedClustersFile, gs.getSyscallDataJson(jsonPath), startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 
 def main(argv):
-	if len(sys.argv) != 4:
-		sys.stderr.write('Usage: python initClustering.py username api_key jsonPath')
+	if len(sys.argv) != 8:
+		sys.stderr.write('Usage: python initClustering.py username api_key jsonPath startingNumberOfClusters endingNumberOfClusters clusterLoopStepSize reducedDimensions')
 		sys.exit(1)
 
 	username = sys.argv[1]
 	api_key = sys.argv[2]
 	jsonPath = sys.argv[3]
+	startingNumberOfClusters = sys.argv[4]
+	endingNumberOfClusters = sys.argv[5]
+	clusterLoopStepSize = sys.argv[6]
+	reducedDimensions = sys.argv[7]
 
 	startTime = time.time()
 	#Initiate the clustering process
-	initClustering(username, api_key, jsonPath)
+	initClustering(username, api_key, jsonPath, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

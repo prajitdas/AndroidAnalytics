@@ -53,13 +53,13 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
 	#return cPickle.load(open(appMatrixFile, 'rb'))
 	
-def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric):
+def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric, startingNumberOfClusters=2, endingNumberOfClusters=10, clusterLoopStepSize=1, reducedDimensions=2):
 	#init
-	#reducedDimensions = 100
-	startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
-	endingNumberOfClusters = 10
+	# reducedDimensions = 100
+	# startingNumberOfClusters = 2 # The Silhouette Metric was giving an error because we were using minimum of 1 cluster.
+	# endingNumberOfClusters = 10
+	# clusterLoopStepSize = 1
 	loopCounter = startingNumberOfClusters
-	clusterLoopStepSize = 1
 	evaluatedClusterResultsDict = {}
 
 	appMatrix, appVector = cd.computeDistance(jsonDict,metric,'tfidf')
@@ -161,16 +161,16 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
-def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard')
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine')
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'euclidean')
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'correlation')
+def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
+	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'euclidean', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'correlation', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 
-def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict):
+def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())
 	#doOthers(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
-	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)
+	doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 	# appMatrix, appVector = cd.computeJaccardMatrix(jsonDict)
 	# kMeans(appMatrix, appVector, 'precomputed')
 	#doWord2Vec(username, api_key, appMatrixFile, predictedClustersFile, jsonDict)

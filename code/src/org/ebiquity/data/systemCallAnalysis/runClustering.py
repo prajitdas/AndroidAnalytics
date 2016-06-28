@@ -2,7 +2,7 @@
 Created on April 26, 2015
 Modified on June 7, 2016
 @author: Prajit Kumar Das
-Usage: python runClustering.py username api_key appMatrixFile predictedClustersFile jsonDict
+Usage: python runClustering.py username api_key appMatrixFile predictedClustersFile jsonDict startingNumberOfClusters endingNumberOfClusters clusterLoopStepSize reducedDimensions
 '''
 
 # Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html

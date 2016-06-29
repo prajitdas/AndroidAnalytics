@@ -9,23 +9,21 @@ import sys
 import time
 import databaseHandler
 
-def getData(searchString,applist,dbHandle):
+def getData(searchString,jsonString,dbHandle):
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT app_name, app_pkg_name, version FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1;"
 	try:
 		cursor.execute(sqlStatement)
-		currentApp = {}
 		tempAppDict = {}
 		for app_name, app_pkg_name, version in cursor:
 			tempAppDict['packageName'] = app_pkg_name
 			tempAppDict['app_name'] = app_name
 			tempAppDict['version'] = str(version)
-			currentApp[app_pkg_name] = tempAppDict
-			applist.append(currentApp)
+			jsonString[app_pkg_name] = tempAppDict
 	except:
 		print 'Unexpected error in test:', sys.exc_info()[0]
 		raise
-	return applist
+	return jsonString
 
 def storeDataonServer(url,searchStrings):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
@@ -37,11 +35,9 @@ def storeDataonServer(url,searchStrings):
 	#   ]
 	# }'''
 
-	applist = []
 	jsonString = {}
 	for searchString in searchStrings:
-		applist = getData(searchString,applist,dbHandle)
-	jsonString['applist'] = applist
+		jsonString = getData(searchString,jsonString,dbHandle)
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
 	# serverResponse = requests.post(url, jsonString)

@@ -214,8 +214,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 			appFeatures.append(categoryDict[app]['annotated_category'])
 			appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
 			termDocMatrix[app] = appFeatures
-			# if len(termDocMatrix[app]) != len(allSyscallsVector):
-			# 	print app, str(len(termDocMatrix[app]))
+			print app, termDocMatrix[app]
 	elif type == 'justc':
 		for app in appVector:
 			appFeatures = []
@@ -238,7 +237,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	toWriteTermDocMat = termDocMatrix
 	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
-	return numberOfApps, termDocMatrix, appVector
+	return numberOfApps, termDocMatrix, appVector, allSyscallsVector
 
 def computeDistance(jsonDict,categoryDict,metric,type):
 	logging.debug('Inside computeDistance')
@@ -246,7 +245,7 @@ def computeDistance(jsonDict,categoryDict,metric,type):
 	# numoc: use frequency of a call for distance computation
 	# justc: use just a call for distance computation
 	# tfidf: use tf-idf weights of calls for distance computation
-	numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,categoryDict,type)
+	numberOfApps, termDocMatrix, appVector, allSyscallsVector = createTermDocMatrix(jsonDict,categoryDict,type)
 
 	# Creates a list containing 5 lists initialized to 0
 	#appToAppDistMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]

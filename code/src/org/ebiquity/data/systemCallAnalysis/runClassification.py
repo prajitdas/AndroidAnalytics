@@ -62,6 +62,7 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	
 #Generate the ARFF file for weka to process
 def generateArffFileData(termDocMatrix, allSyscallsVector):
+	# print termDocMatrix
 	arffFileContent="% 1. Title: Playstore Data Category Classification\n"
 	arffFileContent+="% \n"
 	arffFileContent+="% 2. Sources:\n"
@@ -79,7 +80,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 	
 	for app in termDocMatrix:
 		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
-		arffFileContent+=','.join(termDocMatrix[app][1])
+		arffFileContent+=','+termDocMatrix[app][1]
 		arffFileContent+="\n"
 
 	return arffFileContent

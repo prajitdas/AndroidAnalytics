@@ -233,10 +233,10 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
 		raise BaseException("Error in input. You didn't choose a known standard for term document matrix format.")
-	toWriteTermDocMat = {}
-	toWriteTermDocMat = termDocMatrix
-	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
-	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
+	# toWriteTermDocMat = {}
+	# toWriteTermDocMat = termDocMatrix
+	# toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
+	# json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
 	return numberOfApps, termDocMatrix, appVector, allSyscallsVector
 
 def computeDistance(jsonDict,categoryDict,metric,type):

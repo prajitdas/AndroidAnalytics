@@ -1,330 +1,330 @@
 {  
    "ch.bitspin.timely":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.aigamomifi.alarmclockll2":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.apalon.myclockfree":{  
       "google_play_category":"Productivity",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.augmentedminds.waveAlarm":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.ihandysoft.alarmclock":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.ihandysoft.alarmclock.free":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.kog.alarmclock":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.macropinch.axe":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.rosamaria.svegliaparlante":{  
       "google_play_category":"Tools",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.sykora.neonalarm.free":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "com.vp.alarmClockPlusDock":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Alarm clock"
+      "annotated_category":"alarm_clock"
    },
    "cm.du.go.battery.doctor":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.avast.android.batterysaver":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.fasteasy.battery.deepsaver":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.kingtoolsapps.batterydoctor.batteriesaver":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.linpus.battery":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.oasisfeng.greenify":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.psafe.powerpro":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.sologame.batterysaver":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "lync.com.batteryoptimizer":{  
       "google_play_category":"Tools",
-      "annotated_category":"Battery saver"
+      "annotated_category":"battery_saver"
    },
    "com.aqua.apps.cocktails.drinks.recipes":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.digitaloutcrop.mixology":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.guru.cocktails":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.LEO.Mr_Bartender":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.liferecipes.drinksrecipes":{  
       "google_play_category":"Health & Fitness",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.mybarapp.free":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.webworks.drinkscocktails":{  
       "google_play_category":"Entertainment",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "hu.distinction.cflow":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Drink Recipes"
+      "annotated_category":"drink_recipes"
    },
    "com.Adcoms.FileSystem":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.asus.filemanager":{  
       "google_play_category":"Tools",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.estrongs.android.pop":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.ghisler.android.TotalCommander":{  
       "google_play_category":"Tools",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.lonelycatgames.Xplore":{  
       "google_play_category":"Tools",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.probcomp.filexplorer":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.speedsoftware.explorer":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "com.vj.filemanager":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "nextapp.fx":{  
       "google_play_category":"Business",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "pl.mkexplorer.kormateusz":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "pl.solidexplorer2":{  
       "google_play_category":"Productivity",
-      "annotated_category":"File Explorer"
+      "annotated_category":"file_expoler"
    },
    "calendrier.lunaire.duJardinier":{  
       "google_play_category":"Tools",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.android.lunarcal":{  
       "google_play_category":"Tools",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.dgtex.MisteriumMoon":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.findsdk.lunarcalendar":{  
       "google_play_category":"Tools",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.glis.lunarcalendar":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.lunafaqt":{  
       "google_play_category":"Books & Reference",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.rotha.calendar2015":{  
       "google_play_category":"Lifestyle",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.yourchineseastrology.chinesecalendar":{  
       "google_play_category":"Tools",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "fr.calendrierlunaire.android":{  
       "google_play_category":"Tools",
-      "annotated_category":"Lunar Calendar"
+      "annotated_category":"lunar_calendar"
    },
    "com.acadoid.pdfview":{  
       "google_play_category":"Productivity",
-      "annotated_category":"PDF Reader"
+      "annotated_category":"pdf_reader"
    },
    "com.adobe.reader":{  
       "google_play_category":"Productivity",
-      "annotated_category":"PDF Reader"
+      "annotated_category":"pdf_reader"
    },
    "com.pdfviewer.reader":{  
       "google_play_category":"Productivity",
-      "annotated_category":"PDF Reader"
+      "annotated_category":"pdf_reader"
    },
    "net.sf.andpdf.pdfviewer":{  
       "google_play_category":"Productivity",
-      "annotated_category":"PDF Reader"
+      "annotated_category":"pdf_reader"
    },
    "pdf.reader":{  
       "google_play_category":"Books & Reference",
-      "annotated_category":"PDF Reader"
+      "annotated_category":"pdf_reader"
    },
    "the.pdfviewer3":{  
       "google_play_category":"Productivity",
-      "annotated_category":"PDF Reader"
+      "annotated_category":"pdf_reader"
    },
    "com.digitalchemy.calculator.freedecimal":{  
       "google_play_category":"Tools",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "com.harchali.scientifique.calculatrice":{  
       "google_play_category":"Tools",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "com.jhankis.ScientificCalc":{  
       "google_play_category":"Productivity",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "com.scientific.calc":{  
       "google_play_category":"Tools",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "com.speedsoftware.allin1calcfree":{  
       "google_play_category":"Productivity",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "hdnasoftware.hdna.piscientificcalculator":{  
       "google_play_category":"Education",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "it.bisemanuDEV.bismagsimplecalculator":{  
       "google_play_category":"Tools",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "jp.Appsys.PanecalST":{  
       "google_play_category":"Productivity",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "org.solovyev.android.calculator":{  
       "google_play_category":"Tools",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "roviminteractive.materialcopy":{  
       "google_play_category":"Tools",
-      "annotated_category":"Scientific Calculator"
+      "annotated_category":"scientific_calculator"
    },
    "com.asus.todolist":{  
       "google_play_category":"Tools",
-      "annotated_category":"To-Do List"
+      "annotated_category":"to_do_list"
    },
    "com.codeswitch.tasks":{  
       "google_play_category":"Productivity",
-      "annotated_category":"To-Do List"
+      "annotated_category":"to_do_list"
    },
    "jakiganicsystems.simplestchecklist":{  
       "google_play_category":"Productivity",
-      "annotated_category":"To-Do List"
+      "annotated_category":"to_do_list"
    },
    "com.codeaddictsofcseku.androidmediaplayer":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "com.cyberlink.powerdvd.PMA140804_01":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "com.mefree.videoplayer":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "com.multimedia.player":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "com.zgz.supervideo":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "org.videolan.vlc":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "veg.network.mediaplayer":{  
       "google_play_category":"Media & Video",
-      "annotated_category":"Video playback"
+      "annotated_category":"video_playback"
    },
    "com.javali.wifisnr":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "com.keuwl.wifi":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "com.overlook.android.fing":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "com.srm.wifichannelanalyzer":{  
       "google_play_category":"Productivity",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "cz.webprovider.wifianalyzer":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "net.techet.netanalyzerlite.an":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "org.hlousek.droid.twa":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    },
    "us.wifitools.wifiscananalyzer":{  
       "google_play_category":"Tools",
-      "annotated_category":"Wifi Analyzer"
+      "annotated_category":"wifi_analyzer"
    }
 }

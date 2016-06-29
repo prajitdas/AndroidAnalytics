@@ -44,8 +44,8 @@ def storeDataonServer(url,searchStrings):
 	jsonString['applist'] = applist
 	print jsonString
 
-	serverResponse = requests.post(url, jsonString)
-	print serverResponse
+	# serverResponse = requests.post(url, jsonString)
+	# print serverResponse
 	dbHandle.close() #DB Close
 
 def convertToSQLQueryList(searchString):

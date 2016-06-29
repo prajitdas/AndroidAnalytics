@@ -42,6 +42,7 @@ def storeDataonServer(url,searchStrings):
 	for searchString in searchStrings:
 		applist = getData(searchString,applist,dbHandle)
 	jsonString['applist'] = applist
+	print jsonString
 
 	serverResponse = requests.post(url, jsonString)
 	print serverResponse

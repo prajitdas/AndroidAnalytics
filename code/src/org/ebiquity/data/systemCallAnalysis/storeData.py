@@ -63,7 +63,7 @@ def main(argv):
 	startTime = time.time()
 	storeDataonServer(url,searchStrings)
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: '+executionTime+' ms')
+	print 'Execution time was: '+executionTime+' ms'
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

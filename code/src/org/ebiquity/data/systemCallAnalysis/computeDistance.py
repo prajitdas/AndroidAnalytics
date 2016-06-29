@@ -214,7 +214,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 			appFeatures.append(categoryDict[app]['annotated_category'])
 			appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
 			termDocMatrix[app] = appFeatures
-			print app, termDocMatrix[app]
+			# print app, termDocMatrix[app]
 	elif type == 'justc':
 		for app in appVector:
 			appFeatures = []

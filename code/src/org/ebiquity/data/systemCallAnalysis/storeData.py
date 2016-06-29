@@ -17,8 +17,8 @@ def getData(searchString,jsonString,dbHandle):
 		tempAppDict = {}
 		for app_name, app_pkg_name, version in cursor:
 			tempAppDict['packageName'] = app_pkg_name
-			tempAppDict['app_name'] = app_name
-			tempAppDict['version'] = str(version)
+			tempAppDict['appName'] = app_name
+			tempAppDict['versionInfo'] = str(version)
 			jsonString[app_pkg_name] = tempAppDict
 	except:
 		print 'Unexpected error in test:', sys.exc_info()[0]

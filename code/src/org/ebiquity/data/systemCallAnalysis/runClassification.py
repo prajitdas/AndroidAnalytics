@@ -52,7 +52,7 @@ def getAppCategoryList(termDocMatrix):
 	for app in termDocMatrix:
 		google_play_category_labels.append(termDocMatrix[app][0])
 		annotated_category_labels.append(termDocMatrix[app][1])
-	return annotated_category_labels
+	return set(annotated_category_labels)
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
 	#Once the whole matrix is created then dump to a file
@@ -79,6 +79,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 	
 	for app in termDocMatrix:
 		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
+		arffFileContent+=','.join(termDocMatrix[app][1])
 		arffFileContent+="\n"
 
 	return arffFileContent

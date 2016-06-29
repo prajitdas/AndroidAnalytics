@@ -25,7 +25,7 @@ def getData(searchString,jsonString,dbHandle):
 		raise
 	return jsonString
 
-def storeDataonServer(url,searchStrings):
+def storeDataonServer(url,searchStringList):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
 	# jsonString = '''{"applist":
 	#   [
@@ -36,7 +36,7 @@ def storeDataonServer(url,searchStrings):
 	# }'''
 
 	jsonString = {}
-	for searchString in searchStrings:
+	for searchString in searchStringList:
 		jsonString = getData(searchString,jsonString,dbHandle)
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
@@ -53,12 +53,20 @@ def main(argv):
 		sys.exit(1)
 
 	url = 'https://9b5d5f5d.ngrok.io'
-	searchStrings = []
-	searchStrings.append(convertToSQLQueryList("alarm clock"))
-	searchStrings.append(convertToSQLQueryList("wifi analyzer"))
+	searchStringList = []
+	searchStringList.append("Alarm clock".replace(' ','%').lower())
+	searchStringList.append("Battery saver".replace(' ','%').lower())
+	searchStringList.append("Drink Recipes".replace(' ','%').lower())
+	searchStringList.append("File Explorer".replace(' ','%').lower())
+	searchStringList.append("Lunar Calendar".replace(' ','%').lower())
+	searchStringList.append("PDF Reader".replace(' ','%').lower())
+	searchStringList.append("Scientific Calculator".replace(' ','%').lower())
+	searchStringList.append("To Do List".replace(' ','%').lower())
+	searchStringList.append("Video playback".replace(' ','%').lower())
+	searchStringList.append("Wifi Analyzer".replace(' ','%').lower())
 
 	startTime = time.time()
-	storeDataonServer(url,searchStrings)
+	storeDataonServer(url,searchStringList)
 	executionTime = str((time.time()-startTime)*1000)
 	print 'Execution time was: '+executionTime+' ms'
 

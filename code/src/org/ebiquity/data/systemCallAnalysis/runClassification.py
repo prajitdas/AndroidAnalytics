@@ -52,7 +52,7 @@ def getAppCategoryList(termDocMatrix):
 	for app in termDocMatrix:
 		google_play_category_labels.append(termDocMatrix[app][0])
 		annotated_category_labels.append(termDocMatrix[app][1])
-	return set(annotated_category_labels)
+	return set(google_play_category_labels)
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
 	#Once the whole matrix is created then dump to a file

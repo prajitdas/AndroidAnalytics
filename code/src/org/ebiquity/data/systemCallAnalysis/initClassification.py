@@ -29,7 +29,7 @@ def preProcess():
 #Initiate the clustering process
 def initClassification(jsonPath):
 	# Things have been initiated, now to run classification
-	classify.runClassification(username, api_key, appMatrixFile, preProcess(), gs.getSyscallDataJson(jsonPath))
+	classify.runClassification(preProcess(), gs.getSyscallDataJson(jsonPath))
 
 def main(argv):
 	if len(sys.argv) != 2:

@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(filename='getSyscallDataJson.log',level=logging.DEBUG)
 
 def getSyscallDataJson(jsonPath):
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile82Good.json")
 	try:
 		return json.loads(open(masterJsonFile).read())
 	except IOError as e:

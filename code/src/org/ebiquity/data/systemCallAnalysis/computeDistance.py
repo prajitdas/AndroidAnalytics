@@ -201,7 +201,7 @@ def runAgain(jsonDict):
 	# json.dump(runAgainAppsDict, open('runagain.json', 'w'), sort_keys = True, indent = 4)
 	return cleanJsonDict
 
-def createTermDocMatrix(jsonDict,type):
+def createTermDocMatrix(jsonDict,categoryDict,type):
 	jsonDict = runAgain(jsonDict)
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
@@ -209,15 +209,27 @@ def createTermDocMatrix(jsonDict,type):
 	termDocMatrix = {}
 	if type == 'numoc':
 		for app in appVector:
-			termDocMatrix[app] = formVectorNumCalls(jsonDict[app],allSyscallsVector)
-			if len(termDocMatrix[app]) != len(allSyscallsVector):
-				print app, str(len(termDocMatrix[app]))
+			appFeatures = []
+			appFeatures.append(categoryDict[app]['google_play_category'])
+			appFeatures.append(categoryDict[app]['annotated_category'])
+			appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
+			termDocMatrix[app] = appFeatures
+			# if len(termDocMatrix[app]) != len(allSyscallsVector):
+			# 	print app, str(len(termDocMatrix[app]))
 	elif type == 'justc':
 		for app in appVector:
-			termDocMatrix[app] = formVectorJustCalls(jsonDict[app],allSyscallsVector)
+			appFeatures = []
+			appFeatures.append(categoryDict[app]['google_play_category'])
+			appFeatures.append(categoryDict[app]['annotated_category'])
+			appFeatures.append(formVectorJustCalls(jsonDict[app],allSyscallsVector))
+			termDocMatrix[app] = appFeatures
 	elif type == 'tfidf':
 		for app in appVector:
-			termDocMatrix[app] = formVectorTfIdfCalls(jsonDict[app],allSyscallsVector)
+			appFeatures = []
+			appFeatures.append(categoryDict[app]['google_play_category'])
+			appFeatures.append(categoryDict[app]['annotated_category'])
+			appFeatures.append(formVectorTfIdfCalls(jsonDict[app],allSyscallsVector))
+			termDocMatrix[app] = appFeatures
 	else:
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
@@ -228,13 +240,13 @@ def createTermDocMatrix(jsonDict,type):
 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
 	return numberOfApps, termDocMatrix, appVector
 
-def computeDistance(jsonDict,metric,type):
+def computeDistance(jsonDict,categoryDict,metric,type):
 	logging.debug('Inside computeDistance')
 
 	# numoc: use frequency of a call for distance computation
 	# justc: use just a call for distance computation
 	# tfidf: use tf-idf weights of calls for distance computation
-	numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,type)
+	numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,categoryDict,type)
 
 	# Creates a list containing 5 lists initialized to 0
 	#appToAppDistMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
@@ -264,12 +276,13 @@ def main(argv):
 		sys.exit(1)
 
 	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
+	categoryDict = json.loads(open('category.json','r').read())
 	# jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
 
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 	# print termDocMatrix, appVector
-	appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard','numoc')
+	appToAppDistMatrix, appVector = computeDistance(jsonDict,categoryDict,'jaccard','numoc')
 	# print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

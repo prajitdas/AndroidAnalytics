@@ -27,7 +27,6 @@ import NumpyEncoder
 import gzip
 import logging
 import mysql.connector
-import getSyscallData
 logging.basicConfig(filename='classify.log',level=logging.DEBUG)
 
 def reducePrecisionEncode(array, length, breadth, precision):
@@ -55,4 +54,8 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	
 def runClassification(predictedClustersFile, jsonDict):
 	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,'tfidf')
-	numberOfApps, termDocMatrix, appVector = cd.createTermDocMatrix(jsonDict,'numoc')
+	categoryDict = json.loads(open('category.json','r').read())
+	numberOfApps, termDocMatrix, appVector = cd.createTermDocMatrix(jsonDict,categoryDict,'numoc')
+	print numberOfApps
+	print termDocMatrix
+	print appVector

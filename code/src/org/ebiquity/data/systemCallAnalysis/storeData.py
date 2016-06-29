@@ -18,7 +18,7 @@ def getData(searchString,applist,dbHandle):
 		# tempAppDict = {}
 		# for app_name, app_pkg_name, version in cursor:
 		for app_pkg_name in cursor:
-			applist.append(app_pkg_name)
+			applist.append(app_pkg_name[0])
 			# tempAppDict['packageName'] = app_pkg_name
 			# tempAppDict['appName'] = app_name
 			# tempAppDict['versionInfo'] = str(version)

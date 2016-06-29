@@ -42,7 +42,7 @@ def storeDataonServer(url,searchStrings):
 	for searchString in searchStrings:
 		applist = getData(searchString,applist,dbHandle)
 	jsonString['applist'] = applist
-	json.dumps(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
+	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
 	# serverResponse = requests.post(url, jsonString)
 	# print serverResponse

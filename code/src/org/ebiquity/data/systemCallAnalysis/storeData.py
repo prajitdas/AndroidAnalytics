@@ -40,12 +40,9 @@ def storeDataonServer(url,searchStringList):
 		jsonString = getData(searchString,jsonString,dbHandle)
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
-	# serverResponse = requests.post(url, jsonString)
-	# print serverResponse
+	serverResponse = requests.post(url, jsonString)
+	print serverResponse
 	dbHandle.close() #DB Close
-
-def convertToSQLQueryList(searchString):
-	return "%"+searchString.replace(' ','%')+"%"
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -53,6 +50,7 @@ def main(argv):
 		sys.exit(1)
 
 	url = 'https://9b5d5f5d.ngrok.io'
+	
 	searchStringList = []
 	searchStringList.append("Alarm clock".replace(' ','%').lower())
 	searchStringList.append("Battery saver".replace(' ','%').lower())

@@ -9,21 +9,24 @@ import sys
 import time
 import databaseHandler
 
-def getData(searchString,jsonString,dbHandle):
+def getData(searchString,applist,dbHandle):
 	cursor = dbHandle.cursor()
-	sqlStatement = "SELECT app_name, app_pkg_name, version FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1;"
+	# sqlStatement = "SELECT app_name, app_pkg_name, version FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1;"
+	sqlStatement = "SELECT app_pkg_name FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1;"
 	try:
 		cursor.execute(sqlStatement)
-		tempAppDict = {}
-		for app_name, app_pkg_name, version in cursor:
-			tempAppDict['packageName'] = app_pkg_name
-			tempAppDict['appName'] = app_name
-			tempAppDict['versionInfo'] = str(version)
-			jsonString[app_pkg_name] = tempAppDict
+		# tempAppDict = {}
+		# for app_name, app_pkg_name, version in cursor:
+		for app_pkg_name in cursor:
+			applist.append(app_pkg_name)
+			# tempAppDict['packageName'] = app_pkg_name
+			# tempAppDict['appName'] = app_name
+			# tempAppDict['versionInfo'] = str(version)
+			# jsonString[app_pkg_name] = tempAppDict
 	except:
 		print 'Unexpected error in test:', sys.exc_info()[0]
 		raise
-	return jsonString
+	return applist
 
 def storeDataonServer(url,searchStringList):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
@@ -36,8 +39,10 @@ def storeDataonServer(url,searchStringList):
 	# }'''
 
 	jsonString = {}
+	applist = []
 	for searchString in searchStringList:
-		jsonString = getData(searchString,jsonString,dbHandle)
+		applist = getData(searchString,applist,dbHandle)
+	jsonString['applist'] = applist
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
 	serverResponse = requests.post(url, jsonString)

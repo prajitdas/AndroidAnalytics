@@ -36,6 +36,7 @@ def getPaidOrFree(appUrl):
 					if child.__class__.__name__ == "Tag":
 						if child.string.strip() != 'Install':
 							insertInDB(app_pkg_name,1)
+							return
 	except urllib2.HTTPError, e:
 		logging.debug('HTTPError =' + str(e.code) + 'for app:' + app_pkg_name)
 

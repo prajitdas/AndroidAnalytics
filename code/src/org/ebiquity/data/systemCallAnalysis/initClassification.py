@@ -7,7 +7,6 @@ Usage: python initClassification.py username api_key jsonPath
 import sys
 import time
 import os
-#import databaseHandler
 import runClassification as classify
 import PathDetails as pd
 import json

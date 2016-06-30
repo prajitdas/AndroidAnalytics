@@ -4,19 +4,8 @@ Created on June 28, 2016
 Usage: python runClassification.py jsonDict
 '''
 
-# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-#from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans, SpectralClustering, DBSCAN
-from sklearn.metrics import silhouette_score#, silhouette_samples
-# from sklearn.metrics.pairwise import pairwise_distances
-from sklearn.decomposition import PCA #,TruncatedSVD
-# End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
-
-import clusterEvaluation as clEval
-import plotResults as plot
 import numpy as np
 import json
-#import selectPermissions as sp
 import cPickle
 import computeDistance as cd
 #import matplotlib.pyplot as plt
@@ -26,7 +15,6 @@ import sys
 import NumpyEncoder
 import gzip
 import logging
-import mysql.connector
 logging.basicConfig(filename='classify.log',level=logging.DEBUG)
 
 def reducePrecisionEncode(array, length, breadth, precision):
@@ -75,8 +63,6 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 		arffFileContent+="@ATTRIBUTE "+systemCall+" NUMERIC\n"
 	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppCategoryList(termDocMatrix))+"}\n\n"
 	arffFileContent+="@DATA\n"
-	# for appPkgName, appInfoDict in appDict.iteritems():
-	# 	print appPkgName, appInfoDict['category'], appInfoDict['permissions'], getPermVector(appInfoDict['permissions'], permissionList)
 	
 	for app in termDocMatrix:
 		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])

@@ -36,7 +36,7 @@ def runOnGenyMotionDevice(pathToApk):
 	print runExperimentsCmd
 	try:
 		s.check_output(runExperimentsCmd.split())
-	except subprocess.CalledProcessError:
+	except s.CalledProcessError:
 		logging.debug('Error in running experiments for: '+pathToApk.split('.apk')[0])
 		# Even if there is an exception in running experiments, remove the file to the other folder
 		# movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
@@ -61,7 +61,7 @@ def runOnDevice(pathToApk):
 	print runExperimentsCmd
 	try:
 		s.check_output(runExperimentsCmd.split())
-	except subprocess.CalledProcessError:
+	except s.CalledProcessError:
 		logging.debug('Error in running experiments for: '+pathToApk.split("/")[-1].split('.apk')[0])
 		# Even if there is an exception in running experiments, remove the file to the other folder
 		movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'

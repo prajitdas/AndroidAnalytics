@@ -19,38 +19,56 @@ except:
 
 from com.dtmilano.android.viewclient import ViewClient
 
-package = 'edu.umbc.cs.ebiquity.autoinstallerapp'
-activity = 'edu.umbc.cs.ebiquity.autoinstallerapp.ui.activity.MainActivity'
-component = package + "/" + activity
+def launchApp():
+    package = 'edu.umbc.cs.ebiquity.autoinstallerapp'
+    activity = 'edu.umbc.cs.ebiquity.autoinstallerapp.ui.activity.MainActivity'
+    component = package + "/" + activity
 
-device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.173.101:5555')
-device.startActivity(component=component)
-time.sleep(3)
-viewClient = ViewClient(device, serialno)
+    device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.173.101:5555')
+    device.startActivity(component=component)
+    time.sleep(3)
+    return device, serialno
 
-appList = viewClient.findViewByIdOrRaise('edu.umbc.cs.ebiquity.autoinstallerapp:id/list')
-(x, y, w, h) = appList.getPositionAndSize()
-# start = (int(x+w/2.0), y+h)
-start = (int(x+w/2.0), y+h-250)
-end = (int(x+w/2.0), y-250)
-# end = (int(x+w/2.0), y)
-# scroll 5 times
-for i in range(5):
-    viewClient.device.drag(start, end, 1.0, 10)
+def getViewClient(device, serialno):
+    viewClient = ViewClient(device, serialno)
+    return viewClient
 
-# installButton = viewClient.findViewWithText('INSTALL')
-# installButton.touch()
-#
-# acceptButton = viewClient.findViewWithTextOrRaise('ACCEPT')
+def clickOnTopApp(viewClient):
+    appListView = viewClient.findViewByIdOrRaise('edu.umbc.cs.ebiquity.autoinstallerapp:id/list')
+    visibleAppList = []
+    for app in viewClient.findViewsWithAttribute('class', 'android.widget.TextView', root=appListView):
+        visibleAppList.append(app.getText())
 
-# for bt in [ 'INSTALL', 'ACCEPT' ]:
-#     b = vc.findViewWithText(bt)
-#     if b:
-#         (x, y) = b.getXY()
-#         print >>sys.stderr, "clicking b%s @ (%d,%d) ..." % (bt, x, y)
-#         b.touch()
-#     else:
-#         print >>sys.stderr, "b%s not found" % bt
-#     time.sleep(7)
-#
-# print >>sys.stderr, "bye"
+    firstAppLink = viewClient.findViewWithText(visibleAppList[0])
+    firstAppLink.touch()
+    return firstAppLink.getText()
+
+def installApp(viewClient):
+    installButton = viewClient.findViewWithTextOrRaise('INSTALL')
+    installButton.touch()
+
+def acceptInstallApp(viewClient):
+    installButton = viewClient.findViewWithTextOrRaise('ACCEPT')
+    installButton.touch()
+
+def getApps():
+    device, serialno = launchApp()
+    app = clickOnTopApp(getViewClient(device, serialno))
+    time.sleep(3)
+    installApp(getViewClient(device, serialno))
+    time.sleep(3)
+    acceptInstallApp(getViewClient(device, serialno))
+    print app
+
+def main(argv):
+    if len(sys.argv) != 1:
+        sys.stderr.write('Usage: python automateInstallationOfApp.py\n')
+        sys.exit(1)
+
+    startTime = time.time()
+    getApps()
+    executionTime = str((time.time()-startTime)*1000)
+    print executionTime
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

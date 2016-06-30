@@ -32,7 +32,7 @@ def isBootAnimationComplete():
 def runOnGenyMotionDevice(pathToApk):
 	logging.debug('AVD is ready')
 	# Executing the test scenario for Android monkey
-	runExperimentsCmd = 'bash automatingStrace.sh genymotion'
+	runExperimentsCmd = 'bash automatingStrace.sh genymotion '+pathToApk
 	print runExperimentsCmd
 	try:
 		s.check_output(runExperimentsCmd.split())

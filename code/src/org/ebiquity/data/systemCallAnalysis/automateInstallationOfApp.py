@@ -11,6 +11,8 @@ Usage: python automateInstallationOfApp.py
 import sys
 import os
 import time
+import editDataOnServerForTesting as ed
+import syscallAnalysis as sc
 
 try:
     sys.path.append(os.path.join(os.environ['ANDROID_VIEW_CLIENT_HOME'], 'src'))
@@ -39,9 +41,12 @@ def clickOnTopApp(viewClient):
     for app in viewClient.findViewsWithAttribute('class', 'android.widget.TextView', root=appListView):
         visibleAppList.append(app.getText())
 
-    firstAppLink = viewClient.findViewWithText(visibleAppList[0])
-    firstAppLink.touch()
-    return firstAppLink.getText()
+    firstAppName = None
+    if len(visibleAppList) > 0:
+        firstAppLink = viewClient.findViewWithText(visibleAppList[0])
+        firstAppLink.touch()
+        firstAppName = firstAppLink.getText()
+    return firstAppName
 
 def installApp(viewClient):
     installButton = viewClient.findViewWithTextOrRaise('INSTALL')
@@ -52,13 +57,19 @@ def acceptInstallApp(viewClient):
     installButton.touch()
 
 def getApps():
+    currentPath = os.getcwd()
     device, serialno = launchApp()
-    app = clickOnTopApp(getViewClient(device, serialno))
-    time.sleep(3)
-    installApp(getViewClient(device, serialno))
-    time.sleep(3)
-    acceptInstallApp(getViewClient(device, serialno))
-    print app
+    while(True):
+        app = clickOnTopApp(getViewClient(device, serialno))
+        if app:
+            time.sleep(3)
+            installApp(getViewClient(device, serialno))
+            time.sleep(3)
+            acceptInstallApp(getViewClient(device, serialno))
+            ed.removeDataFromServer(app)
+            sc.runExperimentsGenyMotionEmulator(currentPath,sc.getOutputDirectoryPath(currentPath),app)
+        else:
+            return
 
 def main(argv):
     if len(sys.argv) != 1:

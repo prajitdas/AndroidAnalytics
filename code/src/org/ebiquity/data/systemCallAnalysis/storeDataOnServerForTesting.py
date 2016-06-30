@@ -1,7 +1,7 @@
 '''
 Created on June 29, 2016
 @author: Prajit Kumar Das
-Usage: python storeData.py
+Usage: python storeDataOnServerForTesting.py
 '''
 import requests
 import json
@@ -12,7 +12,7 @@ import databaseHandler
 def getData(searchString,applist,dbHandle):
 	cursor = dbHandle.cursor()
 	# sqlStatement = "SELECT app_name, app_pkg_name, version FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1;"
-	sqlStatement = "SELECT app_pkg_name FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1;"
+	sqlStatement = "SELECT app_pkg_name FROM `appdata` WHERE `app_pkg_name` LIKE '%"+searchString+"%' AND `still_in_googleplaystore` = 1 AND `paid` = 0;"
 	try:
 		cursor.execute(sqlStatement)
 		# tempAppDict = {}
@@ -51,11 +51,13 @@ def storeDataonServer(url,searchStringList):
 
 def main(argv):
 	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python storeData.py\n')
+		sys.stderr.write('Usage: python storeDataOnServerForTesting.py\n')
 		sys.exit(1)
 
+	# Server URL from Ngrok to get the data
 	url = 'https://9b5d5f5d.ngrok.io'
-	
+
+	# Search strings for the app search
 	searchStringList = []
 	searchStringList.append("Alarm clock".replace(' ','%').lower())
 	searchStringList.append("Battery saver".replace(' ','%').lower())

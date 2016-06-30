@@ -65,8 +65,13 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 	arffFileContent+="@DATA\n"
 	
 	for app in termDocMatrix:
+		'''
+			REMEMBER! REMEMBER! The something of November :P This is where we choose which class label we test against
+			termDocMatrix[app][1] -> annotated class labels by "experts"
+			termDocMatrix[app][0] -> annotated class labels by Google
+		'''
 		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
-		arffFileContent+=','+termDocMatrix[app][1]
+		arffFileContent+=','+termDocMatrix[app][0]
 		arffFileContent+="\n"
 
 	return arffFileContent

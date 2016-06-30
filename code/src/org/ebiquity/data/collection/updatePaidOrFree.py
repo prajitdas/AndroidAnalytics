@@ -32,9 +32,9 @@ def getPaidOrFree(appUrl):
 		soup = bs(''.join(page))
 		for div in soup.findAll(attrs={'class': 'price'}):
 			for child in div.children:
-				if type(child.string).__name__ != "NoneType":
-					if child.__class__.__name__ == "Tag":
-						if child.string.strip() != 'Install':
+				if type(child.string).__name__ != 'NoneType':
+					if child.__class__.__name__ == 'Tag':
+						if 'Buy' in child.string.strip():
 							insertInDB(app_pkg_name,1)
 							return
 	except urllib2.HTTPError, e:

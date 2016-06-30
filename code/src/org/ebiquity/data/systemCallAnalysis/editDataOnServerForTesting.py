@@ -18,7 +18,7 @@ def storeDataonServer(jsonString):
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 	bkpJson = 'bkp'+getTimedBkpName()+'.json'
 	shutil.move('search.json', bkpJson)
-	serverResponse = requests.post(url, jsonString)
+	serverResponse = requests.post(url, json.dumps(jsonString))
 	print serverResponse
 
 def removeDataFromServer(appToRemove):

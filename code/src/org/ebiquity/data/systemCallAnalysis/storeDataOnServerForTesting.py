@@ -45,7 +45,7 @@ def storeDataonServer(url,searchStringList):
 	jsonString['applist'] = applist
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
-	serverResponse = requests.post(url, jsonString)
+	serverResponse = requests.post(url, json.dumps(jsonString))
 	print serverResponse
 	dbHandle.close() #DB Close
 

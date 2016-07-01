@@ -5,12 +5,15 @@ installationResult=`adb install -r $1`
 if [[ $1 == "genymotion" ]]
 then
     package=$2
-    apkLocation = "adb shell pm path "$2"| grep 'package' | cut -f2 -d':'"
+    apkLocationOnPhone = "adb shell pm path "$2"| grep 'package' | cut -f2 -d':'"
     apkFileName = $2".apk"
-    adb pull $apkLocation $apkFileName
+    # Get the apk from the phone
+    adb pull $apkLocationOnPhone $apkFileName
+    # Process the apk
     package=$(aapt dump badging $apkFileName|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')
     activity=$(aapt dump badging $apkFileName|awk -F" " '/launchable-activity/ {print $2}'|awk -F"'" '/name=/ {print $2}')
-    rm $apkFileName
+    # Delete the apk or you will be screwed! For the time being we will collect apks.
+    #rm $apkFileName
     if [[ $package == "" || $activity == "" ]]
     then
         echo "activity or package name was null can't run experiments for app: "$1 >> error.log

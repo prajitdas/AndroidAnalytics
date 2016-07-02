@@ -10,6 +10,7 @@ import sys
 import time
 import re
 import json
+import tfidf
 logging.basicConfig(filename='computeDistance.log',level=logging.DEBUG)
 from scipy.spatial import distance as spDist
 
@@ -156,18 +157,32 @@ def formVectorNumCalls(appSyscallDict, allSyscallsVector):
 	return appVector
 
 #Form a weight vector using TF-IDF weights for system calls made by apps
-def formVectorTfIdfCalls(appSyscallDict, allSyscallsVector):
-	appVector = range(len(allSyscallsVector))
-	count = 0
-	for syscall in allSyscallsVector:
-		if syscall in appSyscallDict:
-			appVector[count] = appSyscallDict[syscall]
-		else:
-			appVector[count] = 0
-		count += 1
+def updateTermDcoMatrixWithTfIdfValues(termDocMatrix):
+	# print termDocMatrix
+	# frequencyMatrix = []
+	# for app in termDocMatrix:
+	# 	frequencyVector = []
+	# 	frequencyVector.append(app)
+	# 	frequencyVector.append(termDocMatrix[app][2])
+	# 	frequencyMatrix.append(frequencyVector)
 
-	# print appVector
-	return appVector
+	termDocMatrix = tfidf.computeTFIDFWeights(termDocMatrix)
+
+	# for frequencyVector in frequencyMatrix:
+	# 	tfIdfWeightVectors = frequencyVector[1:]
+	# 	appFeatures = []
+	#
+	# 	termDocMatrix[frequencyVector[0]].pop()
+	# 	annotated_category = termDocMatrix[frequencyVector[0]].pop()
+	# 	google_play_category = termDocMatrix[frequencyVector[0]].pop()
+	#
+	# 	appFeatures.append(google_play_category)
+	# 	appFeatures.append(annotated_category)
+	# 	appFeatures.append(tfIdfWeightVectors[0])
+	#
+	# 	termDocMatrix[frequencyVector[0]] = appFeatures
+	# print termDocMatrix
+	return termDocMatrix
 
 #Form a binary value vector of system calls that has been made
 def formVectorJustCalls(appSyscallDict, allSyscallsVector):
@@ -227,16 +242,17 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 			appFeatures = []
 			appFeatures.append(categoryDict[app]['google_play_category'])
 			appFeatures.append(categoryDict[app]['annotated_category'])
-			appFeatures.append(formVectorTfIdfCalls(jsonDict[app],allSyscallsVector))
+			appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
 			termDocMatrix[app] = appFeatures
+		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 	else:
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
 		raise BaseException("Error in input. You didn't choose a known standard for term document matrix format.")
-	# toWriteTermDocMat = {}
-	# toWriteTermDocMat = termDocMatrix
-	# toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
-	# json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
+	toWriteTermDocMat = {}
+	toWriteTermDocMat = termDocMatrix
+	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
+	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
 	return numberOfApps, termDocMatrix, appVector, allSyscallsVector
 
 def computeDistance(jsonDict,categoryDict,metric,type):
@@ -257,7 +273,7 @@ def computeDistance(jsonDict,categoryDict,metric,type):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
-				score = computeDist(termDocMatrix[appVector[i]],termDocMatrix[appVector[j]],metric)
+				score = computeDist(termDocMatrix[appVector[i]][2],termDocMatrix[appVector[j]][2],metric)
 				# score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				# score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				appToAppDistMatrix[i,j] = score
@@ -281,7 +297,7 @@ def main(argv):
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 	# print termDocMatrix, appVector
-	appToAppDistMatrix, appVector = computeDistance(jsonDict,categoryDict,'jaccard','numoc')
+	appToAppDistMatrix, appVector = computeDistance(jsonDict,categoryDict,'jaccard','tfidf')
 	# print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

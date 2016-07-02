@@ -165,7 +165,7 @@ def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict,
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'euclidean', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'correlation', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cityblock', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 
 def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())

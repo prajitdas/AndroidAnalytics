@@ -30,12 +30,12 @@ def computeTFIDFWeights(termDocMatrix):
 		tfIDFDict[app] = (np.ones(len(tfIDFDict[app])) * tfIDFDict[app] * syscallIDFVector).tolist()
 		termDocMatrix[app].append(tfIDFDict[app])
 
-	from pprint import pprint
-	pprint(termDocMatrix)
-
-	transformer = TfidfTransformer()
-	tfidf = transformer.fit_transform(frequencyMatrix)
-	print tfidf.toarray()[0]
-	print transformer.idf_
+	# from pprint import pprint
+	# pprint(termDocMatrix)
+	#
+	# transformer = TfidfTransformer()
+	# tfidf = transformer.fit_transform(frequencyMatrix)
+	# print tfidf.toarray()[0]
+	# print transformer.idf_
 
 	return termDocMatrix

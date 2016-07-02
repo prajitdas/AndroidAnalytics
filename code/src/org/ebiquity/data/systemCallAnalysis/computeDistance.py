@@ -255,9 +255,9 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
 	return numberOfApps, termDocMatrix, appVector, allSyscallsVector
 
-def computeDistance(jsonDict,categoryDict,metric,type):
+def computeDistance(jsonDict,metric,type):
 	logging.debug('Inside computeDistance')
-
+	categoryDict = json.loads(open('category.json', 'r').read())
 	# numoc: use frequency of a call for distance computation
 	# justc: use just a call for distance computation
 	# tfidf: use tf-idf weights of calls for distance computation
@@ -291,13 +291,12 @@ def main(argv):
 		sys.exit(1)
 
 	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
-	categoryDict = json.loads(open('category.json','r').read())
 	# jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
 
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 	# print termDocMatrix, appVector
-	appToAppDistMatrix, appVector = computeDistance(jsonDict,categoryDict,'jaccard','tfidf')
+	appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard','tfidf')
 	# print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

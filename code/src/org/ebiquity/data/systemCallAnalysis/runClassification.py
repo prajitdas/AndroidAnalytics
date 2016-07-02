@@ -40,7 +40,8 @@ def getAppCategoryList(termDocMatrix):
 	for app in termDocMatrix:
 		google_play_category_labels.append(termDocMatrix[app][0])
 		annotated_category_labels.append(termDocMatrix[app][1])
-	return set(google_play_category_labels)
+	# return set(google_play_category_labels)
+	return set(annotated_category_labels)
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
 	#Once the whole matrix is created then dump to a file
@@ -84,7 +85,7 @@ def writeArffFile(appMatrixFile, arffFileContent):
 def runClassification(predictedClustersFile, jsonDict):
 	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,'tfidf')
 	categoryDict = json.loads(open('category.json','r').read())
-	numberOfApps, termDocMatrix, appVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,'numoc')
+	numberOfApps, termDocMatrix, appVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,'tfidf')
 	writeArffFile("appMatrix.arff", generateArffFileData(termDocMatrix, allSyscallsVector))
 	# print numberOfApps
 	# print termDocMatrix

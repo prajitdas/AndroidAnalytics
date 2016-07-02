@@ -72,7 +72,9 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 			termDocMatrix[app][0] -> annotated class labels by Google
 		'''
 		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
-		arffFileContent+=','+termDocMatrix[app][0]
+		# [0]: Google category
+		# [1]: My category
+		arffFileContent+=','+termDocMatrix[app][1]
 		arffFileContent+="\n"
 
 	return arffFileContent

@@ -7,6 +7,7 @@ then
     package=$2
     apkLocationOnPhone = "adb shell pm path "$2"| grep 'package' | cut -f2 -d':'"
     apkFileName = $2".apk"
+    echo apkFileName
     # Get the apk from the phone
     adb pull $apkLocationOnPhone $apkFileName
     # Process the apk

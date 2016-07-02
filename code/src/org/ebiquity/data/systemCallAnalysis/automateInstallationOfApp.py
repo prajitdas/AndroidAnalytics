@@ -26,7 +26,7 @@ def launchApp():
     activity = 'edu.umbc.cs.ebiquity.autoinstallerapp.ui.activity.MainActivity'
     component = package + "/" + activity
 
-    device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.173.101:5555')
+    device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.57.101:5555')
     device.startActivity(component=component)
     time.sleep(3)
     return device, serialno

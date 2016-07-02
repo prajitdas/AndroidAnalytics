@@ -23,5 +23,6 @@ def storeDataonServer(jsonString):
 
 def removeDataFromServer(appToRemove):
 	jsonString = json.loads(open('search.json','r').read())
-	jsonString.delete(appToRemove)
+	if appToRemove in jsonString: 
+		del jsonString[appToRemove]
 	storeDataonServer(jsonString)

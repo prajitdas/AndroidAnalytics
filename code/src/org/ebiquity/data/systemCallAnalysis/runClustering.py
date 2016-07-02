@@ -109,6 +109,9 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		#Clustering task is complete. Now evaluate
 		loopEvaluatedCluster['clusterEvaluationResults'] = clEval.evaluateCluster(predictedClusters)
 
+		print X.shape
+		print len(clusterLabelsAssigned)
+		print metric
 		# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 		# The silhouette_score gives the average value for all the samples.
 		# This gives a perspective into the density and separation of the formed

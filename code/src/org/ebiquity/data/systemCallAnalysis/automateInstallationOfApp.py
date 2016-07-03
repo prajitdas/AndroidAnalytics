@@ -8,6 +8,7 @@ Modified example from Diego to suit project purpose.
 Usage: python automateInstallationOfApp.py
 '''
 
+import subprocess as s
 import sys
 import os
 import time
@@ -29,6 +30,23 @@ def launchApp():
 	component = package + "/" + activity
 
 	device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.57.101:5555')
+
+	# Three commands to ensure that the emulator is in correct condition
+	# Prepare AVD for proper testing set aireplane mode off
+	cmd1="adb shell settings put global airplane_mode_on 0"
+	cmd2="adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false"
+	# To enable wifi
+	# cmd3="adb -s '"+serialno+"' shell \"svc wifi enable\""
+	cmd3="adb shell svc wifi enable"
+	# print cmd3+"end"
+	# Press the home button to ensure you are on the home screen
+	cmd4="adb shell input keyevent 3"
+	s.call(cmd1.split())
+	s.call(cmd2.split())
+	s.call(cmd3.split())
+	s.call(cmd4.split())
+	time.sleep(3)
+
 	device.startActivity(component=component)
 	time.sleep(3)
 	return device, serialno
@@ -63,6 +81,7 @@ def getApps():
 	while(True):
 		device, serialno = launchApp()
 		app = clickOnTopApp(getViewClient(device, serialno))
+		print "Automating for app: "+app
 		if app:
 			try:
 				time.sleep(3)

@@ -1,15 +1,19 @@
 #!/bin/bash
-# Install the app
-installationResult=`adb install -r $1`
-
+echo "Got inputs: "$1","$2
 if [[ $1 == "genymotion" ]]
 then
+    echo "Came to genymotion"
     package=$2
-    apkLocationOnPhone = "adb shell pm path "$2"| grep 'package' | cut -f2 -d':'"
-    apkFileName = $2".apk"
-    echo apkFileName
+    apkLocationOnPhone=$(adb shell pm path $2 | grep 'package' | cut -f2 -d':')
+    echo $apkLocationOnPhone
+    apkFileName=$2".apk"
+    echo "Executing on genymobile for: "$apkFileName
     # Get the apk from the phone
-    adb pull $apkLocationOnPhone $apkFileName
+    echo "adb pull $apkLocationOnPhone $apkFileName"
+    echo "Is something wrong?"
+    pullResult=`adb pull $apkLocationOnPhone $apkFileName`
+    echo "Sleeping now!"
+    sleep 10
     # Process the apk
     package=$(aapt dump badging $apkFileName|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')
     activity=$(aapt dump badging $apkFileName|awk -F" " '/launchable-activity/ {print $2}'|awk -F"'" '/name=/ {print $2}')
@@ -96,6 +100,10 @@ then
         exit 0
     fi
 else
+    echo "Came to google"
+    # Install the app
+    installationResult=`adb install -r $1`
+    
     if [[ $installationResult == *"Failure"* ]]
     then
         echo "Error: Failure to install: "$1 >> error.log

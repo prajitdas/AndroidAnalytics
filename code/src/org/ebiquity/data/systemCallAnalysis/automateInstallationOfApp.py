@@ -90,9 +90,11 @@ def getApps():
 				acceptInstallApp(getViewClient(device, serialno))
 				time.sleep(10)
 				checkInstallCmd="adb shell pm list packages | grep "+app
-				appInstalledCheck=s.call(checkInstallCmd.split())
-				print appInstalledCheck
-				if appInstalledCheck == '':
+				try:
+					appInstalledCheck=s.check_output(checkInstallCmd.split())
+				# print "I got"+str(appInstalledCheck)+"this"
+				# if appInstalledCheck != 0:
+				except s.CalledProcessError:
 					ed.removeDataFromServer(app)
 					print 'It seems app wasn\'t installed properly for: '+app
 					logging.debug('It seems app wasn\'t installed properly for: ',app)

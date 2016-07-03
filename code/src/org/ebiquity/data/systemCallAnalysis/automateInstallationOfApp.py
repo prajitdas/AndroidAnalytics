@@ -89,6 +89,14 @@ def getApps():
 				time.sleep(3)
 				acceptInstallApp(getViewClient(device, serialno))
 				time.sleep(10)
+				checkInstallCmd="adb shell pm list packages | grep "+app
+				appInstalledCheck=s.call(checkInstallCmd.split())
+				print appInstalledCheck
+				if appInstalledCheck == '':
+					ed.removeDataFromServer(app)
+					print 'It seems app wasn\'t installed properly for: '+app
+					logging.debug('It seems app wasn\'t installed properly for: ',app)
+					continue
 			except ViewNotFoundException:
 				ed.removeDataFromServer(app)
 				print "Couldn't find button with the text"

@@ -5800,6 +5800,7 @@
         "write": 80, 
         "writev": 1
     }, 
+    "ch.tobiasfluehmann.FileExplorer": {}, 
     "chat.sebastian.pdftoword": {
         "clock_gettime": 3, 
         "clone": 4, 
@@ -6163,6 +6164,9 @@
         "write": 2075, 
         "writev": 1167
     }, 
+    "co.com.fileExplorerInAndroid": {}, 
+    "co.com.fileExplorerPhone": {}, 
+    "co.mayaly.AlarmClockShakeShake": {}, 
     "com.AUTORUS.ProjectJDM": {
         "_llseek": 20, 
         "clock_gettime": 424, 

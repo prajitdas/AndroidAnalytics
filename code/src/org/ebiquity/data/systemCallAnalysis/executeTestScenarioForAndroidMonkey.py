@@ -44,7 +44,7 @@ def runOnGenyMotionDevice(pathToApk):
 		# print pathToApk
 		# print movePath
 		# shutil.move(pathToApk,movePath)
-		# raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
+		raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
 	#command="mv "+pathToApk+" ../other"
 	#logging.debug('moving file "+command
 	#s.call(command.split())

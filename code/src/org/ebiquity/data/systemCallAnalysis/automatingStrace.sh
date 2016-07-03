@@ -6,6 +6,7 @@ then
 	package=$2
 	apkLocationOnPhone=`adb shell pm path $2 | grep 'package' | cut -f2 -d':' | tr -d '\r'`
 	echo $apkLocationOnPhone
+	echo "APK location: "$apkLocationOnPhone
 	apkFileName=$2".apk"
 	echo "Executing on genymobile for: "$apkFileName
 	# Get the apk from the phone

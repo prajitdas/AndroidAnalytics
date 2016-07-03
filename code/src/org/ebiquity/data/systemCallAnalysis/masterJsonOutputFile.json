@@ -2011,6 +2011,7 @@
     }, 
     "appinventor.ai_cameronisveryawesome.TalkingAlarmClock": {}, 
     "appinventor.ai_doohwan_kwak.easy_listen_repeat": {}, 
+    "appinventor.ai_drakeuniversity29.RandomListGenerator": {}, 
     "appinventor.ai_fedonte.Promiedos": {
         "clone": 1, 
         "close": 81, 
@@ -2187,6 +2188,10 @@
         "write": 1713, 
         "writev": 1199
     }, 
+    "appinventor.ai_lukeplanos11.ToDoList": {}, 
+    "appinventor.ai_ramon_cargnel.The_dog_mentalist": {}, 
+    "appinventor.ai_seudock.Normalistas_Ayotzinapa": {}, 
+    "appinventor.ai_shezan_syed1.ShezanAlarmClock2": {}, 
     "appinventor.ai_wakodevelopment.Pedometer": {
         "clock_gettime": 3, 
         "clone": 7, 
@@ -3062,6 +3067,7 @@
         "write": 1551, 
         "writev": 604
     }, 
+    "at.vanthomas.todolist_reminder": {}, 
     "ata.squid.pimd": {
         "clone": 15, 
         "close": 155, 
@@ -3259,6 +3265,7 @@
         "write": 881, 
         "writev": 815
     }, 
+    "battery.saver.power.doctor": {}, 
     "bazinga.historyclean": {
         "clock_gettime": 2, 
         "clone": 10, 
@@ -3518,6 +3525,8 @@
         "write": 819, 
         "writev": 486
     }, 
+    "belerion.com.todolist": {}, 
+    "benawad.com.todolist": {}, 
     "best.live_wallpapers.My_photo_live_wallpaper_2014": {
         "clock_gettime": 17, 
         "clone": 10, 
@@ -3662,6 +3671,7 @@
         "write": 1184, 
         "writev": 573
     }, 
+    "bg.angelov.light.sleep.alarm.clock": {}, 
     "biart.com.flashlight": {
         "ioctl": 1, 
         "kill": 1, 
@@ -3714,6 +3724,7 @@
         "write": 885, 
         "writev": 1070
     }, 
+    "bitsnpieces.wakemeupalarmclock": {}, 
     "bitstudio.eu.synctunesmacfree": {
         "clock_gettime": 1, 
         "clone": 13, 
@@ -3973,6 +3984,40 @@
         "writev": 972
     }, 
     "bluebrain.ovi.superchargerfree": {}, 
+    "books.ebook.pdf.reader": {
+        "_llseek": 2, 
+        "clock_gettime": 9371, 
+        "clone": 2, 
+        "close": 122, 
+        "dup": 38, 
+        "epoll_ctl": 51, 
+        "epoll_pwait": 1511, 
+        "exit_group": 1, 
+        "faccessat": 16, 
+        "fcntl64": 50, 
+        "fstat64": 27, 
+        "fstatat64": 65, 
+        "futex": 1735, 
+        "geteuid32": 4, 
+        "gettimeofday": 304, 
+        "getuid32": 1634, 
+        "inotify_rm_watch": 33, 
+        "ioctl": 1597, 
+        "madvise": 168, 
+        "mmap2": 206, 
+        "mprotect": 3, 
+        "munmap": 139, 
+        "openat": 114, 
+        "pread64": 282, 
+        "read": 2139, 
+        "recvfrom": 1874, 
+        "rt_sigprocmask": 80, 
+        "sendmsg": 6, 
+        "sendto": 1324, 
+        "ugetrlimit": 1, 
+        "write": 733, 
+        "writev": 1122
+    }, 
     "br.com.abril.receitas": {
         "clock_gettime": 9, 
         "clone": 31, 
@@ -4206,6 +4251,7 @@
         "write": 405, 
         "writev": 345
     }, 
+    "br.com.kubic.todolist": {}, 
     "br.com.maroneapp.agendadecontatosfree": {
         "clone": 28, 
         "close": 248, 
@@ -4254,6 +4300,7 @@
         "write": 929, 
         "writev": 620
     }, 
+    "br.com.milond.idoit.idoittodolist": {}, 
     "br.com.mobicare.oiwifi": {
         "clock_gettime": 443, 
         "clone": 123, 

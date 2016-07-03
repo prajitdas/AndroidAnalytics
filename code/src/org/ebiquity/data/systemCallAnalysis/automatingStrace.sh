@@ -23,7 +23,7 @@ then
 	#rm $apkFileName
 	if [[ $package == "" || $activity == "" ]]
 	then
-		echo "activity or package name was null can't run experiments for app: "$1 >> error.log
+		echo "activity or package name was null can't run experiments for app: "$2 >> error.log
 		exit 1
 	else
 		outputFile=$(echo "/sdcard/"$package".out")

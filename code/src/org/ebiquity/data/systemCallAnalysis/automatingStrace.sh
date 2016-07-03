@@ -9,7 +9,7 @@ then
 	apkFileName=$2".apk"
 	echo "Executing on genymobile for: "$apkFileName
 	# Get the apk from the phone
-	# echo "adb pull $apkLocationOnPhone $apkFileName"
+	echo "adb pull $apkLocationOnPhone $apkFileName"
 	echo "Is something wrong?"
 	adb devices
     adb pull $apkLocationOnPhone $apkFileName

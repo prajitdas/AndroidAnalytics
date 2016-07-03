@@ -1130,6 +1130,7 @@
         "kill": 1, 
         "writev": 1
     }, 
+    "air.LunarCalendar": {}, 
     "air.au.com.metro.DumbWaysToDie": {
         "_llseek": 1310, 
         "chdir": 10, 

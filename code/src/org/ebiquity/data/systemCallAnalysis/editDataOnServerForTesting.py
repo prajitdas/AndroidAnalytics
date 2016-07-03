@@ -24,8 +24,11 @@ def storeDataonServer(jsonString):
 def removeDataFromServer(appToRemove):
 	jsonString = json.loads(open('search.json','r').read())
 	
+	# print "removing the app:"+appToRemove
+	# print len(jsonString['applist'])
 	if appToRemove in jsonString['applist']: 
 		jsonString['applist'].remove(appToRemove)
+	# print len(jsonString['applist'])
 
 	bkpJson = 'bkp'+getTimedBkpName()+'.json'
 	shutil.move('search.json', bkpJson)

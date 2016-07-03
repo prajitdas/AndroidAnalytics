@@ -13,13 +13,15 @@ import os
 import time
 import editDataOnServerForTesting as ed
 import syscallAnalysis as sc
+import logging
+logging.basicConfig(filename='genymotion.log',level=logging.DEBUG)
 
 try:
 	sys.path.append(os.path.join(os.environ['ANDROID_VIEW_CLIENT_HOME'], 'src'))
 except:
 	pass
 
-from com.dtmilano.android.viewclient import ViewClient
+from com.dtmilano.android.viewclient import ViewClient, ViewNotFoundException
 
 def launchApp():
 	package = 'edu.umbc.cs.ebiquity.autoinstallerapp'
@@ -58,18 +60,24 @@ def acceptInstallApp(viewClient):
 
 def getApps():
 	currentPath = os.getcwd()
-	device, serialno = launchApp()
 	while(True):
+		device, serialno = launchApp()
 		app = clickOnTopApp(getViewClient(device, serialno))
 		if app:
-			time.sleep(3)
-			installApp(getViewClient(device, serialno))
-			time.sleep(3)
-			acceptInstallApp(getViewClient(device, serialno))
-			time.sleep(10)
-			ed.removeDataFromServer(app)
-			time.sleep(3)
+			try:
+				time.sleep(3)
+				installApp(getViewClient(device, serialno))
+				time.sleep(3)
+				acceptInstallApp(getViewClient(device, serialno))
+				time.sleep(10)
+			except ViewNotFoundException:
+				ed.removeDataFromServer(app)
+				print "Couldn't find button with the text"
+				logging.debug("Couldn't find button with the text")
+				continue
 			sc.runExperimentsGenyMotionEmulator(currentPath,sc.getOutputDirectoryPath(currentPath),app)
+			time.sleep(3)
+			ed.removeDataFromServer(app)
 		else:
 			return
 

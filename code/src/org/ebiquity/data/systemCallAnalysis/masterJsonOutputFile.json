@@ -1979,6 +1979,9 @@
         "write": 1059, 
         "writev": 889
     }, 
+    "appinventor.ai_CalvinsoutsourceLLC.FlirtAlarmClockMM": {}, 
+    "appinventor.ai_Mightymouse200011.to_do_list": {}, 
+    "appinventor.ai_SleddLine.ScientificCalculator": {}, 
     "appinventor.ai_androidappmaster6.BinauralBeats": {
         "clone": 11, 
         "close": 152, 
@@ -2006,6 +2009,8 @@
         "write": 1217, 
         "writev": 1274
     }, 
+    "appinventor.ai_cameronisveryawesome.TalkingAlarmClock": {}, 
+    "appinventor.ai_doohwan_kwak.easy_listen_repeat": {}, 
     "appinventor.ai_fedonte.Promiedos": {
         "clone": 1, 
         "close": 81, 

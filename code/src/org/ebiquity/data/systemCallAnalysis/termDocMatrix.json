@@ -1,0 +1,413 @@
+{
+    "allSystemCalls": [], 
+    "calendrier.lunaire.duJardinier.run1": [
+        "tools", 
+        "lunar_calendar", 
+        []
+    ], 
+    "ch.bitspin.timely.run1": [
+        "lifestyle", 
+        "alarm_clock", 
+        []
+    ], 
+    "cm.du.go.battery.doctor.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.Adcoms.FileSystem.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "com.LEO.Mr_Bartender.run1": [
+        "lifestyle", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.acadoid.pdfview.run1": [
+        "productivity", 
+        "pdf_reader", 
+        []
+    ], 
+    "com.adobe.reader.run1": [
+        "productivity", 
+        "pdf_reader", 
+        []
+    ], 
+    "com.aigamomifi.alarmclockll2.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.android.lunarcal.run1": [
+        "tools", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.apalon.myclockfree.run1": [
+        "productivity", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.aqua.apps.cocktails.drinks.recipes.run1": [
+        "lifestyle", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.asus.filemanager.run1": [
+        "tools", 
+        "file_explorer", 
+        []
+    ], 
+    "com.asus.todolist.run1": [
+        "tools", 
+        "to_do_list", 
+        []
+    ], 
+    "com.augmentedminds.waveAlarm.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.avast.android.batterysaver.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.codeaddictsofcseku.androidmediaplayer.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ], 
+    "com.codeswitch.tasks.run1": [
+        "productivity", 
+        "to_do_list", 
+        []
+    ], 
+    "com.cyberlink.powerdvd.PMA140804_01.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ], 
+    "com.dgtex.MisteriumMoon.run1": [
+        "lifestyle", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.digitalchemy.calculator.freedecimal.run1": [
+        "tools", 
+        "scientific_calculator", 
+        []
+    ], 
+    "com.digitaloutcrop.mixology.run1": [
+        "lifestyle", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.estrongs.android.pop.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "com.fasteasy.battery.deepsaver.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.findsdk.lunarcalendar.run1": [
+        "tools", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.ghisler.android.TotalCommander.run1": [
+        "tools", 
+        "file_explorer", 
+        []
+    ], 
+    "com.glis.lunarcalendar.run1": [
+        "lifestyle", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.guru.cocktails.run1": [
+        "lifestyle", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.harchali.scientifique.calculatrice.run1": [
+        "tools", 
+        "scientific_calculator", 
+        []
+    ], 
+    "com.ihandysoft.alarmclock.free.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.ihandysoft.alarmclock.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.javali.wifisnr.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "com.jhankis.ScientificCalc.run1": [
+        "productivity", 
+        "scientific_calculator", 
+        []
+    ], 
+    "com.keuwl.wifi.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "com.kingtoolsapps.batterydoctor.batteriesaver.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.kog.alarmclock.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.liferecipes.drinksrecipes.run1": [
+        "health_n_fitness", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.linpus.battery.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.lonelycatgames.Xplore.run1": [
+        "tools", 
+        "file_explorer", 
+        []
+    ], 
+    "com.lunafaqt.run1": [
+        "books_n_reference", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.macropinch.axe.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.mefree.videoplayer.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ], 
+    "com.multimedia.player.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ], 
+    "com.mybarapp.free.run1": [
+        "lifestyle", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.oasisfeng.greenify.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.overlook.android.fing.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "com.pdfviewer.reader.run1": [
+        "productivity", 
+        "pdf_reader", 
+        []
+    ], 
+    "com.probcomp.filexplorer.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "com.psafe.powerpro.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.rosamaria.svegliaparlante.run1": [
+        "tools", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.rotha.calendar2015.run1": [
+        "lifestyle", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.scientific.calc.run1": [
+        "tools", 
+        "scientific_calculator", 
+        []
+    ], 
+    "com.sologame.batterysaver.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "com.speedsoftware.allin1calcfree.run1": [
+        "productivity", 
+        "scientific_calculator", 
+        []
+    ], 
+    "com.speedsoftware.explorer.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "com.srm.wifichannelanalyzer.run1": [
+        "productivity", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "com.sykora.neonalarm.free.run1": [
+        "lifestyle", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.vj.filemanager.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "com.vp.alarmClockPlusDock.run1": [
+        "lifestyle", 
+        "alarm_clock", 
+        []
+    ], 
+    "com.webworks.drinkscocktails.run1": [
+        "entertainment", 
+        "drink_recipes", 
+        []
+    ], 
+    "com.yourchineseastrology.chinesecalendar.run1": [
+        "tools", 
+        "lunar_calendar", 
+        []
+    ], 
+    "com.zgz.supervideo.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ], 
+    "cz.webprovider.wifianalyzer.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "fr.calendrierlunaire.android.run1": [
+        "tools", 
+        "lunar_calendar", 
+        []
+    ], 
+    "hdnasoftware.hdna.piscientificcalculator.run1": [
+        "education", 
+        "scientific_calculator", 
+        []
+    ], 
+    "hu.distinction.cflow.run1": [
+        "lifestyle", 
+        "drink_recipes", 
+        []
+    ], 
+    "it.bisemanuDEV.bismagsimplecalculator.run1": [
+        "tools", 
+        "scientific_calculator", 
+        []
+    ], 
+    "jakiganicsystems.simplestchecklist.run1": [
+        "productivity", 
+        "to_do_list", 
+        []
+    ], 
+    "jp.Appsys.PanecalST.run1": [
+        "productivity", 
+        "scientific_calculator", 
+        []
+    ], 
+    "lync.com.batteryoptimizer.run1": [
+        "tools", 
+        "battery_saver", 
+        []
+    ], 
+    "net.sf.andpdf.pdfviewer.run1": [
+        "productivity", 
+        "pdf_reader", 
+        []
+    ], 
+    "net.techet.netanalyzerlite.an.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "nextapp.fx.run1": [
+        "business", 
+        "file_explorer", 
+        []
+    ], 
+    "org.hlousek.droid.twa.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "org.solovyev.android.calculator.run1": [
+        "tools", 
+        "scientific_calculator", 
+        []
+    ], 
+    "org.videolan.vlc.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ], 
+    "pdf.reader.run1": [
+        "books_n_reference", 
+        "pdf_reader", 
+        []
+    ], 
+    "pl.mkexplorer.kormateusz.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "pl.solidexplorer2.run1": [
+        "productivity", 
+        "file_explorer", 
+        []
+    ], 
+    "roviminteractive.materialcopy.run1": [
+        "tools", 
+        "scientific_calculator", 
+        []
+    ], 
+    "the.pdfviewer3.run1": [
+        "productivity", 
+        "pdf_reader", 
+        []
+    ], 
+    "us.wifitools.wifiscananalyzer.run1": [
+        "tools", 
+        "wifi_analyzer", 
+        []
+    ], 
+    "veg.network.mediaplayer.run1": [
+        "media_n_video", 
+        "video_playback", 
+        []
+    ]
+}

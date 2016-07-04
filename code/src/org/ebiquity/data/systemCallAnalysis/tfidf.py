@@ -25,11 +25,7 @@ def computeTFIDFWeights(termDocMatrix):
 
 	syscallIDFVector = []
 	for column in zip(*frequencyMatrix):
-		print np.count_nonzero(np.array(column))
-	for column in zip(*frequencyMatrix):
 		syscallIDFVector.append(math.log((float(len(termDocMatrix.keys()))/np.count_nonzero(np.array(column))), 2.71828))
-
-	print syscallIDFVector
 
 	for appRun in termDocMatrix:
 		termDocMatrix[appRun].pop()

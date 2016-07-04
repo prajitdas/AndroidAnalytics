@@ -12,11 +12,10 @@ import computeDistance as cd
 import logging
 import json
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 logging.basicConfig(filename='simpleSVDOnSyscalls.log',level=logging.DEBUG)
 
-def doSVD(termDocMatrix,appRunVector):
-	la = np.linalg
+def getMatrixForComputation(termDocMatrix,appRunVector):
 	arrayOfFreqArray = []
 	appList = []
 	for appRun in appRunVector:
@@ -24,12 +23,25 @@ def doSVD(termDocMatrix,appRunVector):
 		appList.append(appName)
 		arrayOfFreqArray.append(termDocMatrix[appRun][2])
 	X = np.array(arrayOfFreqArray)
+	return X, appList
+
+def doCluster(termDocMatrix, appRunVector):
+	X, appList = getMatrixForComputation(termDocMatrix, appRunVector)
+
+def doClassify(termDocMatrix, appRunVector):
+	X, appList = getMatrixForComputation(termDocMatrix, appRunVector)
+
+def doSVD(termDocMatrix, appRunVector):
+	X, appList = getMatrixForComputation(termDocMatrix, appRunVector)
+
+	la = np.linalg
 	U, s, Vh = la.svd(X, full_matrices=False)
-
-	print U, s, Vh
-
-	for i in xrange(len(appList)):
-		plt.text(U[i,0], U[i,1], appList[i])
+	assert np.allclose(X, np.dot(U, np.dot(np.diag(s), Vh)))
+	s[2:] = 0
+	new_a = np.dot(U, np.dot(np.diag(s), Vh))
+	# print(new_a)
+	plt.plot(new_a)
+	plt.show()
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -41,7 +53,9 @@ def main(argv):
 
 	startTime = time.time()
 	numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,'tfidf')
-	doSVD(termDocMatrix, appRunVector)
+	doSVD(termDocMatrix,appRunVector)
+	doCluster(termDocMatrix,appRunVector)
+	doClassify(termDocMatrix,appRunVector)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

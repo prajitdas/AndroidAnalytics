@@ -11,14 +11,25 @@ import sys
 import computeDistance as cd
 import logging
 import json
+import numpy as np
+import matplotlib as plt
 logging.basicConfig(filename='simpleSVDOnSyscalls.log',level=logging.DEBUG)
 
-def doSVD(numberOfApps, termDocMatrix, appRunVector, allSyscallsVector):
+def doSVD(termDocMatrix,appRunVector):
+	la = np.linalg
+	arrayOfFreqArray = []
 	appList = []
 	for appRun in appRunVector:
 		appName = appRun.split('.run')[0]
-		print appName
 		appList.append(appName)
+		arrayOfFreqArray.append(termDocMatrix[appRun][2])
+	X = np.array(arrayOfFreqArray)
+	U, s, Vh = la.svd(X, full_matrices=False)
+
+	print U, s, Vh
+
+	for i in xrange(len(appList)):
+		plt.text(U[i,0], U[i,1], appList[i])
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -28,19 +39,9 @@ def main(argv):
 	categoryDict = json.loads(open('category.json','r').read())
 	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
 
-	# print jsonDict['com.probcomp.filexplorer']
-
-	# newDict = {}
-	# for app in jsonDict:
-	# 	runDict = {}
-	# 	runDict['run1'] = jsonDict[app]
-	# 	newDict[app] = runDict
-
-	# print newDict['com.probcomp.filexplorer']
-	# open('masterJsonOutputFile82Good.json','w').write(json.dumps(newDict, sort_keys=True, indent=4))
-
 	startTime = time.time()
-	doSVD(cd.createTermDocMatrix(jsonDict,categoryDict,'tfidf'))
+	numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,'tfidf')
+	doSVD(termDocMatrix, appRunVector)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

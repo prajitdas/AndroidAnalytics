@@ -62,7 +62,7 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	loopCounter = startingNumberOfClusters
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appVector = cd.computeDistance(jsonDict,metric,'tfidf')
+	appMatrix, appRunVector = cd.computeDistance(jsonDict,metric,'tfidf')
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
@@ -100,8 +100,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		predictedClusters = {}
 		# print 'app vector:\n' + str(appVector)
 		# print 'clusters assigned:\n' + str(clusterLabelsAssigned)
-		for appName in appVector:
-			predictedClusters[appName] = int(clusterLabelsAssigned[counter])
+		for appRunName in appRunVector:
+			predictedClusters[appRunName] = int(clusterLabelsAssigned[counter])
 			counter += 1
 		
 		loopEvaluatedCluster['clusterAssignment'] = predictedClusters

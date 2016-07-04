@@ -233,6 +233,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 				appFeatures.append(categoryDict[app]['annotated_category'])
 				appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
 				termDocMatrix[appRun] = appFeatures
+				appRunVector.append(appRun)
 				# print app, termDocMatrix[appRun]
 	elif type == 'justc':
 		for app in appVector:
@@ -243,6 +244,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 				appFeatures.append(categoryDict[app]['annotated_category'])
 				appFeatures.append(formVectorJustCalls(jsonDict[app],allSyscallsVector))
 				termDocMatrix[appRun] = appFeatures
+				appRunVector.append(appRun)
 	elif type == 'tfidf':
 		for app in appVector:
 			for run in jsonDict[app]:
@@ -253,6 +255,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 				appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
 				termDocMatrix[appRun] = appFeatures
 				termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
+				appRunVector.append(appRun)
 	else:
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
 		print("Error in input. You didn't choose a known standard for term document matrix format.")

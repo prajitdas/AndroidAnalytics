@@ -248,6 +248,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	elif type == 'tfidf':
 		for app in appVector:
 			for run in jsonDict[app]:
+				print jsonDict[app][run]
 				appRun = app+'.'+run
 				appFeatures = []
 				appFeatures.append(categoryDict[app]['google_play_category'])

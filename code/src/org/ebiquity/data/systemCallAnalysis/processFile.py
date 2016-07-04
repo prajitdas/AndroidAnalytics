@@ -71,9 +71,16 @@ def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
 
 def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
+	runNumberKey = 'run'
 	if isPathExists(masterJsonFile):
 		ticks = time.time()
 		uniformString = str(ticks).replace(".","")
+		runNumberKey += uniformString
+
+		# Overwrite the syscallDict with a run number info
+		tempdict = {}
+		tempdict[runNumberKey] = syscallDict
+		syscallDict = tempdict
 		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
 		copyfile(masterJsonFile, masterJsonFileBkp)
 	jsonDict = {}

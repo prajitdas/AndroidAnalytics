@@ -133,14 +133,29 @@ def sanitizeCall(inputString):
 def getAllSyscallsVector(jsonDict):
 	allSyscallsVector = []
 	for app in jsonDict:
-		for call in jsonDict[app]:
-			sanitizedCall = sanitizeCall(call)
-			if sanitizedCall != None:
-				allSyscallsVector.append(sanitizedCall)
+		for run in jsonDict[app]:
+			for call in jsonDict[app][run]:
+				sanitizedCall = sanitizeCall(call)
+				if sanitizedCall != None:
+					allSyscallsVector.append(sanitizedCall)
 
 	allSyscallsVector = list(set(allSyscallsVector))
 	# print sorted(allSyscallsVector)
 	return sorted(allSyscallsVector)
+
+#Form a binary value vector of system calls that has been made
+def formVectorJustCalls(appSyscallDict, allSyscallsVector):
+	appVector = range(len(allSyscallsVector))
+	count = 0
+	for syscall in allSyscallsVector:
+		if syscall in appSyscallDict:
+			appVector[count] = 1
+		else:
+			appVector[count] = 0
+		count += 1
+
+	# print appVector
+	return appVector
 
 #Form vector of number of times a particular system call has been made
 def formVectorNumCalls(appSyscallDict, allSyscallsVector):
@@ -184,20 +199,6 @@ def updateTermDcoMatrixWithTfIdfValues(termDocMatrix):
 	# print termDocMatrix
 	return termDocMatrix
 
-#Form a binary value vector of system calls that has been made
-def formVectorJustCalls(appSyscallDict, allSyscallsVector):
-	appVector = range(len(allSyscallsVector))
-	count = 0
-	for syscall in allSyscallsVector:
-		if syscall in appSyscallDict:
-			appVector[count] = 1
-		else:
-			appVector[count] = 0
-		count += 1
-
-	# print appVector
-	return appVector
-
 def runAgain(jsonDict):
 	# Removing all apps which didn't have any calls associated.
 	# Maybe the call to these apps didn't work. We have to try them again, later on.
@@ -221,30 +222,37 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
 	appVector = jsonDict.keys()
+	appRunVector = []
 	termDocMatrix = {}
 	if type == 'numoc':
 		for app in appVector:
-			appFeatures = []
-			appFeatures.append(categoryDict[app]['google_play_category'])
-			appFeatures.append(categoryDict[app]['annotated_category'])
-			appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
-			termDocMatrix[app] = appFeatures
-			# print app, termDocMatrix[app]
+			for run in jsonDict[app]:
+				appRun = app+run
+				appFeatures = []
+				appFeatures.append(categoryDict[app]['google_play_category'])
+				appFeatures.append(categoryDict[app]['annotated_category'])
+				appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
+				termDocMatrix[appRun] = appFeatures
+				# print app, termDocMatrix[appRun]
 	elif type == 'justc':
 		for app in appVector:
-			appFeatures = []
-			appFeatures.append(categoryDict[app]['google_play_category'])
-			appFeatures.append(categoryDict[app]['annotated_category'])
-			appFeatures.append(formVectorJustCalls(jsonDict[app],allSyscallsVector))
-			termDocMatrix[app] = appFeatures
+			for run in jsonDict[app]:
+				appRun = app+run
+				appFeatures = []
+				appFeatures.append(categoryDict[app]['google_play_category'])
+				appFeatures.append(categoryDict[app]['annotated_category'])
+				appFeatures.append(formVectorJustCalls(jsonDict[app],allSyscallsVector))
+				termDocMatrix[appRun] = appFeatures
 	elif type == 'tfidf':
 		for app in appVector:
-			appFeatures = []
-			appFeatures.append(categoryDict[app]['google_play_category'])
-			appFeatures.append(categoryDict[app]['annotated_category'])
-			appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
-			termDocMatrix[app] = appFeatures
-		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
+			for run in jsonDict[app]:
+				appRun = app+run
+				appFeatures = []
+				appFeatures.append(categoryDict[app]['google_play_category'])
+				appFeatures.append(categoryDict[app]['annotated_category'])
+				appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
+				termDocMatrix[appRun] = appFeatures
+				termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 	else:
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
@@ -253,7 +261,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	toWriteTermDocMat = termDocMatrix
 	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
-	return numberOfApps, termDocMatrix, appVector, allSyscallsVector
+	return numberOfApps, termDocMatrix, appRunVector, allSyscallsVector
 
 def computeDistance(jsonDict,metric,type):
 	logging.debug('Inside computeDistance')
@@ -261,7 +269,7 @@ def computeDistance(jsonDict,metric,type):
 	# numoc: use frequency of a call for distance computation
 	# justc: use just a call for distance computation
 	# tfidf: use tf-idf weights of calls for distance computation
-	numberOfApps, termDocMatrix, appVector, allSyscallsVector = createTermDocMatrix(jsonDict,categoryDict,type)
+	numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = createTermDocMatrix(jsonDict,categoryDict,type)
 
 	# Creates a list containing 5 lists initialized to 0
 	#appToAppDistMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
@@ -273,7 +281,7 @@ def computeDistance(jsonDict,metric,type):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
-				score = computeDist(termDocMatrix[appVector[i]][2],termDocMatrix[appVector[j]][2],metric)
+				score = computeDist(termDocMatrix[appRunVector[i]][2],termDocMatrix[appRunVector[j]][2],metric)
 				# score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				# score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				appToAppDistMatrix[i,j] = score
@@ -283,7 +291,7 @@ def computeDistance(jsonDict,metric,type):
 					logging.debug('Computed computeJaccardSim for loops: '+str(counter))
 	
 	logging.debug('computeJaccardMatrix complete')
-	return appToAppDistMatrix, appVector
+	return appToAppDistMatrix, appRunVector
 
 def main(argv):
 	if len(sys.argv) != 1:

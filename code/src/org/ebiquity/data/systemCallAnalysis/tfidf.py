@@ -10,30 +10,30 @@ import json
 
 def computeTFIDFWeights(termDocMatrix):
 	# sumFreqDict = {}
-	# for app in termDocMatrix:
-	# 	sumFreqDict[app] = float(sum(termDocMatrix[app][2]))
+	# for appRun in termDocMatrix:
+	# 	sumFreqDict[appRun] = float(sum(termDocMatrix[appRun][2]))
 	tfIDFDict = {}
-	for app in termDocMatrix:
+	for appRun in termDocMatrix:
 		tfVector = []
-		for syscallFreq in termDocMatrix[app][2]:
+		for syscallFreq in termDocMatrix[appRun][2]:
 			if syscallFreq > 0:
 				tfVector.append(math.log(1+syscallFreq, 2.71828))
 			else:
 				tfVector.append(0)
-		tfIDFDict[app] = tfVector
+		tfIDFDict[appRun] = tfVector
 
 	frequencyMatrix = []
-	for app in termDocMatrix:
-		frequencyMatrix.append(termDocMatrix[app][2])
+	for appRun in termDocMatrix:
+		frequencyMatrix.append(termDocMatrix[appRun][2])
 
 	syscallIDFVector = []
 	for column in zip(*frequencyMatrix):
-		syscallIDFVector.append(math.log((82.0/np.count_nonzero(np.array(column))), 2.71828))
+		syscallIDFVector.append(math.log((float(len(termDocMatrix.keys()))/np.count_nonzero(np.array(column))), 2.71828))
 
-	for app in termDocMatrix:
-		termDocMatrix[app].pop()
-		tfIDFDict[app] = (np.ones(len(tfIDFDict[app])) * tfIDFDict[app] * syscallIDFVector).tolist()
-		termDocMatrix[app].append(tfIDFDict[app])
+	for appRun in termDocMatrix:
+		termDocMatrix[appRun].pop()
+		tfIDFDict[appRun] = (np.ones(len(tfIDFDict[appRun])) * tfIDFDict[appRun] * syscallIDFVector).tolist()
+		termDocMatrix[appRun].append(tfIDFDict[appRun])
 
 	# from pprint import pprint
 	# pprint(termDocMatrix)

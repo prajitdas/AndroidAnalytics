@@ -227,32 +227,32 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	if type == 'numoc':
 		for app in appVector:
 			for run in jsonDict[app]:
-				appRun = app+run
+				appRun = app+'.'+run
 				appFeatures = []
 				appFeatures.append(categoryDict[app]['google_play_category'])
 				appFeatures.append(categoryDict[app]['annotated_category'])
-				appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
+				appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
 				termDocMatrix[appRun] = appFeatures
 				appRunVector.append(appRun)
 				# print app, termDocMatrix[appRun]
 	elif type == 'justc':
 		for app in appVector:
 			for run in jsonDict[app]:
-				appRun = app+run
+				appRun = app+'.'+run
 				appFeatures = []
 				appFeatures.append(categoryDict[app]['google_play_category'])
 				appFeatures.append(categoryDict[app]['annotated_category'])
-				appFeatures.append(formVectorJustCalls(jsonDict[app],allSyscallsVector))
+				appFeatures.append(formVectorJustCalls(jsonDict[app][run],allSyscallsVector))
 				termDocMatrix[appRun] = appFeatures
 				appRunVector.append(appRun)
 	elif type == 'tfidf':
 		for app in appVector:
 			for run in jsonDict[app]:
-				appRun = app+run
+				appRun = app+'.'+run
 				appFeatures = []
 				appFeatures.append(categoryDict[app]['google_play_category'])
 				appFeatures.append(categoryDict[app]['annotated_category'])
-				appFeatures.append(formVectorNumCalls(jsonDict[app],allSyscallsVector))
+				appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
 				termDocMatrix[appRun] = appFeatures
 				termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 				appRunVector.append(appRun)

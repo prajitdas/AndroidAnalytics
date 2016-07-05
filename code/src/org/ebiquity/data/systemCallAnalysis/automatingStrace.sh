@@ -26,8 +26,9 @@ then
 		echo "activity or package name was null can't run experiments for app: "$2 >> error.log
 		exit 1
 	else
-		outputFile=$(echo "/sdcard/"$package".out")
-		straceOutFilePath=$(echo "/sdcard/"$package".monkey.out")
+		timeStamp=`date | tr -d ' ' | tr -d ':' | tr -d '\n'`
+		outputFile=$(echo "/sdcard/"$package$timeStamp".out")
+		straceOutFilePath=$(echo "/sdcard/"$package$timeStamp".monkey.out")
 
 		# Verifying the variables (for Debug)
 		echo "Package: "$package
@@ -119,8 +120,9 @@ else
 			echo "activity or package name was null can't run experiments for app: "$1 >> error.log
 			exit 1
 		else
-			outputFile=$(echo "/sdcard/"$package".out")
-			straceOutFilePath=$(echo "/sdcard/"$package".monkey.out")
+			timeStamp=`date | tr -d ' ' | tr -d ':' | tr -d '\n'`
+			outputFile=$(echo "/sdcard/"$package$timeStamp".out")
+			straceOutFilePath=$(echo "/sdcard/"$package$timeStamp".monkey.out")
 
 			# Verifying the variables (for Debug)
 			echo "Package: "$package

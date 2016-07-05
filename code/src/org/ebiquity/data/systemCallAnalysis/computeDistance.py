@@ -72,44 +72,45 @@ def hasNumbers(inputString):
 	return any(char.isdigit() for char in inputString)
 
 def computeDist(app1SyscallsVector,app2SyscallsVector,metric):
+# 	print app1SyscallsVector,app2SyscallsVector
 	if metric == 'jaccard':
 		distance = jaccard(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'cosine':
 		distance = cosine(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'braycurtis':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = braycurtis(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'canberra':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = canberra(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'chebyshev':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = chebyshev(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'cityblock':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = cityblock(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'correlation':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = correlation(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'dice':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = dice(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'euclidean':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = euclidean(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'hamming':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = hamming(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'kulsinski':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = kulsinski(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'matching':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = matching(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'rogerstanimoto':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = rogerstanimoto(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'russellrao':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = russellrao(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'sokalmichener':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = sokalmichener(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'sokalsneath':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = sokalsneath(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'sqeuclidean':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = sqeuclidean(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'yule':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = yule(app1SyscallsVector,app2SyscallsVector)
 	elif metric == 'hasNumbers':
-		distance = cosine(app1SyscallsVector,app2SyscallsVector)
+		distance = hasNumbers(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
 	# Verifying if the distance is not a valid finite number 

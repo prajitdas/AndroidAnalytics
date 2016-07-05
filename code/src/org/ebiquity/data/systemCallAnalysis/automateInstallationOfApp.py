@@ -29,7 +29,7 @@ def launchApp():
 	activity = 'edu.umbc.cs.ebiquity.autoinstallerapp.ui.activity.MainActivity'
 	component = package + "/" + activity
 
-	device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.57.101:5555')
+	device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.56.101:5555')
 
 	# Three commands to ensure that the emulator is in correct condition
 	# Prepare AVD for proper testing set aireplane mode off

@@ -66,18 +66,17 @@ then
 		adb shell "am start -n $package/$activity"
 		processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
 
-		sleep 10
-
 		# Starting the trace process on the app's process id. This is assuming that we have the root shell
 		#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"
 		#adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
+		# echo "adb shell \"nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&\""
 		adb shell "nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&"
 
 		# Verifying the variables (for Debug)
 		echo "Process Id: "$processId
 
 		# Using monkey to generate a certain number of pseudo-random events
-		adb shell "monkey -p $package -v 5000 > $straceOutFilePath"
+		adb shell "monkey -p $package -v 1000 > $straceOutFilePath"
 		# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
 		# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
 
@@ -160,8 +159,6 @@ else
 			adb shell "am start -n $package/$activity"
 			processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
 
-			sleep 10
-
 			# Starting the trace process on the app's process id. This is assuming that we have the root shell
 			#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"
 			#adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
@@ -171,7 +168,7 @@ else
 			echo "Process Id: "$processId
 
 			# Using monkey to generate a certain number of pseudo-random events
-			adb shell "monkey -p $package -v 5000 > $straceOutFilePath"
+			adb shell "monkey -p $package -v 1000 > $straceOutFilePath"
 			# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
 			# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
 

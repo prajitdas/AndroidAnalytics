@@ -46,36 +46,34 @@ def getOutputDirectoryPath(currentPath):
 	return outputDirectoryPath
 
 def runExperimentsGoogleEmulator(currentPath,outputDirectoryPath,apkDict,apkFolderPath,realOrFake='fake',googleOrGenymotion='google',username='prajitdas',api_key='15irk8yvf3'):
-	#Temporary solution to run the experiment for 1 app a 100 times and compare
-	for i in range(0,100,1):
-		for key in apkDict.keys():
-			logging.debug('Working on runExperiments for the app: '+apkDict[key])
-			# For each app execution start emulator for AVD nexus6,in wiped mode.
-			# Make sure you have created the AVD first.
-			emulatorStartCmd = 'bash startEmulator.sh'
-			s.call(emulatorStartCmd.split())
-			# Executing the test scenario for Android monkey for a particular app apk
-			try:
-				exAndMon.executeTestScenarioForAndroidMonkey(apkDict[key],realOrFake,googleOrGenymotion)
-			except exAndMon.RunExpException:
-				logging.debug('Experiments failed for: '+apkDict[key])
-				# Experiments are not working delete the apk name from the execution list
-				del apkDict[key]
-				# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
-				emulatorKillCmd = 'bash killEmulator.sh'
-				s.call(emulatorKillCmd.split())
-				continue
+	for key in apkDict.keys():
+		logging.debug('Working on runExperiments for the app: '+apkDict[key])
+		# For each app execution start emulator for AVD nexus6,in wiped mode.
+		# Make sure you have created the AVD first.
+		emulatorStartCmd = 'bash startEmulator.sh'
+		s.call(emulatorStartCmd.split())
+		# Executing the test scenario for Android monkey for a particular app apk
+		try:
+			exAndMon.executeTestScenarioForAndroidMonkey(apkDict[key],realOrFake,googleOrGenymotion)
+		except exAndMon.RunExpException:
+			logging.debug('Experiments failed for: '+apkDict[key])
+			# Experiments are not working delete the apk name from the execution list
+			del apkDict[key]
 			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
 			emulatorKillCmd = 'bash killEmulator.sh'
 			s.call(emulatorKillCmd.split())
-			# At this point we have to process the results and extract the features of an app,to run ml algorithms later.
-			logging.debug('Finished running experiments, extracting features for the app: '+key)
-			pf.extractFeatures(currentPath,outputDirectoryPath,key)
-			logging.debug('Done with extracing features for the app: '+key+' onto the next app!')
-			time.sleep(30)
+			continue
+		# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
+		emulatorKillCmd = 'bash killEmulator.sh'
+		s.call(emulatorKillCmd.split())
+		# At this point we have to process the results and extract the features of an app,to run ml algorithms later.
+		logging.debug('Finished running experiments, extracting features for the app: '+key)
+		pf.extractFeatures(currentPath,outputDirectoryPath,key)
+		logging.debug('Done with extracing features for the app: '+key+' onto the next app!')
+		time.sleep(30)
 
-		# After all the apps have been processed and features extracted,we may run the ML algos.
-		#initCl.initClustering(username,api_key,currentPath)
+	# After all the apps have been processed and features extracted,we may run the ML algos.
+	#initCl.initClustering(username,api_key,currentPath)
 
 def runExperimentsGenyMotionEmulator(currentPath,outputDirectoryPath,appName,realOrFake='fake',googleOrGenymotion='genymotion',username='prajitdas',api_key='15irk8yvf3'):
 	# for key in apkDict.keys():

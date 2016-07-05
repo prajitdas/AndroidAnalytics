@@ -128,8 +128,7 @@ def doSVD(termDocMatrix, appRunVector):
 	plt.plot(new_a)
 	plt.show()
 
-def doDistance(jsonDict, metric, type):
-	appToAppDistMatrix, appRunVector = cd.computeDistance(jsonDict, metric, type)
+def doDistance(jsonDict, appToAppDistMatrix, appRunVector):
 	appList = getAppList(appRunVector)
 	print ','.join(appList)
 	blah = open('nodetable.csv','w')
@@ -142,7 +141,7 @@ def doDistance(jsonDict, metric, type):
 	for row in range(82):
 		for column in range(82):
 			edges.write("%d;%d;%f\n"%(row,column, appToAppDistMatrix[row][column]))
-	
+
 	np.savetxt("foo.csv", appToAppDistMatrix, delimiter=",")
 
 def main(argv):
@@ -154,8 +153,8 @@ def main(argv):
 	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
 
 	startTime = time.time()
-	numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,'tfidf')
-	doDistance(jsonDict,'cosine','tfidf')
+	appToAppDistMatrix, appRunVector, termDocMatrix = cd.computeDistance(jsonDict, 'cosine', 'tfidf')
+	doDistance(jsonDict, appToAppDistMatrix, appRunVector)
 	# doSVD(termDocMatrix,appRunVector)
 	# doCluster(termDocMatrix,appRunVector)
 	# doClassify(termDocMatrix,appRunVector)

@@ -295,7 +295,7 @@ def computeDistance(jsonDict,metric,type):
 					logging.debug('Computed computeJaccardSim for loops: '+str(counter))
 	
 	logging.debug('computeJaccardMatrix complete')
-	return appToAppDistMatrix, appRunVector
+	return appToAppDistMatrix, appRunVector, termDocMatrix
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -308,7 +308,7 @@ def main(argv):
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 	# print termDocMatrix, appVector
-	appToAppDistMatrix, appVector = computeDistance(jsonDict,'jaccard','tfidf')
+	appToAppDistMatrix, appVector, termDocMatrix = computeDistance(jsonDict,'jaccard','tfidf')
 	# print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

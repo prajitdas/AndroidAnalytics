@@ -62,7 +62,7 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	loopCounter = startingNumberOfClusters
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appRunVector = cd.computeDistance(jsonDict,metric,'tfidf')
+	appMatrix, appRunVector, termDocMatrix = cd.computeDistance(jsonDict,metric,'tfidf')
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction

@@ -101,7 +101,7 @@ def runOnAVD(pathToApk):
 				logging.debug('moving file to '+movePath)
 				print pathToApk
 				print movePath
-				shutil.move(pathToApk,movePath)
+				# shutil.move(pathToApk,movePath)
 				raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
 			#command="mv "+pathToApk+" ../other"
 			#logging.debug('moving file "+command
@@ -109,7 +109,7 @@ def runOnAVD(pathToApk):
 			movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
 			logging.debug('moving file to '+movePath)
 			#sys.exit(1)
-			shutil.move(pathToApk,movePath)
+			# shutil.move(pathToApk,movePath)
 			return
 		else:
 			logging.debug('Still waiting for emulator to complete stage: '+result)

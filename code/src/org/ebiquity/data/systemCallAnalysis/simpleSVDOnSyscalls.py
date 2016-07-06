@@ -39,7 +39,7 @@ def bench_k_means(labels, estimator, name, data):
 def getAppList(appRunVector):
 	appList = []
 	for appRun in appRunVector:
-		appName = appRun.split('.run')[0]
+		appName = appRun.split('.run.')[0]
 		appList.append(appName)
 	return appList
 

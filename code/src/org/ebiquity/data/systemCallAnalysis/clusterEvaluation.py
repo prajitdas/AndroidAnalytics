@@ -22,7 +22,7 @@ logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 def getCategoryNumbers(appNames,dbHandle):
 	newAppNames = []
 	for appName in appNames:
-		newAppNames.append(appName.split('.run')[0])
+		newAppNames.append(appName.split('.run.')[0])
 	appList = '\'' + '\',\''.join(newAppNames) + '\''
 	cursor = dbHandle.cursor()
 

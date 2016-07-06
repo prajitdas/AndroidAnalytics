@@ -53,7 +53,9 @@ def processFileGetFunctionNames(filePath):
 					# logging.debug('something went seriously wrong for'+syscall)
 	# for i,(k,v) in enumerate(od(sorted(syscallDict.items(),key=lambda k:k[1],reverse=True)).iteritems()):
 	# 	print k,v
-	return syscallDict
+	runWrapperDict = {}
+	runWrapperDict[filePath.split('.run.')[1]] = syscallDict
+	return runWrapperDict
 
 # Returns True if the original syscall dict had more variety of calls or more number of total calls
 # Presence of more syscalls (or words) has higher significance
@@ -71,18 +73,11 @@ def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
 
 def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile.json")
-	runNumberKey = 'run'
 	if isPathExists(masterJsonFile):
 		ticks = time.time()
 		uniformString = str(ticks).replace(".","")
-		runNumberKey += uniformString
-
-		# Overwrite the syscallDict with a run number info
-		tempdict = {}
-		tempdict[runNumberKey] = syscallDict
-		syscallDict = tempdict
-		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
-		copyfile(masterJsonFile, masterJsonFileBkp)
+	masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
+	copyfile(masterJsonFile, masterJsonFileBkp)
 	jsonDict = {}
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())
@@ -107,7 +102,7 @@ def extractFeatures(jsonPath,root,appPkgName):
 		if not fm.fnmatch(file,'*monkey.out'):
 			# First analysis is to get the function names
 			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file))
-	storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
+		storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask(appPkgName):
 	# The following 2 lines are for testing purposes only

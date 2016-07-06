@@ -288,7 +288,7 @@ def computeDistance(jsonDict,metric,type):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
-				appTFIDFWeightDict[appRunVector[i].split('.run')[0]] = termDocMatrix[appRunVector[i]][2]
+				appTFIDFWeightDict[appRunVector[i].split('.run.')[0]] = termDocMatrix[appRunVector[i]][2]
 				score = computeDist(termDocMatrix[appRunVector[i]][2],termDocMatrix[appRunVector[j]][2],metric)
 				# score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				# score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector),metric)

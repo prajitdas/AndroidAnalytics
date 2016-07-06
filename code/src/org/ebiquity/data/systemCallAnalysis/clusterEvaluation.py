@@ -20,7 +20,10 @@ import logging
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def getCategoryNumbers(appNames,dbHandle):
-	appList = '\'' + '\',\''.join(appNames) + '\''
+	newAppNames = []
+	for appName in appNames:
+		newAppNames.append(appName.split('.run')[0])
+	appList = '\'' + '\',\''.join(newAppNames) + '\''
 	cursor = dbHandle.cursor()
 	
 	appCategoriesDict = {}
@@ -61,7 +64,7 @@ def evaluateCluster(clusterInfo):
 		appNames.append(key)
 
 	labels_true = getCategoryNumbers(appNames,dbHandle)
-	
+
 	logging.debug('Right before cluster evaluation')
 	clusterEvaluationResults = {}
 	clusterEvaluationResults["adjusted_rand_score"] = str(metrics.adjusted_rand_score(labels_true, labels_pred))

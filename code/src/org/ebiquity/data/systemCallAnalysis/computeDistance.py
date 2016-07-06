@@ -279,6 +279,8 @@ def computeDistance(jsonDict,metric,type):
 	# Creates a list containing 5 lists initialized to 0
 	#appToAppDistMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
 	appToAppDistMatrix = np.zeros((numberOfApps, numberOfApps))
+
+	appTFIDFWeightDict = {}
 	
 	# reducing computation by half by replicating the upper half of the matrix
 	counter = 0
@@ -286,6 +288,7 @@ def computeDistance(jsonDict,metric,type):
 		for j in range(i, numberOfApps):
 			score = 0.0
 			if i != j:
+				appTFIDFWeightDict[appRunVector[i].split('.run')[0]] = termDocMatrix[appRunVector[i]][2]
 				score = computeDist(termDocMatrix[appRunVector[i]][2],termDocMatrix[appRunVector[j]][2],metric)
 				# score = computeDist(formVectorNumCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorNumCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
 				# score = computeDist(formVectorJustCalls(jsonDict[appVector[i]], allSyscallsVector),formVectorJustCalls(jsonDict[appVector[j]], allSyscallsVector),metric)
@@ -296,7 +299,7 @@ def computeDistance(jsonDict,metric,type):
 					logging.debug('Computed computeJaccardSim for loops: '+str(counter))
 	
 	logging.debug('computeJaccardMatrix complete')
-	return appToAppDistMatrix, appRunVector, termDocMatrix
+	return appToAppDistMatrix, appRunVector, termDocMatrix, appTFIDFWeightDict
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -309,7 +312,7 @@ def main(argv):
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
 	# print termDocMatrix, appVector
-	appToAppDistMatrix, appVector, termDocMatrix = computeDistance(jsonDict,'jaccard','tfidf')
+	appToAppDistMatrix, appVector, termDocMatrix, appTFIDFWeightDict = computeDistance(jsonDict,'cosine','tfidf')
 	# print appToAppDistMatrix, appVector
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

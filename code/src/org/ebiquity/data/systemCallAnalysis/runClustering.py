@@ -62,7 +62,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	loopCounter = startingNumberOfClusters
 	evaluatedClusterResultsDict = {}
 
-	appMatrix, appRunVector, termDocMatrix = cd.computeDistance(jsonDict,metric,'tfidf')
+	appMatrix, appRunVector, termDocMatrix, appTFIDFWeightDict = cd.computeDistance(jsonDict,metric,'tfidf')
+	print appMatrix, appRunVector, termDocMatrix
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
@@ -85,14 +86,15 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 
 		loopEvaluatedCluster = {}
 		# Initialize the KMeansObject with numberOfClusters value
-		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='k-means++')
-		clusterLabelsAssigned = KMeansObject.fit_predict(X)
+		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='random')
+		KMeansObject.fit_predict(X)
 		#Plotting results
 		#This is not working so commenting out right now
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters)#, eigen_solver='arpack')#, assign_labels='discretize')#, affinity='precomputed')
 		# SpectralClusteringObject = SpectralClustering(n_clusters=numberOfClusters, eigen_solver='arpack', assign_labels='discretize', affinity='precomputed')
 		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
+		clusterLabelsAssigned = KMeansObject.labels_
 		centroids = KMeansObject.cluster_centers_
 
 		#Silhouette Evaluation starts
@@ -165,10 +167,10 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	# clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cosine', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'euclidean', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
-	clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cityblock', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	# clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'euclidean', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
+	# clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'cityblock', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)
 
 def runClustering(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	# jsonDict = getSyscallClusteringDataInput(os.getcwd())

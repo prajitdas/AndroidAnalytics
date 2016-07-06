@@ -153,7 +153,7 @@ def main(argv):
 	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
 
 	startTime = time.time()
-	appToAppDistMatrix, appRunVector, termDocMatrix = cd.computeDistance(jsonDict, 'cosine', 'tfidf')
+	appToAppDistMatrix, appRunVector, termDocMatrix, appTFIDFWeightDict = cd.computeDistance(jsonDict, 'cosine', 'tfidf')
 	doDistance(jsonDict, appToAppDistMatrix, appRunVector)
 	# doSVD(termDocMatrix,appRunVector)
 	# doCluster(termDocMatrix,appRunVector)

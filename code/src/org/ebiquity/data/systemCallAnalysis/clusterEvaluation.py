@@ -25,7 +25,7 @@ def getCategoryNumbers(appNames,dbHandle):
 		newAppNames.append(appName.split('.run')[0])
 	appList = '\'' + '\',\''.join(newAppNames) + '\''
 	cursor = dbHandle.cursor()
-	
+
 	appCategoriesDict = {}
 	foundapps = []
 	labels_true = []
@@ -43,27 +43,37 @@ def getCategoryNumbers(appNames,dbHandle):
 	except:
 		logging.debug('Unexpected error in getCategoryNumber:'+sys.exc_info()[0])
 		raise
-	
+
 	# print list(set(appNames) - set(foundapps))
-	keylist = appCategoriesDict.keys()
-	keylist.sort()
-	for key in keylist:
+	keylistTrue = appCategoriesDict.keys()
+	keylistTrue.sort()
+	for key in keylistTrue:
 		labels_true.append(appCategoriesDict[key])
 
 	return labels_true
- 
-def evaluateCluster(clusterInfo):
+
+def evaluateCluster(clusterInfo,groundTruth=None):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
-	
+
 	labels_pred = []
+	labels_true = []
 	appNames = []
-	keylist = clusterInfo.keys()
-	keylist.sort()
-	for key in keylist:
+	keylistPred = clusterInfo.keys()
+	keylistPred.sort()
+	for key in keylistPred:
 		labels_pred.append(clusterInfo[key])
 		appNames.append(key)
 
-	labels_true = getCategoryNumbers(appNames,dbHandle)
+	if groundTruth == None:
+		labels_true = getCategoryNumbers(appNames,dbHandle)
+	else:
+		keylistTrue = groundTruth.keys()
+		keylistTrue.sort()
+		for key in keylistTrue:
+			labels_true.append(groundTruth[key])
+
+	print "labels_pred = ",labels_pred
+	print "labels_true = ",labels_true
 
 	logging.debug('Right before cluster evaluation')
 	clusterEvaluationResults = {}
@@ -77,20 +87,27 @@ def evaluateCluster(clusterInfo):
 	logging.debug('Right before cluster evaluation4')
 	clusterEvaluationResults["v_measure_score"] = str(metrics.v_measure_score(labels_true, labels_pred))
 	logging.debug('Right before cluster evaluation5')
+	clusterEvaluationResults["normalized_mutual_info_score"] = str(metrics.normalized_mutual_info_score(labels_true, labels_pred))
+	logging.debug('Right before cluster evaluation6')
+
+	showClusterEvaluationResults(clusterEvaluationResults)
 
 	dbHandle.close() #DB Close
-	
+
 	return clusterEvaluationResults
 
-def doTask(predictedClustersFile):
-	clusterEvaluationResults = evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
-
+def showClusterEvaluationResults(clusterEvaluationResults):
 	print clusterEvaluationResults["adjusted_rand_score"]
 	print clusterEvaluationResults["adjusted_mutual_info_score"]
 	print clusterEvaluationResults["homogeneity_score"]
 	print clusterEvaluationResults["completeness_score"]
 	print clusterEvaluationResults["v_measure_score"]
-	
+	print clusterEvaluationResults["normalized_mutual_info_score"]
+
+def doTask(predictedClustersFile):
+	clusterEvaluationResults = evaluateCluster(json.loads(open(predictedClustersFile, 'r').read().decode('utf8')))
+	showClusterEvaluationResults(clusterEvaluationResults)
+
 def main(argv):
 	if len(sys.argv) != 2:
 		sys.stderr.write('Usage: python permissionsClustering.py username api_key\n')

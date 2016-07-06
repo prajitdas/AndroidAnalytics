@@ -172,7 +172,7 @@ def generatePermissionsRequestedByAppFrequencyHistogram(username, apiKey):
 	logging.debug('Check out the URL: '+plot_url+' for your plot')
 
 # This is a plot for Goodness of Cluster measure using homogeneity_score, completeness_score
-def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix):
+def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, normalizedMutualInfoScore, postfix):
 	tls.set_credentials_file(username, apiKey)
 	trace0 = Bar(
 		x=clusterCountList,
@@ -192,36 +192,36 @@ def generateGroundTruthResults(username, apiKey, clusterCountList, homogeneitySc
 	)
 	data = Data([trace0,trace1])
 
-	if len(adjustedRandScoreList) > 0:
+	if len(vMeasureScoreList) > 0:
 		trace2 = Bar(
 			x=clusterCountList,
-			y=adjustedRandScoreList,
+			y=vMeasureScoreList,
 			name='V Measure Score',
 			marker=Marker(
 				color='rgb(0, 0, 255)'
 			)
 		)
 		data = Data([trace0,trace1,trace2])
-		if len(adjustedMutualInfoScoreList) > 0:
+		if len(normalizedMutualInfoScore) > 0:
 			trace3 = Bar(
 				x=clusterCountList,
-				y=adjustedMutualInfoScoreList,
+				y=normalizedMutualInfoScore,
 				name='Adjusted Mutual Info Score',
 				marker=Marker(
 					color='rgb(100, 100, 100)'
 				)
 			)
 			data = Data([trace0,trace1,trace2,trace3])
-			if len(adjustedRandScoreList) > 0:
-				trace4 = Bar(
-					x=clusterCountList,
-					y=adjustedRandScoreList,
-					name='Adjusted Rand Score',
-					marker=Marker(
-						color='rgb(200, 200, 200)'
-					)
-				)
-				data = Data([trace0,trace1,trace2,trace3,trace4])
+			# if len(adjustedRandScoreList) > 0:
+			# 	trace4 = Bar(
+			# 		x=clusterCountList,
+			# 		y=adjustedRandScoreList,
+			# 		name='Adjusted Rand Score',
+			# 		marker=Marker(
+			# 			color='rgb(200, 200, 200)'
+			# 		)
+			# 	)
+			# 	data = Data([trace0,trace1,trace2,trace3,trace4])
 	
 	layout = Layout(
 		title='Number of Clusters vs Homogeneity and Completeness',
@@ -346,6 +346,7 @@ def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
 	adjustedRandScoreList = []
 	adjustedMutualInfoScoreList = []
 	vMeasureScoreList = []
+	normalizedMutualInfoScore = []
 	
 	for clusterCount, clusterData in evaluatedClusterResultsDict.iteritems():
 		if clusterCount != 'appVectors':
@@ -366,9 +367,12 @@ def plotGroundTruthResults(username, apiKey, fileToRead, postfix=None):
 			if "v_measure_score" in clusterInfo:
 				#logging.debug('In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
 				vMeasureScoreList.append(float(clusterInfo["v_measure_score"]))
+			if "normalized_mutual_info_score" in clusterInfo:
+				#logging.debug('In", clusterCount, "we have v_measure_score of", clusterInfo["v_measure_score"]
+				normalizedMutualInfoScore.append(float(clusterInfo["normalized_mutual_info_score"]))
 
 	#print clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList
-	generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, postfix)
+	generateGroundTruthResults(username, apiKey, clusterCountList, homogeneityScoreList, completenessScoreList, adjustedRandScoreList, adjustedMutualInfoScoreList, vMeasureScoreList, normalizedMutualInfoScore, postfix)
 
 def main(argv):
 	if len(sys.argv) != 4:

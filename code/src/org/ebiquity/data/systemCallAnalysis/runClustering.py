@@ -53,6 +53,13 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
 	#return cPickle.load(open(appMatrixFile, 'rb'))
 	
+def getGroundTruthLabels(termDocMatrix,appRunVector):
+	groundTruthLabels = {}
+	for appRunName in appRunVector:
+		# print appRunName, termDocMatrix[appRunName][1]
+		groundTruthLabels[appRunName] = termDocMatrix[appRunName][1]
+	return groundTruthLabels
+
 def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, metric, startingNumberOfClusters=2, endingNumberOfClusters=10, clusterLoopStepSize=1, reducedDimensions=2):
 	#init
 	# reducedDimensions = 100
@@ -63,7 +70,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	evaluatedClusterResultsDict = {}
 
 	appMatrix, appRunVector, termDocMatrix, appTFIDFWeightDict = cd.computeDistance(jsonDict,metric,'tfidf')
-	print appMatrix, appRunVector, termDocMatrix
+	# print appMatrix, appRunVector, termDocMatrix
+	groundTruthLabels = getGroundTruthLabels(termDocMatrix,appRunVector)
 	writeMatrixToFile(appMatrix, appMatrixFile)
 
 	#Dimensionality reduction
@@ -103,17 +111,19 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		# print 'app vector:\n' + str(appVector)
 		# print 'clusters assigned:\n' + str(clusterLabelsAssigned)
 		for appRunName in appRunVector:
+			# print appRunName, clusterLabelsAssigned[counter]
 			predictedClusters[appRunName] = int(clusterLabelsAssigned[counter])
 			counter += 1
 		
 		loopEvaluatedCluster['clusterAssignment'] = predictedClusters
 
 		#Clustering task is complete. Now evaluate
-		loopEvaluatedCluster['clusterEvaluationResults'] = clEval.evaluateCluster(predictedClusters)
+		loopEvaluatedCluster['clusterEvaluationResults'] = clEval.evaluateCluster(predictedClusters,groundTruthLabels)
 
-		print X.shape
-		print clusterLabelsAssigned
-		print metric
+		# print centroids
+		# print X.shape
+		# print clusterLabelsAssigned
+		# print metric
 		# Start of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 		# The silhouette_score gives the average value for all the samples.
 		# This gives a perspective into the density and separation of the formed
@@ -163,8 +173,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	# 	categories = ''.join(appCategoryListSelection)
 	# metrics = 'jaccard'
 	fileName = metric+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
-	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
-	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
+	# plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
+	# plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	# clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)

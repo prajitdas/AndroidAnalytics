@@ -72,8 +72,8 @@ def evaluateCluster(clusterInfo,groundTruth=None):
 		for key in keylistTrue:
 			labels_true.append(groundTruth[key])
 
-	print "labels_pred = ",labels_pred
-	print "labels_true = ",labels_true
+	# print "labels_pred = ",labels_pred
+	# print "labels_true = ",labels_true
 
 	logging.debug('Right before cluster evaluation')
 	clusterEvaluationResults = {}

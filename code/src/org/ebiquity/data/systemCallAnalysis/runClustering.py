@@ -13,7 +13,7 @@ from sklearn.metrics import silhouette_score, silhouette_samples
 from sklearn.decomposition import PCA #,TruncatedSVD
 # End of code from: http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
 import clusterEvaluation as clEval
-# import plotResults as plot
+import plotResults as plot
 import numpy as np
 import json
 #import selectPermissions as sp
@@ -165,6 +165,7 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		# Initialize the KMeansObject with numberOfClusters value
 		KMeansObject = KMeans(n_clusters=numberOfClusters)#, init='random')
 		KMeansObject.fit_predict(X)
+		print X.shape
 		#Plotting results
 		#This is not working so commenting out right now
 		#doScatterPlot(X, numberOfClusters, KMeansObject)
@@ -173,6 +174,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		# clusterLabelsAssigned = SpectralClusteringObject.fit_predict(X)
 		clusterLabelsAssigned = KMeansObject.labels_
 		centroids = KMeansObject.cluster_centers_
+
+		print centroids
 
 		#Silhouette Evaluation starts
 		counter = 0

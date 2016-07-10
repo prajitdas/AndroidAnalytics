@@ -161,6 +161,9 @@
             "writev": 252
         }
     }, 
+    "com.Adermodastudio.battery.saver": {
+        "SunJul10070831EDT2016.out": {}
+    }, 
     "com.LEO.Mr_Bartender": {
         "run1": {
             "clock_gettime": 53, 
@@ -283,6 +286,9 @@
             "writev": 1985
         }
     }, 
+    "com.adsonik.pdfreaderwithdictionary": {
+        "SunJul10071011EDT2016.out": {}
+    }, 
     "com.aigamomifi.alarmclockll2": {
         "run1": {
             "_llseek": 12, 
@@ -323,6 +329,9 @@
             "write": 13372, 
             "writev": 2460
         }
+    }, 
+    "com.alarmclock.plusfree": {
+        "SunJul10071102EDT2016.out": {}
     }, 
     "com.android.lunarcal": {
         "run1": {
@@ -3715,6 +3724,9 @@
             "write": 1017, 
             "writev": 862
         }
+    }, 
+    "org.ab.x48": {
+        "SunJul10070921EDT2016.out": {}
     }, 
     "org.hlousek.droid.twa": {
         "run1": {

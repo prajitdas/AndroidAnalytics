@@ -93,7 +93,7 @@ def runExperimentsGenyMotionEmulator(currentPath,outputDirectoryPath,apkDict,rea
 			# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
 			# emulatorKillCmd = 'bash killEmulator.sh'
 			# s.call(emulatorKillCmd.split())
-			# continue
+			continue
 		# After finishing with one app's experiments,we kill the emulator,wipe it and start it again
 		# emulatorKillCmd = 'bash killEmulator.sh'
 		# s.call(emulatorKillCmd.split())

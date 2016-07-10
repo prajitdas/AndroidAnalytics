@@ -85,7 +85,7 @@ else
 		# Verifying the variables (for Debug)
 		echo "Process Id: "$processId
 
-		for i in range 1..10
+		for i in {1..50}
 		do
 			# Using monkey to generate a certain number of pseudo-random events
 			adb shell "monkey -p $package -v 100 > $straceOutFilePath"

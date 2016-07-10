@@ -40,19 +40,15 @@ def runOnGenyMotionDevice(pathToApk):
 	except s.CalledProcessError:
 		logging.debug('Error in running experiments for: '+pathToApk.split('.apk')[0])
 		# Even if there is an exception in running experiments, remove the file to the other folder
-		# movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-		# logging.debug('moving file to '+movePath)
-		# print pathToApk
-		# print movePath
-		# shutil.move(pathToApk,movePath)
+		movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
+		logging.debug('moving file to '+movePath)
+		print pathToApk
+		print movePath
+		shutil.move(pathToApk,movePath)
 		raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
-	#command="mv "+pathToApk+" ../other"
-	#logging.debug('moving file "+command
-	#s.call(command.split())
-	# movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
-	# logging.debug('moving file to '+movePath)
-	#sys.exit(1)
-	# shutil.move(pathToApk,movePath)
+	movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
+	logging.debug('moving file to '+movePath)
+	shutil.move(pathToApk,movePath)
 	return
 
 def runOnDevice(pathToApk):
@@ -71,12 +67,8 @@ def runOnDevice(pathToApk):
 		print movePath
 		shutil.move(pathToApk,movePath)
 		raise RunExpException(pathToApk.split("/")[-1].split(".apk")[0])
-	#command="mv "+pathToApk+" ../other"
-	#logging.debug('moving file "+command
-	#s.call(command.split())
 	movePath = '/'.join(pathToApk.split('/')[:-2])+'/bkp/'
 	logging.debug('moving file to '+movePath)
-	#sys.exit(1)
 	shutil.move(pathToApk,movePath)
 	return
 

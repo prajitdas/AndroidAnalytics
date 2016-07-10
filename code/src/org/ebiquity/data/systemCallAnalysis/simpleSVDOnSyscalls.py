@@ -130,7 +130,7 @@ def doSVD(termDocMatrix, appRunVector):
 
 def doDistance(jsonDict, appToAppDistMatrix, appRunVector):
 	appList = getAppList(appRunVector)
-	print ','.join(appList)
+	# print ','.join(appList)
 	blah = open('nodetable.csv','w')
 	blah.write("Id;Label\n")
 	for nodename in appList:

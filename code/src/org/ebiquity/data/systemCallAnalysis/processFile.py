@@ -54,6 +54,7 @@ def processFileGetFunctionNames(filePath):
 	# for i,(k,v) in enumerate(od(sorted(syscallDict.items(),key=lambda k:k[1],reverse=True)).iteritems()):
 	# 	print k,v
 	runWrapperDict = {}
+	print filePath
 	runWrapperDict[filePath.split('.run.')[1]] = syscallDict
 	return runWrapperDict
 
@@ -84,7 +85,7 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	except:
 		print "json was empty"
 	if appPkgName in jsonDict:
-		print "Came into is in file", jsonDict[appPkgName]
+		print "Came into is in file"#, jsonDict[appPkgName]
 		if hasMoreCallsSyscallDict(jsonDict[appPkgName],syscallDict) == True:
 			print "Came into is in file"
 			jsonDict[appPkgName] = syscallDict
@@ -93,7 +94,7 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 		print "Came into is not in file"
 		jsonDict[appPkgName] = syscallDict
 		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
-	print jsonDict.keys()
+	# print jsonDict.keys()
 
 def extractFeatures(jsonPath,root,appPkgName):
 	appOutputFolder = os.path.join(root,appPkgName)

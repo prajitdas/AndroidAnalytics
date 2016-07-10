@@ -86,7 +86,8 @@ else
 		echo "Process Id: "$processId
 
 		# Using monkey to generate a certain number of pseudo-random events
-		adb shell "monkey -p $package -v 2000 --throttle 100 --pct-appswitch 10 --ignore-crashes > $straceOutFilePath"
+		adb shell "monkey -p $package -v 5000 --throttle 100 --pct-appswitch 10 --ignore-crashes --pct-syskeys 0 > $straceOutFilePath"
+
 		# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
 		# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
 			
@@ -108,6 +109,10 @@ else
 		cd -
 
 		echo "Success in finishing the current app: "$package"'s experiments and uninstall output is: "$uninstallOutput;
+
+		# Storing the process id in a json object
+		echo "{"$package": "$processId"}" >> run.json
+
 		exit 0
 	fi
 fi

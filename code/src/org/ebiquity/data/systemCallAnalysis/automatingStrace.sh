@@ -80,7 +80,7 @@ else
 		# Starting the trace process on the app's process id. This is assuming that we have the root shell
 		#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"
 		#adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
-		adb shell "nohup strace -p $processId -o $outputFile &> /sdcard/nohup.out&"
+		adb shell "nohup strace -f -p $processId -o $outputFile &> /sdcard/nohup.out&"
 
 		# Verifying the variables (for Debug)
 		echo "Process Id: "$processId
@@ -88,9 +88,10 @@ else
 		for i in {1..50}
 		do
 			# Using monkey to generate a certain number of pseudo-random events
-			adb shell "monkey -p $package -v 100 > $straceOutFilePath"
+			adb shell "monkey -p $package -v 100 --throttle 100 --pct-appswitch 10 -p $package --ignore-crashes > $straceOutFilePath"
 			# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
 			# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
+			sleep 10
 		done
 			
 		# strace is still running so we just make a copy of the out file

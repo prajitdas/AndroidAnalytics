@@ -13,10 +13,10 @@ then
 	echo "adb pull $apkLocationOnPhone $apkFileName"
 	echo "Is something wrong?"
 	adb devices
-    adb pull $apkLocationOnPhone $apkFileName
+	adb pull $apkLocationOnPhone $apkFileName
 	echo "Sleeping now!"
 	sleep 10
-    `sh shellSyscallExperiments.sh $apkFileName`
+	`bash shellSyscallExperiments.sh $apkFileName`
 else
 	echo "Came to google"
 	# Install the app
@@ -27,6 +27,6 @@ else
 		echo "Error: Failure to install: "$1 >> error.log
 		exit 1
 	else
-        `sh shellSyscallExperiments.sh $1`
+		`bash shellSyscallExperiments.sh "$1"`
 	fi
 fi

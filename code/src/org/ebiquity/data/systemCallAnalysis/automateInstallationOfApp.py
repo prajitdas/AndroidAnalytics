@@ -92,6 +92,10 @@ def getApps():
 				checkInstallCmd="adb shell pm list packages | grep "+app
 				try:
 					appInstalledCheck=s.check_output(checkInstallCmd.split())
+					apkLocationOnPhoneCmd="adb shell pm path +"app"+ | grep 'package' | cut -f2 -d':' | tr -d '\r'"
+					apkLocationOnPhone=s.check_output(checkInstallCmd.split())
+					print apkLocationOnPhone
+					# extractAppCmd=""
 				# print "I got"+str(appInstalledCheck)+"this"
 				# if appInstalledCheck != 0:
 				except s.CalledProcessError:
@@ -104,7 +108,8 @@ def getApps():
 				print "Couldn't find button with the text"
 				logging.debug("Couldn't find button with the text")
 				continue
-			sc.runExperimentsGenyMotionEmulator(currentPath,sc.getOutputDirectoryPath(currentPath),app)
+			# For the time being we will be skipping the direct code execution
+			# sc.runExperimentsGenyMotionEmulator(currentPath,sc.getOutputDirectoryPath(currentPath),app)
 			time.sleep(3)
 			ed.removeDataFromServer(app)
 		else:

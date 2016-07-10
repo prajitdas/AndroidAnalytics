@@ -1,5 +1,5 @@
 #!/bin/bash
-apkFileName=$1
+apkFileName="$1"
 # Extract package and launcher activity information
 package=$(aapt dump badging $apkFileName|awk -F" " '/package/ {print $2}'|awk -F"'" '/name=/ {print $2}')
 activity=$(aapt dump badging $apkFileName|awk -F" " '/launchable-activity/ {print $2}'|awk -F"'" '/name=/ {print $2}')

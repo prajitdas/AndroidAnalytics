@@ -98,8 +98,8 @@ def runExperimentsGenyMotionEmulator(currentPath,outputDirectoryPath,apkDict,rea
 		# emulatorKillCmd = 'bash killEmulator.sh'
 		# s.call(emulatorKillCmd.split())
 		# At this point we have to process the results and extract the features of an app,to run ml algorithms later.
-		logging.debug('Finished running experiments, extracting features for the app: '+apkDict[key])
-		pf.extractFeatures(currentPath,outputDirectoryPath,apkDict[key])
+		logging.debug('Finished running experiments, extracting features for the app: '+key)
+		pf.extractFeatures(currentPath,outputDirectoryPath,key)
 		logging.debug('Done with extracing features for the app: '+apkDict[key]+' onto the next app!')
 		time.sleep(30)
 
@@ -117,11 +117,11 @@ def doTask(username,api_key,realOrFake,googleOrGenymotion,howManyTimes):
 		apkDict = findAllFilesWithExtension(apkFolderPath,'.apk')
 	outputDirectoryPath = getOutputDirectoryPath(currentPath)
 
-	for i in 0..howManyTimes:		
+	for i in range(0,int(howManyTimes)):
 		if googleOrGenymotion == 'google':
-			runExperimentsGoogleEmulator(currentPath,outputDirectoryPath,apkDict,apkFolderPath,realOrFake,googleOrGenymotion,username,api_key)
+			runExperimentsGoogleEmulator(currentPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion,username,api_key)
 		else:
-			runExperimentsGenyMotionEmulator(currentPath,outputDirectoryPath,appName,realOrFake,googleOrGenymotion,username,api_key)
+			runExperimentsGenyMotionEmulator(currentPath,outputDirectoryPath,apkDict,realOrFake,googleOrGenymotion,username,api_key)
 
 def main(argv):
 	if len(sys.argv) != 6:

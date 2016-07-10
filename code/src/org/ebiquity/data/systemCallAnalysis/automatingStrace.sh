@@ -86,7 +86,7 @@ else
 		echo "Process Id: "$processId
 
 		# Using monkey to generate a certain number of pseudo-random events
-		adb shell "monkey -p $package -v 2000 --throttle 100 --pct-appswitch 10 -p $package --ignore-crashes > $straceOutFilePath"
+		adb shell "monkey -p $package -v 2000 --throttle 100 --pct-appswitch 10 --ignore-crashes > $straceOutFilePath"
 		# adb shell monkey -p $package --pct-touch 95 -v 1000 > "$package"monkey.out
 		# adb shell monkey -p $package -c android.intent.category.LAUNCHER 1000
 			

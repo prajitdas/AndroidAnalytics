@@ -24,12 +24,12 @@ except:
 
 from com.dtmilano.android.viewclient import ViewClient, ViewNotFoundException
 
-def launchApp():
+def launchApp(emulatorName):
 	package = 'edu.umbc.cs.ebiquity.autoinstallerapp'
 	activity = 'edu.umbc.cs.ebiquity.autoinstallerapp.ui.activity.MainActivity'
 	component = package + "/" + activity
 
-	device, serialno = ViewClient.connectToDeviceOrExit(serialno='192.168.56.101:5555')
+	device, serialno = ViewClient.connectToDeviceOrExit(serialno=emulatorName)
 
 	# Three commands to ensure that the emulator is in correct condition
 	# Prepare AVD for proper testing set aireplane mode off
@@ -76,10 +76,10 @@ def acceptInstallApp(viewClient):
 	installButton = viewClient.findViewWithTextOrRaise('ACCEPT')
 	installButton.touch()
 
-def getApps():
+def getApps(emulatorName):
 	currentPath = os.getcwd()
 	while(True):
-		device, serialno = launchApp()
+		device, serialno = launchApp(emulatorName)
 		app = clickOnTopApp(getViewClient(device, serialno))
 		print "Automating for app: "+app
 		if app:
@@ -89,31 +89,41 @@ def getApps():
 				time.sleep(3)
 				acceptInstallApp(getViewClient(device, serialno))
 				time.sleep(10)
-				checkInstallCmd="adb shell pm list packages | grep "+app
 				try:
-					appInstalledCheck=s.check_output(checkInstallCmd.split())
-					apkLocationOnPhoneCmd="adb shell pm path +"app"+ | grep 'package' | cut -f2 -d':' | tr -d '\r'"
-					apkLocationOnPhone=s.check_output(checkInstallCmd.split())
-					print apkLocationOnPhone
+					apkLocationOnPhoneCmd="adb shell pm path "+app+" | grep 'package' | cut -f2 -d':' | tr -d '\r'"
+					apkLocationOnPhone=s.check_output(apkLocationOnPhoneCmd.split())
+					print "apkLocationOnPhone:",apkLocationOnPhone
+					sys.exit(1)
 					# extractAppCmd=""
 				# print "I got"+str(appInstalledCheck)+"this"
 				# if appInstalledCheck != 0:
 				except s.CalledProcessError:
-					ed.removeDataFromServer(app)
+					# ed.removeDataFromServer(app)
 					print 'It seems app wasn\'t installed properly for: '+app
 					logging.debug('It seems app wasn\'t installed properly for: ',app)
 					continue
 			except ViewNotFoundException:
-				ed.removeDataFromServer(app)
+				# ed.removeDataFromServer(app)
 				print "Couldn't find button with the text"
 				logging.debug("Couldn't find button with the text")
 				continue
 			# For the time being we will be skipping the direct code execution
 			# sc.runExperimentsGenyMotionEmulator(currentPath,sc.getOutputDirectoryPath(currentPath),app)
 			time.sleep(3)
-			ed.removeDataFromServer(app)
+			# ed.removeDataFromServer(app)
 		else:
 			return
+		sys.exit(1)
+
+def runShellCmdGetOutput(cmd):
+	p = s.Popen(cmd.split(), stdout=s.PIPE, stderr=s.PIPE)
+	out, err = p.communicate()
+	return out.strip(), err.strip()
+
+def getEmulatorName():
+	cmd="bash discoverEmulators.sh"
+	out, err = runShellCmdGetOutput(cmd)
+	return out
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -121,7 +131,7 @@ def main(argv):
 		sys.exit(1)
 
 	startTime = time.time()
-	getApps()
+	getApps(getEmulatorName())
 	executionTime = str((time.time()-startTime)*1000)
 	print executionTime
 

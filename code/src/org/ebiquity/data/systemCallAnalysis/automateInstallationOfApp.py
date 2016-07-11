@@ -116,7 +116,6 @@ def getApps(emulatorName):
 			ed.removeDataFromServer(app)
 		else:
 			return
-		sys.exit(1)
 
 def runShellCmdGetOutput(cmd):
 	p = s.Popen(cmd.split(), stdout=s.PIPE, stderr=s.PIPE)

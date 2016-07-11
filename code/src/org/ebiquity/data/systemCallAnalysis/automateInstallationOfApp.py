@@ -8,6 +8,7 @@ Modified example from Diego to suit project purpose.
 Usage: python automateInstallationOfApp.py
 '''
 
+import shutil
 import subprocess as s
 import sys
 import os
@@ -84,33 +85,35 @@ def getApps(emulatorName):
 		print "Automating for app: "+app
 		if app:
 			try:
-				time.sleep(3)
+				time.sleep(2)
 				installApp(getViewClient(device, serialno))
-				time.sleep(3)
+				time.sleep(2)
 				acceptInstallApp(getViewClient(device, serialno))
 				time.sleep(10)
 				try:
 					apkLocationOnPhoneCmd="adb shell pm path "+app+" | grep 'package' | cut -f2 -d':' | tr -d '\r'"
-					apkLocationOnPhone=s.check_output(apkLocationOnPhoneCmd.split())
-					print "apkLocationOnPhone:",apkLocationOnPhone
-					sys.exit(1)
-					# extractAppCmd=""
-				# print "I got"+str(appInstalledCheck)+"this"
-				# if appInstalledCheck != 0:
+					apkLocationOnPhone, err =runShellCmdGetOutput(apkLocationOnPhoneCmd)
+					apkLocationOnPhone = apkLocationOnPhone.replace('WARNING: linker: /system/lib/libhoudini.so has text relocations. This is wasting memory and prevents security hardening. Please fix.', '').strip()
+					extractAppCmd="adb pull "+apkLocationOnPhone+" apks/"
+					s.check_output(extractAppCmd.split())
+
+					movePath = 'apks/'+app+'.apk'
+					pathToApk = 'apks/base.apk'
+					shutil.move(pathToApk,movePath)
 				except s.CalledProcessError:
-					# ed.removeDataFromServer(app)
+					ed.removeDataFromServer(app)
 					print 'It seems app wasn\'t installed properly for: '+app
 					logging.debug('It seems app wasn\'t installed properly for: ',app)
 					continue
 			except ViewNotFoundException:
-				# ed.removeDataFromServer(app)
+				ed.removeDataFromServer(app)
 				print "Couldn't find button with the text"
 				logging.debug("Couldn't find button with the text")
 				continue
 			# For the time being we will be skipping the direct code execution
 			# sc.runExperimentsGenyMotionEmulator(currentPath,sc.getOutputDirectoryPath(currentPath),app)
 			time.sleep(3)
-			# ed.removeDataFromServer(app)
+			ed.removeDataFromServer(app)
 		else:
 			return
 		sys.exit(1)

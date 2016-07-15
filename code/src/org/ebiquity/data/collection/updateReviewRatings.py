@@ -65,7 +65,7 @@ def doTask():
 		cursor.execute(sqlStatement)
 		for app in cursor:
 			count+=1
-			if app not in appRatingJson:
+			if app[0] not in appRatingJson:
 				appUrlList.append('https://play.google.com/store/apps/details?id='+app[0])
 	except:
 		print 'Unexpected error in updateReviewRatings:', sys.exc_info()[0]

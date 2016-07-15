@@ -59,6 +59,9 @@ def doTask():
 	cursor = dbHandle.cursor()
 	sqlStatement = "SELECT `app_pkg_name` FROM  `appdata`;"
 	appUrlList = []
+	appRatingJson = json.loads(open('appRating.json','r').read())
+	print appRatingJson
+	sys.exit(1)
 	try:
 		cursor.execute(sqlStatement)
 		for app in cursor:
@@ -67,7 +70,7 @@ def doTask():
 		print 'Unexpected error in updateReviewRatings:', sys.exc_info()[0]
 		raise
 	cursor.close()
-	open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
+	# open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
 	getReviewRatings(dbHandle, appUrlList)
 	dbHandle.close() #DB Close
 

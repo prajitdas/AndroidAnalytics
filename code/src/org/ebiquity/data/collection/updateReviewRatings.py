@@ -60,15 +60,17 @@ def doTask():
 	sqlStatement = "SELECT `app_pkg_name` FROM  `appdata`;"
 	appUrlList = []
 	appRatingJson = json.loads(open('appRating.json','r').read())
-	print appRatingJson
-	sys.exit(1)
+	count = 0
 	try:
 		cursor.execute(sqlStatement)
 		for app in cursor:
-			appUrlList.append('https://play.google.com/store/apps/details?id='+app[0])
+			count+=1
+			if app not in appRatingJson:
+				appUrlList.append('https://play.google.com/store/apps/details?id='+app[0])
 	except:
 		print 'Unexpected error in updateReviewRatings:', sys.exc_info()[0]
 		raise
+	print len(appUrlList), count
 	cursor.close()
 	# open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
 	getReviewRatings(dbHandle, appUrlList)

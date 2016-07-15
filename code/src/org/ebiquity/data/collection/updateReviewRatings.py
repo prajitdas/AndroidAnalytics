@@ -71,6 +71,7 @@ def doTask():
 		print 'Unexpected error in updateReviewRatings:', sys.exc_info()[0]
 		raise
 	print len(appUrlList), count
+	sys.exit(1)
 	cursor.close()
 	# open('appRating.json','w').write(json.dumps({},indent=4,sort_keys=True))
 	getReviewRatings(dbHandle, appUrlList)

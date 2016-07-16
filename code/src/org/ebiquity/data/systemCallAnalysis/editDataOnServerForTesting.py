@@ -15,7 +15,13 @@ def getTimedBkpName():
 	ticks = time.time()
 	return str(ticks).replace(".", "")
 
-def storeDataonServer(jsonString):
+def getDataOnServer():
+	# Server URL from Ngrok to get the data
+	url = 'https://9b5d5f5d.ngrok.io'
+	response = requests.get(url)
+	return response.text
+
+def storeDataOnServer(jsonString):
 	# Server URL from Ngrok to get the data
 	url = 'https://9b5d5f5d.ngrok.io'
 	serverResponse = requests.post(url, json.dumps(jsonString))
@@ -23,18 +29,26 @@ def storeDataonServer(jsonString):
 
 def removeDataFromServer(appToRemove):
 	jsonString = json.loads(open('search.json','r').read())
-	
-	# print "removing the app:"+appToRemove
-	# print len(jsonString['applist'])
-	if appToRemove in jsonString['applist']: 
-		jsonString['applist'].remove(appToRemove)
-	# print len(jsonString['applist'])
+	jsonStringOnServer = json.loads(getDataOnServer())
+	print "Number of apps remaining on local:",len(jsonString['applist'])
+	print "Number of apps remaining on server:",len(jsonStringOnServer['applist'])
+	if len(jsonString['applist']) != len(jsonStringOnServer['applist']):
+		print "server data has been changed, take action!"
+		# print "removing the app:"+appToRemove
+		# print len(jsonString['applist'])
+		if appToRemove in jsonStringOnServer['applist']: 
+			jsonString = jsonStringOnServer['applist'].remove(appToRemove)
+		# print len(jsonString['applist'])
+	else:
+		print "all good!"
+		if appToRemove in jsonString['applist']: 
+			jsonString = jsonString['applist'].remove(appToRemove)
 
 	bkpJson = 'bkp'+getTimedBkpName()+'.json'
 	shutil.move('search.json', bkpJson)
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)
 
-	storeDataonServer(jsonString)
+	storeDataOnServer(jsonString)
 
 def main(argv):
 	if len(sys.argv) != 2:

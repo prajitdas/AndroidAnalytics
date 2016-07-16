@@ -80,6 +80,7 @@ def acceptInstallApp(viewClient):
 			(x, y) = b.getXY()
 			print >>sys.stderr, "clicking b%s @ (%d,%d) ..." % (bt, x, y)
 			b.touch()
+			return
 		else:
 			print >>sys.stderr, "b%s not found" % bt
 

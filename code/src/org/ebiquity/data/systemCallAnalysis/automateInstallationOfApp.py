@@ -73,8 +73,6 @@ def installApp(viewClient):
 	installButton = viewClient.findViewWithTextOrRaise('INSTALL')
 	if installButton:
 		installButton.touch()
-		time.sleep(2)
-		acceptInstallApp(getViewClient(device, serialno))
 
 def acceptInstallApp(viewClient):
 	for bt in [ 'ACCEPT', 'CONTINUE' ]:
@@ -97,6 +95,8 @@ def getApps(emulatorName):
 			try:
 				time.sleep(2)
 				installApp(getViewClient(device, serialno))
+				time.sleep(2)
+				acceptInstallApp(getViewClient(device, serialno))
 				time.sleep(10)
 				try:
 					apkLocationOnPhoneCmd="adb shell pm path "+app+" | grep 'package' | cut -f2 -d':' | tr -d '\r'"

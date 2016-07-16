@@ -42,8 +42,11 @@ def removeDataFromServer(appToRemove):
 	else:
 		print "all good!"
 		if appToRemove in jsonString['applist']: 
-			jsonString = jsonString['applist'].remove(appToRemove)
+			jsonString['applist'].remove(appToRemove)
 
+	# print "Number of apps remaining on local:",len(jsonString['applist'])
+	# print "Number of apps remaining on server:",len(jsonStringOnServer['applist'])
+	# sys.exit(1)
 	bkpJson = 'bkp'+getTimedBkpName()+'.json'
 	shutil.move('search.json', bkpJson)
 	json.dump(jsonString, open('search.json', 'w'), sort_keys = True, indent = 4)

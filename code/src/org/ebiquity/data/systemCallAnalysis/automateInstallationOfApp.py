@@ -74,8 +74,14 @@ def installApp(viewClient):
 	installButton.touch()
 
 def acceptInstallApp(viewClient):
-	installButton = viewClient.findViewWithTextOrRaise('ACCEPT')
-	installButton.touch()
+	for bt in [ 'ACCEPT', 'CONTINUE' ]:
+		b = viewClient.findViewWithText(bt)
+		if b:
+			(x, y) = b.getXY()
+			print >>sys.stderr, "clicking b%s @ (%d,%d) ..." % (bt, x, y)
+			b.touch()
+		else:
+			print >>sys.stderr, "b%s not found" % bt
 
 def getApps(emulatorName):
 	currentPath = os.getcwd()

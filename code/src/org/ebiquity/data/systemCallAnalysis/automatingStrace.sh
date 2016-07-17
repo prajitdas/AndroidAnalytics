@@ -74,17 +74,34 @@ else
 		sleep 5
 
 		# Start package using ActivityManager in order to determine the process Id of the app
-		adb shell "am start -n $package/$activity"
-		processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
+		# adb shell "am start -n $package/$activity"
+		# processId=$(adb shell ps | awk -v pattern="$package" -F" " '$0 ~ pattern { print $2 }')
+		adb shell "cd /sdcard/"
+		# adb shell "am start -n $package/$activity && ps | grep $package"
+		# adb shell "am start -n $package/$activity && set `ps | grep $package` && echo $0 $1 $2"
+		echo "starting activity and strace"
+		adb shell "am start -n $package/$activity" 
+		# adb shell "set `ps | grep $package` && strace -f -p $2 -o $outputFile"
+		# procIdPath="/sdcard/processId"
+		# echo "starting activity"
+		# adb shell "am start -n $package/$activity && set `ps | grep $package` && echo $2 > $procIdPath"
+		# processId=`adb shell "cat $procIdPath | tr -d '\n'"`
+		# echo $processId
+		# adb shell "strace -f -p $processId -o $outputFile"
+		# echo "started strace" `ps | grep 'strace'`
+		# am start -n us.wifitools.wifiscananalyzer/us.wifitools.wifiscananalyzer.MainActivity && set `ps | grep us.wifitools.wifiscananalyzer` && strace -f -p $2 -o /sdcard/output.out
 
 		# Starting the trace process on the app's process id. This is assuming that we have the root shell
 		#adb shell "nohup strace -C -T -ttt -p $processId -o $outputFile &> /sdcard/nohup.out&"
 		#adb shell "nohup strace -C -p $processId -o $outputFile &> /sdcard/nohup.out&"
-		adb shell "nohup strace -f -p $processId -o $outputFile &> /sdcard/nohup.out&"
+		#adb shell "nohup strace -f -p $processId -o $outputFile &> /sdcard/nohup.out&"
 
 		# Verifying the variables (for Debug)
-		echo "Process Id: "$processId
+		#echo "Process Id: "$processId
 
+		sleep 5
+
+		echo "starting monkey"
 		# Using monkey to generate a certain number of pseudo-random events
 		adb shell "monkey -p $package -v 5000 --throttle 100 --pct-appswitch 10 --ignore-crashes --pct-syskeys 0 > $straceOutFilePath"
 

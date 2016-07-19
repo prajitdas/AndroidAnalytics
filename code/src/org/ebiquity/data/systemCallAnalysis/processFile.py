@@ -45,7 +45,7 @@ def processFileGetFunctionNames(filePath):
 				continue
 			else:
 				syscall = line.split('(')[0].strip()
-				syscall = syscall.split(' ')[1].strip()
+				syscall = syscall.split(' ')[2].strip()
 				if syscall in syscallDict:
 					syscallDict[syscall] += 1
 				else:

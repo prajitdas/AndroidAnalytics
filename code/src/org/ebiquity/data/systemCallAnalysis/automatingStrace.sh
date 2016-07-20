@@ -86,7 +86,8 @@ else
 		# adb shell "am start -n $package/$activity && set `ps | grep $package` && echo $2 > $procIdPath"
 		processId=`adb shell "cat $procIdPath | tr -d '\n'"`
 		echo $processId
-		nohup adb shell "strace -f -p $processId -o $outputFile" &
+		# nohup adb shell "strace -f -p $processId -o $outputFile" &
+		nohup adb shell "strace -p $processId -o $outputFile" &
 		# echo "started strace" `ps | grep 'strace'`
 		# am start -n us.wifitools.wifiscananalyzer/us.wifitools.wifiscananalyzer.MainActivity && set `ps | grep us.wifitools.wifiscananalyzer` && strace -f -p $2 -o /sdcard/output.out
 

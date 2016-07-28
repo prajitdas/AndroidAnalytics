@@ -1816,7 +1816,7 @@
         ]
     ], 
     "com.glis.lunarcalendar.run1": [
-        "lifestyle", 
+        "personalization", 
         "lunar_calendar", 
         [
             3.4773549342277934, 
@@ -2516,7 +2516,7 @@
         ]
     ], 
     "com.liferecipes.drinksrecipes.run1": [
-        "health_n_fitness", 
+        "health & fitness", 
         "drink_recipes", 
         [
             3.136567762236264, 
@@ -5316,7 +5316,7 @@
         ]
     ], 
     "pdf.reader.run1": [
-        "books_n_reference", 
+        "books & reference", 
         "pdf_reader", 
         [
             3.7702959433558196, 

@@ -306,8 +306,8 @@ def main(argv):
 		sys.stderr.write('Usage: python computeDistance.py\n')
 		sys.exit(1)
 
-	jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
-	# jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
+	# jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
+	jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
 
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')

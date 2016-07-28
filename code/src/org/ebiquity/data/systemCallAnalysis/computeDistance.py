@@ -222,6 +222,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	jsonDict = runAgain(jsonDict)
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
+	print numberOfApps
 	appVector = jsonDict.keys()
 	appRunVector = []
 	termDocMatrix = {}

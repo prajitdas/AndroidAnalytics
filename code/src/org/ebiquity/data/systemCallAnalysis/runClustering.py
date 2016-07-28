@@ -249,8 +249,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	# 	categories = ''.join(appCategoryListSelection)
 	# metrics = 'jaccard'
 	fileName = metric+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
-	# plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
-	# plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
+	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
+	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	# clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)

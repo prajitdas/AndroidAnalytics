@@ -307,7 +307,8 @@ def main(argv):
 		sys.exit(1)
 
 	# jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
-	jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
+	# jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
+	jsonDict = json.loads(open('oldMasterJsonOutputFileJul20.json','r').read())
 
 	startTime = time.time()
 	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')

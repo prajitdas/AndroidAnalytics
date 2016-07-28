@@ -1,7 +1,7 @@
 '''
 Created on July 1, 2016
 @author: Prajit Kumar Das
-Usage: python getCategoryInfoForApp.py
+Usage: python setOnServerAppListToDownload.py
 '''
 import requests
 import json
@@ -51,7 +51,7 @@ def storeDataonServer(url,searchStringList):
 
 def main(argv):
 	if len(sys.argv) != 1:
-		sys.stderr.write('Usage: python getCategoryInfoForApp.py\n')
+		sys.stderr.write('Usage: python setOnServerAppListToDownload.py\n')
 		sys.exit(1)
 
 	# Server URL from Ngrok to get the data

@@ -412,7 +412,7 @@
         ]
     ], 
     "app.alarmclock.TueJul19150309EDT2016.out": [
-        "health&fitness", 
+        "health_n_fitness", 
         "alarm_clock", 
         [
             0.0, 
@@ -1452,7 +1452,7 @@
         ]
     ], 
     "appinventor.ai_seudock.Normalistas_Ayotzinapa.TueJul19142722EDT2016.out": [
-        "news&magazines", 
+        "news_n_magazines", 
         "to_do_list", 
         [
             0.0, 
@@ -1556,7 +1556,7 @@
         ]
     ], 
     "appinventor.ai_shezan_syed1.ShezanAlarmClock2.TueJul19050559EDT2016.out": [
-        "travel&local", 
+        "travel_n_local", 
         "alarm_clock", 
         [
             0.31162157760358317, 
@@ -2284,7 +2284,7 @@
         ]
     ], 
     "bg.angelov.light.sleep.alarm.clock.TueJul19133324EDT2016.out": [
-        "health&fitness", 
+        "health_n_fitness", 
         "alarm_clock", 
         [
             0.9136022277304903, 
@@ -2700,8 +2700,8 @@
         ]
     ], 
     "calendrier.lunaire.duJardinier.TueJul19014549EDT2016.out": [
-        "tools", 
         "lunar_calendar", 
+        "tools", 
         [
             0.7495472530625489, 
             1.4036771644363275, 
@@ -2804,8 +2804,8 @@
         ]
     ], 
     "ch.bitspin.timely.TueJul19175159EDT2016.out": [
-        "lifestyle", 
         "alarm_clock", 
+        "lifestyle", 
         [
             0.3767697938756425, 
             0.0, 
@@ -3012,8 +3012,8 @@
         ]
     ], 
     "cm.du.go.battery.doctor.TueJul19075630EDT2016.out": [
-        "tools", 
         "battery_saver", 
+        "tools", 
         [
             0.6308371235194193, 
             0.0, 
@@ -3636,8 +3636,8 @@
         ]
     ], 
     "com.Adcoms.FileSystem.TueJul19044808EDT2016.out": [
-        "productivity", 
         "file_explorer", 
+        "productivity", 
         [
             0.4458296860672951, 
             1.4036771644363275, 
@@ -4572,8 +4572,8 @@
         ]
     ], 
     "com.LEO.Mr_Bartender.TueJul19015333EDT2016.out": [
-        "lifestyle", 
         "drink_recipes", 
+        "lifestyle", 
         [
             0.580037794531007, 
             0.0, 
@@ -5196,7 +5196,7 @@
         ]
     ], 
     "com.WakeUpAlarmClockRingtones.FreeSounds.TueJul19111750EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.6308371235194193, 
@@ -5300,7 +5300,7 @@
         ]
     ], 
     "com.WakeUpAlarmClockRingtones.apps.TueJul19193640EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.6883913714792257, 
@@ -7692,7 +7692,7 @@
         ]
     ], 
     "com.alphainventor.filemanager.TueJul19192655EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.5109779023393545, 
@@ -7900,7 +7900,7 @@
         ]
     ], 
     "com.amaze.filemanager.TueJul19032155EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.0, 
@@ -8316,7 +8316,7 @@
         ]
     ], 
     "com.analyzer7.wifimanager7.TueJul19122901EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "wifi_analyzer", 
         [
             0.2684162169274239, 
@@ -8420,8 +8420,8 @@
         ]
     ], 
     "com.android.lunarcal.TueJul19044024EDT2016.out": [
-        "tools", 
         "lunar_calendar", 
+        "tools", 
         [
             0.5243363968112842, 
             1.4036771644363275, 
@@ -8524,7 +8524,7 @@
         ]
     ], 
     "com.android2.calculator3.TueJul19150120EDT2016.out": [
-        "Tools", 
+        "tools", 
         "scientific_calculator", 
         [
             0.0, 
@@ -9044,7 +9044,7 @@
         ]
     ], 
     "com.andronicus.ledclock.TueJul19043200EDT2016.out": [
-        "Tools", 
+        "tools", 
         "alarm_clock", 
         [
             0.0, 
@@ -9564,7 +9564,7 @@
         ]
     ], 
     "com.anydo.TueJul19075416EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "to_do_list", 
         [
             0.6519804403087326, 
@@ -9772,8 +9772,8 @@
         ]
     ], 
     "com.apalon.myclockfree.TueJul19112129EDT2016.out": [
-        "productivity", 
         "alarm_clock", 
+        "productivity", 
         [
             1.3505892185827535, 
             1.4036771644363275, 
@@ -10292,7 +10292,7 @@
         ]
     ], 
     "com.appsdevinc.alarmclocksoundsringtones.TueJul19043758EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.6070986936408206, 
@@ -10396,7 +10396,7 @@
         ]
     ], 
     "com.appsfriendly.veryloudalarmclocksounds.TueJul19025054EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.615339144598837, 
@@ -10500,7 +10500,7 @@
         ]
     ], 
     "com.appspot.ysl.trafficalarmclock.TueJul19210229EDT2016.out": [
-        "travel&local", 
+        "travel_n_local", 
         "alarm_clock", 
         [
             0.9789972526688911, 
@@ -11748,8 +11748,8 @@
         ]
     ], 
     "com.asus.filemanager.TueJul19113700EDT2016.out": [
-        "tools", 
         "file_explorer", 
+        "tools", 
         [
             0.8992533404468432, 
             0.0, 
@@ -11956,8 +11956,8 @@
         ]
     ], 
     "com.augmentedminds.waveAlarm.TueJul19094134EDT2016.out": [
-        "tools", 
         "alarm_clock", 
+        "tools", 
         [
             0.4254296384154021, 
             0.0, 
@@ -13932,7 +13932,7 @@
         ]
     ], 
     "com.better.alarm.TueJul19204939EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "alarm_clock", 
         [
             0.40262432539113585, 
@@ -15284,7 +15284,7 @@
         ]
     ], 
     "com.candl.athena.TueJul19192325EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.6070986936408206, 
@@ -15908,8 +15908,8 @@
         ]
     ], 
     "com.codeaddictsofcseku.androidmediaplayer.TueJul19200038EDT2016.out": [
-        "media_n_video", 
         "video_playback", 
+        "media_n_video", 
         [
             1.1050185226275189, 
             1.4036771644363275, 
@@ -16116,8 +16116,8 @@
         ]
     ], 
     "com.codeswitch.tasks.TueJul19122558EDT2016.out": [
-        "productivity", 
         "to_do_list", 
+        "productivity", 
         [
             0.6308371235194193, 
             1.4036771644363275, 
@@ -16428,7 +16428,7 @@
         ]
     ], 
     "com.customsolutions.android.utl.TueJul19162930EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.7236927215470556, 
@@ -16844,7 +16844,7 @@
         ]
     ], 
     "com.dani.fastpdfreader.TueJul19091240EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.7326999908242928, 
@@ -17572,7 +17572,7 @@
         ]
     ], 
     "com.dencreak.dlcalculator.TueJul19041933EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "scientific_calculator", 
         [
             0.598491882360581, 
@@ -18092,8 +18092,8 @@
         ]
     ], 
     "com.dgtex.MisteriumMoon.TueJul19132422EDT2016.out": [
-        "lifestyle", 
         "lunar_calendar", 
+        "lifestyle", 
         [
             0.6519804403087326, 
             0.0, 
@@ -18196,7 +18196,7 @@
         ]
     ], 
     "com.diabetesdrinkrecipes.diabetesdrinkrecipes.TueJul19072756EDT2016.out": [
-        "health&fitness", 
+        "health_n_fitness", 
         "drink_recipes", 
         [
             0.580037794531007, 
@@ -18300,7 +18300,7 @@
         ]
     ], 
     "com.dianxinos.dxbs.TueJul19062312EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.8508592768308042, 
@@ -18508,8 +18508,8 @@
         ]
     ], 
     "com.digitalchemy.calculator.freedecimal.TueJul19032506EDT2016.out": [
-        "tools", 
         "scientific_calculator", 
+        "tools", 
         [
             0.782821135677924, 
             1.4036771644363275, 
@@ -18612,8 +18612,8 @@
         ]
     ], 
     "com.digitaloutcrop.mixology.TueJul19202103EDT2016.out": [
-        "lifestyle", 
         "drink_recipes", 
+        "lifestyle", 
         [
             0.580037794531007, 
             0.0, 
@@ -19340,7 +19340,7 @@
         ]
     ], 
     "com.djdevelopers.PDFReaderUltimate.TueJul19104716EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.7236927215470556, 
@@ -19652,7 +19652,7 @@
         ]
     ], 
     "com.dp.pdfreader.TueJul19040851EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.5243363968112842, 
@@ -19860,7 +19860,7 @@
         ]
     ], 
     "com.duyhoang.filemanager.TueJul19202843EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.21271481920770105, 
@@ -20172,8 +20172,8 @@
         ]
     ], 
     "com.estrongs.android.pop.TueJul19035454EDT2016.out": [
-        "productivity", 
         "file_explorer", 
+        "productivity", 
         [
             1.0937621453663084, 
             6.599396627206223, 
@@ -20276,7 +20276,7 @@
         ]
     ], 
     "com.ext.ui.TueJul19050309EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             1.2639521718130489, 
@@ -21004,7 +21004,7 @@
         ]
     ], 
     "com.fric.woodlandalarm.TueJul19060729EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.615339144598837, 
@@ -21420,7 +21420,7 @@
         ]
     ], 
     "com.gau.go.launcherex.gowidget.gopowermaster.TueJul19064008EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.8935859688514852, 
@@ -22044,8 +22044,8 @@
         ]
     ], 
     "com.ghisler.android.TotalCommander.TueJul19111129EDT2016.out": [
-        "tools", 
         "file_explorer", 
+        "tools", 
         [
             0.6710405423185597, 
             4.682965541965821, 
@@ -22564,7 +22564,7 @@
         ]
     ], 
     "com.gloriousdj.alarmclock.TueJul19045244EDT2016.out": [
-        "health&fitness", 
+        "health_n_fitness", 
         "alarm_clock", 
         [
             0.0, 
@@ -22980,7 +22980,7 @@
         ]
     ], 
     "com.google.android.deskclock.TueJul19101625EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.0, 
@@ -23188,7 +23188,7 @@
         ]
     ], 
     "com.gubbel.nightclock.free.TueJul19031425EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.6648933157749233, 
@@ -23500,8 +23500,8 @@
         ]
     ], 
     "com.guru.cocktails.TueJul19083151EDT2016.out": [
-        "lifestyle", 
         "drink_recipes", 
+        "lifestyle", 
         [
             0.4254296384154021, 
             0.0, 
@@ -23916,8 +23916,8 @@
         ]
     ], 
     "com.harchali.scientifique.calculatrice.TueJul19054257EDT2016.out": [
-        "tools", 
         "scientific_calculator", 
+        "tools", 
         [
             0.5243363968112842, 
             1.4036771644363275, 
@@ -25060,7 +25060,7 @@
         ]
     ], 
     "com.ijinshan.kbatterydoctor_en.TueJul19075848EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.8733988089313499, 
@@ -25372,7 +25372,7 @@
         ]
     ], 
     "com.informaticsdev.multilist.TueJul19210441EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.13420810846371195, 
@@ -25892,7 +25892,7 @@
         ]
     ], 
     "com.insplisity.wakeupringtones.TueJul19040553EDT2016.out": [
-        "Personalization", 
+        "personalization", 
         "file_explorer", 
         [
             0.714245902994719, 
@@ -26204,7 +26204,7 @@
         ]
     ], 
     "com.iringtones.alarmclockringtones.TueJul19205818EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.598491882360581, 
@@ -26724,7 +26724,7 @@
         ]
     ], 
     "com.jarbull.pdfreader.TueJul19053100EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.7495472530625489, 
@@ -26828,8 +26828,8 @@
         ]
     ], 
     "com.javali.wifisnr.TueJul19144827EDT2016.out": [
-        "tools", 
         "wifi_analyzer", 
+        "tools", 
         [
             0.21271481920770105, 
             0.0, 
@@ -27140,8 +27140,8 @@
         ]
     ], 
     "com.jhankis.ScientificCalc.TueJul19114720EDT2016.out": [
-        "productivity", 
         "scientific_calculator", 
+        "productivity", 
         [
             0.7687333696375321, 
             0.0, 
@@ -28180,7 +28180,7 @@
         ]
     ], 
     "com.jxt.alarmclockextended.TueJul19172939EDT2016.out": [
-        "health&fitness", 
+        "health_n_fitness", 
         "alarm_clock", 
         [
             0.0, 
@@ -28492,7 +28492,7 @@
         ]
     ], 
     "com.kare.bestpdfreader.TueJul19195201EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.5109779023393545, 
@@ -29012,8 +29012,8 @@
         ]
     ], 
     "com.keuwl.wifi.TueJul19194700EDT2016.out": [
-        "tools", 
         "wifi_analyzer", 
+        "tools", 
         [
             0.8225994799429378, 
             0.0, 
@@ -30988,7 +30988,7 @@
         ]
     ], 
     "com.liferecipes.drinksrecipes.TueJul19014110EDT2016.out": [
-        "health&fitness", 
+        "health_n_fitness", 
         "drink_recipes", 
         [
             0.8052486507822717, 
@@ -31092,8 +31092,8 @@
         ]
     ], 
     "com.linpus.battery.TueJul19154401EDT2016.out": [
-        "tools", 
         "battery_saver", 
+        "tools", 
         [
             0.6070986936408206, 
             0.0, 
@@ -31404,8 +31404,8 @@
         ]
     ], 
     "com.lonelycatgames.Xplore.TueJul19191336EDT2016.out": [
-        "tools", 
         "file_explorer", 
+        "tools", 
         [
             0.0, 
             4.544919570012222, 
@@ -31716,8 +31716,8 @@
         ]
     ], 
     "com.lunafaqt.TueJul19021824EDT2016.out": [
-        "books_n_reference", 
         "lunar_calendar", 
+        "books_n_reference", 
         [
             0.13420810846371195, 
             0.0, 
@@ -31820,7 +31820,7 @@
         ]
     ], 
     "com.m54inter.alarmclocksound.TueJul19025835EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.7413068021045325, 
@@ -31924,8 +31924,8 @@
         ]
     ], 
     "com.macropinch.axe.TueJul19022514EDT2016.out": [
-        "tools", 
         "alarm_clock", 
+        "tools", 
         [
             0.6381444576231032, 
             1.4036771644363275, 
@@ -32028,7 +32028,7 @@
         ]
     ], 
     "com.macropinch.pearl.TueJul19193225EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.7236927215470556, 
@@ -32444,7 +32444,7 @@
         ]
     ], 
     "com.manageengine.wifimonitor.TueJul19151023EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.13420810846371195, 
@@ -32756,7 +32756,7 @@
         ]
     ], 
     "com.mcafee.batteryoptimizer.TueJul19105527EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.9187202712444038, 
@@ -33172,8 +33172,8 @@
         ]
     ], 
     "com.mefree.videoplayer.TueJul19181903EDT2016.out": [
-        "media_n_video", 
         "video_playback", 
+        "media_n_video", 
         [
             1.0189692975637477, 
             8.169890164511656, 
@@ -33380,7 +33380,7 @@
         ]
     ], 
     "com.meonria.scientificcalc.TueJul19045016EDT2016.out": [
-        "Tools", 
+        "tools", 
         "scientific_calculator", 
         [
             0.598491882360581, 
@@ -33484,7 +33484,7 @@
         ]
     ], 
     "com.metago.astro.TueJul19131357EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.6308371235194193, 
@@ -34420,7 +34420,7 @@
         ]
     ], 
     "com.mobisystems.fileman.TueJul19050116EDT2016.out": [
-        "Business", 
+        "business", 
         "file_explorer", 
         [
             0.6585445052749962, 
@@ -35148,7 +35148,7 @@
         ]
     ], 
     "com.my.repair.battery.saver.tip.TueJul19120642EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "battery_saver", 
         [
             0.559637746879114, 
@@ -35356,8 +35356,8 @@
         ]
     ], 
     "com.mybarapp.free.TueJul19073306EDT2016.out": [
-        "lifestyle", 
         "drink_recipes", 
+        "lifestyle", 
         [
             0.481131036135125, 
             1.4036771644363275, 
@@ -35772,7 +35772,7 @@
         ]
     ], 
     "com.n225zero.ColorfulCalc.TueJul19201128EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "scientific_calculator", 
         [
             0.4966290150557074, 
@@ -36396,7 +36396,7 @@
         ]
     ], 
     "com.netgear.WiFiAnalytics.TueJul19082557EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.9814481888452331, 
@@ -36500,7 +36500,7 @@
         ]
     ], 
     "com.nexamuse.BestPDFReader.TueJul19175610EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.5485706563399178, 
@@ -37644,7 +37644,7 @@
         ]
     ], 
     "com.nqgak52156.taskkillerbatterysaver.TueJul19154604EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "battery_saver", 
         [
             0.5701063164702229, 
@@ -37852,7 +37852,7 @@
         ]
     ], 
     "com.nutsaboutnets.wifiexplorer.TueJul19051059EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.0, 
@@ -38060,8 +38060,8 @@
         ]
     ], 
     "com.oasisfeng.greenify.TueJul19190351EDT2016.out": [
-        "tools", 
         "battery_saver", 
+        "tools", 
         [
             0.7574512636708782, 
             0.0, 
@@ -39204,7 +39204,7 @@
         ]
     ], 
     "com.onegogo.explorer.TueJul19200530EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.0, 
@@ -39516,8 +39516,8 @@
         ]
     ], 
     "com.overlook.android.fing.TueJul19015723EDT2016.out": [
-        "tools", 
         "wifi_analyzer", 
+        "tools", 
         [
             0.8484540114584308, 
             0.0, 
@@ -40764,7 +40764,7 @@
         ]
     ], 
     "com.pinapps.amped.TueJul19033529EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.7190269205357611, 
@@ -41388,8 +41388,8 @@
         ]
     ], 
     "com.probcomp.filexplorer.TueJul19024308EDT2016.out": [
-        "productivity", 
         "file_explorer", 
+        "productivity", 
         [
             0.5243363968112842, 
             1.4036771644363275, 
@@ -41700,7 +41700,7 @@
         ]
     ], 
     "com.pzolee.wifiinfo.TueJul19094444EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.598491882360581, 
@@ -42012,7 +42012,7 @@
         ]
     ], 
     "com.quartzapp.optimizadorBateria.TueJul19120353EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.7959530398694261, 
@@ -42948,7 +42948,7 @@
         ]
     ], 
     "com.roamingsquirrel.android.calculator.TueJul19041100EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.5243363968112842, 
@@ -43156,8 +43156,8 @@
         ]
     ], 
     "com.rosamaria.svegliaparlante.TueJul19150743EDT2016.out": [
-        "tools", 
         "alarm_clock", 
+        "tools", 
         [
             0.7236927215470556, 
             1.4036771644363275, 
@@ -43260,8 +43260,8 @@
         ]
     ], 
     "com.rotha.calendar2015.TueJul19011818EDT2016.out": [
-        "lifestyle", 
         "lunar_calendar", 
+        "lifestyle", 
         [
             0.559637746879114, 
             1.4036771644363275, 
@@ -43676,7 +43676,7 @@
         ]
     ], 
     "com.saving.batterysaverapps.TueJul19020910EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "battery_saver", 
         [
             0.580037794531007, 
@@ -43780,7 +43780,7 @@
         ]
     ], 
     "com.scaleasw.powercalc.TueJul19105031EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.5894846130833435, 
@@ -44092,8 +44092,8 @@
         ]
     ], 
     "com.scientific.calc.TueJul19140321EDT2016.out": [
-        "tools", 
         "scientific_calculator", 
+        "tools", 
         [
             0.5701063164702229, 
             1.4036771644363275, 
@@ -46068,7 +46068,7 @@
         ]
     ], 
     "com.smartmadsoft.wear.pdfreader.TueJul19101415EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "pdf_reader", 
         [
             0.40262432539113585, 
@@ -46276,7 +46276,7 @@
         ]
     ], 
     "com.smartwho.SmartFileManager.TueJul19180333EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.5368324338548478, 
@@ -46484,7 +46484,7 @@
         ]
     ], 
     "com.sodanijawad11.alarmclockringtones.ringtonealarm.TueJul19183721EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.5368324338548478, 
@@ -47212,8 +47212,8 @@
         ]
     ], 
     "com.speedsoftware.allin1calcfree.TueJul19195030EDT2016.out": [
-        "productivity", 
         "scientific_calculator", 
+        "productivity", 
         [
             0.4254296384154021, 
             0.0, 
@@ -47316,8 +47316,8 @@
         ]
     ], 
     "com.speedsoftware.explorer.TueJul19165954EDT2016.out": [
-        "productivity", 
         "file_explorer", 
+        "productivity", 
         [
             0.7495472530625489, 
             0.0, 
@@ -47524,7 +47524,7 @@
         ]
     ], 
     "com.splendapps.splendo.TueJul19161911EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.13420810846371195, 
@@ -48668,8 +48668,8 @@
         ]
     ], 
     "com.sykora.neonalarm.free.TueJul19101941EDT2016.out": [
-        "lifestyle", 
         "alarm_clock", 
+        "lifestyle", 
         [
             0.615339144598837, 
             1.4036771644363275, 
@@ -48772,7 +48772,7 @@
         ]
     ], 
     "com.tal.tal.todolist21.TueJul19145605EDT2016.out": [
-        "libraries&demo", 
+        "libraries_n_demo", 
         "to_do_list", 
         [
             0.0, 
@@ -50748,7 +50748,7 @@
         ]
     ], 
     "com.tmcorp.batterysavertips.TueJul19115901EDT2016.out": [
-        "books&reference", 
+        "books_n_reference", 
         "battery_saver", 
         [
             0.2684162169274239, 
@@ -51580,7 +51580,7 @@
         ]
     ], 
     "com.todoist.TueJul19205637EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.5701063164702229, 
@@ -52412,7 +52412,7 @@
         ]
     ], 
     "com.topfreeringtones.FunnyAlarmClockRingtones.TueJul19171826EDT2016.out": [
-        "music&audio", 
+        "music_n_audio", 
         "alarm_clock", 
         [
             0.6991508823309793, 
@@ -52516,7 +52516,7 @@
         ]
     ], 
     "com.tricolorcat.calculator.TueJul19132851EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.6070986936408206, 
@@ -52620,8 +52620,8 @@
         ]
     ], 
     "com.vj.filemanager.TueJul19042731EDT2016.out": [
-        "productivity", 
         "file_explorer", 
+        "productivity", 
         [
             0.481131036135125, 
             1.4036771644363275, 
@@ -52724,7 +52724,7 @@
         ]
     ], 
     "com.voaltun.optimizer.TueJul19102159EDT2016.out": [
-        "Tools", 
+        "tools", 
         "file_explorer", 
         [
             0.13420810846371195, 
@@ -53140,8 +53140,8 @@
         ]
     ], 
     "com.webworks.drinkscocktails.TueJul19191704EDT2016.out": [
-        "entertainment", 
         "drink_recipes", 
+        "entertainment", 
         [
             0.7370512160189853, 
             1.4036771644363275, 
@@ -53244,8 +53244,8 @@
         ]
     ], 
     "com.yourchineseastrology.chinesecalendar.TueJul19204046EDT2016.out": [
-        "tools", 
         "lunar_calendar", 
+        "tools", 
         [
             0.0, 
             0.0, 
@@ -53348,8 +53348,8 @@
         ]
     ], 
     "com.zgz.supervideo.TueJul19141405EDT2016.out": [
-        "media_n_video", 
         "video_playback", 
+        "media_n_video", 
         [
             0.481131036135125, 
             5.470421780857919, 
@@ -53556,8 +53556,8 @@
         ]
     ], 
     "fr.calendrierlunaire.android.TueJul19154031EDT2016.out": [
-        "tools", 
         "lunar_calendar", 
+        "tools", 
         [
             0.7454708630772775, 
             0.0, 
@@ -53868,8 +53868,8 @@
         ]
     ], 
     "hu.distinction.cflow.TueJul19134537EDT2016.out": [
-        "lifestyle", 
         "drink_recipes", 
+        "lifestyle", 
         [
             0.13420810846371195, 
             0.0, 
@@ -53972,8 +53972,8 @@
         ]
     ], 
     "it.bisemanuDEV.bismagsimplecalculator.TueJul19074432EDT2016.out": [
-        "tools", 
         "scientific_calculator", 
+        "tools", 
         [
             0.13420810846371195, 
             0.0, 
@@ -54076,8 +54076,8 @@
         ]
     ], 
     "jakiganicsystems.simplestchecklist.TueJul19163407EDT2016.out": [
-        "productivity", 
         "to_do_list", 
+        "productivity", 
         [
             0.0, 
             0.0, 
@@ -54180,8 +54180,8 @@
         ]
     ], 
     "jp.Appsys.PanecalST.TueJul19073726EDT2016.out": [
-        "productivity", 
         "scientific_calculator", 
+        "productivity", 
         [
             0.559637746879114, 
             6.1970400857722865, 
@@ -54284,8 +54284,8 @@
         ]
     ], 
     "lync.com.batteryoptimizer.TueJul19065836EDT2016.out": [
-        "tools", 
         "battery_saver", 
+        "tools", 
         [
             0.8624568372155884, 
             0.0, 
@@ -54388,7 +54388,7 @@
         ]
     ], 
     "mobi.infolife.uninstaller.TueJul19200648EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.8280539638065381, 
@@ -54492,8 +54492,8 @@
         ]
     ], 
     "net.sf.andpdf.pdfviewer.TueJul19055711EDT2016.out": [
-        "productivity", 
         "pdf_reader", 
+        "productivity", 
         [
             0.21271481920770105, 
             0.0, 
@@ -54596,8 +54596,8 @@
         ]
     ], 
     "net.techet.netanalyzerlite.an.TueJul19103703EDT2016.out": [
-        "tools", 
         "wifi_analyzer", 
+        "tools", 
         [
             0.481131036135125, 
             1.9703099982800925, 
@@ -54700,8 +54700,8 @@
         ]
     ], 
     "nextapp.fx.TueJul19060449EDT2016.out": [
-        "business", 
         "file_explorer", 
+        "business", 
         [
             0.6883913714792257, 
             0.0, 
@@ -54804,7 +54804,7 @@
         ]
     ], 
     "org.ab.x48.TueJul19114121EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.4458296860672951, 
@@ -54908,8 +54908,8 @@
         ]
     ], 
     "org.hlousek.droid.twa.TueJul19043315EDT2016.out": [
-        "tools", 
         "wifi_analyzer", 
+        "tools", 
         [
             0.889713412312271, 
             0.0, 
@@ -55012,7 +55012,7 @@
         ]
     ], 
     "org.openintents.filemanager.TueJul19204529EDT2016.out": [
-        "Productivity", 
+        "productivity", 
         "file_explorer", 
         [
             0.7326999908242928, 
@@ -55116,8 +55116,8 @@
         ]
     ], 
     "org.solovyev.android.calculator.TueJul19190944EDT2016.out": [
-        "tools", 
         "scientific_calculator", 
+        "tools", 
         [
             0.6648933157749233, 
             1.4036771644363275, 
@@ -55220,8 +55220,8 @@
         ]
     ], 
     "pl.mkexplorer.kormateusz.TueJul19154228EDT2016.out": [
-        "productivity", 
         "file_explorer", 
+        "productivity", 
         [
             0.4458296860672951, 
             0.0, 
@@ -55324,8 +55324,8 @@
         ]
     ], 
     "roviminteractive.materialcopy.TueJul19074608EDT2016.out": [
-        "tools", 
         "scientific_calculator", 
+        "tools", 
         [
             0.21271481920770105, 
             0.0, 
@@ -55532,8 +55532,8 @@
         ]
     ], 
     "veg.network.mediaplayer.TueJul19073025EDT2016.out": [
-        "media_n_video", 
         "video_playback", 
+        "media_n_video", 
         [
             0.559637746879114, 
             6.0564154156916, 

@@ -18,7 +18,7 @@ def getData(searchString,dbHandle):
 		cursor.execute(sqlStatement)
 		for app_pkg_name, category in cursor:
 			tempAppInfoDict = {}
-			tempAppInfoDict['google_play_category'] = category.lower()
+			tempAppInfoDict['google_play_category'] = category.lower().replace(' ','_').replace('&','n')
 			tempAppInfoDict['annotated_category'] = searchString.replace('%','_')
 			appDict[app_pkg_name] = tempAppInfoDict
 	except:

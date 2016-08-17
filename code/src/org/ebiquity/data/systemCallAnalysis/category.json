@@ -11,7 +11,7 @@
         "annotated_category": "scientific_calculator", 
         "google_play_category": "tools"
     }, 
-    "air.com.redcodelabs.todoLists": {
+    "air.com.redcodelabs.TodoLists": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -25,7 +25,7 @@
     }, 
     "app.alarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "app.female.todolist": {
         "annotated_category": "to_do_list", 
@@ -51,7 +51,7 @@
         "annotated_category": "scientific_calculator", 
         "google_play_category": "tools"
     }, 
-    "appinventor.ai_cameronisveryawesome.talkingAlarmClock": {
+    "appinventor.ai_cameronisveryawesome.TalkingAlarmClock": {
         "annotated_category": "alarm_clock", 
         "google_play_category": "lifestyle"
     }, 
@@ -63,7 +63,7 @@
         "annotated_category": "to_do_list", 
         "google_play_category": "personalization"
     }, 
-    "appinventor.ai_lukeplanos11.toDoList": {
+    "appinventor.ai_lukeplanos11.ToDoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "lifestyle"
     }, 
@@ -71,17 +71,17 @@
         "annotated_category": "to_do_list", 
         "google_play_category": "shopping"
     }, 
-    "appinventor.ai_ramon_cargnel.the_dog_mentalist": {
+    "appinventor.ai_ramon_cargnel.The_dog_mentalist": {
         "annotated_category": "to_do_list", 
         "google_play_category": "entertainment"
     }, 
     "appinventor.ai_seudock.Normalistas_Ayotzinapa": {
         "annotated_category": "to_do_list", 
-        "google_play_category": "news & magazines"
+        "google_play_category": "news_n_magazines"
     }, 
     "appinventor.ai_shezan_syed1.ShezanAlarmClock2": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "travel & local"
+        "google_play_category": "travel_n_local"
     }, 
     "apps.batterydoctor.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -111,7 +111,7 @@
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
-    "b4a.toDoList": {
+    "b4a.ToDoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -185,7 +185,7 @@
     }, 
     "bg.angelov.light.sleep.alarm.clock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "big.battery.saver": {
         "annotated_category": "battery_saver", 
@@ -209,7 +209,7 @@
     }, 
     "books.ebook.pdf.reader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "booster.battery.saver.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -244,16 +244,16 @@
         "google_play_category": "tools"
     }, 
     "calendrier.lunaire.duJardinier": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "lunar_calendar"
     }, 
     "canary.yranac.todolist.free": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
     "ch.bitspin.timely": {
-        "annotated_category": "alarm_clock", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "alarm_clock"
     }, 
     "ch.smalltech.alarmclock.free": {
         "annotated_category": "alarm_clock", 
@@ -264,8 +264,8 @@
         "google_play_category": "productivity"
     }, 
     "cm.du.go.battery.doctor": {
-        "annotated_category": "battery_saver", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "battery_saver"
     }, 
     "cm.du.go.battery.saver": {
         "annotated_category": "battery_saver", 
@@ -295,17 +295,17 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "productivity"
     }, 
-    "com.AP.toDoList.talkingAlaram": {
+    "com.AP.ToDoList.TalkingAlaram": {
         "annotated_category": "to_do_list", 
         "google_play_category": "personalization"
     }, 
     "com.ARFixer.RRDcloud.VideoPlayback": {
         "annotated_category": "video_playback", 
-        "google_play_category": "news & magazines"
+        "google_play_category": "news_n_magazines"
     }, 
     "com.Adcoms.FileSystem": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "com.Adermodastudio.battery.saver": {
         "annotated_category": "battery_saver", 
@@ -403,11 +403,11 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "com.FreetipsBatterySaver": {
+    "com.FreeTipsBatterySaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "com.Gt.premiumbatterysaver": {
+    "com.GT.premiumbatterysaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
@@ -416,8 +416,8 @@
         "google_play_category": "lifestyle"
     }, 
     "com.LEO.Mr_Bartender": {
-        "annotated_category": "drink_recipes", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "drink_recipes"
     }, 
     "com.LongLizard.FileExplorer": {
         "annotated_category": "file_explorer", 
@@ -443,27 +443,27 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "com.Smart.toDoLists": {
+    "com.Smart.ToDoLists": {
         "annotated_category": "to_do_list", 
         "google_play_category": "lifestyle"
     }, 
-    "com.textAlarmFull.alarmclock": {
+    "com.TextAlarmFull.alarmclock": {
         "annotated_category": "alarm_clock", 
         "google_play_category": "tools"
     }, 
-    "com.todoListAdcoms": {
+    "com.TodoListAdcoms": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
     "com.WakeUpAlarmClockRingtones.FreeSounds": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.WakeUpAlarmClockRingtones.apps": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
-    "com.WiredWolf.ChristmastoDoList": {
+    "com.WiredWolf.ChristmasToDoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "entertainment"
     }, 
@@ -492,8 +492,8 @@
         "google_play_category": "tools"
     }, 
     "com.acadoid.pdfview": {
-        "annotated_category": "pdf_reader", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "pdf_reader"
     }, 
     "com.accdev.battery.optimizer.saver.life": {
         "annotated_category": "battery_saver", 
@@ -524,8 +524,8 @@
         "google_play_category": "productivity"
     }, 
     "com.adobe.reader": {
-        "annotated_category": "pdf_reader", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "pdf_reader"
     }, 
     "com.adsonik.pdfreaderwithdictionary": {
         "annotated_category": "pdf_reader", 
@@ -557,11 +557,11 @@
     }, 
     "com.alarm.clock.expert.plugin.farm.trial": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.alarm.clock.expert.plugin.underwater": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.alarm.clock.japanese": {
         "annotated_category": "alarm_clock", 
@@ -657,7 +657,7 @@
     }, 
     "com.alphainventor.filemanager": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.altitudeinfosys.snoozieitalarmclock": {
         "annotated_category": "alarm_clock", 
@@ -665,7 +665,7 @@
     }, 
     "com.alvn.alvnhousetodolistalvn": {
         "annotated_category": "to_do_list", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.amaze.filemanager": {
         "annotated_category": "file_explorer", 
@@ -709,7 +709,7 @@
     }, 
     "com.analyzer7.wifimanager7": {
         "annotated_category": "wifi_analyzer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.androIG.scientificcalculatorultra": {
         "annotated_category": "scientific_calculator", 
@@ -720,8 +720,8 @@
         "google_play_category": "tools"
     }, 
     "com.android.lunarcal": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "lunar_calendar"
     }, 
     "com.android2.calculator3": {
         "annotated_category": "scientific_calculator", 
@@ -801,15 +801,15 @@
     }, 
     "com.anydo": {
         "annotated_category": "to_do_list", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.apadana.free.neopdfreader": {
         "annotated_category": "pdf_reader", 
         "google_play_category": "productivity"
     }, 
     "com.apalon.myclockfree": {
-        "annotated_category": "alarm_clock", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "alarm_clock"
     }, 
     "com.aplicode.invifotos.dossier.VideoPlayback": {
         "annotated_category": "video_playback", 
@@ -857,11 +857,11 @@
     }, 
     "com.appsdevinc.alarmclocksoundsringtones": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.appsfriendly.veryloudalarmclocksounds": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.appsgaga.utility.todolistgo": {
         "annotated_category": "to_do_list", 
@@ -869,7 +869,7 @@
     }, 
     "com.appspot.ysl.trafficalarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "travel & local"
+        "google_play_category": "travel_n_local"
     }, 
     "com.appstall.fileExplorer": {
         "annotated_category": "file_explorer", 
@@ -921,11 +921,11 @@
     }, 
     "com.arwisdom.aiya.VideoPlayback_AIYA1": {
         "annotated_category": "video_playback", 
-        "google_play_category": "media & video"
+        "google_play_category": "media_n_video"
     }, 
     "com.arwisdom.aiya_video.VideoPlayback_2": {
         "annotated_category": "video_playback", 
-        "google_play_category": "media & video"
+        "google_play_category": "media_n_video"
     }, 
     "com.arwisdom.ghg.VideoPlayback": {
         "annotated_category": "video_playback", 
@@ -952,8 +952,8 @@
         "google_play_category": "tools"
     }, 
     "com.asus.filemanager": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "file_explorer"
     }, 
     "com.asus.todolist": {
         "annotated_category": "to_do_list", 
@@ -964,8 +964,8 @@
         "google_play_category": "tools"
     }, 
     "com.augmentedminds.waveAlarm": {
-        "annotated_category": "alarm_clock", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "alarm_clock"
     }, 
     "com.automaticbatterysaver": {
         "annotated_category": "battery_saver", 
@@ -1117,7 +1117,7 @@
     }, 
     "com.batterysaver.battery.phonebattery.sumsungbattery.saverbattery": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "news & magazines"
+        "google_play_category": "news_n_magazines"
     }, 
     "com.batterysaver.bdoctor": {
         "annotated_category": "battery_saver", 
@@ -1253,7 +1253,7 @@
     }, 
     "com.better.alarm": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.bhoojwood.todolist": {
         "annotated_category": "to_do_list", 
@@ -1353,7 +1353,7 @@
     }, 
     "com.caynax.alarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.cca.batterysaver.optimizer": {
         "annotated_category": "battery_saver", 
@@ -1363,7 +1363,7 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "com.ce.GoodtabletBatterySaver": {
+    "com.ce.GoodTabletBatterySaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
@@ -1401,7 +1401,7 @@
     }, 
     "com.chudodevelop.drinkrurecipesru.free": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.ciuapp.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -1420,8 +1420,8 @@
         "google_play_category": "tools"
     }, 
     "com.codeaddictsofcseku.androidmediaplayer": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
     "com.codelab.pdfreader": {
         "annotated_category": "pdf_reader", 
@@ -1436,8 +1436,8 @@
         "google_play_category": "education"
     }, 
     "com.codeswitch.tasks": {
-        "annotated_category": "to_do_list", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "to_do_list"
     }, 
     "com.codragon.mytodolist": {
         "annotated_category": "to_do_list", 
@@ -1449,7 +1449,7 @@
     }, 
     "com.cookware.healthydrinkrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.coolchoice.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -1477,11 +1477,11 @@
     }, 
     "com.customsolutions.android.utl": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.cyberlink.powerdvd.PMA140804_01": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
     "com.cybis.fast.battery.charger.and.saver": {
         "annotated_category": "battery_saver", 
@@ -1505,7 +1505,7 @@
     }, 
     "com.dani.fastpdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.daniel.fileexplorer": {
         "annotated_category": "file_explorer", 
@@ -1537,13 +1537,13 @@
     }, 
     "com.dencreak.dlcalculator": {
         "annotated_category": "scientific_calculator", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.detoxdrinks.weightloss.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
-    "com.devgooap.MytoDoListRemindtask": {
+    "com.devgooap.MyToDoListRemindTask": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -1560,16 +1560,16 @@
         "google_play_category": "tools"
     }, 
     "com.dgtex.MisteriumMoon": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "lunar_calendar"
     }, 
     "com.diabetesdrinkrecipes.diabetesdrinkrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.dianxinos.dxbs": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.dickmoonpie.BedsideAlarmClock": {
         "annotated_category": "alarm_clock", 
@@ -1580,12 +1580,12 @@
         "google_play_category": "tools"
     }, 
     "com.digitalchemy.calculator.freedecimal": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "scientific_calculator"
     }, 
     "com.digitaloutcrop.mixology": {
-        "annotated_category": "drink_recipes", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "drink_recipes"
     }, 
     "com.digitalzone.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -1615,7 +1615,7 @@
         "annotated_category": "video_playback", 
         "google_play_category": "entertainment"
     }, 
-    "com.distanpow.BatterySavertw": {
+    "com.distanpow.BatterySaverTw": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
@@ -1625,7 +1625,7 @@
     }, 
     "com.djdevelopers.PDFReaderUltimate": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.dnb.fileExplorer": {
         "annotated_category": "file_explorer", 
@@ -1651,13 +1651,13 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "com.doubletwist.alarmClockFree": {
+    "com.doubleTwist.alarmClockFree": {
         "annotated_category": "alarm_clock", 
         "google_play_category": "personalization"
     }, 
     "com.dp.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.drink.recipes.cocktails.rus": {
         "annotated_category": "drink_recipes", 
@@ -1669,7 +1669,7 @@
     }, 
     "com.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.drinksrecipe.drinkrecipes": {
         "annotated_category": "drink_recipes", 
@@ -1745,15 +1745,15 @@
     }, 
     "com.erik.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.esolution.wedding.VideoPlayback": {
         "annotated_category": "video_playback", 
         "google_play_category": "personalization"
     }, 
     "com.estrongs.android.pop": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "com.estsoft.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -1785,7 +1785,7 @@
     }, 
     "com.extwebtech.healthydrinksrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.fantasticone.batterysaverapp": {
         "annotated_category": "battery_saver", 
@@ -1805,7 +1805,7 @@
     }, 
     "com.farsi.batterysaver": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.fast.battery.saver.charging.gruapps": {
         "annotated_category": "battery_saver", 
@@ -1877,7 +1877,7 @@
     }, 
     "com.foodfree.drinksrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.forevertoy.drinkrecipes": {
         "annotated_category": "drink_recipes", 
@@ -1901,67 +1901,67 @@
     }, 
     "com.freeappscollection.blended.cocktails.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.coffee.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.gin.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.juice.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.lemonade.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.margaritas.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.martinis.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.punch.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.freeappscollection.rum.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.freeappscollection.sangria.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.shakes.floats.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.smoothies.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.tea.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.tequila.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.vodka.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappscollection.whiskey.drinks.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.freeappsforyou.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -1981,7 +1981,7 @@
     }, 
     "com.freeforfun.wakeupalarmclockringtones": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.freewifi5.analyzerconnect5": {
         "annotated_category": "wifi_analyzer", 
@@ -2041,7 +2041,7 @@
     }, 
     "com.gau.go.launcherex.gowidget.gopowermaster": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.gbubble.mytodolist": {
         "annotated_category": "to_do_list", 
@@ -2067,9 +2067,9 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "com.ghisler.android.totalCommander": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "tools"
+    "com.ghisler.android.TotalCommander": {
+        "annotated_category": "tools", 
+        "google_play_category": "file_explorer"
     }, 
     "com.gionel.cyclealarmclock": {
         "annotated_category": "alarm_clock", 
@@ -2093,7 +2093,7 @@
     }, 
     "com.gloriousdj.alarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.gocapricorn.scientificcalculatorfree": {
         "annotated_category": "scientific_calculator", 
@@ -2136,8 +2136,8 @@
         "google_play_category": "productivity"
     }, 
     "com.guru.cocktails": {
-        "annotated_category": "drink_recipes", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "drink_recipes"
     }, 
     "com.hakiles.batterysaverplus": {
         "annotated_category": "battery_saver", 
@@ -2164,8 +2164,8 @@
         "google_play_category": "tools"
     }, 
     "com.harchali.scientifique.calculatrice": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "scientific_calculator"
     }, 
     "com.haris_batterysaverplus": {
         "annotated_category": "battery_saver", 
@@ -2237,11 +2237,11 @@
     }, 
     "com.iamyayha.dubatterysaverpowerdoctor": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.iamyayha.esfileexplorerfilemanager": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.icxion.makkingoff.samples.VideoPlayback": {
         "annotated_category": "video_playback", 
@@ -2255,7 +2255,7 @@
         "annotated_category": "file_explorer", 
         "google_play_category": "tools"
     }, 
-    "com.igoryakovlev.toDoList": {
+    "com.igoryakovlev.ToDoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "tools"
     }, 
@@ -2285,7 +2285,7 @@
     }, 
     "com.informaticsdev.multilist": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.infoz.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -2305,7 +2305,7 @@
     }, 
     "com.insplisity.wakeupringtones": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Personalization"
+        "google_play_category": "personalization"
     }, 
     "com.ionicframework.todolist726599": {
         "annotated_category": "to_do_list", 
@@ -2317,7 +2317,7 @@
     }, 
     "com.iringtones.alarmclockringtones": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.ishaan.todolist": {
         "annotated_category": "to_do_list", 
@@ -2357,15 +2357,15 @@
     }, 
     "com.jarbull.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.jasonhsu.batterysaverflashlight": {
         "annotated_category": "battery_saver", 
         "google_play_category": "lifestyle"
     }, 
     "com.javali.wifisnr": {
-        "annotated_category": "wifi_analyzer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "wifi_analyzer"
     }, 
     "com.jayvp.profileexplorer": {
         "annotated_category": "file_explorer", 
@@ -2380,8 +2380,8 @@
         "google_play_category": "tools"
     }, 
     "com.jhankis.ScientificCalc": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "scientific_calculator"
     }, 
     "com.jiratbatlite.tech.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -2437,7 +2437,7 @@
     }, 
     "com.jxt.alarmclockextended": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.kaefa.batterysaverplusv1": {
         "annotated_category": "battery_saver", 
@@ -2449,7 +2449,7 @@
     }, 
     "com.kare.bestpdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.kayan.nurav.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -2472,8 +2472,8 @@
         "google_play_category": "tools"
     }, 
     "com.keuwl.wifi": {
-        "annotated_category": "wifi_analyzer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "wifi_analyzer"
     }, 
     "com.kewitschka.todolist": {
         "annotated_category": "to_do_list", 
@@ -2501,7 +2501,7 @@
     }, 
     "com.kittithatteam.wifianalyzerlitetoolsapp": {
         "annotated_category": "wifi_analyzer", 
-        "google_play_category": "libraries & demo"
+        "google_play_category": "libraries_n_demo"
     }, 
     "com.kk.AlarmClock": {
         "annotated_category": "alarm_clock", 
@@ -2589,7 +2589,7 @@
     }, 
     "com.liferecipes.drinksrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "com.lightalarmclock": {
         "annotated_category": "alarm_clock", 
@@ -2600,8 +2600,8 @@
         "google_play_category": "tools"
     }, 
     "com.linpus.battery": {
-        "annotated_category": "battery_saver", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "battery_saver"
     }, 
     "com.liquidum.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -2636,8 +2636,8 @@
         "google_play_category": "tools"
     }, 
     "com.lonelycatgames.Xplore": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "file_explorer"
     }, 
     "com.loopgam.EasyBatterySaverPro": {
         "annotated_category": "battery_saver", 
@@ -2652,8 +2652,8 @@
         "google_play_category": "productivity"
     }, 
     "com.lunafaqt": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "books_n_reference"
+        "annotated_category": "books_n_reference", 
+        "google_play_category": "lunar_calendar"
     }, 
     "com.lycan.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -2665,11 +2665,11 @@
     }, 
     "com.m54inter.alarmclocksound": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.macropinch.axe": {
-        "annotated_category": "alarm_clock", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "alarm_clock"
     }, 
     "com.macropinch.pearl": {
         "annotated_category": "file_explorer", 
@@ -2733,7 +2733,7 @@
     }, 
     "com.mcafee.batteryoptimizer": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.mcc.alarmclocklifetime": {
         "annotated_category": "alarm_clock", 
@@ -2752,8 +2752,8 @@
         "google_play_category": "productivity"
     }, 
     "com.mefree.videoplayer": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
     "com.megaprosoft.batterysaverplus": {
         "annotated_category": "battery_saver", 
@@ -2769,7 +2769,7 @@
     }, 
     "com.metago.astro": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.metardev.batterysaver.free": {
         "annotated_category": "battery_saver", 
@@ -2837,7 +2837,7 @@
     }, 
     "com.mobisystems.fileman": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Business"
+        "google_play_category": "business"
     }, 
     "com.mobozz.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -2873,17 +2873,17 @@
     }, 
     "com.mrv.drinkrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.mt.battery.charger.saver.doctor": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
     "com.multimedia.player": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
-    "com.musSharApp.mytoDoList": {
+    "com.musSharApp.myToDoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -2897,7 +2897,7 @@
     }, 
     "com.my.repair.battery.saver.tip": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.my.todo.list": {
         "annotated_category": "to_do_list", 
@@ -2905,15 +2905,15 @@
     }, 
     "com.myandroiddoes.alarmclockmax.free": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "media & video"
+        "google_play_category": "media_n_video"
     }, 
     "com.myandroidsweets.batterysaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "productivity"
     }, 
     "com.mybarapp.free": {
-        "annotated_category": "drink_recipes", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "drink_recipes"
     }, 
     "com.mysample.FileExplorer": {
         "annotated_category": "file_explorer", 
@@ -2933,11 +2933,11 @@
     }, 
     "com.n225zero.ColorfulCalc": {
         "annotated_category": "scientific_calculator", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.naga.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.nalexiou.todolistapp": {
         "annotated_category": "to_do_list", 
@@ -2977,7 +2977,7 @@
     }, 
     "com.nexamuse.BestPDFReader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.nexobeam.file.explorer": {
         "annotated_category": "file_explorer", 
@@ -3041,7 +3041,7 @@
     }, 
     "com.nqgak52156.taskkillerbatterysaver": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.nrs.scientificcalculator": {
         "annotated_category": "scientific_calculator", 
@@ -3060,8 +3060,8 @@
         "google_play_category": "productivity"
     }, 
     "com.oasisfeng.greenify": {
-        "annotated_category": "battery_saver", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "battery_saver"
     }, 
     "com.oceanicsoftware.smartalarmclock_free": {
         "annotated_category": "alarm_clock", 
@@ -3136,8 +3136,8 @@
         "google_play_category": "communication"
     }, 
     "com.overlook.android.fing": {
-        "annotated_category": "wifi_analyzer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "wifi_analyzer"
     }, 
     "com.oxygenexplorer.madalarmclock": {
         "annotated_category": "alarm_clock", 
@@ -3260,16 +3260,16 @@
         "google_play_category": "tools"
     }, 
     "com.probcomp.filexplorer": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "com.protool.BatteryLifeSaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
     "com.psafe.powerpro": {
-        "annotated_category": "battery_saver", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "battery_saver"
     }, 
     "com.pstursol.mytodolist": {
         "annotated_category": "to_do_list", 
@@ -3301,21 +3301,21 @@
     }, 
     "com.qualcomm.QCARSamples.VideoPlaybackZO2": {
         "annotated_category": "video_playback", 
-        "google_play_category": "media & video"
+        "google_play_category": "media_n_video"
     }, 
-    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_LKG_term_1_Online": {
+    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_LKG_Term_1_Online": {
         "annotated_category": "video_playback", 
         "google_play_category": "education"
     }, 
-    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_LKG_term_2_Online": {
+    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_LKG_Term_2_Online": {
         "annotated_category": "video_playback", 
         "google_play_category": "education"
     }, 
-    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_LKG_term_3_Online": {
+    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_LKG_Term_3_Online": {
         "annotated_category": "video_playback", 
         "google_play_category": "education"
     }, 
-    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_UKG_term_3_Online": {
+    "com.qualcomm.vuforia.samples.VideoPlayback.Essence_UKG_Term_3_Online": {
         "annotated_category": "video_playback", 
         "google_play_category": "education"
     }, 
@@ -3413,7 +3413,7 @@
     }, 
     "com.rimage.signal.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "media & video"
+        "google_play_category": "media_n_video"
     }, 
     "com.rinotera.pdfreader": {
         "annotated_category": "pdf_reader", 
@@ -3436,12 +3436,12 @@
         "google_play_category": "tools"
     }, 
     "com.rosamaria.svegliaparlante": {
-        "annotated_category": "alarm_clock", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "alarm_clock"
     }, 
     "com.rotha.calendar2015": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "lunar_calendar"
     }, 
     "com.rs.lite.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -3475,7 +3475,7 @@
         "annotated_category": "video_playback", 
         "google_play_category": "education"
     }, 
-    "com.rsar.VideoPlayback.RS_times_AR": {
+    "com.rsar.VideoPlayback.RS_Times_AR": {
         "annotated_category": "video_playback", 
         "google_play_category": "education"
     }, 
@@ -3529,7 +3529,7 @@
     }, 
     "com.saving.batterysaverapps": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.scaleasw.powercalc": {
         "annotated_category": "file_explorer", 
@@ -3544,8 +3544,8 @@
         "google_play_category": "lifestyle"
     }, 
     "com.scientific.calc": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "scientific_calculator"
     }, 
     "com.scientific.calculator": {
         "annotated_category": "scientific_calculator", 
@@ -3665,7 +3665,7 @@
     }, 
     "com.smartmadsoft.wear.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.smartmaster.scientificcalculator": {
         "annotated_category": "scientific_calculator", 
@@ -3673,7 +3673,7 @@
     }, 
     "com.smartwho.SmartFileManager": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.snappii_corp.video_recording_and_playback": {
         "annotated_category": "video_playback", 
@@ -3681,7 +3681,7 @@
     }, 
     "com.sodanijawad11.alarmclockringtones.ringtonealarm": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.softapp.batterysaverfree": {
         "annotated_category": "battery_saver", 
@@ -3740,12 +3740,12 @@
         "google_play_category": "tools"
     }, 
     "com.speedsoftware.allin1calcfree": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "scientific_calculator"
     }, 
     "com.speedsoftware.explorer": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "com.spinmealarmclock": {
         "annotated_category": "alarm_clock", 
@@ -3753,7 +3753,7 @@
     }, 
     "com.splendapps.splendo": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.splunchy.android.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -3775,7 +3775,7 @@
         "annotated_category": "alarm_clock", 
         "google_play_category": "tools"
     }, 
-    "com.ss.toDoListFree": {
+    "com.ss.ToDoListFree": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -3844,8 +3844,8 @@
         "google_play_category": "entertainment"
     }, 
     "com.sykora.neonalarm.free": {
-        "annotated_category": "alarm_clock", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "alarm_clock"
     }, 
     "com.taconairwaves.alarmclockplusfree": {
         "annotated_category": "alarm_clock", 
@@ -3857,7 +3857,7 @@
     }, 
     "com.tal.tal.todolist21": {
         "annotated_category": "to_do_list", 
-        "google_play_category": "libraries & demo"
+        "google_play_category": "libraries_n_demo"
     }, 
     "com.tapevolve.util.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -3943,11 +3943,11 @@
         "annotated_category": "lunar_calendar", 
         "google_play_category": "tools"
     }, 
-    "com.tictactoeAlarmClock": {
+    "com.ticTacToeAlarmClock": {
         "annotated_category": "alarm_clock", 
         "google_play_category": "lifestyle"
     }, 
-    "com.tictactoeAlarmClockLite": {
+    "com.ticTacToeAlarmClockLite": {
         "annotated_category": "alarm_clock", 
         "google_play_category": "lifestyle"
     }, 
@@ -3977,7 +3977,7 @@
     }, 
     "com.tmcorp.batterysavertips": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.tmeliveclockapps.batterysaverclock": {
         "annotated_category": "battery_saver", 
@@ -4017,7 +4017,7 @@
     }, 
     "com.todoist": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.todolist.tarefaz": {
         "annotated_category": "to_do_list", 
@@ -4057,19 +4057,19 @@
     }, 
     "com.topapps.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.topfreeringtones.FunnyAlarmClockRingtones": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.topfreeringtones.RoosterAlarmClockSound": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.topfreeringtones.SuperLoudAlarmClock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "com.toplovelyapps.alarmclockwidgetwallpaper": {
         "annotated_category": "alarm_clock", 
@@ -4089,7 +4089,7 @@
     }, 
     "com.tricolorcat.calculator": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "com.trigg.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -4141,7 +4141,7 @@
     }, 
     "com.upbox.BatterySaver2x": {
         "annotated_category": "battery_saver", 
-        "google_play_category": "libraries & demo"
+        "google_play_category": "libraries_n_demo"
     }, 
     "com.uramaks.todolist": {
         "annotated_category": "to_do_list", 
@@ -4177,11 +4177,11 @@
     }, 
     "com.vhop.scientificCalculators": {
         "annotated_category": "scientific_calculator", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.vhop.scientificCalculatorsPremium": {
         "annotated_category": "scientific_calculator", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.victory.fileexplorer": {
         "annotated_category": "file_explorer", 
@@ -4213,15 +4213,15 @@
     }, 
     "com.vismay.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.vivan.fileexplorer": {
         "annotated_category": "file_explorer", 
         "google_play_category": "productivity"
     }, 
     "com.vj.filemanager": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "com.vj.todolist": {
         "annotated_category": "to_do_list", 
@@ -4285,7 +4285,7 @@
     }, 
     "com.wcool.pdf.ebookreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.webclues.todolist": {
         "annotated_category": "to_do_list", 
@@ -4296,8 +4296,8 @@
         "google_play_category": "tools"
     }, 
     "com.webworks.drinkscocktails": {
-        "annotated_category": "drink_recipes", 
-        "google_play_category": "entertainment"
+        "annotated_category": "entertainment", 
+        "google_play_category": "drink_recipes"
     }, 
     "com.weebly.draconiansbeta.scientificcalculator": {
         "annotated_category": "scientific_calculator", 
@@ -4397,7 +4397,7 @@
     }, 
     "com.yiboo.pdfreader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.yildizmedya.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -4417,15 +4417,15 @@
     }, 
     "com.yolobookstories.detoxdrinksrecipesyolo": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "com.youbel.batterysaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
     "com.yourchineseastrology.chinesecalendar": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "lunar_calendar"
     }, 
     "com.yourgan.LastVersionBatterySaver": {
         "annotated_category": "battery_saver", 
@@ -4452,8 +4452,8 @@
         "google_play_category": "productivity"
     }, 
     "com.zgz.supervideo": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
     "com1032.cw1.ae00212.ae00212_todolist": {
         "annotated_category": "to_do_list", 
@@ -4561,7 +4561,7 @@
     }, 
     "drink.juicing.recipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "drink.recipes.ar": {
         "annotated_category": "drink_recipes", 
@@ -4633,23 +4633,23 @@
     }, 
     "foodanddrink.inc.tempehrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "foodanddrink.inc.tofurecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "foodanddrink.inc.vegetarianrecipes": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "foxty.android.todolist": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
     "fr.calendrierlunaire.android": {
-        "annotated_category": "lunar_calendar", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "lunar_calendar"
     }, 
     "fr.g_company.g_fileexplorer": {
         "annotated_category": "file_explorer", 
@@ -4695,7 +4695,7 @@
         "annotated_category": "scientific_calculator", 
         "google_play_category": "education"
     }, 
-    "hit.itasks.todolists": {
+    "hit.iTasks.todolists": {
         "annotated_category": "to_do_list", 
         "google_play_category": "tools"
     }, 
@@ -4708,8 +4708,8 @@
         "google_play_category": "tools"
     }, 
     "hu.distinction.cflow": {
-        "annotated_category": "drink_recipes", 
-        "google_play_category": "lifestyle"
+        "annotated_category": "lifestyle", 
+        "google_play_category": "drink_recipes"
     }, 
     "hundred.five.easybatterysaver": {
         "annotated_category": "battery_saver", 
@@ -4740,8 +4740,8 @@
         "google_play_category": "productivity"
     }, 
     "it.bisemanuDEV.bismagsimplecalculator": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "scientific_calculator"
     }, 
     "it.esempiandroid.todolist": {
         "annotated_category": "to_do_list", 
@@ -4760,8 +4760,8 @@
         "google_play_category": "tools"
     }, 
     "jakiganicsystems.simplestchecklist": {
-        "annotated_category": "to_do_list", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "to_do_list"
     }, 
     "jec.cm11.fileexplorercopy": {
         "annotated_category": "file_explorer", 
@@ -4791,9 +4791,9 @@
         "annotated_category": "alarm_clock", 
         "google_play_category": "tools"
     }, 
-    "jp.Appsys.PanecalSt": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "productivity"
+    "jp.Appsys.PanecalST": {
+        "annotated_category": "productivity", 
+        "google_play_category": "scientific_calculator"
     }, 
     "jp.co.elecom.android.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -4872,12 +4872,12 @@
         "google_play_category": "tools"
     }, 
     "lync.com.batteryoptimizer": {
-        "annotated_category": "battery_saver", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "battery_saver"
     }, 
     "masalatv.khanapakana.drinkrecipesinurdu": {
         "annotated_category": "drink_recipes", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "me.crossle.fileexplorer": {
         "annotated_category": "file_explorer", 
@@ -4909,7 +4909,7 @@
     }, 
     "mobi.infolife.uninstaller": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "momentum.basictodolist": {
         "annotated_category": "to_do_list", 
@@ -4947,7 +4947,7 @@
         "annotated_category": "file_explorer", 
         "google_play_category": "tools"
     }, 
-    "name.cederfjard.todoList": {
+    "name.cederfjard.TodoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -4985,7 +4985,7 @@
     }, 
     "net.godideas.lunarcalendar": {
         "annotated_category": "lunar_calendar", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "net.howwiki.scientificcalculator": {
         "annotated_category": "scientific_calculator", 
@@ -5012,16 +5012,16 @@
         "google_play_category": "productivity"
     }, 
     "net.sf.andpdf.pdfviewer": {
-        "annotated_category": "pdf_reader", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "pdf_reader"
     }, 
     "net.simplyadvanced.batterysavershortcutandwidget": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
     "net.techet.netanalyzerlite.an": {
-        "annotated_category": "wifi_analyzer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "wifi_analyzer"
     }, 
     "net.trusted_design.tdandroid.dailytodolist": {
         "annotated_category": "to_do_list", 
@@ -5044,8 +5044,8 @@
         "google_play_category": "tools"
     }, 
     "nextapp.fx": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "business"
+        "annotated_category": "business", 
+        "google_play_category": "file_explorer"
     }, 
     "nik.pdf.PDFReaderPro": {
         "annotated_category": "pdf_reader", 
@@ -5069,7 +5069,7 @@
     }, 
     "org.ab.x48": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "org.aom.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -5081,13 +5081,13 @@
     }, 
     "org.codein.fileexplorer": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "media & video"
+        "google_play_category": "media_n_video"
     }, 
     "org.developer.batterylifepowersaver.freeapp": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
     }, 
-    "org.elhaddaji.SmartAlarmClocktimely": {
+    "org.elhaddaji.SmartAlarmClockTimely": {
         "annotated_category": "alarm_clock", 
         "google_play_category": "tools"
     }, 
@@ -5108,8 +5108,8 @@
         "google_play_category": "tools"
     }, 
     "org.hlousek.droid.twa": {
-        "annotated_category": "wifi_analyzer", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "wifi_analyzer"
     }, 
     "org.jm.lunarcalendar": {
         "annotated_category": "lunar_calendar", 
@@ -5117,7 +5117,7 @@
     }, 
     "org.openintents.filemanager": {
         "annotated_category": "file_explorer", 
-        "google_play_category": "Productivity"
+        "google_play_category": "productivity"
     }, 
     "org.optnlab.alarmclock": {
         "annotated_category": "alarm_clock", 
@@ -5125,23 +5125,23 @@
     }, 
     "org.pdfreader.pdfview.biggest": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "org.solovyev.android.calculator": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "scientific_calculator"
     }, 
     "org.swiftdeal.todolist": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
     "org.videolan.vlc": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
     "org.worldsproject.alarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "org.yolcuyuz.partydrinksrecipes": {
         "annotated_category": "drink_recipes", 
@@ -5153,7 +5153,7 @@
     }, 
     "pdf.reader": {
         "annotated_category": "pdf_reader", 
-        "google_play_category": "books & reference"
+        "google_play_category": "books_n_reference"
     }, 
     "pdf.reader.viewer": {
         "annotated_category": "pdf_reader", 
@@ -5188,8 +5188,8 @@
         "google_play_category": "lifestyle"
     }, 
     "pl.mkexplorer.kormateusz": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "pl.orendi.batterysaver": {
         "annotated_category": "battery_saver", 
@@ -5200,8 +5200,8 @@
         "google_play_category": "productivity"
     }, 
     "pl.solidexplorer2": {
-        "annotated_category": "file_explorer", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "file_explorer"
     }, 
     "pl.thalion.mobile.thalion.analog.alarm.clock": {
         "annotated_category": "alarm_clock", 
@@ -5243,13 +5243,13 @@
         "annotated_category": "file_explorer", 
         "google_play_category": "tools"
     }, 
-    "roni.shlomi.todoList": {
+    "roni.shlomi.TodoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "tools"
     }, 
     "roviminteractive.materialcopy": {
-        "annotated_category": "scientific_calculator", 
-        "google_play_category": "tools"
+        "annotated_category": "tools", 
+        "google_play_category": "scientific_calculator"
     }, 
     "ru.alliancesoftware.xfilesexplorer": {
         "annotated_category": "file_explorer", 
@@ -5279,7 +5279,7 @@
         "annotated_category": "battery_saver", 
         "google_play_category": "communication"
     }, 
-    "sbJang.toDoList": {
+    "sbJang.ToDoList": {
         "annotated_category": "to_do_list", 
         "google_play_category": "productivity"
     }, 
@@ -5321,7 +5321,7 @@
     }, 
     "sk.michalec.DigiAlarmClock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "sk.svb.sms_todo_list": {
         "annotated_category": "to_do_list", 
@@ -5348,8 +5348,8 @@
         "google_play_category": "tools"
     }, 
     "the.pdfviewer3": {
-        "annotated_category": "pdf_reader", 
-        "google_play_category": "productivity"
+        "annotated_category": "productivity", 
+        "google_play_category": "pdf_reader"
     }, 
     "thewholecake.mumalarmclock": {
         "annotated_category": "alarm_clock", 
@@ -5381,7 +5381,7 @@
     }, 
     "uk.co.olsonapps.easyrisealarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "health & fitness"
+        "google_play_category": "health_n_fitness"
     }, 
     "us.acin.alarmclock.ads": {
         "annotated_category": "alarm_clock", 
@@ -5404,8 +5404,8 @@
         "google_play_category": "tools"
     }, 
     "veg.network.mediaplayer": {
-        "annotated_category": "video_playback", 
-        "google_play_category": "media_n_video"
+        "annotated_category": "media_n_video", 
+        "google_play_category": "video_playback"
     }, 
     "vk.vietnamese.vietnam.lunar.calendar.en": {
         "annotated_category": "lunar_calendar", 
@@ -5441,7 +5441,7 @@
     }, 
     "xuanvtvp87.alarmclock": {
         "annotated_category": "alarm_clock", 
-        "google_play_category": "music & audio"
+        "google_play_category": "music_n_audio"
     }, 
     "yogSoft.FACpack.flashingalarmclock": {
         "annotated_category": "alarm_clock", 

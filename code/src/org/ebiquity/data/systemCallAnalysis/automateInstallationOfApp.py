@@ -100,7 +100,7 @@ def getApps(emulatorName):
 				time.sleep(10)
 				try:
 					apkLocationOnPhoneCmd="adb shell pm path "+app+" | grep 'package' | cut -f2 -d':' | tr -d '\r'"
-					apkLocationOnPhone, err =runShellCmdGetOutput(apkLocationOnPhoneCmd)
+					apkLocationOnPhone, err = runShellCmdGetOutput(apkLocationOnPhoneCmd)
 					apkLocationOnPhone = apkLocationOnPhone.replace('WARNING: linker: /system/lib/libhoudini.so has text relocations. This is wasting memory and prevents security hardening. Please fix.', '').strip()
 					extractAppCmd="adb pull "+apkLocationOnPhone+" apks/"
 					s.check_output(extractAppCmd.split())

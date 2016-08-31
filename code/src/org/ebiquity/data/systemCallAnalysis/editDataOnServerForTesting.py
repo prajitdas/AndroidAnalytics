@@ -17,13 +17,13 @@ def getTimedBkpName():
 
 def getDataOnServer():
 	# Server URL from Ngrok to get the data
-	url = 'https://9b5d5f5d.ngrok.io'
+	url = 'https://6b50a3b5.ngrok.io'
 	response = requests.get(url)
 	return response.text
 
 def storeDataOnServer(jsonString):
 	# Server URL from Ngrok to get the data
-	url = 'https://9b5d5f5d.ngrok.io'
+	url = 'https://6b50a3b5.ngrok.io'
 	serverResponse = requests.post(url, json.dumps(jsonString))
 	print serverResponse
 

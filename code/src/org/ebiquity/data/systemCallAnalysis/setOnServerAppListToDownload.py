@@ -55,7 +55,7 @@ def main(argv):
 		sys.exit(1)
 
 	# Server URL from Ngrok to get the data
-	url = 'https://9b5d5f5d.ngrok.io'
+	url = 'https://6b50a3b5.ngrok.io/'
 
 	# Search strings for the app search
 	searchStringList = []

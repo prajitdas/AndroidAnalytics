@@ -176,7 +176,10 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		clusterLabelsAssigned = KMeansObject.labels_
 		centroids = KMeansObject.cluster_centers_
 
-		print centroids
+		print "Centroids:", centroids, "done", len(centroids)
+		print type(centroids)
+		# with open(r'test.txt', 'w') as f:
+		# 	f.write(" ".join(map(str, centroids)))
 
 		#Silhouette Evaluation starts
 		counter = 0

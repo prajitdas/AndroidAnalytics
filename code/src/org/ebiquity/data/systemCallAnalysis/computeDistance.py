@@ -311,14 +311,22 @@ def main(argv):
 		sys.exit(1)
 
 	# jsonDict = json.loads(open('masterJsonOutputFile82Good.json','r').read())
-	# jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
-	jsonDict = json.loads(open('oldMasterJsonOutputFileJul20.json','r').read())
+	jsonDict = json.loads(open('masterJsonOutputFile.json','r').read())
+	# jsonDict = json.loads(open('oldMasterJsonOutputFileJul20.json','r').read())
 
 	startTime = time.time()
-	# numberOfApps, termDocMatrix, appVector = createTermDocMatrix(jsonDict,'numoc')
-	# print termDocMatrix, appVector
-	appToAppDistMatrix, appVector, termDocMatrix, appTFIDFWeightDict = computeDistance(jsonDict,'cosine','tfidf')
-	# print appToAppDistMatrix, appVector
+	# numberOfApps, termDocMatrix, appRunVector = createTermDocMatrix(jsonDict,'numoc')
+	# print termDocMatrix, appRunVector
+	appToAppDistMatrix, appRunVector, termDocMatrix, appTFIDFWeightDict = computeDistance(jsonDict,'cosine','tfidf')
+	# print appToAppDistMatrix, appRunVector
+
+	for item in appRunVector:
+		text = str(item)
+		print text
+		if text.startswith('com.apadana.free.neopdfreader'):
+			print appRunVector[item]
+
+	# print computeDist(termDocMatrix[appRunVector['com.apadana.free.neopdfreader']][2],termDocMatrix[appRunVector['com.nexamuse.BestPDFReader']][2],metric)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

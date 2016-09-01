@@ -39,6 +39,9 @@ def writeCategoryJson(searchStringList):
 	json.dump(mainDict, open('category.json', 'w'), sort_keys = True, indent = 4)
 	dbHandle.close() #DB Close
 
+def writeCategoryJsonFromCSV():
+	json.dump(mainDict, open('category.json', 'w'), sort_keys = True, indent = 4)
+
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python getCategoryInfoForApp.py\n')

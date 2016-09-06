@@ -97,7 +97,7 @@ def getApps(emulatorName):
 				installApp(getViewClient(device, serialno))
 				time.sleep(2)
 				acceptInstallApp(getViewClient(device, serialno))
-				time.sleep(10)
+				time.sleep(30)
 				try:
 					apkLocationOnPhoneCmd="adb shell pm path "+app+" | grep 'package' | cut -f2 -d':' | tr -d '\r'"
 					apkLocationOnPhone, err = runShellCmdGetOutput(apkLocationOnPhoneCmd)

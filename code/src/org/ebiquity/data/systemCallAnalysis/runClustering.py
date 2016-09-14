@@ -21,13 +21,9 @@ import cPickle
 import computeDistance as cd
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
-# import os
-# import time
-# import sys
 import NumpyEncoder
 import gzip
 import logging
-# import mysql.connector
 logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 def reducePrecisionEncode(array, length, breadth, precision):
@@ -177,9 +173,14 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		centroids = KMeansObject.cluster_centers_
 
 		print "Centroids:", centroids, "done", len(centroids)
+		print centroids.shape
 		print type(centroids)
-		# with open(r'test.txt', 'w') as f:
-		# 	f.write(" ".join(map(str, centroids)))
+		with open(r'centroids.txt', 'w') as f:
+			f.write(" ".join(map(str, centroids)))
+
+		thefile = open('appList.csv', 'w')
+		for appRunName in appRunVector:
+			thefile.write("%s\n" % appRunName)
 
 		#Silhouette Evaluation starts
 		counter = 0

@@ -22402,46 +22402,7 @@
             "write": 592, 
             "writev": 2789
         }
-    }, 
-    "com.ext.ui": {
-        "run1": {
-            "clone": 70, 
-            "close": 199, 
-            "dup": 32, 
-            "epoll_ctl": 44, 
-            "epoll_pwait": 857, 
-            "faccessat": 17, 
-            "fchmodat": 1, 
-            "fcntl": 32, 
-            "fstat": 7, 
-            "fsync": 1, 
-            "futex": 1493, 
-            "getrlimit": 1, 
-            "getsockopt": 7, 
-            "getuid": 983, 
-            "ioctl": 1148, 
-            "madvise": 64, 
-            "mmap": 557, 
-            "mprotect": 77, 
-            "munmap": 355, 
-            "newfstatat": 55, 
-            "openat": 143, 
-            "prctl": 76, 
-            "pread": 546, 
-            "read": 72, 
-            "readlinkat": 1, 
-            "recvfrom": 1549, 
-            "renameat": 1, 
-            "rt_sigprocmask": 206, 
-            "sched_yield": 2, 
-            "sendmsg": 12, 
-            "sendto": 1031, 
-            "socketpair": 2, 
-            "unlinkat": 1, 
-            "write": 1292, 
-            "writev": 1810
-        }
-    }, 
+    },
     "com.facebook.f8": {
         "run1": {
             "clone": 20, 

@@ -3065,13 +3065,6 @@
             "writev": 3058
         }
     }, 
-    "com.amaze.filemanager": {
-        "ThuJul21011123EDT2016.out": {
-            "ioctl": 1, 
-            "kill": 1, 
-            "writev": 1
-        }
-    }, 
     "com.amble43.scientificcalculator": {
         "ThuJul21014312EDT2016.out": {
             "clone": 19, 
@@ -22260,61 +22253,7 @@
             "write": 10487, 
             "writev": 3933
         }
-    }, 
-    "mobi.infolife.uninstaller": {
-        "ThuJul21171154EDT2016.out": {
-            "clock_gettime": 757, 
-            "clone": 89, 
-            "close": 1161, 
-            "dup": 308, 
-            "epoll_create1": 1, 
-            "epoll_ctl": 193, 
-            "epoll_pwait": 10106, 
-            "eventfd2": 1, 
-            "faccessat": 454, 
-            "fchmodat": 36, 
-            "fcntl": 298, 
-            "fdatasync": 20, 
-            "fstat": 215, 
-            "fsync": 30, 
-            "futex": 13281, 
-            "getdents64": 140, 
-            "geteuid": 15, 
-            "getppid": 1, 
-            "getrlimit": 3, 
-            "getsockopt": 39, 
-            "getuid": 11495, 
-            "ioctl": 13950, 
-            "lseek": 154, 
-            "madvise": 582, 
-            "mkdirat": 19, 
-            "mmap": 1970, 
-            "mprotect": 758, 
-            "munmap": 1008, 
-            "newfstatat": 896, 
-            "openat": 1923, 
-            "prctl": 216, 
-            "pread": 1539, 
-            "pwrite": 45, 
-            "read": 35360, 
-            "readlinkat": 20, 
-            "recvfrom": 10864, 
-            "renameat": 27, 
-            "rt_sigaction": 2, 
-            "rt_sigprocmask": 420, 
-            "rt_sigreturn": 50, 
-            "sched_yield": 71, 
-            "sendmsg": 110, 
-            "sendto": 6857, 
-            "setpriority": 2, 
-            "setrlimit": 1, 
-            "socketpair": 2, 
-            "statfs": 40, 
-            "unlinkat": 34, 
-            "write": 7317, 
-            "writev": 4074
-        }
-    }, 
+    },
     "net.sf.andpdf.pdfviewer": {
         "ThuJul21033704EDT2016.out": {
             "clone": 2, 

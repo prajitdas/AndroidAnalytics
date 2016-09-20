@@ -135,5 +135,7 @@
 "cz.webprovider.wifianalyzer":{"annotated_category":"wifi_analyzer","google_play_category":"tools"},
 "net.techet.netanalyzerlite.an":{"annotated_category":"wifi_analyzer","google_play_category":"tools"},
 "org.hlousek.droid.twa":{"annotated_category":"wifi_analyzer","google_play_category":"tools"},
-"us.wifitools.wifiscananalyzer":{"annotated_category":"wifi_analyzer","google_play_category":"tools"}
+"us.wifitools.wifiscananalyzer":{"annotated_category":"wifi_analyzer","google_play_category":"tools"},
+"com.amaze.filemanager":{"annotated_category":"tools","google_play_category":"file_explorer"},
+"com.better.alarm":{"annotated_category":"productivity","google_play_category":"alarm_clock"}
 }

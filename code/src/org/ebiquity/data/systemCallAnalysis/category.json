@@ -763,6 +763,10 @@
         "annotated_category": "to_do_list", 
         "google_play_category": "books_n_reference"
     }, 
+    "com.amaze.filemanager": {
+        "annotated_category": "tools", 
+        "google_play_category": "file_explorer"
+    }, 
     "com.amazingapp.BatteryPowerSaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
@@ -1386,6 +1390,10 @@
     "com.bestscientific_calculator.scientificcalc": {
         "annotated_category": "scientific_calculator", 
         "google_play_category": "education"
+    }, 
+    "com.better.alarm": {
+        "annotated_category": "productivity", 
+        "google_play_category": "alarm_clock"
     }, 
     "com.bhoojwood.todolist": {
         "annotated_category": "to_do_list", 

@@ -74,7 +74,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
 		# [0]: Google category
 		# [1]: My category
-		arffFileContent+=','+termDocMatrix[app][0]
+		arffFileContent+=','+termDocMatrix[app][1]
 		arffFileContent+="\n"
 
 	return arffFileContent

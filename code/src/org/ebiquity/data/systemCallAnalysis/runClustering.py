@@ -218,7 +218,7 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 		
 		#Storing the centroid values in the results dictionary
 		#loopEvaluatedCluster['centroids'] = reducePrecisionEncode(centroids, numberOfClusters, reducedDimensions, 5)
-		doPlots(X, numberOfClusters, sample_silhouette_values, clusterLabelsAssigned, silhouette_avg, centroids)
+		# doPlots(X, numberOfClusters, sample_silhouette_values, clusterLabelsAssigned, silhouette_avg, centroids)
 
 		'''
 		#Usage of NumpyEncoder is shown here so that the centroids can be encoded and decoded easily. Look in NumpyEncoder.py for details
@@ -254,8 +254,8 @@ def clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDic
 	# 	categories = ''.join(appCategoryListSelection)
 	# metrics = 'jaccard'
 	fileName = metric+predictedClustersFile.split('.')[0].split('ters')[1]#categories+metrics
-	plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
-	plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
+	# plot.plotSilhouetteSamples(username, api_key, predictedClustersFile, fileName)
+	# plot.plotGroundTruthResults(username, api_key, predictedClustersFile, fileName)
 
 def doCluster(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions):
 	# clusterDist(username, api_key, appMatrixFile, predictedClustersFile, jsonDict, 'jaccard', startingNumberOfClusters, endingNumberOfClusters, clusterLoopStepSize, reducedDimensions)

@@ -80,7 +80,7 @@
 @ATTRIBUTE utimensat NUMERIC
 @ATTRIBUTE write NUMERIC
 @ATTRIBUTE writev NUMERIC
-@ATTRIBUTE class {communication,personalization,music_n_audio,media_n_video,education,tools,health_n_fitness,productivity,arcade,entertainment,travel_n_local,news_n_magazines,alarm_clock,shopping,business,libraries_n_demo,adventure,lifestyle,medical,social,books_n_reference}
+@ATTRIBUTE class {lunar_calendar,productivity,file_explorer,to_do_list,drink_recipes,battery_saver,pdf_reader,video_playback,alarm_clock,scientific_calculator,wifi_analyzer}
 
 @DATA
 0,0,0,583,70,1043,0,248,242,9681,0,170,0,6,235,20,0,158,0,0,12625,10,1,0,2,0,8,0,11071,0,0,14842,0,104,376,3,2265,759,1368,0,999,1555,180,2419,43,33456,19,10771,0,0,0,1049,50,0,0,128,84,6257,2,1,0,0,0,0,0,2,0,0,0,7,0,7086,3624,file_explorer

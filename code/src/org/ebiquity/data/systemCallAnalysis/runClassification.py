@@ -40,8 +40,8 @@ def getAppCategoryList(termDocMatrix):
 	for app in termDocMatrix:
 		google_play_category_labels.append(termDocMatrix[app][0])
 		annotated_category_labels.append(termDocMatrix[app][1])
-	return set(google_play_category_labels)
-	# return set(annotated_category_labels)
+	# return set(google_play_category_labels)
+	return set(annotated_category_labels)
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
 	#Once the whole matrix is created then dump to a file
@@ -66,12 +66,13 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 	arffFileContent+="@DATA\n"
 	
 	for app in termDocMatrix:
+		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
 		'''
 			REMEMBER! REMEMBER! The something of November :P This is where we choose which class label we test against
-			termDocMatrix[app][1] -> annotated class labels by "experts"
 			termDocMatrix[app][0] -> annotated class labels by Google
+			termDocMatrix[app][1] -> annotated class labels by "experts"
+			remember to comment out the right line above in getAppCategoryList(termDocMatrix)
 		'''
-		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
 		# [0]: Google category
 		# [1]: My category
 		arffFileContent+=','+termDocMatrix[app][1]

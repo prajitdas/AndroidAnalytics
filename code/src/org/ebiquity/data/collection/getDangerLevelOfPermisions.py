@@ -33,9 +33,35 @@ def readGooglePermissions(doInsertIntoDB):
 		file = urllib2.urlopen(req)
 		data = file.read()
 		dict = xmltodict.parse(data)
+
 		broadcasts = []
 		permGroups = []
 		permissions = []
+
+		target = open("sqlScripts/permissionsDML.sql", 'w')
+		target.truncate()
+
+		line = "USE `googleplaystore`;"
+		target.write(line)
+		target.write("\n")
+
+		line = "--"
+		target.write(line)
+		target.write("\n")
+		
+		line = "-- Dumping data for table `permissions`"
+		target.write(line)
+		target.write("\n")
+		
+		line = "--"
+		target.write(line)
+		target.write("\n")
+		target.write("\n")
+
+		sqlStatement = "INSERT INTO `permissions` (`id`, `name`, `protection_level`, `permission_group`, `permission_flags`) VALUES"
+		line = sqlStatement
+		target.write(line)
+		target.write("\n")
 
 		with open('GoogleAndroidManifestPermissionsRaw.json', 'w') as fp:
 			json.dump(dict, fp, indent=4)
@@ -72,21 +98,55 @@ def readGooglePermissions(doInsertIntoDB):
 		for perms in dict['manifest']['permission']:
 			od = OrderedDict(perms)
 			permission = {}
+
+			name = ''
+			protectionLevel = ''
+			permissionGroup = ''
+			permissionFlags = ''
+			permissionLabel = ''
+			permissionDescription = ''
+
 			if ('@android:name' in od) and (not od['@android:name'].startswith('@')):
 				permission['name'] = od['@android:name']
-			if ('@android:permissionGroup' in od) and (not od['@android:permissionGroup'].startswith('@')):
-				permission['permissionGroup'] = od['@android:permissionGroup']
+				name = permission['name']
 			if ('@android:protectionLevel' in od) and (not od['@android:protectionLevel'].startswith('@')):
 				permission['protectionLevel'] = od['@android:protectionLevel']
+				protectionLevel = permission['protectionLevel']
+			if ('@android:permissionGroup' in od) and (not od['@android:permissionGroup'].startswith('@')):
+				permission['permissionGroup'] = od['@android:permissionGroup']
+				permissionGroup = permission['permissionGroup']
 			if ('@android:permissionFlags' in od) and (not od['@android:permissionFlags'].startswith('@')):
 				permission['permissionFlags'] = od['@android:permissionFlags']    
+				permissionFlags = permission['permissionFlags']
 			if ('@android:label' in od) and (not od['@android:label'].startswith('@')):
 				permission['label'] = od['@android:label']
+				permissionLabel = permission['label']
 			if ('@android:description' in od) and (not od['@android:description'].startswith('@')):
 				permission['description'] = od['@android:description']
+				permissionDescription = permission['description']
+
 			permissions.append(permission)
+
 			if doInsertIntoDB:
 				insertIntoDB(permission['name'],permission['protectionLevel'],permission['permissionGroup'],permission['permissionFlags'])
+			else:
+				if permissionGroup == '':
+					permissionGroup = 'NULL'
+				if permissionFlags == '':
+					permissionFlags = 'NULL'
+				if permissionLabel == '':
+					permissionLabel = 'NULL'
+				if permissionDescription == '':
+					permissionDescription = 'NULL'
+
+				sqlStatement = "('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"'),"
+				# sqlStatement = "('"+name+"', '"+permissionLabel+"', '"+permissionDescription+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"'),"
+				sqlStatement = sqlStatement.replace("'NULL'", "NULL")
+
+				line = sqlStatement
+				target.write(line)
+				target.write("\n")
+
 		outDict['permissions'] = permissions
 
 	except urllib2.HTTPError, e:
@@ -105,13 +165,18 @@ def readGooglePermissions(doInsertIntoDB):
 		print 'generic exception: ' + traceback.format_exc()
 	with open('GoogleAndroidManifestPermissions.json', 'w') as fp:
 		json.dump(outDict, fp, indent=4)
+	
+	line = "COMMIT;"
+	target.write("\n")
+	target.write(line)
+	target.close()
 
 def insertIntoDB(name, protectionLevel, permissionGroup, permissionFlags):
-	dbHandle = databaseHandler.dbConnectionCheck()
 	sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"') on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = '"+permissionFlags+"';"
 	if permissionFlags == '':
 		sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', NULL) on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = NULL;"
 
+	dbHandle = databaseHandler.dbConnectionCheck()
 	databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def doTask(doInsertIntoDB):

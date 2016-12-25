@@ -90,7 +90,8 @@ CREATE TABLE IF NOT EXISTS `permissions`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` text(500) NOT NULL,
   `protection_level` varchar(200),
-  `permission_group` text(500)
+  `permission_group` text(500),
+  `permission_flags` text(500)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------

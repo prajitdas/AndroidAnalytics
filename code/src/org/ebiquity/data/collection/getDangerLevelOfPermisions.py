@@ -38,30 +38,80 @@ def readGooglePermissions(doInsertIntoDB):
 		permGroups = []
 		permissions = []
 
-		target = open("sqlScripts/permissionsDML.sql", 'w')
-		target.truncate()
+		targetPerm = open("sqlScripts/permissionsDML.sql", 'w')
+		targetPerm.truncate()
 
 		line = "USE `googleplaystore`;"
-		target.write(line)
-		target.write("\n")
+		targetPerm.write(line)
+		targetPerm.write("\n")
 
 		line = "--"
-		target.write(line)
-		target.write("\n")
+		targetPerm.write(line)
+		targetPerm.write("\n")
 		
 		line = "-- Dumping data for table `permissions`"
-		target.write(line)
-		target.write("\n")
+		targetPerm.write(line)
+		targetPerm.write("\n")
 		
 		line = "--"
-		target.write(line)
-		target.write("\n")
-		target.write("\n")
+		targetPerm.write(line)
+		targetPerm.write("\n")
+		targetPerm.write("\n")
 
-		sqlStatement = "INSERT INTO `permissions` (`id`, `name`, `protection_level`, `permission_group`, `permission_flags`) VALUES"
+		sqlStatement = "INSERT INTO `permissions` (`name`, `protection_level`, `permission_group`, `permission_flags`) VALUES"
 		line = sqlStatement
-		target.write(line)
-		target.write("\n")
+		targetPerm.write(line)
+		targetPerm.write("\n")
+
+		targetGroup = open("sqlScripts/permissionGroupsDML.sql", 'w')
+		targetGroup.truncate()
+
+		line = "USE `googleplaystore`;"
+		targetGroup.write(line)
+		targetGroup.write("\n")
+
+		line = "--"
+		targetGroup.write(line)
+		targetGroup.write("\n")
+		
+		line = "-- Dumping data for table `permissionGroups`"
+		targetGroup.write(line)
+		targetGroup.write("\n")
+		
+		line = "--"
+		targetGroup.write(line)
+		targetGroup.write("\n")
+		targetGroup.write("\n")
+
+		sqlStatement = "INSERT INTO `permissionGroups` (`name`, `priority`) VALUES"
+		line = sqlStatement
+		targetGroup.write(line)
+		targetGroup.write("\n")
+
+		targetBcast = open("sqlScripts/broadcastsDML.sql", 'w')
+		targetBcast.truncate()
+
+		line = "USE `googleplaystore`;"
+		targetBcast.write(line)
+		targetBcast.write("\n")
+
+		line = "--"
+		targetBcast.write(line)
+		targetBcast.write("\n")
+		
+		line = "-- Dumping data for table `broadcasts`"
+		targetBcast.write(line)
+		targetBcast.write("\n")
+		
+		line = "--"
+		targetBcast.write(line)
+		targetBcast.write("\n")
+		targetBcast.write("\n")
+
+		sqlStatement = "INSERT INTO `broadcasts` (`name`) VALUES"
+		line = sqlStatement
+		targetBcast.write(line)
+		targetBcast.write("\n")
 
 		with open('GoogleAndroidManifestPermissionsRaw.json', 'w') as fp:
 			json.dump(dict, fp, indent=4)
@@ -70,28 +120,62 @@ def readGooglePermissions(doInsertIntoDB):
 		for bcasts in dict['manifest']['protected-broadcast']:
 			od = OrderedDict(bcasts)
 			broadcast = {}
+
+			name = ''
+
 			if ('@android:name' in od) and (not (od['@android:name'].startswith('@'))):
 				broadcast['name'] = od['@android:name']
+				name = broadcast['name']
+
 			broadcasts.append(broadcast)
+
+			sqlStatement = "('"+name+"'),"
+
+			line = sqlStatement
+			targetBcast.write(line)
+			targetBcast.write("\n")
+
 		outDict['broadcasts'] = broadcasts
 
 		# Added all PermissionsGroups from the file into the result set
 		for pgrps in dict['manifest']['permission-group']:
 			od = OrderedDict(pgrps)
 			permGroup = {}
+
+			name = ''
+			priority = ''
+			label = ''
+			description = ''
+			groupFlags = ''
+			icon = ''
+
 			if ('@android:name' in od) and (not od['@android:name'].startswith('@')):
 				permGroup['name'] = od['@android:name']
+				name = permGroup['name']
 			if ('@android:priority' in od) and (not od['@android:priority'].startswith('@')):
 				permGroup['priority'] = od['@android:priority']
+				priority = permGroup['priority']
 			if ('@android:label' in od) and (not od['@android:label'].startswith('@')):
 				permGroup['label'] =  od['@android:label']
+				label = permGroup['label']
 			if ('@android:description' in od) and (not od['@android:description'].startswith('@')):
 				permGroup['description'] =  od['@android:description']
+				description = permGroup['description']
 			if ('@android:permissionGroupFlags' in od) and (not od['@android:permissionGroupFlags'].startswith('@')):
 				permGroup['permissionGroupFlags'] =  od['@android:permissionGroupFlags']
+				groupFlags = permGroup['permissionGroupFlags']
 			if ('@android:icon' in od) and (not od['@android:icon'].startswith('@')):
 				permGroup['icon'] =  od['@android:icon']
+				icon = permGroup['icon']
+
 			permGroups.append(permGroup)
+
+			sqlStatement = "('"+name+"', '"+priority+"'),"
+
+			line = sqlStatement
+			targetGroup.write(line)
+			targetGroup.write("\n")
+
 		outDict['permGroups'] = permGroups
 
 		# Added all Permissions from the file into the result set
@@ -144,8 +228,8 @@ def readGooglePermissions(doInsertIntoDB):
 				sqlStatement = sqlStatement.replace("'NULL'", "NULL")
 
 				line = sqlStatement
-				target.write(line)
-				target.write("\n")
+				targetPerm.write(line)
+				targetPerm.write("\n")
 
 		outDict['permissions'] = permissions
 
@@ -167,9 +251,18 @@ def readGooglePermissions(doInsertIntoDB):
 		json.dump(outDict, fp, indent=4)
 	
 	line = "COMMIT;"
-	target.write("\n")
-	target.write(line)
-	target.close()
+
+	targetPerm.write("\n")
+	targetPerm.write(line)
+	targetPerm.close()
+
+	targetGroup.write("\n")
+	targetGroup.write(line)
+	targetGroup.close()
+
+	targetBcast.write("\n")
+	targetBcast.write(line)
+	targetBcast.close()
 
 def insertIntoDB(name, protectionLevel, permissionGroup, permissionFlags):
 	sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"') on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = '"+permissionFlags+"';"

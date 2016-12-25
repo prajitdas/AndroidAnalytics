@@ -90,8 +90,9 @@ CREATE TABLE IF NOT EXISTS `permissions`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` text(500) NOT NULL,
   `protection_level` varchar(200),
-  `permission_group` text(500),
-  `permission_flags` text(500)
+  `permission_group_id` int(10) unsigned NOT NULL,
+  `permission_flags` text(500),
+  CONSTRAINT `fk_perm_grp_id` FOREIGN KEY (`permission_group_id`) REFERENCES `permissionGroups`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
@@ -105,7 +106,27 @@ ALTER TABLE `permissions`
   ADD KEY `permission_group_idx` (`permission_group`(255));
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `permissionGroups`
+--
 
+CREATE TABLE IF NOT EXISTS `permissionGroups`(
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` text(500) NOT NULL UNIQUE,
+  `priority` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `broadcasts`
+--
+
+CREATE TABLE IF NOT EXISTS `broadcasts`(
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` text(500) NOT NULL UNIQUE
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `developer`
 --

@@ -3,7 +3,7 @@ USE `googleplaystore`;
 -- Dumping data for table `permissions`
 --
 
-INSERT INTO `permissions` (`id`, `name`, `protection_level`, `permission_group`, `permission_flags`) VALUES
+INSERT INTO `permissions` (`name`, `protection_level`, `permission_group`, `permission_flags`) VALUES
 ('android.permission.READ_CONTACTS', 'dangerous', 'android.permission-group.CONTACTS', NULL),
 ('android.permission.WRITE_CONTACTS', 'dangerous', 'android.permission-group.CONTACTS', NULL),
 ('android.permission.READ_CALENDAR', 'dangerous', 'android.permission-group.CALENDAR', NULL),

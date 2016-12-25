@@ -68,7 +68,8 @@ ALTER TABLE `appurls`
 CREATE TABLE IF NOT EXISTS `appcategories`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `url` varchar(250) NOT NULL
+  `url` varchar(250) NOT NULL,
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
@@ -92,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `permissions`(
   `protection_level` varchar(200),
   `permission_group_id` int(10) unsigned NOT NULL,
   `permission_flags` text(500),
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
   CONSTRAINT `fk_perm_grp_id` FOREIGN KEY (`permission_group_id`) REFERENCES `permissionGroups`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
@@ -113,7 +115,8 @@ ALTER TABLE `permissions`
 CREATE TABLE IF NOT EXISTS `permissionGroups`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` text(500) NOT NULL,
-  `priority` int(10) unsigned NOT NULL
+  `priority` int(10) unsigned NOT NULL,
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
@@ -131,7 +134,8 @@ ALTER TABLE `permissionGroups`
 
 CREATE TABLE IF NOT EXISTS `broadcasts`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` text(500) NOT NULL
+  `name` text(500) NOT NULL,
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
@@ -152,7 +156,8 @@ CREATE TABLE IF NOT EXISTS `developer`(
   `name` text(500) NOT NULL,
   `website` text(500),
   `email` text(500),
-  `country` text(1000)
+  `country` text(1000),
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------
@@ -211,6 +216,7 @@ ALTER TABLE `appdata`
 CREATE TABLE IF NOT EXISTS `appperm`(
   `app_id` int(10) unsigned NOT NULL,
   `perm_id` int(10) unsigned NOT NULL,
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
   CONSTRAINT pk_apperm PRIMARY KEY (app_id,perm_id),
   CONSTRAINT `fk_app_id` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_perm_id` FOREIGN KEY (`perm_id`) REFERENCES `permissions`(`id`) ON UPDATE CASCADE

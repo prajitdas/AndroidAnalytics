@@ -112,9 +112,17 @@ ALTER TABLE `permissions`
 
 CREATE TABLE IF NOT EXISTS `permissionGroups`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` text(500) NOT NULL UNIQUE,
+  `name` text(500) NOT NULL,
   `priority` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Indexes for table `permissionGroups`
+--
+ALTER TABLE `permissionGroups` 
+  ADD UNIQUE KEY `name_idx` (`name`(255));
 
 -- --------------------------------------------------------
 --
@@ -125,6 +133,14 @@ CREATE TABLE IF NOT EXISTS `broadcasts`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` text(500) NOT NULL UNIQUE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Indexes for table `broadcasts`
+--
+ALTER TABLE `broadcasts` 
+  ADD UNIQUE KEY `name_idx` (`name`(255));
 
 -- --------------------------------------------------------
 --

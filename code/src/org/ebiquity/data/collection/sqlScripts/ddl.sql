@@ -131,7 +131,7 @@ ALTER TABLE `permissionGroups`
 
 CREATE TABLE IF NOT EXISTS `broadcasts`(
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` text(500) NOT NULL UNIQUE
+  `name` text(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 -- --------------------------------------------------------

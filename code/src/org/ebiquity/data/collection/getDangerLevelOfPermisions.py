@@ -212,7 +212,7 @@ def readGooglePermissions(doInsertIntoDB):
 			permissions.append(permission)
 
 			if doInsertIntoDB:
-				insertIntoDB(permission['name'],permission['protectionLevel'],permission['permissionGroup'],permission['permissionFlags'])
+				insertIntoDB(name, protectionLevel, permissionGroup, permissionFlags)
 			else:
 				if permissionGroup == '':
 					permissionGroup = 'NULL'
@@ -264,7 +264,7 @@ def readGooglePermissions(doInsertIntoDB):
 	targetBcast.write(line)
 	targetBcast.close()
 
-def insertIntoDB(name, protectionLevel, permissionGroup, permissionFlags):
+def insertIntoDB(name, protectionLevel, permissionGroup="NULL", permissionFlags="NULL"):
 	sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', '"+permissionFlags+"') on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = '"+permissionFlags+"';"
 	if permissionFlags == '':
 		sqlStatement = "insert into permissions(name, protection_level, permission_group, permission_flags) values('"+name+"', '"+protectionLevel+"', '"+permissionGroup+"', NULL) on duplicate key update protection_level = '"+protectionLevel+"', permission_group = '"+permissionGroup+"', permission_flags = NULL;"

@@ -1,16 +1,4 @@
 {
-    "AndroidContentParserWithPermission": {
-        "annotated_category": "", 
-        "google_play_category": ""
-    }, 
-    "ESFileManager": {
-        "annotated_category": "", 
-        "google_play_category": ""
-    }, 
-    "InsecureBank": {
-        "annotated_category": "", 
-        "google_play_category": ""
-    }, 
     "a.akakao.neon_simple": {
         "annotated_category": "", 
         "google_play_category": "personalization"
@@ -11466,14 +11454,6 @@
     "edges.android.batterysaver": {
         "annotated_category": "battery_saver", 
         "google_play_category": "tools"
-    }, 
-    "edu.umbc.cs.ebiquity.autoinstallerapp": {
-        "annotated_category": "", 
-        "google_play_category": ""
-    }, 
-    "edu.umbc.cs.iot.clients.android": {
-        "annotated_category": "", 
-        "google_play_category": ""
     }, 
     "elvis10ten.com.scientificcalculator": {
         "annotated_category": "scientific_calculator", 

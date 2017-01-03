@@ -338,13 +338,13 @@ def doTask(cmdLineArg):
 	elif cmdLineArg == "s":
 		getDataForAppList(dbHandle) # Extract a curated list of apps from the Google Play Store. Get urls, get related and get app data
 	else:
-		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
+		sys.stderr.write('Usage: python crawlURLs.py [i|m|a|s]\n')
 	
 	dbHandle.close() #DB Close
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python crawlURLs.py [i|m|a]\n')
+		sys.stderr.write('Usage: python crawlURLs.py [i|m|a|s]\n')
 		sys.exit(1)
 
 	startTime = time.time()

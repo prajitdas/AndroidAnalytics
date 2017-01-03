@@ -26,11 +26,14 @@ def getData(app,dbHandle):
 
 def writeCategoryJson(appList):
 	dbHandle = databaseHandler.dbConnectionCheck() #DB Open
-	appDict = {}
+	mainDict = {}
 	for app in appList:
-		appDict[app] = getData(app,dbHandle)
+		appDict = {}
+		appDict["annotated_category"] = ''
+		appDict["google_play_category"] = getData(app,dbHandle)
+		mainDict[app] = appDict
 	
-	json.dump(appDict, open('newcategory.json', 'w'), sort_keys = True, indent = 4)
+	json.dump(mainDict, open('newcategory.json', 'w'), sort_keys = True, indent = 4)
 	dbHandle.close() #DB Close
 
 def main(argv):

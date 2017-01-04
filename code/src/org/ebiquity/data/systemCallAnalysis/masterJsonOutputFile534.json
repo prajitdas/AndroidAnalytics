@@ -5077,7 +5077,7 @@
         "google_play_category": "productivity"
     }, 
     "com.amaze.filemanager": {
-        "annotated_category": "tools", 
+        "annotated_category": "file_explorer", 
         "calls": {
             "futex": 21, 
             "getpriority": 6, 
@@ -5089,7 +5089,7 @@
             "write": 12, 
             "writev": 1
         }, 
-        "google_play_category": "file_explorer"
+        "google_play_category": "tools"
     }, 
     "com.amble43.scientificcalculator": {
         "annotated_category": "scientific_calculator", 

@@ -772,8 +772,8 @@
         "google_play_category": "books_n_reference"
     }, 
     "com.amaze.filemanager": {
-        "annotated_category": "tools", 
-        "google_play_category": "file_explorer"
+        "annotated_category": "file_explorer", 
+        "google_play_category": "tools"
     }, 
     "com.amazingapp.BatteryPowerSaver": {
         "annotated_category": "battery_saver", 

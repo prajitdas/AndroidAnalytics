@@ -34,7 +34,7 @@ def sanitizeCall(inputString):
 		return inputString
 	return None
 
-def processFileGetFunctionNames(filePath):
+def processFileGetFunctionNames(filePath,category):
 	# syscallDict = json.loads(open('syscalls.json', 'r').read())
 	syscallDict = {}
 	with open(filePath,'r') as fp:
@@ -57,8 +57,9 @@ def processFileGetFunctionNames(filePath):
 	# for i,(k,v) in enumerate(od(sorted(syscallDict.items(),key=lambda k:k[1],reverse=True)).iteritems()):
 	# 	print k,v
 	runWrapperDict = {}
-	print filePath
-	runWrapperDict[filePath.split('.run.')[1]] = syscallDict
+	# print filePath
+	runWrapperDict[category] = syscallDict
+	# runWrapperDict[filePath.split('.run.')[1]] = syscallDict
 	return runWrapperDict
 
 # Returns True if the original syscall dict had more variety of calls or more number of total calls
@@ -100,12 +101,14 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	# print jsonDict.keys()
 
 def extractFeatures(jsonPath,root,appPkgName):
+	categoryDict = json.loads(open("category.json",'r').read())
+	category = categoryDict[appPkgName]["annotated_category"]
 	appOutputFolder = os.path.join(root,appPkgName)
 	syscallDict = {}
 	for file in os.listdir(appOutputFolder):
 		if not fm.fnmatch(file,'*monkey.out'):
 			# First analysis is to get the function names
-			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file))
+			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file),category)
 		storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask(appPkgName):
@@ -124,7 +127,7 @@ def main(argv):
 
 	for appPkgName in jsonDict["packages"]:
 		count += 1
-		print "Doing app number: "+count+" named: "+appPkgName
+		print "Doing app number: "+str(count)+" named: "+appPkgName
 		doTask(appPkgName)
 
 if __name__ == "__main__":

@@ -1,5 +1,9 @@
 {
-    "acc.file.explorer": {
+    "com.ext.ui": {
+        "annotated_category": "file_explorer", 
+        "google_play_category": "tools"
+    },
+        "acc.file.explorer": {
         "annotated_category": "file_explorer", 
         "google_play_category": "productivity"
     }, 

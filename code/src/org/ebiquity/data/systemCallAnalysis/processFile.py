@@ -78,8 +78,8 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	if isPathExists(masterJsonFile):
 		ticks = time.time()
 		uniformString = str(ticks).replace(".","")
-	masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
-	copyfile(masterJsonFile, masterJsonFileBkp)
+		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
+		copyfile(masterJsonFile, masterJsonFileBkp)
 	jsonDict = {}
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())

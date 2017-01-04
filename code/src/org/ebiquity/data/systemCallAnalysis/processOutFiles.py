@@ -178,7 +178,7 @@ def main(argv):
 	for appPkgName in jsonDict["packages"]:
 		aggregateDict = getAggregateInfo(appPkgName,aggregateDict,masterDict)
 
-	open("output.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
+	open("aggregateResults534Apps.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
 
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

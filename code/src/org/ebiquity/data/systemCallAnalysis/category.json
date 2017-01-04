@@ -1,4 +1,8 @@
 {
+    "mobi.infolife.uninstaller" : {
+        "annotated_category": "file_explorer", 
+        "google_play_category": "productivity"
+    },
     "com.ext.ui": {
         "annotated_category": "file_explorer", 
         "google_play_category": "tools"

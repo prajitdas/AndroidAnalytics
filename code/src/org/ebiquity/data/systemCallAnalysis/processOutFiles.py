@@ -144,13 +144,16 @@ def getAggregateInfo(appPkgName,aggregateDict):
 				aggregateDict["google_play_category"][google_play_category][call] = masterDict[appPkgName]["calls"][call]
 	else:
 		aggregateDict["google_play_category"][google_play_category] = masterDict[appPkgName]["calls"]
-		
+
 	return aggregateDict
 
 def main(argv):
 	if len(sys.argv) != 2:
 		sys.stderr.write('Usage: python processFile.py toprocess.json\n')
 		sys.exit(1)
+
+	startTime = time.time()
+
 	jsonFileName = sys.argv[1]
 	jsonDict = json.loads(open(jsonFileName,'r').read())
 	count = 0
@@ -163,9 +166,15 @@ def main(argv):
 		print "Doing app number: "+str(count)+" named: "+appPkgName
 		doTask(appPkgName,annotated_category,google_play_category)
 	
-	# aggregateDict = {}
-	# for appPkgName in jsonDict["packages"]:
-	# 	aggregateDict = getAggregateInfo(appPkgName,aggregateDict)
+	print "Done with one part"
+
+	aggregateDict = {}
+	for appPkgName in jsonDict["packages"]:
+		aggregateDict = getAggregateInfo(appPkgName,aggregateDict)
+	open("output.json","w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+
+	executionTime = str((time.time()-startTime)*1000)
+	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

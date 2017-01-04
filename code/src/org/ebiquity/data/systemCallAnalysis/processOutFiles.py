@@ -43,7 +43,7 @@ def processFileGetFunctionNames(filePath,annotated_category,google_play_category
 			# This is where we are extracting the actual features from the out files
 			# syscall = sanitizeCall(line)
 			# We started getting an error due to this. So changing back to original code.
-			if line.startswith('+++') or line.startswith('---') or line.startswith('System') or line.startswith('<...'):
+			if line.startswith('+++') or line.startswith('---') or line.startswith('System') or line.startswith('<...') or line.startswith('????'):
 				continue
 			else:
 				syscall = line.split('(')[0].strip()
@@ -117,32 +117,31 @@ def doTask(appPkgName,annotated_category,google_play_category):
 	outDir = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis\out"
 	extractFeatures(jsonPath,outDir,appPkgName,annotated_category,google_play_category)
 
-def getAggregateInfo(appPkgName,aggregateDict):
-	# The following 2 lines are for testing purposes only
-	jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile534.json")
-	masterDict = json.loads(open(masterJsonFile,'r').read())
-	
+def getAggregateInfo(appPkgName,aggregateDict,masterDict):
 	annotated_category = masterDict[appPkgName]["annotated_category"]
 	google_play_category = masterDict[appPkgName]["google_play_category"]
 	calls = masterDict[appPkgName]["calls"]
 
 	if annotated_category in aggregateDict["annotated_category"]:
+		# print annotated_category
 		for call in calls:
 			if call in aggregateDict["annotated_category"][annotated_category]:
 				aggregateDict["annotated_category"][annotated_category][call] += masterDict[appPkgName]["calls"][call]
 			else:
 				aggregateDict["annotated_category"][annotated_category][call] = masterDict[appPkgName]["calls"][call]
 	else:
+		# print annotated_category
 		aggregateDict["annotated_category"][annotated_category] = masterDict[appPkgName]["calls"]
 
 	if google_play_category in aggregateDict["google_play_category"]:
+		# print google_play_category
 		for call in calls:
 			if call in aggregateDict["google_play_category"][google_play_category]:
 				aggregateDict["google_play_category"][google_play_category][call] += masterDict[appPkgName]["calls"][call]
 			else:
 				aggregateDict["google_play_category"][google_play_category][call] = masterDict[appPkgName]["calls"][call]
 	else:
+		# print google_play_category
 		aggregateDict["google_play_category"][google_play_category] = masterDict[appPkgName]["calls"]
 
 	return aggregateDict
@@ -169,9 +168,17 @@ def main(argv):
 	print "Done with one part"
 
 	aggregateDict = {}
+	aggregateDict["annotated_category"] = {}
+	aggregateDict["google_play_category"] = {}
+
+	jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile534.json")
+	masterDict = json.loads(open(masterJsonFile,'r').read())
+
 	for appPkgName in jsonDict["packages"]:
-		aggregateDict = getAggregateInfo(appPkgName,aggregateDict)
-	open("output.json","w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+		aggregateDict = getAggregateInfo(appPkgName,aggregateDict,masterDict)
+
+	open("output.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
 
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

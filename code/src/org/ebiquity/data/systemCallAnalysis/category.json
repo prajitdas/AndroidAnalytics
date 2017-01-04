@@ -1400,8 +1400,8 @@
         "google_play_category": "education"
     }, 
     "com.better.alarm": {
-        "annotated_category": "productivity", 
-        "google_play_category": "alarm_clock"
+        "annotated_category": "alarm_clock", 
+        "google_play_category": "productivity"
     }, 
     "com.bhoojwood.todolist": {
         "annotated_category": "to_do_list", 

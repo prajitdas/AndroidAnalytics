@@ -1,3 +1,3 @@
 #!/bin/bash
 currDir=`pwd`
-python initClassification.py $currDir
+python initClassification.py masterJsonOutputFile.json

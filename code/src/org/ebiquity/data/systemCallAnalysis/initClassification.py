@@ -26,20 +26,21 @@ def preProcess():
 	return predictedClassFile
 
 #Initiate the clustering process
-def initClassification(jsonPath):
+def initClassification(masterJsonFile):
 	# Things have been initiated, now to run classification
-	classify.runClassification(preProcess(), gs.getSyscallDataJson(jsonPath))
+	# classify.runClassification(preProcess(), gs.getSyscallDataJson(masterJsonFile))
+	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()))
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python initClassification.py jsonPath')
+		sys.stderr.write('Usage: python initClassification.py masterJsonFile')
 		sys.exit(1)
 
-	jsonPath = sys.argv[1]
+	masterJsonFile = sys.argv[1]
 
 	startTime = time.time()
 	#Initiate the clustering process
-	initClassification(jsonPath)
+	initClassification(masterJsonFile)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

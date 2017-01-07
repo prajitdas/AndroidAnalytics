@@ -39,8 +39,11 @@ def getAppCategoryList(termDocMatrix):
 	google_play_category_labels = []
 	annotated_category_labels = []
 	for app in termDocMatrix:
-		google_play_category_labels.append(termDocMatrix[app][0])
-		annotated_category_labels.append(termDocMatrix[app][1])
+		if app == "allSystemCalls":
+			continue
+		else:
+			google_play_category_labels.append(termDocMatrix[app][0])
+			annotated_category_labels.append(termDocMatrix[app][1])
 	# return set(google_play_category_labels)
 	return set(annotated_category_labels)
 

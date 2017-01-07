@@ -74,17 +74,20 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 	arffFileContent+="@DATA\n"
 	
 	for app in termDocMatrix:
-		arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
-		'''
-			REMEMBER! REMEMBER! The something of November :P This is where we choose which class label we test against
-			termDocMatrix[app][0] -> annotated class labels by Google
-			termDocMatrix[app][1] -> annotated class labels by "experts"
-			remember to comment out the right line above in getAppCategoryList(termDocMatrix)
-		'''
-		# [0]: Google category
-		# [1]: My category
-		arffFileContent+=','+termDocMatrix[app][1]
-		arffFileContent+="\n"
+		if app == "allSystemCalls":
+			continue
+		else:
+			arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
+			'''
+				REMEMBER! REMEMBER! The something of November :P This is where we choose which class label we test against
+				termDocMatrix[app][0] -> annotated class labels by Google
+				termDocMatrix[app][1] -> annotated class labels by "experts"
+				remember to comment out the right line above in getAppCategoryList(termDocMatrix)
+			'''
+			# [0]: Google category
+			# [1]: My category
+			arffFileContent+=','+termDocMatrix[app][1]
+			arffFileContent+="\n"
 
 	return arffFileContent
 

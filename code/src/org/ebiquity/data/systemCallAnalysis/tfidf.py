@@ -43,24 +43,24 @@ def computeTFIDFWeights(termDocMatrix):
 	return termDocMatrix
 
 def normalizeTFIDFWeights(termDocMatrix):
-	newTermDocMatrix = {}
+	# newTermDocMatrix = {}
 
-	maxWeight = 0.0
-	minWeight = 0.0
+	# maxWeight = 0.0
+	# minWeight = 0.0
 	
-	for appRun in termDocMatrix:
-		for syscallFreq in termDocMatrix[appRun][2]:
-			if syscallFreq > maxWeight:
-				maxWeight = syscallFreq
-			if syscallFreq < minWeight
-				minWeight = syscallFreq
+	# for appRun in termDocMatrix:
+	# 	for syscallFreq in termDocMatrix[appRun][2]:
+	# 		if syscallFreq > maxWeight:
+	# 			maxWeight = syscallFreq
+	# 		if syscallFreq < minWeight:
+	# 			minWeight = syscallFreq
 
-	print "max weight: "+str(maxWeight)+"min weight: "+str(minWeight)
-	for appRun in termDocMatrix:
-		item0 = termDocMatrix[appRun][0]
-		item1 = termDocMatrix[appRun][1]
-		item2 = []
-		for syscallFreq in termDocMatrix[appRun][2]:
-			print "Fix this"
+	# print "max weight: "+str(maxWeight)+"min weight: "+str(minWeight)
+	# for appRun in termDocMatrix:
+	# 	item0 = termDocMatrix[appRun][0]
+	# 	item1 = termDocMatrix[appRun][1]
+	# 	item2 = []
+	# 	for syscallFreq in termDocMatrix[appRun][2]:
+	# 		print "Fix this"
 
 	return termDocMatrix

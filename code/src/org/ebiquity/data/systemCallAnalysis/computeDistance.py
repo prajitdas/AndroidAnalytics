@@ -200,6 +200,11 @@ def updateTermDcoMatrixWithTfIdfValues(termDocMatrix):
 	# print termDocMatrix
 	return termDocMatrix
 
+#Normalize the TF-IDF weights for system calls made by apps
+def normalizeTermDcoMatrix(termDocMatrix):
+	termDocMatrix = tfidf.normalizeTFIDFWeights(termDocMatrix)
+	return termDocMatrix
+
 def runAgain(jsonDict):
 	# Removing all apps which didn't have any calls associated.
 	# Maybe the call to these apps didn't work. We have to try them again, later on.
@@ -268,11 +273,15 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 					termDocMatrix[appRun] = appFeatures
 					appRunVector.append(appRun)
 					# print app, termDocMatrix[appRun]
+		# This is where we are computing the TF-IDF weight vectors. We only have app run info in the TermDocMatrix at this point.
 		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 	else:
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
 		raise BaseException("Error in input. You didn't choose a known standard for term document matrix format.")
+
+	termDocMatrix = normalizeTermDcoMatrix(termDocMatrix)
+
 	toWriteTermDocMat = {}
 	toWriteTermDocMat = termDocMatrix
 	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector

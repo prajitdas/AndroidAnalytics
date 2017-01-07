@@ -246,6 +246,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 				print app
 			else:
 				for run in jsonDict[app]:
+					appRun = app+'.'+run
 					appFeatures = []
 					appFeatures.append(categoryDict[app]['google_play_category'])
 					appFeatures.append(categoryDict[app]['annotated_category'])
@@ -259,7 +260,6 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 				print app
 			else:
 				for run in jsonDict[app]:
-					# print jsonDict[app][run]
 					appRun = app+'.'+run
 					appFeatures = []
 					appFeatures.append(categoryDict[app]['google_play_category'])
@@ -267,7 +267,6 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
 					termDocMatrix[appRun] = appFeatures
 					appRunVector.append(appRun)
-					# print app, categoryDict[app]['google_play_category'], categoryDict[app]['annotated_category']
 					# print app, termDocMatrix[appRun]
 		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 	else:

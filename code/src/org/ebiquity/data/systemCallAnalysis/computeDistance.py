@@ -228,25 +228,31 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	termDocMatrix = {}
 	if type == 'numoc':
 		for app in appVector:
-			for run in jsonDict[app]:
-				appRun = app+'.'+run
-				appFeatures = []
-				appFeatures.append(categoryDict[app]['google_play_category'])
-				appFeatures.append(categoryDict[app]['annotated_category'])
-				appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
-				termDocMatrix[appRun] = appFeatures
-				appRunVector.append(appRun)
-				# print app, termDocMatrix[appRun]
+			if app not in categoryDict:
+				print app
+			else:
+				for run in jsonDict[app]:
+					appRun = app+'.'+run
+					appFeatures = []
+					appFeatures.append(categoryDict[app]['google_play_category'])
+					appFeatures.append(categoryDict[app]['annotated_category'])
+					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
+					termDocMatrix[appRun] = appFeatures
+					appRunVector.append(appRun)
+					# print app, termDocMatrix[appRun]
 	elif type == 'justc':
 		for app in appVector:
-			for run in jsonDict[app]:
-				appRun = app+'.'+run
-				appFeatures = []
-				appFeatures.append(categoryDict[app]['google_play_category'])
-				appFeatures.append(categoryDict[app]['annotated_category'])
-				appFeatures.append(formVectorJustCalls(jsonDict[app][run],allSyscallsVector))
-				termDocMatrix[appRun] = appFeatures
-				appRunVector.append(appRun)
+			if app not in categoryDict:
+				print app
+			else:
+				for run in jsonDict[app]:
+					appFeatures = []
+					appFeatures.append(categoryDict[app]['google_play_category'])
+					appFeatures.append(categoryDict[app]['annotated_category'])
+					appFeatures.append(formVectorJustCalls(jsonDict[app][run],allSyscallsVector))
+					termDocMatrix[appRun] = appFeatures
+					appRunVector.append(appRun)
+					# print app, termDocMatrix[appRun]
 	elif type == 'tfidf':
 		for app in appVector:
 			if app not in categoryDict:
@@ -261,6 +267,7 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
 					termDocMatrix[appRun] = appFeatures
 					appRunVector.append(appRun)
+					print app, categoryDict[app]['google_play_category'], categoryDict[app]['annotated_category']
 		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 	else:
 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")

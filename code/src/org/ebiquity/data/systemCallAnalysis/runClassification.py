@@ -4,6 +4,7 @@ Created on June 28, 2016
 Usage: python runClassification.py jsonDict
 '''
 
+import datetime
 import numpy as np
 import json
 import cPickle
@@ -52,12 +53,16 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 #Generate the ARFF file for weka to process
 def generateArffFileData(termDocMatrix, allSyscallsVector):
 	# print termDocMatrix
-	arffFileContent="% 1. Title: Playstore Data Category Classification\n"
+	arffFileContent="% 1. Title: App Behavioral Category Classification\n"
 	arffFileContent+="% \n"
 	arffFileContent+="% 2. Sources:\n"
 	arffFileContent+="%      (a) Creator: P. K. Das\n"
 	arffFileContent+="%      (b) Source: Google Play Store dataset\n"
-	arffFileContent+="%      (c) Date: June, 2016\n"
+	now = datetime.datetime.now()
+	day = str(now.day)
+	month = now.strftime("%B")
+	year = str(now.year)
+	arffFileContent+="%      (c) Date: "+month+" "+day+", "+year+"\n"
 	arffFileContent+="% \n"
 	arffFileContent+="@RELATION playstore\n\n"
 	for systemCall in allSyscallsVector:

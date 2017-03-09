@@ -12,9 +12,12 @@ import os
 import fnmatch as fm
 from collections import OrderedDict as od
 import json
+
 from shutil import copyfile
 import re
 from string import digits
+import logging
+logging.basicConfig(filename='processFileSyscallSequences.log',level=logging.DEBUG)
 
 def isPathExists(path):
 	if os.path.exists(path):

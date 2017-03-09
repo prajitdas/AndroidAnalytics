@@ -34,7 +34,7 @@ def sanitizeCall(inputString):
 
 def processFileGetFunctionNames(filePath,annotated_category,google_play_category):
 	# syscallDict = json.loads(open('syscalls.json', 'r').read())
-	syscallDict = {}
+	syscalls = []
 	with open(filePath,'r') as fp:
 		for line in fp:
 			line = line.translate(None, digits).strip()
@@ -45,18 +45,19 @@ def processFileGetFunctionNames(filePath,annotated_category,google_play_category
 				continue
 			else:
 				syscall = line.split('(')[0].strip()
+				syscalls.append(syscall)
 				# syscall = syscall.split(' ')[2].strip()
-				if syscall in syscallDict:
-					syscallDict[syscall] += 1
-				else:
-					syscallDict[syscall] = 1
-					# print 'something went seriously wrong for',syscall
-					# logging.debug('something went seriously wrong for'+syscall)
+				# if syscall in syscallDict:
+				# 	syscallDict[syscall] += 1
+				# else:
+				# 	syscallDict[syscall] = 1
+				# print 'something went seriously wrong for',syscall
+				# logging.debug('something went seriously wrong for'+syscall)
 	# for i,(k,v) in enumerate(od(sorted(syscallDict.items(),key=lambda k:k[1],reverse=True)).iteritems()):
 	# 	print k,v
 	runWrapperDict = {}
 	# print filePath
-	runWrapperDict["calls"] = syscallDict
+	runWrapperDict["calls"] = syscalls
 	runWrapperDict["annotated_category"] = annotated_category
 	runWrapperDict["google_play_category"] = google_play_category
 	# runWrapperDict[filePath.split('.run.')[1]] = syscallDict
@@ -77,12 +78,12 @@ def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
 	return True
 
 def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile534.json")
-	# if isPathExists(masterJsonFile):
-	# 	ticks = time.time()
-	# 	uniformString = str(ticks).replace(".","")
-	# 	masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
-	# 	copyfile(masterJsonFile, masterJsonFileBkp)
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
+	if isPathExists(masterJsonFile):
+		ticks = time.time()
+		uniformString = str(ticks).replace(".","")
+		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
+		copyfile(masterJsonFile, masterJsonFileBkp)
 	jsonDict = {}
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())
@@ -97,7 +98,7 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	else:
 		# print "Came into is not in file"
 		jsonDict[appPkgName] = syscallDict
-		# open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 	# print jsonDict.keys()
 
 def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_category):
@@ -107,7 +108,7 @@ def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_cate
 		if not fm.fnmatch(file,'*monkey.out'):
 			# First analysis is to get the function names
 			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file),annotated_category,google_play_category)
-		# storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
+		storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask(appPkgName,annotated_category,google_play_category):
 	# The following 2 lines are for testing purposes only
@@ -172,13 +173,13 @@ def main(argv):
 	aggregateDict["google_play_category"] = {}
 
 	jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFile534.json")
+	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
 	masterDict = json.loads(open(masterJsonFile,'r').read())
 
 	for appPkgName in jsonDict["packages"]:
 		aggregateDict = getAggregateInfo(appPkgName,aggregateDict,masterDict)
 
-	open("aggregateResults534Apps.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
+	open("aggregateResultsSequences.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
 
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

@@ -112,8 +112,10 @@ def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_cate
 
 def doTask(appPkgName,annotated_category,google_play_category):
 	# The following 2 lines are for testing purposes only
-	jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
-	outDir = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis\out"
+	jsonPath = os.getcwd()
+	outDir = os.path.join(os.getcwd(),"out")
+	# jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
+	# outDir = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis\out"
 	extractFeatures(jsonPath,outDir,appPkgName,annotated_category,google_play_category)
 
 def getAggregateInfo(appPkgName,aggregateDict,masterDict):
@@ -172,7 +174,8 @@ def main(argv):
 	aggregateDict["annotated_category"] = {}
 	aggregateDict["google_play_category"] = {}
 
-	jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
+	jsonPath = os.getcwd()
+	# "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
 	masterDict = json.loads(open(masterJsonFile,'r').read())
 

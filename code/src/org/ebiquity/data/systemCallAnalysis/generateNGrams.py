@@ -4,7 +4,7 @@ Created on March 10, 2017
 
 Usage: python generateNGrams.py\n
 
-Code to generate n-grams
+Code to generate ngrams
 '''
 import json
 import time

@@ -83,9 +83,7 @@ def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
 def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
 	if isPathExists(masterJsonFile):
-		ticks = time.time()
-		uniformString = str(ticks).replace(".","")
-		masterJsonFileBkp = "masterJsonOutputFileBkp"+uniformString+".json"
+		masterJsonFileBkp = "masterJsonOutputFileBkp.json"
 		copyfile(masterJsonFile, masterJsonFileBkp)
 	jsonDict = {}
 	try:

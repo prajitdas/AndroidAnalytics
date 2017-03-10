@@ -34,6 +34,7 @@ def sanitizeCall(inputString):
 	return None
 
 def processFileGetFunctionNames(appPkgName,filePath,annotated_category,google_play_category):
+	runWrapperDict = {}
 	syscalls = []
 	with open(filePath,'r') as fp:
 		for line in fp:

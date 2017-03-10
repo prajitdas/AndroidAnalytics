@@ -39,8 +39,13 @@ def processFileGetFunctionNames(appPkgName,filePath,annotated_category,google_pl
 	with open(filePath,'r') as fp:
 		for line in fp:
 			line = line.translate(None, digits).strip()
-			syscall = line.split('(')[0].strip()
-			syscalls.append(syscall)
+			# This is where we are extracting the actual features from the out files
+			# syscall = sanitizeCall(line)
+			# We started getting an error due to this. So changing back to original code.
+			if line.startswith('+++') or line.startswith('---') or line.startswith('System') or line.startswith('<...') or line.startswith('????'):
+				continue
+			else:
+				syscalls.append(line.split('(')[0].strip())
 	runWrapperDict["syscalls"] = syscalls
 	runWrapperDict["annotated_category"] = annotated_category
 	runWrapperDict["google_play_category"] = google_play_category

@@ -207,6 +207,7 @@ def normalizeTermDcoMatrix(termDocMatrix):
 	return termDocMatrix
 
 def runAgain(jsonDict):
+	print "Started with ", len(jsonDict), "apps"
 	# Removing all apps which didn't have any calls associated.
 	# Maybe the call to these apps didn't work. We have to try them again, later on.
 	cleanJsonDict = {}
@@ -218,17 +219,16 @@ def runAgain(jsonDict):
 		else:
 			runAgainAppsList.append(key)
 
-	print "Testing", len(cleanJsonDict), "apps"
 	runAgainAppsDict = {}
 	runAgainAppsDict['apps'] = runAgainAppsList
 	json.dump(runAgainAppsDict, open('runagain.json', 'w'), sort_keys = True, indent = 4)
+	print "Working with ", len(cleanJsonDict), "apps"
 	return cleanJsonDict
 
 def createTermDocMatrix(jsonDict,type):
 	jsonDict = runAgain(jsonDict)
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
-	print numberOfApps
 	appVector = jsonDict.keys()
 	termDocMatrix = {}
 	if type == 'numoc':

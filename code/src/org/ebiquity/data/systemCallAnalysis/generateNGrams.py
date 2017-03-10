@@ -14,12 +14,41 @@ import platform
 import logging
 logging.basicConfig(filename='generateNGrams.log',level=logging.DEBUG)
 
+def storeFeaturesInJsonFile(dataDict,appPkgName,n):
+	masterJsonFile = os.path.join(os.getcwd(),str(n)+"gram534.json")
+	jsonDict = {}
+	try:
+		jsonDict = json.loads(open(masterJsonFile).read())
+	except:
+		print "json was empty"
+	jsonDict[appPkgName] = dataDict
+	open(masterJsonFile,"w").write(json.dumps(jsonDict,sort_keys=True))
+	# print jsonDict.keys()
+
 def getData(appPkgName):
 	appDataDict = json.loads(open(os.path.join(os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons"),appPkgName+".json"),'r').read())
 	return appDataDict[appPkgName]["annotated_category"], appDataDict[appPkgName]["google_play_category"], appDataDict[appPkgName]["syscalls"]
 
 def find_ngrams(input_list, n):
 	return zip(*[input_list[i:] for i in range(n)])
+
+def createNGramDict(n, annotated_category, google_play_category, input_list):
+	syscallNGramList = []
+	for ngramsList in find_ngrams(input_list,n):
+		syscallNGramList.append("_".join(ngramsList))
+
+	syscallDict = {}
+	for syscallNGram in syscallNGramList:
+		if syscallNGram in syscallDict:
+			syscallDict[syscallNGram] += 1
+		else:
+			syscallDict[syscallNGram] = 1
+	
+	runWrapperDict = {}
+	runWrapperDict["syscallNGrams"] = syscallDict
+	runWrapperDict["annotated_category"] = annotated_category
+	runWrapperDict["google_play_category"] = google_play_category
+	return runWrapperDict
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -30,12 +59,25 @@ def main(argv):
 
 	appDict = json.loads(open("toprocess.json",'r').read())
 	count = 0
+
+	n = 2
 	for appPkgName in appDict["packages"]:
 		count += 1
 		print "Processing app number: "+str(count)+" named: "+appPkgName
 		annotated_category, google_play_category, input_list = getData(appPkgName)
-		print find_ngrams(input_list,2)
-		print find_ngrams(input_list,3)
+		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
+
+	n = 3
+	for appPkgName in appDict["packages"]:
+		count += 1
+		print "Processing app number: "+str(count)+" named: "+appPkgName
+		annotated_category, google_play_category, input_list = getData(appPkgName)
+		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
+
+	# appPkgName = "com.onegogo.explorer"
+	# annotated_category, google_play_category, input_list = getData(appPkgName)
+	# createNGramDict(2, annotated_category, google_play_category, input_list)
+	# createNGramDict(3, annotated_category, google_play_category, input_list)
 	
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

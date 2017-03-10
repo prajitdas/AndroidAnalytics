@@ -95,11 +95,11 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 		if hasMoreCallsSyscallDict(jsonDict[appPkgName],syscallDict) == True:
 			# print "Came into is in file"
 			jsonDict[appPkgName] = syscallDict
-			open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+			open(masterJsonFile,"w").write(json.dumps(jsonDict,sort_keys=True))
 	else:
 		# print "Came into is not in file"
 		jsonDict[appPkgName] = syscallDict
-		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+		open(masterJsonFile,"w").write(json.dumps(jsonDict,sort_keys=True))
 	# print jsonDict.keys()
 
 def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_category):

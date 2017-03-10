@@ -32,11 +32,12 @@ def initClassification(masterJsonFile, ngram):
 	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()), ngram)
 
 def main(argv):
-	if len(sys.argv) != 2:
+	if len(sys.argv) != 3:
 		sys.stderr.write('Usage: python initClassification.py masterJsonFile ngram')
 		sys.exit(1)
 
 	masterJsonFile = sys.argv[1]
+	ngram = sys.argv[2]
 
 	startTime = time.time()
 	#Initiate the clustering process

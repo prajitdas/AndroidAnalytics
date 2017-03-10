@@ -49,12 +49,6 @@ def getAppCategoryList(termDocMatrix, labels):
 	else:
 		return set(google_play_category_labels)
 
-def writeMatrixToFile(appMatrix, appMatrixFile):
-	#Once the whole matrix is created then dump to a file
-	#Write the app permissions matrix to a file
-	cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
-	#return cPickle.load(open(appMatrixFile, 'rb'))
-	
 #Generate the ARFF file for weka to process
 def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 	# print termDocMatrix
@@ -88,13 +82,19 @@ def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 			'''
 			# [0]: Google category
 			# [1]: My category
-			if labels == "my"
+			if labels == "my":
 				arffFileContent+=','+termDocMatrix[app][1]
 			else:
 				arffFileContent+=','+termDocMatrix[app][0]
 			arffFileContent+="\n"
 
 	return arffFileContent
+
+def writeMatrixToFile(appMatrix, appMatrixFile):
+	#Once the whole matrix is created then dump to a file
+	#Write the app permissions matrix to a file
+	cPickle.dump(appMatrix, open(appMatrixFile, 'wb'))
+	#return cPickle.load(open(appMatrixFile, 'rb'))
 
 def writeArffFile(appMatrixFile, arffFileContent):
 	logging.debug('Finally writing arff file!')
@@ -108,22 +108,22 @@ def runClassification(predictedClustersFile, jsonDict, ngram):
 	# options for type are justc numoc and tfidf
 	
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'justc')
-	writeArffFile("534AppsMyClassLabelsJUSTC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "my")
+	writeArffFile(ngram+"MyLabelsJUSTC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "my"))
 
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'numoc')
-	writeArffFile("534AppsMyClassLabelsNUMOC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "my")
+	writeArffFile(ngram+"MyLabelsNUMOC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "my"))
 
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
-	writeArffFile("534AppsMyClassLabelsTFIDF"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "my")
+	writeArffFile(ngram+"MyLabelsTFIDF534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "my"))
 
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'justc')
-	writeArffFile("534AppsGoogleClassLabelsJUSTC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "google")
+	writeArffFile(ngram+"GoogleLabelsJUSTC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "google"))
 
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'numoc')
-	writeArffFile("534AppsGoogleClassLabelsNUMOC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "google")
+	writeArffFile(ngram+"GoogleLabelsNUMOC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "google"))
 
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
-	writeArffFile("534AppsGoogleClassLabelsTFIDF"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "google")
+	writeArffFile(ngram+"GoogleLabelsTFIDF534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "google"))
 	
 	# print numberOfApps
 	# print termDocMatrix

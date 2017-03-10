@@ -228,7 +228,7 @@ def createTermDocMatrix(jsonDict,type):
 	jsonDict = runAgain(jsonDict)
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
-	print numberOfApps
+	# print numberOfApps
 	appVector = jsonDict.keys()
 	termDocMatrix = {}
 	if type == 'numoc':

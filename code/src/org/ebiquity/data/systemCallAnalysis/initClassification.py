@@ -26,21 +26,21 @@ def preProcess():
 	return predictedClassFile
 
 #Initiate the clustering process
-def initClassification(masterJsonFile):
+def initClassification(masterJsonFile, ngram):
 	# Things have been initiated, now to run classification
 	# classify.runClassification(preProcess(), gs.getSyscallDataJson(masterJsonFile))
-	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()))
+	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()), ngram)
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python initClassification.py masterJsonFile')
+		sys.stderr.write('Usage: python initClassification.py masterJsonFile ngram')
 		sys.exit(1)
 
 	masterJsonFile = sys.argv[1]
 
 	startTime = time.time()
 	#Initiate the clustering process
-	initClassification(masterJsonFile)
+	initClassification(masterJsonFile, ngram)
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

@@ -35,7 +35,7 @@ def compressWriteData(fileTowWrite,dataObject):
 	with gzip.GzipFile(fileTowWrite, 'w') as outfile:
 		outfile.write(dataObject)
 	
-def getAppCategoryList(termDocMatrix):
+def getAppCategoryList(termDocMatrix, labels):
 	google_play_category_labels = []
 	annotated_category_labels = []
 	for app in termDocMatrix:
@@ -44,8 +44,10 @@ def getAppCategoryList(termDocMatrix):
 		else:
 			google_play_category_labels.append(termDocMatrix[app][0])
 			annotated_category_labels.append(termDocMatrix[app][1])
-	# return set(google_play_category_labels)
-	return set(annotated_category_labels)
+	if labels == "my":
+		return set(annotated_category_labels)
+	else:
+		return set(google_play_category_labels)
 
 def writeMatrixToFile(appMatrix, appMatrixFile):
 	#Once the whole matrix is created then dump to a file
@@ -54,7 +56,7 @@ def writeMatrixToFile(appMatrix, appMatrixFile):
 	#return cPickle.load(open(appMatrixFile, 'rb'))
 	
 #Generate the ARFF file for weka to process
-def generateArffFileData(termDocMatrix, allSyscallsVector):
+def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 	# print termDocMatrix
 	arffFileContent="% 1. Title: App Behavioral Category Classification\n"
 	arffFileContent+="% \n"
@@ -70,7 +72,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 	arffFileContent+="@RELATION playstore\n\n"
 	for systemCall in allSyscallsVector:
 		arffFileContent+="@ATTRIBUTE "+systemCall+" NUMERIC\n"
-	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppCategoryList(termDocMatrix))+"}\n\n"
+	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppCategoryList(termDocMatrix, labels))+"}\n\n"
 	arffFileContent+="@DATA\n"
 	
 	for app in termDocMatrix:
@@ -86,7 +88,10 @@ def generateArffFileData(termDocMatrix, allSyscallsVector):
 			'''
 			# [0]: Google category
 			# [1]: My category
-			arffFileContent+=','+termDocMatrix[app][1]
+			if labels == "my"
+				arffFileContent+=','+termDocMatrix[app][1]
+			else:
+				arffFileContent+=','+termDocMatrix[app][0]
 			arffFileContent+="\n"
 
 	return arffFileContent
@@ -96,13 +101,30 @@ def writeArffFile(appMatrixFile, arffFileContent):
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 
-def runClassification(predictedClustersFile, jsonDict):
+def runClassification(predictedClustersFile, jsonDict, ngram):
 	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,type)
 	# categoryDict = json.loads(open('category.json','r').read())
 	# numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,type)
 	# options for type are justc numoc and tfidf
+	
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'justc')
+	writeArffFile("534AppsMyClassLabelsJUSTC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "my")
+
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'numoc')
+	writeArffFile("534AppsMyClassLabelsNUMOC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "my")
+
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
-	writeArffFile("appMatrix.arff", generateArffFileData(termDocMatrix, allSyscallsVector))
+	writeArffFile("534AppsMyClassLabelsTFIDF"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "my")
+
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'justc')
+	writeArffFile("534AppsGoogleClassLabelsJUSTC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "google")
+
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'numoc')
+	writeArffFile("534AppsGoogleClassLabelsNUMOC"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "google")
+
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
+	writeArffFile("534AppsGoogleClassLabelsTFIDF"+ngram+".arff", generateArffFileData(termDocMatrix, allSyscallsVector), "google")
+	
 	# print numberOfApps
 	# print termDocMatrix
 	# print appVector

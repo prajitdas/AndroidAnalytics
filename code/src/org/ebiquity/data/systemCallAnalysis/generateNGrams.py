@@ -58,8 +58,16 @@ def main(argv):
 	startTime = time.time()
 
 	appDict = json.loads(open("toprocess.json",'r').read())
-	count = 0
 
+	count = 0
+	n = 1
+	for appPkgName in appDict["packages"]:
+		count += 1
+		print "Processing app number: "+str(count)+" named: "+appPkgName
+		annotated_category, google_play_category, input_list = getData(appPkgName)
+		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
+
+	count = 0
 	n = 2
 	for appPkgName in appDict["packages"]:
 		count += 1
@@ -67,6 +75,7 @@ def main(argv):
 		annotated_category, google_play_category, input_list = getData(appPkgName)
 		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
 
+	count = 0
 	n = 3
 	for appPkgName in appDict["packages"]:
 		count += 1
@@ -74,11 +83,6 @@ def main(argv):
 		annotated_category, google_play_category, input_list = getData(appPkgName)
 		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
 
-	# appPkgName = "com.onegogo.explorer"
-	# annotated_category, google_play_category, input_list = getData(appPkgName)
-	# createNGramDict(2, annotated_category, google_play_category, input_list)
-	# createNGramDict(3, annotated_category, google_play_category, input_list)
-	
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

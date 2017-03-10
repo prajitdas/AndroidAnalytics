@@ -1,7 +1,8 @@
 {
     "com.asgaardianworkshop.theultimatetodolist": {
         "annotated_category": "to_do_list", 
-        "com.asgaardianworkshop.theultimatetodolist": [
+        "google_play_category": "productivity", 
+        "syscalls": [
             "ioctl", 
             "ioctl", 
             "futex", 
@@ -11,6 +12,7 @@
             "recvmsg", 
             "rt_sigtimedwait", 
             "ioctl", 
+            "<... ioctl resumed> , xfba) =", 
             "futex", 
             "write", 
             "prctl", 
@@ -20,6 +22,7 @@
             "write", 
             "prctl", 
             "ioctl", 
+            "<... ioctl resumed> , xfbca) =", 
             "futex", 
             "write", 
             "prctl", 
@@ -30,16 +33,10 @@
             "write", 
             "prctl", 
             "ioctl", 
+            "<... futex resumed> )             =", 
             "futex", 
             "futex", 
-            "futex", 
-            "write", 
-            "prctl", 
-            "getpriority", 
-            "futex", 
-            "write", 
-            "prctl", 
-            "ioctl", 
+            "<... ioctl resumed> , xfba) =", 
             "futex", 
             "write", 
             "prctl", 
@@ -56,6 +53,7 @@
             "write", 
             "prctl", 
             "ioctl", 
+            "<... ioctl resumed> , xfbca) =", 
             "futex", 
             "write", 
             "prctl", 
@@ -64,9 +62,27 @@
             "write", 
             "prctl", 
             "ioctl", 
+            "<... ioctl resumed> , xfba) =", 
+            "futex", 
+            "write", 
+            "prctl", 
+            "getpriority", 
+            "futex", 
+            "write", 
+            "prctl", 
+            "ioctl", 
+            "<... ioctl resumed> , xfffe) =", 
             "writev", 
-            "kill"
-        ], 
-        "google_play_category": "productivity"
+            "kill", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++", 
+            "+++ killed by SIGKILL +++"
+        ]
     }
 }

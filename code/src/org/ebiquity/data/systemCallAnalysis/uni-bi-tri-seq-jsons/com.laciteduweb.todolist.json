@@ -1,7 +1,7 @@
 {
     "com.laciteduweb.todolist": {
         "annotated_category": "to_do_list", 
-        "com.laciteduweb.todolist": [], 
-        "google_play_category": "tools"
+        "google_play_category": "tools", 
+        "syscalls": []
     }
 }

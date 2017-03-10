@@ -63,7 +63,7 @@ def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_cate
 		storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask(appPkgName,annotated_category,google_play_category):
-	jsonPath = os.path.join(os.getcwd(),"json")
+	jsonPath = os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons")
 	outDir = os.path.join(os.getcwd(),"out")
 	extractFeatures(jsonPath,outDir,appPkgName,annotated_category,google_play_category)
 

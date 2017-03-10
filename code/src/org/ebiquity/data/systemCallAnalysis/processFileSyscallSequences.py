@@ -149,17 +149,16 @@ def getAggregateInfo(appPkgName,aggregateDict,masterDict):
 	return aggregateDict
 
 def main(argv):
-	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python processFile.py toprocess.json\n')
+	if len(sys.argv) != 1:
+		sys.stderr.write('Usage: python processFileSyscallSequences.py\n')
 		sys.exit(1)
 
 	startTime = time.time()
 
-	jsonFileName = sys.argv[1]
-	jsonDict = json.loads(open(jsonFileName,'r').read())
-	count = 0
+	jsonDict = json.loads(open("toprocess.json",'r').read())
 	categoryDict = json.loads(open("category.json",'r').read())
 
+	count = 0
 	for appPkgName in jsonDict["packages"]:
 		count += 1
 		annotated_category = categoryDict[appPkgName]["annotated_category"]

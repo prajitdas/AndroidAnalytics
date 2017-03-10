@@ -213,15 +213,15 @@ def runAgain(jsonDict):
 	# This code is to extract which app's experiments need to be executed again
 	runAgainAppsList = []
 	for key in jsonDict.iterkeys():
-		if jsonDict[key]:
+		if jsonDict[key]['syscallNGrams']:
 			cleanJsonDict[key] = jsonDict[key]
-		# else:
-		# 	runAgainAppsList.append(key)
+		else:
+			runAgainAppsList.append(key)
 
 	print "Testing", len(cleanJsonDict), "apps"
-	# runAgainAppsDict = {}
-	# runAgainAppsDict['apps'] = runAgainAppsList
-	# json.dump(runAgainAppsDict, open('runagain.json', 'w'), sort_keys = True, indent = 4)
+	runAgainAppsDict = {}
+	runAgainAppsDict['apps'] = runAgainAppsList
+	json.dump(runAgainAppsDict, open('runagain.json', 'w'), sort_keys = True, indent = 4)
 	return cleanJsonDict
 
 def createTermDocMatrix(jsonDict,type):

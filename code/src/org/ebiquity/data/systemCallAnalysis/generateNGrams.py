@@ -15,7 +15,6 @@ import logging
 logging.basicConfig(filename='generateNGrams.log',level=logging.DEBUG)
 
 def getData(appPkgName):
-	appPkgName = "com.onegogo.explorer"
 	appDataDict = json.loads(open(os.path.join(os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons"),appPkgName+".json"),'r').read())
 	return appDataDict[appPkgName]["annotated_category"], appDataDict[appPkgName]["google_play_category"], appDataDict[appPkgName]["syscalls"]
 

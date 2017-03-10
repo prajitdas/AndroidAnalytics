@@ -55,7 +55,7 @@ def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
 	masterJsonFile = os.path.join(jsonPath,appPkgName+".json")
 	jsonDict = {}
 	jsonDict[appPkgName] = syscallDict
-	open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+	open(masterJsonFile,"w").write(json.dumps(jsonDict,sort_keys=True))
 
 def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_category):
 	appOutputFolder = os.path.join(root,appPkgName)

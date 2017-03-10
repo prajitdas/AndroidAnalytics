@@ -98,10 +98,10 @@ def writeArffFile(appMatrixFile, arffFileContent):
 
 def runClassification(predictedClustersFile, jsonDict):
 	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,type)
-	categoryDict = json.loads(open('category.json','r').read())
+	# categoryDict = json.loads(open('category.json','r').read())
 	# numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,type)
 	# options for type are justc numoc and tfidf
-	numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,'tfidf')
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
 	writeArffFile("appMatrix.arff", generateArffFileData(termDocMatrix, allSyscallsVector))
 	# print numberOfApps
 	# print termDocMatrix

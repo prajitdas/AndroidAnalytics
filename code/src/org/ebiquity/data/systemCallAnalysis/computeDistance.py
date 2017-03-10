@@ -134,11 +134,10 @@ def sanitizeCall(inputString):
 def getAllSyscallsVector(jsonDict):
 	allSyscallsVector = []
 	for app in jsonDict:
-		for run in jsonDict[app]:
-			for call in jsonDict[app][run]:
-				sanitizedCall = sanitizeCall(call)
-				if sanitizedCall != None:
-					allSyscallsVector.append(sanitizedCall)
+		for call in jsonDict[app]['syscallNGrams']:
+			sanitizedCall = sanitizeCall(call)
+			if sanitizedCall != None:
+				allSyscallsVector.append(sanitizedCall)
 
 	allSyscallsVector = list(set(allSyscallsVector))
 	# print sorted(allSyscallsVector)
@@ -164,6 +163,8 @@ def formVectorNumCalls(appSyscallDict, allSyscallsVector):
 	count = 0
 	for syscall in allSyscallsVector:
 		if syscall in appSyscallDict:
+			# print type(syscall)
+			# print syscall
 			appVector[count] = appSyscallDict[syscall]
 		else:
 			appVector[count] = 0
@@ -223,56 +224,34 @@ def runAgain(jsonDict):
 	# json.dump(runAgainAppsDict, open('runagain.json', 'w'), sort_keys = True, indent = 4)
 	return cleanJsonDict
 
-def createTermDocMatrix(jsonDict,categoryDict,type):
+def createTermDocMatrix(jsonDict,type):
 	jsonDict = runAgain(jsonDict)
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
 	numberOfApps = len(jsonDict.keys())
 	print numberOfApps
 	appVector = jsonDict.keys()
-	appRunVector = []
 	termDocMatrix = {}
 	if type == 'numoc':
 		for app in appVector:
-			if app not in categoryDict:
-				print app
-			else:
-				for run in jsonDict[app]:
-					appRun = app+'.'+run
-					appFeatures = []
-					appFeatures.append(categoryDict[app]['google_play_category'])
-					appFeatures.append(categoryDict[app]['annotated_category'])
-					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
-					termDocMatrix[appRun] = appFeatures
-					appRunVector.append(appRun)
-					# print app, termDocMatrix[appRun]
+			appFeatures = []
+			appFeatures.append(jsonDict[app]['google_play_category'])
+			appFeatures.append(jsonDict[app]['annotated_category'])
+			appFeatures.append(formVectorNumCalls(jsonDict[app]['syscallNGrams'],allSyscallsVector))
+			termDocMatrix[app] = appFeatures
 	elif type == 'justc':
 		for app in appVector:
-			if app not in categoryDict:
-				print app
-			else:
-				for run in jsonDict[app]:
-					appRun = app+'.'+run
-					appFeatures = []
-					appFeatures.append(categoryDict[app]['google_play_category'])
-					appFeatures.append(categoryDict[app]['annotated_category'])
-					appFeatures.append(formVectorJustCalls(jsonDict[app][run],allSyscallsVector))
-					termDocMatrix[appRun] = appFeatures
-					appRunVector.append(appRun)
-					# print app, termDocMatrix[appRun]
+			appFeatures = []
+			appFeatures.append(jsonDict[app]['google_play_category'])
+			appFeatures.append(jsonDict[app]['annotated_category'])
+			appFeatures.append(formVectorJustCalls(jsonDict[app]['syscallNGrams'],allSyscallsVector))
+			termDocMatrix[app] = appFeatures
 	elif type == 'tfidf':
 		for app in appVector:
-			if app not in categoryDict:
-				print app
-			else:
-				for run in jsonDict[app]:
-					appRun = app+'.'+run
-					appFeatures = []
-					appFeatures.append(categoryDict[app]['google_play_category'])
-					appFeatures.append(categoryDict[app]['annotated_category'])
-					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
-					termDocMatrix[appRun] = appFeatures
-					appRunVector.append(appRun)
-					# print app, termDocMatrix[appRun]
+			appFeatures = []
+			appFeatures.append(jsonDict[app]['google_play_category'])
+			appFeatures.append(jsonDict[app]['annotated_category'])
+			appFeatures.append(formVectorNumCalls(jsonDict[app]['syscallNGrams'],allSyscallsVector))
+			termDocMatrix[app] = appFeatures
 		# This is where we are computing the TF-IDF weight vectors. We only have app run info in the TermDocMatrix at this point.
 		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
 	else:
@@ -286,7 +265,72 @@ def createTermDocMatrix(jsonDict,categoryDict,type):
 	toWriteTermDocMat = termDocMatrix
 	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
-	return numberOfApps, termDocMatrix, appRunVector, allSyscallsVector
+	return termDocMatrix, allSyscallsVector
+
+# def createTermDocMatrix(jsonDict,categoryDict,type):
+# 	jsonDict = runAgain(jsonDict)
+# 	allSyscallsVector = getAllSyscallsVector(jsonDict)
+# 	numberOfApps = len(jsonDict.keys())
+# 	print numberOfApps
+# 	appVector = jsonDict.keys()
+# 	appRunVector = []
+# 	termDocMatrix = {}
+# 	if type == 'numoc':
+# 		for app in appVector:
+# 			if app not in categoryDict:
+# 				print app
+# 			else:
+# 				for run in jsonDict[app]:
+# 					appRun = app+'.'+run
+# 					appFeatures = []
+# 					appFeatures.append(categoryDict[app]['google_play_category'])
+# 					appFeatures.append(categoryDict[app]['annotated_category'])
+# 					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
+# 					termDocMatrix[appRun] = appFeatures
+# 					appRunVector.append(appRun)
+# 					# print app, termDocMatrix[appRun]
+# 	elif type == 'justc':
+# 		for app in appVector:
+# 			if app not in categoryDict:
+# 				print app
+# 			else:
+# 				for run in jsonDict[app]:
+# 					appRun = app+'.'+run
+# 					appFeatures = []
+# 					appFeatures.append(categoryDict[app]['google_play_category'])
+# 					appFeatures.append(categoryDict[app]['annotated_category'])
+# 					appFeatures.append(formVectorJustCalls(jsonDict[app][run],allSyscallsVector))
+# 					termDocMatrix[appRun] = appFeatures
+# 					appRunVector.append(appRun)
+# 					# print app, termDocMatrix[appRun]
+# 	elif type == 'tfidf':
+# 		for app in appVector:
+# 			if app not in categoryDict:
+# 				print app
+# 			else:
+# 				for run in jsonDict[app]:
+# 					appRun = app+'.'+run
+# 					appFeatures = []
+# 					appFeatures.append(categoryDict[app]['google_play_category'])
+# 					appFeatures.append(categoryDict[app]['annotated_category'])
+# 					appFeatures.append(formVectorNumCalls(jsonDict[app][run],allSyscallsVector))
+# 					termDocMatrix[appRun] = appFeatures
+# 					appRunVector.append(appRun)
+# 					# print app, termDocMatrix[appRun]
+# 		# This is where we are computing the TF-IDF weight vectors. We only have app run info in the TermDocMatrix at this point.
+# 		termDocMatrix = updateTermDcoMatrixWithTfIdfValues(termDocMatrix)
+# 	else:
+# 		logging.debug("Error in input. You didn't choose a known standard for term document matrix format.")
+# 		print("Error in input. You didn't choose a known standard for term document matrix format.")
+# 		raise BaseException("Error in input. You didn't choose a known standard for term document matrix format.")
+
+# 	termDocMatrix = normalizeTermDcoMatrix(termDocMatrix)
+
+# 	toWriteTermDocMat = {}
+# 	toWriteTermDocMat = termDocMatrix
+# 	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
+# 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
+# 	return numberOfApps, termDocMatrix, appRunVector, allSyscallsVector
 
 def computeDistance(jsonDict,metric,type):
 	logging.debug('Inside computeDistance')

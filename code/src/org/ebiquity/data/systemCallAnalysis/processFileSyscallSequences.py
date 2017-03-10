@@ -35,7 +35,7 @@ def sanitizeCall(inputString):
 		return inputString
 	return None
 
-def processFileGetFunctionNames(filePath,annotated_category,google_play_category):
+def processFileGetFunctionNames(appPkgName,filePath,annotated_category,google_play_category):
 	# syscallDict = json.loads(open('syscalls.json', 'r').read())
 	syscalls = []
 	with open(filePath,'r') as fp:
@@ -60,46 +60,46 @@ def processFileGetFunctionNames(filePath,annotated_category,google_play_category
 	# 	print k,v
 	runWrapperDict = {}
 	# print filePath
-	runWrapperDict["calls"] = syscalls
+	runWrapperDict[appPkgName] = syscalls
 	runWrapperDict["annotated_category"] = annotated_category
 	runWrapperDict["google_play_category"] = google_play_category
 	# runWrapperDict[filePath.split('.run.')[1]] = syscallDict
 	return runWrapperDict
 
-# Returns True if the original syscall dict had more variety of calls or more number of total calls
-# Presence of more syscalls (or words) has higher significance
-# Presence of number of syscalls (or words) has lower significance
-def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
-	# origTotalCalls = 0
-	# newTotalCalls = 0
-	# for freq in origSyscallDict.itervalues():
-	# 	origTotalCalls += freq
-	# for freq in newSyscallDict.itervalues():
-	# 	newTotalCalls += freq
-	if len(origSyscallDict) >= len(newSyscallDict):
-		return False
-	return True
+# # Returns True if the original syscall dict had more variety of calls or more number of total calls
+# # Presence of more syscalls (or words) has higher significance
+# # Presence of number of syscalls (or words) has lower significance
+# def hasMoreCallsSyscallDict(origSyscallDict,newSyscallDict):
+# 	# origTotalCalls = 0
+# 	# newTotalCalls = 0
+# 	# for freq in origSyscallDict.itervalues():
+# 	# 	origTotalCalls += freq
+# 	# for freq in newSyscallDict.itervalues():
+# 	# 	newTotalCalls += freq
+# 	if len(origSyscallDict) >= len(newSyscallDict):
+# 		return False
+# 	return True
 
 def storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName):
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
-	if isPathExists(masterJsonFile):
-		masterJsonFileBkp = "masterJsonOutputFileBkp.json"
-		copyfile(masterJsonFile, masterJsonFileBkp)
+	masterJsonFile = os.path.join(jsonPath,appPkgName+".json")
+	# if isPathExists(masterJsonFile):
+	# 	masterJsonFileBkp = "masterJsonOutputFileBkp.json"
+	# 	copyfile(masterJsonFile, masterJsonFileBkp)
 	jsonDict = {}
-	try:
-		jsonDict = json.loads(open(masterJsonFile).read())
-	except:
-		print "json was empty"
-	if appPkgName in jsonDict:
-		# print "Came into is in file"#, jsonDict[appPkgName]
-		if hasMoreCallsSyscallDict(jsonDict[appPkgName],syscallDict) == True:
-			# print "Came into is in file"
-			jsonDict[appPkgName] = syscallDict
-			open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
-	else:
+	# try:
+	# 	jsonDict = json.loads(open(masterJsonFile).read())
+	# except:
+	# 	print "json was empty"
+	# if appPkgName in jsonDict:
+	# 	# print "Came into is in file"#, jsonDict[appPkgName]
+	# 	if hasMoreCallsSyscallDict(jsonDict[appPkgName],syscallDict) == True:
+	# 		# print "Came into is in file"
+	# 		jsonDict[appPkgName] = syscallDict
+	# 		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+	# else:
 		# print "Came into is not in file"
-		jsonDict[appPkgName] = syscallDict
-		open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
+	jsonDict[appPkgName] = syscallDict
+	open(masterJsonFile,"w").write(json.dumps(jsonDict,indent=4,sort_keys=True))
 	# print jsonDict.keys()
 
 def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_category):
@@ -108,45 +108,45 @@ def extractFeatures(jsonPath,root,appPkgName,annotated_category,google_play_cate
 	for file in os.listdir(appOutputFolder):
 		if not fm.fnmatch(file,'*monkey.out'):
 			# First analysis is to get the function names
-			syscallDict = processFileGetFunctionNames(os.path.join(appOutputFolder,file),annotated_category,google_play_category)
+			syscallDict = processFileGetFunctionNames(appPkgName,os.path.join(appOutputFolder,file),annotated_category,google_play_category)
 		storeFeaturesInJsonFile(jsonPath,syscallDict,appPkgName)
 
 def doTask(appPkgName,annotated_category,google_play_category):
 	# The following 2 lines are for testing purposes only
-	jsonPath = os.getcwd()
+	jsonPath = os.path.join(os.getcwd(),"json")
 	outDir = os.path.join(os.getcwd(),"out")
 	# jsonPath = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
 	# outDir = "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis\out"
 	extractFeatures(jsonPath,outDir,appPkgName,annotated_category,google_play_category)
 
-def getAggregateInfo(appPkgName,aggregateDict,masterDict):
-	annotated_category = masterDict[appPkgName]["annotated_category"]
-	google_play_category = masterDict[appPkgName]["google_play_category"]
-	calls = masterDict[appPkgName]["calls"]
+# def getAggregateInfo(appPkgName,aggregateDict,masterDict):
+# 	annotated_category = masterDict[appPkgName]["annotated_category"]
+# 	google_play_category = masterDict[appPkgName]["google_play_category"]
+# 	calls = masterDict[appPkgName]["calls"]
 
-	if annotated_category in aggregateDict["annotated_category"]:
-		# print annotated_category
-		for call in calls:
-			if call in aggregateDict["annotated_category"][annotated_category]:
-				aggregateDict["annotated_category"][annotated_category][call] += masterDict[appPkgName]["calls"][call]
-			else:
-				aggregateDict["annotated_category"][annotated_category][call] = masterDict[appPkgName]["calls"][call]
-	else:
-		# print annotated_category
-		aggregateDict["annotated_category"][annotated_category] = masterDict[appPkgName]["calls"]
+# 	if annotated_category in aggregateDict["annotated_category"]:
+# 		# print annotated_category
+# 		for call in calls:
+# 			if call in aggregateDict["annotated_category"][annotated_category]:
+# 				aggregateDict["annotated_category"][annotated_category][call] += masterDict[appPkgName]["calls"][call]
+# 			else:
+# 				aggregateDict["annotated_category"][annotated_category][call] = masterDict[appPkgName]["calls"][call]
+# 	else:
+# 		# print annotated_category
+# 		aggregateDict["annotated_category"][annotated_category] = masterDict[appPkgName]["calls"]
 
-	if google_play_category in aggregateDict["google_play_category"]:
-		# print google_play_category
-		for call in calls:
-			if call in aggregateDict["google_play_category"][google_play_category]:
-				aggregateDict["google_play_category"][google_play_category][call] += masterDict[appPkgName]["calls"][call]
-			else:
-				aggregateDict["google_play_category"][google_play_category][call] = masterDict[appPkgName]["calls"][call]
-	else:
-		# print google_play_category
-		aggregateDict["google_play_category"][google_play_category] = masterDict[appPkgName]["calls"]
+# 	if google_play_category in aggregateDict["google_play_category"]:
+# 		# print google_play_category
+# 		for call in calls:
+# 			if call in aggregateDict["google_play_category"][google_play_category]:
+# 				aggregateDict["google_play_category"][google_play_category][call] += masterDict[appPkgName]["calls"][call]
+# 			else:
+# 				aggregateDict["google_play_category"][google_play_category][call] = masterDict[appPkgName]["calls"][call]
+# 	else:
+# 		# print google_play_category
+# 		aggregateDict["google_play_category"][google_play_category] = masterDict[appPkgName]["calls"]
 
-	return aggregateDict
+# 	return aggregateDict
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -166,23 +166,23 @@ def main(argv):
 		print "Doing app number: "+str(count)+" named: "+appPkgName
 		doTask(appPkgName,annotated_category,google_play_category)
 	
-	print "Done with one part"
+	# print "Done with one part"
 
-	sys.exit(1)
+	# sys.exit(1)
 
-	aggregateDict = {}
-	aggregateDict["annotated_category"] = {}
-	aggregateDict["google_play_category"] = {}
+	# aggregateDict = {}
+	# aggregateDict["annotated_category"] = {}
+	# aggregateDict["google_play_category"] = {}
 
-	jsonPath = os.getcwd()
-	# "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
-	masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
-	masterDict = json.loads(open(masterJsonFile,'r').read())
+	# jsonPath = os.getcwd()
+	# # "D:\AndroidAnalytics\code\src\org\ebiquity\data\systemCallAnalysis"
+	# masterJsonFile = os.path.join(jsonPath,"masterJsonOutputFileSequences.json")
+	# masterDict = json.loads(open(masterJsonFile,'r').read())
 
-	for appPkgName in jsonDict["packages"]:
-		aggregateDict = getAggregateInfo(appPkgName,aggregateDict,masterDict)
+	# for appPkgName in jsonDict["packages"]:
+	# 	aggregateDict = getAggregateInfo(appPkgName,aggregateDict,masterDict)
 
-	open("aggregateResultsSequences.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
+	# open("aggregateResultsSequences.json","w").write(json.dumps(aggregateDict,indent=4,sort_keys=True))
 
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')

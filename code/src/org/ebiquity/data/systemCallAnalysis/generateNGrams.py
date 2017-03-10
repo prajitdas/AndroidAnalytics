@@ -63,7 +63,7 @@ def main(argv):
 	n = 1
 	for appPkgName in appDict["packages"]:
 		count += 1
-		print "Processing app number: "+str(count)+" named: "+appPkgName
+		print "Processing "+str(n)" gram for app number: "+str(count)+" named: "+appPkgName
 		annotated_category, google_play_category, input_list = getData(appPkgName)
 		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
 
@@ -71,7 +71,7 @@ def main(argv):
 	n = 2
 	for appPkgName in appDict["packages"]:
 		count += 1
-		print "Processing app number: "+str(count)+" named: "+appPkgName
+		print "Processing "+str(n)" gram for app number: "+str(count)+" named: "+appPkgName
 		annotated_category, google_play_category, input_list = getData(appPkgName)
 		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
 
@@ -79,7 +79,7 @@ def main(argv):
 	n = 3
 	for appPkgName in appDict["packages"]:
 		count += 1
-		print "Processing app number: "+str(count)+" named: "+appPkgName
+		print "Processing "+str(n)" gram for app number: "+str(count)+" named: "+appPkgName
 		annotated_category, google_play_category, input_list = getData(appPkgName)
 		storeFeaturesInJsonFile(createNGramDict(n, annotated_category, google_play_category, input_list), appPkgName, n)
 

@@ -42,7 +42,7 @@ def processFileGetFunctionNames(appPkgName,filePath,annotated_category,google_pl
 			else:
 				syscall = line.split('(')[0].strip()
 				syscalls.append(syscall)
-	runWrapperDict[appPkgName] = syscalls
+	runWrapperDict["syscalls"] = syscalls
 	runWrapperDict["annotated_category"] = annotated_category
 	runWrapperDict["google_play_category"] = google_play_category
 	return runWrapperDict

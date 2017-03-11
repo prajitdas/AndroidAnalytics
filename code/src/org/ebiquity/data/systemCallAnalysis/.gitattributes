@@ -3,3 +3,7 @@ uni-bi-tri-seq-jsons/com.allah.islamalarmclockwidget.json filter=lfs diff=lfs me
 uni-bi-tri-seq-jsons/com.americos.dotasks.todo.list.json filter=lfs diff=lfs merge=lfs -text
 3gram534.json filter=lfs diff=lfs merge=lfs -text
 termDocMatrix.json filter=lfs diff=lfs merge=lfs -text
+3gramMyLabelsJUSTC534.arff filter=lfs diff=lfs merge=lfs -text
+3gramGoogleLabelsJUSTC534.arff filter=lfs diff=lfs merge=lfs -text
+3gramGoogleLabelsNUMOC534.arff filter=lfs diff=lfs merge=lfs -text
+3gramMyLabelsNUMOC534.arff filter=lfs diff=lfs merge=lfs -text

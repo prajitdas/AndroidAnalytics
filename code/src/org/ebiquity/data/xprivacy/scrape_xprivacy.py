@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup, element
 import json
 from pprint import pprint
 import cssutils
+import sys
+import time
 
 charss = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
 

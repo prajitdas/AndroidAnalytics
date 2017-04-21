@@ -166,8 +166,8 @@ def get_app_stats():
 		
 def main(argv):
 	startTime = time.time()
-	get_app_urls()
-	get_app_versions()
+	# get_app_urls()
+	# get_app_versions()
 	get_app_stats()
 	executionTime = str((time.time()-startTime)*1000)
 	print 'Execution time was: '+executionTime+' ms'

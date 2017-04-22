@@ -13,7 +13,7 @@ import time
 
 charss = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
 
-def send_http_request(request_url):
+def send_https_request(request_url):
 	response,content = httplib2.Http().request(request_url)
 	#Return content if successful
 	if response['status'] == '200':
@@ -33,7 +33,7 @@ def get_app_urls():
 	for c in charss:
 		myurl = base_url+c
 		print "-----NOW PROCESSING CHARACTER %s-----"%c
-		content = send_http_request(myurl)
+		content = send_https_request(myurl)
 		soup = BeautifulSoup(content, "html")
 		 
 		rows = soup.findAll('tr')[1:]
@@ -63,7 +63,7 @@ def get_app_versions():
 	count = 0
 	for app in app_dict:
 		myurl = app_dict[app]['url']
-		content = send_http_request(myurl)
+		content = send_https_request(myurl)
 		soup = BeautifulSoup(content, "html.parser")
 		
 		versions = soup.findAll("p")[4]
@@ -95,15 +95,14 @@ def get_app_stats():
 		  
 		for version in versions:
 			myurl = app_dict[app]['url']
-			content = send_http_request(myurl)
+			content = send_https_request(myurl)
 			soup = BeautifulSoup(content, "html.parser")
 			 
-#			 print myurl
+			print myurl
 			 
 			rows = soup.findAll("tr")[1:]
 			 
-#			 print len(rows) 
-			 
+			# print "remaining "+str(app_count)
 			cur_restriction = ""
 	 
 			app_dict[app]['versions'][version]['stats'] = {}

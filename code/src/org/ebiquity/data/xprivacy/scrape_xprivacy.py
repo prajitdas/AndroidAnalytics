@@ -14,7 +14,7 @@ import time
 charss = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
 
 def send_https_request(request_url):
-	response,content = httplib2.Http().request(request_url)
+	response,content = requests.get(request_url)
 	#Return content if successful
 	if response['status'] == '200':
 		return content

@@ -97,8 +97,6 @@ def get_app_stats():
 		for version in versions:
 			myurl = app_dict[app]['url']
 			content = send_https_request(myurl)
-			print type(content)
-			print type(content.text)
 			soup = BeautifulSoup(content.text, "html.parser")
 			 
 			print myurl

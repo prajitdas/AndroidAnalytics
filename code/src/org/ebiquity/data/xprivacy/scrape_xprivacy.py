@@ -1,5 +1,5 @@
 import os
-import httplib2
+import requests
 import time
 import random
 import re

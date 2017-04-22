@@ -157,7 +157,8 @@ def get_app_stats():
 				else:			  
 					app_dict[app]['versions'][version]['stats'][cur_restriction]["methods"][perm_template['method']] = perm_template
 			 
-		filenameToStoreData = app+".json"
+		#filenameToStoreData = app+".json"
+		filenameToStoreData = app
 		open(os.path.join('data',filenameToStoreData),'w').write(json.dumps(app_dict[app],indent=4))
 		del app_dict[app]
 		app_count+=1

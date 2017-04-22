@@ -1,4 +1,5 @@
 import os
+import httplib2
 import requests
 import time
 import random
@@ -14,10 +15,10 @@ import time
 charss = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
 
 def send_https_request(request_url):
-	response,content = requests.get(request_url)
+	response = requests.get(request_url)
 	#Return content if successful
-	if response['status'] == '200':
-		return content
+	if response.status_code == 200:
+		return response
 	else:
 		return -1
 
@@ -34,7 +35,7 @@ def get_app_urls():
 		myurl = base_url+c
 		print "-----NOW PROCESSING CHARACTER %s-----"%c
 		content = send_https_request(myurl)
-		soup = BeautifulSoup(content, "html")
+		soup = BeautifulSoup(content.text, "html")
 		 
 		rows = soup.findAll('tr')[1:]
 		count = 0
@@ -64,7 +65,7 @@ def get_app_versions():
 	for app in app_dict:
 		myurl = app_dict[app]['url']
 		content = send_https_request(myurl)
-		soup = BeautifulSoup(content, "html.parser")
+		soup = BeautifulSoup(content.text, "html.parser")
 		
 		versions = soup.findAll("p")[4]
 		
@@ -96,7 +97,9 @@ def get_app_stats():
 		for version in versions:
 			myurl = app_dict[app]['url']
 			content = send_https_request(myurl)
-			soup = BeautifulSoup(content, "html.parser")
+			print type(content)
+			print type(content.text)
+			soup = BeautifulSoup(content.text, "html.parser")
 			 
 			print myurl
 			 

@@ -39,13 +39,17 @@ def doTask():
 			verDict = {}
 			verDict = appDict['versions'][versionList[0]]
 			for restriction in verDict['stats']:
+				ruleResDict = {}
 				resDict = {}
 				resDict = verDict['stats'][restriction]
-				ruleDict[resDict['restriction']] = str(True if (resDict['all_allow']>resDict['all_deny']) else False)
+				ruleResDict['allow'] = resDict['all_allow']
+				ruleResDict['deny'] = resDict['all_deny']
+				ruleResDict['rule'] = "allow" if (resDict['all_allow']>resDict['all_deny']) else "deny"
+				ruleDict[resDict['restriction']] = ruleResDict
 			policyDict[app] = ruleDict
 
 		if(appCount%111==0):
-			print "Currently working on app %s, completed processing for %d apps, %d apps to be processed"%(app, appCount, remaining)
+			print "Currently working on app %s, completed processing %d apps, %d apps to be processed"%(app, appCount, remaining)
 
 	open("policy.json",'w').write(json.dumps(policyDict,indent=4))
 		

@@ -51,7 +51,7 @@ def doTask():
 		if(appCount%111==0):
 			print "Currently working on app %s, completed processing %d apps, %d apps to be processed"%(app, appCount, remaining)
 
-	open("policy.json",'w').write(json.dumps(policyDict,indent=4))
+	open("policy.json",'w').write(json.dumps(policyDict,sort_keys=True))
 		
 def main(argv):
 	startTime = time.time()

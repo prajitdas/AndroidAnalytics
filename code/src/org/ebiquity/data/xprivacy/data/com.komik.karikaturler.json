@@ -1,0 +1,62 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.komik.karikaturler", 
+    "id": "com.komik.karikaturler", 
+    "name": "Komik Karikat\u00fcrler", 
+    "versions": {
+        "2.0": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.komik.karikaturler&package_version=2.0", 
+            "version": "2.0", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-03 17:04:23", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }, 
+                        "blockingGetAuthToken": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 0, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-03 17:04:34", 
+                            "ci95": 43.6, 
+                            "all_deny": 1, 
+                            "all_allow": 0, 
+                            "cur_deny": 1, 
+                            "method": "blockingGetAuthToken", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 0, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-03 17:03:59", 
+                    "ci95": 43.6, 
+                    "all_deny": 1, 
+                    "all_allow": 0, 
+                    "cur_deny": 1, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

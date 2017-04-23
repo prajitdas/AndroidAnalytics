@@ -45,7 +45,7 @@ def doTask():
 			policyDict[app] = ruleDict
 
 		if(appCount%111==0):
-			print "Completed app %s, %d out of %d completed"%(app, appCount, remaining)
+			print "Currently working on app %s, completed processing for %d apps, %d apps to be processed"%(app, appCount, remaining)
 
 	open("policy.json",'w').write(json.dumps(policyDict,indent=4))
 		

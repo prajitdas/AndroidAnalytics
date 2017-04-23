@@ -10,7 +10,6 @@ import json
 from pprint import pprint
 import cssutils
 import sys
-import time
 
 charss = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
 
@@ -99,7 +98,7 @@ def get_app_stats():
 			content = send_https_request(myurl)
 			soup = BeautifulSoup(content.text, "html.parser")
 			 
-			print myurl
+			# print myurl
 			 
 			rows = soup.findAll("tr")[1:]
 			 
@@ -161,8 +160,8 @@ def get_app_stats():
 		open(os.path.join('data',filenameToStoreData),'w').write(json.dumps(app_dict[app],indent=4))
 		del app_dict[app]
 		app_count+=1
-	if(app_count%200==0):
-		time.sleep(600)
+	if(app_count%111==0):
+		# time.sleep(600)
 		print "Completed app %s, %d out of %d completed"%(app, app_count, len(remaining))
 		
 def main(argv):

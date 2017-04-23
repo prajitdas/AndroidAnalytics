@@ -1,0 +1,8 @@
+com.facebook.orca.json filter=lfs diff=lfs merge=lfs -text
+com.snapchat.android.json filter=lfs diff=lfs merge=lfs -text
+com.google.android.gms filter=lfs diff=lfs merge=lfs -text
+com.facebook.katana.json filter=lfs diff=lfs merge=lfs -text
+biz.bokhorst.xprivacy.json filter=lfs diff=lfs merge=lfs -text
+android.json filter=lfs diff=lfs merge=lfs -text
+com.android.systemui.json filter=lfs diff=lfs merge=lfs -text
+com.whatsapp.json filter=lfs diff=lfs merge=lfs -text

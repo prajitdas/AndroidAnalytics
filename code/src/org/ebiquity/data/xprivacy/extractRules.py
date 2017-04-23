@@ -56,8 +56,8 @@ def doTask():
 def main(argv):
 	startTime = time.time()
 	doTask()
-	executionTime = str((time.time()-startTime)*1000)
-	print 'Execution time was: '+executionTime+' ms'
+	executionTime = str((time.time()-startTime)/60)
+	print 'Execution time was: '+executionTime+' minutes'
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

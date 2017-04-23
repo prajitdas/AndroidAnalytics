@@ -1,0 +1,29 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.ratrodstudio.streetoutlaws", 
+    "id": "com.ratrodstudio.streetoutlaws", 
+    "name": "Drift Outlaws", 
+    "versions": {
+        "1.01": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.ratrodstudio.streetoutlaws&package_version=1.01", 
+            "version": "1.01", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {}, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 0, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-09 19:12:15", 
+                    "ci95": 43.6, 
+                    "all_deny": 1, 
+                    "all_allow": 0, 
+                    "cur_deny": 1, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=lithdiction.kulver.front", 
+    "id": "lithdiction.kulver.front", 
+    "name": "LithDict4Droid", 
+    "versions": {
+        "1.3.4.5": {
+            "url": "https://crowd.xprivacy.eu/?package_name=lithdiction.kulver.front&package_version=1.3.4.5", 
+            "version": "1.3.4.5", 
+            "stats": {
+                "accounts": {
+                    "restriction": "accounts", 
+                    "used": false, 
+                    "methods": {
+                        "addOnAccountsUpdatedListener": {
+                            "restriction": "", 
+                            "used": false, 
+                            "methods": {}, 
+                            "restriction_url": "", 
+                            "updates": "-", 
+                            "cur_allow": 1, 
+                            "exception_yes": 0, 
+                            "last_update": "2013-11-04 20:50:02", 
+                            "ci95": 43.6, 
+                            "all_deny": 0, 
+                            "all_allow": 1, 
+                            "cur_deny": 0, 
+                            "method": "addOnAccountsUpdatedListener", 
+                            "exception_no": 1
+                        }
+                    }, 
+                    "restriction_url": "https://github.com/M66B/XPrivacy#accounts", 
+                    "updates": "-", 
+                    "cur_allow": 1, 
+                    "exception_yes": 0, 
+                    "last_update": "2013-11-04 20:49:16", 
+                    "ci95": 43.6, 
+                    "all_deny": 0, 
+                    "all_allow": 1, 
+                    "cur_deny": 0, 
+                    "method": "", 
+                    "exception_no": 1
+                }
+            }
+        }
+    }
+}

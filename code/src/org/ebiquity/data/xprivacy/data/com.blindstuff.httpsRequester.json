@@ -1,0 +1,12 @@
+{
+    "url": "https://crowd.xprivacy.eu/?package_name=com.blindstuff.httpsRequester", 
+    "id": "com.blindstuff.httpsRequester", 
+    "name": "HTTP Requester", 
+    "versions": {
+        "1.0.0": {
+            "url": "https://crowd.xprivacy.eu/?package_name=com.blindstuff.httpsRequester&package_version=1.0.0", 
+            "version": "1.0.0", 
+            "stats": {}
+        }
+    }
+}

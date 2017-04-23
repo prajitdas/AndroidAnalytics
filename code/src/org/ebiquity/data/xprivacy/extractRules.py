@@ -19,20 +19,33 @@ def doTask():
 		if fm.fnmatch(file,'*.json'):
 			fileList.append(os.path.join(dataFolder,file))
 
+	appCount = 0
+	remaining = len(fileList)
+
 	policyDict = {}
 	for file in fileList:
+		appCount += 1
+		remaining -= 1
 		ruleDict = {}
-		appDict = json.loads(open(file).read())
-		ruleDict['url'] = appDict['url']
-		versionList = appDict['versions'].keys()
-		verDict = {}
-		verDict = appDict['versions'][versionList[0]]
-		for restriction in verDict['stats']:
-			resDict = {}
-			resDict = verDict['stats'][restriction]
-			ruleDict[resDict['restriction']] = str(True if (resDict['all_allow']>resDict['all_deny']) else False)
 
-		policyDict[appDict['id']] = ruleDict
+		appDict = json.loads(open(file).read())
+		app = appDict['id']
+		ruleDict['url'] = appDict['url']
+
+		versionList = appDict['versions'].keys()
+		if (len(versionList) == 0):
+			continue
+		else:
+			verDict = {}
+			verDict = appDict['versions'][versionList[0]]
+			for restriction in verDict['stats']:
+				resDict = {}
+				resDict = verDict['stats'][restriction]
+				ruleDict[resDict['restriction']] = str(True if (resDict['all_allow']>resDict['all_deny']) else False)
+			policyDict[app] = ruleDict
+
+		if(appCount%111==0):
+			print "Completed app %s, %d out of %d completed"%(app, appCount, remaining)
 
 	open("policy.json",'w').write(json.dumps(policyDict,indent=4))
 		

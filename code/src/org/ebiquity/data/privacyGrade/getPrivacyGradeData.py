@@ -1,14 +1,7 @@
 '''
-Created on June 7, 2015
+Created on April 24, 2017
 @author: Prajit Kumar Das
-@coAuthor: Abhay Kashyap
 Usage: python getPrivacyGradeData.py
-1) Hit our own database and find the privacy grade url for an app package name
-2) Hit privacy grade's website and collect information and store in json
-Optional step - 3) Develop other ways of getting privacy grade data (if necessary)
-4) Store data in database
-5) Analyze data and do stuff
-Smaple URL for app_pkg_name com.facebook.katana: "http://privacygrade.org/apps/com.facebook.katana.html"
 '''
 
 from bs4 import BeautifulSoup
@@ -20,7 +13,6 @@ import time
 import datetime
 import traceback
 import httplib
-logging.basicConfig(filename='privacyGrade.log',level=logging.DEBUG)
 
 def extractAppDataToJson(privacyGradeUrl):
 	print privacyGradeUrl
@@ -267,6 +259,71 @@ def getPrivacyGradeURLs(dbHandle):
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
 
+from bs4 import BeautifulSoup
+import urllib
+import sys
+
+def get_values(act_url):
+	app_pkg_split = act_url.split('/')
+	app_pkg_html = app_pkg_split[len(app_pkg_split) - 1].split('.')
+	app_pkg = ".".join(app_pkg_html[:len(app_pkg_html) - 1])
+	
+	r = urllib.urlopen(act_url).read()
+	soup = BeautifulSoup(r)
+	#Parsing Table one : Considering rowspan also
+	tbody1_iter = soup.find_all('tr', class_='permission-row')
+	rs = 0
+	rsval = ''
+	table1_arr = []
+	if tbody1_iter is not None:
+		for i in tbody1_iter:
+			childs = i.findChildren()
+			if rs < 1:
+				rs = int(childs[0]['rowspan'])
+				rsval = childs[0].get_text()
+				rs -= 1
+				tmp = []
+				tmp.append(rsval)
+				tmp.append(childs[1].get_text())
+				tmp.append(childs[2].get_text())
+				table1_arr.append(tmp)
+			else:
+				rs -= 1
+				tmp = []
+				tmp.append(rsval)
+				tmp.append(childs[0].get_text())
+				tmp.append(childs[1].get_text())
+				table1_arr.append(tmp)
+	# Parsing Second table. Since no name using hacks
+	tables = soup.find_all('table')
+	tbody2 = None
+	for i in tables:
+		if i.has_attr	('id'):
+			if i['id'] == 'third-table':
+				tbody2 = i
+	table2_arr = []
+	if tbody2 is not None:
+		all_tds = tbody2.find_all('td')
+		row = len(all_tds)
+		t2con = []
+		i = 0
+		while row > 0:
+			t2con.append(all_tds[i].get_text())
+			i+= 1
+			row -= 1
+			t2con.append(all_tds[i].get_text())
+			i += 1
+			row -= 1 
+			table2_arr.append(t2con)
+			t2con = []
+	# Getting the application rating tag and extracting the letter grade
+	apprating_tag = soup.find_all('p', 'app-pg-icon hidden-sm hidden-xs')
+	apprating = apprating_tag[0].img['alt'][2]
+	# Getting the application version 
+	versiondiv = soup.find_all("div", "privacy-info-well")
+	version = versiondiv[0].findChildren()[2].get_text()
+	return app_pkg, version, apprating, table1_arr, table2_arr
+
 def doTask():
 	dbHandle = databaseHandler.dbConnectionCheck() # DB Open
 	getPrivacyGradeURLs(dbHandle) # Get package names from extracting app details
@@ -278,7 +335,13 @@ def main(argv):
 		sys.exit(1)
 
 	startTime = time.time()
-	doTask()
+	app_pkg, version, apprating, table1_arr, table2_arr = get_values(sys.argv[1]) 
+	print "Application Package: " + app_pkg
+	print "Application Version: " + str(version)
+	print "Application Rating : " + apprating
+	print "Application Table1 : " + str(table1_arr)
+	print "\n"
+	print "Application Table2 : " + str(table2_arr)	
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

@@ -33,7 +33,7 @@ USE `googleplaystore`;
 --
 
 CREATE TABLE IF NOT EXISTS `appurls`(
-  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `app_pkg_name` text(750) NOT NULL,
   `app_url` text(1000) NOT NULL,
   `urls_extracted` int(1) NOT NULL DEFAULT 0,
@@ -84,31 +84,6 @@ ALTER TABLE `appcategories`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permissions`
---
-
-CREATE TABLE IF NOT EXISTS `permissions`(
-  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` text(500) NOT NULL,
-  `protection_level` varchar(200),
-  `permission_group_id` int(10) unsigned NOT NULL,
-  `permission_flags` text(500),
-  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-  CONSTRAINT `fk_perm_grp_id` FOREIGN KEY (`permission_group_id`) REFERENCES `permissionGroups`(`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
-
--- --------------------------------------------------------
-
---
--- Indexes for table `permissions`
---
-ALTER TABLE `permissions` 
-  ADD UNIQUE KEY `name_idx` (`name`(255)),
-  ADD KEY `protection_level_idx` (`protection_level`),
-  ADD KEY `permission_group_idx` (`permission_group`(255));
-
--- --------------------------------------------------------
---
 -- Table structure for table `permissionGroups`
 --
 
@@ -128,6 +103,31 @@ ALTER TABLE `permissionGroups`
   ADD UNIQUE KEY `name_idx` (`name`(255));
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE IF NOT EXISTS `permissions`(
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` text(500) NOT NULL,
+  `protection_level` varchar(200),
+  `permission_group_id` int(10) unsigned NOT NULL,
+  `permission_flags` text(500),
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT `fk_perm_grp_id` FOREIGN KEY (`permission_group_id`) REFERENCES `permissionGroups`(`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions` 
+  ADD UNIQUE KEY `name_idx` (`name`(255)),
+  ADD KEY `protection_level_idx` (`protection_level`);
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `broadcasts`
 --
@@ -216,7 +216,7 @@ ALTER TABLE `appdata`
 CREATE TABLE IF NOT EXISTS `appperm`(
   `app_id` int(10) unsigned NOT NULL,
   `perm_id` int(10) unsigned NOT NULL,
-  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT pk_apperm PRIMARY KEY (app_id,perm_id),
   CONSTRAINT `fk_app_id` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_perm_id` FOREIGN KEY (`perm_id`) REFERENCES `permissions`(`id`) ON UPDATE CASCADE

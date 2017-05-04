@@ -232,3 +232,41 @@ ALTER TABLE `appperm`
   ADD KEY `perm_id_idx` (`perm_id`);
 
 -- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `policy`
+--
+
+CREATE TABLE IF NOT EXISTS `policy` (
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `app_id` int(10) unsigned NOT NULL UNIQUE,
+  `accounts` double NOT NULL DEFAULT '0',
+  `browser` double NOT NULL DEFAULT '0',
+  `calendar` double NOT NULL DEFAULT '0',
+  `calling` double NOT NULL DEFAULT '0',
+  `clipboard` double NOT NULL DEFAULT '0',
+  `contacts` double NOT NULL DEFAULT '0',
+  `dict` double NOT NULL DEFAULT '0',
+  `email` double NOT NULL DEFAULT '0',
+  `identification` double NOT NULL DEFAULT '0',
+  `internet` double NOT NULL DEFAULT '0',
+  `ipc` double NOT NULL DEFAULT '0',
+  `location` double NOT NULL DEFAULT '0',
+  `media` double NOT NULL DEFAULT '0',
+  `messages` double NOT NULL DEFAULT '0',
+  `network` double NOT NULL DEFAULT '0',
+  `nfc` double NOT NULL DEFAULT '0',
+  `notifications` double NOT NULL DEFAULT '0',
+  `overlay` double NOT NULL DEFAULT '0',
+  `phone` double NOT NULL DEFAULT '0',
+  `sensors` double NOT NULL DEFAULT '0',
+  `shell` double NOT NULL DEFAULT '0',
+  `storage` double NOT NULL DEFAULT '0',
+  `system` double NOT NULL DEFAULT '0',
+  `webview` double NOT NULL DEFAULT '0',
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT `fk_app_pol` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

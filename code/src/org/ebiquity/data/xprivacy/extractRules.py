@@ -12,7 +12,7 @@ import sys
 import time
 import fnmatch as fm
 
-def doTask():
+def generatePolicyJson():
 	dataFolder = os.path.join(os.getcwd(),"data")
 	fileList = []
 	for file in os.listdir(dataFolder):
@@ -53,9 +53,14 @@ def doTask():
 
 	open("policy.json",'w').write(json.dumps(policyDict,sort_keys=True))
 		
+def insertIntoDB():
+	policyDict=json.loads(open("policy.json",'r').read())
+	print policyDict
+
 def main(argv):
 	startTime = time.time()
-	doTask()
+	# generatePolicyJson()
+	insertIntoDB()
 	executionTime = str((time.time()-startTime)/60)
 	print 'Execution time was: '+executionTime+' minutes'
 

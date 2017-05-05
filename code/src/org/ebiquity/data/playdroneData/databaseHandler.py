@@ -49,7 +49,7 @@ def dbConnectionCheck():
 	ssl_cert = parser.get('dbconfig', 'ssl_cert')
 	ssl_key = parser.get('dbconfig', 'ssl_key')
 	db = parser.get('dbconfig', 'db')
-	print("info"+user+passwd+host+ssl_ca+ssl_cert+ssl_key)
+	#print("info"+user+passwd+host+ssl_ca+ssl_cert+ssl_key)
 
 	config = {
 		'user': user,

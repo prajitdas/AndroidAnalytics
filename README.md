@@ -9,10 +9,13 @@ The following steps are in sequence and have dependencies on previous steps.
 * If the dbconfig.ini file does not exist in your src folder create it with a format as shown below:
 ```	
 	[dbconfig]
-	host = [hostname]
-	user = [database_username]
-	passwd = [database_user_password]
-	db = [database_name]
+	user=[user]
+	passwd=[passwd]
+	host=[ip]
+	ssl_ca=[path_to_server-ca.pem]
+	ssl_cert=[path_to_client-cert.pem]
+	ssl_key=[path_to_client-key.pem]
+	db=[database]
 ```
 
 * databaseHandler.py: This module is not to be executed on its own and should be used only to obtain the database handler for database operations or insert, update or delete from the database through other scripts as such:

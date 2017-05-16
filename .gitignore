@@ -117,3 +117,5 @@ hs_err_pid*
 #*.pdf
 
 .idea/
+
+dbconfig.ini

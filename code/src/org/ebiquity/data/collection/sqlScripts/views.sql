@@ -91,4 +91,17 @@ WHERE
 AND
 a.`app_pkg_name` = b.`app_pkg_name`
 AND
-a.`perm_extracted` = 0;
+a.`perm_extracted` = 0
+
+-- --------------------------------------------------------
+
+--
+-- View app_categories_view
+--
+
+CREATE VIEW `app_categories_view` AS
+SELECT a.`app_pkg_name`, b.`name`
+FROM `appdata` a, `appcategories` b
+WHERE
+a.`app_category_id` = b.`id`
+

@@ -233,8 +233,6 @@ ALTER TABLE `appperm`
 
 -- --------------------------------------------------------
 
--- --------------------------------------------------------
-
 --
 -- Table structure for table `policy`
 --
@@ -269,4 +267,24 @@ CREATE TABLE IF NOT EXISTS `policy` (
   `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT `fk_app_pol` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `annotations`
+--
+
+CREATE TABLE IF NOT EXISTS `annotations` (
+  `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `app_pkg_name` text(750) NOT NULL,
+  `google_play_category` varchar(100) NOT NULL,
+  `annotated_category` varchar(100) NOT NULL,
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- Indexes for table `annotations`
+--
+ALTER TABLE `annotations` ADD UNIQUE KEY `annotations_app_pkg_name_idx` (`app_pkg_name`(255));
 

@@ -114,8 +114,8 @@ hs_err_pid*
 *.tps
 
 *.tmp
-#*.pdf
+*.pdf
 
 .idea/
 
-dbconfig.ini
+*.ini

@@ -239,7 +239,11 @@ ALTER TABLE `appperm`
 
 CREATE TABLE IF NOT EXISTS `policy` (
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `app_id` int(10) unsigned NOT NULL UNIQUE,
+  `app_pkg_name` text(750) NOT NULL,
+  `review_rating` decimal(2,1) NOT NULL DEFAULT '0.0',
+  `review_count` int(10) NOT NULL DEFAULT '0',
+  `google_play_category` varchar(100) NOT NULL,
+  `annotated_category` varchar(100) DEFAULT 'unknown',
   `accounts` double NOT NULL DEFAULT '0',
   `browser` double NOT NULL DEFAULT '0',
   `calendar` double NOT NULL DEFAULT '0',
@@ -264,9 +268,15 @@ CREATE TABLE IF NOT EXISTS `policy` (
   `storage` double NOT NULL DEFAULT '0',
   `system` double NOT NULL DEFAULT '0',
   `webview` double NOT NULL DEFAULT '0',
-  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  CONSTRAINT `fk_app_pol` FOREIGN KEY (`app_id`) REFERENCES `appdata`(`id`) ON UPDATE CASCADE
+  `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Indexes for table `annotations`
+--
+ALTER TABLE `policy` ADD UNIQUE KEY `policy_app_pkg_name_idx` (`app_pkg_name`(255));
 
 -- --------------------------------------------------------
 
@@ -281,10 +291,10 @@ CREATE TABLE IF NOT EXISTS `annotations` (
   `annotated_category` varchar(100) DEFAULT 'unknown',
   `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- --------------------------------------------------------
 
 --
 -- Indexes for table `annotations`
 --
 ALTER TABLE `annotations` ADD UNIQUE KEY `annotations_app_pkg_name_idx` (`app_pkg_name`(255));
-

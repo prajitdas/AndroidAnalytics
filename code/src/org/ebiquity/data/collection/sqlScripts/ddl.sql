@@ -278,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `annotations` (
   `id` int(10) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `app_pkg_name` text(750) NOT NULL,
   `google_play_category` varchar(100) NOT NULL,
-  `annotated_category` varchar(100) NOT NULL,
+  `annotated_category` varchar(100) DEFAULT 'unknown',
   `dt_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------

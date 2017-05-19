@@ -101,30 +101,15 @@ def writeArffFile(appMatrixFile, arffFileContent):
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 
-def runClassification(predictedClustersFile, jsonDict, ngram):
+def runClassification(predictedClustersFile, jsonDict, ngram, labels, features):
 	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,type)
 	# categoryDict = json.loads(open('category.json','r').read())
 	# numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,type)
 	# options for type are justc numoc and tfidf
-	
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'justc')
-	writeArffFile(ngram+"MyLabelsJUSTC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "my"))
 
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'numoc')
-	writeArffFile(ngram+"MyLabelsNUMOC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "my"))
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,features)
+	writeArffFile(ngram+labels+features+"534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, labels))
 
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
-	writeArffFile(ngram+"MyLabelsTFIDF534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "my"))
-
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'justc')
-	writeArffFile(ngram+"GoogleLabelsJUSTC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "google"))
-
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'numoc')
-	writeArffFile(ngram+"GoogleLabelsNUMOC534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "google"))
-
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,'tfidf')
-	writeArffFile(ngram+"GoogleLabelsTFIDF534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, "google"))
-	
 	# print numberOfApps
 	# print termDocMatrix
 	# print appVector

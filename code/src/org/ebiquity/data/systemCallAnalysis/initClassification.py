@@ -6,12 +6,9 @@ Usage: python initClassification.py username api_key jsonPath
 '''
 import sys
 import time
-import os
 import runClassification as classify
 import PathDetails as pd
 import json
-import logging
-logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 import getSyscallDataJson as gs
 
 def preProcess():
@@ -26,24 +23,26 @@ def preProcess():
 	return predictedClassFile
 
 #Initiate the clustering process
-def initClassification(masterJsonFile, ngram):
+def initClassification(masterJsonFile, ngram, labels, features):
 	# Things have been initiated, now to run classification
 	# classify.runClassification(preProcess(), gs.getSyscallDataJson(masterJsonFile))
-	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()), ngram)
+	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()), ngram, labels, features)
 
 def main(argv):
-	if len(sys.argv) != 3:
-		sys.stderr.write('Usage: python initClassification.py masterJsonFile ngram')
+	if len(sys.argv) != 4:
+		sys.stderr.write('Usage: python initClassification.py masterJsonFile ngram classLabels featureType')
 		sys.exit(1)
 
 	masterJsonFile = sys.argv[1]
 	ngram = sys.argv[2]
+	labels = sys.argv[3]
+	features = sys.argv[4]
 
 	startTime = time.time()
 	#Initiate the clustering process
-	initClassification(masterJsonFile, ngram)
+	initClassification(masterJsonFile, ngram, labels, features)
 	executionTime = str((time.time()-startTime)*1000)
-	logging.debug('Execution time was: '+executionTime+' ms')
+	print 'Execution time was: '+executionTime+' ms'
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

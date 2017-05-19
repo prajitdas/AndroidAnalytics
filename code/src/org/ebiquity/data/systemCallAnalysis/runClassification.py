@@ -108,6 +108,7 @@ def runClassification(predictedClustersFile, jsonDict, ngram, labels, features):
 	# options for type are justc numoc and tfidf
 
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict,features)
+	
 	writeArffFile(ngram+labels+features+"534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, labels))
 
 	# print numberOfApps

@@ -22,9 +22,11 @@ The following steps are in sequence and have dependencies on previous steps.
 ```
 	dbHandle = databaseHandler.dbConnectionCheck()
 	lastInsertRowId = databaseHandler.dbManipulateData(dbHandle, sqlStatement)
+	cursor.execute(statement)
 ``` 
 **DO NOT FORGET TO DO**
 ```
+	cursor.close()
 	dbHandle.close()
 ```
 

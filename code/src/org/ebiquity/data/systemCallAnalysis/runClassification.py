@@ -35,19 +35,21 @@ def compressWriteData(fileTowWrite,dataObject):
 	with gzip.GzipFile(fileTowWrite, 'w') as outfile:
 		outfile.write(dataObject)
 	
-def getAppCategoryList(termDocMatrix, labels):
-	google_play_category_labels = []
-	annotated_category_labels = []
-	for app in termDocMatrix:
-		if app == "allSystemCalls":
-			continue
-		else:
-			google_play_category_labels.append(termDocMatrix[app][0])
-			annotated_category_labels.append(termDocMatrix[app][1])
+def getAppLabelList(termDocMatrix, labels):
+	labelList = []
 	if labels == "my":
-		return set(annotated_category_labels)
+		for app in termDocMatrix:
+			if app == "allSystemCalls":
+				continue
+			else:
+				labelList.append(termDocMatrix[app][0])
 	else:
-		return set(google_play_category_labels)
+		for app in termDocMatrix:
+			if app == "allSystemCalls":
+				continue
+			else:
+				labelList.append(termDocMatrix[app][1])
+	return labelList
 
 #Generate the ARFF file for weka to process
 def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
@@ -66,7 +68,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 	arffFileContent+="@RELATION playstore\n\n"
 	for systemCall in allSyscallsVector:
 		arffFileContent+="@ATTRIBUTE "+systemCall+" NUMERIC\n"
-	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppCategoryList(termDocMatrix, labels))+"}\n\n"
+	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppLabelList(termDocMatrix, labels))+"}\n\n"
 	arffFileContent+="@DATA\n"
 	
 	for app in termDocMatrix:

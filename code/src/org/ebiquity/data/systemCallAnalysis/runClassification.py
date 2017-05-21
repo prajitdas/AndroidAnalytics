@@ -128,6 +128,7 @@ def doClassify(jsonDict, label, feature):
 				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
 			except ValueError:
 				print name, appLabel
+				continue
 			if len(set(y_train)) != 2:
 				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
 			prf1sDict["score"] = score

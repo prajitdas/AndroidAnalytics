@@ -97,7 +97,11 @@ def altDoClassify(jsonDict, label, feature):
 	for name, clf in zip(names, classifiers):
 		clf.fit(X_train, y_train)
 		y_pred=clf.predict(X_test)
-		precision, recall, fscore, support = prf1(y_test, y_pred)
+		try:
+			precision, recall, fscore, support = prf1(y_test, y_pred)
+		except ValueError:
+			print name
+			continue
 		score = clf.score(X_test, y_test)
 		prf1sDict["score"] = score
 		prf1sDict["precision"] = precision
@@ -273,10 +277,10 @@ def main(argv):
 		labelDict={}
 		for label in ['my','google']:
 			featureDict={}
-			for feature in ['justc']:
-#				,'numoc','tfidf']:
-				featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
-				print "done with "+feature+" features"
+			feature = 'justc'
+#			for feature in ['justc','numoc','tfidf']:
+			featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
+#				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"
 		gramDict[str(gramIndex)+"gram534"] = labelDict

@@ -11,36 +11,35 @@ import PathDetails as pd
 import json
 import getSyscallDataJson as gs
 
-def preProcess():
+def getOutputFile():
 	ticks = time.time()
 	uniformString = str(ticks).replace(".","")
 
-	predictedClassFile = pd.getPath()+"predictedClasses"+uniformString+".json.gz"
-	text_file = open(predictedClassFile, "w")
+	outputPredictedClassFile = pd.getPath()+"outputPredictedClasses"+uniformString+".json.gz"
+	text_file = open(outputPredictedClassFile, "w")
 	text_file.write("")
 	text_file.close()
 	
-	return predictedClassFile
+	return outputPredictedClassFile
 
 #Initiate the clustering process
-def initClassification(masterJsonFile, ngram, labels, features):
+def initClassification(masterJsonFile, labels, features):
 	# Things have been initiated, now to run classification
-	# classify.runClassification(preProcess(), gs.getSyscallDataJson(masterJsonFile))
-	classify.runClassification(preProcess(), json.loads(open(masterJsonFile).read()), ngram, labels, features)
+	# classify.runClassification(getOutputFile(), gs.getSyscallDataJson(masterJsonFile))
+	classify.runClassification(json.loads(open(masterJsonFile).read()), labels, features)
 
 def main(argv):
 	if len(sys.argv) != 4:
-		sys.stderr.write('Usage: python initClassification.py masterJsonFile ngram classLabels featureType')
+		sys.stderr.write('Usage: python initClassification.py masterJsonFile classLabels featureType')
 		sys.exit(1)
 
 	masterJsonFile = sys.argv[1]
-	ngram = sys.argv[2]
-	labels = sys.argv[3]
-	features = sys.argv[4]
+	labels = sys.argv[2]
+	features = sys.argv[3]
 
 	startTime = time.time()
 	#Initiate the clustering process
-	initClassification(masterJsonFile, ngram, labels, features)
+	initClassification(masterJsonFile, labels, features)
 	executionTime = str((time.time()-startTime)*1000)
 	print 'Execution time was: '+executionTime+' ms'
 

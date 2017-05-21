@@ -132,16 +132,17 @@ def sanitizeCall(inputString):
 	return None
 
 def getAllSyscallsVector(jsonDict):
-	allSyscallsVector = []
-	for app in jsonDict:
-		for call in jsonDict[app]['syscallNGrams']:
-			sanitizedCall = sanitizeCall(call)
-			if sanitizedCall != None:
-				allSyscallsVector.append(sanitizedCall)
-
-	allSyscallsVector = list(set(allSyscallsVector))
-	# print sorted(allSyscallsVector)
-	return sorted(allSyscallsVector)
+#	allSyscallsVector = []
+#	for app in jsonDict:
+#		for call in jsonDict[app]['syscallNGrams']:
+#			sanitizedCall = sanitizeCall(call)
+#			if sanitizedCall != None:
+#				allSyscallsVector.append(sanitizedCall)
+#
+#	allSyscallsVector = list(set(allSyscallsVector))
+#	print sorted(allSyscallsVector)
+#	return sorted(allSyscallsVector)
+	return json.loads(open("knownSyscalls.json","r").read())["knownSyscalls"]
 
 #Form a binary value vector of system calls that has been made
 def formVectorJustCalls(appSyscallDict, allSyscallsVector):
@@ -218,6 +219,7 @@ def runAgain(jsonDict):
 			cleanJsonDict[key] = jsonDict[key]
 		else:
 			runAgainAppsList.append(key)
+			print key
 
 	runAgainAppsDict = {}
 	runAgainAppsDict['apps'] = runAgainAppsList
@@ -228,7 +230,6 @@ def runAgain(jsonDict):
 def createTermDocMatrix(jsonDict,type):
 	jsonDict = runAgain(jsonDict)
 	allSyscallsVector = getAllSyscallsVector(jsonDict)
-	numberOfApps = len(jsonDict.keys())
 	appVector = jsonDict.keys()
 	termDocMatrix = {}
 	if type == 'numoc':
@@ -259,10 +260,10 @@ def createTermDocMatrix(jsonDict,type):
 		print("Error in input. You didn't choose a known standard for term document matrix format.")
 		raise BaseException("Error in input. You didn't choose a known standard for term document matrix format.")
 
-	termDocMatrix = normalizeTermDcoMatrix(termDocMatrix)
+#	termDocMatrix = normalizeTermDcoMatrix(termDocMatrix)
 
 	toWriteTermDocMat = {}
-	toWriteTermDocMat = termDocMatrix
+	toWriteTermDocMat = dict(termDocMatrix)
 	toWriteTermDocMat['allSystemCalls'] = allSyscallsVector
 	json.dump(toWriteTermDocMat, open('termDocMatrix.json', 'w'), sort_keys = True, indent = 4)
 	return termDocMatrix, allSyscallsVector

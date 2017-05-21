@@ -99,13 +99,12 @@ def altDoClassify(jsonDict, labels, features):
 		y_pred=clf.predict(X_test)
 		precision, recall, fscore, support = prf1(y_test, y_pred)
 		score = clf.score(X_test, y_test)
-		print "done with ", name, score, precision, recall, fscore
+		print "done with ", name
 		prf1sDict["score"] = score
 		prf1sDict["precision"] = precision
 		prf1sDict["recall"] = recall
 		prf1sDict["fscore"] = fscore
 		resultDict[name] = prf1sDict
-	print resultDict
 	return resultDict
 
 def doClassify(jsonDict, labels, features):
@@ -137,7 +136,6 @@ def doClassify(jsonDict, labels, features):
 			prf1sDict["fscore"] = fscore
 			perLabelResult[name] = prf1sDict
 		resultDict[appLabel] = perLabelResult
-	print resultDict
 	return resultDict
 
 def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel):
@@ -252,7 +250,7 @@ def writeArffFile(appMatrixFile, arffFileContent):
 def runClassification(jsonDict, labels, features):
 	ultimateResults={}
 	ultimateResults["multiclass"] = altDoClassify(jsonDict, labels, features)
-#	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
+	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
 	return ultimateResults
 
 def format_seconds_to_hhmmss(seconds):
@@ -270,10 +268,12 @@ def main(argv):
 	masterJsonFile = sys.argv[1]
 	labels = sys.argv[2]
 	features = sys.argv[3]
+	runDetails = masterJsonFile.split("534")[0]+labels+features
+	outputFileName="results"+runDetails+".json"
 
 	startTime = time.time()
 	output = runClassification(json.loads(open(masterJsonFile).read()), labels, features)
-	open("results.json","w").write(json.dumps(output, indent=4))
+	open(outputFileName,"w").write(json.dumps(output, indent=4))
 	executionTime = (time.time()-startTime)
 	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 

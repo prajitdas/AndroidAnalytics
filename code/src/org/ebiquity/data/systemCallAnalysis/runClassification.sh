@@ -14,25 +14,25 @@ currDir=`pwd`
 #	justc: use just a call for distance computation
 #	tfidf: use tf-idf weights of calls for distance computation
 python initClassification.py 1gram534.json my justc
-# python initClassification.py 1gram534.json my numoc
-# python initClassification.py 1gram534.json my tfidf
+python initClassification.py 1gram534.json my numoc
+python initClassification.py 1gram534.json my tfidf
 
-# python initClassification.py 2gram534.json my justc
-# python initClassification.py 2gram534.json my numoc
-# python initClassification.py 2gram534.json my tfidf
+python initClassification.py 2gram534.json my justc
+python initClassification.py 2gram534.json my numoc
+python initClassification.py 2gram534.json my tfidf
 
-# python initClassification.py 3gram534.json my justc
-# python initClassification.py 3gram534.json my numoc
-# python initClassification.py 3gram534.json my tfidf
+python initClassification.py 3gram534.json my justc
+python initClassification.py 3gram534.json my numoc
+python initClassification.py 3gram534.json my tfidf
 
-# python initClassification.py 1gram534.json google justc
-# python initClassification.py 1gram534.json google numoc
-# python initClassification.py 1gram534.json google tfidf
+python initClassification.py 1gram534.json google justc
+python initClassification.py 1gram534.json google numoc
+python initClassification.py 1gram534.json google tfidf
 
-# python initClassification.py 2gram534.json google justc
-# python initClassification.py 2gram534.json google numoc
-# python initClassification.py 2gram534.json google tfidf
+python initClassification.py 2gram534.json google justc
+python initClassification.py 2gram534.json google numoc
+python initClassification.py 2gram534.json google tfidf
 
-# python initClassification.py 3gram534.json google justc
-# python initClassification.py 3gram534.json google numoc
-# python initClassification.py 3gram534.json google tfidf
+python initClassification.py 3gram534.json google justc
+python initClassification.py 3gram534.json google numoc
+python initClassification.py 3gram534.json google tfidf

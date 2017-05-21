@@ -273,8 +273,8 @@ def main(argv):
 		labelDict={}
 		for label in ['my','google']:
 			featureDict={}
-			for feature in ['justc','numoc']:
-#				,'tfidf']:
+			for feature in ['justc']:
+#				,'numoc','tfidf']:
 				featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict

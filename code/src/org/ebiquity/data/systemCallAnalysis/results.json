@@ -1,0 +1,136 @@
+{
+    "1vsall": {
+        "alarm_clock": {
+            "Gaussian Process": 0.77570093457943923, 
+            "Decision Tree": 0.72429906542056077, 
+            "QDA": 0.78037383177570097, 
+            "Naive Bayes": 0.24766355140186916, 
+            "Linear SVM": 0.77570093457943923, 
+            "Neural Net": 0.70560747663551404, 
+            "RBF SVM": 0.76168224299065423, 
+            "AdaBoost": 0.76168224299065423, 
+            "Random Forest": 0.77570093457943923, 
+            "Nearest Neighbors": 0.66822429906542058
+        }, 
+        "file_explorer": {
+            "Gaussian Process": 0.86448598130841126, 
+            "Decision Tree": 0.88785046728971961, 
+            "QDA": 0.85046728971962615, 
+            "Naive Bayes": 0.88317757009345799, 
+            "Linear SVM": 0.88785046728971961, 
+            "Neural Net": 0.86448598130841126, 
+            "RBF SVM": 0.86915887850467288, 
+            "AdaBoost": 0.86915887850467288, 
+            "Random Forest": 0.86448598130841126, 
+            "Nearest Neighbors": 0.85046728971962615
+        }, 
+        "to_do_list": {
+            "Gaussian Process": 0.7990654205607477, 
+            "Decision Tree": 0.80841121495327106, 
+            "QDA": 0.79439252336448596, 
+            "Naive Bayes": 0.23364485981308411, 
+            "Linear SVM": 0.79439252336448596, 
+            "Neural Net": 0.81308411214953269, 
+            "RBF SVM": 0.78971962616822433, 
+            "AdaBoost": 0.76635514018691586, 
+            "Random Forest": 0.80373831775700932, 
+            "Nearest Neighbors": 0.78037383177570097
+        }, 
+        "scientific_calculator": {
+            "Gaussian Process": 0.85981308411214952, 
+            "Decision Tree": 0.84112149532710279, 
+            "QDA": 0.83177570093457942, 
+            "Naive Bayes": 0.26635514018691586, 
+            "Linear SVM": 0.85981308411214952, 
+            "Neural Net": 0.86448598130841126, 
+            "RBF SVM": 0.85514018691588789, 
+            "AdaBoost": 0.83644859813084116, 
+            "Random Forest": 0.85981308411214952, 
+            "Nearest Neighbors": 0.85046728971962615
+        }, 
+        "battery_saver": {
+            "Gaussian Process": 0.84579439252336452, 
+            "Decision Tree": 0.7990654205607477, 
+            "QDA": 0.82242990654205606, 
+            "Naive Bayes": 0.28037383177570091, 
+            "Linear SVM": 0.83644859813084116, 
+            "Neural Net": 0.85514018691588789, 
+            "RBF SVM": 0.85981308411214952, 
+            "AdaBoost": 0.81775700934579443, 
+            "Random Forest": 0.84112149532710279, 
+            "Nearest Neighbors": 0.83644859813084116
+        }, 
+        "pdf_reader": {
+            "Gaussian Process": 0.95327102803738317, 
+            "Decision Tree": 0.96261682242990654, 
+            "QDA": 0.95327102803738317, 
+            "Naive Bayes": 0.2570093457943925, 
+            "Linear SVM": 0.94859813084112155, 
+            "Neural Net": 0.95327102803738317, 
+            "RBF SVM": 0.95327102803738317, 
+            "AdaBoost": 0.95794392523364491, 
+            "Random Forest": 0.94859813084112155, 
+            "Nearest Neighbors": 0.9719626168224299
+        }, 
+        "video_playback": {
+            "Gaussian Process": 0.99532710280373837, 
+            "Decision Tree": 0.99532710280373837, 
+            "QDA": 0.95327102803738317, 
+            "Naive Bayes": 0.7570093457943925, 
+            "Linear SVM": 0.99532710280373837, 
+            "Neural Net": 0.99532710280373837, 
+            "RBF SVM": 0.99532710280373837, 
+            "AdaBoost": 0.99065420560747663, 
+            "Random Forest": 0.99532710280373837, 
+            "Nearest Neighbors": 0.99532710280373837
+        }, 
+        "lunar_calendar": {
+            "Gaussian Process": 0.98130841121495327, 
+            "Decision Tree": 0.97663551401869164, 
+            "QDA": 0.93925233644859818, 
+            "Naive Bayes": 0.65420560747663548, 
+            "Linear SVM": 0.98130841121495327, 
+            "Neural Net": 0.98130841121495327, 
+            "RBF SVM": 0.98130841121495327, 
+            "AdaBoost": 0.96728971962616828, 
+            "Random Forest": 0.98130841121495327, 
+            "Nearest Neighbors": 0.98130841121495327
+        }, 
+        "drink_recipes": {
+            "Gaussian Process": 0.98130841121495327, 
+            "Decision Tree": 0.98130841121495327, 
+            "QDA": 0.9719626168224299, 
+            "Naive Bayes": 0.62149532710280375, 
+            "Linear SVM": 0.98130841121495327, 
+            "Neural Net": 0.98130841121495327, 
+            "RBF SVM": 0.98130841121495327, 
+            "AdaBoost": 0.96261682242990654, 
+            "Random Forest": 0.98130841121495327, 
+            "Nearest Neighbors": 0.95794392523364491
+        }, 
+        "wifi_analyzer": {
+            "Gaussian Process": 0.94859813084112155, 
+            "Decision Tree": 0.95794392523364491, 
+            "QDA": 0.90654205607476634, 
+            "Naive Bayes": 0.21962616822429906, 
+            "Linear SVM": 0.94859813084112155, 
+            "Neural Net": 0.94859813084112155, 
+            "RBF SVM": 0.93457943925233644, 
+            "AdaBoost": 0.94859813084112155, 
+            "Random Forest": 0.94859813084112155, 
+            "Nearest Neighbors": 0.95327102803738317
+        }
+    }, 
+    "multiclass": {
+        "Gaussian Process": 0.27570093457943923, 
+        "Decision Tree": 0.32242990654205606, 
+        "QDA": 0.2102803738317757, 
+        "Naive Bayes": 0.065420560747663545, 
+        "Linear SVM": 0.37383177570093457, 
+        "Neural Net": 0.38317757009345793, 
+        "RBF SVM": 0.28971962616822428, 
+        "AdaBoost": 0.29439252336448596, 
+        "Random Forest": 0.32710280373831774, 
+        "Nearest Neighbors": 0.35981308411214952
+    }
+}

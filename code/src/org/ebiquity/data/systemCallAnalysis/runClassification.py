@@ -27,6 +27,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn.metrics import precision_recall_fscore_support as prf1
 
 #h = .02  # step size in the mesh
 google=0
@@ -91,12 +92,20 @@ def altDoClassify(jsonDict, labels, features):
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
 	resultDict={}
+	prf1sDict={}
 	# iterate over classifiers
 	for name, clf in zip(names, classifiers):
 		clf.fit(X_train, y_train)
+		y_pred=clf.predict(X_test)
+		precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
 		score = clf.score(X_test, y_test)
 		print "done with "+str(name)
-		resultDict[name] = score
+		prf1sDict["score"] = score
+		prf1sDict["precision"] = precision
+		prf1sDict["recall"] = recall
+		prf1sDict["fscore"] = fscore
+		resultDict[name] = prf1sDict
+	print resultDict
 	return resultDict
 
 def doClassify(jsonDict, labels, features):
@@ -110,16 +119,23 @@ def doClassify(jsonDict, labels, features):
 		X_train, X_test, y_train, y_test = \
 			train_test_split(X, y, test_size=.4, random_state=42)
 		perLabelResult={}
+		prf1sDict={}
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
 			index += 1
 			clf.fit(X_train, y_train)
+			y_pred=clf.predict(X_test)
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
 			if len(set(y_train)) != 2:
 				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
 			score = clf.score(X_test, y_test)
 			if index%20 ==0:
 				print "done with "+str(index)
-			perLabelResult[name] = score
+			prf1sDict["score"] = score
+			prf1sDict["precision"] = precision
+			prf1sDict["recall"] = recall
+			prf1sDict["fscore"] = fscore
+			perLabelResult[name] = prf1sDict
 		resultDict[appLabel] = perLabelResult
 	return resultDict
 
@@ -235,7 +251,7 @@ def writeArffFile(appMatrixFile, arffFileContent):
 def runClassification(jsonDict, labels, features):
 	ultimateResults={}
 	ultimateResults["multiclass"] = altDoClassify(jsonDict, labels, features)
-	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
+#	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
 	return ultimateResults
 
 def format_seconds_to_hhmmss(seconds):
@@ -255,7 +271,8 @@ def main(argv):
 	features = sys.argv[3]
 
 	startTime = time.time()
-	open("results.json","w").write(json.dumps(runClassification(json.loads(open(masterJsonFile).read()), labels, features), indent=4))
+	output = runClassification(json.loads(open(masterJsonFile).read()), labels, features)
+#	open("results.json","w").write(json.dumps(output, indent=4))
 	executionTime = (time.time()-startTime)
 	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 

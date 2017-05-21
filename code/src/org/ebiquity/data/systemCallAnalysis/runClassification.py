@@ -2,7 +2,7 @@
 Created on June 28, 2016
 Modified May 21, 2017
 @author: Prajit Kumar Das
-Usage: python runClassification.py masterJsonFile classLabels featureType
+Usage: python runClassification.py
 '''
 
 import datetime
@@ -85,9 +85,9 @@ def getAppLabelList(termDocMatrix, labels):
 				labelList.append(termDocMatrix[app][0])
 	return list(set(labelList))
 
-def altDoClassify(jsonDict, labels, features):
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
-	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, labels)
+def altDoClassify(jsonDict, label, feature):
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
+	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label)
 	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
@@ -99,7 +99,6 @@ def altDoClassify(jsonDict, labels, features):
 		y_pred=clf.predict(X_test)
 		precision, recall, fscore, support = prf1(y_test, y_pred)
 		score = clf.score(X_test, y_test)
-		print "done with ", name
 		prf1sDict["score"] = score
 		prf1sDict["precision"] = precision
 		prf1sDict["recall"] = recall
@@ -107,13 +106,13 @@ def altDoClassify(jsonDict, labels, features):
 		resultDict[name] = prf1sDict
 	return resultDict
 
-def doClassify(jsonDict, labels, features):
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
-	appLabelList=getAppLabelList(termDocMatrix, labels)
+def doClassify(jsonDict, label, feature):
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
+	appLabelList=getAppLabelList(termDocMatrix, label)
 	index = 0
 	resultDict={}
 	for appLabel in appLabelList:
-		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, appLabel)
+		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, label, appLabel)
 		X = StandardScaler().fit_transform(X)
 		X_train, X_test, y_train, y_test = \
 			train_test_split(X, y, test_size=.4, random_state=42)
@@ -128,8 +127,6 @@ def doClassify(jsonDict, labels, features):
 			precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
 			if len(set(y_train)) != 2:
 				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
-			if index%20 ==0:
-				print "done with "+str(index)
 			prf1sDict["score"] = score
 			prf1sDict["precision"] = precision
 			prf1sDict["recall"] = recall
@@ -197,7 +194,6 @@ def generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, labels):
 
 #Generate the ARFF file for weka to process
 def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
-	# print termDocMatrix
 	arffFileContent="% 1. Title: App Behavioral Category Classification\n"
 	arffFileContent+="% \n"
 	arffFileContent+="% 2. Sources:\n"
@@ -247,10 +243,10 @@ def writeArffFile(appMatrixFile, arffFileContent):
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 
-def runClassification(jsonDict, labels, features):
+def runClassification(jsonDict, label, feature):
 	ultimateResults={}
-	ultimateResults["multiclass"] = altDoClassify(jsonDict, labels, features)
-	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
+	ultimateResults["multiclass"] = altDoClassify(jsonDict, label, feature)
+	ultimateResults["1vsall"] = doClassify(jsonDict, label, feature)
 	return ultimateResults
 
 def format_seconds_to_hhmmss(seconds):
@@ -261,19 +257,29 @@ def format_seconds_to_hhmmss(seconds):
 	return "%02i hours, %02i minutes, %02i seconds" % (hours, minutes, seconds)
 
 def main(argv):
-	if len(sys.argv) != 4:
-		sys.stderr.write('Usage: python initClassification.py masterJsonFile classLabels featureType')
+	if len(sys.argv) != 1:
+		sys.stderr.write('Usage: python runClassification.py')
 		sys.exit(1)
 
-	masterJsonFile = sys.argv[1]
-	labels = sys.argv[2]
-	features = sys.argv[3]
-	runDetails = masterJsonFile.split("534")[0]+labels+features
-	outputFileName="results"+runDetails+".json"
-
 	startTime = time.time()
-	output = runClassification(json.loads(open(masterJsonFile).read()), labels, features)
-	open(outputFileName,"w").write(json.dumps(output, indent=4))
+	output={}
+	gramDict={}
+	for gramIndex in range(1,3):
+		masterJsonFile = str(gramIndex)+"gram534.json"
+		labelDict={}
+		for label in ['my','google']:
+			featureDict={}
+			for feature in ['justc','numoc']:
+#				,'tfidf']:
+				featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
+				print "done with "+feature+" features"
+			labelDict[label] = featureDict
+			print "done with "+label+" labels"
+		gramDict[str(gramIndex)+"gram534"] = labelDict
+		print "done with "+str(gramIndex)+" gram"
+	output["results"] = gramDict
+
+	open("results.json","w").write(json.dumps(output, indent=4))
 	executionTime = (time.time()-startTime)
 	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 

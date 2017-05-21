@@ -65,13 +65,13 @@ def reducePrecisionEncode(array, length, breadth, precision):
 			else:
 				newArray[i][j] = float(result)
 	return NumpyEncoder.encodeNDArray(newArray)
-	
+
 # From: http://www.saltycrane.com/blog/2012/11/using-pythons-gzip-and-stringio-compress-data-memory/
 def compressWriteData(fileTowWrite,dataObject):
 	# writing
 	with gzip.GzipFile(fileTowWrite, 'w') as outfile:
 		outfile.write(dataObject)
-	
+
 def getAppLabelList(termDocMatrix, labels):
 	labelList = []
 	if labels == "my":
@@ -94,12 +94,14 @@ def altDoClassify(jsonDict, labels, features):
 	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
+
+
 	# iterate over classifiers
 	for name, clf in zip(names, classifiers):
 		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
 		print name, score
-	
+
 def doClassify(jsonDict, labels, features):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
 	appLabelList=getAppLabelList(termDocMatrix, labels)
@@ -109,7 +111,6 @@ def doClassify(jsonDict, labels, features):
 		X = StandardScaler().fit_transform(X)
 		X_train, X_test, y_train, y_test = \
 			train_test_split(X, y, test_size=.4, random_state=42)
-	
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
 			clf.fit(X_train, y_train)
@@ -194,7 +195,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 		arffFileContent+="@ATTRIBUTE "+systemCall+" NUMERIC\n"
 	arffFileContent+="@ATTRIBUTE class {"+",".join(getAppLabelList(termDocMatrix, labels))+"}\n\n"
 	arffFileContent+="@DATA\n"
-	
+
 	for app in termDocMatrix:
 		if app == "allSystemCalls":
 			continue
@@ -228,14 +229,8 @@ def writeArffFile(appMatrixFile, arffFileContent):
 		fp.write(arffFileContent)
 
 def runClassification(jsonDict, labels, features):
-#	doClassify(jsonDict, labels, features)
 	altDoClassify(jsonDict, labels, features)
-	
-#Initiate the clustering process
-def initClassification(masterJsonFile, labels, features):
-	# Things have been initiated, now to run classification
-	# classify.runClassification(getOutputFile(), gs.getSyscallDataJson(masterJsonFile))
-	runClassification(json.loads(open(masterJsonFile).read()), labels, features)
+	doClassify(jsonDict, labels, features)
 
 def main(argv):
 	if len(sys.argv) != 4:
@@ -247,8 +242,7 @@ def main(argv):
 	features = sys.argv[3]
 
 	startTime = time.time()
-	#Initiate the clustering process
-	initClassification(masterJsonFile, labels, features)
+	runClassification(json.loads(open(masterJsonFile).read()), labels, features)
 	executionTime = str((time.time()-startTime)*1000)
 	print 'Execution time was: '+executionTime+' ms'
 

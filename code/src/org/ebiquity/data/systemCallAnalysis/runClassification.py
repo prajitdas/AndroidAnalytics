@@ -99,7 +99,7 @@ def altDoClassify(jsonDict, labels, features):
 		y_pred=clf.predict(X_test)
 		precision, recall, fscore, support = prf1(y_test, y_pred)
 		score = clf.score(X_test, y_test)
-		print "done with "+str(name)
+		print "done with ", name, score, precision, recall, fscore
 		prf1sDict["score"] = score
 		prf1sDict["precision"] = precision
 		prf1sDict["recall"] = recall
@@ -124,11 +124,11 @@ def doClassify(jsonDict, labels, features):
 		for name, clf in zip(names, classifiers):
 			index += 1
 			clf.fit(X_train, y_train)
+			score = clf.score(X_test, y_test)
 			y_pred=clf.predict(X_test)
-			precision, recall, fscore, support = prf1(y_test, y_pred)
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
 			if len(set(y_train)) != 2:
 				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
-			score = clf.score(X_test, y_test)
 			if index%20 ==0:
 				print "done with "+str(index)
 			prf1sDict["score"] = score
@@ -252,7 +252,7 @@ def writeArffFile(appMatrixFile, arffFileContent):
 def runClassification(jsonDict, labels, features):
 	ultimateResults={}
 	ultimateResults["multiclass"] = altDoClassify(jsonDict, labels, features)
-	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
+#	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
 	return ultimateResults
 
 def format_seconds_to_hhmmss(seconds):

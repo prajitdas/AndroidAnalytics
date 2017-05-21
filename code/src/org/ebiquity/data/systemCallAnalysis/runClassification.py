@@ -32,25 +32,28 @@ from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 
-h = .02  # step size in the mesh
+#h = .02  # step size in the mesh
+google=0
+my=1
+syscalls=2
 
-#names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
-#		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
-#		 "Naive Bayes", "QDA"]
+names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
+		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
+		 "Naive Bayes", "QDA"]
 
-names = ["Neural Net"]
-classifiers = [MLPClassifier(alpha=1)]
-#classifiers = [
-#	KNeighborsClassifier(3),
-#	SVC(kernel="linear", C=0.025),
-#	SVC(gamma=2, C=1),
-#	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
-#	DecisionTreeClassifier(max_depth=5),
-#	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-#	MLPClassifier(alpha=1),
-#	AdaBoostClassifier(),
-#	GaussianNB(),
-#	QuadraticDiscriminantAnalysis()]
+#names = ["Linear SVM"]
+#classifiers = [SVC(kernel="linear", C=0.025)]
+classifiers = [
+	KNeighborsClassifier(3),
+	SVC(kernel="linear", C=0.025),
+	SVC(gamma=2, C=1),
+	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
+	DecisionTreeClassifier(max_depth=5),
+	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+	MLPClassifier(alpha=1),
+	AdaBoostClassifier(),
+	GaussianNB(),
+	QuadraticDiscriminantAnalysis()]
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)
@@ -95,113 +98,25 @@ def altDoClassify(jsonDict, labels, features):
 	for name, clf in zip(names, classifiers):
 		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
-		print score
+		print name, score
 	
 def doClassify(jsonDict, labels, features):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
 	appLabelList=getAppLabelList(termDocMatrix, labels)
 	print set(appLabelList)
-#	datasets=[]
 	for appLabel in appLabelList:
 		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, appLabel)
-	#	print "datasets:"+str(len(allSyscallsVector))
-	#	X,y=datasets[0]
-	#	print X.shape,y.shape
-	#	clf = svm.SVC()
-	#	clf.fit(X, y)
-	#	clf.predict([[2., 2.]])
-	#	figure = plt.figure(figsize=(27, 9))
-	#	i = 1
-		# iterate over datasets
-#		for ds_cnt, ds in enumerate(datasets):
-#		print ds
-		# preprocess dataset, split into training and test part
-#			X, y = ds
-	#	print "datasets:"+str(X.shape)
-	#	print "datasets:"+str(y.shape)
-	
 		X = StandardScaler().fit_transform(X)
 		X_train, X_test, y_train, y_test = \
 			train_test_split(X, y, test_size=.4, random_state=42)
 	
-#		print "train:"+str(X_train.shape[1])
-#		print "test:"+str(X_test.shape[1])
-#		
-#		x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
-#		y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
-#		xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
-#							 np.arange(y_min, y_max, h))
-#	
-#		print "xx"+str(xx.shape)
-#		print "yy"+str(yy.shape)
-#	
-#		# just plot the dataset first
-#		cm = plt.cm.RdBu
-#		cm_bright = ListedColormap(['#FF0000', '#0000FF'])
-#		ax = plt.subplot(len(datasets), len(classifiers) + 1, i)
-#		if ds_cnt == 0:
-#			ax.set_title("Input data")
-#		# Plot the training points
-#		ax.scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap=cm_bright)
-#		# and testing points
-#		ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap=cm_bright, alpha=0.6)
-#		ax.set_xlim(xx.min(), xx.max())
-#		ax.set_ylim(yy.min(), yy.max())
-#		ax.set_xticks(())
-#		ax.set_yticks(())
-#		i += 1
-	
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
-#			ax = plt.subplot(len(datasets), len(classifiers) + 1, i)
 			clf.fit(X_train, y_train)
 			if len(set(y_train)) != 2:
 				print appLabel
-#			print "shape"
-#			print X_train.shape, y_train.shape
-#			print X_test.shape, y_test.shape
 			score = clf.score(X_test, y_test)
-			print score
-	
-#			print X_train.shape
-#			print y_train.shape
-			# Plot the decision boundary. For that, we will assign a color to each
-			# point in the mesh [x_min, x_max]x[y_min, y_max].
-#			if hasattr(clf, "decision_function"):
-#				print "shape"
-#				print xx.ravel().shape
-#				print yy.ravel().shape
-#				
-#				Z = clf.decision_function(np.c_[xx.ravel(), yy.ravel()])
-#			else:
-#				print "shape"
-#				print xx.ravel().shape
-#				print yy.ravel().shape
-#				
-#				Z = clf.predict_proba(np.c_[xx.ravel(), yy.ravel()])[:, 1]
-#	
-#			# Put the result into a color plot
-#			Z = Z.reshape(xx.shape)
-#			ax.contourf(xx, yy, Z, cmap=cm, alpha=.8)
-#	
-#			# Plot also the training points
-#			ax.scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap=cm_bright)
-#			# and testing points
-#			ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap=cm_bright,
-#					   alpha=0.6)
-#	
-#			ax.set_xlim(xx.min(), xx.max())
-#			ax.set_ylim(yy.min(), yy.max())
-#			ax.set_xticks(())
-#			ax.set_yticks(())
-#			if ds_cnt == 0:
-#				ax.set_title(name)
-#			ax.text(xx.max() - .3, yy.min() + .3, ('%.2f' % score).lstrip('0'),
-#					size=15, horizontalalignment='right')
-#			i += 1
-#	
-#	plt.tight_layout()
-#	plt.show()
+			print name, appLabel, score
 
 def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel):
 	numOfApps=len(termDocMatrix.keys())
@@ -213,8 +128,8 @@ def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel
 			if app == "allSystemCalls":
 				continue
 			else:
-				X[index]=np.asarray(termDocMatrix[app][2])
-				if termDocMatrix[app][1] == currentLabel:
+				X[index]=np.asarray(termDocMatrix[app][syscalls])
+				if termDocMatrix[app][my] == currentLabel:
 					y[index]=1
 				else:
 					y[index]=0
@@ -224,8 +139,8 @@ def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel
 			if app == "allSystemCalls":
 				continue
 			else:
-				X[index]=np.asarray(termDocMatrix[app][2])
-				if termDocMatrix[app][0] == currentLabel:
+				X[index]=np.asarray(termDocMatrix[app][syscalls])
+				if termDocMatrix[app][google] == currentLabel:
 					y[index]=1
 				else:
 					y[index]=0
@@ -243,8 +158,8 @@ def generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, labels):
 			if app == "allSystemCalls":
 				continue
 			else:
-				X[index]=np.asarray(termDocMatrix[app][2])
-				value = termDocMatrix[app][1]
+				X[index]=np.asarray(termDocMatrix[app][syscalls])
+				value = termDocMatrix[app][my]
 				if value in appLabelList:
 					y[index]=appLabelList.index(value)
 				index+=1
@@ -253,35 +168,12 @@ def generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, labels):
 			if app == "allSystemCalls":
 				continue
 			else:
-				X[index]=np.asarray(termDocMatrix[app][2])
+				X[index]=np.asarray(termDocMatrix[app][syscalls])
+				value = termDocMatrix[app][google]
 				if value in appLabelList:
 					y[index]=appLabelList.index(value)
 				index+=1
 	return X,y
-
-def runClassification(jsonDict, labels, features):
-	# appMatrix, appVector = cd.computeDistance(jsonDict,metric,type)
-	# categoryDict = json.loads(open('category.json','r').read())
-	# numberOfApps, termDocMatrix, appRunVector, allSyscallsVector = cd.createTermDocMatrix(jsonDict,categoryDict,type)
-	# options for type are justc numoc and tfidf
-#	doClassify(jsonDict, labels, features)
-	altDoClassify(jsonDict, labels, features)
-	
-	# writeArffFile(ngram+labels+features+"534.arff", generateArffFileData(termDocMatrix, allSyscallsVector, labels))
-
-	# print numberOfApps
-	# print termDocMatrix
-	# print appVector
-
-	# google_play_category_labels = []
-	# annotated_category_labels = []
-	# data = []
-	# for app in termDocMatrix:
-	# 	google_play_category_labels.append(termDocMatrix[app][0])
-	# 	annotated_category_labels.append(termDocMatrix[app][1])
-	# 	data.append(termDocMatrix[app][2])
-	# clf = svm.SVC(kernel='poly')
-	# clf.fit(data, google_play_category_labels)
 
 #Generate the ARFF file for weka to process
 def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
@@ -307,7 +199,7 @@ def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 		if app == "allSystemCalls":
 			continue
 		else:
-			arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][2])
+			arffFileContent+=','.join(str(freq) for freq in termDocMatrix[app][syscalls])
 			'''
 				REMEMBER! REMEMBER! The something of November :P This is where we choose which class label we test against
 				termDocMatrix[app][0] -> annotated class labels by Google
@@ -317,9 +209,9 @@ def generateArffFileData(termDocMatrix, allSyscallsVector, labels):
 			# [0]: Google category
 			# [1]: My category
 			if labels == "my":
-				arffFileContent+=','+termDocMatrix[app][1]
+				arffFileContent+=','+termDocMatrix[app][my]
 			else:
-				arffFileContent+=','+termDocMatrix[app][0]
+				arffFileContent+=','+termDocMatrix[app][google]
 			arffFileContent+="\n"
 
 	return arffFileContent
@@ -335,6 +227,10 @@ def writeArffFile(appMatrixFile, arffFileContent):
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 
+def runClassification(jsonDict, labels, features):
+#	doClassify(jsonDict, labels, features)
+	altDoClassify(jsonDict, labels, features)
+	
 #Initiate the clustering process
 def initClassification(masterJsonFile, labels, features):
 	# Things have been initiated, now to run classification
@@ -357,4 +253,4 @@ def main(argv):
 	print 'Execution time was: '+executionTime+' ms'
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

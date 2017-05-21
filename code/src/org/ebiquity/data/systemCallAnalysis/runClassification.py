@@ -1,7 +1,8 @@
 '''
 Created on June 28, 2016
+Modified May 21, 2017
 @author: Prajit Kumar Das
-Usage: python runClassification.py jsonDict
+Usage: python runClassification.py masterJsonFile classLabels featureType
 '''
 
 import datetime
@@ -14,14 +15,9 @@ import logging
 import json
 import time
 
-from sklearn import svm
 import sys
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.datasets import make_moons, make_circles, make_classification
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -94,23 +90,26 @@ def altDoClassify(jsonDict, labels, features):
 	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
-	index = 0
+	resultDict={}
 	# iterate over classifiers
 	for name, clf in zip(names, classifiers):
-		index += 1
 		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
-		print index, name, score
+		print "done with "+str(name)
+		resultDict[name] = score
+	return resultDict
 
 def doClassify(jsonDict, labels, features):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
 	appLabelList=getAppLabelList(termDocMatrix, labels)
 	index = 0
+	resultDict={}
 	for appLabel in appLabelList:
 		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, appLabel)
 		X = StandardScaler().fit_transform(X)
 		X_train, X_test, y_train, y_test = \
 			train_test_split(X, y, test_size=.4, random_state=42)
+		perLabelResult={}
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
 			index += 1
@@ -118,7 +117,11 @@ def doClassify(jsonDict, labels, features):
 			if len(set(y_train)) != 2:
 				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
 			score = clf.score(X_test, y_test)
-			print index, name, appLabel, score
+			if index%20 ==0:
+				print "done with "+str(index)
+			perLabelResult[name] = score
+		resultDict[appLabel] = perLabelResult
+	return resultDict
 
 def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel):
 	numOfApps=len(termDocMatrix.keys())
@@ -230,8 +233,17 @@ def writeArffFile(appMatrixFile, arffFileContent):
 		fp.write(arffFileContent)
 
 def runClassification(jsonDict, labels, features):
-	altDoClassify(jsonDict, labels, features)
-	doClassify(jsonDict, labels, features)
+	ultimateResults={}
+	ultimateResults["multiclass"] = altDoClassify(jsonDict, labels, features)
+	ultimateResults["1vsall"] = doClassify(jsonDict, labels, features)
+	return ultimateResults
+
+def format_seconds_to_hhmmss(seconds):
+	hours = seconds // (60*60)
+	seconds %= (60*60)
+	minutes = seconds // 60
+	seconds %= 60
+	return "%02i hours, %02i minutes, %02i seconds" % (hours, minutes, seconds)
 
 def main(argv):
 	if len(sys.argv) != 4:
@@ -243,9 +255,9 @@ def main(argv):
 	features = sys.argv[3]
 
 	startTime = time.time()
-	runClassification(json.loads(open(masterJsonFile).read()), labels, features)
-	executionTime = str((time.time()-startTime)*1000)
-	print 'Execution time was: '+executionTime+' ms'
+	open("results.json","w").write(json.dumps(runClassification(json.loads(open(masterJsonFile).read()), labels, features), indent=4))
+	executionTime = (time.time()-startTime)
+	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 
 if __name__ == "__main__":
 	main(sys.argv)

@@ -1,6 +1,6 @@
 #!/bin/bash
 rm *.pyc
 rm appMatrix*
-rm predictedCl*
+rm outputPredictedClasses*
 rm masterJsonOutputFileBkp*
 rm *.log

@@ -86,7 +86,7 @@ def getAppLabelList(termDocMatrix, labels):
 				continue
 			else:
 				labelList.append(termDocMatrix[app][0])
-	return labelList
+	return list(set(labelList))
 
 def altDoClassify(jsonDict, labels, features):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
@@ -94,18 +94,18 @@ def altDoClassify(jsonDict, labels, features):
 	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
-
-
+	index = 0
 	# iterate over classifiers
 	for name, clf in zip(names, classifiers):
+		index += 1
 		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
-		print name, score
+		print index, name, score
 
 def doClassify(jsonDict, labels, features):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, features)
 	appLabelList=getAppLabelList(termDocMatrix, labels)
-	print set(appLabelList)
+	index = 0
 	for appLabel in appLabelList:
 		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, appLabel)
 		X = StandardScaler().fit_transform(X)
@@ -113,11 +113,12 @@ def doClassify(jsonDict, labels, features):
 			train_test_split(X, y, test_size=.4, random_state=42)
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
+			index += 1
 			clf.fit(X_train, y_train)
 			if len(set(y_train)) != 2:
-				print appLabel
+				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
 			score = clf.score(X_test, y_test)
-			print name, appLabel, score
+			print index, name, appLabel, score
 
 def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel):
 	numOfApps=len(termDocMatrix.keys())

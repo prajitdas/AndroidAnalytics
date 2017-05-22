@@ -113,7 +113,7 @@ def computeDist(app1SyscallsVector,app2SyscallsVector,metric):
 		distance = hasNumbers(app1SyscallsVector,app2SyscallsVector)
 	# Single method deciding which distance function will be used
 	logging.debug('distance'+str(distance))
-	# Verifying if the distance is not a valid finite number 
+	# Verifying if the distance is not a valid finite number
 	# http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.nan_to_num.html
 	if not np.isfinite(distance):
 		logging.debug('app1'+','.join(str(x) for x in app1SyscallsVector))
@@ -208,7 +208,7 @@ def normalizeTermDcoMatrix(termDocMatrix):
 	return termDocMatrix
 
 def runAgain(jsonDict):
-	print "Started with ", len(jsonDict), "apps"
+#	print "Started with ", len(jsonDict), "apps"
 	# Removing all apps which didn't have any calls associated.
 	# Maybe the call to these apps didn't work. We have to try them again, later on.
 	cleanJsonDict = {}
@@ -219,12 +219,12 @@ def runAgain(jsonDict):
 			cleanJsonDict[key] = jsonDict[key]
 		else:
 			runAgainAppsList.append(key)
-			print key
+#			print key
 
 	runAgainAppsDict = {}
 	runAgainAppsDict['apps'] = runAgainAppsList
 	json.dump(runAgainAppsDict, open('runagain.json', 'w'), sort_keys = True, indent = 4)
-	print "Working with ", len(cleanJsonDict), "apps"
+#	print "Working with ", len(cleanJsonDict), "apps"
 	return cleanJsonDict
 
 def createTermDocMatrix(jsonDict,type):
@@ -346,7 +346,7 @@ def computeDistance(jsonDict,metric,type):
 	appToAppDistMatrix = np.zeros((numberOfApps, numberOfApps))
 
 	appTFIDFWeightDict = {}
-	
+
 	# reducing computation by half by replicating the upper half of the matrix
 	counter = 0
 	for i in range(numberOfApps):
@@ -362,7 +362,7 @@ def computeDistance(jsonDict,metric,type):
 				counter += 1
 				if counter % 100000 == 0:
 					logging.debug('Computed computeJaccardSim for loops: '+str(counter))
-	
+
 	logging.debug('computeJaccardMatrix complete')
 	return appToAppDistMatrix, appRunVector, termDocMatrix, appTFIDFWeightDict
 

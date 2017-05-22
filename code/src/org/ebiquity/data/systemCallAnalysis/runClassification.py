@@ -322,7 +322,7 @@ def anotherDoClassify(jsonDict, label, feature):
 
 def tfidfDoClassify(X,y):
 	resultDict={}
-	X = StandardScaler().fit_transform(X,with_mean=False)
+	X = StandardScaler(with_mean=False).fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
 	# iterate over classifiers
@@ -363,13 +363,14 @@ def runClassification(jsonDict, label, feature):
 	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 	return ultimateResults
 
-def doTFIDF(label,gram):
+def doTFIDF(label, gram):
 	corpus = json.loads(open("corpus.json","r").read())
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gram,gram),analyzer='word')
+	X=vectorizer.fit_transform(corpus["corpus"])
 	if label == 'my':
-		return tfidfDoClassify(vectorizer.fit_transform(corpus["corpus"]),corpus["my"])
+		return tfidfDoClassify(X.toarray(),corpus["my"])
 	else:
-		return tfidfDoClassify(vectorizer.fit_transform(corpus["corpus"]),corpus["google"])
+		return tfidfDoClassify(X.toarray(),corpus["google"])
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)
@@ -383,33 +384,32 @@ def main(argv):
 		sys.stderr.write('Usage: python runClassification.py')
 		sys.exit(1)
 
-#	startTime = time.time()
-#	output={}
-#	gramDict={}
-#	for gramIndex in [1,2,3]:
-#		masterJsonFile = str(gramIndex)+"gram534.json"
-#		labelDict={}
-#		if gramIndex != 1:
-#			continue
-#		for label in ['my','google']:
-#			featureDict={}
-#			if label != 'my':
-#				continue
-#			for feature in ['justc','numoc']:
-#				featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
-#				print "done with "+feature+" features"
-#			labelDict[label] = featureDict
-#			print "done with "+label+" labels"
-#		gramDict[str(gramIndex)+"gram534"] = labelDict
-#		print "done with "+str(gramIndex)+" gram"
-#
-	print doTFIDF("my",1)
-
-#	output["results"] = gramDict
-#
-#	open("results.json","w").write(json.dumps(output, indent=4))
-#	executionTime = (time.time()-startTime)
-#	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
+	startTime = time.time()
+	output={}
+	gramDict={}
+	for gramIndex in [1,2,3]:
+		jsonFile = str(gramIndex)+"gram534.json"
+		labelDict={}
+		if gramIndex != 1:
+			continue
+		for label in ['my','google']:
+			featureDict={}
+			if label != 'my':
+				continue
+			for feature in ['justc','numoc','tfidf']:
+				if feature != 'tfidf':
+					featureDict[feature] = runClassification(json.loads(open(jsonFile).read()), label, feature)
+				else:
+					featureDict[feature] = doTFIDF(label,gramIndex)
+				print "done with "+feature+" features"
+			labelDict[label] = featureDict
+			print "done with "+label+" labels"
+		gramDict[str(gramIndex)+"gram534"] = labelDict
+		print "done with "+str(gramIndex)+" gram"
+	output["results"] = gramDict
+	open("results.json","w").write(json.dumps(output, indent=4))
+	executionTime = (time.time()-startTime)
+	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 
 if __name__ == "__main__":
 	main(sys.argv)

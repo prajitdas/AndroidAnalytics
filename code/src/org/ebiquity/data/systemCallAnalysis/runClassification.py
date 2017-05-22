@@ -92,11 +92,11 @@ def altDoClassify(jsonDict, label, feature):
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
 	resultDict={}
-	prf1sDict={}
 	# iterate over classifiers
 	for name, clf in zip(names, classifiers):
 		clf.fit(X_train, y_train)
 		y_pred=clf.predict(X_test)
+		prf1sDict={}
 		try:
 			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
 			score = clf.score(X_test, y_test)
@@ -121,21 +121,25 @@ def doClassify(jsonDict, label, feature):
 		X_train, X_test, y_train, y_test = \
 			train_test_split(X, y, test_size=.4, random_state=42)
 		perLabelResult={}
-		prf1sDict={}
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
 			index += 1
 			clf.fit(X_train, y_train)
 			score = clf.score(X_test, y_test)
 			y_pred=clf.predict(X_test)
+			prf1sDict={}
 			try:
 				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
 				if len(set(y_train)) != 2:
 					print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
 				prf1sDict["score"] = score
-				prf1sDict["precision"] = precision
-				prf1sDict["recall"] = recall
-				prf1sDict["fscore"] = fscore
+				prf1sDict["precision1"] = precision
+				prf1sDict["recall1"] = recall
+				prf1sDict["fscore1"] = fscore
+				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0)
+				prf1sDict["precision2"] = precision
+				prf1sDict["recall2"] = recall
+				prf1sDict["fscore2"] = fscore
 				perLabelResult[name] = prf1sDict
 			except ValueError:
 				print name, appLabel

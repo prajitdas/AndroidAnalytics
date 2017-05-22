@@ -14,8 +14,6 @@ import gzip
 import logging
 import json
 import time
-import os
-
 import sys
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -25,16 +23,15 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
-#from sklearn.gaussian_process import GaussianProcessClassifier
-#from sklearn.gaussian_process.kernels import RBF
-#from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.metrics import precision_recall_fscore_support as prf1
 from sklearn.metrics import classification_report
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+#from sklearn.gaussian_process import GaussianProcessClassifier
+#from sklearn.gaussian_process.kernels import RBF
+#from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 #h = .02  # step size in the mesh
 google=0
 my=1
@@ -43,7 +40,6 @@ syscalls=2
 #names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
 #		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
 #		 "Naive Bayes", "QDA"]
-
 names=["Nearest Neighbors","Linear SVM","RBF SVM","J48","Random Forest","Neural Net","AdaBoost","Dummy","Logistic Regression","Naive Bayes"]
 classifiers = [
 	KNeighborsClassifier(3),

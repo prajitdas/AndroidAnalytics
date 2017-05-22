@@ -10,10 +10,8 @@ import time
 import sys
 import os
 import fnmatch as fm
-from collections import OrderedDict as od
 import json
 
-from shutil import copyfile
 import re
 from string import digits
 import logging
@@ -88,7 +86,7 @@ def main(argv):
 		google_play_category = categoryDict[appPkgName]["google_play_category"]
 		print "Doing app number: "+str(count)+" named: "+appPkgName
 		doTask(appPkgName,annotated_category,google_play_category)
-	
+
 	executionTime = str((time.time()-startTime)*1000)
 	logging.debug('Execution time was: '+executionTime+' ms')
 

@@ -8,20 +8,14 @@ Process files for feature generation in syscall analysis.
 '''
 import time
 import sys
-import os
-import fnmatch as fm
-from collections import OrderedDict as od
 import json
 import logging
-from shutil import copyfile
-import re
-from string import digits
 
 def getAggregateInfo(app,key,aggregateDict,masterDict,syscallList):
 	annotated_category = masterDict[key][1]
 	# google_play_category = masterDict[key][0]
 	callFrequencies = masterDict[key][2]
-	
+
 	count = 0
 	callDict = {}
 	if annotated_category in aggregateDict:

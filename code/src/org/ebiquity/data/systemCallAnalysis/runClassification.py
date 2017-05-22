@@ -14,6 +14,7 @@ import gzip
 import logging
 import json
 import time
+import os
 
 import sys
 from sklearn.model_selection import train_test_split
@@ -30,6 +31,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import precision_recall_fscore_support as prf1
 from sklearn.metrics import classification_report
 from sklearn.multiclass import OneVsRestClassifier
+from sklearn.dummy import DummyClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 #h = .02  # step size in the mesh
 google=0
@@ -40,7 +44,7 @@ syscalls=2
 #		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
 #		 "Naive Bayes", "QDA"]
 
-names=["Nearest Neighbors","Linear SVM","RBF SVM","J48","Random Forest","Neural Net","AdaBoost","Naive Bayes"]
+names=["Nearest Neighbors","Linear SVM","RBF SVM","J48","Random Forest","Neural Net","AdaBoost","Dummy","Logistic Regression","Naive Bayes"]
 classifiers = [
 	KNeighborsClassifier(3),
 	SVC(kernel="linear", C=0.025),
@@ -49,6 +53,8 @@ classifiers = [
 	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
 	MLPClassifier(alpha=1),
 	AdaBoostClassifier(),
+	DummyClassifier(strategy='most_frequent'),
+	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
 	GaussianNB()]
 #classifiers = [
 #	KNeighborsClassifier(3),
@@ -221,7 +227,7 @@ def altDoClassify(jsonDict, label, feature):
 		y_pred=clf.predict(X_test)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted')
 			#LogisticRegression(multi_class="multinomial", verbose=1, n_jobs=-1, solver="lbfgs", max_iter=100000)
 			score = clf.score(X_test, y_test)
 			prf1sDict["score"] = score
@@ -285,18 +291,65 @@ def anotherDoClassify(jsonDict, label, feature):
 		train_test_split(X, y, test_size=.4, random_state=42)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
-		clf=OneVsRestClassifier(aclf)
+		if name != "Logistic Regression":
+			clf=OneVsRestClassifier(aclf)
+		else:
+			clf=aclf
 		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
+		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='micro')
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted')
 			prf1sDict["report"] = classification_report(y_test, y_pred)
 			prf1sDict["score"] = score
 			prf1sDict["precision"] = precision
 			prf1sDict["recall"] = recall
 			prf1sDict["fscore"] = fscore
+			resultDict[name] = prf1sDict
+			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted')
+			prf1sDict["report1"] = classification_report(y_train, y_pred_)
+			prf1sDict["score1"] = score
+			prf1sDict["precision1"] = precision
+			prf1sDict["recall1"] = recall
+			prf1sDict["fscore1"] = fscore
+			resultDict[name] = prf1sDict
+		except ValueError:
+			print name
+			continue
+	return resultDict
+
+def tfidfDoClassify(X,y):
+	resultDict={}
+	X = StandardScaler().fit_transform(X)
+	X_train, X_test, y_train, y_test = \
+		train_test_split(X, y, test_size=.4, random_state=42)
+	# iterate over classifiers
+	for name, aclf in zip(names, classifiers):
+		if name != "Logistic Regression":
+			clf=OneVsRestClassifier(aclf)
+		else:
+			clf=aclf
+		clf.fit(X_train, y_train)
+		score = clf.score(X_test, y_test)
+		y_pred=clf.predict(X_test)
+		y_pred_=clf.predict(X_train)
+		prf1sDict={}
+		try:
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted')
+			prf1sDict["report"] = classification_report(y_test, y_pred)
+			prf1sDict["score"] = score
+			prf1sDict["precision"] = precision
+			prf1sDict["recall"] = recall
+			prf1sDict["fscore"] = fscore
+			resultDict[name] = prf1sDict
+			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted')
+			prf1sDict["report1"] = classification_report(y_train, y_pred_)
+			prf1sDict["score1"] = score
+			prf1sDict["precision1"] = precision
+			prf1sDict["recall1"] = recall
+			prf1sDict["fscore1"] = fscore
 			resultDict[name] = prf1sDict
 		except ValueError:
 			print name
@@ -309,6 +362,20 @@ def runClassification(jsonDict, label, feature):
 #	ultimateResults["1vsall"] = doClassify(jsonDict, label, feature)
 	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 	return ultimateResults
+
+def doTFIDF():
+	appDict = json.loads(open("toprocess.json","r").read())
+	corpus=[]
+	y=[]
+	for appPkgName in appDict["packages"]:
+		annotated_category, google_play_category, input_list = json.loads(open(os.path.join(os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons"),appPkgName+".json"),'r').read())
+		y.append(annotated_category)
+		corpus.append(' '.join(input_list))
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word')
+	X = vectorizer.fit_transform(corpus)
+	print X.shape
+	print len(y)
+	return tfidfDoClassify(X,y)
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)
@@ -334,15 +401,16 @@ def main(argv):
 			featureDict={}
 			if label != 'my':
 				continue
-			for feature in ['justc','numoc','tfidf']:
-				if feature == 'tfidf':
-					continue
+			for feature in ['justc','numoc']:
 				featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"
 		gramDict[str(gramIndex)+"gram534"] = labelDict
 		print "done with "+str(gramIndex)+" gram"
+
+	print doTFIDF()
+
 	output["results"] = gramDict
 
 	open("results.json","w").write(json.dumps(output, indent=4))

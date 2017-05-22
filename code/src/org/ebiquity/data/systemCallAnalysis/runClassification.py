@@ -391,8 +391,8 @@ def main(argv):
 #			continue
 		for label in ['my','google']:
 			featureDict={}
-			if label != 'my':
-				continue
+#			if label != 'my':
+#				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'tfidf':
 					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
@@ -401,7 +401,7 @@ def main(argv):
 					featureDict[feature] = doTFIDF(corpus, label, gramIndex)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
-#			print "done with "+label+" labels"
+			print "done with "+label+" labels"
 		gramDict[str(gramIndex)+"gram534"] = labelDict
 		print "done with "+str(gramIndex)+" gram"
 	output["results"] = gramDict

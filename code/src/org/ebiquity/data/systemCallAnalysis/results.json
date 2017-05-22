@@ -1,0 +1,694 @@
+{
+    "results": {
+        "1gram534": {
+            "my": {
+                "justc": {
+                    "1vsall": {
+                        "alarm_clock": {
+                            "Gaussian Process": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "QDA": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.041666666666666664, 
+                                "score": 0.78037383177570097, 
+                                "precision": 0.66666666666666663, 
+                                "fscore": 0.078431372549019607
+                            }
+                        }, 
+                        "file_explorer": {
+                            "Gaussian Process": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "QDA": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.2413793103448276, 
+                                "score": 0.85046728971962615, 
+                                "precision": 0.41176470588235292, 
+                                "fscore": 0.30434782608695649
+                            }
+                        }, 
+                        "to_do_list": {
+                            "Gaussian Process": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "QDA": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.023255813953488372, 
+                                "score": 0.79439252336448596, 
+                                "precision": 0.33333333333333331, 
+                                "fscore": 0.043478260869565223
+                            }
+                        }, 
+                        "scientific_calculator": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.83177570093457942, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }, 
+                        "battery_saver": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.82242990654205606, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }, 
+                        "pdf_reader": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }, 
+                        "video_playback": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.95327102803738317, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }, 
+                        "lunar_calendar": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.93925233644859818, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }, 
+                        "drink_recipes": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.9719626168224299, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }, 
+                        "wifi_analyzer": {
+                            "Gaussian Process": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Decision Tree": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "QDA": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Naive Bayes": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Linear SVM": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Neural Net": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "RBF SVM": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "AdaBoost": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Random Forest": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }, 
+                            "Nearest Neighbors": {
+                                "recall": 0.0, 
+                                "score": 0.90654205607476634, 
+                                "precision": 0.0, 
+                                "fscore": 0.0
+                            }
+                        }
+                    }, 
+                    "multiclass": {
+                        "Gaussian Process": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "Decision Tree": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "QDA": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "Naive Bayes": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "Linear SVM": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "Neural Net": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "RBF SVM": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "AdaBoost": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "Random Forest": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }, 
+                        "Nearest Neighbors": {
+                            "recall": 0.20091385993049987, 
+                            "score": 0.2102803738317757, 
+                            "precision": 0.090462755006550627, 
+                            "fscore": 0.097386601307848236
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -300,7 +300,6 @@ def doClassify(jsonDict, label, feature):
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
 			prf1sDict["testFscore"] = fscore
-			resultDict[name] = prf1sDict
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted')
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
 			prf1sDict["trainScore"] = score_
@@ -337,7 +336,6 @@ def tfidfDoClassify(X, y, labels):
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
 			prf1sDict["testFscore"] = fscore
-			resultDict[name] = prf1sDict
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_, labels=labels)
 			prf1sDict["trainScore"] = score_
@@ -400,12 +398,12 @@ def main(argv):
 		print "done with "+str(gramIndex)+" gram"
 	output["NGramResults"] = gramDict
 
-	corpus = json.loads(open("corpus.json","r").read())
 	tfidfDict={}
-	tfidfDict["my"] = doTFIDF(corpus, "my")
-	print "done with tfidf my labels"
-	tfidfDict["google"] = doTFIDF(corpus, "google")
-	print "done with tfidf google labels"
+#	corpus = json.loads(open("corpus.json","r").read())
+#	tfidfDict["my"] = doTFIDF(corpus, "my")
+#	print "done with tfidf my labels"
+#	tfidfDict["google"] = doTFIDF(corpus, "google")
+#	print "done with tfidf google labels"
 	output["TFIDFResults"] = tfidfDict
 
 	result={}

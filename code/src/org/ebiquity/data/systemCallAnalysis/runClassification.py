@@ -394,8 +394,7 @@ def main(argv):
 				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'tfidf':
-					continue
-#					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
+					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
 #					runClassification(json.loads(open(jsonFile).read()), label, feature)
 				else:
 					featureDict[feature] = doTFIDF(label,gramIndex)

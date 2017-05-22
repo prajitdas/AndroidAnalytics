@@ -357,9 +357,7 @@ def tfidfDoClassify(X, y, labels):
 #	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 #	return ultimateResults
 
-def doTFIDF(corpus, label, gram):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gram,gram),analyzer='word')
-	X=vectorizer.fit_transform(corpus["corpus"])
+def doTFIDF(X, corpus, label, gram):
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		return tfidfDoClassify(X, corpus["my"], labelList)
@@ -379,12 +377,13 @@ def main(argv):
 		sys.stderr.write('Usage: python runClassification.py')
 		sys.exit(1)
 
-	corpus = json.loads(open("corpus.json","r").read())
-
 	startTime = time.time()
 	output={}
 	gramDict={}
+	corpus = json.loads(open("corpus.json","r").read())
 	for gramIndex in [1,2,3]:
+		vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gramIndex,gramIndex),analyzer='word')
+		X=vectorizer.fit_transform(corpus["corpus"])
 		jsonFile = str(gramIndex)+"gram534.json"
 		labelDict={}
 #		if gramIndex != 1:
@@ -398,7 +397,7 @@ def main(argv):
 					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
 #					runClassification(json.loads(open(jsonFile).read()), label, feature)
 				else:
-					featureDict[feature] = doTFIDF(corpus, label, gramIndex)
+					featureDict[feature] = doTFIDF(X, corpus, label, gramIndex)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"

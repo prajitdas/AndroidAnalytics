@@ -81,9 +81,9 @@ def compressWriteData(fileTowWrite,dataObject):
 	with gzip.GzipFile(fileTowWrite, 'w') as outfile:
 		outfile.write(dataObject)
 
-def getAppLabelList(termDocMatrix, labels):
+def getAppLabelList(termDocMatrix, label):
 	labelList = []
-	if labels == "my":
+	if label == "my":
 		for app in termDocMatrix:
 			if app == "allSystemCalls":
 				continue
@@ -131,12 +131,11 @@ def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel
 				index+=1
 	return X,y
 
-def generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, labels):
+def generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, labels, appLabelList):
 	numOfApps=len(termDocMatrix.keys())
 	X=np.zeros((numOfApps,len(allSyscallsVector)))
 	y=np.zeros(numOfApps)
 	index=0
-	appLabelList=getAppLabelList(termDocMatrix, labels)
 	if labels == "my":
 		for app in termDocMatrix:
 			if app == "allSystemCalls":
@@ -212,7 +211,8 @@ def writeArffFile(appMatrixFile, arffFileContent):
 
 def altDoClassify(jsonDict, label, feature):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
-	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label)
+	labels=getAppLabelList(termDocMatrix, label)
+	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
 	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
@@ -236,7 +236,7 @@ def altDoClassify(jsonDict, label, feature):
 			continue
 	return resultDict
 
-def doClassify(jsonDict, label, feature):
+def anotherDoClassify(jsonDict, label, feature, labels):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
 	appLabelList=getAppLabelList(termDocMatrix, label)
 	index = 0
@@ -259,15 +259,15 @@ def doClassify(jsonDict, label, feature):
 			prf1sDict["testy1"] = y_test.tolist().count(1)
 			prf1sDict["testy0"] = y_test.tolist().count(0)
 			try:
-				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
-				prf1sDict["report"] = classification_report(y_test, y_pred)
+				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1, labels=labels)
+				prf1sDict["report"] = classification_report(y_test, y_pred, labels=labels)
 				if len(set(y_train)) != 2:
 					print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
 				prf1sDict["score"] = score
 				prf1sDict["precision1"] = precision
 				prf1sDict["recall1"] = recall
 				prf1sDict["fscore1"] = fscore
-				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0)
+				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0, labels=labels)
 				prf1sDict["precision0"] = precision
 				prf1sDict["recall0"] = recall
 				prf1sDict["fscore0"] = fscore
@@ -278,10 +278,11 @@ def doClassify(jsonDict, label, feature):
 		resultDict[appLabel] = perLabelResult
 	return resultDict
 
-def anotherDoClassify(jsonDict, label, feature):
+def doClassify(jsonDict, label, feature):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
 	resultDict={}
-	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label)
+	labels=getAppLabelList(termDocMatrix, label)
+	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
 	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
@@ -297,15 +298,15 @@ def anotherDoClassify(jsonDict, label, feature):
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted')
-			prf1sDict["report"] = classification_report(y_test, y_pred)
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted', labels=labels)
+			prf1sDict["report"] = classification_report(y_test, y_pred, labels=labels)
 			prf1sDict["score"] = score
 			prf1sDict["precision"] = precision
 			prf1sDict["recall"] = recall
 			prf1sDict["fscore"] = fscore
 			resultDict[name] = prf1sDict
-			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted')
-			prf1sDict["report1"] = classification_report(y_train, y_pred_)
+			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted', labels=labels)
+			prf1sDict["report1"] = classification_report(y_train, y_pred_ ,labels=labels)
 			prf1sDict["score1"] = score
 			prf1sDict["precision1"] = precision
 			prf1sDict["recall1"] = recall
@@ -316,7 +317,7 @@ def anotherDoClassify(jsonDict, label, feature):
 			continue
 	return resultDict
 
-def tfidfDoClassify(X,y):
+def tfidfDoClassify(X, y, labels):
 	resultDict={}
 	X = StandardScaler(with_mean=False).fit_transform(X)
 	X_train, X_test, y_train, y_test = \
@@ -333,15 +334,15 @@ def tfidfDoClassify(X,y):
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted')
-			prf1sDict["report"] = classification_report(y_test, y_pred)
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted', labels=labels)
+			prf1sDict["report"] = classification_report(y_test, y_pred, labels=labels)
 			prf1sDict["score"] = score
 			prf1sDict["precision"] = precision
 			prf1sDict["recall"] = recall
 			prf1sDict["fscore"] = fscore
 			resultDict[name] = prf1sDict
-			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted')
-			prf1sDict["report1"] = classification_report(y_train, y_pred_)
+			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted', labels=labels)
+			prf1sDict["report1"] = classification_report(y_train, y_pred_, labels=labels)
 			prf1sDict["score1"] = score
 			prf1sDict["precision1"] = precision
 			prf1sDict["recall1"] = recall
@@ -352,21 +353,23 @@ def tfidfDoClassify(X,y):
 			continue
 	return resultDict
 
-def runClassification(jsonDict, label, feature):
-	ultimateResults={}
+#def runClassification(jsonDict, label, feature):
+#	ultimateResults={}
 #	ultimateResults["multiclass"] = altDoClassify(jsonDict, label, feature)
 #	ultimateResults["1vsall"] = doClassify(jsonDict, label, feature)
-	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
-	return ultimateResults
+#	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
+#	return ultimateResults
 
 def doTFIDF(label, gram):
 	corpus = json.loads(open("corpus.json","r").read())
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gram,gram),analyzer='word')
 	X=vectorizer.fit_transform(corpus["corpus"])
 	if label == 'my':
-		return tfidfDoClassify(X.toarray(),corpus["my"])
+		labelList = list(set(corpus["my"]))
+		return tfidfDoClassify(X.toarray(),corpus["my"],labelList)
 	else:
-		return tfidfDoClassify(X.toarray(),corpus["google"])
+		labelList = list(set(corpus["google"]))
+		return tfidfDoClassify(X.toarray(),corpus["google"],labelList)
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)
@@ -394,7 +397,8 @@ def main(argv):
 #				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'tfidf':
-					featureDict[feature] = runClassification(json.loads(open(jsonFile).read()), label, feature)
+					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
+#					runClassification(json.loads(open(jsonFile).read()), label, feature)
 				else:
 					featureDict[feature] = doTFIDF(label,gramIndex)
 				print "done with "+feature+" features"

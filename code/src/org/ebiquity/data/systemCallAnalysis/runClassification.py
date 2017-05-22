@@ -295,18 +295,18 @@ def doClassify(jsonDict, label, feature):
 		prf1sDict={}
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted')
-			prf1sDict["reportTest"] = classification_report(y_test, y_pred)
-			prf1sDict["scoreTest"] = score
-			prf1sDict["precisionTest"] = precision
-			prf1sDict["recallTest"] = recall
-			prf1sDict["fscoreTest"] = fscore
+			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
+			prf1sDict["testScore"] = score
+			prf1sDict["testPrecision"] = precision
+			prf1sDict["testRecall"] = recall
+			prf1sDict["testFscore"] = fscore
 			resultDict[name] = prf1sDict
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted')
-			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_)
-			prf1sDict["scoreTrain"] = score_
-			prf1sDict["precisionTrain"] = precision_
-			prf1sDict["recall1Train"] = recall_
-			prf1sDict["fscoreTrain"] = fscore_
+			prf1sDict["trainReport"] = classification_report(y_train, y_pred_ ,labels=labels)
+			prf1sDict["trainScore"] = score_
+			prf1sDict["trainPrecision"] = precision_
+			prf1sDict["trainRecall"] = recall_
+			prf1sDict["trainFscore"] = fscore_
 			resultDict[name] = prf1sDict
 		except ValueError:
 			print name
@@ -332,18 +332,18 @@ def tfidfDoClassify(X, y, labels):
 		prf1sDict={}
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted', labels=labels)
-			prf1sDict["reportTest"] = classification_report(y_test, y_pred, labels=labels)
-			prf1sDict["scoreTest"] = score
-			prf1sDict["precisionTest"] = precision
-			prf1sDict["recallTest"] = recall
-			prf1sDict["fscoreTest"] = fscore
+			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
+			prf1sDict["testScore"] = score
+			prf1sDict["testPrecision"] = precision
+			prf1sDict["testRecall"] = recall
+			prf1sDict["testFscore"] = fscore
 			resultDict[name] = prf1sDict
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
-			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_ ,labels=labels)
-			prf1sDict["scoreTrain"] = score_
-			prf1sDict["precisionTrain"] = precision_
-			prf1sDict["recall1Train"] = recall_
-			prf1sDict["fscoreTrain"] = fscore_
+			prf1sDict["trainReport"] = classification_report(y_train, y_pred_ ,labels=labels)
+			prf1sDict["trainScore"] = score_
+			prf1sDict["trainPrecision"] = precision_
+			prf1sDict["trainRecall"] = recall_
+			prf1sDict["trainFscore"] = fscore_
 			resultDict[name] = prf1sDict
 		except ValueError:
 			print name

@@ -315,7 +315,7 @@ def doClassify(jsonDict, label, feature):
 
 def tfidfDoClassify(X, y, labels):
 	resultDict={}
-	X = StandardScaler().fit_transform(X)
+	X = StandardScaler(with_mean=False).fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
 	# iterate over classifiers
@@ -362,7 +362,7 @@ def doTFIDF(label, gram):
 	X=vectorizer.fit_transform(corpus["corpus"])
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
-		return tfidfDoClassify(X.toarray(),corpus["my"],labelList)
+		return tfidfDoClassify(X,corpus["my"],labelList)
 	else:
 		labelList = list(set(corpus["google"]))
 		return tfidfDoClassify(X.toarray(),corpus["google"],labelList)

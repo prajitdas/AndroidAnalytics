@@ -295,14 +295,14 @@ def doClassify(jsonDict, label, feature):
 		prf1sDict={}
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted')
-			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
+			prf1sDict["testReport"] = classification_report(y_test, y_pred)
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
 			prf1sDict["testFscore"] = fscore
 			resultDict[name] = prf1sDict
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted')
-			prf1sDict["trainReport"] = classification_report(y_train, y_pred_ ,labels=labels)
+			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
 			prf1sDict["trainRecall"] = recall_
@@ -339,7 +339,7 @@ def tfidfDoClassify(X, y, labels):
 			prf1sDict["testFscore"] = fscore
 			resultDict[name] = prf1sDict
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
-			prf1sDict["trainReport"] = classification_report(y_train, y_pred_ ,labels=labels)
+			prf1sDict["trainReport"] = classification_report(y_train, y_pred_, labels=labels)
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
 			prf1sDict["trainRecall"] = recall_

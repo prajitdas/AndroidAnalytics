@@ -18,17 +18,17 @@ import sys
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import precision_recall_fscore_support as prf1
+from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import classification_report
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn.neighbors import KNeighborsClassifier
+#from sklearn.tree import DecisionTreeClassifier
+#from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+#from sklearn.naive_bayes import GaussianNB
 #from sklearn.gaussian_process import GaussianProcessClassifier
 #from sklearn.gaussian_process.kernels import RBF
 #from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
@@ -40,18 +40,13 @@ syscalls=2
 #names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
 #		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
 #		 "Naive Bayes", "QDA"]
-names=["Nearest Neighbors","Linear SVM","RBF SVM","J48","Random Forest","Neural Net","AdaBoost","Dummy","Logistic Regression","Naive Bayes"]
+names=["Linear SVM","RBF SVM","Neural Net","Dummy","Logistic Regression"]
 classifiers = [
-	KNeighborsClassifier(3),
 	SVC(kernel="linear", C=0.025),
 	SVC(gamma=2, C=1),
-	DecisionTreeClassifier(max_depth=5),
-	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
 	MLPClassifier(alpha=1),
-	AdaBoostClassifier(),
 	DummyClassifier(strategy='most_frequent'),
-	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
-	GaussianNB()]
+	LogisticRegression(multi_class='multinomial',solver='lbfgs')]
 #classifiers = [
 #	KNeighborsClassifier(3),
 #	SVC(kernel="linear", C=0.025),
@@ -88,13 +83,13 @@ def getAppLabelList(termDocMatrix, label):
 			if app == "allSystemCalls":
 				continue
 			else:
-				labelList.append(termDocMatrix[app][1])
+				labelList.append(str(termDocMatrix[app][1]))
 	else:
 		for app in termDocMatrix:
 			if app == "allSystemCalls":
 				continue
 			else:
-				labelList.append(termDocMatrix[app][0])
+				labelList.append(str(termDocMatrix[app][0]))
 	labelList = list(set(labelList))
 	index = 0
 	for label in labelList:
@@ -223,7 +218,7 @@ def altDoClassify(jsonDict, label, feature):
 		y_pred=clf.predict(X_test)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted')
+			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted')
 			#LogisticRegression(multi_class="multinomial", verbose=1, n_jobs=-1, solver="lbfgs", max_iter=100000)
 			score = clf.score(X_test, y_test)
 			prf1sDict["score"] = score
@@ -259,7 +254,7 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 			prf1sDict["testy1"] = y_test.tolist().count(1)
 			prf1sDict["testy0"] = y_test.tolist().count(0)
 			try:
-				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1, labels=labels)
+				precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='binary', pos_label=1, labels=labels)
 				prf1sDict["report"] = classification_report(y_test, y_pred, labels=labels)
 				if len(set(y_train)) != 2:
 					print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
@@ -267,7 +262,7 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 				prf1sDict["precision1"] = precision
 				prf1sDict["recall1"] = recall
 				prf1sDict["fscore1"] = fscore
-				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0, labels=labels)
+				precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='binary', pos_label=0, labels=labels)
 				prf1sDict["precision0"] = precision
 				prf1sDict["recall0"] = recall
 				prf1sDict["fscore0"] = fscore
@@ -299,15 +294,15 @@ def doClassify(jsonDict, label, feature):
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted', labels=labels)
-			prf1sDict["reportTest"] = classification_report(y_test, y_pred, labels=labels)
+			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted')
+			prf1sDict["reportTest"] = classification_report(y_test, y_pred)
 			prf1sDict["scoreTest"] = score
 			prf1sDict["precisionTest"] = precision
 			prf1sDict["recallTest"] = recall
 			prf1sDict["fscoreTest"] = fscore
 			resultDict[name] = prf1sDict
-			precision_, recall_, fscore_, support_ = prf1(y_train, y_pred_, average='weighted', labels=labels)
-			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_ ,labels=labels)
+			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted')
+			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_)
 			prf1sDict["scoreTrain"] = score_
 			prf1sDict["precisionTrain"] = precision_
 			prf1sDict["recall1Train"] = recall_
@@ -335,14 +330,14 @@ def tfidfDoClassify(X, y, labels):
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted', labels=labels)
+			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted', labels=labels)
 			prf1sDict["reportTest"] = classification_report(y_test, y_pred, labels=labels)
 			prf1sDict["scoreTest"] = score
 			prf1sDict["precisionTest"] = precision
 			prf1sDict["recallTest"] = recall
 			prf1sDict["fscoreTest"] = fscore
 			resultDict[name] = prf1sDict
-			precision_, recall_, fscore_, support_ = prf1(y_train, y_pred_, average='weighted', labels=labels)
+			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
 			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_ ,labels=labels)
 			prf1sDict["scoreTrain"] = score_
 			prf1sDict["precisionTrain"] = precision_

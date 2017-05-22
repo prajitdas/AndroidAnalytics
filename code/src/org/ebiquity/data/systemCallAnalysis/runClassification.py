@@ -25,6 +25,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import TruncatedSVD
 #from sklearn.neighbors import KNeighborsClassifier
 #from sklearn.tree import DecisionTreeClassifier
 #from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -36,6 +37,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 google=0
 my=1
 syscalls=2
+testRatio=0.25
 
 #names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
 #		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
@@ -240,7 +242,7 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, label, appLabel)
 		X = StandardScaler().fit_transform(X)
 		X_train, X_test, y_train, y_test = \
-			train_test_split(X, y, test_size=.4, random_state=42)
+			train_test_split(X, y, test_size=testRatio, random_state=42)
 		perLabelResult={}
 		# iterate over classifiers
 		for name, clf in zip(names, classifiers):
@@ -275,12 +277,12 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 
 def doClassify(jsonDict, label, feature):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
-	resultDict={}
 	labels=getAppLabelList(termDocMatrix, label)
 	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
-	X = StandardScaler().fit_transform(X)
+	resultDict={}
+#	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
-		train_test_split(X, y, test_size=.4, random_state=42)
+		train_test_split(X, y, test_size=testRatio, random_state=42)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
 		if name != "Logistic Regression":
@@ -288,9 +290,9 @@ def doClassify(jsonDict, label, feature):
 		else:
 			clf=aclf
 		clf.fit(X_train, y_train)
-		score = clf.score(X_test, y_test)
+		score=clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
-		score_ = clf.score(X_train, y_train)
+		score_=clf.score(X_train, y_train)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
@@ -312,11 +314,8 @@ def doClassify(jsonDict, label, feature):
 			continue
 	return resultDict
 
-def tfidfDoClassify(X, y, labels):
+def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 	resultDict={}
-	X = StandardScaler(with_mean=False).fit_transform(X)
-	X_train, X_test, y_train, y_test = \
-		train_test_split(X, y, test_size=.4, random_state=42)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
 		if name != "Logistic Regression":
@@ -324,9 +323,9 @@ def tfidfDoClassify(X, y, labels):
 		else:
 			clf=aclf
 		clf.fit(X_train, y_train)
-		score = clf.score(X_test, y_test)
+		score=clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
-		score_ = clf.score(X_train, y_train)
+		score_=clf.score(X_train, y_train)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
@@ -355,15 +354,73 @@ def tfidfDoClassify(X, y, labels):
 #	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 #	return ultimateResults
 
-def doTFIDF(corpus, label):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
-	X=vectorizer.fit_transform(corpus["corpus"])
+def doTFIDFUnigram(corpus, label):
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word')
+	svd = TruncatedSVD(n_components=1000)
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
-		return tfidfDoClassify(X, corpus["my"], labelList)
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
 	else:
 		labelList = list(set(corpus["google"]))
-		return tfidfDoClassify(X, corpus["google"], labelList)
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
+	X_train=vectorizer.fit_transform(X_train)
+	X_train=svd.fit_transform(X_train)
+	X_test=vectorizer.transform(X_test)
+	X_test=svd.transform(X_test)
+	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+
+def doTFIDFBiGram(corpus, label):
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
+	svd = TruncatedSVD(n_components=1000)
+	if label == 'my':
+		labelList = list(set(corpus["my"]))
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
+	else:
+		labelList = list(set(corpus["google"]))
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
+	X_train=vectorizer.fit_transform(X_train)
+	X_train=svd.fit_transform(X_train)
+	X_test=vectorizer.transform(X_test)
+	X_test=svd.transform(X_test)
+	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+
+def doTFIDFTriGram(corpus, label):
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word')
+	svd = TruncatedSVD(n_components=1000)
+	if label == 'my':
+		labelList = list(set(corpus["my"]))
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
+	else:
+		labelList = list(set(corpus["google"]))
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
+	X_train=vectorizer.fit_transform(X_train)
+	X_train=svd.fit_transform(X_train)
+	X_test=vectorizer.transform(X_test)
+	X_test=svd.transform(X_test)
+	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+
+def doTFIDF(corpus, label):
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
+	svd = TruncatedSVD(n_components=1000)
+	if label == 'my':
+		labelList = list(set(corpus["my"]))
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
+	else:
+		labelList = list(set(corpus["google"]))
+		X_train, X_test, y_train, y_test = \
+			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
+	X_train=vectorizer.fit_transform(X_train)
+	X_train=svd.fit_transform(X_train)
+	X_test=vectorizer.transform(X_test)
+	X_test=svd.transform(X_test)
+	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)
@@ -380,30 +437,47 @@ def main(argv):
 	startTime = time.time()
 	output={}
 	gramDict={}
-	for gramIndex in [1,2,3]:
-		jsonFile = str(gramIndex)+"gram534.json"
-		labelDict={}
-#		if gramIndex != 1:
-#			continue
-		for label in ['my','google']:
-			featureDict={}
-#			if label != 'my':
-#				continue
-			for feature in ['justc','numoc']:
-				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
-				print "done with "+feature+" features"
-			labelDict[label] = featureDict
-			print "done with "+label+" labels"
-		gramDict[str(gramIndex)+"gram534"] = labelDict
-		print "done with "+str(gramIndex)+" gram"
-	output["NGramResults"] = gramDict
+#	for gramIndex in [1,2,3]:
+#		jsonFile = str(gramIndex)+"gram534.json"
+#		labelDict={}
+##		if gramIndex != 1:
+##			continue
+#		for label in ['my','google']:
+#			featureDict={}
+##			if label != 'my':
+##				continue
+#			for feature in ['justc','numoc']:
+#				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
+#				print "done with "+feature+" features"
+#			labelDict[label] = featureDict
+#			print "done with "+label+" labels"
+#		gramDict[str(gramIndex)+"gram534"] = labelDict
+#		print "done with "+str(gramIndex)+" gram"
+#	output["NGramResults"] = gramDict
 
 	tfidfDict={}
-#	corpus = json.loads(open("corpus.json","r").read())
-#	tfidfDict["my"] = doTFIDF(corpus, "my")
-#	print "done with tfidf my labels"
-#	tfidfDict["google"] = doTFIDF(corpus, "google")
-#	print "done with tfidf google labels"
+	corpus = json.loads(open("corpus.json","r").read())
+
+	tfidfDict["my-all-grams"] = doTFIDF(corpus, "my")
+	print "done with tfidf my labels all grams"
+	tfidfDict["google-all-grams"] = doTFIDF(corpus, "google")
+	print "done with tfidf google labels all grams"
+
+#	tfidfDict["my-uni-grams"] = doTFIDFUnigram(corpus, "my")
+#	print "done with tfidf my labels uni grams"
+#	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
+#	print "done with tfidf google labels uni grams"
+#
+#	tfidfDict["my-bi-grams"] = doTFIDFBiGram(corpus, "my")
+#	print "done with tfidf my labels bi grams"
+#	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
+#	print "done with tfidf google labels bi grams"
+#
+#	tfidfDict["my-tri-grams"] = doTFIDFTriGram(corpus, "my")
+#	print "done with tfidf my labels tri grams"
+#	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
+#	print "done with tfidf google labels tri grams"
+
 	output["TFIDFResults"] = tfidfDict
 
 	result={}

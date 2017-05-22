@@ -357,16 +357,15 @@ def tfidfDoClassify(X, y, labels):
 #	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 #	return ultimateResults
 
-def doTFIDF(label, gram):
-	corpus = json.loads(open("corpus.json","r").read())
+def doTFIDF(corpus, label, gram):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gram,gram),analyzer='word')
 	X=vectorizer.fit_transform(corpus["corpus"])
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
-		return tfidfDoClassify(X,corpus["my"],labelList)
+		return tfidfDoClassify(X, corpus["my"], labelList)
 	else:
 		labelList = list(set(corpus["google"]))
-		return tfidfDoClassify(X.toarray(),corpus["google"],labelList)
+		return tfidfDoClassify(X, corpus["google"], labelList)
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)
@@ -379,6 +378,8 @@ def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python runClassification.py')
 		sys.exit(1)
+
+	corpus = json.loads(open("corpus.json","r").read())
 
 	startTime = time.time()
 	output={}
@@ -397,7 +398,7 @@ def main(argv):
 					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
 #					runClassification(json.loads(open(jsonFile).read()), label, feature)
 				else:
-					featureDict[feature] = doTFIDF(label,gramIndex)
+					featureDict[feature] = doTFIDF(corpus, label, gramIndex)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"

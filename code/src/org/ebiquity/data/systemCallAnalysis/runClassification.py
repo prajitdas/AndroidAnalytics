@@ -437,23 +437,23 @@ def main(argv):
 	startTime = time.time()
 	output={}
 	gramDict={}
-#	for gramIndex in [1,2,3]:
-#		jsonFile = str(gramIndex)+"gram534.json"
-#		labelDict={}
-##		if gramIndex != 1:
-##			continue
-#		for label in ['my','google']:
-#			featureDict={}
-##			if label != 'my':
-##				continue
-#			for feature in ['justc','numoc']:
-#				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
-#				print "done with "+feature+" features"
-#			labelDict[label] = featureDict
-#			print "done with "+label+" labels"
-#		gramDict[str(gramIndex)+"gram534"] = labelDict
-#		print "done with "+str(gramIndex)+" gram"
-#	output["NGramResults"] = gramDict
+	for gramIndex in [1,2,3]:
+		jsonFile = str(gramIndex)+"gram534.json"
+		labelDict={}
+#		if gramIndex != 1:
+#			continue
+		for label in ['my','google']:
+			featureDict={}
+#			if label != 'my':
+#				continue
+			for feature in ['justc','numoc']:
+				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
+				print "done with "+feature+" features"
+			labelDict[label] = featureDict
+			print "done with "+label+" labels"
+		gramDict[str(gramIndex)+"gram534"] = labelDict
+		print "done with "+str(gramIndex)+" gram"
+	output["NGramResults"] = gramDict
 
 	tfidfDict={}
 	corpus = json.loads(open("corpus.json","r").read())
@@ -463,20 +463,20 @@ def main(argv):
 	tfidfDict["google-all-grams"] = doTFIDF(corpus, "google")
 	print "done with tfidf google labels all grams"
 
-#	tfidfDict["my-uni-grams"] = doTFIDFUnigram(corpus, "my")
-#	print "done with tfidf my labels uni grams"
-#	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
-#	print "done with tfidf google labels uni grams"
-#
-#	tfidfDict["my-bi-grams"] = doTFIDFBiGram(corpus, "my")
-#	print "done with tfidf my labels bi grams"
-#	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
-#	print "done with tfidf google labels bi grams"
-#
-#	tfidfDict["my-tri-grams"] = doTFIDFTriGram(corpus, "my")
-#	print "done with tfidf my labels tri grams"
-#	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
-#	print "done with tfidf google labels tri grams"
+	tfidfDict["my-uni-grams"] = doTFIDFUnigram(corpus, "my")
+	print "done with tfidf my labels uni grams"
+	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
+	print "done with tfidf google labels uni grams"
+
+	tfidfDict["my-bi-grams"] = doTFIDFBiGram(corpus, "my")
+	print "done with tfidf my labels bi grams"
+	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
+	print "done with tfidf google labels bi grams"
+
+	tfidfDict["my-tri-grams"] = doTFIDFTriGram(corpus, "my")
+	print "done with tfidf my labels tri grams"
+	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
+	print "done with tfidf google labels tri grams"
 
 	output["TFIDFResults"] = tfidfDict
 

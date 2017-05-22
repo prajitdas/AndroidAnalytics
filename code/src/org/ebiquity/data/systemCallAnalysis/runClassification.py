@@ -91,10 +91,10 @@ def getAppLabelList(termDocMatrix, label):
 			else:
 				labelList.append(str(termDocMatrix[app][0]))
 	labelList = list(set(labelList))
-	index = 0
-	for label in labelList:
-		print index, label
-		index += 1
+#	index = 0
+#	for label in labelList:
+#		print index, label
+#		index += 1
 	return labelList
 
 def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel):
@@ -315,7 +315,7 @@ def doClassify(jsonDict, label, feature):
 
 def tfidfDoClassify(X, y, labels):
 	resultDict={}
-	X = StandardScaler(with_mean=False).fit_transform(X)
+	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=.4, random_state=42)
 	# iterate over classifiers
@@ -393,7 +393,8 @@ def main(argv):
 				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'tfidf':
-					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
+					continue
+#					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
 #					runClassification(json.loads(open(jsonFile).read()), label, feature)
 				else:
 					featureDict[feature] = doTFIDF(label,gramIndex)

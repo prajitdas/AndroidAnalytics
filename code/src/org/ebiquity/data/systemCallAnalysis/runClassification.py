@@ -137,9 +137,9 @@ def doClassify(jsonDict, label, feature):
 				prf1sDict["recall1"] = recall
 				prf1sDict["fscore1"] = fscore
 				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0)
-				prf1sDict["precision2"] = precision
-				prf1sDict["recall2"] = recall
-				prf1sDict["fscore2"] = fscore
+				prf1sDict["precision0"] = precision
+				prf1sDict["recall0"] = recall
+				prf1sDict["fscore0"] = fscore
 				perLabelResult[name] = prf1sDict
 			except ValueError:
 				print name, appLabel
@@ -276,11 +276,11 @@ def main(argv):
 	startTime = time.time()
 	output={}
 	gramDict={}
-	for gramIndex in range(1,3):
+	for gramIndex in [1,2,3]:
 		masterJsonFile = str(gramIndex)+"gram534.json"
 		labelDict={}
-		if gramIndex != 1:
-			continue
+#		if gramIndex != 1:
+#			continue
 		for label in ['my','google']:
 			featureDict={}
 			if label != 'my':

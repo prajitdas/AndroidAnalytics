@@ -1,627 +1,1917 @@
 {
     "results": {
+        "2gram534": {
+            "my": {
+                "justc": {
+                    "1vsall": {
+                        "alarm_clock": {
+                            "Gaussian Process": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "QDA": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "Neural Net": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "Random Forest": {
+                                "score": 0.77570093457943923, 
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.22429906542056074, 
+                                "precision0": 0.0, 
+                                "precision1": 0.22429906542056074, 
+                                "recall0": 0.0, 
+                                "recall1": 1.0, 
+                                "fscore1": 0.36641221374045801, 
+                                "fscore0": 0.0
+                            }
+                        }, 
+                        "file_explorer": {
+                            "Gaussian Process": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "QDA": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "Neural Net": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "Random Forest": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
+                            }
+                        }, 
+                        "to_do_list": {
+                            "Gaussian Process": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "QDA": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "Neural Net": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "Random Forest": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
+                            }
+                        }, 
+                        "scientific_calculator": {
+                            "Gaussian Process": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "QDA": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "Neural Net": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "Random Forest": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.85981308411214952, 
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
+                            }
+                        }, 
+                        "battery_saver": {
+                            "Gaussian Process": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "QDA": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "Neural Net": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "Random Forest": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.84112149532710279, 
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
+                            }
+                        }, 
+                        "pdf_reader": {
+                            "Gaussian Process": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "QDA": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "Neural Net": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "Random Forest": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.95327102803738317, 
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
+                            }
+                        }, 
+                        "video_playback": {
+                            "Gaussian Process": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "QDA": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "Neural Net": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "Random Forest": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
+                            }
+                        }, 
+                        "lunar_calendar": {
+                            "Gaussian Process": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "QDA": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Neural Net": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Random Forest": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }
+                        }, 
+                        "drink_recipes": {
+                            "Gaussian Process": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "QDA": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Neural Net": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Random Forest": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.98130841121495327, 
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
+                            }
+                        }, 
+                        "wifi_analyzer": {
+                            "Gaussian Process": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "Decision Tree": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "QDA": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "Naive Bayes": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "Linear SVM": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "Neural Net": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "RBF SVM": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "AdaBoost": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "Random Forest": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }, 
+                            "Nearest Neighbors": {
+                                "score": 0.94859813084112155, 
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
+                            }
+                        }
+                    }, 
+                    "multiclass": {
+                        "Gaussian Process": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "Decision Tree": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "QDA": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "Naive Bayes": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "Linear SVM": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "Neural Net": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "RBF SVM": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "AdaBoost": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "Random Forest": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }, 
+                        "Nearest Neighbors": {
+                            "recall": 0.10000000000000001, 
+                            "score": 0.22429906542056074, 
+                            "precision": 0.022429906542056073, 
+                            "fscore": 0.036641221374045803
+                        }
+                    }
+                }
+            }
+        }, 
         "1gram534": {
             "my": {
                 "justc": {
                     "1vsall": {
                         "alarm_clock": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.77570093457943923, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
                             }, 
                             "Decision Tree": {
-                                "recall": 0.14583333333333334, 
                                 "score": 0.71962616822429903, 
-                                "precision": 0.26923076923076922, 
-                                "fscore": 0.1891891891891892
+                                "precision0": 0.78191489361702127, 
+                                "precision1": 0.26923076923076922, 
+                                "recall0": 0.88554216867469882, 
+                                "recall1": 0.14583333333333334, 
+                                "fscore1": 0.1891891891891892, 
+                                "fscore0": 0.83050847457627119
                             }, 
                             "QDA": {
-                                "recall": 0.041666666666666664, 
                                 "score": 0.78037383177570097, 
-                                "precision": 0.66666666666666663, 
-                                "fscore": 0.078431372549019607
+                                "precision0": 0.78199052132701419, 
+                                "precision1": 0.66666666666666663, 
+                                "recall0": 0.99397590361445787, 
+                                "recall1": 0.041666666666666664, 
+                                "fscore1": 0.078431372549019607, 
+                                "fscore0": 0.87533156498673725
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.97916666666666663, 
                                 "score": 0.24766355140186916, 
-                                "precision": 0.22705314009661837, 
-                                "fscore": 0.36862745098039212
+                                "precision0": 0.8571428571428571, 
+                                "precision1": 0.22705314009661837, 
+                                "recall0": 0.03614457831325301, 
+                                "recall1": 0.97916666666666663, 
+                                "fscore1": 0.36862745098039212, 
+                                "fscore0": 0.069364161849710976
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.77570093457943923, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.77570093457943923, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.87368421052631573
                             }, 
                             "Neural Net": {
-                                "recall": 0.083333333333333329, 
-                                "score": 0.72429906542056077, 
-                                "precision": 0.21052631578947367, 
-                                "fscore": 0.11940298507462688
+                                "score": 0.71028037383177567, 
+                                "precision0": 0.76530612244897955, 
+                                "precision1": 0.1111111111111111, 
+                                "recall0": 0.90361445783132532, 
+                                "recall1": 0.041666666666666664, 
+                                "fscore1": 0.060606060606060608, 
+                                "fscore0": 0.82872928176795579
                             }, 
                             "RBF SVM": {
-                                "recall": 0.020833333333333332, 
                                 "score": 0.76168224299065423, 
-                                "precision": 0.20000000000000001, 
-                                "fscore": 0.037735849056603772
+                                "precision0": 0.77511961722488043, 
+                                "precision1": 0.20000000000000001, 
+                                "recall0": 0.97590361445783136, 
+                                "recall1": 0.020833333333333332, 
+                                "fscore1": 0.037735849056603772, 
+                                "fscore0": 0.8640000000000001
                             }, 
                             "AdaBoost": {
-                                "recall": 0.041666666666666664, 
-                                "score": 0.78037383177570097, 
-                                "precision": 0.66666666666666663, 
-                                "fscore": 0.078431372549019607
+                                "score": 0.76168224299065423, 
+                                "precision0": 0.77511961722488043, 
+                                "precision1": 0.20000000000000001, 
+                                "recall0": 0.97590361445783136, 
+                                "recall1": 0.020833333333333332, 
+                                "fscore1": 0.037735849056603772, 
+                                "fscore0": 0.8640000000000001
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
-                                "score": 0.7710280373831776, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "score": 0.78037383177570097, 
+                                "precision0": 0.77934272300469487, 
+                                "precision1": 1.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.020833333333333332, 
+                                "fscore1": 0.040816326530612249, 
+                                "fscore0": 0.87598944591029015
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.22916666666666666, 
                                 "score": 0.66822429906542058, 
-                                "precision": 0.24444444444444444, 
-                                "fscore": 0.23655913978494625
+                                "precision0": 0.78106508875739644, 
+                                "precision1": 0.24444444444444444, 
+                                "recall0": 0.79518072289156627, 
+                                "recall1": 0.22916666666666666, 
+                                "fscore1": 0.23655913978494625, 
+                                "fscore0": 0.78805970149253723
                             }
                         }, 
                         "file_explorer": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.86448598130841126, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
                             }, 
                             "Decision Tree": {
-                                "recall": 0.20689655172413793, 
                                 "score": 0.88785046728971961, 
-                                "precision": 0.8571428571428571, 
-                                "fscore": 0.33333333333333326
+                                "precision0": 0.88888888888888884, 
+                                "precision1": 0.8571428571428571, 
+                                "recall0": 0.99459459459459465, 
+                                "recall1": 0.20689655172413793, 
+                                "fscore1": 0.33333333333333326, 
+                                "fscore0": 0.93877551020408168
                             }, 
                             "QDA": {
-                                "recall": 0.2413793103448276, 
                                 "score": 0.85046728971962615, 
-                                "precision": 0.41176470588235292, 
-                                "fscore": 0.30434782608695649
+                                "precision0": 0.8883248730964467, 
+                                "precision1": 0.41176470588235292, 
+                                "recall0": 0.94594594594594594, 
+                                "recall1": 0.2413793103448276, 
+                                "fscore1": 0.30434782608695649, 
+                                "fscore0": 0.91623036649214651
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.20689655172413793, 
                                 "score": 0.88317757009345799, 
-                                "precision": 0.75, 
-                                "fscore": 0.32432432432432434
+                                "precision0": 0.88834951456310685, 
+                                "precision1": 0.75, 
+                                "recall0": 0.98918918918918919, 
+                                "recall1": 0.20689655172413793, 
+                                "fscore1": 0.32432432432432434, 
+                                "fscore0": 0.93606138107416881
                             }, 
                             "Linear SVM": {
-                                "recall": 0.20689655172413793, 
                                 "score": 0.88785046728971961, 
-                                "precision": 0.8571428571428571, 
-                                "fscore": 0.33333333333333326
+                                "precision0": 0.88888888888888884, 
+                                "precision1": 0.8571428571428571, 
+                                "recall0": 0.99459459459459465, 
+                                "recall1": 0.20689655172413793, 
+                                "fscore1": 0.33333333333333326, 
+                                "fscore0": 0.93877551020408168
                             }, 
                             "Neural Net": {
-                                "recall": 0.2413793103448276, 
-                                "score": 0.85981308411214952, 
-                                "precision": 0.46666666666666667, 
-                                "fscore": 0.31818181818181818
+                                "score": 0.87850467289719625, 
+                                "precision0": 0.89552238805970152, 
+                                "precision1": 0.61538461538461542, 
+                                "recall0": 0.97297297297297303, 
+                                "recall1": 0.27586206896551724, 
+                                "fscore1": 0.38095238095238099, 
+                                "fscore0": 0.93264248704663211
                             }, 
                             "RBF SVM": {
-                                "recall": 0.034482758620689655, 
                                 "score": 0.86915887850467288, 
-                                "precision": 1.0, 
-                                "fscore": 0.066666666666666666
+                                "precision0": 0.86854460093896713, 
+                                "precision1": 1.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.034482758620689655, 
+                                "fscore1": 0.066666666666666666, 
+                                "fscore0": 0.92964824120603018
                             }, 
                             "AdaBoost": {
-                                "recall": 0.27586206896551724, 
                                 "score": 0.86915887850467288, 
-                                "precision": 0.53333333333333333, 
-                                "fscore": 0.36363636363636365
+                                "precision0": 0.89447236180904521, 
+                                "precision1": 0.53333333333333333, 
+                                "recall0": 0.96216216216216222, 
+                                "recall1": 0.27586206896551724, 
+                                "fscore1": 0.36363636363636365, 
+                                "fscore0": 0.92708333333333337
                             }, 
                             "Random Forest": {
-                                "recall": 0.034482758620689655, 
-                                "score": 0.86915887850467288, 
-                                "precision": 1.0, 
-                                "fscore": 0.066666666666666666
+                                "score": 0.86448598130841126, 
+                                "precision0": 0.86448598130841126, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92731829573934843
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.034482758620689655, 
                                 "score": 0.85046728971962615, 
-                                "precision": 0.20000000000000001, 
-                                "fscore": 0.058823529411764698
+                                "precision0": 0.86602870813397126, 
+                                "precision1": 0.20000000000000001, 
+                                "recall0": 0.97837837837837838, 
+                                "recall1": 0.034482758620689655, 
+                                "fscore1": 0.058823529411764698, 
+                                "fscore0": 0.91878172588832485
                             }
                         }, 
                         "to_do_list": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.7990654205607477, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
                             }, 
                             "Decision Tree": {
-                                "recall": 0.2558139534883721, 
-                                "score": 0.79439252336448596, 
-                                "precision": 0.47826086956521741, 
-                                "fscore": 0.33333333333333337
+                                "score": 0.81775700934579443, 
+                                "precision0": 0.84375, 
+                                "precision1": 0.59090909090909094, 
+                                "recall0": 0.94736842105263153, 
+                                "recall1": 0.30232558139534882, 
+                                "fscore1": 0.39999999999999997, 
+                                "fscore0": 0.8925619834710744
                             }, 
                             "QDA": {
-                                "recall": 0.023255813953488372, 
                                 "score": 0.79439252336448596, 
-                                "precision": 0.33333333333333331, 
-                                "fscore": 0.043478260869565223
+                                "precision0": 0.80094786729857825, 
+                                "precision1": 0.33333333333333331, 
+                                "recall0": 0.98830409356725146, 
+                                "recall1": 0.023255813953488372, 
+                                "fscore1": 0.043478260869565223, 
+                                "fscore0": 0.88481675392670156
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.93023255813953487, 
                                 "score": 0.23364485981308411, 
-                                "precision": 0.19900497512437812, 
-                                "fscore": 0.32786885245901637
+                                "precision0": 0.76923076923076927, 
+                                "precision1": 0.19900497512437812, 
+                                "recall0": 0.058479532163742687, 
+                                "recall1": 0.93023255813953487, 
+                                "fscore1": 0.32786885245901637, 
+                                "fscore0": 0.10869565217391304
                             }, 
                             "Linear SVM": {
-                                "recall": 0.13953488372093023, 
                                 "score": 0.79439252336448596, 
-                                "precision": 0.46153846153846156, 
-                                "fscore": 0.21428571428571427
+                                "precision0": 0.8159203980099502, 
+                                "precision1": 0.46153846153846156, 
+                                "recall0": 0.95906432748538006, 
+                                "recall1": 0.13953488372093023, 
+                                "fscore1": 0.21428571428571427, 
+                                "fscore0": 0.88172043010752688
                             }, 
                             "Neural Net": {
-                                "recall": 0.34883720930232559, 
                                 "score": 0.81308411214953269, 
-                                "precision": 0.55555555555555558, 
-                                "fscore": 0.4285714285714286
+                                "precision0": 0.8540540540540541, 
+                                "precision1": 0.55172413793103448, 
+                                "recall0": 0.92397660818713445, 
+                                "recall1": 0.37209302325581395, 
+                                "fscore1": 0.44444444444444442, 
+                                "fscore0": 0.88764044943820219
                             }, 
                             "RBF SVM": {
-                                "recall": 0.023255813953488372, 
                                 "score": 0.78971962616822433, 
-                                "precision": 0.25, 
-                                "fscore": 0.042553191489361701
+                                "precision0": 0.80000000000000004, 
+                                "precision1": 0.25, 
+                                "recall0": 0.98245614035087714, 
+                                "recall1": 0.023255813953488372, 
+                                "fscore1": 0.042553191489361701, 
+                                "fscore0": 0.88188976377952755
                             }, 
                             "AdaBoost": {
-                                "recall": 0.27906976744186046, 
                                 "score": 0.76635514018691586, 
-                                "precision": 0.38709677419354838, 
-                                "fscore": 0.32432432432432434
+                                "precision0": 0.8306010928961749, 
+                                "precision1": 0.38709677419354838, 
+                                "recall0": 0.88888888888888884, 
+                                "recall1": 0.27906976744186046, 
+                                "fscore1": 0.32432432432432434, 
+                                "fscore0": 0.85875706214689262
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.7990654205607477, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.7990654205607477, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.88831168831168839
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.34883720930232559, 
                                 "score": 0.78037383177570097, 
-                                "precision": 0.44117647058823528, 
-                                "fscore": 0.38961038961038963
+                                "precision0": 0.84444444444444444, 
+                                "precision1": 0.44117647058823528, 
+                                "recall0": 0.88888888888888884, 
+                                "recall1": 0.34883720930232559, 
+                                "fscore1": 0.38961038961038963, 
+                                "fscore0": 0.86609686609686598
                             }
                         }, 
                         "scientific_calculator": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.85981308411214952, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
                             }, 
                             "Decision Tree": {
-                                "recall": 0.23333333333333334, 
                                 "score": 0.85514018691588789, 
-                                "precision": 0.46666666666666667, 
-                                "fscore": 0.31111111111111117
+                                "precision0": 0.88442211055276387, 
+                                "precision1": 0.46666666666666667, 
+                                "recall0": 0.95652173913043481, 
+                                "recall1": 0.23333333333333334, 
+                                "fscore1": 0.31111111111111117, 
+                                "fscore0": 0.91906005221932119
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.83177570093457942, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.85576923076923073, 
+                                "precision1": 0.0, 
+                                "recall0": 0.96739130434782605, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.90816326530612246
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.90000000000000002, 
                                 "score": 0.26635514018691586, 
-                                "precision": 0.14917127071823205, 
-                                "fscore": 0.25592417061611378
+                                "precision0": 0.90909090909090906, 
+                                "precision1": 0.14917127071823205, 
+                                "recall0": 0.16304347826086957, 
+                                "recall1": 0.90000000000000002, 
+                                "fscore1": 0.25592417061611378, 
+                                "fscore0": 0.27649769585253459
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.85981308411214952, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
                             }, 
                             "Neural Net": {
-                                "recall": 0.13333333333333333, 
                                 "score": 0.85514018691588789, 
-                                "precision": 0.44444444444444442, 
-                                "fscore": 0.20512820512820512
+                                "precision0": 0.86602870813397126, 
+                                "precision1": 0.40000000000000002, 
+                                "recall0": 0.98369565217391308, 
+                                "recall1": 0.066666666666666666, 
+                                "fscore1": 0.1142857142857143, 
+                                "fscore0": 0.92111959287531808
                             }, 
                             "RBF SVM": {
-                                "recall": 0.13333333333333333, 
                                 "score": 0.85514018691588789, 
-                                "precision": 0.44444444444444442, 
-                                "fscore": 0.20512820512820512
+                                "precision0": 0.87317073170731707, 
+                                "precision1": 0.44444444444444442, 
+                                "recall0": 0.97282608695652173, 
+                                "recall1": 0.13333333333333333, 
+                                "fscore1": 0.20512820512820512, 
+                                "fscore0": 0.92030848329048831
                             }, 
                             "AdaBoost": {
-                                "recall": 0.0, 
                                 "score": 0.83644859813084116, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.8564593301435407, 
+                                "precision1": 0.0, 
+                                "recall0": 0.97282608695652173, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91094147582697194
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.85981308411214952, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.85981308411214952, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.92462311557788934
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.10000000000000001, 
                                 "score": 0.85046728971962615, 
-                                "precision": 0.375, 
-                                "fscore": 0.15789473684210528
+                                "precision0": 0.8689320388349514, 
+                                "precision1": 0.375, 
+                                "recall0": 0.97282608695652173, 
+                                "recall1": 0.10000000000000001, 
+                                "fscore1": 0.15789473684210528, 
+                                "fscore0": 0.9179487179487178
                             }
                         }, 
                         "battery_saver": {
                             "Gaussian Process": {
-                                "recall": 0.17647058823529413, 
                                 "score": 0.84579439252336452, 
-                                "precision": 0.54545454545454541, 
-                                "fscore": 0.26666666666666666
+                                "precision0": 0.86206896551724133, 
+                                "precision1": 0.54545454545454541, 
+                                "recall0": 0.97222222222222221, 
+                                "recall1": 0.17647058823529413, 
+                                "fscore1": 0.26666666666666666, 
+                                "fscore0": 0.91383812010443866
                             }, 
                             "Decision Tree": {
-                                "recall": 0.3235294117647059, 
-                                "score": 0.80373831775700932, 
-                                "precision": 0.36666666666666664, 
-                                "fscore": 0.34375
+                                "score": 0.7990654205607477, 
+                                "precision0": 0.87431693989071035, 
+                                "precision1": 0.35483870967741937, 
+                                "recall0": 0.88888888888888884, 
+                                "recall1": 0.3235294117647059, 
+                                "fscore1": 0.33846153846153842, 
+                                "fscore0": 0.88154269972451782
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.82242990654205606, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.83809523809523812, 
+                                "precision1": 0.0, 
+                                "recall0": 0.97777777777777775, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.90256410256410258
                             }, 
                             "Naive Bayes": {
-                                "recall": 1.0, 
                                 "score": 0.28037383177570091, 
-                                "precision": 0.18085106382978725, 
-                                "fscore": 0.30630630630630629
+                                "precision0": 1.0, 
+                                "precision1": 0.18085106382978725, 
+                                "recall0": 0.14444444444444443, 
+                                "recall1": 1.0, 
+                                "fscore1": 0.30630630630630629, 
+                                "fscore0": 0.25242718446601942
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.83644859813084116, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.84037558685446012, 
+                                "precision1": 0.0, 
+                                "recall0": 0.99444444444444446, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91094147582697205
                             }, 
                             "Neural Net": {
-                                "recall": 0.38235294117647056, 
-                                "score": 0.85981308411214952, 
-                                "precision": 0.59090909090909094, 
-                                "fscore": 0.46428571428571425
+                                "score": 0.84579439252336452, 
+                                "precision0": 0.88481675392670156, 
+                                "precision1": 0.52173913043478259, 
+                                "recall0": 0.93888888888888888, 
+                                "recall1": 0.35294117647058826, 
+                                "fscore1": 0.4210526315789474, 
+                                "fscore0": 0.91105121293800539
                             }, 
                             "RBF SVM": {
-                                "recall": 0.26470588235294118, 
                                 "score": 0.85981308411214952, 
-                                "precision": 0.6428571428571429, 
-                                "fscore": 0.37499999999999994
+                                "precision0": 0.875, 
+                                "precision1": 0.6428571428571429, 
+                                "recall0": 0.97222222222222221, 
+                                "recall1": 0.26470588235294118, 
+                                "fscore1": 0.37499999999999994, 
+                                "fscore0": 0.92105263157894735
                             }, 
                             "AdaBoost": {
-                                "recall": 0.26470588235294118, 
                                 "score": 0.81775700934579443, 
-                                "precision": 0.39130434782608697, 
-                                "fscore": 0.31578947368421051
+                                "precision0": 0.86910994764397909, 
+                                "precision1": 0.39130434782608697, 
+                                "recall0": 0.92222222222222228, 
+                                "recall1": 0.26470588235294118, 
+                                "fscore1": 0.31578947368421051, 
+                                "fscore0": 0.89487870619946108
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.84112149532710279, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.84112149532710279, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.91370558375634525
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.29411764705882354, 
                                 "score": 0.83644859813084116, 
-                                "precision": 0.47619047619047616, 
-                                "fscore": 0.3636363636363637
+                                "precision0": 0.87564766839378239, 
+                                "precision1": 0.47619047619047616, 
+                                "recall0": 0.93888888888888888, 
+                                "recall1": 0.29411764705882354, 
+                                "fscore1": 0.3636363636363637, 
+                                "fscore0": 0.90616621983914214
                             }
                         }, 
                         "pdf_reader": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.95327102803738317, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
                             }, 
                             "Decision Tree": {
-                                "recall": 0.80000000000000004, 
-                                "score": 0.95327102803738317, 
-                                "precision": 0.5, 
-                                "fscore": 0.61538461538461542
+                                "score": 0.96728971962616828, 
+                                "precision0": 0.99004975124378114, 
+                                "precision1": 0.61538461538461542, 
+                                "recall0": 0.97549019607843135, 
+                                "recall1": 0.80000000000000004, 
+                                "fscore1": 0.69565217391304346, 
+                                "fscore0": 0.98271604938271606
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.95327102803738317, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
                             }, 
                             "Naive Bayes": {
-                                "recall": 1.0, 
                                 "score": 0.2570093457943925, 
-                                "precision": 0.059171597633136092, 
-                                "fscore": 0.11173184357541897
+                                "precision0": 1.0, 
+                                "precision1": 0.059171597633136092, 
+                                "recall0": 0.22058823529411764, 
+                                "recall1": 1.0, 
+                                "fscore1": 0.11173184357541897, 
+                                "fscore0": 0.36144578313253006
                             }, 
                             "Linear SVM": {
-                                "recall": 0.80000000000000004, 
                                 "score": 0.94859813084112155, 
-                                "precision": 0.47058823529411764, 
-                                "fscore": 0.59259259259259267
+                                "precision0": 0.98984771573604058, 
+                                "precision1": 0.47058823529411764, 
+                                "recall0": 0.95588235294117652, 
+                                "recall1": 0.80000000000000004, 
+                                "fscore1": 0.59259259259259267, 
+                                "fscore0": 0.972568578553616
                             }, 
                             "Neural Net": {
-                                "recall": 0.69999999999999996, 
                                 "score": 0.96261682242990654, 
-                                "precision": 0.58333333333333337, 
-                                "fscore": 0.63636363636363646
+                                "precision0": 0.98514851485148514, 
+                                "precision1": 0.58333333333333337, 
+                                "recall0": 0.97549019607843135, 
+                                "recall1": 0.69999999999999996, 
+                                "fscore1": 0.63636363636363646, 
+                                "fscore0": 0.98029556650246308
                             }, 
                             "RBF SVM": {
-                                "recall": 0.40000000000000002, 
                                 "score": 0.95327102803738317, 
-                                "precision": 0.5, 
-                                "fscore": 0.44444444444444448
+                                "precision0": 0.970873786407767, 
+                                "precision1": 0.5, 
+                                "recall0": 0.98039215686274506, 
+                                "recall1": 0.40000000000000002, 
+                                "fscore1": 0.44444444444444448, 
+                                "fscore0": 0.97560975609756095
                             }, 
                             "AdaBoost": {
-                                "recall": 0.59999999999999998, 
-                                "score": 0.95794392523364491, 
-                                "precision": 0.54545454545454541, 
-                                "fscore": 0.57142857142857129
+                                "score": 0.96261682242990654, 
+                                "precision0": 0.98514851485148514, 
+                                "precision1": 0.58333333333333337, 
+                                "recall0": 0.97549019607843135, 
+                                "recall1": 0.69999999999999996, 
+                                "fscore1": 0.63636363636363646, 
+                                "fscore0": 0.98029556650246308
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.95327102803738317, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.95327102803738317, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392354
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.80000000000000004, 
                                 "score": 0.9719626168224299, 
-                                "precision": 0.66666666666666663, 
-                                "fscore": 0.72727272727272718
+                                "precision0": 0.99009900990099009, 
+                                "precision1": 0.66666666666666663, 
+                                "recall0": 0.98039215686274506, 
+                                "recall1": 0.80000000000000004, 
+                                "fscore1": 0.72727272727272718, 
+                                "fscore0": 0.9852216748768472
                             }
                         }, 
                         "video_playback": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.99532710280373837, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }, 
                             "Decision Tree": {
-                                "recall": 0.0, 
-                                "score": 0.98598130841121501, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "score": 0.99532710280373837, 
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.95327102803738317, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99512195121951219, 
+                                "precision1": 0.0, 
+                                "recall0": 0.95774647887323938, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97607655502392332
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.0, 
                                 "score": 0.7570093457943925, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99386503067484666, 
+                                "precision1": 0.0, 
+                                "recall0": 0.76056338028169013, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.86170212765957455
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.99532710280373837, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }, 
                             "Neural Net": {
-                                "recall": 0.0, 
                                 "score": 0.99532710280373837, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }, 
                             "RBF SVM": {
-                                "recall": 0.0, 
                                 "score": 0.99532710280373837, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }, 
                             "AdaBoost": {
-                                "recall": 0.0, 
                                 "score": 0.99065420560747663, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99530516431924887, 
+                                "precision1": 0.0, 
+                                "recall0": 0.99530516431924887, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99530516431924887
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.99532710280373837, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.0, 
                                 "score": 0.99532710280373837, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.99532710280373837, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99765807962529274
                             }
                         }, 
                         "lunar_calendar": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "Decision Tree": {
-                                "recall": 0.0, 
                                 "score": 0.97663551401869164, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98122065727699526, 
+                                "precision1": 0.0, 
+                                "recall0": 0.99523809523809526, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.98817966903073284
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.93925233644859818, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98048780487804876, 
+                                "precision1": 0.0, 
+                                "recall0": 0.95714285714285718, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.96867469879518064
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.5, 
                                 "score": 0.65420560747663548, 
-                                "precision": 0.027027027027027029, 
-                                "fscore": 0.051282051282051287
+                                "precision0": 0.98571428571428577, 
+                                "precision1": 0.027027027027027029, 
+                                "recall0": 0.65714285714285714, 
+                                "recall1": 0.5, 
+                                "fscore1": 0.051282051282051287, 
+                                "fscore0": 0.78857142857142859
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "Neural Net": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "RBF SVM": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "AdaBoost": {
-                                "recall": 0.0, 
                                 "score": 0.96728971962616828, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98104265402843605, 
+                                "precision1": 0.0, 
+                                "recall0": 0.98571428571428577, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.98337292161520196
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }
                         }, 
                         "drink_recipes": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "Decision Tree": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.9719626168224299, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98113207547169812, 
+                                "precision1": 0.0, 
+                                "recall0": 0.99047619047619051, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.98578199052132709
                             }, 
                             "Naive Bayes": {
-                                "recall": 0.25, 
                                 "score": 0.62149532710280375, 
-                                "precision": 0.012658227848101266, 
-                                "fscore": 0.024096385542168672
+                                "precision0": 0.97777777777777775, 
+                                "precision1": 0.012658227848101266, 
+                                "recall0": 0.62857142857142856, 
+                                "recall1": 0.25, 
+                                "fscore1": 0.024096385542168672, 
+                                "fscore0": 0.76521739130434774
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "Neural Net": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "RBF SVM": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "AdaBoost": {
-                                "recall": 0.0, 
                                 "score": 0.96261682242990654, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98095238095238091, 
+                                "precision1": 0.0, 
+                                "recall0": 0.98095238095238091, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.98095238095238091
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.98130841121495327, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98130841121495327, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.99056603773584906
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.0, 
                                 "score": 0.95794392523364491, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.98086124401913877, 
+                                "precision1": 0.0, 
+                                "recall0": 0.97619047619047616, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97852028639618127
                             }
                         }, 
                         "wifi_analyzer": {
                             "Gaussian Process": {
-                                "recall": 0.0, 
                                 "score": 0.94859813084112155, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
                             }, 
                             "Decision Tree": {
-                                "recall": 0.18181818181818182, 
                                 "score": 0.95794392523364491, 
-                                "precision": 1.0, 
-                                "fscore": 0.30769230769230771
+                                "precision0": 0.95754716981132071, 
+                                "precision1": 1.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.18181818181818182, 
+                                "fscore1": 0.30769230769230771, 
+                                "fscore0": 0.97831325301204819
                             }, 
                             "QDA": {
-                                "recall": 0.0, 
                                 "score": 0.90654205607476634, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.9463414634146341, 
+                                "precision1": 0.0, 
+                                "recall0": 0.95566502463054193, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.95098039215686281
                             }, 
                             "Naive Bayes": {
-                                "recall": 1.0, 
                                 "score": 0.21962616822429906, 
-                                "precision": 0.061797752808988762, 
-                                "fscore": 0.1164021164021164
+                                "precision0": 1.0, 
+                                "precision1": 0.061797752808988762, 
+                                "recall0": 0.17733990147783252, 
+                                "recall1": 1.0, 
+                                "fscore1": 0.1164021164021164, 
+                                "fscore0": 0.30125523012552302
                             }, 
                             "Linear SVM": {
-                                "recall": 0.0, 
                                 "score": 0.94859813084112155, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
                             }, 
                             "Neural Net": {
-                                "recall": 0.18181818181818182, 
                                 "score": 0.95794392523364491, 
-                                "precision": 1.0, 
-                                "fscore": 0.30769230769230771
+                                "precision0": 0.95754716981132071, 
+                                "precision1": 1.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.18181818181818182, 
+                                "fscore1": 0.30769230769230771, 
+                                "fscore0": 0.97831325301204819
                             }, 
                             "RBF SVM": {
-                                "recall": 0.0, 
                                 "score": 0.93457943925233644, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.94786729857819907, 
+                                "precision1": 0.0, 
+                                "recall0": 0.98522167487684731, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.96618357487922701
                             }, 
                             "AdaBoost": {
-                                "recall": 0.090909090909090912, 
                                 "score": 0.94859813084112155, 
-                                "precision": 0.5, 
-                                "fscore": 0.15384615384615385
+                                "precision0": 0.95283018867924529, 
+                                "precision1": 0.5, 
+                                "recall0": 0.99507389162561577, 
+                                "recall1": 0.090909090909090912, 
+                                "fscore1": 0.15384615384615385, 
+                                "fscore0": 0.97349397590361442
                             }, 
                             "Random Forest": {
-                                "recall": 0.0, 
                                 "score": 0.94859813084112155, 
-                                "precision": 0.0, 
-                                "fscore": 0.0
+                                "precision0": 0.94859813084112155, 
+                                "precision1": 0.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.0, 
+                                "fscore1": 0.0, 
+                                "fscore0": 0.97362110311750605
                             }, 
                             "Nearest Neighbors": {
-                                "recall": 0.090909090909090912, 
                                 "score": 0.95327102803738317, 
-                                "precision": 1.0, 
-                                "fscore": 0.16666666666666669
+                                "precision0": 0.95305164319248825, 
+                                "precision1": 1.0, 
+                                "recall0": 1.0, 
+                                "recall1": 0.090909090909090912, 
+                                "fscore1": 0.16666666666666669, 
+                                "fscore0": 0.97596153846153844
                             }
                         }
                     }, 
@@ -635,8 +1925,8 @@
                         "Decision Tree": {
                             "recall": 0.22803101954494709, 
                             "score": 0.32242990654205606, 
-                            "precision": 0.23756580009194281, 
-                            "fscore": 0.22612700276822414
+                            "precision": 0.238398362534126, 
+                            "fscore": 0.2265764409704713
                         }, 
                         "QDA": {
                             "recall": 0.20091385993049987, 
@@ -657,10 +1947,10 @@
                             "fscore": 0.22664495835548468
                         }, 
                         "Neural Net": {
-                            "recall": 0.28472409540472893, 
-                            "score": 0.38317757009345793, 
-                            "precision": 0.31166110304789552, 
-                            "fscore": 0.27854157856968953
+                            "recall": 0.29594545090034263, 
+                            "score": 0.38785046728971961, 
+                            "precision": 0.31057912325769466, 
+                            "fscore": 0.29363368858311689
                         }, 
                         "RBF SVM": {
                             "recall": 0.1751611121593786, 
@@ -675,10 +1965,10 @@
                             "fscore": 0.15108765715163794
                         }, 
                         "Random Forest": {
-                            "recall": 0.22639436608645061, 
+                            "recall": 0.18577084289281798, 
                             "score": 0.31775700934579437, 
-                            "precision": 0.20861349335908458, 
-                            "fscore": 0.20354700854700852
+                            "precision": 0.29331385913664393, 
+                            "fscore": 0.17380055057220412
                         }, 
                         "Nearest Neighbors": {
                             "recall": 0.26010430201824841, 

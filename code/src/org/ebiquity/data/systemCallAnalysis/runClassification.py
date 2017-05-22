@@ -401,7 +401,7 @@ def main(argv):
 					featureDict[feature] = doTFIDF(corpus, label, gramIndex)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
-			print "done with "+label+" labels"
+#			print "done with "+label+" labels"
 		gramDict[str(gramIndex)+"gram534"] = labelDict
 		print "done with "+str(gramIndex)+" gram"
 	output["results"] = gramDict

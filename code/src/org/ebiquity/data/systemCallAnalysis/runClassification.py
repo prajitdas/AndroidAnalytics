@@ -357,7 +357,7 @@ def tfidfDoClassify(X, y, labels):
 #	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 #	return ultimateResults
 
-def doTFIDF(X, corpus, label, gram):
+def doTFIDF(X, corpus, label):
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		return tfidfDoClassify(X, corpus["my"], labelList)
@@ -397,7 +397,7 @@ def main(argv):
 					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
 #					runClassification(json.loads(open(jsonFile).read()), label, feature)
 				else:
-					featureDict[feature] = doTFIDF(X, corpus, label, gramIndex)
+					featureDict[feature] = doTFIDF(X, corpus, label)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"

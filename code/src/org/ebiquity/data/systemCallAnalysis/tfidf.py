@@ -6,7 +6,6 @@ Usage: python tfidf.py tfidf
 from sklearn.feature_extraction.text import TfidfTransformer
 import numpy as np
 import math
-import json
 
 def computeTFIDFWeights(termDocMatrix):
 	tfIDFDict = {}

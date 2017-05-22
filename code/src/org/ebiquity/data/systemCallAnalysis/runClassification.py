@@ -332,10 +332,10 @@ def main(argv):
 			continue
 		for label in ['my','google']:
 			featureDict={}
-#			if label != 'my':
-#				continue
+			if label != 'my':
+				continue
 			for feature in ['justc','numoc','tfidf']:
-				if feature != 'justc':
+				if feature == 'tfidf':
 					continue
 				featureDict[feature] = runClassification(json.loads(open(masterJsonFile).read()), label, feature)
 				print "done with "+feature+" features"

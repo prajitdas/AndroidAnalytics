@@ -128,8 +128,10 @@ def doClassify(jsonDict, label, feature):
 			score = clf.score(X_test, y_test)
 			y_pred=clf.predict(X_test)
 			prf1sDict={}
-			prf1sDict["y1"] = y_test.count(1)
-			prf1sDict["y0"] = y_test.count(0)
+			prf1sDict["trainy1"] = y_train.tolist().count(1)
+			prf1sDict["trainy0"] = y_train.tolist().count(0)
+			prf1sDict["testy1"] = y_test.tolist().count(1)
+			prf1sDict["testy0"] = y_test.tolist().count(0)
 			try:
 				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
 				if len(set(y_train)) != 2:

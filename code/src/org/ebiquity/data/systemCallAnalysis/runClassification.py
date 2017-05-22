@@ -357,8 +357,7 @@ def tfidfDoClassify(X, y, labels):
 #	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 #	return ultimateResults
 
-def doTFIDF(label):
-	corpus = json.loads(open("corpus.json","r").read())
+def doTFIDF(corpus, label):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
 	X=vectorizer.fit_transform(corpus["corpus"])
 	if label == 'my':
@@ -401,10 +400,11 @@ def main(argv):
 		print "done with "+str(gramIndex)+" gram"
 	output["NGramResults"] = gramDict
 
+	corpus = json.loads(open("corpus.json","r").read())
 	tfidfDict={}
-	tfidfDict["my"] = doTFIDF("my")
+	tfidfDict["my"] = doTFIDF(corpus, "my")
 	print "done with tfidf my labels"
-	tfidfDict["google"] = doTFIDF("google")
+	tfidfDict["google"] = doTFIDF(corpus, "google")
 	print "done with tfidf google labels"
 	output["TFIDFResults"] = tfidfDict
 

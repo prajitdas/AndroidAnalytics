@@ -14,10 +14,11 @@ my=[]
 google=[]
 for appPkgName in appDict["packages"]:
 	appDataDict = json.loads(open(os.path.join(os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons"),appPkgName+".json"),'r').read())
-	my.append(appDataDict[appPkgName]["annotated_category"])
-	google.append(appDataDict[appPkgName]["google_play_category"])
-	input_list = appDataDict[appPkgName]["syscalls"]
-	corpus.append(' '.join(input_list))
+	if appDataDict[appPkgName]["annotated_category"] not in ['drink_recipes', 'video_playback', 'lunar_calendar']:
+		my.append(appDataDict[appPkgName]["annotated_category"])
+		google.append(appDataDict[appPkgName]["google_play_category"])
+		input_list = appDataDict[appPkgName]["syscalls"]
+		corpus.append(' '.join(input_list))
 
 data["my"] = my
 data["google"] = google

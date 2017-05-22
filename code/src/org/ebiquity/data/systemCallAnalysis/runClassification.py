@@ -324,6 +324,7 @@ def tfidfDoClassify(X, y, labels):
 			clf=OneVsRestClassifier(aclf)
 		else:
 			clf=aclf
+		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
 		score_ = clf.score(X_train, y_train)

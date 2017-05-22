@@ -403,7 +403,9 @@ def main(argv):
 
 	tfidfDict={}
 	tfidfDict["my"] = doTFIDF("my")
+	print "done with tfidf my labels"
 	tfidfDict["google"] = doTFIDF("google")
+	print "done with tfidf google labels"
 	output["TFIDFResults"] = tfidfDict
 
 	result={}

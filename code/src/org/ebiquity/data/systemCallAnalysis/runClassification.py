@@ -21,36 +21,46 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.gaussian_process.kernels import RBF
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+#from sklearn.gaussian_process import GaussianProcessClassifier
+#from sklearn.gaussian_process.kernels import RBF
+#from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.metrics import precision_recall_fscore_support as prf1
+from sklearn.metrics import classification_report
+from sklearn.multiclass import OneVsRestClassifier
 
 #h = .02  # step size in the mesh
 google=0
 my=1
 syscalls=2
 
-names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
-		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
-		 "Naive Bayes", "QDA"]
+#names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
+#		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
+#		 "Naive Bayes", "QDA"]
 
-#names = ["Linear SVM"]
-#classifiers = [SVC(kernel="linear", C=0.025)]
+names=["Nearest Neighbors","Linear SVM","RBF SVM","J48","Random Forest","Neural Net","AdaBoost","Naive Bayes"]
 classifiers = [
 	KNeighborsClassifier(3),
 	SVC(kernel="linear", C=0.025),
 	SVC(gamma=2, C=1),
-	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
 	DecisionTreeClassifier(max_depth=5),
 	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
 	MLPClassifier(alpha=1),
 	AdaBoostClassifier(),
-	GaussianNB(),
-	QuadraticDiscriminantAnalysis()]
+	GaussianNB()]
+#classifiers = [
+#	KNeighborsClassifier(3),
+#	SVC(kernel="linear", C=0.025),
+#	SVC(gamma=2, C=1),
+#	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
+#	DecisionTreeClassifier(max_depth=5),
+#	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+#	MLPClassifier(alpha=1),
+#	AdaBoostClassifier(),
+#	GaussianNB(),
+#	QuadraticDiscriminantAnalysis()]
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)
@@ -83,73 +93,12 @@ def getAppLabelList(termDocMatrix, labels):
 				continue
 			else:
 				labelList.append(termDocMatrix[app][0])
-	return list(set(labelList))
-
-def altDoClassify(jsonDict, label, feature):
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
-	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label)
-	X = StandardScaler().fit_transform(X)
-	X_train, X_test, y_train, y_test = \
-		train_test_split(X, y, test_size=.4, random_state=42)
-	resultDict={}
-	# iterate over classifiers
-	for name, clf in zip(names, classifiers):
-		clf.fit(X_train, y_train)
-		y_pred=clf.predict(X_test)
-		prf1sDict={}
-		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
-			score = clf.score(X_test, y_test)
-			prf1sDict["score"] = score
-			prf1sDict["precision"] = precision
-			prf1sDict["recall"] = recall
-			prf1sDict["fscore"] = fscore
-			resultDict[name] = prf1sDict
-		except ValueError:
-			print name
-			continue
-	return resultDict
-
-def doClassify(jsonDict, label, feature):
-	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
-	appLabelList=getAppLabelList(termDocMatrix, label)
+	labelList = list(set(labelList))
 	index = 0
-	resultDict={}
-	for appLabel in appLabelList:
-		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, label, appLabel)
-		X = StandardScaler().fit_transform(X)
-		X_train, X_test, y_train, y_test = \
-			train_test_split(X, y, test_size=.4, random_state=42)
-		perLabelResult={}
-		# iterate over classifiers
-		for name, clf in zip(names, classifiers):
-			index += 1
-			clf.fit(X_train, y_train)
-			score = clf.score(X_test, y_test)
-			y_pred=clf.predict(X_test)
-			prf1sDict={}
-			prf1sDict["trainy1"] = y_train.tolist().count(1)
-			prf1sDict["trainy0"] = y_train.tolist().count(0)
-			prf1sDict["testy1"] = y_test.tolist().count(1)
-			prf1sDict["testy0"] = y_test.tolist().count(0)
-			try:
-				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
-				if len(set(y_train)) != 2:
-					print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
-				prf1sDict["score"] = score
-				prf1sDict["precision1"] = precision
-				prf1sDict["recall1"] = recall
-				prf1sDict["fscore1"] = fscore
-				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0)
-				prf1sDict["precision0"] = precision
-				prf1sDict["recall0"] = recall
-				prf1sDict["fscore0"] = fscore
-				perLabelResult[name] = prf1sDict
-			except ValueError:
-				print name, appLabel
-				continue
-		resultDict[appLabel] = perLabelResult
-	return resultDict
+	for label in labelList:
+		print index, label
+		index += 1
+	return labelList
 
 def generateFeatureMatrix(termDocMatrix, allSyscallsVector, labels, currentLabel):
 	numOfApps=len(termDocMatrix.keys())
@@ -259,10 +208,106 @@ def writeArffFile(appMatrixFile, arffFileContent):
 	with open(appMatrixFile, 'w') as fp:
 		fp.write(arffFileContent)
 
+def altDoClassify(jsonDict, label, feature):
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
+	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label)
+	X = StandardScaler().fit_transform(X)
+	X_train, X_test, y_train, y_test = \
+		train_test_split(X, y, test_size=.4, random_state=42)
+	resultDict={}
+	# iterate over classifiers
+	for name, clf in zip(names, classifiers):
+		clf.fit(X_train, y_train)
+		y_pred=clf.predict(X_test)
+		prf1sDict={}
+		try:
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
+			#LogisticRegression(multi_class="multinomial", verbose=1, n_jobs=-1, solver="lbfgs", max_iter=100000)
+			score = clf.score(X_test, y_test)
+			prf1sDict["score"] = score
+			prf1sDict["precision"] = precision
+			prf1sDict["recall"] = recall
+			prf1sDict["fscore"] = fscore
+			resultDict[name] = prf1sDict
+		except ValueError:
+			print name
+			continue
+	return resultDict
+
+def doClassify(jsonDict, label, feature):
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
+	appLabelList=getAppLabelList(termDocMatrix, label)
+	index = 0
+	resultDict={}
+	for appLabel in appLabelList:
+		X, y = generateFeatureMatrix(termDocMatrix, allSyscallsVector, label, appLabel)
+		X = StandardScaler().fit_transform(X)
+		X_train, X_test, y_train, y_test = \
+			train_test_split(X, y, test_size=.4, random_state=42)
+		perLabelResult={}
+		# iterate over classifiers
+		for name, clf in zip(names, classifiers):
+			index += 1
+			clf.fit(X_train, y_train)
+			score = clf.score(X_test, y_test)
+			y_pred=clf.predict(X_test)
+			prf1sDict={}
+			prf1sDict["trainy1"] = y_train.tolist().count(1)
+			prf1sDict["trainy0"] = y_train.tolist().count(0)
+			prf1sDict["testy1"] = y_test.tolist().count(1)
+			prf1sDict["testy0"] = y_test.tolist().count(0)
+			try:
+				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
+				prf1sDict["report"] = classification_report(y_test, y_pred)
+				if len(set(y_train)) != 2:
+					print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
+				prf1sDict["score"] = score
+				prf1sDict["precision1"] = precision
+				prf1sDict["recall1"] = recall
+				prf1sDict["fscore1"] = fscore
+				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=0)
+				prf1sDict["precision0"] = precision
+				prf1sDict["recall0"] = recall
+				prf1sDict["fscore0"] = fscore
+				perLabelResult[name] = prf1sDict
+			except ValueError:
+				print name, appLabel
+				continue
+		resultDict[appLabel] = perLabelResult
+	return resultDict
+
+def anotherDoClassify(jsonDict, label, feature):
+	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
+	resultDict={}
+	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label)
+	X = StandardScaler().fit_transform(X)
+	X_train, X_test, y_train, y_test = \
+		train_test_split(X, y, test_size=.4, random_state=42)
+	# iterate over classifiers
+	for name, aclf in zip(names, classifiers):
+		clf=OneVsRestClassifier(aclf)
+		clf.fit(X_train, y_train)
+		score = clf.score(X_test, y_test)
+		y_pred=clf.predict(X_test)
+		prf1sDict={}
+		try:
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='micro')
+			prf1sDict["report"] = classification_report(y_test, y_pred)
+			prf1sDict["score"] = score
+			prf1sDict["precision"] = precision
+			prf1sDict["recall"] = recall
+			prf1sDict["fscore"] = fscore
+			resultDict[name] = prf1sDict
+		except ValueError:
+			print name
+			continue
+	return resultDict
+
 def runClassification(jsonDict, label, feature):
 	ultimateResults={}
-	ultimateResults["multiclass"] = altDoClassify(jsonDict, label, feature)
-	ultimateResults["1vsall"] = doClassify(jsonDict, label, feature)
+#	ultimateResults["multiclass"] = altDoClassify(jsonDict, label, feature)
+#	ultimateResults["1vsall"] = doClassify(jsonDict, label, feature)
+	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 	return ultimateResults
 
 def format_seconds_to_hhmmss(seconds):
@@ -283,12 +328,12 @@ def main(argv):
 	for gramIndex in [1,2,3]:
 		masterJsonFile = str(gramIndex)+"gram534.json"
 		labelDict={}
-#		if gramIndex != 1:
-#			continue
+		if gramIndex != 1:
+			continue
 		for label in ['my','google']:
 			featureDict={}
-			if label != 'my':
-				continue
+#			if label != 'my':
+#				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'justc':
 					continue

@@ -357,7 +357,10 @@ def tfidfDoClassify(X, y, labels):
 #	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 #	return ultimateResults
 
-def doTFIDF(X, corpus, label):
+def doTFIDF(label):
+	corpus = json.loads(open("corpus.json","r").read())
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
+	X=vectorizer.fit_transform(corpus["corpus"])
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		return tfidfDoClassify(X, corpus["my"], labelList)
@@ -380,10 +383,7 @@ def main(argv):
 	startTime = time.time()
 	output={}
 	gramDict={}
-	corpus = json.loads(open("corpus.json","r").read())
 	for gramIndex in [1,2,3]:
-		vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gramIndex,gramIndex),analyzer='word')
-		X=vectorizer.fit_transform(corpus["corpus"])
 		jsonFile = str(gramIndex)+"gram534.json"
 		labelDict={}
 #		if gramIndex != 1:
@@ -392,19 +392,23 @@ def main(argv):
 			featureDict={}
 #			if label != 'my':
 #				continue
-			for feature in ['justc','numoc','tfidf']:
-				if feature != 'tfidf':
-					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
-#					runClassification(json.loads(open(jsonFile).read()), label, feature)
-				else:
-					featureDict[feature] = doTFIDF(X, corpus, label)
+			for feature in ['justc','numoc']:
+				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"
 		gramDict[str(gramIndex)+"gram534"] = labelDict
 		print "done with "+str(gramIndex)+" gram"
-	output["results"] = gramDict
-	open("results.json","w").write(json.dumps(output, indent=4))
+	output["NGramResults"] = gramDict
+
+	tfidfDict={}
+#	tfidfDict["my"] = doTFIDF("my")
+#	tfidfDict["google"] = doTFIDF("google")
+	output["TFIDFResults"] = tfidfDict
+
+	result={}
+	result["results"] = output
+	open("results.json","w").write(json.dumps(result, indent=4))
 	executionTime = (time.time()-startTime)
 	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 

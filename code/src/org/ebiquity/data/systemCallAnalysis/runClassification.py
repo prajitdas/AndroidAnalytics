@@ -386,12 +386,12 @@ def main(argv):
 	for gramIndex in [1,2,3]:
 		jsonFile = str(gramIndex)+"gram534.json"
 		labelDict={}
-		if gramIndex != 1:
-			continue
+#		if gramIndex != 1:
+#			continue
 		for label in ['my','google']:
 			featureDict={}
-			if label != 'my':
-				continue
+#			if label != 'my':
+#				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'tfidf':
 					featureDict[feature] = runClassification(json.loads(open(jsonFile).read()), label, feature)

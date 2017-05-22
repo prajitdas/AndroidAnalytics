@@ -17,16 +17,16 @@
                             "fscore": 0.0050259605399792318
                         }, 
                         "J48": {
-                            "fscore1": 0.61769019878742726, 
-                            "recall": 0.34112149532710279, 
-                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.55      0.71      0.62        80\n        1.0       0.59      0.30      0.40        43\n        2.0       0.65      0.72      0.68        58\n        3.0       0.60      0.82      0.69        11\n        4.0       0.67      0.68      0.67        59\n        5.0       0.77      0.83      0.80        12\n        6.0       1.00      0.50      0.67         4\n        7.0       0.56      0.62      0.59         8\n        8.0       0.73      0.52      0.60        31\n        9.0       0.75      0.46      0.57        13\n\navg / total       0.64      0.63      0.62       319\n", 
-                            "precision": 0.3643822330969137, 
-                            "score": 0.34112149532710279, 
-                            "score1": 0.34112149532710279, 
-                            "precision1": 0.6365575554865508, 
-                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.29      0.44      0.35        48\n        1.0       0.33      0.17      0.23        29\n        2.0       0.40      0.44      0.42        43\n        3.0       0.09      0.25      0.13         4\n        4.0       0.35      0.32      0.34        34\n        5.0       0.50      0.80      0.62        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.47      0.23      0.31        30\n        9.0       0.50      0.09      0.15        11\n\navg / total       0.36      0.34      0.33       214\n", 
-                            "recall1": 0.62695924764890287, 
-                            "fscore": 0.3306868105933527
+                            "fscore1": 0.62088002126921915, 
+                            "recall": 0.34579439252336447, 
+                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.56      0.72      0.63        80\n        1.0       0.59      0.30      0.40        43\n        2.0       0.64      0.71      0.67        58\n        3.0       0.60      0.82      0.69        11\n        4.0       0.68      0.69      0.69        59\n        5.0       0.83      0.83      0.83        12\n        6.0       1.00      0.50      0.67         4\n        7.0       0.56      0.62      0.59         8\n        8.0       0.70      0.52      0.59        31\n        9.0       0.75      0.46      0.57        13\n\navg / total       0.64      0.63      0.62       319\n", 
+                            "precision": 0.35996734117162804, 
+                            "score": 0.34579439252336447, 
+                            "score1": 0.34579439252336447, 
+                            "precision1": 0.63905032610310653, 
+                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.29      0.42      0.34        48\n        1.0       0.44      0.24      0.31        29\n        2.0       0.43      0.44      0.44        43\n        3.0       0.10      0.25      0.14         4\n        4.0       0.33      0.32      0.33        34\n        5.0       0.57      0.80      0.67        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.39      0.23      0.29        30\n        9.0       0.25      0.09      0.13        11\n\navg / total       0.36      0.35      0.34       214\n", 
+                            "recall1": 0.63009404388714729, 
+                            "fscore": 0.34034125624822642
                         }, 
                         "Naive Bayes": {
                             "fscore1": 0.11665046825818663, 
@@ -53,16 +53,16 @@
                             "fscore": 0.33043684779259758
                         }, 
                         "Neural Net": {
-                            "fscore1": 0.7943239566358421, 
-                            "recall": 0.37850467289719625, 
-                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.70      0.86      0.78        80\n        1.0       0.88      0.70      0.78        43\n        2.0       0.83      0.84      0.84        58\n        3.0       1.00      0.55      0.71        11\n        4.0       0.77      0.90      0.83        59\n        5.0       0.83      0.83      0.83        12\n        6.0       1.00      0.50      0.67         4\n        7.0       1.00      0.62      0.77         8\n        8.0       0.85      0.71      0.77        31\n        9.0       1.00      0.62      0.76        13\n\navg / total       0.82      0.80      0.79       319\n", 
-                            "precision": 0.38574122613131145, 
-                            "score": 0.37850467289719625, 
-                            "score1": 0.37850467289719625, 
-                            "precision1": 0.81500566902425153, 
-                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.25      0.35      0.29        48\n        1.0       0.43      0.34      0.38        29\n        2.0       0.40      0.47      0.43        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.46      0.53      0.49        34\n        5.0       0.57      0.80      0.67        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.40      0.20      0.27        30\n        9.0       0.67      0.18      0.29        11\n\navg / total       0.39      0.38      0.37       214\n", 
-                            "recall1": 0.79623824451410663, 
-                            "fscore": 0.36586019824390908
+                            "fscore1": 0.79173150952434401, 
+                            "recall": 0.35514018691588783, 
+                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.71      0.86      0.78        80\n        1.0       0.88      0.67      0.76        43\n        2.0       0.83      0.83      0.83        58\n        3.0       1.00      0.55      0.71        11\n        4.0       0.74      0.88      0.81        59\n        5.0       0.83      0.83      0.83        12\n        6.0       1.00      0.50      0.67         4\n        7.0       1.00      0.62      0.77         8\n        8.0       0.85      0.74      0.79        31\n        9.0       1.00      0.69      0.82        13\n\navg / total       0.81      0.79      0.79       319\n", 
+                            "precision": 0.35128304799691951, 
+                            "score": 0.35514018691588783, 
+                            "score1": 0.35514018691588783, 
+                            "precision1": 0.81169615711192167, 
+                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.22      0.31      0.26        48\n        1.0       0.46      0.38      0.42        29\n        2.0       0.40      0.49      0.44        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.50      0.47      0.48        34\n        5.0       0.54      0.70      0.61        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.29      0.13      0.18        30\n        9.0       0.29      0.18      0.22        11\n\navg / total       0.35      0.36      0.35       214\n", 
+                            "recall1": 0.7931034482758621, 
+                            "fscore": 0.34505967236013502
                         }, 
                         "RBF SVM": {
                             "fscore1": 0.83965373072190141, 
@@ -101,16 +101,16 @@
                             "fscore": 0.35708238854184637
                         }, 
                         "Random Forest": {
-                            "fscore1": 0.41933025937976148, 
-                            "recall": 0.33177570093457942, 
-                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.44      0.70      0.54        80\n        1.0       0.71      0.28      0.40        43\n        2.0       0.50      0.66      0.57        58\n        3.0       0.00      0.00      0.00        11\n        4.0       0.40      0.63      0.49        59\n        5.0       0.80      0.33      0.47        12\n        6.0       0.00      0.00      0.00         4\n        7.0       0.00      0.00      0.00         8\n        8.0       1.00      0.06      0.12        31\n        9.0       1.00      0.08      0.14        13\n\navg / total       0.54      0.47      0.42       319\n", 
-                            "precision": 0.26171106930452726, 
-                            "score": 0.33177570093457942, 
-                            "score1": 0.33177570093457942, 
-                            "precision1": 0.53992713981690088, 
-                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.25      0.44      0.32        48\n        1.0       0.36      0.14      0.20        29\n        2.0       0.41      0.53      0.46        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.37      0.65      0.47        34\n        5.0       0.33      0.10      0.15        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.26      0.33      0.27       214\n", 
-                            "recall1": 0.47021943573667713, 
-                            "fscore": 0.2733919645234022
+                            "fscore1": 0.41154234753185936, 
+                            "recall": 0.35514018691588783, 
+                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.41      0.54      0.46        80\n        1.0       0.88      0.33      0.47        43\n        2.0       0.43      0.67      0.53        58\n        3.0       0.00      0.00      0.00        11\n        4.0       0.41      0.64      0.50        59\n        5.0       0.73      0.67      0.70        12\n        6.0       0.00      0.00      0.00         4\n        7.0       0.00      0.00      0.00         8\n        8.0       1.00      0.10      0.18        31\n        9.0       0.00      0.00      0.00        13\n\navg / total       0.50      0.45      0.41       319\n", 
+                            "precision": 0.3011767269416738, 
+                            "score": 0.35514018691588783, 
+                            "score1": 0.35514018691588783, 
+                            "precision1": 0.4985766869310525, 
+                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.23      0.35      0.28        48\n        1.0       0.60      0.21      0.31        29\n        2.0       0.38      0.58      0.46        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.39      0.62      0.48        34\n        5.0       0.64      0.70      0.67        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.30      0.36      0.30       214\n", 
+                            "recall1": 0.45454545454545453, 
+                            "fscore": 0.30387565544394052
                         }, 
                         "Nearest Neighbors": {
                             "fscore1": 0.55667877826297285, 
@@ -124,6 +124,128 @@
                             "recall1": 0.56739811912225702, 
                             "fscore": 0.25817183649846048
                         }
+                    }
+                }, 
+                "tfidf": {
+                    "Dummy": {
+                        "fscore1": 0.0047619047619047615, 
+                        "recall": 0.037383177570093455, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.00      0.00      0.00        76\n        battery_saver       0.00      0.00      0.00        54\n        drink_recipes       0.00      0.00      0.00        11\n        file_explorer       0.00      0.00      0.00        43\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.00      0.00      0.00        11\nscientific_calculator       0.00      0.00      0.00        39\n           to_do_list       0.00      0.00      0.00        62\n       video_playback       0.00      0.00      0.00         2\n        wifi_analyzer       0.05      1.00      0.10        16\n\n          avg / total       0.00      0.05      0.00       320\n", 
+                        "precision": 0.0013975019652371385, 
+                        "score": 0.037383177570093455, 
+                        "score1": 0.037383177570093455, 
+                        "precision1": 0.0025000000000000001, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.00      0.00      0.00        52\n        battery_saver       0.00      0.00      0.00        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.00      0.00      0.00        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.00      0.00      0.00        11\nscientific_calculator       0.00      0.00      0.00        22\n           to_do_list       0.00      0.00      0.00        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.04      1.00      0.07         8\n\n          avg / total       0.00      0.04      0.00       214\n", 
+                        "recall1": 0.050000000000000003, 
+                        "fscore": 0.0026942830681148436
+                    }, 
+                    "J48": {
+                        "fscore1": 0.91313049984144601, 
+                        "recall": 0.34112149532710279, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.93      0.93      0.93        76\n        battery_saver       0.98      0.94      0.96        54\n        drink_recipes       1.00      0.82      0.90        11\n        file_explorer       0.98      0.95      0.96        43\n       lunar_calendar       0.83      0.83      0.83         6\n           pdf_reader       1.00      0.91      0.95        11\nscientific_calculator       0.97      0.82      0.89        39\n           to_do_list       0.77      0.97      0.86        62\n       video_playback       1.00      1.00      1.00         2\n        wifi_analyzer       0.92      0.69      0.79        16\n\n          avg / total       0.92      0.91      0.91       320\n", 
+                        "precision": 0.35014039070863345, 
+                        "score": 0.34112149532710279, 
+                        "score1": 0.34112149532710279, 
+                        "precision1": 0.922234015984016, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.24      0.23      0.24        52\n        battery_saver       0.47      0.41      0.44        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.57      0.59      0.58        29\n       lunar_calendar       0.12      0.17      0.14         6\n           pdf_reader       0.78      0.64      0.70        11\nscientific_calculator       0.19      0.18      0.19        22\n           to_do_list       0.35      0.40      0.37        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.35      0.34      0.34       214\n", 
+                        "recall1": 0.91249999999999998, 
+                        "fscore": 0.34438353974061819
+                    }, 
+                    "Naive Bayes": {
+                        "fscore1": 0.26710845621124457, 
+                        "recall": 0.1542056074766355, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.60      0.04      0.07        76\n        battery_saver       0.57      0.15      0.24        54\n        drink_recipes       1.00      0.18      0.31        11\n        file_explorer       0.77      0.56      0.65        43\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.60      0.82      0.69        11\nscientific_calculator       0.46      0.15      0.23        39\n           to_do_list       0.44      0.18      0.25        62\n       video_playback       1.00      0.50      0.67         2\n        wifi_analyzer       0.08      1.00      0.14        16\n\n          avg / total       0.55      0.25      0.27       320\n", 
+                        "precision": 0.17037140429663794, 
+                        "score": 0.1542056074766355, 
+                        "score1": 0.1542056074766355, 
+                        "precision1": 0.54946669803768844, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.00      0.00      0.00        52\n        battery_saver       0.18      0.05      0.08        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.56      0.48      0.52        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.64      0.82      0.72        11\nscientific_calculator       0.00      0.00      0.00        22\n           to_do_list       0.14      0.05      0.07        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.04      0.75      0.08         8\n\n          avg / total       0.17      0.15      0.14       214\n", 
+                        "recall1": 0.25, 
+                        "fscore": 0.13873200303106845
+                    }, 
+                    "Linear SVM": {
+                        "fscore1": 0.64150693323837227, 
+                        "recall": 0.42523364485981308, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.58      0.72      0.64        76\n        battery_saver       0.74      0.57      0.65        54\n        drink_recipes       0.75      0.27      0.40        11\n        file_explorer       0.74      0.79      0.76        43\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.64      0.64      0.64        11\nscientific_calculator       0.68      0.54      0.60        39\n           to_do_list       0.65      0.82      0.72        62\n       video_playback       1.00      0.50      0.67         2\n        wifi_analyzer       0.67      0.38      0.48        16\n\n          avg / total       0.66      0.65      0.64       320\n", 
+                        "precision": 0.41418069699433357, 
+                        "score": 0.42523364485981308, 
+                        "score1": 0.42523364485981308, 
+                        "precision1": 0.65625340473083615, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.29      0.42      0.35        52\n        battery_saver       0.52      0.38      0.44        39\n        drink_recipes       0.25      0.25      0.25         4\n        file_explorer       0.75      0.72      0.74        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.69      0.82      0.75        11\nscientific_calculator       0.33      0.18      0.24        22\n           to_do_list       0.39      0.47      0.43        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.41      0.43      0.41       214\n", 
+                        "recall1": 0.65312499999999996, 
+                        "fscore": 0.41165969023690363
+                    }, 
+                    "Neural Net": {
+                        "fscore1": 0.81344172106768808, 
+                        "recall": 0.42523364485981308, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.73      0.87      0.79        76\n        battery_saver       0.87      0.83      0.85        54\n        drink_recipes       1.00      0.73      0.84        11\n        file_explorer       0.97      0.88      0.93        43\n       lunar_calendar       1.00      0.67      0.80         6\n           pdf_reader       0.89      0.73      0.80        11\nscientific_calculator       0.76      0.72      0.74        39\n           to_do_list       0.78      0.81      0.79        62\n       video_playback       1.00      0.50      0.67         2\n        wifi_analyzer       0.80      0.75      0.77        16\n\n          avg / total       0.82      0.81      0.81       320\n", 
+                        "precision": 0.40522647154695346, 
+                        "score": 0.42523364485981308, 
+                        "score1": 0.42523364485981308, 
+                        "precision1": 0.82274336106367352, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.37      0.46      0.41        52\n        battery_saver       0.39      0.46      0.42        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.69      0.62      0.65        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.64      0.82      0.72        11\nscientific_calculator       0.29      0.27      0.28        22\n           to_do_list       0.47      0.40      0.43        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.41      0.43      0.41       214\n", 
+                        "recall1": 0.8125, 
+                        "fscore": 0.41210107829436105
+                    }, 
+                    "RBF SVM": {
+                        "fscore1": 1.0, 
+                        "recall": 0.31308411214953269, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       1.00      1.00      1.00        76\n        battery_saver       1.00      1.00      1.00        54\n        drink_recipes       1.00      1.00      1.00        11\n        file_explorer       1.00      1.00      1.00        43\n       lunar_calendar       1.00      1.00      1.00         6\n           pdf_reader       1.00      1.00      1.00        11\nscientific_calculator       1.00      1.00      1.00        39\n           to_do_list       1.00      1.00      1.00        62\n       video_playback       1.00      1.00      1.00         2\n        wifi_analyzer       1.00      1.00      1.00        16\n\n          avg / total       1.00      1.00      1.00       320\n", 
+                        "precision": 0.4805962316957369, 
+                        "score": 0.31308411214953269, 
+                        "score1": 0.31308411214953269, 
+                        "precision1": 1.0, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.26      0.92      0.40        52\n        battery_saver       0.90      0.23      0.37        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.20      0.03      0.06        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       1.00      0.36      0.53        11\nscientific_calculator       0.80      0.18      0.30        22\n           to_do_list       0.50      0.03      0.05        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.48      0.31      0.24       214\n", 
+                        "recall1": 1.0, 
+                        "fscore": 0.23929621188708455
+                    }, 
+                    "AdaBoost": {
+                        "fscore1": 0.99687250916626824, 
+                        "recall": 0.38317757009345793, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.99      1.00      0.99        76\n        battery_saver       1.00      1.00      1.00        54\n        drink_recipes       1.00      1.00      1.00        11\n        file_explorer       1.00      1.00      1.00        43\n       lunar_calendar       1.00      1.00      1.00         6\n           pdf_reader       1.00      1.00      1.00        11\nscientific_calculator       1.00      1.00      1.00        39\n           to_do_list       1.00      0.98      0.99        62\n       video_playback       1.00      1.00      1.00         2\n        wifi_analyzer       1.00      1.00      1.00        16\n\n          avg / total       1.00      1.00      1.00       320\n", 
+                        "precision": 0.36284856841249069, 
+                        "score": 0.38317757009345793, 
+                        "score1": 0.38317757009345793, 
+                        "precision1": 0.99691558441558448, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.34      0.46      0.39        52\n        battery_saver       0.43      0.46      0.44        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.48      0.48      0.48        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.58      0.64      0.61        11\nscientific_calculator       0.29      0.23      0.26        22\n           to_do_list       0.41      0.35      0.38        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.36      0.38      0.37       214\n", 
+                        "recall1": 0.99687499999999996, 
+                        "fscore": 0.36961602434689916
+                    }, 
+                    "Logistic Regression": {
+                        "fscore1": 0.7589318836605119, 
+                        "recall": 0.43457943925233644, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.67      0.76      0.71        76\n        battery_saver       0.71      0.76      0.73        54\n        drink_recipes       1.00      0.73      0.84        11\n        file_explorer       1.00      0.84      0.91        43\n       lunar_calendar       1.00      0.83      0.91         6\n           pdf_reader       0.90      0.82      0.86        11\nscientific_calculator       0.64      0.59      0.61        39\n           to_do_list       0.75      0.79      0.77        62\n       video_playback       1.00      1.00      1.00         2\n        wifi_analyzer       0.85      0.69      0.76        16\n\n          avg / total       0.77      0.76      0.76       320\n", 
+                        "precision": 0.4214893362089624, 
+                        "score": 0.43457943925233644, 
+                        "score1": 0.43457943925233644, 
+                        "precision1": 0.76853959438549957, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.38      0.46      0.41        52\n        battery_saver       0.48      0.51      0.49        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.68      0.66      0.67        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.69      0.82      0.75        11\nscientific_calculator       0.33      0.32      0.33        22\n           to_do_list       0.44      0.35      0.39        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.42      0.43      0.43       214\n", 
+                        "recall1": 0.75624999999999998, 
+                        "fscore": 0.42559897301463978
+                    }, 
+                    "Random Forest": {
+                        "fscore1": 0.78876670131501547, 
+                        "recall": 0.33177570093457942, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.72      0.87      0.79        76\n        battery_saver       0.84      0.80      0.82        54\n        drink_recipes       1.00      0.73      0.84        11\n        file_explorer       0.94      0.70      0.80        43\n       lunar_calendar       1.00      0.83      0.91         6\n           pdf_reader       0.88      0.64      0.74        11\nscientific_calculator       1.00      0.64      0.78        39\n           to_do_list       0.65      0.90      0.76        62\n       video_playback       1.00      1.00      1.00         2\n        wifi_analyzer       0.91      0.62      0.74        16\n\n          avg / total       0.82      0.79      0.79       320\n", 
+                        "precision": 0.30113051019593073, 
+                        "score": 0.33177570093457942, 
+                        "score1": 0.33177570093457942, 
+                        "precision1": 0.82158187019953444, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.28      0.42      0.33        52\n        battery_saver       0.38      0.41      0.40        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.24      0.21      0.22        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.62      0.73      0.67        11\nscientific_calculator       0.33      0.14      0.19        22\n           to_do_list       0.36      0.40      0.38        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.30      0.33      0.31       214\n", 
+                        "recall1": 0.78749999999999998, 
+                        "fscore": 0.30764208674794069
+                    }, 
+                    "Nearest Neighbors": {
+                        "fscore1": 0.5946534862391597, 
+                        "recall": 0.3364485981308411, 
+                        "report1": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.72      0.58      0.64        76\n        battery_saver       0.73      0.61      0.67        54\n        drink_recipes       0.38      0.27      0.32        11\n        file_explorer       0.89      0.37      0.52        43\n       lunar_calendar       0.50      0.17      0.25         6\n           pdf_reader       0.54      0.64      0.58        11\nscientific_calculator       0.53      0.62      0.57        39\n           to_do_list       0.52      0.81      0.63        62\n       video_playback       0.50      0.50      0.50         2\n        wifi_analyzer       0.45      0.81      0.58        16\n\n          avg / total       0.65      0.60      0.59       320\n", 
+                        "precision": 0.36714095284387588, 
+                        "score": 0.3364485981308411, 
+                        "score1": 0.3364485981308411, 
+                        "precision1": 0.64569108736296266, 
+                        "report": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.28      0.25      0.26        52\n        battery_saver       0.38      0.31      0.34        39\n        drink_recipes       0.00      0.00      0.00         4\n        file_explorer       0.62      0.34      0.44        29\n       lunar_calendar       0.00      0.00      0.00         6\n           pdf_reader       0.75      0.82      0.78        11\nscientific_calculator       0.30      0.36      0.33        22\n           to_do_list       0.42      0.50      0.45        40\n       video_playback       0.00      0.00      0.00         3\n        wifi_analyzer       0.00      0.00      0.00         8\n\n          avg / total       0.37      0.34      0.34       214\n", 
+                        "recall1": 0.59999999999999998, 
+                        "fscore": 0.34440532916067146
                     }
                 }, 
                 "numoc": {
@@ -141,16 +263,16 @@
                             "fscore": 0.0050259605399792318
                         }, 
                         "J48": {
-                            "fscore1": 0.82058183435518839, 
+                            "fscore1": 0.82410608012171849, 
                             "recall": 0.32710280373831774, 
-                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.78      0.85      0.81        80\n        1.0       0.92      0.81      0.86        43\n        2.0       0.72      0.90      0.80        58\n        3.0       1.00      0.55      0.71        11\n        4.0       0.83      0.92      0.87        59\n        5.0       1.00      1.00      1.00        12\n        6.0       1.00      1.00      1.00         4\n        7.0       1.00      0.88      0.93         8\n        8.0       0.86      0.61      0.72        31\n        9.0       1.00      0.46      0.63        13\n\navg / total       0.84      0.82      0.82       319\n", 
-                            "precision": 0.34608356064332452, 
+                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.77      0.86      0.81        80\n        1.0       0.92      0.81      0.86        43\n        2.0       0.72      0.91      0.80        58\n        3.0       1.00      0.55      0.71        11\n        4.0       0.87      0.90      0.88        59\n        5.0       1.00      1.00      1.00        12\n        6.0       1.00      1.00      1.00         4\n        7.0       1.00      0.88      0.93         8\n        8.0       0.90      0.61      0.73        31\n        9.0       1.00      0.46      0.63        13\n\navg / total       0.85      0.83      0.82       319\n", 
+                            "precision": 0.34251596905265319, 
                             "score": 0.32710280373831774, 
                             "score1": 0.32710280373831774, 
-                            "precision1": 0.83953291400338381, 
-                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.26      0.31      0.29        48\n        1.0       0.75      0.52      0.61        29\n        2.0       0.30      0.28      0.29        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.29      0.41      0.34        34\n        5.0       0.64      0.70      0.67        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.35      0.23      0.28        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.35      0.33      0.33       214\n", 
-                            "recall1": 0.82445141065830718, 
-                            "fscore": 0.32981096008919963
+                            "precision1": 0.8457337027001719, 
+                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.29      0.35      0.32        48\n        1.0       0.62      0.45      0.52        29\n        2.0       0.33      0.33      0.33        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.33      0.44      0.38        34\n        5.0       0.50      0.30      0.37        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.38      0.27      0.31        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.34      0.33      0.33       214\n", 
+                            "recall1": 0.82758620689655171, 
+                            "fscore": 0.32824346333869386
                         }, 
                         "Naive Bayes": {
                             "fscore1": 0.24401663128073059, 
@@ -177,16 +299,16 @@
                             "fscore": 0.42568133979847556
                         }, 
                         "Neural Net": {
-                            "fscore1": 0.82573844883351888, 
-                            "recall": 0.46728971962616822, 
-                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.85      0.78      0.81        80\n        1.0       0.95      0.81      0.88        43\n        2.0       0.61      0.95      0.74        58\n        3.0       1.00      0.64      0.78        11\n        4.0       0.88      0.88      0.88        59\n        5.0       1.00      0.75      0.86        12\n        6.0       1.00      0.75      0.86         4\n        7.0       1.00      0.88      0.93         8\n        8.0       0.92      0.71      0.80        31\n        9.0       1.00      0.77      0.87        13\n\navg / total       0.85      0.82      0.83       319\n", 
-                            "precision": 0.44565750078030214, 
-                            "score": 0.46728971962616822, 
-                            "score1": 0.46728971962616822, 
-                            "precision1": 0.85417552434557642, 
-                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.33      0.44      0.38        48\n        1.0       0.62      0.55      0.58        29\n        2.0       0.47      0.63      0.53        43\n        3.0       0.33      0.25      0.29         4\n        4.0       0.66      0.74      0.69        34\n        5.0       0.56      0.50      0.53        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.42      0.17      0.24        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.45      0.47      0.44       214\n", 
-                            "recall1": 0.82131661442006265, 
-                            "fscore": 0.44403182044014256
+                            "fscore1": 0.80712017084091492, 
+                            "recall": 0.44392523364485981, 
+                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.77      0.80      0.79        80\n        1.0       0.94      0.79      0.86        43\n        2.0       0.64      0.91      0.75        58\n        3.0       1.00      0.55      0.71        11\n        4.0       0.85      0.88      0.87        59\n        5.0       1.00      0.75      0.86        12\n        6.0       1.00      0.75      0.86         4\n        7.0       1.00      0.75      0.86         8\n        8.0       0.92      0.74      0.82        31\n        9.0       1.00      0.54      0.70        13\n\navg / total       0.83      0.81      0.81       319\n", 
+                            "precision": 0.41345554756769709, 
+                            "score": 0.44392523364485981, 
+                            "score1": 0.44392523364485981, 
+                            "precision1": 0.83432314935607921, 
+                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.32      0.44      0.37        48\n        1.0       0.60      0.52      0.56        29\n        2.0       0.43      0.60      0.50        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.60      0.71      0.65        34\n        5.0       0.50      0.40      0.44        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.38      0.17      0.23        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.41      0.44      0.42       214\n", 
+                            "recall1": 0.80564263322884011, 
+                            "fscore": 0.41652242815110074
                         }, 
                         "RBF SVM": {
                             "fscore1": 0.98747463331187357, 
@@ -225,16 +347,16 @@
                             "fscore": 0.42290468305646173
                         }, 
                         "Random Forest": {
-                            "fscore1": 0.7299175457384709, 
-                            "recall": 0.37850467289719625, 
-                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.72      0.72      0.72        80\n        1.0       0.87      0.63      0.73        43\n        2.0       0.50      0.88      0.64        58\n        3.0       1.00      0.64      0.78        11\n        4.0       0.85      0.76      0.80        59\n        5.0       1.00      0.92      0.96        12\n        6.0       1.00      0.50      0.67         4\n        7.0       1.00      0.50      0.67         8\n        8.0       0.87      0.65      0.74        31\n        9.0       1.00      0.46      0.63        13\n\navg / total       0.78      0.72      0.73       319\n", 
-                            "precision": 0.41848618671048582, 
-                            "score": 0.37850467289719625, 
-                            "score1": 0.37850467289719625, 
-                            "precision1": 0.78079483885627898, 
-                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.27      0.40      0.32        48\n        1.0       0.48      0.34      0.40        29\n        2.0       0.35      0.63      0.45        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.50      0.50      0.50        34\n        5.0       0.83      0.50      0.62        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.75      0.10      0.18        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.42      0.38      0.35       214\n", 
-                            "recall1": 0.72413793103448276, 
-                            "fscore": 0.34949452060902325
+                            "fscore1": 0.70088042650943438, 
+                            "recall": 0.3925233644859813, 
+                            "report1": "             precision    recall  f1-score   support\n\n        0.0       0.66      0.78      0.71        80\n        1.0       0.85      0.65      0.74        43\n        2.0       0.52      0.81      0.64        58\n        3.0       0.83      0.45      0.59        11\n        4.0       0.77      0.75      0.76        59\n        5.0       1.00      0.83      0.91        12\n        6.0       1.00      0.50      0.67         4\n        7.0       1.00      0.75      0.86         8\n        8.0       0.94      0.55      0.69        31\n        9.0       1.00      0.23      0.38        13\n\navg / total       0.75      0.70      0.70       319\n", 
+                            "precision": 0.39072378931494567, 
+                            "score": 0.3925233644859813, 
+                            "score1": 0.3925233644859813, 
+                            "precision1": 0.75400626618844246, 
+                            "report": "             precision    recall  f1-score   support\n\n        0.0       0.25      0.35      0.30        48\n        1.0       0.60      0.41      0.49        29\n        2.0       0.34      0.56      0.42        43\n        3.0       0.00      0.00      0.00         4\n        4.0       0.52      0.50      0.51        34\n        5.0       0.78      0.70      0.74        10\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.47      0.23      0.31        30\n        9.0       0.00      0.00      0.00        11\n\navg / total       0.39      0.39      0.38       214\n", 
+                            "recall1": 0.70219435736677116, 
+                            "fscore": 0.37671195530556711
                         }, 
                         "Nearest Neighbors": {
                             "fscore1": 0.58891984973878608, 

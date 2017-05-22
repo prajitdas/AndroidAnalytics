@@ -295,22 +295,23 @@ def doClassify(jsonDict, label, feature):
 		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
+		score_ = clf.score(X_train, y_train)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
 			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted', labels=labels)
-			prf1sDict["report"] = classification_report(y_test, y_pred, labels=labels)
-			prf1sDict["score"] = score
-			prf1sDict["precision"] = precision
-			prf1sDict["recall"] = recall
-			prf1sDict["fscore"] = fscore
+			prf1sDict["reportTest"] = classification_report(y_test, y_pred, labels=labels)
+			prf1sDict["scoreTest"] = score
+			prf1sDict["precisionTest"] = precision
+			prf1sDict["recallTest"] = recall
+			prf1sDict["fscoreTest"] = fscore
 			resultDict[name] = prf1sDict
-			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted', labels=labels)
-			prf1sDict["report1"] = classification_report(y_train, y_pred_ ,labels=labels)
-			prf1sDict["score1"] = score
-			prf1sDict["precision1"] = precision
-			prf1sDict["recall1"] = recall
-			prf1sDict["fscore1"] = fscore
+			precision_, recall_, fscore_, support_ = prf1(y_train, y_pred_, average='weighted', labels=labels)
+			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_ ,labels=labels)
+			prf1sDict["scoreTrain"] = score_
+			prf1sDict["precisionTrain"] = precision_
+			prf1sDict["recall1Train"] = recall_
+			prf1sDict["fscoreTrain"] = fscore_
 			resultDict[name] = prf1sDict
 		except ValueError:
 			print name
@@ -328,25 +329,25 @@ def tfidfDoClassify(X, y, labels):
 			clf=OneVsRestClassifier(aclf)
 		else:
 			clf=aclf
-		clf.fit(X_train, y_train)
 		score = clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
+		score_ = clf.score(X_train, y_train)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
 		try:
 			precision, recall, fscore, support = prf1(y_test, y_pred, average='weighted', labels=labels)
-			prf1sDict["report"] = classification_report(y_test, y_pred, labels=labels)
-			prf1sDict["score"] = score
-			prf1sDict["precision"] = precision
-			prf1sDict["recall"] = recall
-			prf1sDict["fscore"] = fscore
+			prf1sDict["reportTest"] = classification_report(y_test, y_pred, labels=labels)
+			prf1sDict["scoreTest"] = score
+			prf1sDict["precisionTest"] = precision
+			prf1sDict["recallTest"] = recall
+			prf1sDict["fscoreTest"] = fscore
 			resultDict[name] = prf1sDict
-			precision, recall, fscore, support = prf1(y_train, y_pred_, average='weighted', labels=labels)
-			prf1sDict["report1"] = classification_report(y_train, y_pred_, labels=labels)
-			prf1sDict["score1"] = score
-			prf1sDict["precision1"] = precision
-			prf1sDict["recall1"] = recall
-			prf1sDict["fscore1"] = fscore
+			precision_, recall_, fscore_, support_ = prf1(y_train, y_pred_, average='weighted', labels=labels)
+			prf1sDict["reportTrain"] = classification_report(y_train, y_pred_ ,labels=labels)
+			prf1sDict["scoreTrain"] = score_
+			prf1sDict["precisionTrain"] = precision_
+			prf1sDict["recall1Train"] = recall_
+			prf1sDict["fscoreTrain"] = fscore_
 			resultDict[name] = prf1sDict
 		except ValueError:
 			print name
@@ -393,8 +394,8 @@ def main(argv):
 #			continue
 		for label in ['my','google']:
 			featureDict={}
-#			if label != 'my':
-#				continue
+			if label != 'my':
+				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'tfidf':
 					featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)

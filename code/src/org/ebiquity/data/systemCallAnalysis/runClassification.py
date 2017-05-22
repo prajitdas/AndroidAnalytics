@@ -363,22 +363,13 @@ def runClassification(jsonDict, label, feature):
 	ultimateResults["OneVsRestClassifier"] = anotherDoClassify(jsonDict, label, feature)
 	return ultimateResults
 
-def doTFIDF():
-	appDict = json.loads(open("toprocess.json","r").read())
-	corpus=[]
-	y=[]
-	for appPkgName in appDict["packages"]:
-		appDataDict = json.loads(open(os.path.join(os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons"),appPkgName+".json"),'r').read())
-		annotated_category = appDataDict[appPkgName]["annotated_category"]
-#		google_play_category = appDataDict[appPkgName]["google_play_category"]
-		input_list = appDataDict[appPkgName]["syscalls"]
-		y.append(annotated_category)
-		corpus.append(' '.join(input_list))
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word')
-	X = vectorizer.fit_transform(corpus)
-	print X.shape
-	print len(y)
-	return tfidfDoClassify(X,y)
+def doTFIDF(label,gram):
+	corpus = json.loads(open("corpus.json","r").read())
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(gram,gram),analyzer='word')
+	if label == 'my':
+		return tfidfDoClassify(vectorizer.fit_transform(corpus["corpus"]),corpus["my"])
+	else:
+		return tfidfDoClassify(vectorizer.fit_transform(corpus["corpus"]),corpus["google"])
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)
@@ -412,7 +403,7 @@ def main(argv):
 #		gramDict[str(gramIndex)+"gram534"] = labelDict
 #		print "done with "+str(gramIndex)+" gram"
 #
-	print doTFIDF()
+	print doTFIDF("my",1)
 
 #	output["results"] = gramDict
 #

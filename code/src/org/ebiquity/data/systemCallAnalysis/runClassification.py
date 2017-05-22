@@ -98,16 +98,16 @@ def altDoClassify(jsonDict, label, feature):
 		clf.fit(X_train, y_train)
 		y_pred=clf.predict(X_test)
 		try:
-			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro ')
+			precision, recall, fscore, support = prf1(y_test, y_pred, average='macro')
+			score = clf.score(X_test, y_test)
+			prf1sDict["score"] = score
+			prf1sDict["precision"] = precision
+			prf1sDict["recall"] = recall
+			prf1sDict["fscore"] = fscore
+			resultDict[name] = prf1sDict
 		except ValueError:
 			print name
 			continue
-		score = clf.score(X_test, y_test)
-		prf1sDict["score"] = score
-		prf1sDict["precision"] = precision
-		prf1sDict["recall"] = recall
-		prf1sDict["fscore"] = fscore
-		resultDict[name] = prf1sDict
 	return resultDict
 
 def doClassify(jsonDict, label, feature):
@@ -130,16 +130,16 @@ def doClassify(jsonDict, label, feature):
 			y_pred=clf.predict(X_test)
 			try:
 				precision, recall, fscore, support = prf1(y_test, y_pred, average='binary', pos_label=1)
+				if len(set(y_train)) != 2:
+					print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
+				prf1sDict["score"] = score
+				prf1sDict["precision"] = precision
+				prf1sDict["recall"] = recall
+				prf1sDict["fscore"] = fscore
+				perLabelResult[name] = prf1sDict
 			except ValueError:
 				print name, appLabel
 				continue
-			if len(set(y_train)) != 2:
-				print "OH NOOOOOOOO!!!!!!!!!!!!!!"+appLabel
-			prf1sDict["score"] = score
-			prf1sDict["precision"] = precision
-			prf1sDict["recall"] = recall
-			prf1sDict["fscore"] = fscore
-			perLabelResult[name] = prf1sDict
 		resultDict[appLabel] = perLabelResult
 	return resultDict
 
@@ -275,8 +275,12 @@ def main(argv):
 	for gramIndex in range(1,3):
 		masterJsonFile = str(gramIndex)+"gram534.json"
 		labelDict={}
+		if gramIndex != 1:
+			continue
 		for label in ['my','google']:
 			featureDict={}
+			if label != 'my':
+				continue
 			for feature in ['justc','numoc','tfidf']:
 				if feature != 'justc':
 					continue

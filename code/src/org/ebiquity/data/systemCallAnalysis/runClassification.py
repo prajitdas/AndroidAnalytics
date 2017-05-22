@@ -402,8 +402,8 @@ def main(argv):
 	output["NGramResults"] = gramDict
 
 	tfidfDict={}
-#	tfidfDict["my"] = doTFIDF("my")
-#	tfidfDict["google"] = doTFIDF("google")
+	tfidfDict["my"] = doTFIDF("my")
+	tfidfDict["google"] = doTFIDF("google")
 	output["TFIDFResults"] = tfidfDict
 
 	result={}

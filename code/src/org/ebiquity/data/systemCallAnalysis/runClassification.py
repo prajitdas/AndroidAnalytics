@@ -406,26 +406,27 @@ def doTFIDF(corpus, label, vectorizer):
 
 	tfidfResults = {}
 
-	svd2 = TruncatedSVD(n_components=size2k)
-	X_train=svd2.fit_transform(X_train)
-	X_test=svd2.transform(X_test)
+#	svd2 = TruncatedSVD(n_components=size2k)
+#	X_train=svd2.fit_transform(X_train)
+#	X_test=svd2.transform(X_test)
 	X_train=StandardScaler().fit_transform(X_train)
 	X_test=StandardScaler().fit_transform(X_test)
-	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+#	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
-	svd4 = TruncatedSVD(n_components=size4k)
-	X_train=svd4.fit_transform(X_train)
-	X_test=svd4.transform(X_test)
-	X_train=StandardScaler().fit_transform(X_train)
-	X_test=StandardScaler().fit_transform(X_test)
-	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	svd8 = TruncatedSVD(n_components=size8k)
-	X_train=svd8.fit_transform(X_train)
-	X_test=svd8.transform(X_test)
-	X_train=StandardScaler().fit_transform(X_train)
-	X_test=StandardScaler().fit_transform(X_test)
-	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+#	svd4 = TruncatedSVD(n_components=size4k)
+#	X_train=svd4.fit_transform(X_train)
+#	X_test=svd4.transform(X_test)
+#	X_train=StandardScaler().fit_transform(X_train)
+#	X_test=StandardScaler().fit_transform(X_test)
+#	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+#
+#	svd8 = TruncatedSVD(n_components=size8k)
+#	X_train=svd8.fit_transform(X_train)
+#	X_test=svd8.transform(X_test)
+#	X_train=StandardScaler().fit_transform(X_train)
+#	X_test=StandardScaler().fit_transform(X_test)
+#	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	return tfidfResults
 

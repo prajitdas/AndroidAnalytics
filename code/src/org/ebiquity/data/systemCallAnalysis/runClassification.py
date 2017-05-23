@@ -438,7 +438,6 @@ def main(argv):
 	output["NGramResults"] = gramDict
 
 	tfidfDict={}
-	'''
 	corpus = json.loads(open("corpus.json","r").read())
 
 	tfidfDict["my-all-grams"] = doTFIDFAllGram(corpus, "my")
@@ -460,7 +459,7 @@ def main(argv):
 	print "done with tfidf my labels tri grams"
 	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
 	print "done with tfidf google labels tri grams"
-	'''
+
 	output["TFIDFResults"] = tfidfDict
 
 	result={}

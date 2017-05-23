@@ -42,12 +42,11 @@ testRatio=0.25
 #names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
 #		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
 #		 "Naive Bayes", "QDA"]
-names=["Linear SVM","Neural Net","Dummy","Logistic Regression"]
+names=["Linear SVM","Neural Net","Dummy"]
 classifiers = [
 	SVC(kernel="linear", C=0.025),
-	MLPClassifier(alpha=1),
-	DummyClassifier(strategy='most_frequent'),
-	LogisticRegression(multi_class='multinomial',solver='lbfgs')]
+	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
+	DummyClassifier(strategy='most_frequent')]
 #classifiers = [
 #	KNeighborsClassifier(3),
 #	SVC(kernel="linear", C=0.025),
@@ -58,7 +57,8 @@ classifiers = [
 #	MLPClassifier(alpha=1),
 #	AdaBoostClassifier(),
 #	GaussianNB(),
-#	QuadraticDiscriminantAnalysis()]
+#	QuadraticDiscriminantAnalysis(),
+#	LogisticRegression(multi_class='multinomial',solver='lbfgs')]
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)

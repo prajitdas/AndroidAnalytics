@@ -383,7 +383,6 @@ def doTFIDF(corpus, label, vectorizer):
 	size4k=4000 if featureSize > 4000 else featureSize
 	size8k=8000 if featureSize > 8000 else featureSize
 	print X_train.shape, featureSize, sampleSize, size2k, size4k, size8k
-	return {}
 
 	tfidfResults = {}
 

@@ -42,10 +42,9 @@ testRatio=0.25
 #names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
 #		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
 #		 "Naive Bayes", "QDA"]
-names=["Linear SVM","RBF SVM","Neural Net","Dummy","Logistic Regression"]
+names=["Linear SVM","Neural Net","Dummy","Logistic Regression"]
 classifiers = [
 	SVC(kernel="linear", C=0.025),
-	SVC(gamma=2, C=1),
 	MLPClassifier(alpha=1),
 	DummyClassifier(strategy='most_frequent'),
 	LogisticRegression(multi_class='multinomial',solver='lbfgs')]
@@ -355,125 +354,18 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 #	return ultimateResults
 
 def doTFIDFUnigram(corpus, label):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word')
-	if label == 'my':
-		labelList = list(set(corpus["my"]))
-		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
-	else:
-		labelList = list(set(corpus["google"]))
-		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
-	X_train=vectorizer.fit_transform(X_train)
-	X_test=vectorizer.transform(X_test)
-
-	smapleSize,featureSize=X_train.shape
-
-	size2k=2000 if featureSize > 2000 else featureSize
-	size4k=2000 if featureSize > 4000 else featureSize
-	size8k=2000 if featureSize > 8000 else featureSize
-
-	tfidfResults = {}
-
-	svd2 = TruncatedSVD(n_components=size2k)
-	svd4 = TruncatedSVD(n_components=size4k)
-	svd8 = TruncatedSVD(n_components=size8k)
-
-	X_train=svd2.fit_transform(X_train)
-	X_test=svd2.transform(X_test)
-	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	X_train=svd4.fit_transform(X_train)
-	X_test=svd4.transform(X_test)
-	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	X_train=svd8.fit_transform(X_train)
-	X_test=svd8.transform(X_test)
-	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	return tfidfResults
-
+	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word'))
 
 def doTFIDFBiGram(corpus, label):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
-	if label == 'my':
-		labelList = list(set(corpus["my"]))
-		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
-	else:
-		labelList = list(set(corpus["google"]))
-		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
-	X_train=vectorizer.fit_transform(X_train)
-	X_test=vectorizer.transform(X_test)
-
-	smapleSize,featureSize=X_train.shape
-
-	size2k=2000 if featureSize > 2000 else featureSize
-	size4k=2000 if featureSize > 4000 else featureSize
-	size8k=2000 if featureSize > 8000 else featureSize
-
-	tfidfResults = {}
-
-	svd2 = TruncatedSVD(n_components=size2k)
-	svd4 = TruncatedSVD(n_components=size4k)
-	svd8 = TruncatedSVD(n_components=size8k)
-
-	X_train=svd2.fit_transform(X_train)
-	X_test=svd2.transform(X_test)
-	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	X_train=svd4.fit_transform(X_train)
-	X_test=svd4.transform(X_test)
-	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	X_train=svd8.fit_transform(X_train)
-	X_test=svd8.transform(X_test)
-	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	return tfidfResults
+	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word'))
 
 def doTFIDFTriGram(corpus, label):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word')
-	if label == 'my':
-		labelList = list(set(corpus["my"]))
-		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
-	else:
-		labelList = list(set(corpus["google"]))
-		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
-	X_train=vectorizer.fit_transform(X_train)
-	X_test=vectorizer.transform(X_test)
+	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word'))
 
-	smapleSize,featureSize=X_train.shape
+def doTFIDFAllGram(corpus, label):
+	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word'))
 
-	size2k=2000 if featureSize > 2000 else featureSize
-	size4k=2000 if featureSize > 4000 else featureSize
-	size8k=2000 if featureSize > 8000 else featureSize
-
-	tfidfResults = {}
-
-	svd2 = TruncatedSVD(n_components=size2k)
-	svd4 = TruncatedSVD(n_components=size4k)
-	svd8 = TruncatedSVD(n_components=size8k)
-
-	X_train=svd2.fit_transform(X_train)
-	X_test=svd2.transform(X_test)
-	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	X_train=svd4.fit_transform(X_train)
-	X_test=svd4.transform(X_test)
-	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	X_train=svd8.fit_transform(X_train)
-	X_test=svd8.transform(X_test)
-	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	return tfidfResults
-
-def doTFIDF(corpus, label):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
+def doTFIDF(corpus, label, vectorizer):
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
@@ -547,9 +439,9 @@ def main(argv):
 	tfidfDict={}
 	corpus = json.loads(open("corpus.json","r").read())
 
-	tfidfDict["my-all-grams"] = doTFIDF(corpus, "my")
+	tfidfDict["my-all-grams"] = doTFIDFAllGram(corpus, "my")
 	print "done with tfidf my labels all grams"
-	tfidfDict["google-all-grams"] = doTFIDF(corpus, "google")
+	tfidfDict["google-all-grams"] = doTFIDFAllGram(corpus, "google")
 	print "done with tfidf google labels all grams"
 
 	tfidfDict["my-uni-grams"] = doTFIDFUnigram(corpus, "my")

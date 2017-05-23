@@ -366,15 +366,14 @@ def doTFIDFAllGram(corpus, label):
 	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word'))
 
 def doTFIDF(corpus, label, vectorizer):
-	X = StandardScaler().fit_transform(corpus["corpus"])
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
-			train_test_split(X, corpus["my"], test_size=testRatio, random_state=42)
+			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
 	else:
 		labelList = list(set(corpus["google"]))
 		X_train, X_test, y_train, y_test = \
-			train_test_split(X, corpus["google"], test_size=testRatio, random_state=42)
+			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
@@ -392,14 +391,20 @@ def doTFIDF(corpus, label, vectorizer):
 
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
+	X_train=StandardScaler().fit_transform(X_train)
+	X_test=StandardScaler().fit_transform(X_test)
 	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	X_train=svd4.fit_transform(X_train)
 	X_test=svd4.transform(X_test)
+	X_train=StandardScaler().fit_transform(X_train)
+	X_test=StandardScaler().fit_transform(X_test)
 	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	X_train=svd8.fit_transform(X_train)
 	X_test=svd8.transform(X_test)
+	X_train=StandardScaler().fit_transform(X_train)
+	X_test=StandardScaler().fit_transform(X_test)
 	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	return tfidfResults

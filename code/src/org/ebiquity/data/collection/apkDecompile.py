@@ -16,6 +16,9 @@ from os.path import isfile, join
 from bs4 import BeautifulSoup as Soup
 import databaseHandler
 import time
+import json
+
+appsWithNoPermissions=[]
 
 def makeSurePathExists(path):
 	if os.path.exists(path):
@@ -28,7 +31,7 @@ def deleteAndReCreateFolder(path):
 	os.makedirs(path)
 
 def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
-	cursor = dbHandle.cursor()
+	cursor = dbHandle.cursor(buffered=True)
 	sqlStatement = "SELECT COUNT(a.app_id) FROM `appperm` a, `appdata` b WHERE a.app_id = b.id AND b.app_pkg_name = '"+pkgName+"';"
 	try:
 		cursor.execute(sqlStatement)
@@ -59,7 +62,7 @@ def runAnalysis(inpath,outPath,currentDirectory):
 		elif osInfo == 'Linux':
 			manifestFile = outPath+pkgName+"/AndroidManifest.xml"
 		renamedManifestFile = outPath+pkgName+".xml"
-		print manifestFile, renamedManifestFile
+#		print manifestFile, renamedManifestFile
 		shutil.copy2(manifestFile, renamedManifestFile)
 		#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
 		'''
@@ -101,7 +104,7 @@ def extractManifestFiles():
 
 def verifyIfPermissionIsInTable(permissionName):
 	dbHandle = databaseHandler.dbConnectionCheck()
-	cursor = dbHandle.cursor()
+	cursor = dbHandle.cursor(buffered=True)
 	sqlStatement = "SELECT count(*) FROM `permissions` WHERE `name` = '"+permissionName+"';"
 	try:
 		cursor.execute(sqlStatement)
@@ -143,7 +146,7 @@ def extractCustomPermissions(soup):
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 
 def getAppId(dbHandle,sqlStatement,pkgName):
-	cursor = dbHandle.cursor()
+	cursor = dbHandle.cursor(buffered=True)
 	try:
 		cursor.execute(sqlStatement)
 		if cursor.rowcount > 0:
@@ -159,7 +162,7 @@ def getAppId(dbHandle,sqlStatement,pkgName):
 	return appId
 
 def getPermissionId(dbHandle,sqlStatement,permissionName):
-	cursor = dbHandle.cursor()
+	cursor = dbHandle.cursor(buffered=True)
 	try:
 		cursor.execute(sqlStatement)
 		if cursor.rowcount > 0:
@@ -187,7 +190,7 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 
 	listOfPermissions=soup.findAll('uses-permission')
 	if len(listOfPermissions) == 0:
-		print "This app:", pkgName, "has no permissions!"
+		appsWithNoPermissions.append(pkgName)
 	# Extract permissions used by the app and store in the DB
 	for message in listOfPermissions:
 		permissionName = message.get('android:name')
@@ -220,6 +223,9 @@ def main(argv):
 	extractManifestFiles()
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
+	appDict={}
+	appDict["appsWithoutPerms"] = appsWithNoPermissions
+	open("appsWithoutPerms.json", "w").write(json.dumps(appDict, indent=4, sorted=True))
 
 if __name__ == "__main__":
 	sys.exit(main(sys.argv))

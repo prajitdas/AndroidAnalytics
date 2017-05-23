@@ -449,23 +449,21 @@ def main(argv):
 
 	tfidfDict["my-all-grams"] = doTFIDFAllGram(corpus, "my")
 	print "done with tfidf my labels all grams"
-	tfidfDict["google-all-grams"] = doTFIDFAllGram(corpus, "google")
-	print "done with tfidf google labels all grams"
-
 	tfidfDict["my-uni-grams"] = doTFIDFUnigram(corpus, "my")
 	print "done with tfidf my labels uni grams"
-	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
-	print "done with tfidf google labels uni grams"
-
 	tfidfDict["my-bi-grams"] = doTFIDFBiGram(corpus, "my")
 	print "done with tfidf my labels bi grams"
-	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
-	print "done with tfidf google labels bi grams"
-
 	tfidfDict["my-tri-grams"] = doTFIDFTriGram(corpus, "my")
 	print "done with tfidf my labels tri grams"
-	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
-	print "done with tfidf google labels tri grams"
+
+#	tfidfDict["google-all-grams"] = doTFIDFAllGram(corpus, "google")
+#	print "done with tfidf google labels all grams"
+#	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
+#	print "done with tfidf google labels uni grams"
+#	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
+#	print "done with tfidf google labels bi grams"
+#	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
+#	print "done with tfidf google labels tri grams"
 
 	output["TFIDFResults"] = tfidfDict
 

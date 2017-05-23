@@ -25,7 +25,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.decomposition import TruncatedSVD
+#from sklearn.decomposition import TruncatedSVD
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -39,28 +39,28 @@ my=1
 syscalls=2
 testRatio=0.25
 
-#names=["Linear SVM","Neural Net","Dummy"]
-#classifiers = [
-#	SVC(kernel="linear", C=0.025),
-#	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
-#	DummyClassifier(strategy='most_frequent')]
-
-names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
-		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
-		 "Naive Bayes", "QDA", "Logistic Regression", "Dummy"]
+names=["Linear SVM","Neural Net","Dummy"]
 classifiers = [
-	KNeighborsClassifier(3),
 	SVC(kernel="linear", C=0.025),
-	SVC(gamma=2, C=1),
-	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
-	DecisionTreeClassifier(max_depth=5),
-	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
 	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
-	AdaBoostClassifier(),
-	GaussianNB(),
-	QuadraticDiscriminantAnalysis(),
-	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
 	DummyClassifier(strategy='most_frequent')]
+
+#names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
+#		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
+#		 "Naive Bayes", "QDA", "Logistic Regression", "Dummy"]
+#classifiers = [
+#	KNeighborsClassifier(3),
+#	SVC(kernel="linear", C=0.025),
+#	SVC(gamma=2, C=1),
+#	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
+#	DecisionTreeClassifier(max_depth=5),
+#	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+#	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
+#	AdaBoostClassifier(),
+#	GaussianNB(),
+#	QuadraticDiscriminantAnalysis(),
+#	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
+#	DummyClassifier(strategy='most_frequent')]
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)

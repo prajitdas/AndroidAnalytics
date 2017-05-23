@@ -42,8 +42,8 @@ def isAPKPermissionsAlreadyInTable(dbHandle,pkgName):
 		raise
 
 def runAnalysis(inpath,outPath,currentDirectory):
-	#	Run analysis
-	dbHandle = databaseHandler.dbConnectionCheck()
+#	#	Run analysis
+#	dbHandle = databaseHandler.dbConnectionCheck()
 
 	files = [ f for f in listdir(inpath) if isfile(join(inpath,f)) ]
 	for inputFile in files:
@@ -51,33 +51,33 @@ def runAnalysis(inpath,outPath,currentDirectory):
 		pkgName = inputFile.replace(".apk", "")
 		outputFolder = outPath+pkgName
 		apk = inpath+inputFile
-		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == 0:
-			subprocess.call(["apktool", "d", "-f", apk, "-o", outputFolder], shell=True)
-			osInfo = platform.system()
-			if osInfo == 'Windows':
-				manifestFile = outPath+pkgName+"\\AndroidManifest.xml"
-			elif osInfo == 'Linux':
-				manifestFile = outPath+pkgName+"/AndroidManifest.xml"
-			renamedManifestFile = outPath+pkgName+".xml"
-			print manifestFile, renamedManifestFile
-			shutil.copy2(manifestFile, renamedManifestFile)
-			#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
-			'''
-				The standard library includes shutil.rmtree for this. By default,
-				
-				shutil.rmtree(path)  # errors if dir not empty
-				will give OSError: [Errno 66] Directory not empty: <your/path>.
-				
-				You can delete the directory and its contents anyway by ignoring the error:
-				
-				shutil.rmtree(role_fs_path, ignore_errors=True)
-				You can perform more sophisticated error handling by also passing onerrror=<some function(function, path, excinfo)>.
-			'''
-			shutil.rmtree(outputFolder, ignore_errors=True)
-			os.chdir(currentDirectory)
-			extractPermissionsInfo(pkgName,renamedManifestFile)
-		else:
-			print "Moving on to decompiling the next app. This one is already in the database."
+#		if isAPKPermissionsAlreadyInTable(dbHandle,pkgName) == 0:
+		subprocess.call(["apktool", "d", "-f", apk, "-o", outputFolder], shell=True)
+		osInfo = platform.system()
+		if osInfo == 'Windows':
+			manifestFile = outPath+pkgName+"\\AndroidManifest.xml"
+		elif osInfo == 'Linux':
+			manifestFile = outPath+pkgName+"/AndroidManifest.xml"
+		renamedManifestFile = outPath+pkgName+".xml"
+		print manifestFile, renamedManifestFile
+		shutil.copy2(manifestFile, renamedManifestFile)
+		#http://stackoverflow.com/questions/1557351/python-delete-non-empty-dir
+		'''
+			The standard library includes shutil.rmtree for this. By default,
+
+			shutil.rmtree(path)  # errors if dir not empty
+			will give OSError: [Errno 66] Directory not empty: <your/path>.
+
+			You can delete the directory and its contents anyway by ignoring the error:
+
+			shutil.rmtree(role_fs_path, ignore_errors=True)
+			You can perform more sophisticated error handling by also passing onerrror=<some function(function, path, excinfo)>.
+		'''
+		shutil.rmtree(outputFolder, ignore_errors=True)
+		os.chdir(currentDirectory)
+		extractPermissionsInfo(pkgName,renamedManifestFile)
+#		else:
+#			print "Moving on to decompiling the next app. This one is already in the database."
 
 def extractManifestFiles():
 	currentDirectory = os.getcwd()
@@ -120,20 +120,20 @@ def extractCustomPermissions(soup):
 			permissionProtectionLevel = permissionsAttributes['android:protectionLevel']
 		else:
 			'''
-				android:protectionLevel: Characterizes the potential risk implied in the permission and indicates the procedure the system should follow when determining 
+				android:protectionLevel: Characterizes the potential risk implied in the permission and indicates the procedure the system should follow when determining
 				whether or not to grant the permission to an application requesting it. The value can be set to one of the following strings:
-				"normal": 				The default value. A lower-risk permission that gives requesting applications access to isolated application-level features, with minimal risk 
-										to other applications, the system, or the user. The system automatically grants this type of permission to a requesting application at installation, 
+				"normal": 				The default value. A lower-risk permission that gives requesting applications access to isolated application-level features, with minimal risk
+										to other applications, the system, or the user. The system automatically grants this type of permission to a requesting application at installation,
 										without asking for the user's explicit approval (though the user always has the option to review these permissions before installing).
-				"dangerous":			A higher-risk permission that would give a requesting application access to private user data or control over the device that can negatively impact the user. 
-										Because this type of permission introduces potential risk, the system may not automatically grant it to the requesting application. 
-										For example, any dangerous permissions requested by an application may be displayed to the user and require confirmation before proceeding, 
+				"dangerous":			A higher-risk permission that would give a requesting application access to private user data or control over the device that can negatively impact the user.
+										Because this type of permission introduces potential risk, the system may not automatically grant it to the requesting application.
+										For example, any dangerous permissions requested by an application may be displayed to the user and require confirmation before proceeding,
 										or some other approach may be taken to avoid the user automatically allowing the use of such facilities.
-				"signature":			A permission that the system grants only if the requesting application is signed with the same certificate as the application that declared the 
+				"signature":			A permission that the system grants only if the requesting application is signed with the same certificate as the application that declared the
 										permission. If the certificates match, the system automatically grants the permission without notifying the user or asking for the user's explicit approval.
-				"signatureOrSystem":	A permission that the system grants only to applications that are in the Android system image or that are signed with the same certificate as the 
-										application that declared the permission. Please avoid using this option, as the signature protection level should be sufficient for most needs and works 
-										regardless of exactly where applications are installed. The "signatureOrSystem" permission is used for certain special situations where multiple vendors 
+				"signatureOrSystem":	A permission that the system grants only to applications that are in the Android system image or that are signed with the same certificate as the
+										application that declared the permission. Please avoid using this option, as the signature protection level should be sufficient for most needs and works
+										regardless of exactly where applications are installed. The "signatureOrSystem" permission is used for certain special situations where multiple vendors
 										have applications built into a system image and need to share specific features explicitly because they are being built together.
 			'''
 			permissionProtectionLevel = 'normal'
@@ -184,16 +184,19 @@ def extractPermissionsInfo(pkgName,renamedManifestFile):
 	soup = Soup(XMLFileHandler)
 	# Extract permissions created by the app and store in the DB
 	extractCustomPermissions(soup)
-	
+
+	listOfPermissions=soup.findAll('uses-permission')
+	if len(listOfPermissions) == 0:
+		print "This app:", pkgName, "has no permissions!"
 	# Extract permissions used by the app and store in the DB
-	for message in soup.findAll('uses-permission'):
+	for message in listOfPermissions:
 		permissionName = message.get('android:name')
 		dbHandle = databaseHandler.dbConnectionCheck()
 
 		# See if the permission is in the table if not insert it and get its id
 		sqlStatementPermName = "SELECT id FROM `permissions` WHERE `name` = '"+permissionName+"';"
 		permissionId = getPermissionId(dbHandle,sqlStatementPermName,permissionName)
-		
+
 		# Find the App's Id in the DB
 		# Assumption is that the crawlURL has already extracted all information about the app and the same is in the appdata table
 		# If that is not true this step will fail and we will move on to the next app

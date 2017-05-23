@@ -409,8 +409,8 @@ def doTFIDF(corpus, label, vectorizer):
 #	svd2 = TruncatedSVD(n_components=size2k)
 #	X_train=svd2.fit_transform(X_train)
 #	X_test=svd2.transform(X_test)
-	X_train=StandardScaler().fit_transform(X_train)
-	X_test=StandardScaler().fit_transform(X_test)
+#	X_train=StandardScaler().fit_transform(X_train)
+#	X_test=StandardScaler().fit_transform(X_test)
 #	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 

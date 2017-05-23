@@ -1,128 +1,623 @@
 {
     "results": {
-        "TFIDFResults": {
-            "google-all-grams": {
-                "Logistic Regression": {
-                    "trainScore": 0.5186170212765957, 
-                    "trainReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         4\n news_n_magazines       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        25\n         business       0.00      0.00      0.00         3\n           arcade       0.00      0.00      0.00         1\n    entertainment       0.00      0.00      0.00         3\n         shopping       0.00      0.00      0.00         1\n    communication       0.00      0.00      0.00         6\n          medical       0.00      0.00      0.00         3\n  personalization       0.00      0.00      0.00        10\n libraries_n_demo       0.00      0.00      0.00         1\n   travel_n_local       0.00      0.00      0.00         2\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         2\n    music_n_audio       0.00      0.00      0.00         7\n     productivity       0.35      0.08      0.14        95\nbooks_n_reference       0.00      0.00      0.00         9\n        education       0.00      0.00      0.00         7\n            tools       0.53      0.96      0.68       195\n\n      avg / total       0.36      0.52      0.39       376\n", 
-                    "trainFscore": 0.38820557855862453, 
-                    "trainPrecision": 0.36261638709305466, 
-                    "testScore": 0.5, 
-                    "testFscore": 0.35643752450475141, 
-                    "testReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         0\n news_n_magazines       0.00      0.00      0.00         0\n        lifestyle       0.00      0.00      0.00         9\n         business       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         0\n    entertainment       0.00      0.00      0.00         1\n         shopping       0.00      0.00      0.00         0\n    communication       0.00      0.00      0.00         0\n          medical       0.00      0.00      0.00         0\n  personalization       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n   travel_n_local       0.00      0.00      0.00         0\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         0\n    music_n_audio       0.00      0.00      0.00         1\n     productivity       0.25      0.03      0.05        38\nbooks_n_reference       0.00      0.00      0.00         2\n        education       0.00      0.00      0.00         6\n            tools       0.51      0.95      0.66        65\n\n      avg / total       0.34      0.50      0.36       126\n", 
-                    "testRecall": 0.5, 
-                    "testPrecision": 0.33756180067655478, 
-                    "trainRecall": 0.5186170212765957
+        "TFIDFResults": {}, 
+        "NGramResults": {
+            "2gram534": {
+                "google": {
+                    "justc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }
+                    }, 
+                    "numoc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }
+                    }
                 }, 
-                "Dummy": {
-                    "trainScore": 0.5186170212765957, 
-                    "trainReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         4\n news_n_magazines       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        25\n         business       0.00      0.00      0.00         3\n           arcade       0.00      0.00      0.00         1\n    entertainment       0.00      0.00      0.00         3\n         shopping       0.00      0.00      0.00         1\n    communication       0.00      0.00      0.00         6\n          medical       0.00      0.00      0.00         3\n  personalization       0.00      0.00      0.00        10\n libraries_n_demo       0.00      0.00      0.00         1\n   travel_n_local       0.00      0.00      0.00         2\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         2\n    music_n_audio       0.00      0.00      0.00         7\n     productivity       0.00      0.00      0.00        95\nbooks_n_reference       0.00      0.00      0.00         9\n        education       0.00      0.00      0.00         7\n            tools       0.52      1.00      0.68       195\n\n      avg / total       0.27      0.52      0.35       376\n", 
-                    "trainFscore": 0.35422178335879567, 
-                    "trainPrecision": 0.26896361475780894, 
-                    "testScore": 0.51587301587301593, 
-                    "testFscore": 0.3511177594947229, 
-                    "testReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         0\n news_n_magazines       0.00      0.00      0.00         0\n        lifestyle       0.00      0.00      0.00         9\n         business       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         0\n    entertainment       0.00      0.00      0.00         1\n         shopping       0.00      0.00      0.00         0\n    communication       0.00      0.00      0.00         0\n          medical       0.00      0.00      0.00         0\n  personalization       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n   travel_n_local       0.00      0.00      0.00         0\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         0\n    music_n_audio       0.00      0.00      0.00         1\n     productivity       0.00      0.00      0.00        38\nbooks_n_reference       0.00      0.00      0.00         2\n        education       0.00      0.00      0.00         6\n            tools       0.52      1.00      0.68        65\n\n      avg / total       0.27      0.52      0.35       126\n", 
-                    "testRecall": 0.51587301587301593, 
-                    "testPrecision": 0.26612496850592093, 
-                    "trainRecall": 0.5186170212765957
-                }, 
-                "Linear SVM": {
-                    "trainScore": 0.5186170212765957, 
-                    "trainReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         4\n news_n_magazines       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        25\n         business       0.00      0.00      0.00         3\n           arcade       0.00      0.00      0.00         1\n    entertainment       0.00      0.00      0.00         3\n         shopping       0.00      0.00      0.00         1\n    communication       0.00      0.00      0.00         6\n          medical       0.00      0.00      0.00         3\n  personalization       0.00      0.00      0.00        10\n libraries_n_demo       0.00      0.00      0.00         1\n   travel_n_local       0.00      0.00      0.00         2\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         2\n    music_n_audio       0.00      0.00      0.00         7\n     productivity       0.00      0.00      0.00        95\nbooks_n_reference       0.00      0.00      0.00         9\n        education       0.00      0.00      0.00         7\n            tools       0.52      1.00      0.68       195\n\n      avg / total       0.27      0.52      0.35       376\n", 
-                    "trainFscore": 0.35422178335879567, 
-                    "trainPrecision": 0.26896361475780894, 
-                    "testScore": 0.51587301587301593, 
-                    "testFscore": 0.3511177594947229, 
-                    "testReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         0\n news_n_magazines       0.00      0.00      0.00         0\n        lifestyle       0.00      0.00      0.00         9\n         business       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         0\n    entertainment       0.00      0.00      0.00         1\n         shopping       0.00      0.00      0.00         0\n    communication       0.00      0.00      0.00         0\n          medical       0.00      0.00      0.00         0\n  personalization       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n   travel_n_local       0.00      0.00      0.00         0\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         0\n    music_n_audio       0.00      0.00      0.00         1\n     productivity       0.00      0.00      0.00        38\nbooks_n_reference       0.00      0.00      0.00         2\n        education       0.00      0.00      0.00         6\n            tools       0.52      1.00      0.68        65\n\n      avg / total       0.27      0.52      0.35       126\n", 
-                    "testRecall": 0.51587301587301593, 
-                    "testPrecision": 0.26612496850592093, 
-                    "trainRecall": 0.5186170212765957
-                }, 
-                "Neural Net": {
-                    "trainScore": 0.5292553191489362, 
-                    "trainReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         4\n news_n_magazines       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        25\n         business       0.00      0.00      0.00         3\n           arcade       0.00      0.00      0.00         1\n    entertainment       0.00      0.00      0.00         3\n         shopping       0.00      0.00      0.00         1\n    communication       0.00      0.00      0.00         6\n          medical       0.00      0.00      0.00         3\n  personalization       0.00      0.00      0.00        10\n libraries_n_demo       0.00      0.00      0.00         1\n   travel_n_local       0.00      0.00      0.00         2\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         2\n    music_n_audio       0.00      0.00      0.00         7\n     productivity       0.44      0.07      0.13        95\nbooks_n_reference       0.00      0.00      0.00         9\n        education       0.00      0.00      0.00         7\n            tools       0.53      0.98      0.69       195\n\n      avg / total       0.39      0.53      0.39       376\n", 
-                    "trainFscore": 0.39069388537473648, 
-                    "trainPrecision": 0.38713430851063829, 
-                    "testScore": 0.5, 
-                    "testFscore": 0.35643752450475141, 
-                    "testReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         0\n news_n_magazines       0.00      0.00      0.00         0\n        lifestyle       0.00      0.00      0.00         9\n         business       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         0\n    entertainment       0.00      0.00      0.00         1\n         shopping       0.00      0.00      0.00         0\n    communication       0.00      0.00      0.00         0\n          medical       0.00      0.00      0.00         0\n  personalization       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n   travel_n_local       0.00      0.00      0.00         0\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         0\n    music_n_audio       0.00      0.00      0.00         1\n     productivity       0.25      0.03      0.05        38\nbooks_n_reference       0.00      0.00      0.00         2\n        education       0.00      0.00      0.00         6\n            tools       0.51      0.95      0.66        65\n\n      avg / total       0.34      0.50      0.36       126\n", 
-                    "testRecall": 0.5, 
-                    "testPrecision": 0.33756180067655478, 
-                    "trainRecall": 0.5292553191489362
-                }, 
-                "RBF SVM": {
-                    "trainScore": 0.56914893617021278, 
-                    "trainReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         4\n news_n_magazines       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        25\n         business       0.00      0.00      0.00         3\n           arcade       0.00      0.00      0.00         1\n    entertainment       0.00      0.00      0.00         3\n         shopping       0.00      0.00      0.00         1\n    communication       1.00      0.17      0.29         6\n          medical       0.00      0.00      0.00         3\n  personalization       0.00      0.00      0.00        10\n libraries_n_demo       0.00      0.00      0.00         1\n   travel_n_local       0.00      0.00      0.00         2\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         2\n    music_n_audio       1.00      0.14      0.25         7\n     productivity       0.74      0.15      0.25        95\nbooks_n_reference       0.60      0.67      0.63         9\n        education       1.00      0.14      0.25         7\n            tools       0.56      0.98      0.71       195\n\n      avg / total       0.54      0.57      0.46       376\n", 
-                    "trainFscore": 0.45859627827512972, 
-                    "trainPrecision": 0.54167645967342903, 
-                    "testScore": 0.48412698412698413, 
-                    "testFscore": 0.34019734019734016, 
-                    "testReport": "                   precision    recall  f1-score   support\n\n health_n_fitness       0.00      0.00      0.00         0\n news_n_magazines       0.00      0.00      0.00         0\n        lifestyle       0.00      0.00      0.00         9\n         business       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         0\n    entertainment       0.00      0.00      0.00         1\n         shopping       0.00      0.00      0.00         0\n    communication       0.00      0.00      0.00         0\n          medical       0.00      0.00      0.00         0\n  personalization       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n   travel_n_local       0.00      0.00      0.00         0\n        adventure       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         0\n    music_n_audio       0.00      0.00      0.00         1\n     productivity       0.00      0.00      0.00        38\nbooks_n_reference       0.00      0.00      0.00         2\n        education       0.00      0.00      0.00         6\n            tools       0.51      0.94      0.66        65\n\n      avg / total       0.26      0.48      0.34       126\n", 
-                    "testRecall": 0.48412698412698413, 
-                    "testPrecision": 0.26223544973544971, 
-                    "trainRecall": 0.56914893617021278
+                "my": {
+                    "justc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }
+                    }, 
+                    "numoc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }
+                    }
                 }
             }, 
-            "my-all-grams": {
-                "Logistic Regression": {
-                    "trainScore": 0.46010638297872342, 
-                    "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.40      0.68      0.50       100\n        file_explorer       0.89      0.46      0.61        54\n           to_do_list       0.47      0.40      0.43        70\n        battery_saver       0.39      0.53      0.45        72\n           pdf_reader       0.67      0.78      0.72        18\nscientific_calculator       0.00      0.00      0.00        44\n        wifi_analyzer       0.00      0.00      0.00        18\n\n          avg / total       0.43      0.46      0.42       376\n", 
-                    "trainFscore": 0.42234229563953446, 
-                    "trainPrecision": 0.42927364929705297, 
-                    "testScore": 0.35714285714285715, 
-                    "testFscore": 0.33599539192759531, 
-                    "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.25      0.57      0.35        28\n        file_explorer       0.78      0.39      0.52        18\n           to_do_list       0.59      0.50      0.54        32\n        battery_saver       0.24      0.24      0.24        21\n           pdf_reader       0.17      0.25      0.20         4\nscientific_calculator       0.00      0.00      0.00        17\n        wifi_analyzer       0.00      0.00      0.00         6\n\n          avg / total       0.36      0.36      0.34       126\n", 
-                    "testRecall": 0.35714285714285715, 
-                    "testPrecision": 0.36302175191064079, 
-                    "trainRecall": 0.46010638297872342
+            "1gram534": {
+                "google": {
+                    "justc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.69066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       1.00      0.33      0.50         3\n        1.0       1.00      1.00      1.00         1\n        2.0       0.67      0.47      0.55        98\n        4.0       1.00      0.33      0.50         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       1.00      0.25      0.40         4\n        8.0       1.00      1.00      1.00         1\n        9.0       1.00      1.00      1.00         1\n       10.0       1.00      1.00      1.00         1\n       11.0       1.00      1.00      1.00         1\n       12.0       1.00      1.00      1.00         2\n       13.0       0.75      0.38      0.50         8\n       14.0       1.00      0.33      0.50         6\n       15.0       0.80      0.35      0.48        23\n       16.0       0.75      0.33      0.46         9\n       17.0       1.00      0.42      0.59        12\n       18.0       0.67      0.91      0.77       199\n\navg / total       0.71      0.69      0.66       375\n", 
+                            "trainFscore": 0.66419028726143758, 
+                            "trainPrecision": 0.70701090610906114, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.41405237231008557, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.48      0.31      0.38        35\n        3.0       0.00      0.00      0.00         1\n        4.0       1.00      1.00      1.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         0\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.52      0.80      0.63        60\n\navg / total       0.39      0.48      0.41       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.38923395445134573, 
+                            "trainRecall": 0.69066666666666665
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.61333333333333329, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       1.00      0.33      0.50         3\n        1.0       1.00      1.00      1.00         1\n        2.0       0.61      0.34      0.43        98\n        4.0       0.50      0.33      0.40         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       1.00      0.25      0.40         4\n        8.0       0.00      0.00      0.00         1\n        9.0       1.00      1.00      1.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.80      0.17      0.29        23\n       16.0       1.00      0.11      0.20         9\n       17.0       1.00      0.08      0.15        12\n       18.0       0.61      0.93      0.74       199\n\navg / total       0.61      0.61      0.55       375\n", 
+                            "trainFscore": 0.54765495800919139, 
+                            "trainPrecision": 0.61428177102183612, 
+                            "testScore": 0.46031746031746029, 
+                            "testFscore": 0.37444592318484621, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.42      0.23      0.30        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.49      0.83      0.61        60\n\navg / total       0.35      0.46      0.37       126\n", 
+                            "testRecall": 0.46031746031746029, 
+                            "testPrecision": 0.34811948966266798, 
+                            "trainRecall": 0.61333333333333329
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.80000000000000004, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       1.00      0.33      0.50         3\n        1.0       1.00      1.00      1.00         1\n        2.0       0.77      0.73      0.75        98\n        4.0       1.00      0.33      0.50         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       1.00      0.25      0.40         4\n        8.0       1.00      1.00      1.00         1\n        9.0       1.00      1.00      1.00         1\n       10.0       1.00      1.00      1.00         1\n       11.0       1.00      1.00      1.00         1\n       12.0       1.00      1.00      1.00         2\n       13.0       0.83      0.62      0.71         8\n       14.0       1.00      0.33      0.50         6\n       15.0       0.92      0.52      0.67        23\n       16.0       0.75      0.33      0.46         9\n       17.0       1.00      0.42      0.59        12\n       18.0       0.79      0.96      0.87       199\n\navg / total       0.81      0.80      0.78       375\n", 
+                            "trainFscore": 0.7816573939156366, 
+                            "trainPrecision": 0.80688103229452224, 
+                            "testScore": 0.45238095238095238, 
+                            "testFscore": 0.38120839733742956, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.41      0.31      0.35        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         0\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      0.77      0.59        60\n\navg / total       0.34      0.45      0.38       126\n", 
+                            "testRecall": 0.45238095238095238, 
+                            "testPrecision": 0.34374516538259231, 
+                            "trainRecall": 0.80000000000000004
+                        }
+                    }, 
+                    "numoc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.68000000000000005, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.67      0.46      0.55        98\n        4.0       1.00      0.67      0.80         3\n        5.0       1.00      0.50      0.67         2\n        6.0       0.00      0.00      0.00         1\n        7.0       1.00      0.50      0.67         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       1.00      1.00      1.00         2\n       13.0       1.00      0.50      0.67         8\n       14.0       1.00      0.17      0.29         6\n       15.0       1.00      0.17      0.30        23\n       16.0       0.89      0.89      0.89         9\n       17.0       1.00      0.08      0.15        12\n       18.0       0.66      0.93      0.77       199\n\navg / total       0.70      0.68      0.64       375\n", 
+                            "trainFscore": 0.63637348330681665, 
+                            "trainPrecision": 0.70498810909989063, 
+                            "testScore": 0.46825396825396826, 
+                            "testFscore": 0.4085684300861806, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.50      0.37      0.43        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         0\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.33      0.50      0.40         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.49      0.75      0.60        60\n\navg / total       0.38      0.47      0.41       126\n", 
+                            "testRecall": 0.46825396825396826, 
+                            "testPrecision": 0.37965870108727251, 
+                            "trainRecall": 0.68000000000000005
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.59466666666666668, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.60      0.21      0.32        98\n        4.0       1.00      0.33      0.50         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       1.00      0.50      0.67         2\n       13.0       1.00      0.12      0.22         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.75      0.13      0.22        23\n       16.0       0.86      0.67      0.75         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.58      0.95      0.72       199\n\navg / total       0.57      0.59      0.51       375\n", 
+                            "trainFscore": 0.51055382901698687, 
+                            "trainPrecision": 0.5673223488168273, 
+                            "testScore": 0.43650793650793651, 
+                            "testFscore": 0.33468622666658676, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.33      0.11      0.17        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         0\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.47      0.85      0.60        60\n\navg / total       0.32      0.44      0.33       126\n", 
+                            "testRecall": 0.43650793650793651, 
+                            "testPrecision": 0.31539731081015487, 
+                            "trainRecall": 0.59466666666666668
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.80800000000000005, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.81      0.79      0.80        98\n        4.0       1.00      0.33      0.50         3\n        5.0       1.00      0.50      0.67         2\n        6.0       0.00      0.00      0.00         1\n        7.0       1.00      0.75      0.86         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       1.00      1.00      1.00         2\n       13.0       1.00      0.50      0.67         8\n       14.0       1.00      0.17      0.29         6\n       15.0       0.91      0.43      0.59        23\n       16.0       0.89      0.89      0.89         9\n       17.0       1.00      0.17      0.29        12\n       18.0       0.79      0.97      0.87       199\n\navg / total       0.81      0.81      0.78       375\n", 
+                            "trainFscore": 0.77859869481083066, 
+                            "trainPrecision": 0.80606834454947418, 
+                            "testScore": 0.44444444444444442, 
+                            "testFscore": 0.39486328264439202, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.38      0.37      0.38        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         0\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       1.00      0.09      0.17        11\n       16.0       0.33      0.50      0.40         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      0.68      0.57        60\n\navg / total       0.43      0.44      0.39       126\n", 
+                            "testRecall": 0.44444444444444442, 
+                            "testPrecision": 0.42849361967009025, 
+                            "trainRecall": 0.80800000000000005
+                        }
+                    }
                 }, 
-                "Dummy": {
-                    "trainScore": 0.047872340425531915, 
-                    "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.00      0.00      0.00       100\n        file_explorer       0.00      0.00      0.00        54\n           to_do_list       0.00      0.00      0.00        70\n        battery_saver       0.00      0.00      0.00        72\n           pdf_reader       0.00      0.00      0.00        18\nscientific_calculator       0.00      0.00      0.00        44\n        wifi_analyzer       0.05      1.00      0.09        18\n\n          avg / total       0.00      0.05      0.00       376\n", 
-                    "trainFscore": 0.0043741224754293125, 
-                    "trainPrecision": 0.002291760977818017, 
-                    "testScore": 0.047619047619047616, 
-                    "testFscore": 0.004329004329004329, 
-                    "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.00      0.00      0.00        28\n        file_explorer       0.00      0.00      0.00        18\n           to_do_list       0.00      0.00      0.00        32\n        battery_saver       0.00      0.00      0.00        21\n           pdf_reader       0.00      0.00      0.00         4\nscientific_calculator       0.00      0.00      0.00        17\n        wifi_analyzer       0.05      1.00      0.09         6\n\n          avg / total       0.00      0.05      0.00       126\n", 
-                    "testRecall": 0.047619047619047616, 
-                    "testPrecision": 0.0022675736961451248, 
-                    "trainRecall": 0.047872340425531915
+                "my": {
+                    "justc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.624, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.56      0.63      0.59        94\n        1.0       0.71      0.52      0.60        52\n        2.0       0.68      0.66      0.67        76\n        3.0       0.63      0.78      0.70        73\n        4.0       0.73      0.79      0.76        14\n        5.0       0.50      0.46      0.48        46\n        6.0       0.82      0.45      0.58        20\n\navg / total       0.63      0.62      0.62       375\n", 
+                            "trainFscore": 0.62109350525025786, 
+                            "trainPrecision": 0.63249747739258144, 
+                            "testScore": 0.34920634920634919, 
+                            "testFscore": 0.34818859539356439, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.19      0.18      0.18        34\n        1.0       0.41      0.45      0.43        20\n        2.0       0.48      0.40      0.43        25\n        3.0       0.43      0.60      0.50        20\n        4.0       1.00      0.62      0.77         8\n        5.0       0.07      0.07      0.07        15\n        6.0       0.25      0.25      0.25         4\n\navg / total       0.36      0.35      0.35       126\n", 
+                            "testRecall": 0.34920634920634919, 
+                            "testPrecision": 0.35903693507380141, 
+                            "trainRecall": 0.624
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.51200000000000001, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.52      0.37      0.43        94\n        1.0       0.66      0.40      0.50        52\n        2.0       0.49      0.68      0.57        76\n        3.0       0.51      0.81      0.62        73\n        4.0       0.69      0.79      0.73        14\n        5.0       0.31      0.17      0.22        46\n        6.0       0.50      0.30      0.37        20\n\navg / total       0.51      0.51      0.49       375\n", 
+                            "trainFscore": 0.49030332029752322, 
+                            "trainPrecision": 0.51045507460943618, 
+                            "testScore": 0.37301587301587302, 
+                            "testFscore": 0.34233346278164206, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.29      0.12      0.17        34\n        1.0       0.50      0.40      0.44        20\n        2.0       0.40      0.56      0.47        25\n        3.0       0.36      0.65      0.46        20\n        4.0       0.67      0.75      0.71         8\n        5.0       0.14      0.07      0.09        15\n        6.0       0.11      0.25      0.15         4\n\navg / total       0.36      0.37      0.34       126\n", 
+                            "testRecall": 0.37301587301587302, 
+                            "testPrecision": 0.35600907029478462, 
+                            "trainRecall": 0.51200000000000001
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.78666666666666663, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.70      0.84      0.76        94\n        1.0       0.98      0.77      0.86        52\n        2.0       0.85      0.80      0.82        76\n        3.0       0.75      0.84      0.79        73\n        4.0       0.75      0.86      0.80        14\n        5.0       0.75      0.65      0.70        46\n        6.0       1.00      0.60      0.75        20\n\navg / total       0.80      0.79      0.79       375\n", 
+                            "trainFscore": 0.78734084213829802, 
+                            "trainPrecision": 0.80216725068594497, 
+                            "testScore": 0.34920634920634919, 
+                            "testFscore": 0.35139029313938369, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.29      0.29      0.29        34\n        1.0       0.43      0.50      0.47        20\n        2.0       0.41      0.28      0.33        25\n        3.0       0.48      0.50      0.49        20\n        4.0       0.71      0.62      0.67         8\n        5.0       0.06      0.07      0.06        15\n        6.0       0.14      0.25      0.18         4\n\navg / total       0.36      0.35      0.35       126\n", 
+                            "testRecall": 0.34920634920634919, 
+                            "testPrecision": 0.36072285194270942, 
+                            "trainRecall": 0.78666666666666663
+                        }
+                    }, 
+                    "numoc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.72533333333333339, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.62      0.68      0.65        94\n        1.0       0.89      0.81      0.85        52\n        2.0       0.66      0.80      0.73        76\n        3.0       0.79      0.85      0.82        73\n        4.0       1.00      0.64      0.78        14\n        5.0       0.71      0.54      0.62        46\n        6.0       0.82      0.45      0.58        20\n\navg / total       0.74      0.73      0.72       375\n", 
+                            "trainFscore": 0.72346489867879915, 
+                            "trainPrecision": 0.73736953784245485, 
+                            "testScore": 0.41269841269841268, 
+                            "testFscore": 0.41139398903374058, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.40      0.41      0.41        34\n        1.0       0.69      0.55      0.61        20\n        2.0       0.41      0.48      0.44        25\n        3.0       0.35      0.45      0.39        20\n        4.0       0.67      0.50      0.57         8\n        5.0       0.18      0.13      0.15        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.42      0.41      0.41       126\n", 
+                            "testRecall": 0.41269841269841268, 
+                            "testPrecision": 0.41808341722134823, 
+                            "trainRecall": 0.72533333333333339
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.6186666666666667, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.63      0.49      0.55        94\n        1.0       0.67      0.71      0.69        52\n        2.0       0.58      0.82      0.68        76\n        3.0       0.63      0.73      0.68        73\n        4.0       0.69      0.64      0.67        14\n        5.0       0.58      0.41      0.48        46\n        6.0       0.60      0.30      0.40        20\n\navg / total       0.62      0.62      0.61       375\n", 
+                            "trainFscore": 0.60797561476094208, 
+                            "trainPrecision": 0.61997002148905878, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.46656920497096405, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.65      0.38      0.48        34\n        1.0       0.48      0.65      0.55        20\n        2.0       0.42      0.52      0.46        25\n        3.0       0.46      0.65      0.54        20\n        4.0       0.62      0.62      0.62         8\n        5.0       0.38      0.20      0.26        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.49      0.48      0.47       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.49304932446893529, 
+                            "trainRecall": 0.6186666666666667
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.85599999999999998, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.78      0.84      0.81        94\n        1.0       0.98      0.85      0.91        52\n        2.0       0.75      0.88      0.81        76\n        3.0       0.91      0.95      0.93        73\n        4.0       1.00      0.71      0.83        14\n        5.0       0.95      0.78      0.86        46\n        6.0       1.00      0.80      0.89        20\n\navg / total       0.87      0.86      0.86       375\n", 
+                            "trainFscore": 0.85745153745419445, 
+                            "trainPrecision": 0.86783451526307753, 
+                            "testScore": 0.48412698412698413, 
+                            "testFscore": 0.4713658795702883, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.46      0.53      0.49        34\n        1.0       0.67      0.50      0.57        20\n        2.0       0.39      0.44      0.42        25\n        3.0       0.47      0.70      0.56        20\n        4.0       0.71      0.62      0.67         8\n        5.0       0.50      0.20      0.29        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.49      0.48      0.47       126\n", 
+                            "testRecall": 0.48412698412698413, 
+                            "testPrecision": 0.48725943368800517, 
+                            "trainRecall": 0.85599999999999998
+                        }
+                    }
+                }
+            }, 
+            "3gram534": {
+                "google": {
+                    "justc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }
+                    }, 
+                    "numoc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.53066666666666662, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         3\n        1.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        98\n        4.0       0.00      0.00      0.00         3\n        5.0       0.00      0.00      0.00         2\n        6.0       0.00      0.00      0.00         1\n        7.0       0.00      0.00      0.00         4\n        8.0       0.00      0.00      0.00         1\n        9.0       0.00      0.00      0.00         1\n       10.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       12.0       0.00      0.00      0.00         2\n       13.0       0.00      0.00      0.00         8\n       14.0       0.00      0.00      0.00         6\n       15.0       0.00      0.00      0.00        23\n       16.0       0.00      0.00      0.00         9\n       17.0       0.00      0.00      0.00        12\n       18.0       0.53      1.00      0.69       199\n\navg / total       0.28      0.53      0.37       375\n", 
+                            "trainFscore": 0.36795354239256678, 
+                            "trainPrecision": 0.28160711111111109, 
+                            "testScore": 0.47619047619047616, 
+                            "testFscore": 0.30721966205837176, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00         1\n        2.0       0.00      0.00      0.00        35\n        3.0       0.00      0.00      0.00         1\n        4.0       0.00      0.00      0.00         1\n        5.0       0.00      0.00      0.00         2\n        7.0       0.00      0.00      0.00         2\n        8.0       0.00      0.00      0.00         2\n        9.0       0.00      0.00      0.00         1\n       11.0       0.00      0.00      0.00         1\n       13.0       0.00      0.00      0.00         4\n       14.0       0.00      0.00      0.00         2\n       15.0       0.00      0.00      0.00        11\n       16.0       0.00      0.00      0.00         2\n       17.0       0.00      0.00      0.00         1\n       18.0       0.48      1.00      0.65        60\n\navg / total       0.23      0.48      0.31       126\n", 
+                            "testRecall": 0.47619047619047616, 
+                            "testPrecision": 0.22675736961451246, 
+                            "trainRecall": 0.53066666666666662
+                        }
+                    }
                 }, 
-                "Linear SVM": {
-                    "trainScore": 0.57180851063829785, 
-                    "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.53      0.63      0.58       100\n        file_explorer       0.63      0.76      0.69        54\n           to_do_list       0.57      0.71      0.63        70\n        battery_saver       0.59      0.54      0.57        72\n           pdf_reader       0.56      0.83      0.67        18\nscientific_calculator       1.00      0.11      0.20        44\n        wifi_analyzer       0.33      0.11      0.17        18\n\n          avg / total       0.61      0.57      0.54       376\n", 
-                    "trainFscore": 0.54181747895733534, 
-                    "trainPrecision": 0.60989600199550142, 
-                    "testScore": 0.3968253968253968, 
-                    "testFscore": 0.36246426106674556, 
-                    "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.34      0.39      0.37        28\n        file_explorer       0.54      0.72      0.62        18\n           to_do_list       0.46      0.53      0.49        32\n        battery_saver       0.37      0.33      0.35        21\n           pdf_reader       0.20      0.50      0.29         4\nscientific_calculator       0.00      0.00      0.00        17\n        wifi_analyzer       0.00      0.00      0.00         6\n\n          avg / total       0.34      0.40      0.36       126\n", 
-                    "testRecall": 0.3968253968253968, 
-                    "testPrecision": 0.33821067307909408, 
-                    "trainRecall": 0.57180851063829785
-                }, 
-                "Neural Net": {
-                    "trainScore": 0.46542553191489361, 
-                    "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.40      0.67      0.50       100\n        file_explorer       0.87      0.50      0.64        54\n           to_do_list       0.47      0.39      0.43        70\n        battery_saver       0.40      0.56      0.47        72\n           pdf_reader       0.67      0.78      0.72        18\nscientific_calculator       0.00      0.00      0.00        44\n        wifi_analyzer       0.00      0.00      0.00        18\n\n          avg / total       0.43      0.47      0.43       376\n", 
-                    "trainFscore": 0.42730951280373247, 
-                    "trainPrecision": 0.42848381191595786, 
-                    "testScore": 0.35714285714285715, 
-                    "testFscore": 0.33717136722062824, 
-                    "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.25      0.57      0.35        28\n        file_explorer       0.80      0.44      0.57        18\n           to_do_list       0.58      0.47      0.52        32\n        battery_saver       0.24      0.24      0.24        21\n           pdf_reader       0.17      0.25      0.20         4\nscientific_calculator       0.00      0.00      0.00        17\n        wifi_analyzer       0.00      0.00      0.00         6\n\n          avg / total       0.36      0.36      0.34       126\n", 
-                    "testRecall": 0.35714285714285715, 
-                    "testPrecision": 0.36221679555012887, 
-                    "trainRecall": 0.46542553191489361
-                }, 
-                "RBF SVM": {
-                    "trainScore": 0.68085106382978722, 
-                    "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.62      0.77      0.68       100\n        file_explorer       0.88      0.78      0.82        54\n           to_do_list       0.64      0.70      0.67        70\n        battery_saver       0.64      0.74      0.68        72\n           pdf_reader       0.78      0.78      0.78        18\nscientific_calculator       0.81      0.39      0.52        44\n        wifi_analyzer       0.80      0.22      0.35        18\n\n          avg / total       0.70      0.68      0.67       376\n", 
-                    "trainFscore": 0.67131994124367811, 
-                    "trainPrecision": 0.7020652398427496, 
-                    "testScore": 0.44444444444444442, 
-                    "testFscore": 0.4379933847629599, 
-                    "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.30      0.43      0.35        28\n        file_explorer       0.69      0.61      0.65        18\n           to_do_list       0.49      0.59      0.54        32\n        battery_saver       0.47      0.38      0.42        21\n           pdf_reader       0.20      0.25      0.22         4\nscientific_calculator       0.62      0.29      0.40        17\n        wifi_analyzer       0.00      0.00      0.00         6\n\n          avg / total       0.46      0.44      0.44       126\n", 
-                    "testRecall": 0.44444444444444442, 
-                    "testPrecision": 0.45771505183269889, 
-                    "trainRecall": 0.68085106382978722
+                "my": {
+                    "justc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }
+                    }, 
+                    "numoc": {
+                        "Logistic Regression": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }, 
+                        "Dummy": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Linear SVM": {
+                            "trainScore": 0.053333333333333337, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.05      1.00      0.10        20\n\navg / total       0.00      0.05      0.01       375\n", 
+                            "trainFscore": 0.0054008438818565407, 
+                            "trainPrecision": 0.0028444444444444446, 
+                            "testScore": 0.031746031746031744, 
+                            "testFscore": 0.0019536019536019536, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.00      0.00      0.00        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.03      1.00      0.06         4\n\navg / total       0.00      0.03      0.00       126\n", 
+                            "testRecall": 0.031746031746031744, 
+                            "testPrecision": 0.0010078105316200553, 
+                            "trainRecall": 0.053333333333333337
+                        }, 
+                        "Neural Net": {
+                            "trainScore": 0.25066666666666665, 
+                            "trainReport": "             precision    recall  f1-score   support\n\n        0.0       0.25      1.00      0.40        94\n        1.0       0.00      0.00      0.00        52\n        2.0       0.00      0.00      0.00        76\n        3.0       0.00      0.00      0.00        73\n        4.0       0.00      0.00      0.00        14\n        5.0       0.00      0.00      0.00        46\n        6.0       0.00      0.00      0.00        20\n\navg / total       0.06      0.25      0.10       375\n", 
+                            "trainFscore": 0.10048045486851456, 
+                            "trainPrecision": 0.06283377777777778, 
+                            "testScore": 0.26984126984126983, 
+                            "testFscore": 0.11468253968253968, 
+                            "testReport": "             precision    recall  f1-score   support\n\n        0.0       0.27      1.00      0.42        34\n        1.0       0.00      0.00      0.00        20\n        2.0       0.00      0.00      0.00        25\n        3.0       0.00      0.00      0.00        20\n        4.0       0.00      0.00      0.00         8\n        5.0       0.00      0.00      0.00        15\n        6.0       0.00      0.00      0.00         4\n\navg / total       0.07      0.27      0.11       126\n", 
+                            "testRecall": 0.26984126984126983, 
+                            "testPrecision": 0.072814310909548999, 
+                            "trainRecall": 0.25066666666666665
+                        }
+                    }
                 }
             }
         }

@@ -279,7 +279,7 @@ def doClassify(jsonDict, label, feature):
 	labels=getAppLabelList(termDocMatrix, label)
 	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
 	resultDict={}
-#	X = StandardScaler().fit_transform(X)
+	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=testRatio, random_state=42)
 	# iterate over classifiers
@@ -366,14 +366,15 @@ def doTFIDFAllGram(corpus, label):
 	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word'))
 
 def doTFIDF(corpus, label, vectorizer):
+	X = StandardScaler().fit_transform(corpus["corpus"])
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
+			train_test_split(X, corpus["my"], test_size=testRatio, random_state=42)
 	else:
 		labelList = list(set(corpus["google"]))
 		X_train, X_test, y_train, y_test = \
-			train_test_split(corpus["corpus"], corpus["google"], test_size=testRatio, random_state=42)
+			train_test_split(X, corpus["google"], test_size=testRatio, random_state=42)
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
@@ -437,6 +438,7 @@ def main(argv):
 	output["NGramResults"] = gramDict
 
 	tfidfDict={}
+	'''
 	corpus = json.loads(open("corpus.json","r").read())
 
 	tfidfDict["my-all-grams"] = doTFIDFAllGram(corpus, "my")
@@ -458,7 +460,7 @@ def main(argv):
 	print "done with tfidf my labels tri grams"
 	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
 	print "done with tfidf google labels tri grams"
-
+	'''
 	output["TFIDFResults"] = tfidfDict
 
 	result={}

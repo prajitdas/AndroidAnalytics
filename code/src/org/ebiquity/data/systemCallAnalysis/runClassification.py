@@ -275,6 +275,7 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 	return resultDict
 
 def doClassify(jsonDict, label, feature):
+	return {}
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
 	labels=getAppLabelList(termDocMatrix, label)
 	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)

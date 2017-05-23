@@ -356,9 +356,6 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 
 def doTFIDFUnigram(corpus, label):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word')
-	svd2 = TruncatedSVD(n_components=2000)
-	svd4 = TruncatedSVD(n_components=4000)
-	svd8 = TruncatedSVD(n_components=8000)
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
@@ -370,7 +367,17 @@ def doTFIDFUnigram(corpus, label):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
+	smapleSize,featureSize=X_train.shape
+
+	size2k=2000 if featureSize > 2000 else featureSize
+	size4k=2000 if featureSize > 4000 else featureSize
+	size8k=2000 if featureSize > 8000 else featureSize
+
 	tfidfResults = {}
+
+	svd2 = TruncatedSVD(n_components=size2k)
+	svd4 = TruncatedSVD(n_components=size4k)
+	svd8 = TruncatedSVD(n_components=size8k)
 
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
@@ -389,9 +396,6 @@ def doTFIDFUnigram(corpus, label):
 
 def doTFIDFBiGram(corpus, label):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
-	svd2 = TruncatedSVD(n_components=2000)
-	svd4 = TruncatedSVD(n_components=4000)
-	svd8 = TruncatedSVD(n_components=8000)
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
@@ -403,7 +407,17 @@ def doTFIDFBiGram(corpus, label):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
+	smapleSize,featureSize=X_train.shape
+
+	size2k=2000 if featureSize > 2000 else featureSize
+	size4k=2000 if featureSize > 4000 else featureSize
+	size8k=2000 if featureSize > 8000 else featureSize
+
 	tfidfResults = {}
+
+	svd2 = TruncatedSVD(n_components=size2k)
+	svd4 = TruncatedSVD(n_components=size4k)
+	svd8 = TruncatedSVD(n_components=size8k)
 
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
@@ -418,13 +432,9 @@ def doTFIDFBiGram(corpus, label):
 	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	return tfidfResults
-
 
 def doTFIDFTriGram(corpus, label):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word')
-	svd2 = TruncatedSVD(n_components=2000)
-	svd4 = TruncatedSVD(n_components=4000)
-	svd8 = TruncatedSVD(n_components=8000)
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
@@ -436,7 +446,17 @@ def doTFIDFTriGram(corpus, label):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
+	smapleSize,featureSize=X_train.shape
+
+	size2k=2000 if featureSize > 2000 else featureSize
+	size4k=2000 if featureSize > 4000 else featureSize
+	size8k=2000 if featureSize > 8000 else featureSize
+
 	tfidfResults = {}
+
+	svd2 = TruncatedSVD(n_components=size2k)
+	svd4 = TruncatedSVD(n_components=size4k)
+	svd8 = TruncatedSVD(n_components=size8k)
 
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
@@ -452,12 +472,8 @@ def doTFIDFTriGram(corpus, label):
 
 	return tfidfResults
 
-
 def doTFIDF(corpus, label):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
-	svd2 = TruncatedSVD(n_components=2000)
-	svd4 = TruncatedSVD(n_components=4000)
-	svd8 = TruncatedSVD(n_components=8000)
 	if label == 'my':
 		labelList = list(set(corpus["my"]))
 		X_train, X_test, y_train, y_test = \
@@ -469,7 +485,17 @@ def doTFIDF(corpus, label):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
+	smapleSize,featureSize=X_train.shape
+
+	size2k=2000 if featureSize > 2000 else featureSize
+	size4k=2000 if featureSize > 4000 else featureSize
+	size8k=2000 if featureSize > 8000 else featureSize
+
 	tfidfResults = {}
+
+	svd2 = TruncatedSVD(n_components=size2k)
+	svd4 = TruncatedSVD(n_components=size4k)
+	svd8 = TruncatedSVD(n_components=size8k)
 
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)

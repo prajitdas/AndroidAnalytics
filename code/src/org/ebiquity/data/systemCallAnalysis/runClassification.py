@@ -377,7 +377,7 @@ def doTFIDF(corpus, label, vectorizer):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
-	sampleSize,featureSize=X_train.shape
+	featureSize,sampleSize=X_train.shape
 	print X_train.shape
 	return {}
 

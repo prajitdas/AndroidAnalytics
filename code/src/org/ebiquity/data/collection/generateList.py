@@ -1,7 +1,7 @@
 import json
 
 data={}
-data['appNames'] = ['com.scientific.calc']
+data['appNames'] = ['air.Earlycouintingskills']
 
 with open('applist.json', 'w') as outfile:
     json.dump(data, outfile)

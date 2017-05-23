@@ -379,12 +379,11 @@ def doTFIDF(corpus, label, vectorizer):
 	X_test=vectorizer.transform(X_test)
 
 	sampleSize,featureSize=X_train.shape
-	print X_train.shape, featureSize, sampleSize
-	return {}
-
 	size2k=2000 if featureSize > 2000 else featureSize
 	size4k=2000 if featureSize > 4000 else featureSize
 	size8k=2000 if featureSize > 8000 else featureSize
+	print X_train.shape, featureSize, sampleSize, size2k, size4k, size8k
+	return {}
 
 	tfidfResults = {}
 

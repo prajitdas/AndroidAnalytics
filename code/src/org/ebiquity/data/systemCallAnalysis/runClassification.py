@@ -285,7 +285,7 @@ def doClassify(jsonDict, label, feature):
 	X_test = StandardScaler().fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
-		print name
+		print feature, name
 		if name != "Logistic Regression":
 			clf=OneVsRestClassifier(aclf)
 		else:
@@ -319,13 +319,13 @@ def doClassify(jsonDict, label, feature):
 			continue
 	return resultDict
 
-def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
+def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_components):
 	resultDict={}
 	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
 	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
-		print name
+		print n_components, label, name
 		if name != "Logistic Regression":
 			clf=OneVsRestClassifier(aclf)
 		else:
@@ -399,27 +399,27 @@ def doTFIDF(corpus, label, vectorizer):
 	svd1 = TruncatedSVD(n_components=10)
 	X_train=svd1.fit_transform(X_train)
 	X_test=svd1.transform(X_test)
-	tfidfResults["10components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["10components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
 	
 	svd2 = TruncatedSVD(n_components=100)
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
-	tfidfResults["100components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["100components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
 
 	svd3 = TruncatedSVD(n_components=200)
 	X_train=svd3.fit_transform(X_train)
 	X_test=svd3.transform(X_test)
-	tfidfResults["200components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["200components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
 
 	svd4 = TruncatedSVD(n_components=300)
 	X_train=svd4.fit_transform(X_train)
 	X_test=svd4.transform(X_test)
-	tfidfResults["300components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["300components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
 
 	svd4 = TruncatedSVD(n_components=400)
 	X_train=svd4.fit_transform(X_train)
 	X_test=svd4.transform(X_test)
-	tfidfResults["400components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["400components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
 
 	return tfidfResults
 

@@ -5,6 +5,17 @@ A wrapper code for the individual APIs do not exist right now. Such a wrapper wo
 
 The following steps are in sequence and have dependencies on previous steps.
 
+## Step zero: Setup env
+* On Unix like systems:
+```
+	chmod a+x setup
+	./setup
+```
+* On Windows:
+```
+	pip install -r requirements.txt
+```
+
 ## Step one: Config file changes
 * If the dbconfig.ini file does not exist in your src folder create it with a format as shown below:
 ```	

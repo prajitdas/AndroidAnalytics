@@ -393,9 +393,9 @@ def doTFIDF(corpus, label, vectorizer):
 		size4k=2000
 		size8k=2000
 	else:
-		size2k=featureSize
-		size4k=featureSize
-		size8k=featureSize
+		size2k=featureSize-1
+		size4k=featureSize-1
+		size8k=featureSize-1
 	print "shape:", X_train.shape
 	print "features:", featureSize
 	print "samples:", sampleSize

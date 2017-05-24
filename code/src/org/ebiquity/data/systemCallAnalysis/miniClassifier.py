@@ -46,7 +46,7 @@ X_train, X_test, y_train, y_test = \
 	train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
 print len(X_train), len(X_test)
 
-vectorizer=TfidfVectorizer(min_df=1,ngram_range=(1,15),analyzer='word')
+vectorizer=TfidfVectorizer(min_df=1,ngram_range=(1,4),analyzer='word')
 X_train=vectorizer.fit_transform(X_train)
 X_test=vectorizer.transform(X_test)
 print X_train.shape, X_test.shape
@@ -68,19 +68,21 @@ for name, aclf in zip(names, classifiers):
 	else:
 		clf=aclf
 	clf.fit(X_train, y_train)
-	score=clf.score(X_test, y_test)
 	y_pred=clf.predict(X_test)
-	score_=clf.score(X_train, y_train)
 	y_pred_=clf.predict(X_train)
 	prf1sDict={}
+	score, precision, recall, fscore, support = 0
+	score_, precision_, recall_, fscore_, support_ = 0
 	try:
 		precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted', labels=labels)
+		score=clf.score(X_test, y_test)
 		prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
 		prf1sDict["testScore"] = score
 		prf1sDict["testPrecision"] = precision
 		prf1sDict["testRecall"] = recall
 		prf1sDict["testFscore"] = fscore
 		precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
+		score_=clf.score(X_train, y_train)
 		prf1sDict["trainReport"] = classification_report(y_train, y_pred_, labels=labels)
 		prf1sDict["trainScore"] = score_
 		prf1sDict["trainPrecision"] = precision_

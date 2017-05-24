@@ -25,42 +25,42 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
-#from sklearn.linear_model import LogisticRegression
-#from sklearn.neighbors import KNeighborsClassifier
-#from sklearn.tree import DecisionTreeClassifier
-#from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-#from sklearn.naive_bayes import GaussianNB
-#from sklearn.gaussian_process import GaussianProcessClassifier
-#from sklearn.gaussian_process.kernels import RBF
-#from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.gaussian_process import GaussianProcessClassifier
+from sklearn.gaussian_process.kernels import RBF
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 
 google=0
 my=1
 syscalls=2
 testRatio=0.25
 
-names=["Linear SVM","Neural Net","Dummy"]
-classifiers = [
-	SVC(kernel="linear", C=0.025),
-	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
-	DummyClassifier(strategy='most_frequent')]
+# names=["Linear SVM","Neural Net","Dummy"]
+# classifiers = [
+# 	SVC(kernel="linear", C=0.025),
+# 	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
+# 	DummyClassifier(strategy='most_frequent')]
 
-#names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
-#		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
-#		 "Naive Bayes", "QDA", "Logistic Regression", "Dummy"]
-#classifiers = [
-#	KNeighborsClassifier(3),
-#	SVC(kernel="linear", C=0.025),
-#	SVC(gamma=2, C=1),
-#	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
-#	DecisionTreeClassifier(max_depth=5),
-#	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-#	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
-#	AdaBoostClassifier(),
-#	GaussianNB(),
-#	QuadraticDiscriminantAnalysis(),
-#	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
-#	DummyClassifier(strategy='most_frequent')]
+names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
+		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
+		 "Naive Bayes", "QDA", "Logistic Regression", "Dummy"]
+classifiers = [
+	KNeighborsClassifier(3),
+	SVC(kernel="linear", C=0.025),
+	SVC(gamma=2, C=1),
+	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
+	DecisionTreeClassifier(max_depth=5),
+	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+	MLPClassifier(alpha=1),
+	AdaBoostClassifier(),
+	GaussianNB(),
+	QuadraticDiscriminantAnalysis(),
+	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
+	DummyClassifier(strategy='most_frequent')]
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)
@@ -284,7 +284,7 @@ def doClassify(jsonDict, label, feature):
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=testRatio, random_state=42)
 	X_train = StandardScaler().fit_transform(X_train)
-	X_test = StandardScaler().transform(X_test)
+	X_test = StandardScaler().fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
 		if name != "Logistic Regression":
@@ -292,19 +292,23 @@ def doClassify(jsonDict, label, feature):
 		else:
 			clf=aclf
 		clf.fit(X_train, y_train)
-		score=clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
-		score_=clf.score(X_train, y_train)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
+		precision = 0
+		recall = 0
+		fscore = 0
+		support = 0
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted')
+			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred)
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
 			prf1sDict["testFscore"] = fscore
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted')
+			score_=clf.score(X_train, y_train)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
@@ -319,7 +323,7 @@ def doClassify(jsonDict, label, feature):
 def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 	resultDict={}
 	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
-	X_test=StandardScaler(with_mean=False).transform(X_test)
+	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
 		if name != "Logistic Regression":
@@ -327,19 +331,23 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 		else:
 			clf=aclf
 		clf.fit(X_train, y_train)
-		score=clf.score(X_test, y_test)
 		y_pred=clf.predict(X_test)
-		score_=clf.score(X_train, y_train)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
+		precision = 0
+		recall = 0
+		fscore = 0
+		support = 0
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted', labels=labels)
+			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
 			prf1sDict["testFscore"] = fscore
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
+			score_=clf.score(X_train, y_train)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_, labels=labels)
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
@@ -367,8 +375,11 @@ def doTFIDFBiGram(corpus, label):
 def doTFIDFTriGram(corpus, label):
 	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word'))
 
+def doTFIDFQuadGram(corpus, label):
+	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(4,4),analyzer='word'))
+
 def doTFIDFAllGram(corpus, label):
-	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word'))
+	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,4),analyzer='word'))
 
 def doTFIDF(corpus, label, vectorizer):
 	if label == 'my':
@@ -383,44 +394,32 @@ def doTFIDF(corpus, label, vectorizer):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
-	# return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-
-	sampleSize,featureSize=X_train.shape
-	if featureSize >= 8000:
-		size2k=2000
-		size4k=4000
-		size8k=8000
-	elif featureSize < 8000 and featureSize >= 4000:
-		size2k=2000
-		size4k=4000
-		size8k=4000
-	elif featureSize < 4000 and featureSize >= 2000:
-		size2k=2000
-		size4k=2000
-		size8k=2000
-	else:
-		size2k=featureSize-1
-		size4k=featureSize-1
-		size8k=featureSize-1
-	print "train shape:", X_train.shape, "features:", featureSize, "samples:", sampleSize, "size2k:", size2k, "size4k:", size4k, "size8k:", size8k
-	print "test shape:", X_test.shape
-
 	tfidfResults = {}
 
-	svd2 = TruncatedSVD(n_components=size2k)
+	svd1 = TruncatedSVD(n_components=10)
+	X_train=svd1.fit_transform(X_train)
+	X_test=svd1.transform(X_test)
+	tfidfResults["10components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	
+	svd2 = TruncatedSVD(n_components=100)
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
-	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-	
-	svd4 = TruncatedSVD(n_components=size4k)
+	tfidfResults["100components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+
+	svd3 = TruncatedSVD(n_components=200)
+	X_train=svd3.fit_transform(X_train)
+	X_test=svd3.transform(X_test)
+	tfidfResults["200components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+
+	svd4 = TruncatedSVD(n_components=300)
 	X_train=svd4.fit_transform(X_train)
 	X_test=svd4.transform(X_test)
-	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["300components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
-	svd8 = TruncatedSVD(n_components=size8k)
-	X_train=svd8.fit_transform(X_train)
-	X_test=svd8.transform(X_test)
-	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	svd4 = TruncatedSVD(n_components=400)
+	X_train=svd4.fit_transform(X_train)
+	X_test=svd4.transform(X_test)
+	tfidfResults["400components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	return tfidfResults
 
@@ -461,14 +460,16 @@ def main(argv):
 	corpus = json.loads(open("corpus.json","r").read())
 
 	for label in ['my','google']:
-		tfidfDict[label+"-all-grams"] = doTFIDFAllGram(corpus, label)
-		print "done with tfidf "+label+" labels all grams"
 		tfidfDict[label+"-uni-grams"] = doTFIDFUnigram(corpus, label)
 		print "done with tfidf "+label+" labels uni grams"
 		tfidfDict[label+"-bi-grams"] = doTFIDFBiGram(corpus, label)
 		print "done with tfidf "+label+" labels bi grams"
 		tfidfDict[label+"-tri-grams"] = doTFIDFTriGram(corpus, label)
 		print "done with tfidf "+label+" labels tri grams"
+		tfidfDict[label+"-quad-grams"] = doTFIDFQuadGram(corpus, label)
+		print "done with tfidf "+label+" labels quad grams"
+		tfidfDict[label+"-all-grams"] = doTFIDFAllGram(corpus, label)
+		print "done with tfidf "+label+" labels all grams"
 
 	output["TFIDFResults"] = tfidfDict
 

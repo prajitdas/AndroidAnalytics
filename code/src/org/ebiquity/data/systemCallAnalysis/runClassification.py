@@ -281,9 +281,10 @@ def doClassify(jsonDict, label, feature):
 	labels=getAppLabelList(termDocMatrix, label)
 	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
 	resultDict={}
-	X = StandardScaler().fit_transform(X)
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, test_size=testRatio, random_state=42)
+	X_train = StandardScaler().fit_transform(X_train)
+	X_test = StandardScaler().transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
 		if name != "Logistic Regression":
@@ -317,6 +318,8 @@ def doClassify(jsonDict, label, feature):
 
 def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 	resultDict={}
+	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
+	X_test=StandardScaler(with_mean=False).transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
 		if name != "Logistic Regression":
@@ -380,8 +383,6 @@ def doTFIDF(corpus, label, vectorizer):
 	X_train=vectorizer.fit_transform(X_train)
 	X_test=vectorizer.transform(X_test)
 
-	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
-	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
 	# return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	sampleSize,featureSize=X_train.shape
@@ -401,7 +402,8 @@ def doTFIDF(corpus, label, vectorizer):
 		size2k=featureSize-1
 		size4k=featureSize-1
 		size8k=featureSize-1
-	print "shape:", X_train.shape, "features:", featureSize, "samples:", sampleSize, "size2k:", size2k, "size4k:", size4k, "size8k:", size8k
+	print "train shape:", X_train.shape, "features:", featureSize, "samples:", sampleSize, "size2k:", size2k, "size4k:", size4k, "size8k:", size8k
+	print "test shape:", X_test.shape
 
 	tfidfResults = {}
 

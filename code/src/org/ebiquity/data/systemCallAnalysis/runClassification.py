@@ -277,7 +277,6 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 	return resultDict
 
 def doClassify(jsonDict, label, feature):
-	return {}
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
 	labels=getAppLabelList(termDocMatrix, label)
 	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
@@ -406,27 +405,27 @@ def doTFIDF(corpus, label, vectorizer):
 
 	tfidfResults = {}
 
-#	svd2 = TruncatedSVD(n_components=size2k)
-#	X_train=svd2.fit_transform(X_train)
-#	X_test=svd2.transform(X_test)
+	svd2 = TruncatedSVD(n_components=size2k)
+	X_train=svd2.fit_transform(X_train)
+	X_test=svd2.transform(X_test)
 	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
 	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
-#	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
-#	svd4 = TruncatedSVD(n_components=size4k)
-#	X_train=svd4.fit_transform(X_train)
-#	X_test=svd4.transform(X_test)
-#	X_train=StandardScaler().fit_transform(X_train)
-#	X_test=StandardScaler().fit_transform(X_test)
-#	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
-#
-#	svd8 = TruncatedSVD(n_components=size8k)
-#	X_train=svd8.fit_transform(X_train)
-#	X_test=svd8.transform(X_test)
-#	X_train=StandardScaler().fit_transform(X_train)
-#	X_test=StandardScaler().fit_transform(X_test)
-#	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	svd4 = TruncatedSVD(n_components=size4k)
+	X_train=svd4.fit_transform(X_train)
+	X_test=svd4.transform(X_test)
+	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
+	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
+	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+
+	svd8 = TruncatedSVD(n_components=size8k)
+	X_train=svd8.fit_transform(X_train)
+	X_test=svd8.transform(X_test)
+	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
+	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
+	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
 	return tfidfResults
 
@@ -475,14 +474,14 @@ def main(argv):
 	tfidfDict["my-tri-grams"] = doTFIDFTriGram(corpus, "my")
 	print "done with tfidf my labels tri grams"
 
-#	tfidfDict["google-all-grams"] = doTFIDFAllGram(corpus, "google")
-#	print "done with tfidf google labels all grams"
-#	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
-#	print "done with tfidf google labels uni grams"
-#	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
-#	print "done with tfidf google labels bi grams"
-#	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
-#	print "done with tfidf google labels tri grams"
+	tfidfDict["google-all-grams"] = doTFIDFAllGram(corpus, "google")
+	print "done with tfidf google labels all grams"
+	tfidfDict["google-uni-grams"] = doTFIDFUnigram(corpus, "google")
+	print "done with tfidf google labels uni grams"
+	tfidfDict["google-bi-grams"] = doTFIDFBiGram(corpus, "google")
+	print "done with tfidf google labels bi grams"
+	tfidfDict["google-tri-grams"] = doTFIDFTriGram(corpus, "google")
+	print "done with tfidf google labels tri grams"
 
 	output["TFIDFResults"] = tfidfDict
 

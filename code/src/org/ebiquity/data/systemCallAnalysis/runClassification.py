@@ -370,19 +370,19 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 #	return ultimateResults
 
 def doTFIDFUnigram(corpus, label):
-	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word'))
+	return doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,1),analyzer='word'))
 
 def doTFIDFBiGram(corpus, label):
-	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word'))
+	return doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word'))
 
 def doTFIDFTriGram(corpus, label):
-	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word'))
+	return doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(3,3),analyzer='word'))
 
 def doTFIDFQuadGram(corpus, label):
-	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(4,4),analyzer='word'))
+	return doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(4,4),analyzer='word'))
 
 def doTFIDFAllGram(corpus, label):
-	doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,4),analyzer='word'))
+	return doTFIDF(corpus, label, TfidfVectorizer(min_df=1,ngram_range=(1,4),analyzer='word'))
 
 def doTFIDF(corpus, label, vectorizer):
 	if label == 'my':

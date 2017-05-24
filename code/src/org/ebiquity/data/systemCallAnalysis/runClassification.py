@@ -24,7 +24,7 @@ from sklearn.metrics import classification_report
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
-#from sklearn.decomposition import TruncatedSVD
+from sklearn.decomposition import TruncatedSVD
 #from sklearn.linear_model import LogisticRegression
 #from sklearn.neighbors import KNeighborsClassifier
 #from sklearn.tree import DecisionTreeClassifier

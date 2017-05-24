@@ -8,6 +8,14 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.gaussian_process import GaussianProcessClassifier
+from sklearn.gaussian_process.kernels import RBF
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 import json
 
 google=0
@@ -15,10 +23,21 @@ my=1
 syscalls=2
 testRatio=0.25
 
-names=["Linear SVM","Neural Net","Dummy"]
+names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
+		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
+		 "Naive Bayes", "QDA", "Logistic Regression", "Dummy"]
 classifiers = [
+	KNeighborsClassifier(3),
 	SVC(kernel="linear", C=0.025),
+	SVC(gamma=2, C=1),
+	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
+	DecisionTreeClassifier(max_depth=5),
+	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
 	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
+	AdaBoostClassifier(),
+	GaussianNB(),
+	QuadraticDiscriminantAnalysis(),
+	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
 	DummyClassifier(strategy='most_frequent')]
 
 corpus = json.loads(open("corpus.json","r").read())
@@ -27,7 +46,7 @@ X_train, X_test, y_train, y_test = \
 	train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
 print len(X_train), len(X_test)
 
-vectorizer=TfidfVectorizer(min_df=1,ngram_range=(1,3),analyzer='word')
+vectorizer=TfidfVectorizer(min_df=1,ngram_range=(1,15),analyzer='word')
 X_train=vectorizer.fit_transform(X_train)
 X_test=vectorizer.transform(X_test)
 print X_train.shape, X_test.shape

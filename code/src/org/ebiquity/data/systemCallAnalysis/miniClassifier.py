@@ -71,8 +71,8 @@ for name, aclf in zip(names, classifiers):
 	y_pred=clf.predict(X_test)
 	y_pred_=clf.predict(X_train)
 	prf1sDict={}
-	score, precision, recall, fscore, support = 0
-	score_, precision_, recall_, fscore_, support_ = 0
+	score=precision=recall=fscore=support=0
+	score_=precision_=recall_=fscore_=support_=0
 	try:
 		precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted', labels=labels)
 		score=clf.score(X_test, y_test)

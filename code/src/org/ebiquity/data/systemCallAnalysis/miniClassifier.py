@@ -32,15 +32,16 @@ X_train=vectorizer.fit_transform(X_train)
 X_test=vectorizer.transform(X_test)
 print X_train.shape, X_test.shape
 
-svd = TruncatedSVD(n_features=100)
+svd = TruncatedSVD(n_components=400)
 X_train=svd.fit_transform(X_train)
 X_test=svd.transform(X_test)
 print X_train.shape, X_test.shape
 
-'''
-resultDict={}
 X_train=StandardScaler(with_mean=False).fit_transform(X_train)
-X_test=StandardScaler(with_mean=False).transform(X_test)
+X_test=StandardScaler(with_mean=False).fit_transform(X_test)
+print X_train.shape, X_test.shape
+
+resultDict={}
 # iterate over classifiers
 for name, aclf in zip(names, classifiers):
 	if name != "Logistic Regression":
@@ -72,4 +73,3 @@ for name, aclf in zip(names, classifiers):
 		continue
 
 print resultDict
-'''

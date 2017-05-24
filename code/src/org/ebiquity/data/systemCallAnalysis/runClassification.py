@@ -399,27 +399,27 @@ def doTFIDF(corpus, label, vectorizer):
 	svd1 = TruncatedSVD(n_components=10)
 	X_train=svd1.fit_transform(X_train)
 	X_test=svd1.transform(X_test)
-	tfidfResults["10components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
+	tfidfResults["10components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, 10)
 	
 	svd2 = TruncatedSVD(n_components=100)
 	X_train=svd2.fit_transform(X_train)
 	X_test=svd2.transform(X_test)
-	tfidfResults["100components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
+	tfidfResults["100components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, 100)
 
 	svd3 = TruncatedSVD(n_components=200)
 	X_train=svd3.fit_transform(X_train)
 	X_test=svd3.transform(X_test)
-	tfidfResults["200components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
+	tfidfResults["200components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, 200)
 
 	svd4 = TruncatedSVD(n_components=300)
 	X_train=svd4.fit_transform(X_train)
 	X_test=svd4.transform(X_test)
-	tfidfResults["300components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
+	tfidfResults["300components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, 300)
 
 	svd4 = TruncatedSVD(n_components=400)
 	X_train=svd4.fit_transform(X_train)
 	X_test=svd4.transform(X_test)
-	tfidfResults["400components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, n_components)
+	tfidfResults["400components"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList, label, 400)
 
 	return tfidfResults
 

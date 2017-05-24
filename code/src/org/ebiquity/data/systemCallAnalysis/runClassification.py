@@ -382,55 +382,45 @@ def doTFIDF(corpus, label, vectorizer):
 
 	X_train=StandardScaler(with_mean=False).fit_transform(X_train)
 	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
+	# return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
-	return tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	sampleSize,featureSize=X_train.shape
+	if featureSize >= 8000:
+		size2k=2000
+		size4k=4000
+		size8k=8000
+	elif featureSize < 8000 and featureSize >= 4000:
+		size2k=2000
+		size4k=4000
+		size8k=4000
+	elif featureSize < 4000 and featureSize >= 2000:
+		size2k=2000
+		size4k=2000
+		size8k=2000
+	else:
+		size2k=featureSize-1
+		size4k=featureSize-1
+		size8k=featureSize-1
+	print "shape:", X_train.shape, "features:", featureSize, "samples:", sampleSize, "size2k:", size2k, "size4k:", size4k, "size8k:", size8k
 
-	# sampleSize,featureSize=X_train.shape
-	# if featureSize >= 8000 and sampleSize >= 8000:
-	# 	size2k=2000
-	# 	size4k=4000
-	# 	size8k=8000
-	# elif featureSize < 8000 and featureSize >= 4000 and sampleSize < 8000 and sampleSize >= 4000:
-	# 	size2k=2000
-	# 	size4k=4000
-	# 	size8k=4000
-	# elif featureSize < 4000 and featureSize >= 2000 and sampleSize < 4000 and sampleSize >= 2000:
-	# 	size2k=2000
-	# 	size4k=2000
-	# 	size8k=2000
-	# else:
-	# 	size2k=min(featureSize,sampleSize)-1
-	# 	size4k=min(featureSize,sampleSize)-1
-	# 	size8k=min(featureSize,sampleSize)-1
-	# print "shape:", X_train.shape
-	# print "features:", featureSize
-	# print "samples:", sampleSize
-	# print "size2k:", size2k
-	# print "size4k:", size4k
-	# print "size8k:", size8k
+	tfidfResults = {}
 
-	# tfidfResults = {}
-
-	# svd2 = TruncatedSVD(n_components=size2k)
-	# X_train=svd2.fit_transform(X_train)
-	# X_test=svd2.transform(X_test)
-	# tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	svd2 = TruncatedSVD(n_components=size2k)
+	X_train=svd2.fit_transform(X_train)
+	X_test=svd2.transform(X_test)
+	tfidfResults["2k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 	
-	# svd4 = TruncatedSVD(n_components=size4k)
-	# X_train=svd4.fit_transform(X_train)
-	# X_test=svd4.transform(X_test)
-	# X_train=StandardScaler(with_mean=False).fit_transform(X_train)
-	# X_test=StandardScaler(with_mean=False).fit_transform(X_test)
-	# tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	svd4 = TruncatedSVD(n_components=size4k)
+	X_train=svd4.fit_transform(X_train)
+	X_test=svd4.transform(X_test)
+	tfidfResults["4k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
-	# svd8 = TruncatedSVD(n_components=size8k)
-	# X_train=svd8.fit_transform(X_train)
-	# X_test=svd8.transform(X_test)
-	# X_train=StandardScaler(with_mean=False).fit_transform(X_train)
-	# X_test=StandardScaler(with_mean=False).fit_transform(X_test)
-	# tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
+	svd8 = TruncatedSVD(n_components=size8k)
+	X_train=svd8.fit_transform(X_train)
+	X_test=svd8.transform(X_test)
+	tfidfResults["8k"] = tfidfDoClassify(X_train, X_test, y_train, y_test, labelList)
 
-	# return tfidfResults
+	return tfidfResults
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)

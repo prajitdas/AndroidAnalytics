@@ -32,7 +32,6 @@ from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RBF
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 
 google=0
 my=1
@@ -47,7 +46,7 @@ testRatio=0.25
 
 names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
 		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
-		 "Naive Bayes", "QDA", "Logistic Regression", "Dummy"]
+		 "Naive Bayes", "Logistic Regression", "Dummy"]
 classifiers = [
 	KNeighborsClassifier(3),
 	SVC(kernel="linear", C=0.025),
@@ -58,7 +57,6 @@ classifiers = [
 	MLPClassifier(alpha=1),
 	AdaBoostClassifier(),
 	GaussianNB(),
-	QuadraticDiscriminantAnalysis(),
 	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
 	DummyClassifier(strategy='most_frequent')]
 
@@ -287,6 +285,7 @@ def doClassify(jsonDict, label, feature):
 	X_test = StandardScaler().fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
+		print name
 		if name != "Logistic Regression":
 			clf=OneVsRestClassifier(aclf)
 		else:
@@ -326,6 +325,7 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels):
 	X_test=StandardScaler(with_mean=False).fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
+		print name
 		if name != "Logistic Regression":
 			clf=OneVsRestClassifier(aclf)
 		else:

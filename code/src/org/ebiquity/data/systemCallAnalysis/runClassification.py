@@ -44,21 +44,26 @@ testRatio=0.25
 # 	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
 # 	DummyClassifier(strategy='most_frequent')]
 
-names = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
-		 "Decision Tree", "Random Forest", "Neural Net", "AdaBoost",
-		 "Naive Bayes", "Logistic Regression", "Dummy"]
-classifiers = [
-	KNeighborsClassifier(3),
-	SVC(kernel="linear", C=0.025),
-	SVC(gamma=2, C=1),
-	GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
-	DecisionTreeClassifier(max_depth=5),
-	RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-	MLPClassifier(alpha=1),
-	AdaBoostClassifier(),
-	GaussianNB(),
-	LogisticRegression(multi_class='multinomial',solver='lbfgs'),
-	DummyClassifier(strategy='most_frequent')]
+names = ["Nearest Neighbors",
+		 "Linear SVM",
+		 "RBF SVM",
+		 "Decision Tree",
+		 "Random Forest",
+		 "Neural Net",
+		 "AdaBoost",
+		 "Naive Bayes",
+		 "Logistic Regression",
+		 "Dummy"]
+classifiers = [KNeighborsClassifier(3),
+				SVC(kernel="linear", C=0.025),
+				SVC(gamma=2, C=1),
+				DecisionTreeClassifier(max_depth=5),
+				RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+				MLPClassifier(alpha=1),
+				AdaBoostClassifier(),
+				GaussianNB(),
+				LogisticRegression(multi_class='multinomial',solver='lbfgs'),
+				DummyClassifier(strategy='most_frequent')]
 
 def reducePrecisionEncode(array, length, breadth, precision):
 	newArray = np.zeros((length, breadth), dtype=np.int)
@@ -274,7 +279,7 @@ def anotherDoClassify(jsonDict, label, feature, labels):
 		resultDict[appLabel] = perLabelResult
 	return resultDict
 
-def doClassify(jsonDict, label, feature):
+def doClassify(jsonDict, label, feature, gramIndex):
 	termDocMatrix, allSyscallsVector = cd.createTermDocMatrix(jsonDict, feature)
 	labels=getAppLabelList(termDocMatrix, label)
 	X, y = generateNormalFeatureMatrix(termDocMatrix, allSyscallsVector, label, labels)
@@ -285,7 +290,7 @@ def doClassify(jsonDict, label, feature):
 	X_test = StandardScaler().fit_transform(X_test)
 	# iterate over classifiers
 	for name, aclf in zip(names, classifiers):
-		print feature, name
+		print gramIndex, label, feature, name
 		if name != "Logistic Regression":
 			clf=OneVsRestClassifier(aclf)
 		else:
@@ -454,7 +459,7 @@ def main(argv):
 #			if label != 'my':
 #				continue
 			for feature in ['justc','numoc']:
-				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature)
+				featureDict[feature] = doClassify(json.loads(open(jsonFile).read()), label, feature, gramIndex)
 				print "done with "+feature+" features"
 			labelDict[label] = featureDict
 			print "done with "+label+" labels"

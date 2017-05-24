@@ -22,7 +22,7 @@ classifiers = [
 	DummyClassifier(strategy='most_frequent')]
 
 corpus = json.loads(open("corpus.json","r").read())
-labelList = list(set(corpus["my"]))
+labels = list(set(corpus["my"]))
 X_train, X_test, y_train, y_test = \
 	train_test_split(corpus["corpus"], corpus["my"], test_size=testRatio, random_state=42)
 print len(X_train), len(X_test)

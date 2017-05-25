@@ -120,4 +120,4 @@ def main(argv):
 	doTask(appPkgName)
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

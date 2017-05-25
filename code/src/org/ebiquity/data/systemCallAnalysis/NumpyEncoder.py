@@ -57,4 +57,4 @@ def main(argv):
 	assert np.allclose(expected, result), "Wrong Values"
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

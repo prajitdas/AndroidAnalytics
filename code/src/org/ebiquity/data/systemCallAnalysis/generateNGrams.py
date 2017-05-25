@@ -87,4 +87,4 @@ def main(argv):
 	logging.debug('Execution time was: '+executionTime+' ms')
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

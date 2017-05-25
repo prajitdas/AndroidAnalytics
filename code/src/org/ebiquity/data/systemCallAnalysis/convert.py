@@ -29,4 +29,4 @@ def main(argv):
 	open(jsonFileName,'w').write(json.dumps(newDict, sort_keys=True, indent=4))
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

@@ -146,4 +146,4 @@ def main(argv):
 	print executionTime
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

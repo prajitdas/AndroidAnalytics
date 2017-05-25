@@ -13,6 +13,7 @@ corpus=[]
 my=[]
 google=[]
 for appPkgName in appDict["packages"]:
+	print appPkgName
 	appDataDict = json.loads(open(os.path.join(os.path.join(os.getcwd(),"uni-bi-tri-seq-jsons"),appPkgName+".json"),'r').read())
 	if appDataDict[appPkgName]["annotated_category"] not in ['drink_recipes', 'video_playback', 'lunar_calendar']:
 		my.append(appDataDict[appPkgName]["annotated_category"])

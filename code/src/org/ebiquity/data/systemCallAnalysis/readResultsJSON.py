@@ -2,6 +2,14 @@ import sys
 import time
 import json
 
+def writecsv():
+	resultsDict=json.loads(open("processedResults.json","r").read())
+	with open("results.csv", "wb") as file:
+		for key in resultsDict:
+			line=key+","+str(resultsDict[key])
+			file.write(line)
+			file.write('\n')
+
 def processData():
 	resultsDict=json.loads(open("results.json","r").read())
 	dataDict=resultsDict["results"]["TFIDFResults"]
@@ -42,6 +50,7 @@ def main(argv):
 
 	startTime = time.time()
 	processData()
+	writecsv()
 	executionTime = str((time.time()-startTime)*1000)
 	print 'Execution time was: '+executionTime+' ms'
 

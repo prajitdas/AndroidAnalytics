@@ -402,7 +402,7 @@ def doTFIDF(corpus, label, vectorizer):
 	tfidfResults = {}
 
 	# for n_components in [10,100,200,300,400]:
-	for n_components in [10,100,500,1000,5000,10000,50000,100000]:
+	for n_components in [10,100,500,1000,5000,10000,50000]:
 		svd = TruncatedSVD(n_components=min(n_components,features-5))
 		tfidfResults[str(n_components)+"components"] = tfidfDoClassify(svd.fit_transform(X_train), svd.transform(X_test), y_train, y_test, labelList, label, n_components)
 

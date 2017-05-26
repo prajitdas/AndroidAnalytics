@@ -228,4 +228,4 @@ def main(argv):
 	open("appsWithoutPerms.json", "w").write(json.dumps(appDict, indent=4, sorted=True))
 
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

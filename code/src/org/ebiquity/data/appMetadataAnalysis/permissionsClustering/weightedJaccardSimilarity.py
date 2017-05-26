@@ -190,4 +190,4 @@ def main(argv):
 	dbHandle.close() #DB Close
  
 if __name__ == "__main__":
-	sys.exit(main(sys.argv))
+	main(sys.argv)

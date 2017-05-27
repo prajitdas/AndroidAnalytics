@@ -344,7 +344,7 @@ def doTask(cmdLineArg):
 
 def main(argv):
 	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python crawlURLs.py [i|m|a|s]\n')
+		sys.stderr.write('Usage: python crawlURLs.py [i|m|a|s]\n"i": First level of search for app urls\n"m": Second level of search for app urls\n"a": Extract app data\n"s": Extract a curated list of apps from the Google Play Store. Get urls, get related and get app data')
 		sys.exit(1)
 
 	startTime = time.time()

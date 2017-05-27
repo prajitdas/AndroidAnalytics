@@ -30,6 +30,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
+import logging
+logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
 
 google=0
 my=1
@@ -303,6 +305,7 @@ def doClassify(jsonDict, label, feature, gramIndex):
 		support = 0
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted')
+			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name+","+str(gramIndex)+","+label+","+feature)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred)
 			prf1sDict["testScore"] = score
@@ -343,6 +346,7 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 		support = 0
 		try:
 			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average='weighted', labels=labels)
+			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name+","+str(n_components)+","+label)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
 			prf1sDict["testScore"] = score

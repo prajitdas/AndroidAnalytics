@@ -31,7 +31,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 import logging
-logging.basicConfig(filename='syscall.log',level=logging.DEBUG)
+logging.basicConfig(filename='classification.log',level=logging.DEBUG)
 
 google=0
 my=1

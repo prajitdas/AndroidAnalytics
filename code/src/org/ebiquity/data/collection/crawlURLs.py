@@ -31,6 +31,7 @@ def extractMoreURLsAndStore(dbHandle, urlExtract):
 			url = "https://play.google.com"+chunk['href']
 			packageName = url.split("=")
 			sqlStatement = "INSERT INTO `appurls`(`app_pkg_name`,`app_url`) VALUES('"+packageName[1]+"', '"+url+"');"
+			print sqlStatement
 			databaseHandler.dbManipulateData(dbHandle, sqlStatement)
 	except urllib2.HTTPError, e:
 		print 'HTTPError = ', str(e.code)

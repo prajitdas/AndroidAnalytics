@@ -38,53 +38,6 @@
             "writev": 3075
         }
     }, 
-    "air.com.sticksports.supersixes": {
-        "SunJun11013426EDT2017.out": {
-            "_llseek": 251, 
-            "clock_gettime": 37155, 
-            "clone": 32, 
-            "close": 617, 
-            "dup": 106, 
-            "epoll_ctl": 141, 
-            "epoll_pwait": 4451, 
-            "faccessat": 354, 
-            "fchmodat": 1, 
-            "fcntl64": 1929, 
-            "fstat64": 617, 
-            "fstatat64": 1593, 
-            "fsync": 537, 
-            "futex": 35625, 
-            "getcwd": 32, 
-            "getdents64": 4, 
-            "getsockopt": 31, 
-            "gettimeofday": 13172, 
-            "getuid32": 3569, 
-            "ioctl": 4618, 
-            "lseek": 1985, 
-            "madvise": 763, 
-            "mkdirat": 35, 
-            "mmap2": 671, 
-            "mprotect": 1155, 
-            "munmap": 266, 
-            "openat": 576, 
-            "prctl": 390, 
-            "pread64": 82, 
-            "read": 5338, 
-            "readlinkat": 4, 
-            "recvfrom": 11107, 
-            "renameat": 1, 
-            "rt_sigprocmask": 68, 
-            "sched_yield": 1, 
-            "sendto": 6371, 
-            "setpriority": 2, 
-            "sigaction": 2, 
-            "ugetrlimit": 1, 
-            "uname": 2, 
-            "unlinkat": 152, 
-            "write": 5339, 
-            "writev": 1673
-        }
-    }, 
     "and0703.and.taro.alarm_clock_3": {
         "ThuJul21085737EDT2016.out": {
             "clock_gettime": 8, 
@@ -438,35 +391,6 @@
             "sendto": 516, 
             "write": 558, 
             "writev": 199
-        }
-    }, 
-    "appinventor.ai_kevschwartz90.Obama": {
-        "SunJun11013257EDT2017.out": {
-            "clone": 25, 
-            "close": 81, 
-            "dup": 14, 
-            "epoll_ctl": 10, 
-            "epoll_pwait": 343, 
-            "exit_group": 1, 
-            "fcntl": 8, 
-            "futex": 267, 
-            "getsockopt": 24, 
-            "getuid": 957, 
-            "ioctl": 1753, 
-            "madvise": 14, 
-            "mmap": 120, 
-            "mprotect": 31, 
-            "munmap": 60, 
-            "newfstatat": 8, 
-            "openat": 59, 
-            "pread": 114, 
-            "read": 148, 
-            "recvfrom": 396, 
-            "rt_sigprocmask": 193, 
-            "sched_yield": 1, 
-            "sendto": 247, 
-            "write": 175, 
-            "writev": 241
         }
     }, 
     "appinventor.ai_lukeplanos11.ToDoList": {
@@ -975,50 +899,6 @@
             "sendto": 7052, 
             "write": 3276, 
             "writev": 907
-        }
-    }, 
-    "br.com.mobicare.oiwifi": {
-        "SunJun11013003EDT2017.out": {
-            "clock_gettime": 160, 
-            "clone": 101, 
-            "close": 894, 
-            "dup": 246, 
-            "epoll_ctl": 390, 
-            "epoll_pwait": 5294, 
-            "faccessat": 124, 
-            "fchmodat": 58, 
-            "fcntl": 218, 
-            "fstat": 94, 
-            "fsync": 53, 
-            "futex": 3700, 
-            "getdents64": 6, 
-            "getrlimit": 1, 
-            "getsockopt": 63, 
-            "getuid": 3630, 
-            "ioctl": 8392, 
-            "lseek": 56, 
-            "madvise": 295, 
-            "mkdirat": 4, 
-            "mmap": 1309, 
-            "mprotect": 468, 
-            "munmap": 811, 
-            "newfstatat": 520, 
-            "openat": 631, 
-            "prctl": 135, 
-            "pread": 1413, 
-            "read": 1210, 
-            "readlinkat": 3, 
-            "recvfrom": 13035, 
-            "renameat": 52, 
-            "rt_sigaction": 2, 
-            "rt_sigprocmask": 1352, 
-            "rt_sigreturn": 7, 
-            "sched_yield": 58, 
-            "sendto": 7199, 
-            "setpriority": 2, 
-            "unlinkat": 53, 
-            "write": 3571, 
-            "writev": 3087
         }
     }, 
     "calendrier.lunaire.duJardinier": {
@@ -3185,81 +3065,6 @@
             "writev": 3058
         }
     }, 
-    "com.amaxlwps.tigers": {
-        "SunJun11012246EDT2017.out": {
-            "clock_gettime": 565, 
-            "clone": 16, 
-            "close": 1073, 
-            "dup": 263, 
-            "epoll_ctl": 189, 
-            "epoll_pwait": 15518, 
-            "faccessat": 111, 
-            "fchmodat": 6, 
-            "fcntl": 193, 
-            "fstat": 12, 
-            "fsync": 6, 
-            "futex": 12474, 
-            "getdents64": 2, 
-            "getrlimit": 3, 
-            "getsockopt": 9, 
-            "getuid": 16186, 
-            "ioctl": 12852, 
-            "lseek": 58, 
-            "madvise": 1064, 
-            "mkdirat": 2, 
-            "mmap": 1586, 
-            "mprotect": 175, 
-            "munmap": 648, 
-            "newfstatat": 321, 
-            "openat": 1530, 
-            "prctl": 38, 
-            "pread": 1176, 
-            "read": 1816, 
-            "readlinkat": 1, 
-            "recvfrom": 12465, 
-            "renameat": 5, 
-            "rt_sigprocmask": 418, 
-            "sched_yield": 248, 
-            "sendmsg": 94, 
-            "sendto": 6736, 
-            "setpriority": 2, 
-            "setrlimit": 1, 
-            "socketpair": 2, 
-            "unlinkat": 5, 
-            "write": 8120, 
-            "writev": 3436
-        }
-    }, 
-    "com.amazonaws.mobile.apps.Authenticator": {
-        "SunJun11011949EDT2017.out": {
-            "clone": 5, 
-            "close": 689, 
-            "dup": 250, 
-            "epoll_ctl": 238, 
-            "epoll_pwait": 4044, 
-            "faccessat": 64, 
-            "fcntl": 295, 
-            "fstat": 192, 
-            "futex": 103, 
-            "geteuid": 32, 
-            "getuid": 2028, 
-            "ioctl": 4647, 
-            "madvise": 255, 
-            "mmap": 448, 
-            "mprotect": 15, 
-            "munmap": 402, 
-            "newfstatat": 196, 
-            "openat": 219, 
-            "prctl": 2, 
-            "pread": 570, 
-            "read": 2599, 
-            "recvfrom": 11975, 
-            "rt_sigprocmask": 303, 
-            "sendto": 6871, 
-            "write": 2796, 
-            "writev": 2409
-        }
-    }, 
     "com.amble43.scientificcalculator": {
         "ThuJul21014312EDT2016.out": {
             "clone": 19, 
@@ -3347,9 +3152,6 @@
             "write": 2150, 
             "writev": 1333
         }
-    }, 
-    "com.amfahsoft.footballworldcup2014": {
-        "SunJun11024557EDT2017.out": {}
     }, 
     "com.amit.fileexplorer": {
         "ThuJul21031341EDT2016.out": {
@@ -3782,53 +3584,6 @@
             "writev": 3665
         }
     }, 
-    "com.anoshenko.android.solitaires": {
-        "SunJun11012557EDT2017.out": {
-            "clock_gettime": 5, 
-            "clone": 45, 
-            "close": 1904, 
-            "dup": 178, 
-            "epoll_ctl": 261, 
-            "epoll_pwait": 5277, 
-            "faccessat": 347, 
-            "fchmodat": 46, 
-            "fcntl": 789, 
-            "fdatasync": 80, 
-            "fstat": 764, 
-            "fsync": 27, 
-            "futex": 8384, 
-            "getdents64": 44, 
-            "geteuid": 122, 
-            "getrlimit": 1, 
-            "getsockopt": 35, 
-            "getuid": 4209, 
-            "ioctl": 11164, 
-            "lseek": 30, 
-            "madvise": 479, 
-            "mkdirat": 2, 
-            "mmap": 3522, 
-            "mprotect": 515, 
-            "munmap": 2059, 
-            "newfstatat": 840, 
-            "openat": 1622, 
-            "prctl": 137, 
-            "pread": 4122, 
-            "pwrite": 176, 
-            "read": 1252, 
-            "readlinkat": 8, 
-            "recvfrom": 13855, 
-            "renameat": 27, 
-            "rt_sigprocmask": 3422, 
-            "sched_yield": 51, 
-            "sendmsg": 2, 
-            "sendto": 7206, 
-            "setpriority": 2, 
-            "socketpair": 2, 
-            "unlinkat": 33, 
-            "write": 3986, 
-            "writev": 2256
-        }
-    }, 
     "com.anstudios.fileexplorer": {
         "ThuJul21081147EDT2016.out": {
             "clone": 31, 
@@ -4113,56 +3868,6 @@
             "unlinkat": 22, 
             "write": 2606, 
             "writev": 1778
-        }
-    }, 
-    "com.ape.apps.lightsaber": {
-        "SunJun11012115EDT2017.out": {
-            "clock_gettime": 107, 
-            "clone": 247, 
-            "close": 887, 
-            "dup": 142, 
-            "epoll_create1": 1, 
-            "epoll_ctl": 199, 
-            "epoll_pwait": 7188, 
-            "eventfd2": 1, 
-            "faccessat": 116, 
-            "fchmodat": 31, 
-            "fcntl": 108, 
-            "fstat": 64, 
-            "fsync": 31, 
-            "futex": 7819, 
-            "getdents64": 2, 
-            "getppid": 1, 
-            "getrlimit": 2, 
-            "getsockopt": 205, 
-            "getuid": 8307, 
-            "ioctl": 13710, 
-            "lseek": 55, 
-            "madvise": 163, 
-            "mkdirat": 2, 
-            "mmap": 1202, 
-            "mprotect": 625, 
-            "munmap": 528, 
-            "newfstatat": 274, 
-            "openat": 863, 
-            "prctl": 105, 
-            "pread": 786, 
-            "read": 978, 
-            "readlinkat": 3, 
-            "recvfrom": 20375, 
-            "renameat": 31, 
-            "rt_sigaction": 2, 
-            "rt_sigprocmask": 100, 
-            "rt_sigreturn": 58, 
-            "sched_yield": 60, 
-            "sendmsg": 34, 
-            "sendto": 7608, 
-            "setpriority": 2, 
-            "setrlimit": 1, 
-            "socketpair": 2, 
-            "unlinkat": 31, 
-            "write": 3518, 
-            "writev": 2664
         }
     }, 
     "com.app_sam.top.pro.free.ScientificCalculatorPro": {
@@ -8573,7 +8278,7 @@
             "write": 2476, 
             "writev": 1926
         }
-    }, 
+    },
     "com.farproc.wifi.analyzer": {
         "ThuJul21144509EDT2016.out": {
             "clock_gettime": 600, 
@@ -9033,57 +8738,6 @@
             "unlinkat": 6, 
             "write": 7668, 
             "writev": 3844
-        }
-    }, 
-    "com.gameloft.android.ANMP.GloftCAHM": {
-        "SunJun11014106EDT2017.out": {
-            "_llseek": 63, 
-            "clock_gettime": 1570, 
-            "clone": 30, 
-            "close": 126, 
-            "dup": 14, 
-            "epoll_create1": 1, 
-            "epoll_ctl": 18, 
-            "epoll_pwait": 213, 
-            "eventfd2": 1, 
-            "faccessat": 35, 
-            "fchmodat": 5, 
-            "fcntl64": 57, 
-            "fdatasync": 15, 
-            "fstat64": 84, 
-            "fstatat64": 100, 
-            "fsync": 3, 
-            "futex": 205, 
-            "getdents64": 8, 
-            "geteuid32": 7, 
-            "getppid": 1, 
-            "getsockopt": 17, 
-            "gettimeofday": 117, 
-            "getuid32": 147, 
-            "ioctl": 486, 
-            "kill": 1, 
-            "lseek": 1, 
-            "madvise": 41, 
-            "mkdirat": 7, 
-            "mmap2": 252, 
-            "mprotect": 244, 
-            "munmap": 169, 
-            "openat": 174, 
-            "prctl": 69, 
-            "pread64": 14759, 
-            "pwrite64": 31, 
-            "read": 186, 
-            "readlinkat": 3, 
-            "recvfrom": 455, 
-            "renameat": 1, 
-            "rt_sigprocmask": 39, 
-            "sched_yield": 50, 
-            "sendto": 228, 
-            "setpriority": 2, 
-            "ugetrlimit": 1, 
-            "unlinkat": 4, 
-            "write": 299, 
-            "writev": 41
         }
     }, 
     "com.gau.go.launcherex.gowidget.gopowermaster": {
@@ -19974,9 +19628,6 @@
             "writev": 3422
         }
     }, 
-    "com.stackexchange.marvin": {
-        "SunJun11024414EDT2017.out": {}
-    }, 
     "com.stockholmapps.pdfscannerqrcodereader": {
         "ThuJul21132308EDT2016.out": {
             "_llseek": 92, 
@@ -22065,43 +21716,6 @@
             "writev": 1206
         }
     }, 
-    "com.weblinkstech.scientificcalculator": {
-        "SunJun11014342EDT2017.out": {
-            "clock_gettime": 140, 
-            "clone": 5, 
-            "close": 1050, 
-            "dup": 340, 
-            "epoll_ctl": 529, 
-            "epoll_pwait": 4430, 
-            "faccessat": 118, 
-            "fchmodat": 43, 
-            "fcntl": 340, 
-            "fstat": 43, 
-            "fsync": 43, 
-            "futex": 4720, 
-            "getdents64": 2, 
-            "getsockopt": 43, 
-            "getuid": 4295, 
-            "ioctl": 7274, 
-            "madvise": 336, 
-            "mmap": 913, 
-            "mprotect": 13, 
-            "munmap": 285, 
-            "newfstatat": 290, 
-            "openat": 583, 
-            "prctl": 229, 
-            "pread": 628, 
-            "read": 859, 
-            "recvfrom": 12707, 
-            "renameat": 41, 
-            "rt_sigprocmask": 1435, 
-            "sched_yield": 4, 
-            "sendto": 7295, 
-            "unlinkat": 41, 
-            "write": 2897, 
-            "writev": 3030
-        }
-    }, 
     "com.webworks.drinkscocktails": {
         "ThuJul21162245EDT2016.out": {
             "clock_gettime": 498, 
@@ -22247,51 +21861,6 @@
             "writev": 288
         }
     }, 
-    "cyd.lunarcalendar": {
-        "SunJun11012410EDT2017.out": {
-            "clock_gettime": 340, 
-            "clone": 28, 
-            "close": 1352, 
-            "dup": 179, 
-            "epoll_ctl": 125, 
-            "epoll_pwait": 6926, 
-            "faccessat": 669, 
-            "fchmodat": 22, 
-            "fcntl": 1639, 
-            "fdatasync": 5, 
-            "fstat": 1853, 
-            "futex": 4705, 
-            "getdents64": 2, 
-            "geteuid": 299, 
-            "getrlimit": 2, 
-            "getsockopt": 3, 
-            "getuid": 7723, 
-            "ioctl": 9058, 
-            "lseek": 52, 
-            "madvise": 1429, 
-            "mkdirat": 2, 
-            "mmap": 1427, 
-            "mprotect": 332, 
-            "munmap": 918, 
-            "newfstatat": 902, 
-            "openat": 1422, 
-            "prctl": 86, 
-            "pread": 1762, 
-            "pwrite": 15, 
-            "read": 4101, 
-            "readlinkat": 2, 
-            "recvfrom": 4841, 
-            "rt_sigprocmask": 1001, 
-            "rt_sigreturn": 1, 
-            "sched_yield": 53, 
-            "sendmsg": 62, 
-            "sendto": 2304, 
-            "setpriority": 2, 
-            "socketpair": 2, 
-            "write": 5796, 
-            "writev": 1870
-        }
-    }, 
     "cz.webprovider.wifianalyzer": {
         "ThuJul21142831EDT2016.out": {
             "clone": 29, 
@@ -22317,39 +21886,6 @@
             "sendto": 6238, 
             "write": 2117, 
             "writev": 2534
-        }
-    }, 
-    "de.svencarstensen.todolists": {
-        "SunJun11013640EDT2017.out": {
-            "clone": 44, 
-            "close": 897, 
-            "dup": 331, 
-            "epoll_ctl": 343, 
-            "epoll_pwait": 4370, 
-            "faccessat": 39, 
-            "fchmodat": 28, 
-            "fcntl": 211, 
-            "fstat": 28, 
-            "futex": 392, 
-            "getsockopt": 28, 
-            "getuid": 3554, 
-            "ioctl": 7146, 
-            "madvise": 776, 
-            "mmap": 853, 
-            "mprotect": 56, 
-            "munmap": 679, 
-            "newfstatat": 266, 
-            "openat": 274, 
-            "prctl": 4, 
-            "pread": 1112, 
-            "read": 7092, 
-            "recvfrom": 12511, 
-            "rt_sigprocmask": 571, 
-            "rt_sigreturn": 192, 
-            "sched_yield": 4, 
-            "sendto": 7142, 
-            "write": 7394, 
-            "writev": 2934
         }
     }, 
     "fr.calendrierlunaire.android": {
@@ -22676,44 +22212,7 @@
             "write": 10487, 
             "writev": 3933
         }
-    }, 
-    "my.app.AUI_AlarmClock": {
-        "SunJun11013901EDT2017.out": {
-            "clone": 84, 
-            "close": 1066, 
-            "dup": 471, 
-            "epoll_ctl": 602, 
-            "epoll_pwait": 7237, 
-            "faccessat": 51, 
-            "fchmodat": 21, 
-            "fcntl": 388, 
-            "fstat": 32, 
-            "fsync": 21, 
-            "futex": 872, 
-            "getsockopt": 21, 
-            "getuid": 6057, 
-            "ioctl": 9978, 
-            "lseek": 20, 
-            "madvise": 572, 
-            "mmap": 441, 
-            "mprotect": 143, 
-            "munmap": 238, 
-            "newfstatat": 374, 
-            "openat": 186, 
-            "prctl": 49, 
-            "pread": 195, 
-            "read": 8833, 
-            "readlinkat": 1, 
-            "recvfrom": 12750, 
-            "renameat": 20, 
-            "rt_sigprocmask": 183, 
-            "sched_yield": 3, 
-            "sendto": 6783, 
-            "unlinkat": 20, 
-            "write": 8483, 
-            "writev": 3217
-        }
-    }, 
+    },
     "net.sf.andpdf.pdfviewer": {
         "ThuJul21033704EDT2016.out": {
             "clone": 2, 
@@ -23047,34 +22546,6 @@
             "writev": 88
         }
     }, 
-    "reach.inc.todolist": {
-        "SunJun11023814EDT2017.out": {
-            "close": 25, 
-            "dup": 3, 
-            "epoll_ctl": 4, 
-            "epoll_pwait": 179, 
-            "faccessat": 28, 
-            "fchmodat": 3, 
-            "fcntl": 73, 
-            "fstat": 90, 
-            "futex": 31, 
-            "geteuid": 14, 
-            "getuid": 55, 
-            "ioctl": 130, 
-            "mmap": 14, 
-            "mprotect": 2, 
-            "munmap": 12, 
-            "newfstatat": 44, 
-            "openat": 20, 
-            "pread": 57, 
-            "read": 23, 
-            "recvfrom": 661, 
-            "rt_sigprocmask": 20, 
-            "sendto": 411, 
-            "write": 57, 
-            "writev": 77
-        }
-    }, 
     "roviminteractive.materialcopy": {
         "ThuJul21052500EDT2016.out": {
             "clock_gettime": 12, 
@@ -23120,9 +22591,6 @@
             "write": 578, 
             "writev": 203
         }
-    }, 
-    "scientific.calculator": {
-        "SunJun11024813EDT2017.out": {}
     }, 
     "us.wifitools.wifiscananalyzer": {
         "ThuJul21164028EDT2016.out": {

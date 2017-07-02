@@ -212,7 +212,6 @@ def doTask(inpath,benignMal):
 	bigAppDict = {}
 	if makeSurePathExists(inpath):
 		os.chdir(inpath)
-		numberOfApps=len(os.listdir(os.getcwd()))
 		count=0
 		for apkFile in os.listdir(os.getcwd()):
 			appDict={}
@@ -239,9 +238,10 @@ def doTask(inpath,benignMal):
 					permissions.append(permission)
 				appDict["permissions"]=permissions
 				appDict["benignMal"]=benignMal
-				if(((count/numberOfApps)*100)%10 == 0):
-					print str((count/numberOfApps)*100), "percent done"
 			bigAppDict[appDict["pkgName"]]=appDict
+			count+=1
+			if(count%100 == 0):
+				print str(count), " apps done"
 	open('appPermAnalysis.json','w').write(json.dumps(appDict,indent=4))
 
 def main(argv):

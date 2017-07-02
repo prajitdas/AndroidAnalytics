@@ -206,12 +206,14 @@ def runShellCmdGetOutput(cmd):
 	out, err = p.communicate()
 	return out.strip(), err.strip()
 
-def doTask(inpath):
+def doTask(inpath,benignMal):
 #	#	Run analysis
 #	dbHandle = databaseHandler.dbConnectionCheck()
 	bigAppDict = {}
 	if makeSurePathExists(inpath):
 		os.chdir(inpath)
+		numberOfApps=len(os.listdir(os.getcwd()))
+		count=0
 		for apkFile in os.listdir(os.getcwd()):
 			appDict={}
 			if apkFile.endswith(".apk"):
@@ -236,16 +238,19 @@ def doTask(inpath):
 				for permission in permList.split("\n"):
 					permissions.append(permission)
 				appDict["permissions"]=permissions
+				appDict["benignMal"]=benignMal
+				if(((count/numberOfApps)*100)%10 == 0):
+					print str((count/numberOfApps)*100), "percent done"
 			bigAppDict[appDict["pkgName"]]=appDict
 	open('appPermAnalysis.json','w').write(json.dumps(appDict,indent=4))
 
 def main(argv):
-	if len(sys.argv) != 2:
-		sys.stderr.write('Usage: python getPermissions.py folderPathApk\n')
+	if len(sys.argv) != 3:
+		sys.stderr.write('Usage: python getPermissions.py folderPathApk benignOrMalware\n')
 		sys.exit(1)
 		
 	startTime = time.time()
-	doTask(sys.argv[1])
+	doTask(sys.argv[1],sys.argv[2])
 	executionTime = str((time.time()-startTime)*1000)
 	print "Execution time was: "+executionTime+" ms"
 

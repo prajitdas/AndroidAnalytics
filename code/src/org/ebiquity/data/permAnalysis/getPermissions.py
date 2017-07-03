@@ -209,6 +209,7 @@ def runShellCmdGetOutput(cmd):
 def doTask(inpath,benignMal):
 #	#	Run analysis
 #	dbHandle = databaseHandler.dbConnectionCheck()
+	jsonFile=os.getcwd()+"/"+benignMal+'.json'
 	bigAppDict = {}
 	if makeSurePathExists(inpath):
 		os.chdir(inpath)
@@ -242,7 +243,7 @@ def doTask(inpath,benignMal):
 			count+=1
 			if(count%100 == 0):
 				print str(count), " apps done"
-	open('appPermAnalysis.json','w').write(json.dumps(appDict,indent=4))
+	open(jsonFile,'w').write(json.dumps(bigAppDict,indent=4))
 
 def main(argv):
 	if len(sys.argv) != 3:

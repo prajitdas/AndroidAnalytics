@@ -235,8 +235,6 @@ def doTask(inpath,benignMal):
 				appDict["features"]=features
 				appDict["permissions"]=permissions
 				appDict["benignMal"]=benignMal
-				print appDict
-				sys.exit(1)
 			bigAppDict[appDict["pkgName"]]=appDict
 			count+=1
 			if(count%100 == 0):

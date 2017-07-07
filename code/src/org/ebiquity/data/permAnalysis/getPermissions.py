@@ -237,7 +237,8 @@ def doTask(inpath,benignMal):
 				appDict["features"]=features
 				appDict["permissions"]=permissions
 				appDict["benignMal"]=benignMal
-			bigAppDict[appDict["pkgName"]]=appDict
+			if "pkgName" in appDict:
+				bigAppDict[appDict["pkgName"]]=appDict
 			count+=1
 			if(count%100 == 0):
 				print str(count), " apps done"

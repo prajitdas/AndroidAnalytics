@@ -207,45 +207,36 @@ def runShellCmdGetOutput(cmd):
 	return out.strip()
 
 def doTask(inpath,benignMal):
-#	#	Run analysis
-#	dbHandle = databaseHandler.dbConnectionCheck()
 	jsonFile=os.getcwd()+"/"+benignMal+'.json'
-	bigAppDict = {}
 	if makeSurePathExists(inpath):
 		os.chdir(inpath)
 		count=0
+		bigAppDict = {}
 		for apkFile in os.listdir(os.getcwd()):
 			appDict={}
 			if apkFile.endswith(".apk"):
 				abspath=os.getcwd()+"/"+apkFile
 				packageData="aapt dump badging "+abspath
 				packageOutput=runShellCmdGetOutput(packageData)
-				#packageNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
-				for appLine in packageOutput.split("\n"):
-					if(appLine.contains("package")):
-						print appLine
-				appDict["pkgName"]=packageData
-				#print runShellCmdGetOutput(packageNameCommand)[0], packageNameCommand
-				sys.exit(1)
-				versionCodeCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $3}'|awk -F\"'\" '/versionCode=/ {print $2}'"
-				appDict["verCode"]=runShellCmdGetOutput(versionCodeCommand)
-				versionNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $4}'|awk -F\"'\" '/versionName=/ {print $2}'"
-				appDict["verName"]=runShellCmdGetOutput(versionNameCommand)
-				platformBuildVersionNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $5}'|awk -F\"'\" '/platformBuildVersionName=/ {print $2}'"
-				appDict["platformVer"]=runShellCmdGetOutput(platformBuildVersionNameCommand)
-				#usesFeatureCommand="aapt dump badging "+abspath+" | awk -F\" \" '/uses-feature/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
-				#featuresList=runShellCmdGetOutput(usesFeatureCommand)[0]
-				#features=[]
-				#for feature in featuresList.split("\n"):
-				#	features.append(feature)
-				#appDict["features"]=features
-				usesPermissionCommand="aapt dump badging "+abspath+" | awk -F\" \" '/uses-permission/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
-				permList=runShellCmdGetOutput(usesPermissionCommand)[0]
+				features=[]
 				permissions=[]
-				for permission in permList.split("\n"):
-					permissions.append(permission)
+				for appLine in packageOutput.split("\n"):
+					if "package" in appLine:
+						pkgInfo=appLine.split("'")
+						appDict["pkgName"]=pkgInfo[1]
+						appDict["verCode"]=pkgInfo[3]
+						appDict["verName"]=pkgInfo[5]
+						appDict["platformVer"]=pkgInfo[7]
+					elif "uses-feature" in appLine:
+						features.append(appLine.split("'")[1])
+						print appLine.split("'")[1]
+					elif "uses-permission" in appLine:
+						permissions.append(appLine.split("'")[1])
+				appDict["features"]=features
 				appDict["permissions"]=permissions
 				appDict["benignMal"]=benignMal
+				print appDict
+				sys.exit(1)
 			bigAppDict[appDict["pkgName"]]=appDict
 			count+=1
 			if(count%100 == 0):

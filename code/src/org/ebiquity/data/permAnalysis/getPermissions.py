@@ -204,7 +204,7 @@ def makeSurePathExists(path):
 def runShellCmdGetOutput(cmd):
 	p = s.Popen(cmd.split(), stdout=s.PIPE, stderr=s.PIPE)
 	out, err = p.communicate()
-	return out.strip(), err.strip()
+	return out.strip()
 
 def doTask(inpath,benignMal):
 #	#	Run analysis
@@ -218,20 +218,27 @@ def doTask(inpath,benignMal):
 			appDict={}
 			if apkFile.endswith(".apk"):
 				abspath=os.getcwd()+"/"+apkFile
-				packageNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
-				appDict["pkgName"]=runShellCmdGetOutput(packageNameCommand)
+				packageData="aapt dump badging "+abspath
+				packageOutput=runShellCmdGetOutput(packageData)
+				#packageNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
+				for appLine in packageOutput.split("\n"):
+					if(appLine.contains("package")):
+						print appLine
+				appDict["pkgName"]=packageData
+				#print runShellCmdGetOutput(packageNameCommand)[0], packageNameCommand
+				sys.exit(1)
 				versionCodeCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $3}'|awk -F\"'\" '/versionCode=/ {print $2}'"
 				appDict["verCode"]=runShellCmdGetOutput(versionCodeCommand)
 				versionNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $4}'|awk -F\"'\" '/versionName=/ {print $2}'"
 				appDict["verName"]=runShellCmdGetOutput(versionNameCommand)
 				platformBuildVersionNameCommand="aapt dump badging "+abspath+" | awk -F\" \" '/package/ {print $5}'|awk -F\"'\" '/platformBuildVersionName=/ {print $2}'"
 				appDict["platformVer"]=runShellCmdGetOutput(platformBuildVersionNameCommand)
-				usesFeatureCommand="aapt dump badging "+abspath+" | awk -F\" \" '/uses-feature/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
-				featuresList=runShellCmdGetOutput(usesFeatureCommand)[0]
-				features=[]
-				for feature in featuresList.split("\n"):
-					features.append(feature)
-				appDict["features"]=features
+				#usesFeatureCommand="aapt dump badging "+abspath+" | awk -F\" \" '/uses-feature/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
+				#featuresList=runShellCmdGetOutput(usesFeatureCommand)[0]
+				#features=[]
+				#for feature in featuresList.split("\n"):
+				#	features.append(feature)
+				#appDict["features"]=features
 				usesPermissionCommand="aapt dump badging "+abspath+" | awk -F\" \" '/uses-permission/ {print $2}'|awk -F\"'\" '/name=/ {print $2}'"
 				permList=runShellCmdGetOutput(usesPermissionCommand)[0]
 				permissions=[]

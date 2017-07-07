@@ -223,13 +223,15 @@ def doTask(inpath,benignMal):
 				for appLine in packageOutput.split("\n"):
 					if "package" in appLine:
 						pkgInfo=appLine.split("'")
-						appDict["pkgName"]=pkgInfo[1]
-						appDict["verCode"]=pkgInfo[3]
-						appDict["verName"]=pkgInfo[5]
-						appDict["platformVer"]=pkgInfo[7]
+						try:
+							appDict["pkgName"]=pkgInfo[1]
+							appDict["verCode"]=pkgInfo[3]
+							appDict["verName"]=pkgInfo[5]
+							appDict["platformVer"]=pkgInfo[7]
+						except IndexError:
+							print 'skipping index'
 					elif "uses-feature" in appLine:
 						features.append(appLine.split("'")[1])
-						print appLine.split("'")[1]
 					elif "uses-permission" in appLine:
 						permissions.append(appLine.split("'")[1])
 				appDict["features"]=features

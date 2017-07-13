@@ -86,103 +86,103 @@ def insertIntoDB():
 		except:
 			print('Unexpected error: '+str(sys.exc_info()[0]))
 
-		accounts = "0"
-		browser = "0"
-		calendar = "0"
-		calling = "0"
-		clipboard = "0"
-		contacts = "0"
-		dic = "0"
-		email = "0"
-		identification = "0"
-		internet = "0"
-		ipc = "0"
-		location = "0"
-		media = "0"
-		messages = "0"
-		network = "0"
-		nfc = "0"
-		notifications = "0"
-		overlay = "0"
-		phone = "0"
-		sensors = "0"
-		shell = "0"
-		storage = "0"
-		system = "0"
-		webview = "0"
+		accounts = "1"
+		browser = "1"
+		calendar = "1"
+		calling = "1"
+		clipboard = "1"
+		contacts = "1"
+		dic = "1"
+		email = "1"
+		identification = "1"
+		internet = "1"
+		ipc = "1"
+		location = "1"
+		media = "1"
+		messages = "1"
+		network = "1"
+		nfc = "1"
+		notifications = "1"
+		overlay = "1"
+		phone = "1"
+		sensors = "1"
+		shell = "1"
+		storage = "1"
+		system = "1"
+		webview = "1"
 
 		if "accounts" in policyDict[app]:
 			if str(policyDict[app]["accounts"]["rule"]) == "allow":
-				accounts="1"
+				accounts="0"
 		if "browser" in policyDict[app]:
 			if str(policyDict[app]["browser"]["rule"]) == "allow":
-				browser="1"
+				browser="0"
 		if "calendar" in policyDict[app]:
 			if str(policyDict[app]["calendar"]["rule"]) == "allow":
-				calendar="1"
+				calendar="0"
 		if "calling" in policyDict[app]:
 			if str(policyDict[app]["calling"]["rule"]) == "allow":
-				calling="1"
+				calling="0"
 		if "clipboard" in policyDict[app]:
 			if str(policyDict[app]["clipboard"]["rule"]) == "allow":
-				clipboard="1"
+				clipboard="0"
 		if "contacts" in policyDict[app]:
 			if str(policyDict[app]["contacts"]["rule"]) == "allow":
-				contacts="1"
+				contacts="0"
 		if "dictionary" in policyDict[app]:
 			if str(policyDict[app]["dictionary"]["rule"]) == "allow":
-				dic="1"
+				dic="0"
 		if "email" in policyDict[app]:
 			if str(policyDict[app]["email"]["rule"]) == "allow":
-				email="1"
+				email="0"
 		if "identification" in policyDict[app]:
 			if str(policyDict[app]["identification"]["rule"]) == "allow":
-				identification="1"
+				identification="0"
 		if "internet" in policyDict[app]:
 			if str(policyDict[app]["internet"]["rule"]) == "allow":
-				internet="1"
+				internet="0"
 		if "ipc" in policyDict[app]:
 			if str(policyDict[app]["ipc"]["rule"]) == "allow":
-				ipc="1"
+				ipc="0"
 		if "location" in policyDict[app]:
 			if str(policyDict[app]["location"]["rule"]) == "allow":
-				location="1"
+				location="0"
 		if "media" in policyDict[app]:
 			if str(policyDict[app]["media"]["rule"]) == "allow":
-				media="1"
+				media="0"
 		if "messages" in policyDict[app]:
 			if str(policyDict[app]["messages"]["rule"]) == "allow":
-				messages="1"
+				messages="0"
 		if "network" in policyDict[app]:
 			if str(policyDict[app]["network"]["rule"]) == "allow":
-				network="1"
+				network="0"
 		if "nfc" in policyDict[app]:
 			if str(policyDict[app]["nfc"]["rule"]) == "allow":
-				nfc="1"
+				nfc="0"
 		if "notifications" in policyDict[app]:
 			if str(policyDict[app]["notifications"]["rule"]) == "allow":
-				notifications="1"
+				notifications="0"
 		if "overlay" in policyDict[app]:
 			if str(policyDict[app]["overlay"]["rule"]) == "allow":
-				overlay="1"
+				overlay="0"
 		if "phone" in policyDict[app]:
 			if str(policyDict[app]["phone"]["rule"]) == "allow":
-				phone="1"
+				phone="0"
 		if "sensors" in policyDict[app]:
 			if str(policyDict[app]["sensors"]["rule"]) == "allow":
-				sensors="1"
+				sensors="0"
 		if "shell" in policyDict[app]:
 			if str(policyDict[app]["shell"]["rule"]) == "allow":
-				shell="1"
+				shell="0"
 		if "storage" in policyDict[app]:
 			if str(policyDict[app]["storage"]["rule"]) == "allow":
-				storage="1"
+				storage="0"
 		if "system" in policyDict[app]:
 			if str(policyDict[app]["system"]["rule"]) == "allow":
-				system="1"
+				system="0"
 		if "webview" in policyDict[app]:
 			if str(policyDict[app]["webview"]["rule"]) == "allow":
-				webview="1"
+				webview="0"
 
 		insertStatement="INSERT INTO policy (app_pkg_name, review_rating, review_count, google_play_category, annotated_category, accounts, browser, calendar, calling, clipboard, contacts, dict, email, identification, internet, ipc, location, media, messages, network, nfc, notifications, overlay, phone, sensors, shell, storage, system, webview) VALUES ('"+appStr+"',"+str(reviewRating)+","+str(reviewCount)+",'"+playCategory+"','"+annotatedCategory+"',"+accounts+","+browser+","+calendar+","+calling+","+clipboard+","+contacts+","+dic+","+email+","+identification+","+internet+","+ipc+","+location+","+media+","+messages+","+network+","+nfc+","+notifications+","+overlay+","+phone+","+sensors+","+shell+","+storage+","+system+","+webview+");"
 		rowid=db.dbManipulateData(dbHandle,insertStatement)

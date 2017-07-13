@@ -38,8 +38,7 @@ def getDBData():
 
 def main(argv):
 	startTime = time.time()
-
-	open("data.json","w").write(json.dumps(result, indent=4))
+	open("data.json","w").write(json.dumps(getDBData(), indent=4))
 	executionTime = str((time.time()-startTime)/60)
 	print 'Execution time was: '+executionTime+' minutes'
 

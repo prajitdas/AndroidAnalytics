@@ -8,7 +8,7 @@ import os
 import json
 import sys
 import time
-import databaseHandler
+import databaseHandler as db
 
 def getDBData():
 	appDict = {}

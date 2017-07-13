@@ -186,6 +186,10 @@ def insertIntoDB():
 
 		insertStatement="INSERT INTO policy (app_pkg_name, review_rating, review_count, google_play_category, annotated_category, accounts, browser, calendar, calling, clipboard, contacts, dict, email, identification, internet, ipc, location, media, messages, network, nfc, notifications, overlay, phone, sensors, shell, storage, system, webview) VALUES ('"+appStr+"',"+str(reviewRating)+","+str(reviewCount)+",'"+playCategory+"','"+annotatedCategory+"',"+accounts+","+browser+","+calendar+","+calling+","+clipboard+","+contacts+","+dic+","+email+","+identification+","+internet+","+ipc+","+location+","+media+","+messages+","+network+","+nfc+","+notifications+","+overlay+","+phone+","+sensors+","+shell+","+storage+","+system+","+webview+");"
 		rowid=db.dbManipulateData(dbHandle,insertStatement)
+
+		text_file = open("insert.sql", "w")
+		text_file.write(insertStatement)
+		text_file.close()
 		
 		if rowid%111 == 0:
 			print "Inserted data for", app, "row:", rowid

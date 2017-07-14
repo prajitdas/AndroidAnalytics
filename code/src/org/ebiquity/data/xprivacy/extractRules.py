@@ -123,9 +123,9 @@ def insertIntoDB():
 		if "calling" in policyDict[app]:
 			if str(policyDict[app]["calling"]["rule"]) == "allow":
 				calling="0"
-		if "clipboard" in policyDict[app]:
-			if str(policyDict[app]["clipboard"]["rule"]) == "allow":
-				clipboard="0"
+		# if "clipboard" in policyDict[app]:
+		# 	if str(policyDict[app]["clipboard"]["rule"]) == "allow":
+		# 		clipboard="0"
 		if "contacts" in policyDict[app]:
 			if str(policyDict[app]["contacts"]["rule"]) == "allow":
 				contacts="0"
@@ -184,7 +184,7 @@ def insertIntoDB():
 			if str(policyDict[app]["webview"]["rule"]) == "allow":
 				webview="0"
 
-		insertStatement="INSERT INTO policy (app_pkg_name, review_rating, review_count, google_play_category, annotated_category, accounts, browser, calendar, calling, clipboard, contacts, dict, email, identification, internet, ipc, location, media, messages, network, nfc, notifications, overlay, phone, sensors, shell, storage, system, webview) VALUES ('"+appStr+"',"+str(reviewRating)+","+str(reviewCount)+",'"+playCategory+"','"+annotatedCategory+"',"+accounts+","+browser+","+calendar+","+calling+","+clipboard+","+contacts+","+dic+","+email+","+identification+","+internet+","+ipc+","+location+","+media+","+messages+","+network+","+nfc+","+notifications+","+overlay+","+phone+","+sensors+","+shell+","+storage+","+system+","+webview+");"
+		insertStatement="INSERT INTO policy (app_pkg_name, review_rating, review_count, google_play_category, annotated_category, accounts, browser, calendar, calling, contacts, dict, email, identification, internet, ipc, location, media, messages, network, nfc, notifications, overlay, phone, sensors, shell, storage, system, webview) VALUES ('"+appStr+"',"+str(reviewRating)+","+str(reviewCount)+",'"+playCategory+"','"+annotatedCategory+"',"+accounts+","+browser+","+calendar+","+calling+","+contacts+","+dic+","+email+","+identification+","+internet+","+ipc+","+location+","+media+","+messages+","+network+","+nfc+","+notifications+","+overlay+","+phone+","+sensors+","+shell+","+storage+","+system+","+webview+");"
 		rowid=db.dbManipulateData(dbHandle,insertStatement)
 
 		text_file = open("insert.sql", "w")

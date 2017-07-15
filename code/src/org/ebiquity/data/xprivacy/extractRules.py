@@ -61,7 +61,7 @@ def insertIntoDB():
 	cursor=dbHandle.cursor(buffered=True)
 	for app in appList:
 		appStr=str(app)
-		sqlStatement="SELECT a.review_count, a.review_rating, c.url FROM appdata a, appcategories c WHERE a.app_category_id = c.id AND a.app_pkg_name = '"+appStr+"';"
+		sqlStatement="SELECT a.review_count, a.review_rating, a.installs, c.url FROM appdata a, appcategories c WHERE a.app_category_id = c.id AND a.app_pkg_name = '"+appStr+"';"
 		playCategory='unknown'
 		reviewRating=0.0
 		reviewCount=0
@@ -71,7 +71,8 @@ def insertIntoDB():
 			for row in resultSet:
 				reviewCount=int(row[0])
 				reviewRating=float(row[1])
-				playCategory=str(row[2])
+				installCount=int(row[2])
+				playCategory=str(row[3])
 				playCategory=(((playCategory.replace("https://play.google.com/store/apps/category/","")).lower()).replace("_and_","_n_")).replace("game_","")
 		except:
 			print('Unexpected error: '+str(sys.exc_info()[0]))
@@ -184,7 +185,7 @@ def insertIntoDB():
 			if str(policyDict[app]["webview"]["rule"]) == "allow":
 				webview="0"
 
-		insertStatement="INSERT INTO policy (app_pkg_name, review_rating, review_count, google_play_category, annotated_category, accounts, browser, calendar, calling, contacts, dict, email, identification, internet, ipc, location, media, messages, network, nfc, notifications, overlay, phone, sensors, shell, storage, system, webview) VALUES ('"+appStr+"',"+str(reviewRating)+","+str(reviewCount)+",'"+playCategory+"','"+annotatedCategory+"',"+accounts+","+browser+","+calendar+","+calling+","+contacts+","+dic+","+email+","+identification+","+internet+","+ipc+","+location+","+media+","+messages+","+network+","+nfc+","+notifications+","+overlay+","+phone+","+sensors+","+shell+","+storage+","+system+","+webview+");"
+		insertStatement="INSERT INTO policy (app_pkg_name, review_rating, review_count, install_count, google_play_category, annotated_category, accounts, browser, calendar, calling, contacts, dict, email, identification, internet, ipc, location, media, messages, network, nfc, notifications, overlay, phone, sensors, shell, storage, system, webview) VALUES ('"+appStr+"',"+str(reviewRating)+","+str(reviewCount)+","+str(installCount)+",'"+playCategory+"','"+annotatedCategory+"',"+accounts+","+browser+","+calendar+","+calling+","+contacts+","+dic+","+email+","+identification+","+internet+","+ipc+","+location+","+media+","+messages+","+network+","+nfc+","+notifications+","+overlay+","+phone+","+sensors+","+shell+","+storage+","+system+","+webview+");"
 		rowid=db.dbManipulateData(dbHandle,insertStatement)
 
 		text_file = open("insert.sql", "w")

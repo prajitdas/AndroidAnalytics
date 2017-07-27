@@ -1,4 +1,4 @@
-# Project: PlayStoreDataCollection
+# Project: Play Store Data Collection
 API for Google Play store data collection and app permission analysis.
 
 A wrapper code for the individual APIs do not exist right now. Such a wrapper would make using this API a lot easier. There are plans to do that eventually. At the moment the individual modules can be used to accomplish the necessary tasks. The first and mandatory step is to edit the dbConfig.ini file. Add your database host, database user name, database user password and database name in this file.

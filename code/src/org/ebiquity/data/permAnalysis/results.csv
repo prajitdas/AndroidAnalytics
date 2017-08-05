@@ -1,0 +1,40 @@
+"AdaBoost","Fscore",0.8915498840538574 
+"AdaBoost","Precision",0.8924686937383974 
+"AdaBoost","Recall",0.8920962199312715 
+"AdaBoost","Score",0.8920962199312715 
+"Decision Tree","Fscore",0.8781247818913602 
+"Decision Tree","Precision",0.8816544027109726 
+"Decision Tree","Recall",0.8793814432989691 
+"Decision Tree","Score",0.8793814432989691 
+"Dummy","Fscore",0.4174844835319929 
+"Dummy","Precision",0.32835656758895143 
+"Dummy","Recall",0.5730240549828178 
+"Dummy","Score",0.5730240549828178 
+"Linear SVM","Fscore",0.9027110686631525 
+"Linear SVM","Precision",0.9032873192737576 
+"Linear SVM","Recall",0.9030927835051547 
+"Linear SVM","Score",0.9030927835051547 
+"Logistic Regression","Fscore",0.9027519523098508 
+"Logistic Regression","Precision",0.9027994429666285 
+"Logistic Regression","Recall",0.9029209621993127 
+"Logistic Regression","Score",0.9029209621993127 
+"Naive Bayes","Fscore",0.3567492075023755 
+"Naive Bayes","Precision",0.74575642574042 
+"Naive Bayes","Recall",0.47577319587628863 
+"Naive Bayes","Score",0.47577319587628863 
+"Nearest Neighbors","Fscore",0.9118801959193239 
+"Nearest Neighbors","Precision",0.9119113439319229 
+"Nearest Neighbors","Recall",0.9118556701030928 
+"Nearest Neighbors","Score",0.9118556701030928 
+"Neural Net","Fscore",0.924031270456611 
+"Neural Net","Precision",0.9240155663014336 
+"Neural Net","Recall",0.9240549828178695 
+"Neural Net","Score",0.9240549828178695 
+"RBF SVM","Fscore",0.7894632813635374 
+"RBF SVM","Precision",0.8332730629523595 
+"RBF SVM","Recall",0.8012027491408935 
+"RBF SVM","Score",0.8012027491408935 
+"Random Forest","Fscore",0.4174844835319929 
+"Random Forest","Precision",0.32835656758895143 
+"Random Forest","Recall",0.5730240549828178 
+"Random Forest","Score",0.5730240549828178

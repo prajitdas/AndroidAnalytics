@@ -23,9 +23,9 @@ def writecsv():
 
 def processData():
 	resultsDict=json.loads(open("results.json","r").read())
+	result={}
 	for classifier in classifiers:
 		dataDict=resultsDict[classifier]
-		result={}
 		for data in dataDict:
 			if data.startswith("test") and not data.endswith("Report"):
 				result[classifier+","+data.split("test")[1]]=dataDict[data]

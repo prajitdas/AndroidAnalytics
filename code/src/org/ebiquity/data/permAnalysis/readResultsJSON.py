@@ -27,7 +27,7 @@ def processData():
 		dataDict=resultsDict[classifier]
 		result={}
 		for data in dataDict:
-			if data.startswith("test") and not test.endswith("Report"):
+			if data.startswith("test") and not data.endswith("Report"):
 				result[classifier+","+data.split("test")[1]]=dataDict[data]
 	open("processedResults.json","w").write(json.dumps(result, sort_keys=True, indent=4))
 

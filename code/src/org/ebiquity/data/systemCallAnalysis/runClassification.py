@@ -31,6 +31,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
+from sklearn.feature_selection import chi2
 import pandas as pd
 import logging
 logging.basicConfig(filename='classification.log',level=logging.DEBUG)
@@ -342,6 +343,9 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 		y_pred=clf.predict(X_test)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
+		chi2,pval = chi2(X_train, y_train)
+		prf1sDict["chi2"] = chi2
+		prf1sDict["pval"] = pval
 		precision = 0
 		recall = 0
 		fscore = 0

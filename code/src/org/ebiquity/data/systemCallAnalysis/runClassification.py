@@ -355,8 +355,8 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name+","+str(n_components)+","+label)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
-			# prf1sDict["testConfusionMatrix"] = confusion_matrix(y_train, y_pred)
-			pd.crosstab(y_test, y_pred, rownames=['True'], colnames=['Predicted'], margins=True)
+			prf1sDict["testConfusionMatrix"] = confusion_matrix(y_train, y_pred)
+			# pd.crosstab(y_test, y_pred, rownames=['True'], colnames=['Predicted'], margins=True)
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
@@ -364,8 +364,8 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average='weighted', labels=labels)
 			score_=clf.score(X_train, y_train)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_, labels=labels)
-			# prf1sDict["trainConfusionMatrix"] = confusion_matrix(y_train, y_pred_)
-			pd.crosstab(y_train, y_pred_, rownames=['True'], colnames=['Predicted'], margins=True)
+			prf1sDict["trainConfusionMatrix"] = confusion_matrix(y_train, y_pred_)
+			# pd.crosstab(y_train, y_pred_, rownames=['True'], colnames=['Predicted'], margins=True)
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
 			prf1sDict["trainRecall"] = recall_

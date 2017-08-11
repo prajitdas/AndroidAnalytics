@@ -15,7 +15,7 @@ import logging
 logging.basicConfig(filename='generateNGrams.log',level=logging.DEBUG)
 
 def storeFeaturesInJsonFile(dataDict,appPkgName,n):
-	masterJsonFile = os.path.join(os.getcwd(),str(n)+"ngramsMalwareDetect.json")
+	masterJsonFile = os.path.join(os.getcwd(),str(n)+"gram534.json")
 	jsonDict = {}
 	try:
 		jsonDict = json.loads(open(masterJsonFile).read())

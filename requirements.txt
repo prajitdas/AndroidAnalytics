@@ -3,7 +3,6 @@ requests==2.13.0
 numpy==1.11.3
 cssutils==1.0.2
 xmltodict==0.10.2
-androidviewclient==11.5.12
 httplib2==0.10.3
 matplotlib==1.5.1
 beautifulsoup4==4.6.0

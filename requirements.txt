@@ -11,7 +11,6 @@ gensim==2.1.0
 httplib2==0.10.3
 matplotlib==1.5.1
 beautifulsoup4==4.6.0
-com==1.0.0
 protobuf==3.3.0
 lxml==3.8.0
 mysql_connector_repackaged==0.3.1

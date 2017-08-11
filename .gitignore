@@ -2,6 +2,8 @@
 workspace.xml
 .DS_Store
 
+data.json
+
 .settings
 .pydevproject
 

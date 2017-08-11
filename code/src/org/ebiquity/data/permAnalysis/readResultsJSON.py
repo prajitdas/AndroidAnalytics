@@ -3,15 +3,15 @@ import time
 import json
 
 classifiers = ["Nearest Neighbors",
-"Linear SVM",
-"RBF SVM",
-"Decision Tree",
-"Random Forest",
-"Neural Net",
-"AdaBoost",
-"Naive Bayes",
-"Logistic Regression",
-"Dummy"]
+		 "Linear SVM",
+		 "RBF SVM",
+		 "Decision Tree",
+		 "Random Forest",
+		 "Neural Net",
+		 "AdaBoost",
+		 "Naive Bayes",
+		 "Logistic Regression",
+		 "Dummy"]
 
 def writecsv():
 	resultsDict=json.loads(open("processedResults.json","r").read())
@@ -25,6 +25,7 @@ def processData():
 	resultsDict=json.loads(open("results.json","r").read())
 	result={}
 	for classifier in classifiers:
+		print "Processing results for: ", classifier
 		dataDict=resultsDict[classifier]
 		for data in dataDict:
 			if data.startswith("test") and not data.endswith("Report"):

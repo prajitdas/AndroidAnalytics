@@ -1,80 +1,80 @@
-AdaBoost,FN,349
-Linear SVM,TP,3072
-Nearest Neighbors,Score,0.904794638254
-Logistic Regression,FP,565
-Dummy,TP,3318
-Decision Tree,TP,3164
-Naive Bayes,FN,11
-Naive Bayes,Precision,0.731656549958
-Logistic Regression,TN,2296
-Linear SVM,Fscore,0.906909549338
-Neural Net,TP,3085
-Naive Bayes,FP,3116
-Decision Tree,TN,1903
-Logistic Regression,Precision,0.875604869051
+AdaBoost,FN,207
+Linear SVM,TP,3080
+Nearest Neighbors,Score,0.910824742268
+Logistic Regression,FP,314
+Dummy,TP,3292
+Decision Tree,TP,3075
+Naive Bayes,FN,3000
+Naive Bayes,Precision,0.737796833107
+Logistic Regression,TN,2214
+Linear SVM,Fscore,0.907105484724
+Neural Net,TP,3102
+Naive Bayes,FP,14
+Decision Tree,TN,2028
+Logistic Regression,Precision,0.904053099024
 Dummy,TN,0
-Linear SVM,Recall,0.907028699089
-Random Forest,Recall,0.570201065475
-AdaBoost,FP,236
-Neural Net,TN,2264
-Nearest Neighbors,Recall,0.904794638254
-Logistic Regression,Score,0.867674858223
-Naive Bayes,TP,202
-RBF SVM,FN,380
-Neural Net,Score,0.919230108266
-Random Forest,Precision,0.325129255069
-Random Forest,Fscore,0.414124359253
-Neural Net,Fscore,0.919222115662
-Nearest Neighbors,FP,350
-Decision Tree,FN,598
-Decision Tree,Score,0.870768173226
-Decision Tree,FP,154
-Naive Bayes,TN,2490
-Decision Tree,Fscore,0.868526047501
-Dummy,Fscore,0.414124359253
-Linear SVM,TN,2206
-Logistic Regression,Recall,0.867674858223
-RBF SVM,Recall,0.881079223234
-Nearest Neighbors,Fscore,0.905073798485
-RBF SVM,FP,312
-Naive Bayes,Score,0.462622443719
-Dummy,Score,0.570201065475
-Nearest Neighbors,FN,204
-Random Forest,TP,3318
-RBF SVM,Score,0.881079223234
-Neural Net,FP,233
-Logistic Regression,Fscore,0.868321779335
-AdaBoost,Fscore,0.899147071184
-RBF SVM,TP,3006
-AdaBoost,TN,2152
-Dummy,Precision,0.325129255069
-Nearest Neighbors,Precision,0.90649857603
-Neural Net,Precision,0.919215006421
-RBF SVM,TN,2121
-AdaBoost,Recall,0.899467262416
-AdaBoost,TP,3082
-RBF SVM,Fscore,0.880862863335
-Linear SVM,Score,0.907028699089
+Linear SVM,Recall,0.907388316151
+Random Forest,Recall,0.565635738832
+AdaBoost,FP,409
+Neural Net,TN,2248
+Nearest Neighbors,Recall,0.910824742268
+Logistic Regression,Score,0.90412371134
+Naive Bayes,TP,292
+RBF SVM,FN,299
+Neural Net,Score,0.919243986254
+Random Forest,Precision,0.319943789044
+Random Forest,Fscore,0.408707825337
+Neural Net,Fscore,0.919056710163
+Nearest Neighbors,FP,272
+Decision Tree,FN,217
+Decision Tree,Score,0.876804123711
+Decision Tree,FP,500
+Naive Bayes,TN,2514
+Decision Tree,Fscore,0.875690417078
+Dummy,Fscore,0.408707825337
+Linear SVM,TN,2201
+Logistic Regression,Recall,0.90412371134
+RBF SVM,Recall,0.876804123711
+Nearest Neighbors,Fscore,0.910771840362
+RBF SVM,FP,418
+Naive Bayes,Score,0.482130584192
+Dummy,Score,0.565635738832
+Nearest Neighbors,FN,247
+Random Forest,TP,3292
+RBF SVM,Score,0.876804123711
+Neural Net,FP,280
+Logistic Regression,Fscore,0.90395500157
+AdaBoost,Fscore,0.893531068303
+RBF SVM,TP,2993
+AdaBoost,TN,2119
+Dummy,Precision,0.319943789044
+Nearest Neighbors,Precision,0.910753093758
+Neural Net,Precision,0.919319117946
+RBF SVM,TN,2110
+AdaBoost,Recall,0.894158075601
+AdaBoost,TP,3085
+RBF SVM,Fscore,0.876412948353
+Linear SVM,Score,0.907388316151
 Random Forest,TN,0
-Nearest Neighbors,TP,2968
-Dummy,Recall,0.570201065475
-Linear SVM,FN,295
-Logistic Regression,TP,2753
-Random Forest,FN,2501
-Decision Tree,Precision,0.877184518089
-Dummy,FP,0
-Linear SVM,Precision,0.9069216622
-Random Forest,Score,0.570201065475
-AdaBoost,Score,0.899467262416
-Neural Net,FN,237
-AdaBoost,Precision,0.899523425389
-Dummy,FN,2501
-Logistic Regression,FN,205
-Random Forest,FP,0
-RBF SVM,Precision,0.880892133505
-Naive Bayes,Recall,0.462622443719
-Linear SVM,FP,246
-Naive Bayes,Fscore,0.329258245574
-Decision Tree,Recall,0.870768173226
-Neural Net,Recall,0.919230108266
-Nearest Neighbors,TN,2297
+Nearest Neighbors,TP,3045
+Dummy,Recall,0.565635738832
+Linear SVM,FN,212
+Logistic Regression,TP,3048
+Random Forest,FN,0
+Decision Tree,Precision,0.87890478589
+Dummy,FP,2528
+Linear SVM,Precision,0.907548791106
+Random Forest,Score,0.565635738832
+AdaBoost,Score,0.894158075601
+Neural Net,FN,190
+AdaBoost,Precision,0.895132112393
+Dummy,FN,0
+Logistic Regression,FN,244
+Random Forest,FP,2528
+RBF SVM,Precision,0.876771957256
+Naive Bayes,Recall,0.482130584192
+Linear SVM,FP,327
+Naive Bayes,Fscore,0.363381876083
+Decision Tree,Recall,0.876804123711
+Neural Net,Recall,0.919243986254
+Nearest Neighbors,TN,2256

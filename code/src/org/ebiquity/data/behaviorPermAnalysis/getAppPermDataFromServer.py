@@ -14,7 +14,6 @@ def getAppPermData(dbHandle,appList):
 	appDict = {}
 	cursor = dbHandle.cursor(buffered=True)
 	sqlStatement = "select a.app_pkg_name, b.name from appdata a, permissions b, appperm c where a.id = c.app_id and b.id = c.perm_id and a.id in (select id from appdata where app_pkg_name in("+appList+"));"
-	print sqlStatement
 	try:
 		cursor.execute(sqlStatement)
 		resultSet = cursor.fetchall()
@@ -46,8 +45,14 @@ def getAppCatData(dbHandle,appList,appDict):
 			pkgName = str(row[0])
 			google_play_category = str(row[1])
 			annotated_category = str(row[2])
-			appDict[pkgName]["annotated_category"] = annotated_category
-			appDict[pkgName]["google_play_category"] = google_play_category
+			if pkgName in appDict:
+				appDict[pkgName]["annotated_category"] = annotated_category
+				appDict[pkgName]["google_play_category"] = google_play_category
+			else:
+				appDict[pkgName] = {}
+				appDict[pkgName]["permissions"] = []
+				appDict[pkgName]["annotated_category"] = annotated_category
+				appDict[pkgName]["google_play_category"] = google_play_category
 	except:
 		print "Unexpected error:", str(sys.exc_info()[0]), pkgName
 	cursor.close()

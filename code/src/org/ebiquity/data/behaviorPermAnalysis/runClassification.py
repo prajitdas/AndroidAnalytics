@@ -70,9 +70,6 @@ def doClassify(X,y):
 		y_pred=clf.predict(X_test)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
-		# chi,pval = chi2(X_train, y_train)
-		# prf1sDict["chi2"] = chi
-		# prf1sDict["pval"] = pval
 		precision = 0
 		recall = 0
 		fscore = 0
@@ -82,7 +79,7 @@ def doClassify(X,y):
 			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred)
-			prf1sDict["confMatTest"] = list(np.ndarray.flatten(confusion_matrix(y_test, y_pred)))
+			prf1sDict["testConfMat"] = list(np.ndarray.flatten(confusion_matrix(y_test, y_pred)))
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
@@ -90,7 +87,7 @@ def doClassify(X,y):
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
 			score_=clf.score(X_train, y_train)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
-			prf1sDict["confMatTrain"] = list(np.ndarray.flatten(confusion_matrix(y_train, y_pred_)))
+			prf1sDict["trainConfMat"] = list(np.ndarray.flatten(confusion_matrix(y_train, y_pred_)))
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
 			prf1sDict["trainRecall"] = recall_

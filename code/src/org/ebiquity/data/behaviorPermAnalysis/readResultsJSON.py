@@ -1,6 +1,7 @@
 import sys
 import time
 import json
+import math
 
 classifiers = ["Nearest Neighbors",
 		 "Linear SVM",
@@ -35,7 +36,22 @@ def processData():
 		dataDict=resultsDict[classifier]
 		for data in dataDict:
 			if data.startswith("test") and not data.endswith("Report"):
-				result[classifier+","+data.split("test")[1]]=dataDict[data]
+				if not data.endswith("ConfMat"):
+					result[classifier+","+data.split("test")[1]]=dataDict[data]
+				else:
+					confMat = dataDict[data]
+					lengthToProcess = len(dataDict[data])
+					loopLength = math.sqrt(lengthToProcess)
+					indexJ = 0
+					listofNums = []
+					for indexI in range(0,lengthToProcess):
+						if indexJ < lengthToProcess:
+							listofNums.append(confMat[indexI])
+							indexJ += 1
+						else:
+							indexJ = 0
+							listofNums = []
+							result[classifier+","+data.split("test")[1]+str(indexI)]
 	open("processedResultsAnnotated.json","w").write(json.dumps(result, sort_keys=True, indent=4))
 	resultsDict=json.loads(open("resultsGoogle.json","r").read())
 	result={}

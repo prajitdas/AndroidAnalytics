@@ -33,7 +33,7 @@ def getAppPermData(dbHandle,appList):
 
 	except:
 		print('Unexpected error: '+str(sys.exc_info()[0]))
-	cursor.close
+	cursor.close()
 	return appDict
 
 def getAppCatData(dbHandle,appList,appDict):
@@ -50,7 +50,7 @@ def getAppCatData(dbHandle,appList,appDict):
 			appDict[pkgName]["google_play_category"] = google_play_category
 	except:
 		print "Unexpected error:", str(sys.exc_info()[0]), pkgName
-	cursor.close
+	cursor.close()
 	return appDict
 
 def getAppList():

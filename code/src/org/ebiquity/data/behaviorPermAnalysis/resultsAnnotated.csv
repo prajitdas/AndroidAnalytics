@@ -1,50 +1,130 @@
 Nearest Neighbors,Score,0.60447761194
-Logistic Regression,Precision,0.665400123565
-Dummy,ConfMat,[32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-Neural Net,ConfMat,[27, 0, 0, 0, 0, 0, 1, 4, 0, 0, 0, 17, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 2, 0, 0, 14, 1, 1, 0, 3, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 7, 0, 0, 3, 3, 0, 1, 0, 0, 0, 20, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6]
+Dummy,ConfMat21,[18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3]
+Naive Bayes,ConfMat54,[0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0]
+Decision Tree,ConfMat10,[26, 0, 0, 0, 0, 0, 0, 6, 0, 0]
+AdaBoost,ConfMat10,[32, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+RBF SVM,ConfMat87,[0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Neural Net,ConfMat21,[0, 17, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+Neural Net,Score,0.708955223881
+Random Forest,Fscore,0.334083712304
+Random Forest,ConfMat54,[0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0]
+Decision Tree,Score,0.626865671642
+Nearest Neighbors,ConfMat65,[0, 1, 0, 0, 0, 0, 4, 3, 0, 0, 0]
+Linear SVM,ConfMat21,[0, 14, 0, 1, 0, 0, 0, 2, 1, 0, 0]
+Random Forest,ConfMat76,[0, 0, 4, 0, 0, 7, 1, 0, 0, 0, 0]
+Decision Tree,ConfMat98,[0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0]
+Logistic Regression,ConfMat21,[0, 16, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+Dummy,Score,0.238805970149
+Dummy,ConfMat32,[0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0]
+RBF SVM,ConfMat98,[1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0]
+Naive Bayes,ConfMat43,[0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0]
+Nearest Neighbors,ConfMat98,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Neural Net,ConfMat32,[0, 0, 1, 0, 0, 0, 2, 0, 0, 2, 0]
+RBF SVM,ConfMat10,[25, 1, 0, 0, 0, 0, 0, 6, 0, 0]
+AdaBoost,ConfMat98,[0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0]
+Dummy,Recall,0.238805970149
+Logistic Regression,ConfMat98,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Linear SVM,ConfMat54,[0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 4]
+Random Forest,ConfMat65,[0, 0, 0, 4, 0, 0, 14, 0, 0, 0, 0]
+Nearest Neighbors,ConfMat10,[29, 0, 0, 0, 0, 1, 0, 2, 0, 0]
+Decision Tree,ConfMat65,[0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0]
+Neural Net,ConfMat87,[0, 20, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+Neural Net,Recall,0.708955223881
+AdaBoost,ConfMat76,[0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0]
+Logistic Regression,ConfMat10,[26, 0, 0, 1, 0, 0, 0, 5, 0, 0]
+RBF SVM,ConfMat65,[0, 0, 0, 4, 0, 0, 2, 0, 0, 0, 0]
+Naive Bayes,ConfMat76,[0, 0, 0, 0, 0, 3, 23, 0, 1, 0, 0]
+Neural Net,ConfMat43,[0, 14, 1, 1, 0, 3, 0, 1, 0, 0, 0]
+Dummy,ConfMat43,[0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0]
 Linear SVM,Fscore,0.623545554426
 Linear SVM,Recall,0.634328358209
-Random Forest,Recall,0.440298507463
-Logistic Regression,Recall,0.701492537313
-Random Forest,ConfMat,[26, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 14, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 7, 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4, 0, 0, 14, 0, 0, 0, 0, 0, 0, 4, 0, 0, 7, 1, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 3, 0, 0, 0, 0, 0, 2, 0, 0]
-Logistic Regression,Score,0.701492537313
-Neural Net,Score,0.708955223881
+Linear SVM,ConfMat10,[27, 2, 0, 0, 0, 0, 0, 3, 0, 0]
 Random Forest,Precision,0.279412826972
-Random Forest,Fscore,0.334083712304
+AdaBoost,ConfMat87,[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 Neural Net,Fscore,0.689993353073
-Linear SVM,Score,0.634328358209
+Linear SVM,ConfMat43,[1, 11, 1, 2, 0, 2, 0, 1, 0, 0, 1]
+Logistic Regression,ConfMat87,[3, 17, 0, 0, 0, 0, 0, 1, 0, 0, 0]
 Decision Tree,Fscore,0.614922788654
 Dummy,Fscore,0.0920697716238
-RBF SVM,Recall,0.544776119403
-Decision Tree,Score,0.626865671642
+Decision Tree,ConfMat76,[0, 9, 6, 0, 0, 6, 1, 0, 2, 0, 0]
 Naive Bayes,Score,0.15671641791
-Dummy,Score,0.238805970149
-Logistic Regression,ConfMat,[26, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 16, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 2, 0, 0, 17, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 12, 5, 0, 0, 5, 1, 0, 1, 0, 0, 3, 17, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6]
-Decision Tree,ConfMat,[26, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 13, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 1, 1, 0, 14, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 9, 6, 0, 0, 6, 1, 0, 2, 0, 0, 0, 18, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4]
+Neural Net,ConfMat54,[0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 5]
+AdaBoost,ConfMat65,[0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0]
+Nearest Neighbors,ConfMat32,[1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4]
+RBF SVM,ConfMat76,[0, 4, 12, 0, 0, 7, 2, 0, 0, 0, 0]
+Dummy,ConfMat54,[0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0]
+Naive Bayes,ConfMat65,[0, 0, 0, 0, 0, 0, 0, 17, 0, 1, 0]
+Linear SVM,Score,0.634328358209
+Logistic Regression,ConfMat76,[0, 12, 5, 0, 0, 5, 1, 0, 1, 0, 0]
+Linear SVM,ConfMat76,[0, 9, 5, 0, 0, 4, 2, 1, 2, 0, 0]
+Decision Tree,Recall,0.626865671642
+Neural Net,ConfMat65,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Neural Net,ConfMat10,[27, 0, 0, 0, 0, 0, 1, 4, 0, 0]
+Random Forest,ConfMat87,[0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Decision Tree,ConfMat43,[0, 14, 0, 0, 0, 6, 0, 0, 0, 0, 0]
+AdaBoost,ConfMat54,[0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0]
+Decision Tree,ConfMat54,[0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 4]
+Logistic Regression,Precision,0.665400123565
+RBF SVM,Recall,0.544776119403
+RBF SVM,ConfMat43,[0, 8, 0, 0, 0, 9, 0, 0, 1, 0, 0]
+Nearest Neighbors,ConfMat21,[2, 14, 0, 0, 0, 0, 0, 1, 1, 0, 2]
+Linear SVM,ConfMat98,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Naive Bayes,ConfMat10,[2, 29, 0, 1, 0, 0, 0, 0, 0, 0]
+Dummy,ConfMat65,[0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0]
+Logistic Regression,ConfMat65,[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+Random Forest,ConfMat10,[26, 0, 0, 1, 0, 0, 0, 5, 0, 0]
+Linear SVM,ConfMat65,[0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0]
+Naive Bayes,ConfMat98,[0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 0]
+Random Forest,ConfMat98,[1, 0, 0, 1, 3, 0, 0, 0, 0, 0, 2]
+Nearest Neighbors,Fscore,0.581996983723
 RBF SVM,Score,0.544776119403
-Logistic Regression,Fscore,0.679661638884
+Decision Tree,ConfMat21,[0, 13, 0, 2, 0, 0, 0, 3, 0, 0, 0]
 AdaBoost,Fscore,0.204546030459
 Random Forest,Score,0.440298507463
 Naive Bayes,Precision,0.145382884867
 Dummy,Precision,0.0570282913789
 Nearest Neighbors,Precision,0.623565012466
-AdaBoost,ConfMat,[32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 12, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0]
-Nearest Neighbors,ConfMat,[29, 0, 0, 0, 0, 1, 0, 2, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 1, 11, 0, 0, 0, 3, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1, 0, 0, 0, 0, 4, 3, 0, 0, 0, 0, 7, 4, 0, 0, 9, 1, 1, 3, 0, 0, 0, 13, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6]
 Neural Net,Precision,0.687711816856
-AdaBoost,Recall,0.328358208955
-RBF SVM,ConfMat,[25, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0, 14, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 2, 0, 8, 0, 0, 0, 9, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4, 0, 0, 2, 0, 0, 0, 0, 0, 4, 12, 0, 0, 7, 2, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 4]
-Nearest Neighbors,Fscore,0.581996983723
+Neural Net,ConfMat76,[0, 11, 7, 0, 0, 3, 3, 0, 1, 0, 0]
+RBF SVM,ConfMat54,[0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0]
 RBF SVM,Fscore,0.520575387638
-Linear SVM,ConfMat,[27, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 14, 0, 1, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 3, 1, 1, 11, 1, 2, 0, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 9, 5, 0, 0, 4, 2, 1, 2, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6]
-Dummy,Recall,0.238805970149
+Linear SVM,ConfMat87,[0, 18, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+Random Forest,ConfMat21,[0, 14, 0, 0, 0, 0, 0, 4, 0, 0, 0]
+Logistic Regression,ConfMat54,[0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 4]
 Decision Tree,Precision,0.644573983707
-Nearest Neighbors,Recall,0.60447761194
 Linear SVM,Precision,0.642250130074
-AdaBoost,Score,0.328358208955
+AdaBoost,ConfMat43,[0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0]
+Random Forest,ConfMat43,[0, 0, 0, 0, 0, 15, 0, 0, 1, 0, 0]
+Naive Bayes,ConfMat87,[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+Nearest Neighbors,ConfMat54,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4]
+Decision Tree,ConfMat32,[0, 0, 1, 0, 0, 0, 2, 0, 0, 1, 1]
+AdaBoost,ConfMat32,[0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0]
+RBF SVM,ConfMat21,[0, 14, 0, 1, 0, 0, 0, 3, 0, 0, 0]
+Naive Bayes,ConfMat32,[3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 19]
+Logistic Regression,Recall,0.701492537313
+Logistic Regression,Score,0.701492537313
+Nearest Neighbors,ConfMat87,[0, 13, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+Dummy,ConfMat87,[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+Random Forest,ConfMat32,[0, 0, 0, 0, 0, 0, 3, 0, 0, 7, 0]
+Dummy,ConfMat76,[0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0]
+Neural Net,ConfMat98,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Nearest Neighbors,ConfMat43,[1, 11, 0, 0, 0, 3, 0, 0, 1, 1, 0]
+Logistic Regression,ConfMat43,[0, 17, 0, 0, 0, 3, 0, 0, 0, 0, 0]
+Logistic Regression,Fscore,0.679661638884
+Dummy,ConfMat10,[32, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+AdaBoost,ConfMat21,[5, 12, 0, 0, 0, 0, 0, 0, 1, 0, 3]
+AdaBoost,Recall,0.328358208955
+RBF SVM,ConfMat32,[0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 2]
+Naive Bayes,ConfMat21,[0, 17, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+Logistic Regression,ConfMat32,[0, 0, 1, 0, 0, 0, 2, 0, 0, 2, 0]
+Naive Bayes,Fscore,0.0806401605156
+Dummy,ConfMat98,[0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0]
+Nearest Neighbors,Recall,0.60447761194
+Random Forest,Recall,0.440298507463
+Decision Tree,ConfMat87,[0, 18, 0, 0, 0, 0, 0, 1, 0, 0, 0]
 AdaBoost,Precision,0.187676999617
 Naive Bayes,Recall,0.15671641791
-Naive Bayes,Fscore,0.0806401605156
-Naive Bayes,ConfMat,[2, 29, 0, 1, 0, 0, 0, 0, 0, 0, 0, 17, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 19, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 1, 0, 0, 0, 0, 0, 0, 3, 23, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 0, 0, 0]
-Decision Tree,Recall,0.626865671642
-Neural Net,Recall,0.708955223881
+Nearest Neighbors,ConfMat76,[0, 7, 4, 0, 0, 9, 1, 1, 3, 0, 0]
+Linear SVM,ConfMat32,[0, 0, 1, 0, 0, 0, 2, 0, 0, 3, 1]
+AdaBoost,Score,0.328358208955
 RBF SVM,Precision,0.631954263769

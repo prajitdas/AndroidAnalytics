@@ -28,11 +28,12 @@ def writecsv():
 			file.write(line)
 			file.write('\n')
 
-def processData():
-	resultsDict=json.loads(open("resultsAnnotated.json","r").read())
+def processData(filename):
+	outputFilename = "processedResults"+filename.split("results")[1]
+	resultsDict=json.loads(open(filename,"r").read())
 	result={}
 	for classifier in classifiers:
-		print "Processing results for: ", classifier
+		print "Processing results for:", classifier, "for:", filename.split("results")[1]
 		dataDict=resultsDict[classifier]
 		for data in dataDict:
 			if data.startswith("test") and not data.endswith("Report"):
@@ -41,27 +42,30 @@ def processData():
 				else:
 					confMat = dataDict[data]
 					lengthToProcess = len(dataDict[data])
-					loopLength = math.sqrt(lengthToProcess)
+					loopLength = int(round(math.sqrt(lengthToProcess)))
 					indexJ = 0
 					listofNums = []
+					print lengthToProcess, loopLength
 					for indexI in range(0,lengthToProcess):
-						if indexJ < lengthToProcess:
+						if indexJ < loopLength:
 							listofNums.append(confMat[indexI])
+							# print confMat[indexI]
 							indexJ += 1
 						else:
+							result[classifier+","+data.split("test")[1]+str(indexI)] = listofNums
 							indexJ = 0
 							listofNums = []
-							result[classifier+","+data.split("test")[1]+str(indexI)]
-	open("processedResultsAnnotated.json","w").write(json.dumps(result, sort_keys=True, indent=4))
-	resultsDict=json.loads(open("resultsGoogle.json","r").read())
-	result={}
-	for classifier in classifiers:
-		print "Processing results for: ", classifier
-		dataDict=resultsDict[classifier]
-		for data in dataDict:
-			if data.startswith("test") and not data.endswith("Report"):
-				result[classifier+","+data.split("test")[1]]=dataDict[data]
-	open("processedResultsGoogle.json","w").write(json.dumps(result, sort_keys=True, indent=4))
+							listofNums.append(confMat[indexI])
+	open(outputFilename,"w").write(json.dumps(result, sort_keys=True, indent=4))
+	# resultsDict=json.loads(open("resultsGoogle.json","r").read())
+	# result={}
+	# for classifier in classifiers:
+	# 	print "Processing results for: ", classifier
+	# 	dataDict=resultsDict[classifier]
+	# 	for data in dataDict:
+	# 		if data.startswith("test") and not data.endswith("Report"):
+	# 			result[classifier+","+data.split("test")[1]]=dataDict[data]
+	# open("processedResultsGoogle.json","w").write(json.dumps(result, sort_keys=True, indent=4))
 
 def main(argv):
 	if len(sys.argv) != 1:
@@ -69,7 +73,8 @@ def main(argv):
 		sys.exit(1)
 
 	startTime = time.time()
-	processData()
+	processData("resultsAnnotated.json")
+	processData("resultsGoogle.json")
 	writecsv()
 	executionTime = str((time.time()-startTime)*1000)
 	print 'Execution time was: '+executionTime+' ms'

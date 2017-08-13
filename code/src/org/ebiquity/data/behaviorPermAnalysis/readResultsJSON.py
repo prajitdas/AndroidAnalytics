@@ -14,15 +14,21 @@ classifiers = ["Nearest Neighbors",
 		 "Dummy"]
 
 def writecsv():
-	resultsDict=json.loads(open("processedResults.json","r").read())
-	with open("results.csv", "wb") as file:
+	resultsDict=json.loads(open("processedResultsAnnotated.json","r").read())
+	with open("resultsAnnotated.csv", "wb") as file:
+		for key in resultsDict:
+			line=key+","+str(resultsDict[key])
+			file.write(line)
+			file.write('\n')
+	resultsDict=json.loads(open("processedResultsGoogle.json","r").read())
+	with open("resultsGoogle.csv", "wb") as file:
 		for key in resultsDict:
 			line=key+","+str(resultsDict[key])
 			file.write(line)
 			file.write('\n')
 
 def processData():
-	resultsDict=json.loads(open("results.json","r").read())
+	resultsDict=json.loads(open("resultsAnnotated.json","r").read())
 	result={}
 	for classifier in classifiers:
 		print "Processing results for: ", classifier
@@ -30,7 +36,16 @@ def processData():
 		for data in dataDict:
 			if data.startswith("test") and not data.endswith("Report"):
 				result[classifier+","+data.split("test")[1]]=dataDict[data]
-	open("processedResults.json","w").write(json.dumps(result, sort_keys=True, indent=4))
+	open("processedResultsAnnotated.json","w").write(json.dumps(result, sort_keys=True, indent=4))
+	resultsDict=json.loads(open("resultsGoogle.json","r").read())
+	result={}
+	for classifier in classifiers:
+		print "Processing results for: ", classifier
+		dataDict=resultsDict[classifier]
+		for data in dataDict:
+			if data.startswith("test") and not data.endswith("Report"):
+				result[classifier+","+data.split("test")[1]]=dataDict[data]
+	open("processedResultsGoogle.json","w").write(json.dumps(result, sort_keys=True, indent=4))
 
 def main(argv):
 	if len(sys.argv) != 1:

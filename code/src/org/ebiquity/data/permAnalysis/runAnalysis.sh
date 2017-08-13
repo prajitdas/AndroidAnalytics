@@ -1,4 +1,0 @@
-python getPermissionsFromAPK.py
-python getAppPermDataFromServer.py
-python runClassification.py
-python readResultsJSON.py

@@ -1,8 +1,8 @@
 """
-Created on July 12,2017
+Created on August 12,2017
 @author: Prajit Kumar Das
 
-Usage: python runMalwareClassifier.py\n
+Usage: python runClassification.py\n
 """
 import os
 import json
@@ -34,8 +34,6 @@ import databaseHandler as db
 import logging
 logging.basicConfig(filename="classification.log",level=logging.DEBUG)
 
-benign=0
-malware=1
 testRatio=0.25
 
 names = ["Nearest Neighbors",
@@ -84,11 +82,7 @@ def doClassify(X,y):
 			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred)
-			confMatList = list(np.ndarray.flatten(confusion_matrix(y_test, y_pred)))
-			prf1sDict["testTN"] = confMatList[0]
-			prf1sDict["testFP"] = confMatList[1]
-			prf1sDict["testFN"] = confMatList[2]
-			prf1sDict["testTP"] = confMatList[3]
+			prf1sDict["confMatTest"] = list(np.ndarray.flatten(confusion_matrix(y_test, y_pred)))
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
@@ -96,16 +90,11 @@ def doClassify(X,y):
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
 			score_=clf.score(X_train, y_train)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
-			confMatList = list(np.ndarray.flatten(confusion_matrix(y_train, y_pred_)))
-			prf1sDict["trainTN"] = confMatList[0]
-			prf1sDict["trainFP"] = confMatList[1]
-			prf1sDict["trainFN"] = confMatList[2]
-			prf1sDict["trainTP"] = confMatList[3]
+			prf1sDict["confMatTrain"] = list(np.ndarray.flatten(confusion_matrix(y_train, y_pred_)))
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
 			prf1sDict["trainRecall"] = recall_
 			prf1sDict["trainFscore"] = fscore_
-			print prf1sDict
 			resultDict[name] = prf1sDict
 		except ValueError:
 			print "Error for claissifier:", name
@@ -113,87 +102,30 @@ def doClassify(X,y):
 			continue
 	return resultDict
 
-def getBenignAppPermissionsFromGoogleCloudSQL(appDict):
-	bigDict = {}
-	featuresList = []
-	permissionsList = []
-	appList = sample(appDict.keys(), 10000)
-	for pkgName in appList:
-		permissions = appDict[pkgName]
-
-		extractedDict = {}
-		extractedDict["benignMal"] = benign
-		extractedDict["platformVer"] = ""
-		extractedDict["pkgName"] = pkgName
-		extractedDict["features"] = []
-		extractedDict["permissions"] = permissions
-
-		for permission in permissions:
-			permissionsList.append(permission)
-
-		bigDict[pkgName] = extractedDict
-
-	return list(set(featuresList)), list(set(permissionsList)), bigDict
-
 def extractData(appDict):
-	bigDict = {}
-	featuresList = []
+	allAppsDict = {}
 	permissionsList = []
 	for app in appDict:
 		extractedDict = {}
-		pkgName = appDict[app]["pkgName"]
 
-		if appDict[app]["benignMal"] == "benign":
-			extractedDict["benignMal"] = benign
-		else:
-			extractedDict["benignMal"] = malware
-
-		extractedDict["platformVer"] = appDict[app]["platformVer"]
-		extractedDict["pkgName"] = pkgName
-		extractedDict["features"] = appDict[app]["features"]
+		extractedDict["app"] = app
 		extractedDict["permissions"] = appDict[app]["permissions"]
-
-		for feature in appDict[app]["features"]:
-			featuresList.append(feature)
+		extractedDict["annotated_category"] = appDict[app]["annotated_category"]
+		extractedDict["google_play_category"] = appDict[app]["google_play_category"]
 
 		for permission in appDict[app]["permissions"]:
 			permissionsList.append(permission)
 
-		bigDict[pkgName] = extractedDict
+		allAppsDict[app] = extractedDict
 
-	return list(set(featuresList)), list(set(permissionsList)), bigDict
+	return list(set(permissionsList)), allAppsDict
 
-def runClassification():
-	allAppsDict = {}
-	featuresList = []
-	permissionsList = []
-
-	featureList1, permissionsList1, extractedDict1 = extractData(json.loads(open("toprocess.json","r").read()))
-	# featuresList2, permissionsList2, extractedDict2 = extractData(json.loads(open("benign.json","r").read()))
-	featuresList2, permissionsList2, extractedDict2 = getBenignAppPermissionsFromGoogleCloudSQL(json.loads(open("data.json","r").read()))
-
-	featuresList = list(set(featureList1 + featuresList2))
-
-	permissionsList = list(set(permissionsList1 + permissionsList2))
-
-	allAppsDict = extractedDict1
-	allAppsDict.update(extractedDict2)
-
+def runClassification(permissionsList,allAppsDict,category):
 	X = []
 	y = []
 
 	for app in allAppsDict:
-		if allAppsDict[app]["benignMal"] == benign:
-			print "extracting features for benign app:", app
-		else:
-			print "extracting features for malware app:", app
 		classificationFeatures = []
-
-		# for feature in featuresList:
-		# 	if feature in allAppsDict[app]["features"]:
-		# 		classificationFeatures.append(1)
-		# 	else:
-		# 		classificationFeatures.append(0)
 
 		for permission in permissionsList:
 			if permission in allAppsDict[app]["permissions"]:
@@ -202,39 +134,25 @@ def runClassification():
 				classificationFeatures.append(0)
 
 		X.append(classificationFeatures)
-		y.append(allAppsDict[app]["benignMal"])
+		y.append(allAppsDict[app][category])
 
 	return X,y
 
-# def featureImportance(X,y):
-# 	# Build a forest and compute the feature importances
-# 	forest = ExtraTreesClassifier(n_estimators=250, random_state=0)
-
-# 	forest.fit(X, y)
-# 	importances = forest.feature_importances_
-# 	std = np.std([tree.feature_importances_ for tree in forest.estimators_],axis=0)
-# 	indices = np.argsort(importances)[::-1]
-
-# 	# Print the feature ranking
-# 	print "Feature ranking:"
-
-# 	for f in range(X.shape[1]):
-# 		print "%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]])
-
-# 	# Plot the feature importances of the forest
-# 	plt.figure()
-# 	plt.title("Feature importances")
-# 	plt.bar(range(X.shape[1]), importances[indices], color="r", yerr=std[indices], align="center")
-# 	plt.xticks(range(X.shape[1]), indices)
-# 	plt.xlim([-1, X.shape[1]])
-# 	plt.show()
-
 def main(argv):
 	startTime = time.time()
-	#X,y = runClassification()
-	#featureImportance(X,y)
-	#result = doClassify(X,y)
-	#open("results.json","w").write(json.dumps(result, indent=4))
+
+	permissionsList, allAppsDict = extractData(json.loads(open("data.json","r").read()))
+
+	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
+	result = doClassify(X,y)
+	open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
+	print "Done with annotated categories"
+
+	X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
+	result = doClassify(X,y)
+	open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
+	print "Done with google play categories"
+
 	executionTime = str((time.time()-startTime)/60)
 	print "Execution time was: "+executionTime+" minutes"
 

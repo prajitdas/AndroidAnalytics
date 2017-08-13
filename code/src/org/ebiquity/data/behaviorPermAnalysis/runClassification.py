@@ -66,6 +66,8 @@ def doClassify(X,y):
 	# iterate over classifiers
 	for name, clf in zip(names, classifiers):
 		print "Running cliasifer:", name
+		if name != "Logistic Regression":
+			clf=OneVsRestClassifier(clf)
 		clf.fit(X_train, y_train)
 		y_pred=clf.predict(X_test)
 		y_pred_=clf.predict(X_train)
@@ -139,6 +141,7 @@ def main(argv):
 	startTime = time.time()
 
 	permissionsList, allAppsDict = extractData(json.loads(open("data.json","r").read()))
+	# print permissionsList
 
 	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
 	result = doClassify(X,y)

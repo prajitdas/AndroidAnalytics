@@ -136,6 +136,41 @@ def runClassification(permissionsList,allAppsDict,category):
 		y.append(allAppsDict[app][category])
 
 	return X,y
+def pairedSampleTTest(X,y):
+	print "Paired Sample T-Test"
+
+	alarm_clock = []
+	to_do_list = []
+	index = 0
+	for behaviorCat in y:
+		if behaviorCat == "alarm_clock":
+			alarm_clock.append(X[index])
+		else:
+			to_do_list.append(X[index])
+		index += 1
+	
+	lengthToUse = max(len(alarm_clock), len(to_do_list))
+	for loopCount in range(100):
+		index = numpy.random.choice(lengthToUse)
+		a = alarm_clock[index]
+		b = to_do_list[index]
+		paired_sample = stats.ttest_rel(a,b)
+		print "The t-statistic is %.3f and the p-value is %.3f." % paired_sample
+
+def featureImportance(X,y):
+	# Build a forest and compute the feature importances
+	forest = ExtraTreesClassifier(n_estimators=250, random_state=0)
+
+	forest.fit(X, y)
+	importances = forest.feature_importances_
+	std = np.std([tree.feature_importances_ for tree in forest.estimators_],axis=0)
+	indices = np.argsort(importances)[::-1]
+
+	# Print the feature ranking
+	print "Feature ranking:"
+
+	for f in range(X.shape[1]):
+		print "%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]])
 
 def main(argv):
 	startTime = time.time()
@@ -147,6 +182,9 @@ def main(argv):
 	result = doClassify(X,y)
 	open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
 	print "Done with annotated categories"
+
+	pairedSampleTTest(X,y)
+	featureImportance(X,y)
 
 	X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
 	result = doClassify(X,y)

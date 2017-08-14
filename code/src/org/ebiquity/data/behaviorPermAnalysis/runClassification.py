@@ -27,7 +27,7 @@ from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, ExtraTr
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.feature_selection import chi2
-#import matplotlib.pyplot as plt
+from scipy import stats
 import numpy as np
 import pandas as pd
 import databaseHandler as db
@@ -151,7 +151,7 @@ def pairedSampleTTest(X,y):
 	
 	lengthToUse = max(len(alarm_clock), len(to_do_list))
 	for loopCount in range(100):
-		index = numpy.random.choice(lengthToUse)
+		index = np.random.choice(lengthToUse)
 		a = alarm_clock[index]
 		b = to_do_list[index]
 		paired_sample = stats.ttest_rel(a,b)

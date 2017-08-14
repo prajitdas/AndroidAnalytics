@@ -195,7 +195,7 @@ def main(argv):
 	# open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
 	# print "Done with annotated categories"
 
-	pairedSampleTTest(X,y)
+	# pairedSampleTTest(X,y)
 	featureImportance(X,y)
 
 	executionTime = str((time.time()-startTime)/60)

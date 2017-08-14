@@ -153,12 +153,12 @@
         0, 
         0, 
         0, 
-        2, 
+        1, 
         0, 
         0, 
         0, 
         0, 
-        3
+        4
     ], 
     "AdaBoost,ConfMat31": [
         0, 
@@ -250,29 +250,11 @@
         0, 
         0
     ], 
-    "AdaBoost,Fscore": 0.3921382392848592, 
-    "AdaBoost,Precision": 0.4388904533934103, 
+    "AdaBoost,Fscore": 0.3920429365776162, 
+    "AdaBoost,Precision": 0.42735721051688386, 
     "AdaBoost,Recall": 0.4701492537313433, 
     "AdaBoost,Score": 0.4701492537313433, 
-    "Decision Tree,ConfMat111": [
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0
-    ], 
-    "Decision Tree,ConfMat127": [
+    "Decision Tree,ConfMat104": [
         0, 
         0, 
         0, 
@@ -287,10 +269,9 @@
         0, 
         0, 
         0, 
-        0, 
         0
     ], 
-    "Decision Tree,ConfMat143": [
+    "Decision Tree,ConfMat119": [
         0, 
         0, 
         0, 
@@ -305,11 +286,26 @@
         0, 
         0, 
         0, 
+        0
+    ], 
+    "Decision Tree,ConfMat134": [
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        1, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
         0, 
         0
     ], 
-    "Decision Tree,ConfMat15": [
-        0, 
+    "Decision Tree,ConfMat14": [
         0, 
         0, 
         0, 
@@ -325,28 +321,9 @@
         0, 
         1
     ], 
-    "Decision Tree,ConfMat159": [
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
+    "Decision Tree,ConfMat149": [
         0, 
         1, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0, 
-        0
-    ], 
-    "Decision Tree,ConfMat175": [
-        0, 
-        1, 
-        0, 
         0, 
         0, 
         0, 
@@ -361,7 +338,7 @@
         0, 
         0
     ], 
-    "Decision Tree,ConfMat191": [
+    "Decision Tree,ConfMat164": [
         0, 
         0, 
         0, 
@@ -373,18 +350,16 @@
         1, 
         0, 
         0, 
-        2, 
         0, 
         1, 
         1, 
         1
     ], 
-    "Decision Tree,ConfMat207": [
+    "Decision Tree,ConfMat179": [
         3, 
         13, 
         0, 
-        23, 
-        0, 
+        25, 
         0, 
         0, 
         0, 
@@ -397,7 +372,7 @@
         0, 
         0
     ], 
-    "Decision Tree,ConfMat223": [
+    "Decision Tree,ConfMat194": [
         1, 
         0, 
         0, 
@@ -406,7 +381,6 @@
         0, 
         0, 
         1, 
-        0, 
         0, 
         0, 
         0, 
@@ -415,8 +389,7 @@
         1, 
         12
     ], 
-    "Decision Tree,ConfMat31": [
-        0, 
+    "Decision Tree,ConfMat29": [
         0, 
         0, 
         0, 
@@ -433,8 +406,7 @@
         3, 
         0
     ], 
-    "Decision Tree,ConfMat47": [
-        0, 
+    "Decision Tree,ConfMat44": [
         0, 
         0, 
         0, 
@@ -451,8 +423,7 @@
         0, 
         0
     ], 
-    "Decision Tree,ConfMat63": [
-        0, 
+    "Decision Tree,ConfMat59": [
         0, 
         0, 
         0, 
@@ -469,8 +440,7 @@
         0, 
         0
     ], 
-    "Decision Tree,ConfMat79": [
-        0, 
+    "Decision Tree,ConfMat74": [
         0, 
         0, 
         0, 
@@ -487,8 +457,7 @@
         0, 
         0
     ], 
-    "Decision Tree,ConfMat95": [
-        0, 
+    "Decision Tree,ConfMat89": [
         0, 
         0, 
         0, 
@@ -505,8 +474,8 @@
         0, 
         0
     ], 
-    "Decision Tree,Fscore": 0.4176726755831233, 
-    "Decision Tree,Precision": 0.4011790610898993, 
+    "Decision Tree,Fscore": 0.41373447186487244, 
+    "Decision Tree,Precision": 0.3952467774762551, 
     "Decision Tree,Recall": 0.4552238805970149, 
     "Decision Tree,Score": 0.4552238805970149, 
     "Dummy,ConfMat111": [
@@ -1828,9 +1797,9 @@
         0, 
         0, 
         0, 
-        1, 
+        2, 
         0, 
-        5, 
+        4, 
         0, 
         0, 
         0, 
@@ -1924,9 +1893,9 @@
     ], 
     "Neural Net,ConfMat179": [
         2, 
-        11, 
+        10, 
         0, 
-        29, 
+        30, 
         0, 
         0, 
         0, 
@@ -2016,9 +1985,9 @@
         0, 
         0, 
         0, 
-        1, 
+        2, 
         0, 
-        1, 
+        0, 
         0, 
         0, 
         0, 
@@ -2041,10 +2010,10 @@
         0, 
         0
     ], 
-    "Neural Net,Fscore": 0.42246623306870096, 
-    "Neural Net,Precision": 0.4262400120609076, 
-    "Neural Net,Recall": 0.47761194029850745, 
-    "Neural Net,Score": 0.47761194029850745, 
+    "Neural Net,Fscore": 0.412848610975623, 
+    "Neural Net,Precision": 0.40689851540875926, 
+    "Neural Net,Recall": 0.4701492537313433, 
+    "Neural Net,Score": 0.4701492537313433, 
     "RBF SVM,ConfMat104": [
         0, 
         1, 
@@ -2372,9 +2341,9 @@
     ], 
     "Random Forest,ConfMat179": [
         0, 
-        1, 
         0, 
-        44, 
+        0, 
+        45, 
         0, 
         0, 
         0, 
@@ -2489,8 +2458,8 @@
         0, 
         0
     ], 
-    "Random Forest,Fscore": 0.324927448390359, 
-    "Random Forest,Precision": 0.5656491976209179, 
-    "Random Forest,Recall": 0.48507462686567165, 
-    "Random Forest,Score": 0.48507462686567165
+    "Random Forest,Fscore": 0.30875923413236844, 
+    "Random Forest,Precision": 0.22811316551570504, 
+    "Random Forest,Recall": 0.47761194029850745, 
+    "Random Forest,Score": 0.47761194029850745
 }

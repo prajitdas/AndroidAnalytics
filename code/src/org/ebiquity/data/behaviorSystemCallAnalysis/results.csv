@@ -1,0 +1,3280 @@
+google,tfidf,bi,10,Decision Tree,Recall,0.404761904762
+google,tfidf,all,10000,Neural Net,Recall,0.5
+my,tfidf,all,5000,Logistic Regression,Fscore,0.456953050986
+google,tfidf,uni,10,Neural Net,Recall,0.444444444444
+google,tfidf,quad,100,Logistic Regression,Score,0.388888888889
+my,tfidf,uni,5000,Random Forest,Score,0.325396825397
+my,tfidf,uni,5000,Decision Tree,Fscore,0.356067963441
+google,tfidf,bi,10000,Neural Net,Recall,0.452380952381
+google,tfidf,uni,5000,Decision Tree,Score,0.436507936508
+my,numoc,tri,all,Linear SVM,Fscore,0.0019536019536
+my,tfidf,tri,500,Naive Bayes,Recall,0.253968253968
+my,tfidf,all,10,Linear SVM,Fscore,0.261706258261
+my,tfidf,bi,10,Random Forest,Recall,0.349206349206
+my,tfidf,tri,5000,Neural Net,Fscore,0.432938607542
+my,tfidf,tri,1000,RBF SVM,Precision,0.0493827160494
+my,tfidf,uni,100,Dummy,Precision,0.00226757369615
+my,tfidf,uni,500,Naive Bayes,Fscore,0.346781602519
+google,tfidf,all,2000,Neural Net,Fscore,0.432275132275
+google,justc,bi,all,Linear SVM,Score,0.47619047619
+google,tfidf,tri,10000,Random Forest,Precision,0.391468253968
+google,tfidf,quad,100,Linear SVM,Score,0.428571428571
+google,tfidf,all,10000,AdaBoost,Precision,0.456873315364
+my,tfidf,bi,10,RBF SVM,Score,0.325396825397
+google,tfidf,uni,10,Linear SVM,Score,0.5
+google,tfidf,quad,10000,Naive Bayes,Recall,0.515873015873
+google,tfidf,uni,500,Neural Net,Score,0.452380952381
+google,tfidf,tri,500,Logistic Regression,Score,0.484126984127
+google,tfidf,uni,500,Nearest Neighbors,Precision,0.432071379276
+google,tfidf,bi,100,Random Forest,Precision,0.34179026802
+my,tfidf,bi,10,RBF SVM,Recall,0.325396825397
+my,tfidf,quad,10,Nearest Neighbors,Score,0.309523809524
+my,tfidf,bi,10000,Random Forest,Precision,0.186839982001
+google,tfidf,all,1000,Decision Tree,Recall,0.460317460317
+google,numoc,bi,all,AdaBoost,Score,0.47619047619
+my,tfidf,uni,2000,AdaBoost,Precision,0.397405372405
+google,tfidf,all,100,Neural Net,Score,0.428571428571
+my,justc,uni,all,AdaBoost,Score,0.31746031746
+google,tfidf,uni,10,Logistic Regression,Fscore,0.384901464612
+my,tfidf,tri,5000,Naive Bayes,Precision,0.0644998740237
+my,tfidf,tri,5000,Nearest Neighbors,Fscore,0.448338950474
+my,tfidf,quad,5000,AdaBoost,Precision,0.441173374209
+my,tfidf,quad,100,Logistic Regression,Fscore,0.46006988654
+google,numoc,tri,all,AdaBoost,Score,0.47619047619
+my,tfidf,uni,100,Nearest Neighbors,Fscore,0.326482222249
+google,numoc,bi,all,Naive Bayes,Precision,6.29881582263e-05
+my,tfidf,tri,2000,Linear SVM,Recall,0.428571428571
+google,justc,uni,all,Decision Tree,Recall,0.452380952381
+google,tfidf,uni,1000,Random Forest,Score,0.507936507937
+google,tfidf,tri,10000,Neural Net,Recall,0.484126984127
+my,tfidf,tri,10,Random Forest,Precision,0.429858104858
+my,tfidf,uni,100,Naive Bayes,Recall,0.301587301587
+google,tfidf,uni,100,AdaBoost,Fscore,0.36411508295
+my,tfidf,bi,100,Naive Bayes,Score,0.365079365079
+my,tfidf,bi,5000,Naive Bayes,Score,0.238095238095
+google,tfidf,quad,10,Nearest Neighbors,Score,0.515873015873
+my,justc,tri,all,Naive Bayes,Precision,0.0728143109095
+google,tfidf,bi,100,Logistic Regression,Score,0.412698412698
+google,tfidf,quad,2000,Logistic Regression,Fscore,0.4207266783
+my,tfidf,tri,100,AdaBoost,Precision,0.417858465308
+my,tfidf,uni,1000,AdaBoost,Score,0.412698412698
+my,tfidf,bi,5000,Naive Bayes,Precision,0.0614439324117
+google,tfidf,all,500,Decision Tree,Score,0.444444444444
+google,tfidf,quad,5000,Logistic Regression,Score,0.444444444444
+google,tfidf,tri,100,Dummy,Precision,0.266124968506
+google,tfidf,uni,100,Nearest Neighbors,Recall,0.460317460317
+google,tfidf,quad,5000,AdaBoost,Recall,0.444444444444
+google,tfidf,uni,10000,Random Forest,Score,0.507936507937
+my,numoc,uni,all,Linear SVM,Fscore,0.411886964319
+google,justc,uni,all,Neural Net,Recall,0.460317460317
+google,justc,bi,all,Dummy,Score,0.47619047619
+google,numoc,tri,all,Nearest Neighbors,Score,0.47619047619
+my,tfidf,uni,2000,Naive Bayes,Fscore,0.324406814576
+google,tfidf,uni,1000,Decision Tree,Fscore,0.409575220102
+my,tfidf,quad,5000,Logistic Regression,Recall,0.452380952381
+google,tfidf,uni,2000,RBF SVM,Recall,0.515873015873
+my,tfidf,bi,10000,Naive Bayes,Precision,0.0629841269841
+google,tfidf,uni,10,Dummy,Recall,0.515873015873
+my,tfidf,quad,5000,RBF SVM,Recall,0.222222222222
+my,tfidf,uni,10000,Neural Net,Fscore,0.46509860751
+my,tfidf,tri,5000,Decision Tree,Recall,0.34126984127
+my,tfidf,tri,10000,RBF SVM,Recall,0.222222222222
+my,justc,tri,all,Naive Bayes,Fscore,0.114682539683
+google,numoc,bi,all,Nearest Neighbors,Score,0.47619047619
+my,tfidf,uni,10,Nearest Neighbors,Precision,0.489294942783
+my,tfidf,quad,100,Decision Tree,Precision,0.332915079908
+google,tfidf,tri,10,Naive Bayes,Recall,0.0952380952381
+google,tfidf,bi,5000,Neural Net,Recall,0.452380952381
+my,tfidf,bi,2000,AdaBoost,Recall,0.373015873016
+my,tfidf,uni,10000,Dummy,Recall,0.047619047619
+google,tfidf,quad,100,RBF SVM,Fscore,0.351117759495
+my,numoc,uni,all,Neural Net,Recall,0.373015873016
+my,tfidf,quad,100,AdaBoost,Precision,0.443681917211
+google,justc,tri,all,Logistic Regression,Recall,0.47619047619
+google,tfidf,tri,5000,AdaBoost,Precision,0.364313081554
+my,tfidf,quad,2000,Logistic Regression,Fscore,0.455022564793
+my,tfidf,bi,5000,Logistic Regression,Precision,0.455406322073
+my,tfidf,bi,100,Decision Tree,Precision,0.340182965183
+my,tfidf,quad,5000,Neural Net,Recall,0.460317460317
+my,tfidf,quad,10000,Neural Net,Fscore,0.45472853286
+my,tfidf,bi,2000,Logistic Regression,Score,0.428571428571
+google,tfidf,bi,10,Neural Net,Score,0.515873015873
+google,tfidf,all,100,Dummy,Precision,0.266124968506
+my,tfidf,all,10000,Random Forest,Precision,0.219754311189
+my,tfidf,quad,1000,Logistic Regression,Precision,0.514676575021
+google,tfidf,all,10,RBF SVM,Score,0.5
+google,tfidf,quad,5000,RBF SVM,Fscore,0.351117759495
+my,tfidf,tri,10,Dummy,Score,0.047619047619
+my,tfidf,bi,500,Linear SVM,Fscore,0.41709196554
+my,tfidf,uni,2000,Naive Bayes,Recall,0.333333333333
+my,tfidf,all,10,RBF SVM,Recall,0.420634920635
+google,numoc,tri,all,Linear SVM,Recall,0.47619047619
+my,tfidf,bi,10,Logistic Regression,Recall,0.349206349206
+my,tfidf,quad,2000,Linear SVM,Precision,0.498196979941
+google,tfidf,all,2000,RBF SVM,Score,0.515873015873
+my,justc,tri,all,Nearest Neighbors,Recall,0.15873015873
+my,tfidf,uni,100,Logistic Regression,Precision,0.380291225802
+google,tfidf,tri,10000,AdaBoost,Recall,0.428571428571
+my,tfidf,quad,1000,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,10,Decision Tree,Precision,0.413343930815
+my,tfidf,uni,100,Neural Net,Precision,0.472426074807
+my,tfidf,uni,500,RBF SVM,Precision,0.0493827160494
+google,tfidf,bi,500,Random Forest,Fscore,0.351117759495
+google,tfidf,tri,500,Neural Net,Recall,0.468253968254
+google,tfidf,all,2000,Decision Tree,Recall,0.460317460317
+google,tfidf,bi,1000,Neural Net,Fscore,0.395171514984
+google,tfidf,all,10,Nearest Neighbors,Score,0.531746031746
+google,tfidf,tri,100,Dummy,Score,0.515873015873
+google,tfidf,bi,10,Random Forest,Fscore,0.385703014149
+my,tfidf,quad,2000,Naive Bayes,Score,0.253968253968
+google,tfidf,uni,1000,Linear SVM,Recall,0.428571428571
+my,tfidf,tri,10,Linear SVM,Fscore,0.276578489057
+my,tfidf,uni,5000,Nearest Neighbors,Precision,0.404037323742
+google,tfidf,uni,10000,RBF SVM,Recall,0.515873015873
+my,tfidf,uni,10000,Logistic Regression,Fscore,0.374386677465
+my,tfidf,quad,5000,Nearest Neighbors,Recall,0.428571428571
+google,tfidf,uni,500,Random Forest,Recall,0.515873015873
+my,tfidf,quad,1000,Decision Tree,Recall,0.34126984127
+my,tfidf,quad,10000,Linear SVM,Recall,0.452380952381
+google,tfidf,quad,1000,Linear SVM,Fscore,0.43722544441
+my,tfidf,tri,1000,Neural Net,Precision,0.490064781674
+my,tfidf,tri,500,Neural Net,Precision,0.483458725832
+my,tfidf,uni,10000,Neural Net,Precision,0.487730968219
+my,tfidf,quad,1000,Naive Bayes,Recall,0.253968253968
+google,tfidf,quad,2000,Logistic Regression,Score,0.444444444444
+google,tfidf,bi,2000,Linear SVM,Recall,0.420634920635
+google,tfidf,quad,100,RBF SVM,Recall,0.515873015873
+my,tfidf,bi,2000,RBF SVM,Recall,0.222222222222
+google,tfidf,uni,500,Decision Tree,Score,0.468253968254
+my,tfidf,uni,1000,RBF SVM,Score,0.222222222222
+google,tfidf,uni,1000,Decision Tree,Recall,0.452380952381
+my,tfidf,quad,500,Neural Net,Recall,0.444444444444
+google,tfidf,all,100,Neural Net,Precision,0.35514732713
+google,numoc,tri,all,RBF SVM,Recall,0.47619047619
+google,tfidf,uni,100,Random Forest,Recall,0.515873015873
+google,tfidf,uni,1000,Logistic Regression,Score,0.412698412698
+google,tfidf,quad,10000,Dummy,Precision,0.266124968506
+my,tfidf,quad,500,Neural Net,Precision,0.502041785375
+my,tfidf,quad,5000,AdaBoost,Fscore,0.422480039341
+my,tfidf,uni,5000,Naive Bayes,Score,0.34126984127
+google,tfidf,uni,5000,Nearest Neighbors,Score,0.444444444444
+google,numoc,tri,all,Dummy,Fscore,0.307219662058
+google,tfidf,uni,500,Dummy,Fscore,0.351117759495
+my,tfidf,uni,2000,AdaBoost,Recall,0.365079365079
+my,tfidf,quad,10,Naive Bayes,Fscore,0.230156899083
+google,tfidf,bi,5000,Dummy,Fscore,0.351117759495
+my,tfidf,uni,10000,Nearest Neighbors,Fscore,0.33392333581
+my,tfidf,uni,500,Random Forest,Precision,0.351443805592
+my,tfidf,quad,10,AdaBoost,Fscore,0.271936877603
+my,tfidf,bi,1000,AdaBoost,Precision,0.381540257404
+google,tfidf,all,5000,Random Forest,Fscore,0.363823665667
+my,justc,uni,all,Naive Bayes,Score,0.15873015873
+my,tfidf,all,2000,Nearest Neighbors,Recall,0.452380952381
+google,numoc,bi,all,RBF SVM,Recall,0.47619047619
+google,tfidf,quad,5000,AdaBoost,Score,0.444444444444
+google,tfidf,bi,5000,Dummy,Recall,0.515873015873
+google,justc,uni,all,RBF SVM,Score,0.484126984127
+google,tfidf,all,100,Dummy,Score,0.515873015873
+my,tfidf,bi,2000,Decision Tree,Fscore,0.33222567926
+my,tfidf,all,5000,Dummy,Precision,0.00226757369615
+my,tfidf,quad,5000,AdaBoost,Recall,0.420634920635
+google,tfidf,all,5000,Linear SVM,Fscore,0.435313701077
+my,tfidf,all,500,Dummy,Fscore,0.004329004329
+my,tfidf,bi,10000,Decision Tree,Recall,0.31746031746
+google,tfidf,uni,500,Random Forest,Precision,0.266124968506
+google,justc,tri,all,Decision Tree,Score,0.47619047619
+google,tfidf,all,500,Dummy,Precision,0.266124968506
+google,tfidf,all,10000,Neural Net,Score,0.5
+my,tfidf,uni,1000,Random Forest,Fscore,0.232133604358
+my,tfidf,bi,10,Decision Tree,Score,0.349206349206
+google,tfidf,uni,2000,Logistic Regression,Score,0.428571428571
+google,tfidf,all,10000,Nearest Neighbors,Precision,0.452363315697
+my,tfidf,bi,10,AdaBoost,Score,0.31746031746
+my,tfidf,all,10,Nearest Neighbors,Precision,0.456613756614
+my,tfidf,bi,10,Naive Bayes,Recall,0.31746031746
+my,tfidf,tri,1000,Linear SVM,Recall,0.428571428571
+my,tfidf,bi,100,Dummy,Precision,0.00226757369615
+my,tfidf,uni,500,Decision Tree,Fscore,0.332616642617
+google,tfidf,uni,5000,AdaBoost,Precision,0.356248054777
+my,tfidf,quad,500,AdaBoost,Precision,0.441173374209
+my,numoc,uni,all,Random Forest,Recall,0.31746031746
+my,tfidf,tri,2000,Nearest Neighbors,Score,0.452380952381
+my,tfidf,quad,1000,Neural Net,Score,0.452380952381
+my,tfidf,quad,500,Neural Net,Fscore,0.448977670164
+my,tfidf,quad,10000,Linear SVM,Fscore,0.454148607404
+my,tfidf,tri,500,Linear SVM,Score,0.428571428571
+google,tfidf,tri,10,Nearest Neighbors,Recall,0.492063492063
+google,tfidf,all,2000,Dummy,Recall,0.515873015873
+my,tfidf,uni,100,Linear SVM,Score,0.468253968254
+google,tfidf,bi,10,Neural Net,Precision,0.403815108598
+google,tfidf,all,500,AdaBoost,Precision,0.451646090535
+my,tfidf,tri,2000,Decision Tree,Precision,0.415075515076
+my,tfidf,bi,1000,Dummy,Score,0.047619047619
+my,tfidf,uni,2000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,bi,500,Nearest Neighbors,Precision,0.568701668702
+google,tfidf,uni,5000,RBF SVM,Score,0.515873015873
+my,numoc,bi,all,Dummy,Recall,0.031746031746
+my,tfidf,uni,100,Dummy,Score,0.047619047619
+google,tfidf,all,10,Linear SVM,Score,0.492063492063
+google,tfidf,quad,10000,Dummy,Score,0.515873015873
+my,tfidf,uni,500,Linear SVM,Precision,0.486161986162
+google,tfidf,quad,10000,AdaBoost,Precision,0.409528648858
+google,tfidf,tri,100,Linear SVM,Precision,0.340435280641
+my,tfidf,bi,5000,Nearest Neighbors,Score,0.507936507937
+google,tfidf,all,100,Nearest Neighbors,Precision,0.394688994345
+my,tfidf,uni,1000,Linear SVM,Recall,0.492063492063
+google,tfidf,all,2000,Dummy,Score,0.515873015873
+google,justc,bi,all,Dummy,Precision,0.226757369615
+my,tfidf,uni,10000,RBF SVM,Precision,0.0493827160494
+my,tfidf,uni,1000,AdaBoost,Recall,0.412698412698
+my,tfidf,all,500,Linear SVM,Recall,0.452380952381
+my,tfidf,bi,500,AdaBoost,Score,0.373015873016
+my,numoc,uni,all,Nearest Neighbors,Fscore,0.328325504376
+my,tfidf,all,100,Logistic Regression,Recall,0.484126984127
+google,tfidf,bi,10,RBF SVM,Precision,0.404062559603
+google,tfidf,quad,10000,Dummy,Fscore,0.351117759495
+google,tfidf,bi,10,Neural Net,Fscore,0.42468203631
+my,tfidf,bi,10000,Dummy,Precision,0.00226757369615
+google,numoc,bi,all,AdaBoost,Recall,0.47619047619
+my,tfidf,all,5000,Random Forest,Fscore,0.129148148148
+my,tfidf,bi,100,Linear SVM,Score,0.428571428571
+my,tfidf,uni,2000,Neural Net,Fscore,0.449180189335
+my,tfidf,quad,1000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,quad,1000,Random Forest,Score,0.31746031746
+google,tfidf,tri,1000,Decision Tree,Score,0.436507936508
+my,tfidf,quad,10,Logistic Regression,Fscore,0.356101436162
+my,tfidf,bi,2000,Logistic Regression,Precision,0.455406322073
+my,numoc,uni,all,Naive Bayes,Score,0.0873015873016
+google,tfidf,bi,500,AdaBoost,Recall,0.507936507937
+my,tfidf,uni,500,AdaBoost,Fscore,0.359039726169
+google,tfidf,tri,100,Neural Net,Precision,0.34604978355
+google,tfidf,bi,10000,Logistic Regression,Recall,0.468253968254
+google,tfidf,uni,1000,Neural Net,Precision,0.374003952317
+google,tfidf,quad,2000,Random Forest,Fscore,0.398053898054
+google,tfidf,all,10,Logistic Regression,Score,0.484126984127
+my,tfidf,uni,10000,Nearest Neighbors,Score,0.325396825397
+my,tfidf,quad,10,Naive Bayes,Recall,0.238095238095
+my,tfidf,all,1000,Naive Bayes,Precision,0.0644998740237
+google,tfidf,uni,10,Logistic Regression,Recall,0.492063492063
+my,tfidf,bi,5000,Neural Net,Recall,0.428571428571
+my,tfidf,all,10,Logistic Regression,Score,0.404761904762
+google,tfidf,uni,2000,Dummy,Precision,0.266124968506
+my,tfidf,quad,10000,Naive Bayes,Score,0.253968253968
+my,tfidf,all,1000,Dummy,Precision,0.00226757369615
+google,tfidf,bi,500,Dummy,Recall,0.515873015873
+my,tfidf,quad,5000,AdaBoost,Score,0.420634920635
+my,tfidf,tri,10000,AdaBoost,Recall,0.365079365079
+google,tfidf,quad,10000,Decision Tree,Precision,0.37951870926
+google,tfidf,bi,2000,Logistic Regression,Precision,0.371308321308
+my,tfidf,all,1000,Naive Bayes,Recall,0.253968253968
+google,justc,uni,all,Logistic Regression,Precision,0.412367724868
+my,justc,uni,all,Random Forest,Recall,0.373015873016
+my,tfidf,all,1000,Logistic Regression,Recall,0.460317460317
+my,tfidf,quad,10,Nearest Neighbors,Precision,0.34920707267
+my,tfidf,all,500,Nearest Neighbors,Fscore,0.456607504883
+my,tfidf,tri,1000,Logistic Regression,Fscore,0.427356122882
+my,tfidf,uni,5000,Linear SVM,Score,0.468253968254
+my,tfidf,uni,5000,Random Forest,Fscore,0.303904023813
+google,tfidf,bi,1000,Naive Bayes,Precision,0.264126984127
+google,numoc,bi,all,AdaBoost,Precision,0.226757369615
+google,justc,uni,all,Random Forest,Precision,0.369303635433
+my,justc,uni,all,Linear SVM,Fscore,0.339498456904
+my,tfidf,quad,10000,RBF SVM,Precision,0.0493827160494
+my,tfidf,quad,1000,Naive Bayes,Fscore,0.102873216797
+my,tfidf,all,5000,AdaBoost,Recall,0.404761904762
+my,tfidf,all,2000,Decision Tree,Score,0.325396825397
+my,justc,bi,all,Dummy,Score,0.031746031746
+my,tfidf,tri,5000,Logistic Regression,Precision,0.480918691445
+google,tfidf,uni,2000,Random Forest,Score,0.515873015873
+google,tfidf,all,500,Neural Net,Recall,0.492063492063
+google,tfidf,uni,2000,RBF SVM,Score,0.515873015873
+google,tfidf,quad,2000,Linear SVM,Precision,0.412262500129
+my,tfidf,all,1000,Dummy,Fscore,0.004329004329
+my,numoc,uni,all,RBF SVM,Fscore,0.114682539683
+google,tfidf,uni,100,Linear SVM,Score,0.436507936508
+my,tfidf,quad,2000,Linear SVM,Fscore,0.460393728403
+google,tfidf,bi,10,Logistic Regression,Fscore,0.366943814563
+google,tfidf,bi,10000,Logistic Regression,Fscore,0.402634238207
+google,tfidf,bi,100,RBF SVM,Fscore,0.351117759495
+google,tfidf,quad,10,Decision Tree,Recall,0.404761904762
+my,tfidf,quad,10,Dummy,Precision,0.00226757369615
+google,tfidf,quad,100,Dummy,Recall,0.515873015873
+google,tfidf,uni,5000,AdaBoost,Recall,0.444444444444
+google,tfidf,tri,10000,Nearest Neighbors,Score,0.47619047619
+google,numoc,tri,all,Random Forest,Fscore,0.307219662058
+my,tfidf,bi,100,Logistic Regression,Fscore,0.43492529789
+my,tfidf,all,500,Neural Net,Fscore,0.464921214844
+my,tfidf,tri,10,AdaBoost,Fscore,0.330179954552
+my,tfidf,all,2000,Neural Net,Fscore,0.463195504313
+google,tfidf,bi,2000,Linear SVM,Precision,0.401080945199
+my,tfidf,bi,100,Nearest Neighbors,Precision,0.417438729615
+my,tfidf,bi,2000,RBF SVM,Precision,0.0493827160494
+google,tfidf,tri,100,Logistic Regression,Fscore,0.398747771882
+my,justc,tri,all,Decision Tree,Score,0.269841269841
+google,tfidf,all,2000,AdaBoost,Recall,0.515873015873
+my,tfidf,tri,100,RBF SVM,Recall,0.222222222222
+google,tfidf,all,1000,Linear SVM,Precision,0.437958548718
+google,tfidf,uni,10,Neural Net,Fscore,0.324594257179
+google,tfidf,tri,5000,Nearest Neighbors,Score,0.47619047619
+google,tfidf,tri,500,Neural Net,Precision,0.439240991567
+my,tfidf,tri,10000,Nearest Neighbors,Recall,0.452380952381
+google,tfidf,bi,100,Random Forest,Fscore,0.361954882963
+my,tfidf,uni,1000,Decision Tree,Recall,0.396825396825
+my,tfidf,bi,10000,Neural Net,Fscore,0.420623292052
+google,tfidf,all,10,Decision Tree,Recall,0.404761904762
+my,tfidf,quad,5000,Decision Tree,Score,0.309523809524
+my,tfidf,tri,100,Linear SVM,Recall,0.452380952381
+google,tfidf,quad,2000,RBF SVM,Precision,0.266124968506
+google,tfidf,bi,500,Linear SVM,Fscore,0.393575637326
+google,justc,bi,all,RBF SVM,Fscore,0.307219662058
+my,tfidf,uni,500,Logistic Regression,Precision,0.384997848156
+my,tfidf,uni,5000,Linear SVM,Recall,0.468253968254
+google,tfidf,uni,10000,AdaBoost,Score,0.428571428571
+google,tfidf,bi,2000,Dummy,Score,0.515873015873
+google,tfidf,tri,100,AdaBoost,Score,0.388888888889
+google,tfidf,all,5000,Dummy,Recall,0.515873015873
+my,tfidf,all,2000,Neural Net,Recall,0.460317460317
+my,tfidf,tri,5000,Dummy,Precision,0.00226757369615
+my,tfidf,uni,1000,Dummy,Score,0.047619047619
+google,tfidf,uni,10000,Random Forest,Precision,0.266257040451
+my,tfidf,bi,10,Neural Net,Recall,0.373015873016
+google,tfidf,bi,500,Logistic Regression,Fscore,0.393644786202
+my,justc,uni,all,Decision Tree,Score,0.365079365079
+google,tfidf,all,2000,Neural Net,Score,0.47619047619
+google,tfidf,uni,5000,Dummy,Fscore,0.351117759495
+my,tfidf,tri,10,RBF SVM,Fscore,0.35662094375
+my,tfidf,bi,2000,Naive Bayes,Fscore,0.100293195835
+my,tfidf,quad,1000,Naive Bayes,Precision,0.0644998740237
+my,tfidf,all,2000,Naive Bayes,Fscore,0.102873216797
+google,numoc,uni,all,AdaBoost,Precision,0.313899063899
+google,tfidf,uni,2000,Dummy,Recall,0.515873015873
+my,tfidf,uni,2000,Nearest Neighbors,Recall,0.31746031746
+my,tfidf,tri,10000,Dummy,Fscore,0.004329004329
+my,tfidf,all,2000,Dummy,Fscore,0.004329004329
+my,tfidf,all,2000,AdaBoost,Precision,0.43569344236
+my,tfidf,all,500,Random Forest,Fscore,0.188323648089
+google,tfidf,uni,1000,AdaBoost,Score,0.428571428571
+my,tfidf,uni,10000,Dummy,Precision,0.00226757369615
+google,tfidf,uni,500,Naive Bayes,Fscore,0.138940902448
+google,numoc,uni,all,Dummy,Score,0.47619047619
+google,tfidf,tri,100,Neural Net,Fscore,0.379913467735
+my,tfidf,tri,100,Logistic Regression,Score,0.420634920635
+google,tfidf,quad,1000,Logistic Regression,Precision,0.412872107317
+google,numoc,uni,all,Nearest Neighbors,Recall,0.357142857143
+google,tfidf,uni,100,Linear SVM,Precision,0.369992441421
+google,tfidf,bi,5000,Random Forest,Recall,0.52380952381
+my,tfidf,all,1000,Random Forest,Fscore,0.130994568228
+google,tfidf,quad,1000,Random Forest,Fscore,0.343915343915
+google,tfidf,tri,10000,RBF SVM,Score,0.515873015873
+my,tfidf,uni,500,Decision Tree,Score,0.34126984127
+google,tfidf,uni,5000,Logistic Regression,Recall,0.420634920635
+my,justc,uni,all,Logistic Regression,Fscore,0.340313544773
+google,tfidf,uni,10,Decision Tree,Fscore,0.370600414079
+google,tfidf,bi,500,RBF SVM,Precision,0.266124968506
+google,tfidf,uni,100,Nearest Neighbors,Score,0.460317460317
+google,tfidf,quad,10,Neural Net,Precision,0.344746453154
+google,tfidf,all,100,Naive Bayes,Fscore,0.205598815589
+google,tfidf,quad,10,Neural Net,Score,0.492063492063
+google,tfidf,uni,10000,Naive Bayes,Recall,0.0952380952381
+my,tfidf,tri,10,Naive Bayes,Fscore,0.275214079862
+google,tfidf,tri,100,Linear SVM,Fscore,0.361731098002
+my,tfidf,quad,1000,Decision Tree,Score,0.34126984127
+my,tfidf,tri,5000,Nearest Neighbors,Score,0.452380952381
+google,tfidf,uni,5000,AdaBoost,Score,0.444444444444
+google,tfidf,uni,2000,Decision Tree,Fscore,0.40466534192
+my,tfidf,uni,2000,Dummy,Score,0.047619047619
+my,justc,tri,all,Random Forest,Precision,0.0728143109095
+my,tfidf,quad,2000,AdaBoost,Fscore,0.422480039341
+google,tfidf,quad,500,RBF SVM,Recall,0.515873015873
+google,tfidf,quad,10,Random Forest,Score,0.484126984127
+my,tfidf,quad,10000,RBF SVM,Score,0.222222222222
+my,tfidf,bi,10000,AdaBoost,Score,0.380952380952
+my,tfidf,quad,10,AdaBoost,Recall,0.269841269841
+my,tfidf,all,1000,Random Forest,Precision,0.246432662412
+my,tfidf,bi,10,Random Forest,Score,0.349206349206
+my,tfidf,all,2000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,tri,500,Neural Net,Fscore,0.428731421835
+google,tfidf,quad,1000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,uni,100,Random Forest,Recall,0.285714285714
+google,tfidf,uni,10000,Decision Tree,Precision,0.374340747535
+google,tfidf,bi,1000,Random Forest,Score,0.52380952381
+my,tfidf,tri,5000,RBF SVM,Precision,0.0493827160494
+google,tfidf,bi,1000,Nearest Neighbors,Score,0.47619047619
+google,tfidf,quad,5000,Linear SVM,Precision,0.412262500129
+my,tfidf,uni,10000,Logistic Regression,Score,0.404761904762
+my,tfidf,tri,100,Nearest Neighbors,Recall,0.373015873016
+my,tfidf,bi,1000,Naive Bayes,Fscore,0.100936100936
+my,tfidf,quad,500,Random Forest,Score,0.277777777778
+google,tfidf,tri,1000,AdaBoost,Score,0.428571428571
+google,tfidf,all,1000,Linear SVM,Recall,0.468253968254
+google,tfidf,quad,1000,Linear SVM,Recall,0.452380952381
+google,tfidf,tri,100,Naive Bayes,Precision,0.340356300151
+my,tfidf,all,10,AdaBoost,Fscore,0.366718248984
+google,tfidf,quad,500,Naive Bayes,Recall,0.507936507937
+google,tfidf,uni,10,Naive Bayes,Precision,0.374196065373
+google,tfidf,quad,500,Random Forest,Fscore,0.382534092721
+google,tfidf,quad,5000,Neural Net,Recall,0.452380952381
+my,numoc,tri,all,Nearest Neighbors,Fscore,0.0434877147206
+google,tfidf,tri,500,Decision Tree,Fscore,0.364415186979
+my,tfidf,quad,1000,RBF SVM,Score,0.222222222222
+my,tfidf,uni,10,AdaBoost,Precision,0.34383750651
+my,tfidf,all,500,RBF SVM,Recall,0.222222222222
+google,tfidf,tri,500,AdaBoost,Fscore,0.388460986949
+google,tfidf,all,2000,Linear SVM,Precision,0.428736772487
+google,tfidf,tri,10,Nearest Neighbors,Precision,0.407575516271
+google,tfidf,all,1000,Random Forest,Precision,0.428237961851
+my,tfidf,tri,2000,Naive Bayes,Precision,0.0644998740237
+my,tfidf,tri,100,Linear SVM,Score,0.452380952381
+google,tfidf,uni,5000,Linear SVM,Precision,0.372448979592
+google,tfidf,quad,5000,Nearest Neighbors,Precision,0.42659369787
+my,tfidf,uni,2000,Logistic Regression,Recall,0.412698412698
+my,tfidf,bi,2000,Dummy,Precision,0.00226757369615
+my,tfidf,quad,1000,Random Forest,Precision,0.406266220552
+my,tfidf,bi,100,Logistic Regression,Precision,0.453553045507
+google,tfidf,all,500,Nearest Neighbors,Fscore,0.461682474663
+google,tfidf,quad,2000,RBF SVM,Recall,0.515873015873
+google,tfidf,all,10000,Linear SVM,Fscore,0.435313701077
+my,tfidf,all,100,Random Forest,Fscore,0.249561854615
+google,tfidf,all,100,Random Forest,Precision,0.469479932895
+my,tfidf,all,1000,Neural Net,Score,0.468253968254
+my,tfidf,tri,10000,Neural Net,Fscore,0.426457649713
+my,tfidf,all,10,Nearest Neighbors,Fscore,0.414819663096
+my,tfidf,uni,10,Random Forest,Precision,0.455791127971
+google,tfidf,tri,10000,Naive Bayes,Recall,0.515873015873
+my,numoc,bi,all,Neural Net,Fscore,0.114682539683
+my,tfidf,tri,100,Dummy,Recall,0.047619047619
+my,tfidf,bi,100,Nearest Neighbors,Fscore,0.371521109372
+my,tfidf,bi,100,Random Forest,Recall,0.309523809524
+google,tfidf,quad,1000,Decision Tree,Score,0.452380952381
+google,tfidf,tri,5000,Decision Tree,Precision,0.37820058579
+my,tfidf,tri,100,Nearest Neighbors,Fscore,0.384110821144
+google,tfidf,tri,100,RBF SVM,Recall,0.515873015873
+my,tfidf,quad,10000,Naive Bayes,Precision,0.0644998740237
+my,tfidf,tri,2000,Random Forest,Precision,0.241529304029
+google,tfidf,tri,100,Naive Bayes,Score,0.190476190476
+my,tfidf,all,2000,RBF SVM,Recall,0.222222222222
+google,tfidf,quad,5000,Logistic Regression,Recall,0.444444444444
+google,tfidf,tri,500,Random Forest,Score,0.5
+google,tfidf,tri,10,Decision Tree,Recall,0.5
+google,tfidf,all,100,Neural Net,Recall,0.428571428571
+my,tfidf,uni,10000,Logistic Regression,Precision,0.376637958991
+google,numoc,uni,all,AdaBoost,Score,0.349206349206
+my,tfidf,bi,10,Decision Tree,Recall,0.349206349206
+google,tfidf,bi,500,RBF SVM,Fscore,0.351117759495
+my,tfidf,tri,1000,AdaBoost,Precision,0.392401098633
+my,numoc,uni,all,Logistic Regression,Recall,0.349206349206
+my,tfidf,all,10000,Nearest Neighbors,Recall,0.452380952381
+google,tfidf,quad,10000,Random Forest,Score,0.507936507937
+my,justc,uni,all,Linear SVM,Precision,0.357219301862
+google,tfidf,bi,10,Random Forest,Precision,0.351444211507
+google,tfidf,uni,100,Naive Bayes,Precision,0.266259853817
+my,tfidf,bi,2000,RBF SVM,Fscore,0.0808080808081
+google,justc,bi,all,Random Forest,Fscore,0.307219662058
+my,tfidf,tri,10000,Naive Bayes,Score,0.261904761905
+google,tfidf,all,500,Nearest Neighbors,Precision,0.452363315697
+my,tfidf,tri,10000,Logistic Regression,Recall,0.436507936508
+my,tfidf,bi,100,Linear SVM,Fscore,0.428144973994
+google,justc,tri,all,AdaBoost,Precision,0.226757369615
+google,tfidf,tri,10000,Linear SVM,Fscore,0.450046432441
+google,tfidf,bi,2000,Nearest Neighbors,Recall,0.47619047619
+my,numoc,uni,all,Logistic Regression,Fscore,0.342311749053
+my,tfidf,bi,10000,RBF SVM,Fscore,0.0808080808081
+google,tfidf,bi,2000,Linear SVM,Fscore,0.393575637326
+google,tfidf,uni,100,Decision Tree,Score,0.468253968254
+google,tfidf,quad,500,RBF SVM,Precision,0.266124968506
+google,tfidf,bi,2000,Dummy,Recall,0.515873015873
+google,tfidf,tri,100,RBF SVM,Score,0.515873015873
+my,justc,bi,all,Naive Bayes,Fscore,0.114682539683
+google,tfidf,tri,100,AdaBoost,Recall,0.388888888889
+my,tfidf,all,1000,Decision Tree,Recall,0.31746031746
+my,justc,tri,all,Logistic Regression,Score,0.269841269841
+google,justc,uni,all,Linear SVM,Recall,0.452380952381
+google,tfidf,all,1000,Linear SVM,Score,0.468253968254
+google,tfidf,bi,5000,Decision Tree,Score,0.444444444444
+my,tfidf,quad,500,Neural Net,Score,0.444444444444
+my,justc,tri,all,Logistic Regression,Precision,0.0728143109095
+google,tfidf,quad,2000,Decision Tree,Score,0.428571428571
+my,tfidf,uni,5000,Dummy,Score,0.047619047619
+google,tfidf,all,500,Dummy,Recall,0.515873015873
+my,tfidf,uni,10,Dummy,Fscore,0.004329004329
+google,tfidf,all,5000,AdaBoost,Recall,0.515873015873
+my,numoc,uni,all,Logistic Regression,Score,0.349206349206
+my,tfidf,quad,5000,Decision Tree,Recall,0.309523809524
+google,tfidf,bi,1000,RBF SVM,Precision,0.266124968506
+google,numoc,bi,all,Linear SVM,Fscore,0.307219662058
+my,tfidf,quad,1000,RBF SVM,Precision,0.0493827160494
+google,tfidf,uni,5000,Decision Tree,Fscore,0.398225957049
+google,tfidf,bi,500,Neural Net,Recall,0.452380952381
+google,tfidf,uni,5000,Nearest Neighbors,Recall,0.444444444444
+google,tfidf,quad,10000,AdaBoost,Fscore,0.418729289528
+google,tfidf,tri,2000,Decision Tree,Fscore,0.395188570757
+google,tfidf,bi,5000,Decision Tree,Recall,0.444444444444
+google,numoc,bi,all,Random Forest,Fscore,0.307219662058
+google,tfidf,all,10000,Linear SVM,Score,0.460317460317
+my,justc,bi,all,Neural Net,Score,0.269841269841
+my,tfidf,uni,10,Dummy,Score,0.047619047619
+google,tfidf,tri,1000,Neural Net,Recall,0.47619047619
+my,tfidf,bi,1000,Dummy,Precision,0.00226757369615
+google,tfidf,quad,10000,Linear SVM,Fscore,0.421486358093
+google,numoc,bi,all,Linear SVM,Precision,0.226757369615
+google,tfidf,all,100,Logistic Regression,Precision,0.348401621185
+google,numoc,tri,all,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,bi,10000,Decision Tree,Precision,0.384788482152
+my,tfidf,all,10,Decision Tree,Fscore,0.287016875905
+my,tfidf,bi,1000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,all,2000,Nearest Neighbors,Fscore,0.456607504883
+google,tfidf,uni,10,Random Forest,Recall,0.484126984127
+google,tfidf,uni,2000,Neural Net,Score,0.452380952381
+my,numoc,tri,all,Decision Tree,Precision,0.0728143109095
+my,tfidf,bi,1000,Neural Net,Precision,0.462595799262
+google,tfidf,bi,10,Random Forest,Score,0.47619047619
+google,justc,uni,all,AdaBoost,Precision,0.363934041085
+google,tfidf,bi,500,Naive Bayes,Precision,0.274193548387
+google,tfidf,tri,2000,Neural Net,Score,0.47619047619
+google,tfidf,quad,2000,AdaBoost,Precision,0.371874387615
+google,tfidf,bi,2000,AdaBoost,Score,0.507936507937
+my,tfidf,uni,10,AdaBoost,Recall,0.349206349206
+google,tfidf,tri,500,Nearest Neighbors,Precision,0.402207306485
+google,tfidf,uni,10,Nearest Neighbors,Fscore,0.455046051342
+google,tfidf,uni,5000,Nearest Neighbors,Precision,0.414126984127
+google,tfidf,bi,10000,AdaBoost,Fscore,0.421703919663
+google,tfidf,all,2000,Linear SVM,Fscore,0.435313701077
+google,tfidf,all,100,AdaBoost,Score,0.468253968254
+google,justc,tri,all,AdaBoost,Score,0.47619047619
+google,tfidf,bi,10000,Nearest Neighbors,Precision,0.380120327701
+my,tfidf,uni,5000,Decision Tree,Recall,0.365079365079
+google,tfidf,uni,100,RBF SVM,Precision,0.266124968506
+google,tfidf,bi,1000,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,bi,1000,Random Forest,Fscore,0.368431763169
+my,tfidf,bi,100,Random Forest,Precision,0.339280410385
+google,tfidf,bi,10,Naive Bayes,Precision,0.231637535397
+my,tfidf,quad,2000,Naive Bayes,Fscore,0.102873216797
+google,justc,uni,all,Random Forest,Recall,0.484126984127
+my,tfidf,uni,5000,Neural Net,Score,0.436507936508
+my,justc,tri,all,Naive Bayes,Score,0.269841269841
+my,tfidf,tri,10,RBF SVM,Score,0.380952380952
+google,tfidf,tri,500,Logistic Regression,Fscore,0.452785624971
+my,tfidf,all,10,Neural Net,Fscore,0.380282203632
+my,tfidf,bi,5000,AdaBoost,Fscore,0.378548532893
+my,tfidf,quad,5000,Nearest Neighbors,Fscore,0.439983364795
+google,tfidf,all,500,AdaBoost,Recall,0.515873015873
+google,tfidf,all,1000,Dummy,Recall,0.515873015873
+my,numoc,tri,all,Random Forest,Precision,0.0728143109095
+my,tfidf,bi,1000,Decision Tree,Fscore,0.321130548656
+google,tfidf,uni,1000,Neural Net,Recall,0.444444444444
+my,tfidf,uni,100,Naive Bayes,Fscore,0.289099988001
+google,tfidf,all,1000,Random Forest,Score,0.52380952381
+my,tfidf,quad,500,Decision Tree,Score,0.325396825397
+google,tfidf,quad,10000,RBF SVM,Score,0.515873015873
+my,tfidf,bi,5000,Nearest Neighbors,Fscore,0.502927414941
+google,tfidf,quad,5000,Neural Net,Fscore,0.426646894613
+my,tfidf,quad,500,Decision Tree,Recall,0.325396825397
+google,tfidf,quad,500,Random Forest,Score,0.52380952381
+google,tfidf,uni,100,Naive Bayes,Score,0.0952380952381
+google,tfidf,quad,10000,Linear SVM,Precision,0.412262500129
+my,tfidf,quad,10000,Nearest Neighbors,Precision,0.500717229548
+my,tfidf,all,500,Neural Net,Precision,0.520028883521
+my,tfidf,all,100,Linear SVM,Recall,0.484126984127
+my,numoc,uni,all,Naive Bayes,Recall,0.0873015873016
+google,tfidf,bi,2000,Neural Net,Precision,0.406338729111
+google,tfidf,all,5000,Dummy,Fscore,0.351117759495
+my,tfidf,bi,5000,Logistic Regression,Fscore,0.419404276199
+google,tfidf,all,500,RBF SVM,Precision,0.266124968506
+google,tfidf,uni,10000,Dummy,Score,0.515873015873
+google,tfidf,bi,100,Dummy,Recall,0.515873015873
+google,tfidf,all,2000,AdaBoost,Score,0.515873015873
+my,tfidf,all,100,Nearest Neighbors,Precision,0.437059325155
+my,tfidf,all,2000,AdaBoost,Recall,0.404761904762
+google,tfidf,uni,500,Decision Tree,Fscore,0.425642632222
+my,tfidf,tri,1000,Logistic Regression,Score,0.428571428571
+google,tfidf,bi,100,Naive Bayes,Precision,0.279429949928
+google,justc,uni,all,Dummy,Recall,0.47619047619
+google,tfidf,bi,5000,AdaBoost,Fscore,0.423703033485
+my,justc,tri,all,AdaBoost,Fscore,0.114682539683
+google,tfidf,all,1000,Dummy,Score,0.515873015873
+google,tfidf,tri,2000,Decision Tree,Precision,0.381680852695
+my,tfidf,tri,2000,Naive Bayes,Recall,0.253968253968
+my,tfidf,all,1000,Dummy,Recall,0.047619047619
+my,tfidf,bi,10,Neural Net,Score,0.373015873016
+google,tfidf,tri,10,Linear SVM,Score,0.507936507937
+my,tfidf,quad,100,Linear SVM,Recall,0.444444444444
+google,tfidf,uni,500,Dummy,Precision,0.266124968506
+my,tfidf,quad,500,Nearest Neighbors,Fscore,0.439983364795
+google,tfidf,bi,2000,RBF SVM,Score,0.515873015873
+google,tfidf,all,1000,Decision Tree,Score,0.460317460317
+my,tfidf,uni,2000,AdaBoost,Fscore,0.36684303351
+my,numoc,bi,all,AdaBoost,Precision,0.0728143109095
+my,tfidf,bi,500,RBF SVM,Score,0.222222222222
+my,tfidf,tri,1000,AdaBoost,Score,0.365079365079
+my,tfidf,uni,1000,Naive Bayes,Score,0.333333333333
+my,tfidf,bi,10,Neural Net,Precision,0.445887555538
+my,tfidf,tri,1000,Dummy,Score,0.047619047619
+my,tfidf,bi,10,Neural Net,Fscore,0.375745382349
+google,tfidf,quad,10,Naive Bayes,Fscore,0.0968226192079
+my,tfidf,all,1000,RBF SVM,Score,0.222222222222
+my,justc,tri,all,RBF SVM,Precision,0.00100781053162
+my,tfidf,uni,2000,Decision Tree,Precision,0.349384204008
+my,tfidf,tri,500,Linear SVM,Recall,0.428571428571
+my,tfidf,uni,2000,Linear SVM,Recall,0.47619047619
+my,tfidf,quad,1000,Random Forest,Fscore,0.283415289858
+my,tfidf,bi,10,AdaBoost,Precision,0.324511663797
+my,tfidf,tri,500,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,5000,Dummy,Fscore,0.004329004329
+my,tfidf,all,10000,Nearest Neighbors,Fscore,0.456607504883
+google,tfidf,tri,1000,Naive Bayes,Score,0.515873015873
+my,tfidf,quad,100,RBF SVM,Fscore,0.0808080808081
+google,justc,uni,all,Nearest Neighbors,Score,0.420634920635
+my,tfidf,bi,5000,Neural Net,Fscore,0.421364744209
+my,tfidf,tri,10000,Linear SVM,Score,0.428571428571
+google,tfidf,all,1000,Logistic Regression,Fscore,0.449570255453
+my,tfidf,quad,1000,Linear SVM,Precision,0.498196979941
+google,tfidf,uni,2000,AdaBoost,Fscore,0.362120457939
+google,tfidf,quad,5000,Naive Bayes,Precision,0.266124968506
+my,tfidf,quad,1000,AdaBoost,Fscore,0.422480039341
+my,justc,bi,all,Decision Tree,Fscore,0.114682539683
+google,tfidf,tri,5000,Neural Net,Score,0.484126984127
+my,numoc,bi,all,Nearest Neighbors,Fscore,0.0434877147206
+my,tfidf,bi,500,Dummy,Score,0.047619047619
+my,tfidf,bi,2000,Random Forest,Fscore,0.159834351891
+my,tfidf,uni,2000,Linear SVM,Score,0.47619047619
+my,tfidf,bi,10000,RBF SVM,Score,0.222222222222
+my,numoc,bi,all,Naive Bayes,Score,0.269841269841
+google,numoc,tri,all,Neural Net,Fscore,0.307219662058
+my,tfidf,quad,500,Random Forest,Precision,0.345145810262
+my,tfidf,all,5000,RBF SVM,Recall,0.222222222222
+my,tfidf,all,10,Naive Bayes,Score,0.34126984127
+my,tfidf,quad,10,AdaBoost,Precision,0.289743372096
+google,tfidf,quad,1000,Dummy,Score,0.515873015873
+my,tfidf,tri,5000,Decision Tree,Fscore,0.35306694706
+google,tfidf,quad,2000,Random Forest,Recall,0.531746031746
+google,tfidf,quad,2000,Decision Tree,Fscore,0.389630849977
+my,tfidf,bi,10,Dummy,Recall,0.047619047619
+google,tfidf,bi,2000,Random Forest,Precision,0.387169312169
+google,tfidf,uni,2000,Neural Net,Recall,0.452380952381
+my,tfidf,quad,1000,Nearest Neighbors,Score,0.428571428571
+google,tfidf,quad,100,Naive Bayes,Recall,0.18253968254
+google,tfidf,quad,5000,Random Forest,Recall,0.5
+google,tfidf,quad,10000,Logistic Regression,Recall,0.444444444444
+google,tfidf,all,10,Random Forest,Precision,0.440303657695
+my,tfidf,uni,1000,Nearest Neighbors,Score,0.325396825397
+my,numoc,tri,all,Naive Bayes,Recall,0.269841269841
+my,tfidf,tri,1000,Decision Tree,Recall,0.34126984127
+my,tfidf,quad,100,Naive Bayes,Precision,0.434181718664
+my,justc,tri,all,Decision Tree,Recall,0.269841269841
+google,tfidf,tri,10,Dummy,Recall,0.515873015873
+google,tfidf,uni,2000,Decision Tree,Score,0.452380952381
+my,numoc,bi,all,Logistic Regression,Precision,0.0728143109095
+my,tfidf,bi,2000,Neural Net,Score,0.436507936508
+my,tfidf,all,10,Random Forest,Score,0.396825396825
+google,tfidf,all,2000,Nearest Neighbors,Fscore,0.461682474663
+google,tfidf,bi,100,Neural Net,Recall,0.412698412698
+google,tfidf,uni,5000,Dummy,Score,0.515873015873
+google,tfidf,uni,10000,Random Forest,Fscore,0.349374317628
+google,tfidf,uni,5000,Logistic Regression,Score,0.420634920635
+google,tfidf,bi,100,Nearest Neighbors,Precision,0.365144296771
+my,justc,bi,all,Naive Bayes,Score,0.269841269841
+google,tfidf,tri,5000,AdaBoost,Score,0.428571428571
+my,tfidf,quad,1000,Linear SVM,Score,0.460317460317
+my,tfidf,uni,5000,AdaBoost,Recall,0.365079365079
+google,tfidf,uni,10,Naive Bayes,Recall,0.206349206349
+my,tfidf,all,2000,Linear SVM,Precision,0.511078478839
+google,tfidf,quad,1000,Naive Bayes,Recall,0.515873015873
+google,tfidf,bi,5000,Decision Tree,Fscore,0.388704159825
+google,tfidf,quad,5000,Decision Tree,Fscore,0.399144506287
+my,tfidf,tri,1000,Decision Tree,Score,0.34126984127
+my,tfidf,quad,500,Nearest Neighbors,Recall,0.428571428571
+my,tfidf,bi,5000,Linear SVM,Precision,0.442615107509
+google,tfidf,quad,10,Dummy,Fscore,0.351117759495
+google,tfidf,uni,100,RBF SVM,Recall,0.515873015873
+my,tfidf,tri,5000,RBF SVM,Score,0.222222222222
+google,tfidf,tri,1000,Logistic Regression,Precision,0.446896588093
+my,tfidf,uni,5000,Linear SVM,Fscore,0.440689168032
+google,tfidf,quad,500,Nearest Neighbors,Fscore,0.437551163023
+my,tfidf,uni,10000,Nearest Neighbors,Precision,0.426277758041
+google,tfidf,uni,10,Linear SVM,Fscore,0.357155589509
+my,tfidf,all,1000,Naive Bayes,Fscore,0.102873216797
+my,tfidf,tri,500,Decision Tree,Recall,0.349206349206
+google,tfidf,all,500,Nearest Neighbors,Score,0.507936507937
+my,tfidf,all,500,Dummy,Recall,0.047619047619
+my,tfidf,quad,5000,Logistic Regression,Score,0.452380952381
+my,tfidf,all,100,Nearest Neighbors,Fscore,0.380689290827
+my,tfidf,tri,10,Naive Bayes,Precision,0.350704441984
+google,tfidf,bi,2000,Neural Net,Fscore,0.402862122344
+my,tfidf,all,500,Dummy,Precision,0.00226757369615
+google,tfidf,quad,100,Nearest Neighbors,Recall,0.444444444444
+my,tfidf,bi,10000,Linear SVM,Score,0.420634920635
+my,numoc,bi,all,Nearest Neighbors,Precision,0.0251952632905
+google,tfidf,all,5000,Dummy,Precision,0.266124968506
+google,numoc,uni,all,Random Forest,Recall,0.492063492063
+my,numoc,uni,all,Naive Bayes,Fscore,0.0814467863648
+google,tfidf,tri,10000,Decision Tree,Recall,0.436507936508
+google,tfidf,all,10,Decision Tree,Precision,0.396838336784
+my,tfidf,uni,10000,RBF SVM,Recall,0.222222222222
+my,tfidf,quad,2000,Logistic Regression,Score,0.452380952381
+google,tfidf,tri,10,Neural Net,Fscore,0.372377385411
+my,tfidf,quad,500,Dummy,Recall,0.047619047619
+my,numoc,bi,all,Logistic Regression,Fscore,0.114682539683
+my,tfidf,quad,1000,Neural Net,Recall,0.452380952381
+google,tfidf,tri,10000,Neural Net,Precision,0.456549197929
+my,tfidf,bi,5000,Linear SVM,Fscore,0.41709196554
+google,tfidf,uni,10,Nearest Neighbors,Score,0.515873015873
+my,tfidf,bi,500,Dummy,Precision,0.00226757369615
+google,numoc,bi,all,Dummy,Score,0.47619047619
+google,justc,bi,all,Decision Tree,Fscore,0.307219662058
+google,tfidf,tri,1000,Logistic Regression,Fscore,0.452785624971
+google,justc,tri,all,Linear SVM,Recall,0.47619047619
+google,tfidf,quad,5000,Neural Net,Precision,0.415979215262
+my,tfidf,bi,2000,Linear SVM,Recall,0.420634920635
+google,tfidf,bi,500,Nearest Neighbors,Score,0.47619047619
+my,tfidf,tri,10,Neural Net,Recall,0.373015873016
+google,tfidf,bi,2000,Decision Tree,Fscore,0.409390043785
+my,tfidf,uni,10,Linear SVM,Score,0.293650793651
+my,tfidf,all,10,RBF SVM,Fscore,0.406612653853
+my,tfidf,tri,2000,Decision Tree,Fscore,0.361004534767
+my,tfidf,tri,2000,Neural Net,Fscore,0.433469999264
+my,tfidf,quad,2000,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,100,RBF SVM,Precision,0.0493827160494
+google,justc,bi,all,Decision Tree,Score,0.47619047619
+google,tfidf,quad,100,Linear SVM,Fscore,0.368494722992
+google,tfidf,all,100,RBF SVM,Fscore,0.351117759495
+my,tfidf,uni,500,RBF SVM,Score,0.222222222222
+my,numoc,uni,all,Linear SVM,Score,0.412698412698
+google,tfidf,tri,10000,AdaBoost,Fscore,0.388767282564
+google,tfidf,uni,500,RBF SVM,Fscore,0.351117759495
+my,justc,tri,all,AdaBoost,Precision,0.0728143109095
+google,tfidf,tri,10,Linear SVM,Fscore,0.34753550543
+google,tfidf,uni,10,Linear SVM,Precision,0.412958626073
+my,tfidf,quad,5000,Nearest Neighbors,Score,0.428571428571
+my,tfidf,bi,1000,Linear SVM,Precision,0.442615107509
+google,tfidf,tri,5000,Dummy,Fscore,0.351117759495
+google,tfidf,bi,5000,Random Forest,Precision,0.42141556076
+my,tfidf,bi,10000,Neural Net,Score,0.428571428571
+my,tfidf,bi,10,Nearest Neighbors,Precision,0.423962734178
+google,tfidf,quad,10000,Nearest Neighbors,Score,0.492063492063
+my,justc,bi,all,AdaBoost,Fscore,0.114682539683
+google,justc,tri,all,Neural Net,Precision,0.226757369615
+my,tfidf,quad,10,Decision Tree,Precision,0.307655307655
+my,tfidf,uni,10000,Neural Net,Score,0.47619047619
+google,tfidf,all,500,Naive Bayes,Score,0.515873015873
+google,tfidf,bi,100,Linear SVM,Precision,0.353174603175
+my,tfidf,uni,5000,AdaBoost,Score,0.365079365079
+google,justc,uni,all,Linear SVM,Score,0.452380952381
+my,numoc,tri,all,Dummy,Recall,0.031746031746
+my,justc,bi,all,Dummy,Fscore,0.0019536019536
+my,tfidf,bi,10000,Nearest Neighbors,Score,0.507936507937
+google,tfidf,uni,2000,AdaBoost,Precision,0.339105339105
+google,tfidf,all,500,Neural Net,Fscore,0.452050100437
+google,tfidf,bi,5000,Neural Net,Fscore,0.392514207329
+my,tfidf,uni,10,Decision Tree,Precision,0.321893814997
+my,numoc,bi,all,Dummy,Score,0.031746031746
+my,justc,tri,all,Linear SVM,Fscore,0.0019536019536
+google,tfidf,bi,5000,Logistic Regression,Precision,0.371308321308
+my,tfidf,uni,10,Neural Net,Score,0.380952380952
+my,tfidf,all,100,Linear SVM,Score,0.484126984127
+my,tfidf,quad,10000,Neural Net,Precision,0.491323190627
+my,tfidf,all,10000,Linear SVM,Precision,0.508239530348
+google,tfidf,uni,5000,Naive Bayes,Precision,0.266259853817
+my,tfidf,tri,100,Neural Net,Recall,0.436507936508
+my,tfidf,quad,10,Neural Net,Fscore,0.390940767409
+my,justc,uni,all,RBF SVM,Precision,0.302248677249
+google,tfidf,tri,2000,AdaBoost,Recall,0.428571428571
+google,tfidf,quad,100,RBF SVM,Score,0.515873015873
+my,tfidf,all,500,Neural Net,Score,0.460317460317
+google,tfidf,tri,1000,Nearest Neighbors,Fscore,0.419263640067
+my,tfidf,bi,2000,Linear SVM,Fscore,0.41709196554
+google,justc,tri,all,Linear SVM,Score,0.47619047619
+my,tfidf,all,10,RBF SVM,Score,0.420634920635
+google,tfidf,uni,100,Dummy,Recall,0.515873015873
+google,numoc,uni,all,Logistic Regression,Fscore,0.374249505284
+my,tfidf,quad,500,Dummy,Fscore,0.004329004329
+google,tfidf,quad,5000,Random Forest,Score,0.5
+my,tfidf,all,2000,Naive Bayes,Score,0.253968253968
+my,tfidf,quad,100,Naive Bayes,Score,0.285714285714
+my,tfidf,bi,10000,Logistic Regression,Fscore,0.419404276199
+my,tfidf,all,100,Linear SVM,Precision,0.488570632932
+google,tfidf,bi,100,Random Forest,Recall,0.507936507937
+my,tfidf,tri,1000,Random Forest,Score,0.230158730159
+my,justc,bi,all,Logistic Regression,Fscore,0.114682539683
+my,tfidf,bi,10,Random Forest,Fscore,0.330110762254
+google,tfidf,all,10000,Decision Tree,Fscore,0.389782175496
+my,tfidf,uni,100,Random Forest,Fscore,0.247023189413
+google,tfidf,tri,2000,Logistic Regression,Recall,0.484126984127
+my,tfidf,quad,2000,RBF SVM,Score,0.222222222222
+my,tfidf,uni,5000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,uni,10000,AdaBoost,Fscore,0.377358042345
+google,tfidf,quad,1000,Nearest Neighbors,Recall,0.492063492063
+google,tfidf,all,5000,Nearest Neighbors,Fscore,0.461682474663
+google,tfidf,tri,2000,RBF SVM,Recall,0.515873015873
+google,tfidf,quad,10000,Naive Bayes,Precision,0.266124968506
+google,tfidf,tri,100,Logistic Regression,Recall,0.428571428571
+google,tfidf,tri,100,Random Forest,Fscore,0.364453682708
+google,tfidf,quad,10000,Neural Net,Precision,0.412874423963
+google,tfidf,tri,10000,RBF SVM,Recall,0.515873015873
+google,tfidf,all,500,Logistic Regression,Recall,0.484126984127
+my,tfidf,uni,500,AdaBoost,Recall,0.365079365079
+my,tfidf,uni,2000,Naive Bayes,Precision,0.394508098578
+my,tfidf,all,100,AdaBoost,Fscore,0.489062321821
+my,tfidf,all,10000,Logistic Regression,Precision,0.521881339273
+google,tfidf,tri,5000,Dummy,Recall,0.515873015873
+my,tfidf,tri,10,Linear SVM,Recall,0.293650793651
+google,tfidf,tri,10000,Random Forest,Fscore,0.379405984057
+google,justc,uni,all,Naive Bayes,Recall,0.47619047619
+google,tfidf,uni,10000,Naive Bayes,Fscore,0.12484952422
+google,justc,tri,all,AdaBoost,Fscore,0.307219662058
+my,numoc,uni,all,Decision Tree,Precision,0.317891040951
+google,tfidf,uni,100,Random Forest,Score,0.515873015873
+google,tfidf,tri,10,Dummy,Score,0.515873015873
+my,tfidf,uni,100,Logistic Regression,Fscore,0.381496731246
+my,tfidf,uni,1000,Nearest Neighbors,Recall,0.325396825397
+google,tfidf,all,10,Neural Net,Score,0.468253968254
+my,justc,uni,all,AdaBoost,Fscore,0.291509537821
+google,tfidf,uni,100,Decision Tree,Precision,0.373339524935
+my,tfidf,tri,500,AdaBoost,Fscore,0.366064914226
+google,justc,bi,all,Linear SVM,Fscore,0.307219662058
+my,tfidf,all,500,Random Forest,Recall,0.246031746032
+google,tfidf,bi,2000,Dummy,Fscore,0.351117759495
+google,tfidf,bi,10,Linear SVM,Precision,0.266124968506
+my,tfidf,uni,100,Linear SVM,Recall,0.468253968254
+google,tfidf,tri,100,AdaBoost,Fscore,0.372373393802
+my,tfidf,uni,10,AdaBoost,Fscore,0.340726453389
+my,numoc,tri,all,Linear SVM,Score,0.031746031746
+google,tfidf,all,1000,Neural Net,Score,0.5
+my,justc,tri,all,Naive Bayes,Recall,0.269841269841
+my,tfidf,tri,10,Logistic Regression,Score,0.365079365079
+google,tfidf,all,1000,AdaBoost,Fscore,0.426201550388
+google,tfidf,uni,10000,Nearest Neighbors,Fscore,0.379749585019
+google,tfidf,quad,100,AdaBoost,Precision,0.302068302068
+google,tfidf,tri,100,RBF SVM,Fscore,0.351117759495
+google,tfidf,quad,100,Random Forest,Precision,0.262096774194
+google,tfidf,bi,10,RBF SVM,Recall,0.5
+google,tfidf,tri,1000,Decision Tree,Recall,0.436507936508
+google,tfidf,all,10,Linear SVM,Precision,0.260033552716
+google,tfidf,all,100,Decision Tree,Precision,0.41746031746
+google,tfidf,uni,100,Logistic Regression,Fscore,0.379241579752
+google,tfidf,all,10000,RBF SVM,Precision,0.266124968506
+my,justc,uni,all,Dummy,Precision,0.00100781053162
+google,tfidf,tri,100,Decision Tree,Score,0.309523809524
+google,tfidf,tri,1000,RBF SVM,Precision,0.266124968506
+google,numoc,tri,all,Dummy,Score,0.47619047619
+google,tfidf,all,5000,Naive Bayes,Score,0.515873015873
+google,tfidf,uni,100,Neural Net,Precision,0.385776532835
+google,tfidf,all,10000,Decision Tree,Recall,0.460317460317
+my,tfidf,tri,500,Dummy,Precision,0.00226757369615
+google,numoc,bi,all,Naive Bayes,Recall,0.00793650793651
+google,tfidf,bi,100,Naive Bayes,Score,0.166666666667
+my,tfidf,quad,2000,Nearest Neighbors,Fscore,0.439983364795
+my,tfidf,uni,10,Naive Bayes,Score,0.357142857143
+google,tfidf,bi,100,Nearest Neighbors,Fscore,0.386608179044
+my,tfidf,bi,1000,RBF SVM,Precision,0.0493827160494
+my,tfidf,tri,500,Logistic Regression,Precision,0.485811389947
+my,tfidf,all,10,Neural Net,Recall,0.380952380952
+google,tfidf,bi,1000,AdaBoost,Fscore,0.421703919663
+my,tfidf,uni,2000,Random Forest,Score,0.31746031746
+my,numoc,uni,all,RBF SVM,Recall,0.269841269841
+my,tfidf,quad,100,Nearest Neighbors,Fscore,0.426092371314
+my,numoc,uni,all,Neural Net,Precision,0.40720084705
+google,numoc,uni,all,Linear SVM,Precision,0.261400027847
+google,tfidf,uni,2000,AdaBoost,Score,0.428571428571
+google,tfidf,quad,10,Naive Bayes,Recall,0.0793650793651
+my,tfidf,tri,10000,RBF SVM,Score,0.222222222222
+my,tfidf,uni,100,Dummy,Fscore,0.004329004329
+my,tfidf,uni,10000,Decision Tree,Recall,0.357142857143
+google,tfidf,bi,5000,Naive Bayes,Precision,0.266124968506
+my,tfidf,tri,500,Logistic Regression,Recall,0.436507936508
+my,tfidf,bi,500,Dummy,Fscore,0.004329004329
+my,tfidf,all,10,Random Forest,Recall,0.396825396825
+google,tfidf,all,2000,Naive Bayes,Precision,0.266124968506
+google,tfidf,uni,1000,Naive Bayes,Fscore,0.124930499099
+my,tfidf,all,10000,Linear SVM,Score,0.452380952381
+google,tfidf,bi,5000,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,tri,2000,Random Forest,Recall,0.515873015873
+google,tfidf,bi,500,Decision Tree,Fscore,0.374712987921
+google,tfidf,quad,1000,Dummy,Recall,0.515873015873
+google,tfidf,tri,10,Neural Net,Precision,0.340181205225
+google,tfidf,tri,100,Nearest Neighbors,Score,0.436507936508
+my,tfidf,quad,5000,Dummy,Recall,0.047619047619
+google,tfidf,uni,10,Neural Net,Score,0.444444444444
+my,tfidf,tri,10,RBF SVM,Recall,0.380952380952
+google,tfidf,quad,1000,Nearest Neighbors,Fscore,0.437551163023
+google,tfidf,quad,5000,Dummy,Score,0.515873015873
+my,tfidf,tri,500,RBF SVM,Score,0.222222222222
+my,tfidf,tri,100,Random Forest,Precision,0.405513316438
+my,numoc,tri,all,Neural Net,Fscore,0.114682539683
+my,tfidf,quad,500,Nearest Neighbors,Precision,0.500717229548
+google,numoc,uni,all,Linear SVM,Recall,0.436507936508
+my,tfidf,all,5000,Naive Bayes,Recall,0.253968253968
+my,tfidf,all,10000,RBF SVM,Score,0.222222222222
+my,tfidf,quad,100,Decision Tree,Recall,0.293650793651
+my,tfidf,bi,500,Logistic Regression,Fscore,0.419404276199
+my,tfidf,all,100,Logistic Regression,Fscore,0.485868735351
+my,tfidf,uni,10,Naive Bayes,Fscore,0.347746047914
+google,justc,tri,all,RBF SVM,Recall,0.47619047619
+my,tfidf,uni,10,Nearest Neighbors,Recall,0.436507936508
+google,tfidf,bi,5000,Logistic Regression,Score,0.460317460317
+google,tfidf,all,5000,Decision Tree,Fscore,0.382395382395
+my,tfidf,quad,100,Linear SVM,Precision,0.479354904355
+google,tfidf,quad,10000,Random Forest,Fscore,0.360456256538
+my,tfidf,all,2000,Neural Net,Precision,0.512163866881
+google,tfidf,uni,5000,Neural Net,Fscore,0.405858239192
+google,tfidf,uni,100,Logistic Regression,Recall,0.420634920635
+my,tfidf,quad,2000,Linear SVM,Recall,0.460317460317
+google,tfidf,uni,1000,AdaBoost,Fscore,0.364990837383
+my,tfidf,all,1000,Linear SVM,Recall,0.452380952381
+google,tfidf,all,2000,Neural Net,Recall,0.47619047619
+my,tfidf,uni,100,Random Forest,Precision,0.258796271229
+google,tfidf,tri,5000,Naive Bayes,Precision,0.266124968506
+my,tfidf,bi,100,Neural Net,Score,0.468253968254
+my,justc,tri,all,Random Forest,Score,0.269841269841
+google,tfidf,uni,1000,Nearest Neighbors,Recall,0.468253968254
+google,tfidf,bi,1000,Decision Tree,Precision,0.444330523278
+my,tfidf,bi,5000,Decision Tree,Precision,0.357105213627
+google,tfidf,quad,1000,Decision Tree,Precision,0.3931040158
+my,tfidf,all,5000,Decision Tree,Score,0.301587301587
+google,tfidf,all,5000,RBF SVM,Recall,0.515873015873
+my,tfidf,quad,1000,Linear SVM,Fscore,0.460393728403
+google,tfidf,bi,10000,Naive Bayes,Score,0.515873015873
+google,tfidf,all,100,Naive Bayes,Precision,0.325127326367
+my,tfidf,quad,500,Logistic Regression,Precision,0.514676575021
+google,tfidf,all,500,Decision Tree,Recall,0.444444444444
+my,tfidf,uni,5000,Decision Tree,Score,0.365079365079
+google,justc,tri,all,Decision Tree,Precision,0.226757369615
+my,tfidf,uni,10,RBF SVM,Precision,0.422044676456
+my,justc,uni,all,Neural Net,Fscore,0.337714267281
+google,tfidf,all,5000,Random Forest,Score,0.507936507937
+google,tfidf,all,5000,Linear SVM,Precision,0.428736772487
+google,tfidf,all,10,RBF SVM,Precision,0.400407687828
+my,tfidf,tri,1000,Random Forest,Fscore,0.151948077452
+google,justc,tri,all,Naive Bayes,Score,0.00793650793651
+my,tfidf,all,1000,RBF SVM,Recall,0.222222222222
+my,tfidf,quad,10000,Dummy,Recall,0.047619047619
+google,tfidf,all,500,Dummy,Fscore,0.351117759495
+my,tfidf,quad,1000,AdaBoost,Score,0.420634920635
+google,tfidf,all,10000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,quad,2000,Neural Net,Precision,0.515632046211
+my,tfidf,all,5000,AdaBoost,Precision,0.43569344236
+my,tfidf,tri,10000,Dummy,Score,0.047619047619
+google,justc,uni,all,Naive Bayes,Score,0.47619047619
+my,tfidf,uni,500,AdaBoost,Score,0.365079365079
+google,tfidf,all,2000,Naive Bayes,Score,0.515873015873
+my,tfidf,quad,1000,Nearest Neighbors,Recall,0.428571428571
+my,numoc,bi,all,Nearest Neighbors,Score,0.15873015873
+google,justc,uni,all,Linear SVM,Precision,0.349994006952
+my,justc,bi,all,Linear SVM,Score,0.031746031746
+google,tfidf,quad,500,Neural Net,Score,0.468253968254
+my,tfidf,uni,10,Linear SVM,Precision,0.427757427757
+my,tfidf,all,500,Logistic Regression,Precision,0.515845828889
+google,tfidf,quad,1000,AdaBoost,Fscore,0.414442039442
+my,justc,uni,all,Decision Tree,Precision,0.349470899471
+my,tfidf,tri,1000,Dummy,Recall,0.047619047619
+google,tfidf,uni,10000,RBF SVM,Score,0.515873015873
+my,tfidf,uni,2000,Logistic Regression,Score,0.412698412698
+my,tfidf,uni,100,Nearest Neighbors,Recall,0.31746031746
+google,tfidf,all,500,AdaBoost,Score,0.515873015873
+my,tfidf,all,2000,Nearest Neighbors,Precision,0.527813722107
+my,tfidf,quad,10,RBF SVM,Recall,0.380952380952
+my,tfidf,tri,2000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,tri,100,Nearest Neighbors,Precision,0.428733612067
+my,tfidf,quad,2000,RBF SVM,Precision,0.0493827160494
+my,tfidf,all,500,Random Forest,Score,0.246031746032
+my,tfidf,tri,10,Nearest Neighbors,Score,0.31746031746
+my,tfidf,uni,10,Decision Tree,Recall,0.31746031746
+my,justc,bi,all,RBF SVM,Score,0.031746031746
+google,tfidf,quad,2000,Neural Net,Fscore,0.409960104472
+google,numoc,bi,all,Random Forest,Recall,0.47619047619
+google,tfidf,bi,5000,RBF SVM,Recall,0.515873015873
+my,tfidf,all,1000,Nearest Neighbors,Precision,0.527813722107
+my,justc,bi,all,Decision Tree,Recall,0.269841269841
+my,tfidf,bi,2000,Logistic Regression,Recall,0.428571428571
+my,tfidf,bi,500,Logistic Regression,Score,0.428571428571
+my,tfidf,uni,2000,Neural Net,Score,0.460317460317
+my,tfidf,all,10000,Logistic Regression,Score,0.460317460317
+google,tfidf,uni,100,Neural Net,Fscore,0.421092521093
+my,tfidf,quad,10,Linear SVM,Fscore,0.259991571118
+my,tfidf,all,1000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,uni,500,Dummy,Score,0.047619047619
+google,tfidf,all,10,Neural Net,Fscore,0.364957264957
+google,tfidf,all,10000,Random Forest,Fscore,0.381391421817
+google,tfidf,uni,5000,Neural Net,Precision,0.377262551607
+google,tfidf,uni,2000,Random Forest,Fscore,0.351117759495
+google,tfidf,quad,10000,Linear SVM,Recall,0.436507936508
+google,tfidf,quad,100,Naive Bayes,Precision,0.289846539338
+google,tfidf,quad,100,Decision Tree,Score,0.396825396825
+my,tfidf,bi,10000,Random Forest,Fscore,0.164474442533
+google,tfidf,all,10,Naive Bayes,Recall,0.103174603175
+my,tfidf,all,2000,Random Forest,Fscore,0.214225662818
+my,tfidf,all,500,AdaBoost,Recall,0.404761904762
+my,tfidf,quad,2000,Decision Tree,Score,0.325396825397
+my,tfidf,bi,100,AdaBoost,Fscore,0.405003604529
+my,tfidf,quad,100,Linear SVM,Fscore,0.443421103544
+google,tfidf,quad,500,Logistic Regression,Recall,0.444444444444
+google,tfidf,all,100,Logistic Regression,Score,0.388888888889
+my,justc,tri,all,Nearest Neighbors,Score,0.15873015873
+my,tfidf,bi,10000,Random Forest,Score,0.238095238095
+google,tfidf,quad,5000,Logistic Regression,Fscore,0.4207266783
+my,tfidf,quad,2000,Logistic Regression,Recall,0.452380952381
+my,tfidf,quad,100,Random Forest,Recall,0.309523809524
+my,tfidf,all,1000,AdaBoost,Precision,0.43569344236
+my,tfidf,uni,5000,Nearest Neighbors,Recall,0.325396825397
+my,tfidf,quad,100,Dummy,Precision,0.00226757369615
+google,tfidf,uni,5000,Decision Tree,Recall,0.436507936508
+google,tfidf,quad,10,RBF SVM,Precision,0.446197411003
+google,tfidf,bi,1000,RBF SVM,Fscore,0.351117759495
+google,tfidf,tri,500,AdaBoost,Precision,0.367884510126
+google,tfidf,quad,100,Nearest Neighbors,Fscore,0.38801223494
+google,tfidf,bi,100,Decision Tree,Precision,0.357915057915
+google,numoc,tri,all,Logistic Regression,Score,0.47619047619
+my,numoc,bi,all,RBF SVM,Precision,0.00100781053162
+my,tfidf,uni,500,RBF SVM,Recall,0.222222222222
+google,justc,tri,all,Nearest Neighbors,Precision,0.226757369615
+google,tfidf,all,1000,Logistic Regression,Score,0.484126984127
+google,tfidf,uni,1000,Random Forest,Precision,0.266257040451
+my,tfidf,tri,2000,Linear SVM,Precision,0.458751055103
+google,tfidf,uni,10000,Neural Net,Score,0.444444444444
+my,numoc,bi,all,RBF SVM,Recall,0.031746031746
+google,tfidf,bi,5000,AdaBoost,Score,0.515873015873
+my,tfidf,bi,5000,Dummy,Precision,0.00226757369615
+my,tfidf,all,10000,Random Forest,Recall,0.230158730159
+google,tfidf,bi,1000,Logistic Regression,Precision,0.380643166357
+my,tfidf,all,10,Logistic Regression,Fscore,0.39428166707
+my,justc,uni,all,Neural Net,Score,0.333333333333
+google,justc,tri,all,Random Forest,Precision,0.226757369615
+google,justc,tri,all,Linear SVM,Precision,0.226757369615
+google,tfidf,quad,10000,Linear SVM,Score,0.436507936508
+my,tfidf,all,100,RBF SVM,Recall,0.222222222222
+my,tfidf,tri,500,Dummy,Fscore,0.004329004329
+google,tfidf,quad,10,Decision Tree,Score,0.404761904762
+google,tfidf,tri,1000,Nearest Neighbors,Score,0.47619047619
+google,tfidf,bi,1000,Naive Bayes,Fscore,0.34753550543
+google,tfidf,uni,10000,Logistic Regression,Precision,0.365965300849
+google,tfidf,quad,1000,RBF SVM,Recall,0.515873015873
+my,justc,uni,all,Logistic Regression,Recall,0.34126984127
+google,tfidf,uni,10000,Naive Bayes,Score,0.0952380952381
+google,tfidf,quad,500,RBF SVM,Fscore,0.351117759495
+google,numoc,tri,all,Decision Tree,Precision,0.226757369615
+google,tfidf,all,100,Linear SVM,Score,0.404761904762
+google,tfidf,quad,5000,Nearest Neighbors,Fscore,0.437551163023
+google,tfidf,all,5000,Nearest Neighbors,Precision,0.452363315697
+my,tfidf,bi,5000,Random Forest,Score,0.261904761905
+google,numoc,bi,all,Naive Bayes,Score,0.00793650793651
+my,tfidf,uni,10,Decision Tree,Score,0.31746031746
+google,tfidf,tri,5000,Linear SVM,Recall,0.460317460317
+my,tfidf,all,1000,AdaBoost,Score,0.404761904762
+my,tfidf,quad,10000,Logistic Regression,Recall,0.452380952381
+my,justc,uni,all,Naive Bayes,Fscore,0.0447127207691
+google,tfidf,quad,10000,Naive Bayes,Fscore,0.351117759495
+google,tfidf,tri,1000,AdaBoost,Fscore,0.387676057592
+google,tfidf,tri,5000,Linear SVM,Score,0.460317460317
+google,tfidf,tri,5000,Logistic Regression,Recall,0.484126984127
+google,tfidf,all,5000,Nearest Neighbors,Recall,0.507936507937
+my,tfidf,bi,1000,AdaBoost,Score,0.380952380952
+my,tfidf,tri,500,AdaBoost,Recall,0.365079365079
+my,tfidf,uni,100,Decision Tree,Recall,0.373015873016
+my,tfidf,uni,10000,AdaBoost,Score,0.380952380952
+my,tfidf,all,10000,Random Forest,Score,0.230158730159
+google,tfidf,quad,100,RBF SVM,Precision,0.266124968506
+google,tfidf,bi,10000,Dummy,Fscore,0.351117759495
+google,tfidf,bi,500,Decision Tree,Score,0.436507936508
+google,tfidf,quad,5000,AdaBoost,Precision,0.404563492063
+google,tfidf,bi,1000,Linear SVM,Fscore,0.387331236996
+my,tfidf,uni,100,AdaBoost,Fscore,0.363644888981
+my,tfidf,quad,1000,Random Forest,Recall,0.31746031746
+google,tfidf,bi,100,Decision Tree,Fscore,0.375880574452
+google,tfidf,tri,10,Random Forest,Score,0.47619047619
+my,tfidf,tri,5000,Random Forest,Recall,0.238095238095
+google,tfidf,bi,10000,AdaBoost,Score,0.515873015873
+my,tfidf,uni,100,RBF SVM,Precision,0.0493827160494
+google,tfidf,quad,10000,AdaBoost,Recall,0.452380952381
+google,tfidf,uni,500,Decision Tree,Precision,0.402983032293
+my,tfidf,bi,1000,Decision Tree,Score,0.309523809524
+google,numoc,tri,all,Neural Net,Score,0.47619047619
+my,numoc,tri,all,Logistic Regression,Recall,0.269841269841
+my,tfidf,quad,1000,Logistic Regression,Score,0.452380952381
+google,tfidf,tri,500,Logistic Regression,Recall,0.484126984127
+my,justc,tri,all,Neural Net,Precision,0.0728143109095
+my,numoc,uni,all,Decision Tree,Score,0.293650793651
+my,tfidf,quad,10,Logistic Regression,Precision,0.414644808743
+my,tfidf,uni,100,Logistic Regression,Score,0.412698412698
+my,tfidf,all,10,Dummy,Recall,0.047619047619
+google,tfidf,quad,500,Linear SVM,Precision,0.412262500129
+google,tfidf,tri,2000,Nearest Neighbors,Precision,0.402207306485
+my,tfidf,bi,10,Nearest Neighbors,Recall,0.365079365079
+my,tfidf,tri,10,Dummy,Fscore,0.004329004329
+my,tfidf,tri,2000,AdaBoost,Precision,0.392401098633
+my,tfidf,all,2000,Naive Bayes,Precision,0.0644998740237
+my,tfidf,all,10,Linear SVM,Recall,0.277777777778
+my,tfidf,bi,2000,Random Forest,Recall,0.238095238095
+my,tfidf,bi,1000,Linear SVM,Score,0.420634920635
+google,tfidf,uni,1000,RBF SVM,Precision,0.266124968506
+my,tfidf,bi,2000,Neural Net,Fscore,0.426441146215
+my,tfidf,uni,1000,Random Forest,Score,0.269841269841
+my,justc,uni,all,Nearest Neighbors,Score,0.277777777778
+google,tfidf,all,10000,AdaBoost,Score,0.515873015873
+my,tfidf,all,10000,Dummy,Score,0.047619047619
+my,tfidf,tri,500,Naive Bayes,Precision,0.0644998740237
+my,numoc,bi,all,Naive Bayes,Recall,0.269841269841
+google,tfidf,tri,1000,RBF SVM,Recall,0.515873015873
+google,tfidf,bi,10000,Neural Net,Precision,0.381125255383
+google,tfidf,tri,10,Naive Bayes,Score,0.0952380952381
+my,tfidf,tri,10,Logistic Regression,Recall,0.365079365079
+my,justc,uni,all,Neural Net,Recall,0.333333333333
+my,tfidf,all,2000,Dummy,Precision,0.00226757369615
+google,tfidf,bi,100,Logistic Regression,Recall,0.412698412698
+my,tfidf,quad,2000,Random Forest,Recall,0.261904761905
+my,numoc,tri,all,Linear SVM,Precision,0.00100781053162
+my,tfidf,all,5000,Decision Tree,Fscore,0.310264259029
+google,tfidf,bi,100,Decision Tree,Score,0.396825396825
+my,tfidf,tri,10000,AdaBoost,Precision,0.392401098633
+my,tfidf,quad,500,AdaBoost,Recall,0.420634920635
+google,tfidf,tri,2000,Decision Tree,Score,0.436507936508
+my,tfidf,tri,1000,Nearest Neighbors,Score,0.452380952381
+my,justc,tri,all,Dummy,Precision,0.00100781053162
+my,numoc,tri,all,RBF SVM,Fscore,0.0019536019536
+google,numoc,bi,all,AdaBoost,Fscore,0.307219662058
+my,tfidf,tri,10,Nearest Neighbors,Fscore,0.311493246206
+my,tfidf,all,10,Decision Tree,Precision,0.321553578696
+google,tfidf,bi,1000,Random Forest,Precision,0.569841269841
+google,numoc,tri,all,AdaBoost,Precision,0.226757369615
+my,tfidf,quad,5000,Decision Tree,Fscore,0.306233419959
+google,tfidf,quad,2000,Naive Bayes,Score,0.515873015873
+my,justc,uni,all,Naive Bayes,Precision,0.0260213374967
+my,tfidf,quad,100,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,5000,Neural Net,Score,0.428571428571
+my,tfidf,quad,10,Decision Tree,Recall,0.309523809524
+google,justc,bi,all,Nearest Neighbors,Recall,0.47619047619
+my,tfidf,quad,100,RBF SVM,Score,0.222222222222
+my,tfidf,all,1000,Nearest Neighbors,Recall,0.452380952381
+my,numoc,tri,all,Random Forest,Fscore,0.114682539683
+my,tfidf,bi,2000,AdaBoost,Score,0.373015873016
+google,tfidf,uni,2000,Decision Tree,Recall,0.452380952381
+my,tfidf,bi,10000,AdaBoost,Precision,0.381540257404
+my,tfidf,bi,10000,Decision Tree,Precision,0.388182254972
+my,tfidf,bi,5000,Decision Tree,Recall,0.301587301587
+my,tfidf,quad,500,RBF SVM,Fscore,0.0808080808081
+my,tfidf,all,500,Logistic Regression,Score,0.452380952381
+google,justc,tri,all,Random Forest,Recall,0.47619047619
+google,numoc,uni,all,Random Forest,Precision,0.398858717041
+my,tfidf,tri,10000,Linear SVM,Recall,0.428571428571
+my,tfidf,bi,1000,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,10000,Naive Bayes,Recall,0.246031746032
+my,numoc,uni,all,Logistic Regression,Precision,0.368033272411
+google,tfidf,quad,100,Decision Tree,Recall,0.396825396825
+my,numoc,tri,all,AdaBoost,Recall,0.269841269841
+my,tfidf,tri,2000,Nearest Neighbors,Fscore,0.448338950474
+google,tfidf,bi,500,Linear SVM,Recall,0.420634920635
+google,tfidf,tri,100,Nearest Neighbors,Fscore,0.370632636383
+google,tfidf,quad,5000,Nearest Neighbors,Recall,0.492063492063
+my,justc,tri,all,Random Forest,Recall,0.269841269841
+my,tfidf,all,5000,Linear SVM,Precision,0.511078478839
+my,tfidf,all,5000,Linear SVM,Score,0.452380952381
+my,tfidf,all,2000,Dummy,Score,0.047619047619
+my,tfidf,quad,10000,Decision Tree,Recall,0.31746031746
+google,tfidf,tri,500,Nearest Neighbors,Score,0.47619047619
+my,tfidf,all,100,Naive Bayes,Score,0.34126984127
+google,tfidf,tri,500,Naive Bayes,Precision,0.266124968506
+my,numoc,bi,all,Neural Net,Recall,0.269841269841
+my,tfidf,all,10000,RBF SVM,Precision,0.0493827160494
+my,tfidf,all,10,AdaBoost,Recall,0.373015873016
+my,tfidf,bi,10,Naive Bayes,Fscore,0.29596255485
+google,tfidf,all,100,AdaBoost,Recall,0.468253968254
+my,tfidf,all,2000,Decision Tree,Precision,0.383399910839
+my,tfidf,bi,1000,Neural Net,Score,0.436507936508
+my,tfidf,tri,1000,Linear SVM,Precision,0.461220090825
+google,tfidf,all,10,Logistic Regression,Fscore,0.379629326316
+google,tfidf,bi,10,Linear SVM,Fscore,0.351117759495
+google,tfidf,all,2000,Naive Bayes,Recall,0.515873015873
+my,tfidf,uni,1000,Naive Bayes,Fscore,0.324406814576
+google,tfidf,all,5000,RBF SVM,Fscore,0.351117759495
+my,tfidf,all,5000,Neural Net,Score,0.460317460317
+my,tfidf,bi,100,Nearest Neighbors,Score,0.365079365079
+google,tfidf,uni,5000,Dummy,Recall,0.515873015873
+my,tfidf,quad,10,Dummy,Score,0.047619047619
+my,tfidf,all,100,Dummy,Score,0.047619047619
+my,numoc,bi,all,AdaBoost,Score,0.269841269841
+my,tfidf,bi,10,Logistic Regression,Precision,0.472828411668
+google,numoc,uni,all,AdaBoost,Recall,0.349206349206
+google,tfidf,bi,5000,Naive Bayes,Fscore,0.351117759495
+google,tfidf,uni,10000,Dummy,Recall,0.515873015873
+my,tfidf,all,100,AdaBoost,Score,0.484126984127
+my,tfidf,bi,500,Random Forest,Score,0.246031746032
+my,tfidf,quad,10000,Decision Tree,Score,0.31746031746
+my,justc,tri,all,Linear SVM,Precision,0.00100781053162
+my,tfidf,uni,100,Logistic Regression,Recall,0.412698412698
+google,tfidf,bi,1000,AdaBoost,Score,0.515873015873
+google,tfidf,all,10000,Logistic Regression,Fscore,0.445716398865
+my,tfidf,uni,10,Random Forest,Recall,0.428571428571
+google,tfidf,quad,2000,Logistic Regression,Precision,0.412872107317
+google,tfidf,all,2000,Decision Tree,Fscore,0.39154334606
+google,tfidf,tri,10,RBF SVM,Score,0.5
+my,tfidf,all,500,Neural Net,Recall,0.460317460317
+my,tfidf,quad,500,Random Forest,Recall,0.277777777778
+google,justc,uni,all,Dummy,Precision,0.226757369615
+my,tfidf,bi,1000,Nearest Neighbors,Recall,0.507936507937
+my,justc,bi,all,Neural Net,Precision,0.0728143109095
+my,tfidf,bi,5000,Dummy,Score,0.047619047619
+google,tfidf,all,10,Dummy,Fscore,0.351117759495
+my,tfidf,quad,10,Nearest Neighbors,Fscore,0.313775862585
+my,tfidf,bi,5000,Naive Bayes,Fscore,0.0976800976801
+google,tfidf,quad,500,Decision Tree,Recall,0.452380952381
+google,tfidf,quad,100,Linear SVM,Recall,0.428571428571
+my,tfidf,uni,5000,Neural Net,Recall,0.436507936508
+google,tfidf,all,500,Neural Net,Precision,0.451352145797
+google,tfidf,all,100,Nearest Neighbors,Fscore,0.396941829482
+my,numoc,tri,all,Logistic Regression,Score,0.269841269841
+my,tfidf,uni,5000,Naive Bayes,Fscore,0.333023310998
+google,tfidf,uni,500,Dummy,Score,0.515873015873
+my,tfidf,all,100,Decision Tree,Score,0.380952380952
+my,tfidf,all,500,Linear SVM,Score,0.452380952381
+google,tfidf,tri,10,Logistic Regression,Score,0.5
+google,tfidf,bi,10000,Random Forest,Fscore,0.389764940585
+google,tfidf,uni,2000,Random Forest,Precision,0.266124968506
+my,tfidf,tri,10000,RBF SVM,Precision,0.0493827160494
+my,tfidf,uni,10,Decision Tree,Fscore,0.31041872764
+my,tfidf,all,100,RBF SVM,Score,0.222222222222
+google,tfidf,tri,1000,AdaBoost,Precision,0.364313081554
+google,tfidf,bi,500,Neural Net,Precision,0.38671679198
+google,tfidf,uni,10,Neural Net,Precision,0.255653883972
+my,tfidf,uni,10,RBF SVM,Fscore,0.379908942695
+google,tfidf,all,10000,Nearest Neighbors,Fscore,0.461682474663
+my,tfidf,uni,2000,Dummy,Precision,0.00226757369615
+my,tfidf,bi,100,Logistic Regression,Score,0.444444444444
+my,tfidf,tri,1000,Neural Net,Fscore,0.428147743946
+my,tfidf,uni,500,Logistic Regression,Score,0.412698412698
+google,tfidf,all,1000,Nearest Neighbors,Fscore,0.461682474663
+google,tfidf,tri,5000,Random Forest,Score,0.5
+my,tfidf,quad,10000,Linear SVM,Score,0.452380952381
+my,tfidf,bi,10000,AdaBoost,Recall,0.380952380952
+google,numoc,tri,all,Naive Bayes,Precision,6.29881582263e-05
+google,tfidf,tri,500,Naive Bayes,Score,0.515873015873
+google,tfidf,quad,100,Random Forest,Recall,0.5
+google,numoc,tri,all,Naive Bayes,Recall,0.00793650793651
+my,tfidf,uni,5000,Random Forest,Recall,0.325396825397
+google,tfidf,quad,10,Dummy,Score,0.515873015873
+my,justc,bi,all,Dummy,Recall,0.031746031746
+google,tfidf,tri,5000,RBF SVM,Precision,0.266124968506
+my,tfidf,tri,1000,Neural Net,Score,0.428571428571
+my,tfidf,tri,10,RBF SVM,Precision,0.35776195131
+google,tfidf,tri,1000,Dummy,Score,0.515873015873
+my,tfidf,bi,2000,Dummy,Recall,0.047619047619
+my,tfidf,quad,500,Naive Bayes,Score,0.253968253968
+google,tfidf,quad,100,Logistic Regression,Recall,0.388888888889
+google,tfidf,uni,10,AdaBoost,Fscore,0.406060128246
+google,tfidf,uni,1000,Logistic Regression,Recall,0.412698412698
+google,tfidf,uni,2000,Naive Bayes,Precision,0.266259853817
+google,tfidf,tri,10000,Dummy,Recall,0.515873015873
+google,tfidf,tri,10000,Dummy,Fscore,0.351117759495
+google,tfidf,quad,10,RBF SVM,Recall,0.515873015873
+my,tfidf,all,10000,Decision Tree,Score,0.309523809524
+my,tfidf,quad,10,Logistic Regression,Score,0.373015873016
+google,tfidf,uni,100,Logistic Regression,Precision,0.370872103631
+my,justc,bi,all,Nearest Neighbors,Precision,0.0251952632905
+google,tfidf,quad,1000,AdaBoost,Precision,0.407991762106
+google,justc,uni,all,Random Forest,Score,0.484126984127
+my,numoc,bi,all,Linear SVM,Fscore,0.0019536019536
+google,tfidf,uni,500,Nearest Neighbors,Recall,0.460317460317
+my,justc,bi,all,Nearest Neighbors,Recall,0.15873015873
+my,tfidf,bi,5000,Naive Bayes,Recall,0.238095238095
+my,numoc,bi,all,Decision Tree,Recall,0.269841269841
+google,tfidf,tri,1000,Random Forest,Precision,0.375661375661
+my,tfidf,quad,100,Dummy,Score,0.047619047619
+google,justc,tri,all,Naive Bayes,Recall,0.00793650793651
+my,numoc,bi,all,Random Forest,Recall,0.269841269841
+google,tfidf,bi,5000,Dummy,Score,0.515873015873
+my,tfidf,uni,1000,Random Forest,Recall,0.269841269841
+my,tfidf,uni,10,Neural Net,Recall,0.380952380952
+google,tfidf,all,10,Nearest Neighbors,Precision,0.508319409635
+google,tfidf,tri,5000,Dummy,Precision,0.266124968506
+my,tfidf,bi,10000,Random Forest,Recall,0.238095238095
+my,tfidf,quad,5000,Random Forest,Precision,0.334194890077
+google,tfidf,bi,500,Decision Tree,Precision,0.342943108901
+my,justc,tri,all,Neural Net,Recall,0.269841269841
+google,justc,bi,all,RBF SVM,Precision,0.226757369615
+my,tfidf,uni,100,Linear SVM,Precision,0.457485197001
+google,tfidf,bi,10000,Nearest Neighbors,Fscore,0.412772517019
+my,tfidf,bi,5000,Random Forest,Precision,0.310545010545
+my,tfidf,quad,10,Random Forest,Precision,0.373488538702
+my,tfidf,all,10,Decision Tree,Score,0.293650793651
+my,tfidf,bi,2000,Decision Tree,Precision,0.408306619749
+google,tfidf,quad,5000,Naive Bayes,Recall,0.515873015873
+google,tfidf,bi,10,Naive Bayes,Fscore,0.116995566996
+google,tfidf,quad,10000,AdaBoost,Score,0.452380952381
+my,tfidf,tri,1000,RBF SVM,Fscore,0.0808080808081
+google,tfidf,quad,2000,Dummy,Score,0.515873015873
+my,tfidf,quad,2000,Neural Net,Score,0.468253968254
+google,tfidf,bi,10,Dummy,Recall,0.515873015873
+google,tfidf,uni,10,Nearest Neighbors,Recall,0.515873015873
+my,tfidf,quad,1000,Logistic Regression,Fscore,0.455022564793
+my,tfidf,uni,500,RBF SVM,Fscore,0.0808080808081
+my,tfidf,tri,100,Linear SVM,Precision,0.475885225885
+google,justc,tri,all,Logistic Regression,Fscore,0.307219662058
+google,tfidf,uni,1000,Linear SVM,Fscore,0.338775070752
+my,tfidf,uni,500,Logistic Regression,Fscore,0.383096645648
+google,tfidf,tri,2000,Linear SVM,Fscore,0.444452453542
+google,tfidf,bi,5000,Dummy,Precision,0.266124968506
+my,tfidf,uni,2000,Random Forest,Precision,0.376710454297
+google,tfidf,quad,10,Linear SVM,Precision,0.266124968506
+my,tfidf,tri,10,Nearest Neighbors,Recall,0.31746031746
+google,tfidf,uni,10000,Naive Bayes,Precision,0.266259853817
+google,numoc,bi,all,Naive Bayes,Fscore,0.000124984376953
+google,tfidf,tri,10,RBF SVM,Recall,0.5
+google,tfidf,uni,500,Decision Tree,Recall,0.468253968254
+google,tfidf,bi,10000,Neural Net,Score,0.452380952381
+my,tfidf,all,10000,Logistic Regression,Fscore,0.462922160486
+google,tfidf,bi,10000,Random Forest,Score,0.515873015873
+my,tfidf,bi,10,Logistic Regression,Score,0.349206349206
+my,tfidf,tri,100,RBF SVM,Precision,0.0493827160494
+my,tfidf,quad,5000,RBF SVM,Score,0.222222222222
+google,justc,tri,all,Neural Net,Fscore,0.307219662058
+google,tfidf,tri,100,Linear SVM,Score,0.420634920635
+my,tfidf,all,10,Dummy,Score,0.047619047619
+google,tfidf,quad,10,Random Forest,Recall,0.484126984127
+google,tfidf,tri,2000,Nearest Neighbors,Score,0.47619047619
+google,tfidf,bi,1000,RBF SVM,Score,0.515873015873
+google,tfidf,quad,10000,Dummy,Recall,0.515873015873
+google,tfidf,uni,10,Random Forest,Score,0.484126984127
+my,tfidf,tri,1000,Logistic Regression,Recall,0.428571428571
+google,tfidf,bi,1000,Decision Tree,Fscore,0.413525132275
+my,tfidf,tri,100,Random Forest,Fscore,0.348689062724
+my,tfidf,tri,1000,Logistic Regression,Precision,0.480918691445
+google,tfidf,uni,100,Neural Net,Score,0.468253968254
+google,tfidf,tri,10,Decision Tree,Fscore,0.466289026936
+my,tfidf,uni,2000,Dummy,Fscore,0.004329004329
+my,numoc,tri,all,Nearest Neighbors,Score,0.15873015873
+google,tfidf,quad,10,Neural Net,Fscore,0.378173711432
+google,tfidf,tri,1000,Linear SVM,Score,0.468253968254
+my,tfidf,all,10,Decision Tree,Recall,0.293650793651
+my,tfidf,tri,5000,Dummy,Fscore,0.004329004329
+my,tfidf,bi,5000,Nearest Neighbors,Precision,0.568701668702
+google,tfidf,all,500,Decision Tree,Fscore,0.373737373737
+google,tfidf,bi,10,Nearest Neighbors,Fscore,0.416626617005
+google,justc,bi,all,Decision Tree,Precision,0.226757369615
+my,justc,tri,all,AdaBoost,Recall,0.269841269841
+my,tfidf,uni,1000,Logistic Regression,Fscore,0.40897772057
+my,tfidf,tri,10,Random Forest,Fscore,0.402256894257
+my,tfidf,uni,1000,Linear SVM,Precision,0.497612907389
+my,tfidf,uni,5000,Naive Bayes,Precision,0.39917010324
+my,tfidf,quad,2000,Decision Tree,Fscore,0.322477485022
+my,tfidf,all,2000,Nearest Neighbors,Score,0.452380952381
+my,tfidf,quad,1000,Nearest Neighbors,Fscore,0.439983364795
+my,tfidf,tri,10,Decision Tree,Score,0.396825396825
+google,tfidf,uni,500,Logistic Regression,Fscore,0.381652622367
+my,tfidf,quad,10000,Dummy,Score,0.047619047619
+google,tfidf,uni,10,Dummy,Score,0.515873015873
+google,tfidf,uni,500,Dummy,Recall,0.515873015873
+google,tfidf,bi,10000,Nearest Neighbors,Score,0.47619047619
+my,tfidf,quad,500,Decision Tree,Fscore,0.314910938555
+google,tfidf,uni,10000,Logistic Regression,Recall,0.412698412698
+my,tfidf,bi,2000,Decision Tree,Recall,0.31746031746
+google,justc,tri,all,RBF SVM,Fscore,0.307219662058
+my,justc,bi,all,RBF SVM,Fscore,0.0019536019536
+my,tfidf,bi,100,Linear SVM,Precision,0.445565051168
+my,tfidf,uni,10000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,bi,2000,Decision Tree,Score,0.31746031746
+google,tfidf,tri,2000,Linear SVM,Recall,0.460317460317
+my,tfidf,all,10,Nearest Neighbors,Score,0.412698412698
+google,tfidf,all,2000,Logistic Regression,Precision,0.449118165785
+my,tfidf,uni,2000,Nearest Neighbors,Fscore,0.32329649274
+my,numoc,tri,all,Random Forest,Recall,0.269841269841
+my,tfidf,quad,5000,RBF SVM,Fscore,0.0808080808081
+google,tfidf,uni,10,Dummy,Fscore,0.351117759495
+my,tfidf,quad,1000,Logistic Regression,Recall,0.452380952381
+my,tfidf,bi,100,Naive Bayes,Fscore,0.330458050955
+my,justc,bi,all,RBF SVM,Precision,0.00100781053162
+google,justc,bi,all,Random Forest,Precision,0.226757369615
+google,tfidf,all,5000,AdaBoost,Precision,0.465354604243
+my,tfidf,tri,10000,Logistic Regression,Score,0.436507936508
+my,tfidf,quad,500,AdaBoost,Fscore,0.422480039341
+my,justc,tri,all,RBF SVM,Score,0.031746031746
+my,tfidf,bi,100,Neural Net,Fscore,0.465273209049
+google,tfidf,all,1000,Naive Bayes,Recall,0.515873015873
+my,numoc,uni,all,RBF SVM,Precision,0.0728143109095
+google,tfidf,tri,10000,Logistic Regression,Fscore,0.452785624971
+my,tfidf,tri,5000,Linear SVM,Precision,0.452847307014
+google,tfidf,quad,500,Nearest Neighbors,Precision,0.42659369787
+google,tfidf,bi,10000,Decision Tree,Score,0.468253968254
+my,tfidf,tri,10000,Linear SVM,Fscore,0.425614982978
+google,tfidf,bi,2000,Logistic Regression,Score,0.460317460317
+my,tfidf,quad,10000,Nearest Neighbors,Recall,0.428571428571
+google,tfidf,uni,10,Random Forest,Fscore,0.363122764964
+google,tfidf,quad,2000,Dummy,Fscore,0.351117759495
+my,tfidf,uni,1000,Linear SVM,Fscore,0.466839988668
+google,tfidf,quad,5000,RBF SVM,Score,0.515873015873
+google,tfidf,all,2000,AdaBoost,Precision,0.451646090535
+my,justc,uni,all,Dummy,Fscore,0.0019536019536
+my,numoc,uni,all,Neural Net,Score,0.373015873016
+google,tfidf,uni,1000,Nearest Neighbors,Precision,0.450780849974
+google,tfidf,tri,500,Naive Bayes,Fscore,0.351117759495
+google,numoc,bi,all,RBF SVM,Score,0.47619047619
+google,numoc,uni,all,Naive Bayes,Score,0.47619047619
+my,tfidf,tri,500,Decision Tree,Precision,0.395009538207
+google,tfidf,all,10,Linear SVM,Fscore,0.340256670044
+google,tfidf,bi,2000,RBF SVM,Recall,0.515873015873
+my,tfidf,tri,2000,Neural Net,Recall,0.436507936508
+my,tfidf,bi,5000,Random Forest,Fscore,0.198995102938
+my,tfidf,tri,100,Dummy,Score,0.047619047619
+google,tfidf,tri,10,Linear SVM,Recall,0.507936507937
+my,tfidf,tri,10,Logistic Regression,Precision,0.415854198811
+google,justc,bi,all,Neural Net,Score,0.47619047619
+google,tfidf,bi,2000,Neural Net,Score,0.468253968254
+google,tfidf,tri,1000,RBF SVM,Score,0.515873015873
+google,tfidf,uni,100,Decision Tree,Fscore,0.405526733585
+google,tfidf,uni,100,AdaBoost,Precision,0.34957712041
+google,justc,tri,all,RBF SVM,Precision,0.226757369615
+google,tfidf,bi,10,Nearest Neighbors,Precision,0.396809363476
+google,tfidf,tri,10,RBF SVM,Precision,0.413227513228
+my,tfidf,all,5000,Naive Bayes,Precision,0.0644998740237
+my,numoc,tri,all,AdaBoost,Fscore,0.114682539683
+google,tfidf,tri,1000,Linear SVM,Precision,0.447691197691
+my,tfidf,all,500,Naive Bayes,Score,0.253968253968
+google,tfidf,tri,500,RBF SVM,Precision,0.266124968506
+my,tfidf,quad,100,Naive Bayes,Fscore,0.254772481824
+my,tfidf,uni,2000,AdaBoost,Score,0.365079365079
+google,tfidf,quad,500,AdaBoost,Recall,0.444444444444
+my,tfidf,tri,10,Random Forest,Score,0.420634920635
+my,tfidf,tri,100,RBF SVM,Score,0.222222222222
+my,numoc,bi,all,Linear SVM,Precision,0.00100781053162
+my,tfidf,uni,1000,Decision Tree,Fscore,0.390190132232
+my,numoc,bi,all,Logistic Regression,Score,0.269841269841
+my,tfidf,uni,10,Neural Net,Fscore,0.368429031599
+my,tfidf,all,5000,Naive Bayes,Fscore,0.102873216797
+my,tfidf,uni,500,Decision Tree,Recall,0.34126984127
+my,tfidf,tri,100,Neural Net,Score,0.436507936508
+google,tfidf,tri,500,AdaBoost,Score,0.428571428571
+my,justc,uni,all,Logistic Regression,Precision,0.359096048814
+my,tfidf,bi,100,Dummy,Recall,0.047619047619
+my,tfidf,all,5000,Nearest Neighbors,Recall,0.452380952381
+google,tfidf,uni,100,Naive Bayes,Recall,0.0952380952381
+google,tfidf,quad,1000,Dummy,Precision,0.266124968506
+google,tfidf,uni,5000,Naive Bayes,Recall,0.0952380952381
+google,tfidf,bi,10000,RBF SVM,Recall,0.515873015873
+google,tfidf,quad,10,Nearest Neighbors,Fscore,0.43372778253
+google,tfidf,quad,500,Random Forest,Recall,0.52380952381
+google,tfidf,quad,10,Dummy,Recall,0.515873015873
+my,tfidf,all,10000,AdaBoost,Score,0.404761904762
+my,justc,uni,all,Decision Tree,Fscore,0.347521595642
+my,tfidf,uni,10,RBF SVM,Score,0.373015873016
+google,tfidf,bi,1000,Linear SVM,Recall,0.412698412698
+google,tfidf,tri,10,Logistic Regression,Precision,0.413255360624
+google,tfidf,tri,5000,RBF SVM,Score,0.515873015873
+my,tfidf,quad,2000,Neural Net,Fscore,0.469701554826
+my,tfidf,uni,1000,Neural Net,Recall,0.452380952381
+google,numoc,uni,all,Neural Net,Score,0.404761904762
+my,justc,bi,all,Linear SVM,Recall,0.031746031746
+my,justc,uni,all,Random Forest,Fscore,0.325384778481
+google,tfidf,all,1000,Nearest Neighbors,Precision,0.452363315697
+my,tfidf,quad,10,Linear SVM,Precision,0.242743023135
+my,tfidf,all,1000,RBF SVM,Precision,0.0493827160494
+my,tfidf,uni,100,AdaBoost,Score,0.365079365079
+my,tfidf,tri,1000,Dummy,Precision,0.00226757369615
+my,tfidf,all,1000,Dummy,Score,0.047619047619
+my,tfidf,bi,5000,Random Forest,Recall,0.261904761905
+my,tfidf,quad,5000,Neural Net,Score,0.460317460317
+google,numoc,uni,all,Logistic Regression,Recall,0.428571428571
+google,tfidf,bi,2000,Decision Tree,Precision,0.375332285356
+google,tfidf,quad,500,Neural Net,Recall,0.468253968254
+my,tfidf,uni,100,Dummy,Recall,0.047619047619
+google,tfidf,quad,10,AdaBoost,Precision,0.394580386052
+my,tfidf,uni,10000,Linear SVM,Recall,0.492063492063
+google,tfidf,quad,500,Logistic Regression,Fscore,0.4207266783
+my,tfidf,uni,1000,Decision Tree,Score,0.396825396825
+google,tfidf,bi,10000,Naive Bayes,Precision,0.266124968506
+my,tfidf,uni,10000,AdaBoost,Precision,0.410178202335
+google,justc,uni,all,Neural Net,Score,0.460317460317
+google,tfidf,all,500,Logistic Regression,Precision,0.451873229651
+google,tfidf,all,2000,RBF SVM,Recall,0.515873015873
+google,tfidf,all,10,AdaBoost,Precision,0.379507852524
+google,numoc,uni,all,Naive Bayes,Fscore,0.307219662058
+my,tfidf,uni,10000,Nearest Neighbors,Recall,0.325396825397
+my,tfidf,quad,500,Logistic Regression,Fscore,0.455022564793
+google,tfidf,quad,10,Linear SVM,Score,0.515873015873
+my,tfidf,tri,500,Logistic Regression,Fscore,0.435767384377
+google,tfidf,tri,500,RBF SVM,Recall,0.515873015873
+google,tfidf,bi,10000,Dummy,Score,0.515873015873
+my,tfidf,tri,10,Decision Tree,Recall,0.396825396825
+google,tfidf,quad,2000,Linear SVM,Score,0.436507936508
+google,tfidf,all,100,RBF SVM,Recall,0.515873015873
+my,tfidf,uni,1000,Dummy,Recall,0.047619047619
+google,tfidf,bi,500,RBF SVM,Recall,0.515873015873
+my,tfidf,bi,500,Decision Tree,Recall,0.309523809524
+my,tfidf,tri,100,Naive Bayes,Fscore,0.339265371856
+my,justc,uni,all,Random Forest,Score,0.373015873016
+google,tfidf,all,5000,Dummy,Score,0.515873015873
+google,tfidf,tri,5000,Logistic Regression,Fscore,0.452785624971
+google,tfidf,bi,10,Decision Tree,Score,0.404761904762
+my,tfidf,bi,10,Nearest Neighbors,Fscore,0.377516288465
+my,tfidf,bi,100,Nearest Neighbors,Recall,0.365079365079
+my,tfidf,tri,2000,RBF SVM,Score,0.222222222222
+my,tfidf,bi,100,Dummy,Score,0.047619047619
+google,tfidf,bi,10000,Dummy,Precision,0.266124968506
+my,justc,uni,all,RBF SVM,Score,0.31746031746
+my,tfidf,bi,1000,Linear SVM,Recall,0.420634920635
+my,tfidf,bi,1000,Naive Bayes,Score,0.246031746032
+my,tfidf,uni,2000,Linear SVM,Precision,0.48223733938
+google,tfidf,quad,2000,RBF SVM,Fscore,0.351117759495
+my,tfidf,quad,500,Dummy,Precision,0.00226757369615
+my,tfidf,tri,100,Linear SVM,Fscore,0.450167981114
+my,tfidf,bi,10000,RBF SVM,Recall,0.222222222222
+google,tfidf,all,10,Random Forest,Score,0.531746031746
+my,tfidf,bi,500,Dummy,Recall,0.047619047619
+google,tfidf,all,500,Random Forest,Fscore,0.340197340197
+google,tfidf,tri,10000,Linear SVM,Recall,0.468253968254
+google,tfidf,tri,5000,Linear SVM,Fscore,0.444452453542
+google,numoc,uni,all,Linear SVM,Fscore,0.309362151704
+google,justc,uni,all,AdaBoost,Fscore,0.392631451745
+my,numoc,tri,all,Decision Tree,Fscore,0.114682539683
+my,numoc,tri,all,Naive Bayes,Score,0.269841269841
+my,tfidf,quad,500,Dummy,Score,0.047619047619
+my,tfidf,bi,500,Random Forest,Fscore,0.189972839145
+google,tfidf,tri,500,Decision Tree,Precision,0.341389187254
+google,tfidf,quad,10,Decision Tree,Fscore,0.385052062135
+my,tfidf,uni,500,Neural Net,Fscore,0.450923344009
+my,tfidf,all,500,Logistic Regression,Recall,0.452380952381
+google,justc,uni,all,Decision Tree,Precision,0.378968253968
+my,tfidf,all,5000,Logistic Regression,Recall,0.452380952381
+my,justc,uni,all,Decision Tree,Recall,0.365079365079
+google,tfidf,uni,10,Naive Bayes,Fscore,0.263341856324
+my,numoc,tri,all,Logistic Regression,Fscore,0.114682539683
+my,tfidf,all,10000,Decision Tree,Precision,0.375594499016
+my,tfidf,uni,10000,Random Forest,Fscore,0.266351107782
+my,tfidf,all,500,Random Forest,Precision,0.203998265973
+google,tfidf,all,5000,Logistic Regression,Recall,0.484126984127
+my,tfidf,bi,10,Linear SVM,Fscore,0.248785244726
+google,tfidf,all,500,Random Forest,Score,0.484126984127
+my,tfidf,quad,10000,Logistic Regression,Score,0.452380952381
+my,numoc,uni,all,Dummy,Fscore,0.0019536019536
+my,tfidf,tri,10000,Random Forest,Score,0.261904761905
+my,tfidf,tri,10000,Dummy,Recall,0.047619047619
+my,tfidf,all,5000,Random Forest,Recall,0.206349206349
+my,numoc,bi,all,Decision Tree,Precision,0.0728143109095
+google,tfidf,all,5000,Logistic Regression,Precision,0.449118165785
+my,tfidf,uni,100,Linear SVM,Fscore,0.441543036396
+google,tfidf,tri,1000,AdaBoost,Recall,0.428571428571
+my,tfidf,all,10000,RBF SVM,Recall,0.222222222222
+my,tfidf,tri,500,RBF SVM,Fscore,0.0808080808081
+my,tfidf,bi,500,Logistic Regression,Recall,0.428571428571
+google,numoc,tri,all,Decision Tree,Score,0.47619047619
+google,tfidf,quad,10,Decision Tree,Precision,0.379845365605
+google,tfidf,quad,100,Decision Tree,Fscore,0.390906567155
+google,tfidf,bi,100,RBF SVM,Precision,0.266124968506
+google,tfidf,all,5000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,quad,2000,Random Forest,Score,0.261904761905
+my,justc,uni,all,Logistic Regression,Score,0.34126984127
+google,tfidf,uni,100,Neural Net,Recall,0.468253968254
+google,tfidf,all,10,Naive Bayes,Precision,0.311371770931
+google,tfidf,uni,10000,Linear SVM,Score,0.436507936508
+my,tfidf,uni,10,AdaBoost,Score,0.349206349206
+my,tfidf,tri,10000,Neural Net,Precision,0.471522194736
+my,tfidf,quad,10,Random Forest,Score,0.373015873016
+my,tfidf,uni,5000,Dummy,Recall,0.047619047619
+my,tfidf,all,500,AdaBoost,Fscore,0.403490084448
+my,numoc,tri,all,Random Forest,Score,0.269841269841
+my,tfidf,tri,5000,Random Forest,Precision,0.223562152134
+my,tfidf,all,100,RBF SVM,Precision,0.0493827160494
+my,tfidf,all,10000,Nearest Neighbors,Score,0.452380952381
+google,numoc,tri,all,Random Forest,Recall,0.47619047619
+google,tfidf,bi,5000,AdaBoost,Recall,0.515873015873
+my,tfidf,bi,10,AdaBoost,Recall,0.31746031746
+google,tfidf,quad,5000,Dummy,Fscore,0.351117759495
+google,tfidf,uni,100,RBF SVM,Score,0.515873015873
+my,tfidf,uni,5000,RBF SVM,Score,0.222222222222
+google,tfidf,tri,100,Logistic Regression,Precision,0.384928053759
+my,tfidf,bi,10000,Naive Bayes,Fscore,0.100293195835
+google,tfidf,all,5000,Decision Tree,Precision,0.358333333333
+google,tfidf,quad,10,AdaBoost,Fscore,0.391426166426
+my,tfidf,all,2000,Random Forest,Score,0.261904761905
+my,tfidf,quad,10,Random Forest,Recall,0.373015873016
+google,tfidf,bi,1000,Dummy,Score,0.515873015873
+my,tfidf,tri,1000,AdaBoost,Fscore,0.366064914226
+google,tfidf,quad,1000,Logistic Regression,Fscore,0.4207266783
+google,tfidf,all,100,Naive Bayes,Score,0.166666666667
+my,numoc,uni,all,Nearest Neighbors,Recall,0.333333333333
+google,tfidf,quad,1000,RBF SVM,Fscore,0.351117759495
+google,tfidf,tri,10,AdaBoost,Precision,0.359236002093
+my,justc,uni,all,Linear SVM,Score,0.373015873016
+google,tfidf,uni,500,Random Forest,Score,0.515873015873
+my,tfidf,all,500,AdaBoost,Precision,0.43569344236
+my,tfidf,quad,2000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,bi,10000,Dummy,Fscore,0.004329004329
+google,tfidf,quad,5000,Naive Bayes,Fscore,0.351117759495
+google,tfidf,all,100,AdaBoost,Precision,0.386577141679
+google,tfidf,all,5000,Naive Bayes,Precision,0.266124968506
+google,justc,bi,all,Random Forest,Recall,0.47619047619
+google,tfidf,bi,2000,Random Forest,Score,0.507936507937
+google,tfidf,quad,5000,Linear SVM,Fscore,0.421486358093
+my,tfidf,uni,100,AdaBoost,Precision,0.392138680033
+google,tfidf,bi,1000,Neural Net,Recall,0.460317460317
+google,tfidf,tri,2000,Dummy,Score,0.515873015873
+my,tfidf,bi,10,Dummy,Score,0.047619047619
+google,tfidf,quad,5000,Random Forest,Precision,0.264227642276
+google,numoc,tri,all,Random Forest,Precision,0.226757369615
+google,numoc,tri,all,Decision Tree,Recall,0.47619047619
+google,tfidf,quad,500,Logistic Regression,Precision,0.412872107317
+google,tfidf,quad,1000,Naive Bayes,Score,0.515873015873
+google,tfidf,bi,10000,AdaBoost,Precision,0.441197691198
+my,tfidf,all,100,Linear SVM,Fscore,0.481705972533
+my,tfidf,quad,10,Neural Net,Precision,0.448588202195
+my,justc,bi,all,Neural Net,Recall,0.269841269841
+my,tfidf,tri,10,AdaBoost,Precision,0.345711885942
+my,tfidf,bi,10000,Dummy,Score,0.047619047619
+google,tfidf,tri,2000,Nearest Neighbors,Recall,0.47619047619
+google,justc,tri,all,Logistic Regression,Score,0.47619047619
+google,tfidf,all,5000,Random Forest,Recall,0.507936507937
+google,tfidf,tri,2000,Neural Net,Precision,0.443730578651
+google,tfidf,all,2000,Decision Tree,Score,0.460317460317
+my,tfidf,all,10000,Nearest Neighbors,Precision,0.527813722107
+my,tfidf,tri,100,Decision Tree,Precision,0.344011734929
+google,tfidf,bi,100,Dummy,Score,0.515873015873
+google,tfidf,quad,500,Dummy,Recall,0.515873015873
+google,tfidf,tri,10000,Logistic Regression,Score,0.484126984127
+my,tfidf,tri,5000,Linear SVM,Score,0.420634920635
+google,tfidf,bi,100,Neural Net,Fscore,0.368887999605
+google,tfidf,bi,10000,RBF SVM,Score,0.515873015873
+my,tfidf,all,2000,Logistic Regression,Fscore,0.456953050986
+my,tfidf,quad,100,Random Forest,Score,0.309523809524
+my,tfidf,quad,2000,Linear SVM,Score,0.460317460317
+my,justc,uni,all,Neural Net,Precision,0.351272989784
+my,numoc,bi,all,Neural Net,Score,0.269841269841
+my,tfidf,tri,10000,Naive Bayes,Precision,0.207873015873
+google,tfidf,quad,10000,Neural Net,Fscore,0.421578326483
+google,tfidf,uni,5000,Naive Bayes,Score,0.0952380952381
+my,tfidf,all,2000,Linear SVM,Fscore,0.457059127429
+my,tfidf,uni,100,Naive Bayes,Precision,0.370075326577
+my,tfidf,bi,500,AdaBoost,Recall,0.373015873016
+my,tfidf,tri,10,Naive Bayes,Recall,0.269841269841
+my,tfidf,tri,500,Dummy,Recall,0.047619047619
+google,tfidf,uni,100,Dummy,Precision,0.266124968506
+my,tfidf,bi,500,RBF SVM,Recall,0.222222222222
+google,tfidf,uni,10,AdaBoost,Score,0.444444444444
+google,tfidf,bi,1000,Dummy,Recall,0.515873015873
+my,tfidf,bi,500,Neural Net,Precision,0.44826346493
+google,justc,uni,all,Decision Tree,Fscore,0.392152820724
+google,tfidf,all,100,RBF SVM,Precision,0.266124968506
+my,tfidf,quad,10,RBF SVM,Fscore,0.354882346096
+my,tfidf,uni,1000,Linear SVM,Score,0.492063492063
+google,tfidf,bi,5000,AdaBoost,Precision,0.443736182268
+my,tfidf,uni,10000,Linear SVM,Fscore,0.468361326604
+my,justc,bi,all,Nearest Neighbors,Fscore,0.0434877147206
+google,justc,uni,all,RBF SVM,Fscore,0.339684385919
+google,tfidf,all,5000,AdaBoost,Fscore,0.431666170459
+google,tfidf,tri,500,Dummy,Fscore,0.351117759495
+google,justc,uni,all,Dummy,Fscore,0.307219662058
+google,tfidf,all,100,Random Forest,Score,0.52380952381
+google,tfidf,tri,2000,Logistic Regression,Precision,0.446896588093
+my,tfidf,uni,5000,Neural Net,Fscore,0.427220255936
+google,tfidf,quad,10000,Neural Net,Recall,0.444444444444
+my,numoc,tri,all,Neural Net,Recall,0.269841269841
+google,numoc,bi,all,Nearest Neighbors,Precision,0.226757369615
+google,tfidf,tri,100,Naive Bayes,Recall,0.190476190476
+google,tfidf,uni,10,RBF SVM,Score,0.492063492063
+my,tfidf,tri,100,Naive Bayes,Score,0.325396825397
+google,tfidf,uni,1000,Logistic Regression,Fscore,0.37594997595
+google,tfidf,quad,100,Naive Bayes,Fscore,0.21998117486
+google,tfidf,uni,1000,RBF SVM,Score,0.515873015873
+my,tfidf,bi,1000,Decision Tree,Recall,0.309523809524
+my,tfidf,tri,500,Logistic Regression,Score,0.436507936508
+my,tfidf,quad,2000,Nearest Neighbors,Score,0.428571428571
+my,tfidf,all,5000,Dummy,Score,0.047619047619
+google,tfidf,bi,1000,Logistic Regression,Fscore,0.402634238207
+my,tfidf,bi,500,Nearest Neighbors,Fscore,0.502927414941
+my,tfidf,all,5000,Logistic Regression,Score,0.452380952381
+my,tfidf,quad,2000,Nearest Neighbors,Recall,0.428571428571
+google,tfidf,uni,10000,Decision Tree,Score,0.444444444444
+my,tfidf,all,500,Decision Tree,Fscore,0.320669371482
+google,tfidf,tri,10000,Dummy,Precision,0.266124968506
+my,numoc,bi,all,Random Forest,Fscore,0.114682539683
+google,tfidf,all,10000,Neural Net,Precision,0.456991685563
+my,numoc,uni,all,Neural Net,Fscore,0.365991132937
+my,tfidf,all,10,Linear SVM,Score,0.277777777778
+my,numoc,uni,all,Random Forest,Precision,0.382776865535
+google,tfidf,quad,5000,Random Forest,Fscore,0.345744680851
+google,tfidf,all,5000,Decision Tree,Score,0.452380952381
+google,tfidf,quad,100,Nearest Neighbors,Precision,0.381539165374
+my,tfidf,all,2000,RBF SVM,Precision,0.0493827160494
+my,tfidf,uni,5000,Logistic Regression,Precision,0.43791886024
+google,tfidf,uni,10000,Logistic Regression,Fscore,0.373682284473
+my,tfidf,uni,10000,Naive Bayes,Fscore,0.31663260991
+google,tfidf,quad,10000,Nearest Neighbors,Recall,0.492063492063
+my,tfidf,bi,10,Linear SVM,Recall,0.261904761905
+my,tfidf,quad,10,RBF SVM,Score,0.380952380952
+my,tfidf,bi,100,Dummy,Fscore,0.004329004329
+my,tfidf,quad,5000,Decision Tree,Precision,0.326452874611
+google,tfidf,all,2000,Random Forest,Recall,0.5
+google,tfidf,bi,100,Nearest Neighbors,Recall,0.444444444444
+my,tfidf,uni,500,Random Forest,Fscore,0.306803916519
+google,tfidf,all,500,Naive Bayes,Recall,0.515873015873
+my,tfidf,tri,500,Nearest Neighbors,Score,0.452380952381
+google,tfidf,uni,500,Linear SVM,Fscore,0.351232068776
+google,numoc,tri,all,Logistic Regression,Precision,0.226757369615
+my,tfidf,bi,500,Neural Net,Score,0.428571428571
+my,tfidf,bi,500,Naive Bayes,Fscore,0.100293195835
+google,justc,bi,all,Neural Net,Fscore,0.307219662058
+my,tfidf,uni,500,Nearest Neighbors,Fscore,0.324651264107
+google,tfidf,tri,10,Linear SVM,Precision,0.264126984127
+my,tfidf,tri,5000,Nearest Neighbors,Precision,0.496744959245
+my,tfidf,quad,2000,Naive Bayes,Recall,0.253968253968
+my,tfidf,all,5000,Random Forest,Score,0.206349206349
+google,tfidf,uni,5000,Nearest Neighbors,Fscore,0.40951649477
+google,tfidf,tri,500,Dummy,Recall,0.515873015873
+google,tfidf,tri,100,Nearest Neighbors,Recall,0.436507936508
+google,tfidf,tri,10000,Dummy,Score,0.515873015873
+my,tfidf,tri,10000,RBF SVM,Fscore,0.0808080808081
+google,tfidf,bi,1000,Linear SVM,Precision,0.39417989418
+google,tfidf,quad,2000,RBF SVM,Score,0.515873015873
+my,tfidf,bi,5000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,all,10000,Linear SVM,Fscore,0.456827030508
+my,tfidf,all,2000,Neural Net,Score,0.460317460317
+my,tfidf,tri,5000,AdaBoost,Fscore,0.366064914226
+google,tfidf,quad,1000,Decision Tree,Recall,0.452380952381
+my,tfidf,tri,2000,Dummy,Precision,0.00226757369615
+my,tfidf,bi,10,Dummy,Fscore,0.004329004329
+my,tfidf,bi,5000,Dummy,Recall,0.047619047619
+my,tfidf,tri,2000,Decision Tree,Score,0.349206349206
+my,tfidf,uni,10,Naive Bayes,Recall,0.357142857143
+google,numoc,bi,all,Neural Net,Score,0.47619047619
+my,tfidf,all,10,Dummy,Precision,0.00226757369615
+my,tfidf,uni,5000,Dummy,Precision,0.00226757369615
+google,tfidf,uni,100,Decision Tree,Recall,0.468253968254
+my,tfidf,all,2000,Logistic Regression,Score,0.452380952381
+my,tfidf,bi,1000,Nearest Neighbors,Fscore,0.502927414941
+my,tfidf,bi,5000,Decision Tree,Fscore,0.312106175804
+google,tfidf,bi,2000,Random Forest,Recall,0.507936507937
+my,tfidf,bi,10,Naive Bayes,Score,0.31746031746
+google,tfidf,bi,100,Dummy,Precision,0.266124968506
+my,tfidf,tri,100,Neural Net,Precision,0.465772311424
+google,tfidf,tri,10000,Decision Tree,Fscore,0.38232074439
+google,tfidf,uni,2000,Decision Tree,Precision,0.376606675218
+my,tfidf,bi,5000,Linear SVM,Recall,0.420634920635
+my,tfidf,bi,500,AdaBoost,Fscore,0.374047521019
+my,tfidf,all,5000,Neural Net,Recall,0.460317460317
+my,tfidf,uni,100,AdaBoost,Recall,0.365079365079
+my,tfidf,all,500,Naive Bayes,Recall,0.253968253968
+google,tfidf,uni,1000,RBF SVM,Fscore,0.351117759495
+google,tfidf,bi,10000,Logistic Regression,Score,0.468253968254
+my,tfidf,all,2000,Random Forest,Precision,0.322991822992
+my,tfidf,uni,1000,RBF SVM,Fscore,0.0808080808081
+google,tfidf,all,100,Nearest Neighbors,Recall,0.460317460317
+my,tfidf,all,1000,AdaBoost,Recall,0.404761904762
+my,tfidf,quad,5000,Linear SVM,Fscore,0.454148607404
+my,tfidf,quad,2000,Naive Bayes,Precision,0.0644998740237
+my,tfidf,quad,2000,Dummy,Fscore,0.004329004329
+google,tfidf,all,10,Neural Net,Recall,0.468253968254
+my,tfidf,uni,100,Nearest Neighbors,Score,0.31746031746
+my,numoc,uni,all,Decision Tree,Fscore,0.285856925538
+my,tfidf,bi,5000,AdaBoost,Score,0.380952380952
+my,tfidf,quad,10,Nearest Neighbors,Recall,0.309523809524
+google,tfidf,uni,500,Logistic Regression,Precision,0.373748198955
+google,tfidf,tri,2000,Decision Tree,Recall,0.436507936508
+google,tfidf,tri,5000,Nearest Neighbors,Recall,0.47619047619
+my,tfidf,tri,5000,Dummy,Score,0.047619047619
+google,tfidf,uni,10000,Linear SVM,Fscore,0.354497989672
+google,numoc,tri,all,Naive Bayes,Score,0.00793650793651
+my,tfidf,bi,10000,Neural Net,Recall,0.428571428571
+google,tfidf,quad,10,Logistic Regression,Fscore,0.364493556101
+google,justc,uni,all,Dummy,Score,0.47619047619
+my,tfidf,tri,2000,Dummy,Recall,0.047619047619
+my,tfidf,all,100,Neural Net,Precision,0.52724254685
+google,tfidf,tri,5000,Nearest Neighbors,Fscore,0.419263640067
+google,tfidf,uni,500,Linear SVM,Recall,0.436507936508
+google,numoc,bi,all,RBF SVM,Precision,0.226757369615
+my,tfidf,all,1000,Neural Net,Fscore,0.468163556198
+my,tfidf,tri,100,Random Forest,Recall,0.349206349206
+google,tfidf,bi,5000,Decision Tree,Precision,0.418337510443
+my,numoc,bi,all,Naive Bayes,Fscore,0.114682539683
+google,tfidf,quad,500,Dummy,Fscore,0.351117759495
+google,tfidf,quad,10,RBF SVM,Fscore,0.440885613505
+my,tfidf,tri,10000,Neural Net,Score,0.428571428571
+my,tfidf,bi,5000,Logistic Regression,Score,0.428571428571
+my,tfidf,quad,500,Linear SVM,Precision,0.494130985728
+my,tfidf,bi,10000,Decision Tree,Fscore,0.327893788934
+google,tfidf,all,100,Decision Tree,Fscore,0.402025177887
+google,tfidf,tri,1000,Neural Net,Fscore,0.444421750182
+my,numoc,bi,all,Nearest Neighbors,Recall,0.15873015873
+my,tfidf,bi,500,Logistic Regression,Precision,0.455406322073
+my,tfidf,bi,500,Linear SVM,Recall,0.420634920635
+google,tfidf,quad,1000,Neural Net,Precision,0.413668074757
+google,tfidf,quad,1000,Neural Net,Score,0.444444444444
+google,tfidf,uni,1000,AdaBoost,Precision,0.346638655462
+google,tfidf,bi,500,Logistic Regression,Precision,0.371308321308
+google,tfidf,uni,1000,AdaBoost,Recall,0.428571428571
+google,tfidf,uni,1000,Neural Net,Score,0.444444444444
+google,tfidf,tri,100,Decision Tree,Recall,0.309523809524
+google,tfidf,all,100,Decision Tree,Recall,0.412698412698
+my,tfidf,uni,2000,Naive Bayes,Score,0.333333333333
+google,numoc,tri,all,AdaBoost,Fscore,0.307219662058
+my,tfidf,tri,500,Decision Tree,Fscore,0.349431261468
+google,tfidf,uni,2000,Neural Net,Fscore,0.409841640851
+my,tfidf,all,500,AdaBoost,Score,0.404761904762
+my,justc,tri,all,Neural Net,Score,0.269841269841
+my,tfidf,all,2000,RBF SVM,Score,0.222222222222
+my,tfidf,tri,2000,Naive Bayes,Score,0.253968253968
+my,tfidf,tri,5000,Naive Bayes,Score,0.253968253968
+my,tfidf,quad,5000,Dummy,Score,0.047619047619
+google,tfidf,uni,500,Linear SVM,Precision,0.367582253027
+google,tfidf,tri,10,Neural Net,Recall,0.484126984127
+my,numoc,bi,all,Linear SVM,Recall,0.031746031746
+google,tfidf,tri,500,Linear SVM,Recall,0.468253968254
+my,tfidf,bi,5000,Logistic Regression,Recall,0.428571428571
+google,justc,bi,all,Linear SVM,Precision,0.226757369615
+google,tfidf,tri,100,Dummy,Recall,0.515873015873
+my,tfidf,uni,1000,Naive Bayes,Recall,0.333333333333
+google,tfidf,all,1000,RBF SVM,Precision,0.266124968506
+my,tfidf,quad,10000,AdaBoost,Score,0.420634920635
+google,tfidf,tri,10,Dummy,Precision,0.266124968506
+my,tfidf,bi,500,Random Forest,Recall,0.246031746032
+google,tfidf,uni,100,Linear SVM,Recall,0.436507936508
+google,tfidf,uni,2000,Linear SVM,Score,0.452380952381
+my,numoc,bi,all,Dummy,Precision,0.00100781053162
+my,tfidf,quad,100,Logistic Regression,Recall,0.460317460317
+my,tfidf,all,5000,Dummy,Recall,0.047619047619
+my,tfidf,all,100,Dummy,Fscore,0.004329004329
+my,tfidf,uni,100,Neural Net,Score,0.452380952381
+my,tfidf,bi,10000,Logistic Regression,Precision,0.455406322073
+my,tfidf,uni,1000,Nearest Neighbors,Fscore,0.325379676684
+google,numoc,bi,all,Decision Tree,Fscore,0.307219662058
+my,tfidf,tri,1000,RBF SVM,Score,0.222222222222
+my,tfidf,uni,100,Naive Bayes,Score,0.301587301587
+google,tfidf,quad,100,Neural Net,Fscore,0.415968218708
+my,tfidf,uni,5000,Linear SVM,Precision,0.47615935263
+my,tfidf,quad,100,Logistic Regression,Score,0.460317460317
+google,tfidf,bi,10000,Dummy,Recall,0.515873015873
+my,tfidf,tri,100,Dummy,Precision,0.00226757369615
+google,tfidf,bi,10,Logistic Regression,Score,0.492063492063
+google,tfidf,tri,500,RBF SVM,Fscore,0.351117759495
+google,tfidf,uni,5000,Random Forest,Precision,0.262096774194
+my,tfidf,quad,5000,RBF SVM,Precision,0.0493827160494
+google,tfidf,tri,100,Random Forest,Precision,0.417050691244
+my,justc,bi,all,Linear SVM,Fscore,0.0019536019536
+my,tfidf,tri,100,Logistic Regression,Recall,0.420634920635
+google,tfidf,uni,10,Dummy,Precision,0.266124968506
+google,tfidf,all,10,Decision Tree,Score,0.404761904762
+my,tfidf,tri,10000,Naive Bayes,Recall,0.261904761905
+my,tfidf,all,10,RBF SVM,Precision,0.417700817701
+my,tfidf,bi,2000,Linear SVM,Score,0.420634920635
+google,tfidf,all,2000,Random Forest,Fscore,0.343915343915
+google,numoc,uni,all,Dummy,Recall,0.47619047619
+google,numoc,uni,all,Decision Tree,Fscore,0.1744216205
+google,numoc,bi,all,Linear SVM,Recall,0.47619047619
+my,tfidf,uni,500,Random Forest,Recall,0.333333333333
+google,tfidf,all,500,AdaBoost,Fscore,0.430189008166
+google,numoc,uni,all,Random Forest,Fscore,0.352111286504
+google,tfidf,all,2000,Decision Tree,Precision,0.364204729511
+my,tfidf,all,10,Neural Net,Score,0.380952380952
+my,tfidf,bi,100,Naive Bayes,Precision,0.367752922938
+google,tfidf,tri,1000,Neural Net,Score,0.47619047619
+google,tfidf,bi,10,Naive Bayes,Score,0.0873015873016
+google,tfidf,quad,100,Neural Net,Recall,0.444444444444
+google,tfidf,uni,10,RBF SVM,Precision,0.364678964679
+google,tfidf,all,1000,AdaBoost,Recall,0.507936507937
+google,tfidf,bi,500,AdaBoost,Precision,0.439003402306
+google,tfidf,all,10000,Nearest Neighbors,Recall,0.507936507937
+my,justc,bi,all,Logistic Regression,Recall,0.269841269841
+google,numoc,tri,all,RBF SVM,Precision,0.226757369615
+my,tfidf,quad,10,Decision Tree,Fscore,0.300694970051
+google,tfidf,uni,1000,Logistic Regression,Precision,0.36872665733
+google,tfidf,quad,500,Decision Tree,Fscore,0.410465008219
+google,tfidf,bi,2000,Decision Tree,Score,0.468253968254
+google,tfidf,quad,100,Dummy,Score,0.515873015873
+my,tfidf,all,10000,Neural Net,Recall,0.468253968254
+google,tfidf,all,10,Nearest Neighbors,Recall,0.531746031746
+my,tfidf,all,10000,Neural Net,Fscore,0.47165306174
+my,numoc,bi,all,AdaBoost,Fscore,0.114682539683
+my,tfidf,all,10000,Naive Bayes,Fscore,0.102873216797
+google,tfidf,tri,2000,Random Forest,Score,0.515873015873
+google,tfidf,tri,100,Decision Tree,Fscore,0.325305050795
+my,tfidf,uni,500,Decision Tree,Precision,0.33809483711
+my,tfidf,tri,100,Random Forest,Score,0.349206349206
+google,tfidf,tri,2000,AdaBoost,Precision,0.364313081554
+my,tfidf,all,100,Neural Net,Score,0.484126984127
+my,tfidf,quad,10000,Decision Tree,Fscore,0.312466096612
+my,tfidf,bi,10,Dummy,Precision,0.00226757369615
+google,tfidf,uni,10000,AdaBoost,Precision,0.341710758377
+my,tfidf,bi,2000,Nearest Neighbors,Score,0.507936507937
+my,tfidf,bi,1000,Logistic Regression,Precision,0.455406322073
+google,tfidf,tri,1000,Dummy,Precision,0.266124968506
+my,tfidf,all,100,Naive Bayes,Recall,0.34126984127
+my,tfidf,bi,100,Decision Tree,Recall,0.333333333333
+my,tfidf,all,5000,Logistic Regression,Precision,0.515845828889
+my,tfidf,quad,1000,Neural Net,Fscore,0.454231122209
+google,tfidf,all,500,RBF SVM,Recall,0.515873015873
+google,tfidf,all,2000,Linear SVM,Recall,0.460317460317
+my,tfidf,tri,10000,Nearest Neighbors,Score,0.452380952381
+my,tfidf,uni,2000,Dummy,Recall,0.047619047619
+my,tfidf,uni,500,Linear SVM,Recall,0.492063492063
+google,tfidf,bi,10,RBF SVM,Fscore,0.411512905699
+google,tfidf,tri,2000,Linear SVM,Score,0.460317460317
+my,tfidf,quad,10,Random Forest,Fscore,0.356969920231
+google,tfidf,bi,100,Neural Net,Score,0.412698412698
+google,tfidf,quad,100,AdaBoost,Score,0.34126984127
+google,tfidf,bi,100,Nearest Neighbors,Score,0.444444444444
+google,tfidf,bi,10000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,quad,2000,Neural Net,Recall,0.468253968254
+google,tfidf,bi,10,Decision Tree,Fscore,0.409021074646
+my,tfidf,quad,100,Decision Tree,Score,0.293650793651
+my,tfidf,tri,500,Random Forest,Recall,0.238095238095
+my,tfidf,quad,5000,Nearest Neighbors,Precision,0.500717229548
+google,tfidf,all,10,Naive Bayes,Fscore,0.141361077946
+google,tfidf,all,2000,RBF SVM,Fscore,0.351117759495
+my,tfidf,all,2000,Dummy,Recall,0.047619047619
+google,tfidf,tri,500,Logistic Regression,Precision,0.446896588093
+my,tfidf,uni,100,RBF SVM,Recall,0.222222222222
+google,tfidf,uni,5000,Logistic Regression,Fscore,0.381652622367
+google,tfidf,tri,1000,Naive Bayes,Recall,0.515873015873
+google,tfidf,all,1000,Neural Net,Precision,0.456991685563
+my,tfidf,tri,1000,Naive Bayes,Precision,0.207873015873
+google,tfidf,bi,1000,Decision Tree,Score,0.468253968254
+my,tfidf,all,5000,Linear SVM,Recall,0.452380952381
+google,tfidf,bi,1000,Logistic Regression,Score,0.468253968254
+google,tfidf,all,10000,Neural Net,Fscore,0.45658856135
+my,tfidf,quad,10000,Linear SVM,Precision,0.494130985728
+google,tfidf,uni,500,Logistic Regression,Recall,0.420634920635
+google,tfidf,all,1000,AdaBoost,Score,0.507936507937
+google,tfidf,uni,1000,Naive Bayes,Recall,0.0952380952381
+my,tfidf,bi,2000,Naive Bayes,Score,0.246031746032
+google,tfidf,quad,5000,Decision Tree,Precision,0.392705971277
+google,justc,tri,all,Nearest Neighbors,Fscore,0.307219662058
+google,numoc,uni,all,Decision Tree,Recall,0.142857142857
+my,tfidf,quad,10000,Decision Tree,Precision,0.333448471606
+my,tfidf,all,500,Decision Tree,Precision,0.364195966635
+my,numoc,uni,all,Random Forest,Fscore,0.306580348349
+google,tfidf,tri,100,Nearest Neighbors,Precision,0.335813994629
+google,tfidf,all,10,Nearest Neighbors,Fscore,0.475963261649
+my,tfidf,tri,2000,Random Forest,Fscore,0.158917091329
+google,tfidf,all,2000,Nearest Neighbors,Score,0.507936507937
+my,tfidf,uni,500,Logistic Regression,Recall,0.412698412698
+my,tfidf,quad,5000,Dummy,Fscore,0.004329004329
+my,tfidf,all,5000,Nearest Neighbors,Precision,0.527813722107
+google,tfidf,all,2000,Dummy,Precision,0.266124968506
+my,tfidf,quad,500,Naive Bayes,Recall,0.253968253968
+my,tfidf,all,100,Naive Bayes,Fscore,0.291597563155
+my,tfidf,tri,2000,Dummy,Score,0.047619047619
+my,justc,uni,all,RBF SVM,Recall,0.31746031746
+my,tfidf,quad,1000,Decision Tree,Fscore,0.327372893187
+my,numoc,uni,all,Nearest Neighbors,Precision,0.359671050915
+my,tfidf,uni,2000,Neural Net,Precision,0.475636481777
+my,tfidf,tri,500,Neural Net,Recall,0.428571428571
+my,tfidf,quad,10000,AdaBoost,Fscore,0.422480039341
+google,tfidf,quad,10,RBF SVM,Score,0.515873015873
+google,tfidf,uni,100,AdaBoost,Score,0.428571428571
+my,numoc,tri,all,Nearest Neighbors,Recall,0.15873015873
+google,tfidf,tri,5000,AdaBoost,Fscore,0.387676057592
+google,tfidf,bi,100,Naive Bayes,Recall,0.166666666667
+google,tfidf,bi,2000,Naive Bayes,Recall,0.515873015873
+my,tfidf,uni,5000,AdaBoost,Fscore,0.358983247489
+google,tfidf,tri,2000,Random Forest,Fscore,0.364453682708
+my,justc,bi,all,Random Forest,Precision,0.0728143109095
+my,tfidf,all,10,Logistic Regression,Precision,0.469167499167
+my,tfidf,quad,100,Neural Net,Score,0.420634920635
+google,tfidf,bi,10,Naive Bayes,Recall,0.0873015873016
+google,tfidf,bi,5000,Nearest Neighbors,Fscore,0.412772517019
+my,tfidf,tri,1000,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,5000,RBF SVM,Recall,0.222222222222
+my,tfidf,quad,500,Decision Tree,Precision,0.344572885515
+google,tfidf,bi,10000,Nearest Neighbors,Recall,0.47619047619
+my,tfidf,bi,500,Decision Tree,Score,0.309523809524
+google,justc,bi,all,AdaBoost,Recall,0.47619047619
+google,tfidf,uni,500,Neural Net,Precision,0.387972628713
+google,tfidf,all,500,Neural Net,Score,0.492063492063
+my,tfidf,quad,10000,Random Forest,Score,0.222222222222
+my,tfidf,all,100,Dummy,Recall,0.047619047619
+google,tfidf,quad,5000,Logistic Regression,Precision,0.412872107317
+google,tfidf,bi,100,Neural Net,Precision,0.360715806118
+my,tfidf,bi,500,Neural Net,Recall,0.428571428571
+google,numoc,uni,all,RBF SVM,Precision,0.226757369615
+my,justc,bi,all,Random Forest,Score,0.269841269841
+google,tfidf,bi,1000,AdaBoost,Recall,0.515873015873
+google,tfidf,uni,10,AdaBoost,Precision,0.386631456399
+google,tfidf,all,1000,Logistic Regression,Recall,0.484126984127
+google,tfidf,uni,10,AdaBoost,Recall,0.444444444444
+my,tfidf,uni,500,Nearest Neighbors,Recall,0.31746031746
+google,tfidf,tri,5000,Logistic Regression,Precision,0.446896588093
+google,numoc,bi,all,Dummy,Fscore,0.307219662058
+google,tfidf,quad,500,Naive Bayes,Score,0.507936507937
+my,tfidf,tri,5000,RBF SVM,Recall,0.222222222222
+google,tfidf,quad,100,Dummy,Precision,0.266124968506
+my,tfidf,tri,10,Random Forest,Recall,0.420634920635
+my,tfidf,tri,2000,AdaBoost,Recall,0.365079365079
+google,tfidf,bi,10,Neural Net,Recall,0.515873015873
+google,tfidf,bi,2000,Random Forest,Fscore,0.37382897848
+my,tfidf,quad,10,Neural Net,Recall,0.388888888889
+google,tfidf,uni,2000,Naive Bayes,Fscore,0.12484952422
+google,tfidf,quad,1000,Nearest Neighbors,Precision,0.42659369787
+my,tfidf,all,5000,Linear SVM,Fscore,0.457059127429
+google,tfidf,tri,1000,RBF SVM,Fscore,0.351117759495
+my,tfidf,bi,1000,AdaBoost,Fscore,0.378548532893
+my,tfidf,quad,500,Naive Bayes,Precision,0.0650158730159
+google,tfidf,all,2000,Random Forest,Precision,0.262096774194
+google,tfidf,uni,1000,Decision Tree,Precision,0.385883557339
+my,tfidf,uni,2000,RBF SVM,Precision,0.0493827160494
+google,tfidf,all,10,Dummy,Precision,0.266124968506
+my,tfidf,tri,2000,Random Forest,Score,0.222222222222
+my,tfidf,tri,5000,Logistic Regression,Score,0.428571428571
+google,tfidf,tri,10000,RBF SVM,Fscore,0.351117759495
+google,tfidf,bi,100,Random Forest,Score,0.507936507937
+google,numoc,bi,all,Logistic Regression,Fscore,0.307219662058
+my,tfidf,tri,1000,AdaBoost,Recall,0.365079365079
+my,justc,bi,all,Logistic Regression,Score,0.269841269841
+google,justc,tri,all,Decision Tree,Recall,0.47619047619
+my,tfidf,tri,500,Nearest Neighbors,Fscore,0.448338950474
+my,tfidf,all,10,Random Forest,Precision,0.431172839506
+google,tfidf,bi,5000,Neural Net,Precision,0.377025036819
+my,numoc,bi,all,Naive Bayes,Precision,0.0728143109095
+google,tfidf,tri,1000,Decision Tree,Precision,0.361319966583
+google,justc,uni,all,Nearest Neighbors,Fscore,0.360640417783
+my,tfidf,uni,10,Logistic Regression,Precision,0.465441655589
+my,tfidf,tri,2000,Linear SVM,Fscore,0.425614982978
+google,tfidf,tri,10000,AdaBoost,Score,0.428571428571
+my,tfidf,all,100,AdaBoost,Precision,0.550259317402
+google,justc,tri,all,Random Forest,Score,0.47619047619
+google,numoc,bi,all,Neural Net,Recall,0.47619047619
+my,tfidf,bi,100,AdaBoost,Precision,0.436600221484
+my,tfidf,bi,500,Linear SVM,Score,0.420634920635
+my,tfidf,all,100,Decision Tree,Fscore,0.383658572701
+my,tfidf,bi,1000,Random Forest,Recall,0.253968253968
+my,tfidf,bi,1000,Neural Net,Recall,0.436507936508
+my,numoc,tri,all,RBF SVM,Score,0.031746031746
+my,tfidf,tri,5000,Neural Net,Precision,0.471672090093
+google,justc,bi,all,Logistic Regression,Score,0.47619047619
+google,tfidf,all,500,Dummy,Score,0.515873015873
+google,tfidf,uni,10,Random Forest,Precision,0.348551489561
+my,tfidf,quad,1000,Linear SVM,Recall,0.460317460317
+google,tfidf,tri,10000,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,all,5000,Nearest Neighbors,Score,0.507936507937
+my,tfidf,quad,100,Linear SVM,Score,0.444444444444
+google,tfidf,bi,5000,Linear SVM,Recall,0.420634920635
+my,tfidf,uni,1000,Random Forest,Precision,0.310289026042
+google,justc,tri,all,Neural Net,Score,0.47619047619
+my,numoc,tri,all,Logistic Regression,Precision,0.0728143109095
+google,tfidf,bi,2000,Nearest Neighbors,Score,0.47619047619
+my,tfidf,tri,2000,Logistic Regression,Recall,0.436507936508
+google,numoc,uni,all,AdaBoost,Fscore,0.33044973545
+google,tfidf,quad,10000,Nearest Neighbors,Fscore,0.437551163023
+my,tfidf,uni,500,Dummy,Recall,0.047619047619
+my,tfidf,uni,500,Naive Bayes,Score,0.349206349206
+google,numoc,uni,all,Neural Net,Precision,0.303327391563
+my,tfidf,tri,500,Random Forest,Precision,0.296334089191
+google,tfidf,quad,10,Dummy,Precision,0.266124968506
+my,tfidf,uni,100,Neural Net,Recall,0.452380952381
+my,tfidf,quad,5000,Naive Bayes,Precision,0.0650158730159
+my,tfidf,tri,500,Linear SVM,Precision,0.458751055103
+google,justc,bi,all,RBF SVM,Recall,0.47619047619
+google,tfidf,bi,2000,Naive Bayes,Score,0.515873015873
+my,tfidf,quad,5000,Logistic Regression,Precision,0.514676575021
+google,tfidf,all,500,Naive Bayes,Fscore,0.351117759495
+google,numoc,bi,all,Decision Tree,Score,0.47619047619
+my,tfidf,uni,1000,Dummy,Fscore,0.004329004329
+google,tfidf,uni,500,Naive Bayes,Score,0.103174603175
+my,tfidf,all,500,Decision Tree,Recall,0.31746031746
+my,tfidf,uni,2000,Random Forest,Fscore,0.275082746549
+google,justc,bi,all,Naive Bayes,Fscore,0.000124984376953
+google,tfidf,uni,10000,Decision Tree,Fscore,0.399573971003
+my,tfidf,quad,5000,Dummy,Precision,0.00226757369615
+my,tfidf,quad,500,AdaBoost,Score,0.420634920635
+my,tfidf,bi,500,AdaBoost,Precision,0.381618844119
+google,tfidf,tri,100,Logistic Regression,Score,0.428571428571
+google,numoc,uni,all,Dummy,Precision,0.226757369615
+google,tfidf,quad,10,Naive Bayes,Precision,0.261516261516
+google,tfidf,tri,2000,Nearest Neighbors,Fscore,0.419263640067
+my,tfidf,uni,10,Logistic Regression,Fscore,0.390258247781
+my,tfidf,bi,2000,Nearest Neighbors,Fscore,0.502927414941
+my,tfidf,quad,1000,Dummy,Fscore,0.004329004329
+my,tfidf,uni,1000,Naive Bayes,Precision,0.394508098578
+my,tfidf,quad,10000,Naive Bayes,Recall,0.253968253968
+my,tfidf,bi,10,Nearest Neighbors,Score,0.365079365079
+google,tfidf,quad,500,Linear SVM,Score,0.436507936508
+google,tfidf,bi,10000,Linear SVM,Fscore,0.387331236996
+google,tfidf,tri,100,RBF SVM,Precision,0.266124968506
+my,tfidf,all,1000,Linear SVM,Score,0.452380952381
+google,tfidf,tri,5000,Decision Tree,Recall,0.452380952381
+google,justc,bi,all,Dummy,Fscore,0.307219662058
+google,numoc,bi,all,Logistic Regression,Recall,0.47619047619
+my,justc,tri,all,RBF SVM,Fscore,0.0019536019536
+my,numoc,uni,all,Dummy,Recall,0.031746031746
+my,justc,uni,all,Dummy,Recall,0.031746031746
+my,tfidf,all,5000,Decision Tree,Precision,0.358975351658
+my,justc,bi,all,AdaBoost,Score,0.269841269841
+my,tfidf,tri,5000,Neural Net,Score,0.436507936508
+my,tfidf,uni,100,Decision Tree,Precision,0.367127755286
+my,tfidf,all,100,Random Forest,Recall,0.277777777778
+google,tfidf,uni,2000,Random Forest,Recall,0.515873015873
+my,tfidf,tri,5000,AdaBoost,Score,0.365079365079
+my,tfidf,all,100,AdaBoost,Recall,0.484126984127
+google,tfidf,bi,5000,Logistic Regression,Fscore,0.393644786202
+google,tfidf,bi,5000,RBF SVM,Score,0.515873015873
+google,tfidf,quad,1000,Dummy,Fscore,0.351117759495
+google,tfidf,bi,100,Linear SVM,Score,0.436507936508
+google,tfidf,uni,5000,Linear SVM,Recall,0.436507936508
+my,tfidf,quad,100,Dummy,Fscore,0.004329004329
+google,tfidf,quad,10,Neural Net,Recall,0.492063492063
+google,tfidf,quad,10000,Naive Bayes,Score,0.515873015873
+google,tfidf,all,100,Naive Bayes,Recall,0.166666666667
+google,tfidf,bi,10,Decision Tree,Precision,0.41795792391
+google,tfidf,bi,5000,Linear SVM,Fscore,0.393575637326
+google,tfidf,quad,100,Decision Tree,Precision,0.385287251141
+my,tfidf,tri,2000,Dummy,Fscore,0.004329004329
+my,tfidf,uni,2000,Random Forest,Recall,0.31746031746
+my,tfidf,quad,100,Random Forest,Fscore,0.285504201681
+google,tfidf,tri,10,Random Forest,Fscore,0.349427496197
+my,tfidf,quad,10000,RBF SVM,Fscore,0.0808080808081
+my,justc,bi,all,Decision Tree,Score,0.269841269841
+my,tfidf,bi,10000,Nearest Neighbors,Fscore,0.502927414941
+google,tfidf,tri,10000,AdaBoost,Precision,0.367284385018
+google,tfidf,tri,5000,Decision Tree,Score,0.452380952381
+google,tfidf,uni,500,AdaBoost,Fscore,0.365926205873
+my,tfidf,quad,10,Logistic Regression,Recall,0.373015873016
+google,justc,tri,all,Logistic Regression,Precision,0.226757369615
+my,tfidf,uni,2000,Linear SVM,Fscore,0.446660999399
+my,tfidf,tri,2000,RBF SVM,Recall,0.222222222222
+my,numoc,bi,all,AdaBoost,Recall,0.269841269841
+my,numoc,uni,all,AdaBoost,Fscore,0.403900199371
+my,tfidf,all,5000,Random Forest,Precision,0.204595927718
+google,tfidf,all,5000,Logistic Regression,Score,0.484126984127
+google,tfidf,bi,2000,Logistic Regression,Fscore,0.393644786202
+my,tfidf,quad,10000,AdaBoost,Precision,0.441173374209
+google,tfidf,tri,10,Random Forest,Precision,0.300082101806
+google,tfidf,tri,10,Naive Bayes,Fscore,0.120043417674
+my,tfidf,quad,500,RBF SVM,Recall,0.222222222222
+my,tfidf,tri,5000,Nearest Neighbors,Recall,0.452380952381
+google,tfidf,tri,10,AdaBoost,Score,0.436507936508
+my,tfidf,tri,10,Linear SVM,Score,0.293650793651
+google,justc,tri,all,Nearest Neighbors,Score,0.47619047619
+google,tfidf,tri,10000,Naive Bayes,Precision,0.266124968506
+my,justc,tri,all,Nearest Neighbors,Fscore,0.0434877147206
+my,justc,tri,all,Dummy,Recall,0.031746031746
+google,tfidf,uni,2000,Linear SVM,Fscore,0.371428571429
+my,tfidf,all,500,RBF SVM,Precision,0.0493827160494
+google,tfidf,all,10,Dummy,Score,0.515873015873
+google,tfidf,uni,10,Linear SVM,Recall,0.5
+my,tfidf,all,10000,Logistic Regression,Recall,0.460317460317
+google,tfidf,quad,500,Logistic Regression,Score,0.444444444444
+google,tfidf,bi,100,Dummy,Fscore,0.351117759495
+google,tfidf,uni,10000,Nearest Neighbors,Score,0.412698412698
+my,tfidf,tri,1000,Nearest Neighbors,Precision,0.496744959245
+my,tfidf,quad,10000,Dummy,Fscore,0.004329004329
+google,tfidf,bi,10000,Neural Net,Fscore,0.385266131913
+google,numoc,tri,all,Random Forest,Score,0.47619047619
+google,justc,bi,all,Nearest Neighbors,Score,0.47619047619
+google,tfidf,tri,5000,Logistic Regression,Score,0.484126984127
+google,tfidf,all,5000,Decision Tree,Recall,0.452380952381
+my,justc,tri,all,Nearest Neighbors,Precision,0.0251952632905
+my,tfidf,all,500,Logistic Regression,Fscore,0.456953050986
+google,tfidf,bi,100,Linear SVM,Recall,0.436507936508
+my,tfidf,quad,10,Neural Net,Score,0.388888888889
+google,tfidf,bi,1000,AdaBoost,Precision,0.441197691198
+google,tfidf,uni,10000,Nearest Neighbors,Recall,0.412698412698
+google,tfidf,uni,100,Dummy,Fscore,0.351117759495
+google,justc,uni,all,Neural Net,Fscore,0.387352790579
+my,tfidf,bi,500,Linear SVM,Precision,0.442615107509
+my,tfidf,all,100,Dummy,Precision,0.00226757369615
+google,tfidf,tri,10,Logistic Regression,Recall,0.5
+google,tfidf,uni,2000,Linear SVM,Precision,0.401418687133
+my,tfidf,all,1000,AdaBoost,Fscore,0.403490084448
+google,tfidf,all,10,Logistic Regression,Precision,0.369887241569
+my,tfidf,bi,10000,Neural Net,Precision,0.460168226835
+my,tfidf,bi,10000,Naive Bayes,Score,0.246031746032
+my,tfidf,uni,2000,RBF SVM,Recall,0.222222222222
+my,tfidf,all,500,Linear SVM,Precision,0.511078478839
+google,tfidf,uni,500,RBF SVM,Score,0.515873015873
+google,tfidf,all,10000,Linear SVM,Recall,0.460317460317
+google,numoc,uni,all,Linear SVM,Score,0.436507936508
+my,tfidf,tri,500,Linear SVM,Fscore,0.425614982978
+google,justc,bi,all,Decision Tree,Recall,0.47619047619
+google,tfidf,tri,100,Dummy,Fscore,0.351117759495
+google,tfidf,uni,1000,Dummy,Fscore,0.351117759495
+google,tfidf,uni,2000,Logistic Regression,Fscore,0.387317446915
+my,tfidf,uni,5000,Logistic Regression,Score,0.420634920635
+google,numoc,uni,all,Neural Net,Fscore,0.344235539888
+my,tfidf,quad,5000,Neural Net,Fscore,0.463742616388
+google,tfidf,tri,10,Neural Net,Score,0.484126984127
+my,tfidf,quad,500,Linear SVM,Fscore,0.454148607404
+google,tfidf,quad,10000,Decision Tree,Recall,0.452380952381
+google,justc,uni,all,Logistic Regression,Recall,0.492063492063
+google,tfidf,quad,2000,Random Forest,Precision,0.425925925926
+google,tfidf,tri,10,Random Forest,Recall,0.47619047619
+my,tfidf,all,10000,Naive Bayes,Precision,0.0644998740237
+google,tfidf,uni,1000,Nearest Neighbors,Fscore,0.42697346209
+google,tfidf,bi,500,Random Forest,Precision,0.266124968506
+my,justc,uni,all,Naive Bayes,Recall,0.15873015873
+google,tfidf,uni,5000,RBF SVM,Recall,0.515873015873
+google,tfidf,tri,2000,Logistic Regression,Score,0.484126984127
+google,numoc,bi,all,Linear SVM,Score,0.47619047619
+google,tfidf,tri,5000,Dummy,Score,0.515873015873
+google,tfidf,all,10000,Logistic Regression,Precision,0.449118165785
+google,numoc,uni,all,Decision Tree,Precision,0.241919191919
+my,tfidf,quad,2000,Nearest Neighbors,Precision,0.500717229548
+my,tfidf,all,1000,Linear SVM,Precision,0.508239530348
+google,justc,bi,all,AdaBoost,Score,0.47619047619
+google,tfidf,tri,10000,RBF SVM,Precision,0.266124968506
+google,tfidf,quad,10,Random Forest,Fscore,0.3735671293
+google,tfidf,tri,5000,Neural Net,Recall,0.484126984127
+my,justc,bi,all,RBF SVM,Recall,0.031746031746
+google,tfidf,bi,10000,Decision Tree,Fscore,0.410042272399
+my,tfidf,tri,10,Linear SVM,Precision,0.306866639754
+google,tfidf,uni,2000,RBF SVM,Precision,0.266124968506
+google,tfidf,quad,5000,Naive Bayes,Score,0.515873015873
+google,tfidf,uni,500,Random Forest,Fscore,0.351117759495
+my,tfidf,all,2000,AdaBoost,Score,0.404761904762
+my,tfidf,bi,2000,Linear SVM,Precision,0.442615107509
+my,tfidf,all,100,Neural Net,Recall,0.484126984127
+google,tfidf,quad,10,Logistic Regression,Score,0.492063492063
+my,tfidf,uni,500,Naive Bayes,Recall,0.349206349206
+google,numoc,bi,all,Decision Tree,Recall,0.47619047619
+my,tfidf,tri,1000,Naive Bayes,Recall,0.261904761905
+my,justc,tri,all,Linear SVM,Score,0.031746031746
+my,tfidf,tri,2000,AdaBoost,Score,0.365079365079
+my,tfidf,uni,1000,Neural Net,Precision,0.469366034583
+google,tfidf,tri,100,Neural Net,Recall,0.428571428571
+my,tfidf,bi,100,Decision Tree,Score,0.333333333333
+my,tfidf,bi,2000,Random Forest,Score,0.238095238095
+google,tfidf,bi,100,AdaBoost,Recall,0.460317460317
+my,numoc,tri,all,Neural Net,Score,0.269841269841
+google,tfidf,bi,10,Linear SVM,Score,0.515873015873
+google,tfidf,tri,2000,Naive Bayes,Precision,0.266124968506
+my,tfidf,uni,10000,Linear SVM,Precision,0.475023125023
+google,tfidf,bi,500,Naive Bayes,Recall,0.515873015873
+google,tfidf,all,2000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,bi,1000,RBF SVM,Score,0.222222222222
+my,tfidf,bi,1000,Logistic Regression,Score,0.428571428571
+my,tfidf,tri,2000,Neural Net,Score,0.436507936508
+google,tfidf,all,10000,Decision Tree,Precision,0.368783068783
+google,tfidf,bi,5000,Nearest Neighbors,Precision,0.380120327701
+google,justc,bi,all,AdaBoost,Precision,0.226757369615
+google,justc,bi,all,AdaBoost,Fscore,0.307219662058
+google,tfidf,all,5000,AdaBoost,Score,0.515873015873
+my,tfidf,all,10,Linear SVM,Precision,0.287403446227
+my,tfidf,quad,10,Dummy,Recall,0.047619047619
+my,justc,tri,all,Decision Tree,Fscore,0.114682539683
+google,tfidf,all,500,Logistic Regression,Score,0.484126984127
+google,tfidf,quad,100,Neural Net,Score,0.444444444444
+my,tfidf,tri,2000,Logistic Regression,Fscore,0.436221580047
+my,numoc,bi,all,Linear SVM,Score,0.031746031746
+google,justc,uni,all,RBF SVM,Recall,0.484126984127
+my,tfidf,quad,10,Linear SVM,Score,0.301587301587
+google,tfidf,quad,5000,Linear SVM,Recall,0.436507936508
+google,tfidf,uni,5000,RBF SVM,Fscore,0.351117759495
+my,tfidf,bi,100,RBF SVM,Score,0.222222222222
+google,tfidf,uni,10,Decision Tree,Recall,0.380952380952
+google,numoc,uni,all,Nearest Neighbors,Precision,0.244565217391
+google,tfidf,tri,1000,Logistic Regression,Recall,0.484126984127
+google,tfidf,all,10000,Logistic Regression,Score,0.484126984127
+google,tfidf,quad,500,Random Forest,Precision,0.471680111024
+my,tfidf,uni,10,Random Forest,Fscore,0.430149876115
+google,tfidf,all,10000,AdaBoost,Recall,0.515873015873
+my,tfidf,tri,5000,Random Forest,Fscore,0.202173382173
+google,tfidf,quad,2000,AdaBoost,Fscore,0.404399507139
+google,tfidf,all,100,Neural Net,Fscore,0.384831125433
+my,tfidf,uni,5000,Nearest Neighbors,Fscore,0.32614187619
+my,tfidf,tri,10,Dummy,Precision,0.00226757369615
+google,tfidf,quad,10000,Random Forest,Recall,0.507936507937
+my,tfidf,bi,5000,AdaBoost,Recall,0.380952380952
+my,tfidf,all,1000,Decision Tree,Precision,0.379412247242
+my,tfidf,quad,10000,Neural Net,Recall,0.452380952381
+my,tfidf,quad,10000,Logistic Regression,Fscore,0.455022564793
+my,tfidf,tri,2000,Linear SVM,Score,0.428571428571
+google,tfidf,bi,1000,Linear SVM,Score,0.412698412698
+google,tfidf,quad,2000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,bi,1000,Random Forest,Fscore,0.19303223564
+google,tfidf,uni,500,Nearest Neighbors,Score,0.460317460317
+google,tfidf,quad,10000,Random Forest,Precision,0.364756742806
+google,tfidf,quad,2000,AdaBoost,Recall,0.444444444444
+my,tfidf,tri,1000,Decision Tree,Fscore,0.35528961779
+my,numoc,tri,all,Decision Tree,Recall,0.269841269841
+google,justc,uni,all,AdaBoost,Recall,0.460317460317
+google,tfidf,tri,1000,Random Forest,Fscore,0.371639932616
+google,tfidf,all,2000,Logistic Regression,Score,0.484126984127
+google,tfidf,bi,10000,AdaBoost,Recall,0.515873015873
+google,tfidf,tri,1000,Decision Tree,Fscore,0.379464285714
+google,tfidf,uni,10000,Dummy,Fscore,0.351117759495
+my,tfidf,all,2000,Decision Tree,Recall,0.325396825397
+my,tfidf,bi,10000,Linear SVM,Recall,0.420634920635
+google,tfidf,tri,10,Decision Tree,Score,0.5
+google,tfidf,uni,1000,Naive Bayes,Score,0.0952380952381
+my,tfidf,all,500,Dummy,Score,0.047619047619
+google,tfidf,quad,1000,RBF SVM,Precision,0.266124968506
+google,tfidf,all,1000,Naive Bayes,Precision,0.266124968506
+my,tfidf,all,5000,AdaBoost,Score,0.404761904762
+google,tfidf,quad,500,Neural Net,Precision,0.430015629019
+my,tfidf,all,10,Dummy,Fscore,0.004329004329
+google,tfidf,all,500,RBF SVM,Score,0.515873015873
+google,tfidf,tri,500,Dummy,Score,0.515873015873
+google,tfidf,tri,500,Random Forest,Recall,0.5
+my,tfidf,quad,1000,Decision Tree,Precision,0.346779134487
+my,tfidf,bi,10,Random Forest,Precision,0.344607695448
+google,numoc,uni,all,Dummy,Fscore,0.307219662058
+google,tfidf,quad,100,Random Forest,Score,0.5
+my,tfidf,all,10000,Dummy,Recall,0.047619047619
+my,tfidf,uni,1000,Nearest Neighbors,Precision,0.412258464639
+my,tfidf,all,500,RBF SVM,Score,0.222222222222
+my,tfidf,quad,10,RBF SVM,Precision,0.353880594146
+google,tfidf,all,10000,Random Forest,Recall,0.52380952381
+my,tfidf,uni,100,RBF SVM,Score,0.222222222222
+my,tfidf,all,100,Random Forest,Precision,0.34690643024
+my,tfidf,quad,100,Nearest Neighbors,Recall,0.420634920635
+google,tfidf,uni,10,Decision Tree,Score,0.380952380952
+my,tfidf,uni,10,Naive Bayes,Precision,0.424667160938
+google,tfidf,uni,5000,Linear SVM,Fscore,0.354945054945
+google,tfidf,all,10000,Naive Bayes,Score,0.515873015873
+google,tfidf,quad,100,Naive Bayes,Score,0.18253968254
+my,tfidf,tri,5000,Decision Tree,Score,0.34126984127
+my,tfidf,quad,500,RBF SVM,Score,0.222222222222
+google,tfidf,uni,500,Neural Net,Fscore,0.416462999203
+my,tfidf,quad,100,AdaBoost,Score,0.388888888889
+my,tfidf,tri,100,AdaBoost,Score,0.404761904762
+my,tfidf,all,1000,Logistic Regression,Precision,0.521881339273
+google,tfidf,all,10000,Linear SVM,Precision,0.428736772487
+my,tfidf,all,1000,Neural Net,Precision,0.525590271242
+my,tfidf,all,10000,RBF SVM,Fscore,0.0808080808081
+google,justc,bi,all,Dummy,Recall,0.47619047619
+my,tfidf,quad,10000,Random Forest,Recall,0.222222222222
+google,tfidf,uni,1000,Linear SVM,Precision,0.352291944815
+my,tfidf,all,1000,Neural Net,Recall,0.468253968254
+my,justc,bi,all,AdaBoost,Precision,0.0728143109095
+my,tfidf,bi,5000,RBF SVM,Score,0.222222222222
+google,numoc,tri,all,AdaBoost,Recall,0.47619047619
+my,tfidf,quad,100,AdaBoost,Recall,0.388888888889
+google,tfidf,tri,2000,Naive Bayes,Score,0.515873015873
+my,tfidf,bi,10,Logistic Regression,Fscore,0.340864553248
+google,justc,bi,all,Naive Bayes,Score,0.00793650793651
+my,tfidf,uni,10,Dummy,Recall,0.047619047619
+google,tfidf,quad,2000,Naive Bayes,Recall,0.515873015873
+google,numoc,uni,all,Nearest Neighbors,Score,0.357142857143
+my,tfidf,uni,2000,Decision Tree,Score,0.357142857143
+google,tfidf,quad,5000,Dummy,Recall,0.515873015873
+my,tfidf,uni,10000,Dummy,Score,0.047619047619
+google,tfidf,quad,10000,Logistic Regression,Fscore,0.4207266783
+google,tfidf,tri,1000,Linear SVM,Fscore,0.450046432441
+google,numoc,uni,all,Neural Net,Recall,0.404761904762
+my,tfidf,uni,10000,AdaBoost,Recall,0.380952380952
+google,tfidf,uni,1000,Nearest Neighbors,Score,0.468253968254
+google,tfidf,quad,500,Decision Tree,Score,0.452380952381
+google,tfidf,all,5000,Linear SVM,Score,0.460317460317
+my,tfidf,uni,500,Nearest Neighbors,Score,0.31746031746
+my,tfidf,quad,1000,Dummy,Recall,0.047619047619
+my,tfidf,uni,5000,Logistic Regression,Recall,0.420634920635
+google,tfidf,quad,100,AdaBoost,Fscore,0.319208178363
+my,tfidf,uni,10000,Naive Bayes,Recall,0.325396825397
+google,tfidf,quad,1000,Neural Net,Fscore,0.422334184382
+google,tfidf,bi,10000,Linear SVM,Recall,0.412698412698
+my,tfidf,quad,2000,AdaBoost,Recall,0.420634920635
+google,tfidf,quad,500,Linear SVM,Fscore,0.421486358093
+my,tfidf,bi,5000,Linear SVM,Score,0.420634920635
+google,numoc,tri,all,Dummy,Precision,0.226757369615
+my,numoc,bi,all,Random Forest,Score,0.269841269841
+google,numoc,uni,all,Naive Bayes,Precision,0.226757369615
+my,tfidf,tri,100,RBF SVM,Fscore,0.0808080808081
+my,tfidf,uni,100,Decision Tree,Fscore,0.364355257087
+my,tfidf,bi,100,AdaBoost,Recall,0.396825396825
+my,tfidf,bi,100,Decision Tree,Fscore,0.331431123515
+my,tfidf,tri,2000,Neural Net,Precision,0.474300831444
+google,tfidf,bi,1000,Decision Tree,Recall,0.468253968254
+my,tfidf,quad,10000,RBF SVM,Recall,0.222222222222
+google,tfidf,quad,100,Nearest Neighbors,Score,0.444444444444
+google,tfidf,all,1000,Dummy,Fscore,0.351117759495
+my,justc,uni,all,RBF SVM,Fscore,0.235530773574
+my,tfidf,all,2000,Random Forest,Recall,0.261904761905
+google,numoc,uni,all,Decision Tree,Score,0.142857142857
+google,numoc,uni,all,RBF SVM,Recall,0.47619047619
+my,justc,tri,all,Logistic Regression,Recall,0.269841269841
+google,tfidf,tri,100,Neural Net,Score,0.428571428571
+google,tfidf,tri,5000,Random Forest,Recall,0.5
+google,tfidf,bi,1000,RBF SVM,Recall,0.515873015873
+my,tfidf,all,2000,Naive Bayes,Recall,0.253968253968
+my,justc,uni,all,Dummy,Score,0.031746031746
+my,tfidf,all,500,Naive Bayes,Fscore,0.102873216797
+my,tfidf,uni,1000,Logistic Regression,Recall,0.428571428571
+google,justc,bi,all,Random Forest,Score,0.47619047619
+google,tfidf,all,10,Linear SVM,Recall,0.492063492063
+google,tfidf,quad,10,Nearest Neighbors,Precision,0.410623508663
+google,tfidf,all,10000,Dummy,Recall,0.515873015873
+google,tfidf,quad,10,Linear SVM,Fscore,0.351117759495
+google,tfidf,quad,5000,RBF SVM,Recall,0.515873015873
+my,tfidf,tri,100,Decision Tree,Recall,0.31746031746
+google,tfidf,bi,2000,Nearest Neighbors,Fscore,0.412772517019
+my,justc,bi,all,Decision Tree,Precision,0.0728143109095
+my,tfidf,uni,5000,Nearest Neighbors,Score,0.325396825397
+google,numoc,bi,all,Random Forest,Score,0.47619047619
+google,tfidf,uni,500,Linear SVM,Score,0.436507936508
+google,tfidf,quad,2000,Dummy,Precision,0.266124968506
+google,tfidf,bi,500,Logistic Regression,Score,0.460317460317
+my,tfidf,tri,100,Nearest Neighbors,Score,0.373015873016
+my,tfidf,all,10,Nearest Neighbors,Recall,0.412698412698
+google,tfidf,tri,5000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,tri,10000,Decision Tree,Precision,0.418821925615
+my,tfidf,all,100,Nearest Neighbors,Score,0.373015873016
+google,tfidf,quad,1000,Neural Net,Recall,0.444444444444
+google,tfidf,tri,2000,Neural Net,Fscore,0.446547598561
+my,tfidf,bi,2000,Neural Net,Recall,0.436507936508
+google,tfidf,uni,10,Decision Tree,Precision,0.365386234034
+google,tfidf,uni,2000,Nearest Neighbors,Recall,0.460317460317
+google,tfidf,all,1000,RBF SVM,Score,0.515873015873
+google,tfidf,all,5000,Linear SVM,Recall,0.460317460317
+google,justc,uni,all,Decision Tree,Score,0.452380952381
+google,tfidf,tri,2000,Dummy,Fscore,0.351117759495
+google,tfidf,uni,2000,Logistic Regression,Precision,0.378845101259
+my,tfidf,uni,5000,Logistic Regression,Fscore,0.40306141067
+google,tfidf,quad,1000,Logistic Regression,Recall,0.444444444444
+my,tfidf,bi,1000,Neural Net,Fscore,0.429061787362
+my,tfidf,uni,500,Neural Net,Precision,0.482564877803
+my,tfidf,quad,10,AdaBoost,Score,0.269841269841
+my,tfidf,uni,5000,RBF SVM,Precision,0.0493827160494
+google,numoc,bi,all,Logistic Regression,Score,0.47619047619
+my,tfidf,tri,2000,Logistic Regression,Score,0.436507936508
+google,tfidf,bi,10,Nearest Neighbors,Recall,0.484126984127
+google,tfidf,all,100,Nearest Neighbors,Score,0.460317460317
+my,tfidf,uni,1000,Neural Net,Score,0.452380952381
+my,tfidf,bi,1000,Random Forest,Precision,0.215111448039
+my,tfidf,quad,2000,Logistic Regression,Precision,0.514676575021
+my,tfidf,bi,500,Neural Net,Fscore,0.418815228319
+google,tfidf,uni,100,Naive Bayes,Fscore,0.12484952422
+google,tfidf,all,1000,Nearest Neighbors,Score,0.507936507937
+google,numoc,bi,all,Neural Net,Precision,0.226757369615
+google,tfidf,all,10000,Dummy,Precision,0.266124968506
+google,tfidf,uni,500,Nearest Neighbors,Fscore,0.423649058895
+google,tfidf,all,10,Logistic Regression,Recall,0.484126984127
+google,tfidf,quad,2000,Linear SVM,Recall,0.436507936508
+my,tfidf,bi,2000,Random Forest,Precision,0.181603143969
+google,justc,uni,all,Logistic Regression,Score,0.492063492063
+my,numoc,tri,all,Nearest Neighbors,Precision,0.0251952632905
+my,tfidf,tri,5000,Linear SVM,Fscore,0.41388072345
+google,tfidf,quad,10000,Decision Tree,Score,0.452380952381
+my,tfidf,quad,2000,AdaBoost,Score,0.420634920635
+my,tfidf,tri,500,AdaBoost,Precision,0.392401098633
+google,justc,bi,all,Neural Net,Precision,0.226757369615
+my,tfidf,tri,1000,Neural Net,Recall,0.428571428571
+my,numoc,bi,all,Random Forest,Precision,0.0728143109095
+my,tfidf,bi,2000,Dummy,Score,0.047619047619
+my,tfidf,bi,100,Neural Net,Precision,0.492999351695
+my,tfidf,uni,5000,Naive Bayes,Recall,0.34126984127
+google,tfidf,tri,10,Nearest Neighbors,Score,0.492063492063
+google,tfidf,all,5000,Random Forest,Precision,0.343991866719
+my,tfidf,bi,1000,Logistic Regression,Recall,0.428571428571
+google,tfidf,all,5000,Naive Bayes,Recall,0.515873015873
+google,tfidf,all,100,RBF SVM,Score,0.515873015873
+my,tfidf,tri,10000,Nearest Neighbors,Fscore,0.448338950474
+google,tfidf,bi,1000,Naive Bayes,Score,0.507936507937
+my,justc,tri,all,Logistic Regression,Fscore,0.114682539683
+google,numoc,bi,all,Dummy,Recall,0.47619047619
+my,tfidf,bi,500,Nearest Neighbors,Recall,0.507936507937
+my,tfidf,quad,100,Neural Net,Fscore,0.418838277662
+google,tfidf,bi,2000,RBF SVM,Precision,0.266124968506
+my,tfidf,tri,5000,Decision Tree,Precision,0.418453444769
+google,justc,tri,all,Decision Tree,Fscore,0.307219662058
+my,numoc,bi,all,Decision Tree,Fscore,0.114682539683
+my,tfidf,quad,10,Naive Bayes,Precision,0.296510413902
+my,tfidf,uni,10,Linear SVM,Fscore,0.229464901245
+my,numoc,uni,all,Dummy,Precision,0.00100781053162
+my,tfidf,all,500,Decision Tree,Score,0.31746031746
+my,tfidf,all,500,Nearest Neighbors,Score,0.452380952381
+google,tfidf,tri,5000,Decision Tree,Fscore,0.395796048707
+google,tfidf,uni,10,Logistic Regression,Precision,0.410973084886
+google,tfidf,tri,10000,Nearest Neighbors,Fscore,0.419263640067
+google,tfidf,uni,10000,Dummy,Precision,0.266124968506
+google,justc,bi,all,Neural Net,Recall,0.47619047619
+google,justc,bi,all,Linear SVM,Recall,0.47619047619
+google,tfidf,uni,10000,Random Forest,Recall,0.507936507937
+google,tfidf,quad,1000,Random Forest,Precision,0.262096774194
+google,tfidf,quad,100,Dummy,Fscore,0.351117759495
+my,tfidf,tri,2000,Random Forest,Recall,0.222222222222
+google,numoc,tri,all,RBF SVM,Fscore,0.307219662058
+my,tfidf,bi,2000,Naive Bayes,Precision,0.0629841269841
+my,tfidf,uni,1000,Dummy,Precision,0.00226757369615
+my,tfidf,bi,1000,Linear SVM,Fscore,0.41709196554
+google,numoc,bi,all,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,all,1000,Neural Net,Recall,0.5
+google,tfidf,tri,500,Neural Net,Score,0.468253968254
+google,tfidf,tri,10,RBF SVM,Fscore,0.426698962413
+my,tfidf,all,10000,AdaBoost,Fscore,0.403490084448
+google,tfidf,bi,10,Dummy,Score,0.515873015873
+my,tfidf,quad,5000,Linear SVM,Recall,0.452380952381
+google,tfidf,tri,5000,Neural Net,Fscore,0.453133903134
+my,tfidf,tri,1000,Dummy,Fscore,0.004329004329
+google,tfidf,bi,500,Neural Net,Score,0.452380952381
+my,tfidf,bi,1000,Dummy,Recall,0.047619047619
+google,tfidf,all,1000,AdaBoost,Precision,0.449414033526
+google,tfidf,all,2000,Dummy,Fscore,0.351117759495
+google,numoc,tri,all,Neural Net,Recall,0.47619047619
+my,tfidf,all,1000,Logistic Regression,Score,0.460317460317
+my,tfidf,bi,1000,Decision Tree,Precision,0.376576929081
+google,numoc,bi,all,RBF SVM,Fscore,0.307219662058
+my,tfidf,bi,2000,Nearest Neighbors,Precision,0.568701668702
+my,numoc,tri,all,Dummy,Score,0.031746031746
+google,tfidf,all,1000,Decision Tree,Precision,0.368783068783
+google,tfidf,uni,500,AdaBoost,Precision,0.344369897635
+my,tfidf,all,5000,AdaBoost,Fscore,0.403490084448
+google,tfidf,tri,10000,Random Forest,Recall,0.515873015873
+google,tfidf,all,2000,Nearest Neighbors,Precision,0.452363315697
+my,tfidf,uni,1000,RBF SVM,Recall,0.222222222222
+my,tfidf,bi,10000,Decision Tree,Score,0.31746031746
+google,tfidf,all,5000,Neural Net,Score,0.5
+google,tfidf,quad,1000,AdaBoost,Recall,0.444444444444
+my,tfidf,uni,10,Random Forest,Score,0.428571428571
+google,tfidf,tri,2000,RBF SVM,Score,0.515873015873
+google,tfidf,quad,2000,Nearest Neighbors,Recall,0.492063492063
+my,tfidf,bi,500,RBF SVM,Fscore,0.0808080808081
+my,tfidf,tri,2000,Nearest Neighbors,Recall,0.452380952381
+google,numoc,bi,all,Random Forest,Precision,0.226757369615
+google,tfidf,bi,10,Logistic Regression,Recall,0.492063492063
+google,tfidf,all,1000,Decision Tree,Fscore,0.389782175496
+my,tfidf,quad,1000,Neural Net,Precision,0.499829407071
+google,tfidf,quad,10000,Logistic Regression,Precision,0.412872107317
+my,tfidf,quad,2000,Random Forest,Precision,0.164648002697
+google,tfidf,tri,10,Decision Tree,Precision,0.495985672671
+my,tfidf,bi,10,AdaBoost,Fscore,0.317118960141
+google,tfidf,uni,5000,Neural Net,Score,0.444444444444
+my,tfidf,tri,100,Naive Bayes,Recall,0.325396825397
+my,tfidf,all,1000,Nearest Neighbors,Fscore,0.456607504883
+google,numoc,tri,all,Dummy,Recall,0.47619047619
+my,tfidf,uni,10,RBF SVM,Recall,0.373015873016
+my,tfidf,tri,5000,Naive Bayes,Recall,0.253968253968
+my,tfidf,bi,100,Linear SVM,Recall,0.428571428571
+google,numoc,tri,all,Nearest Neighbors,Fscore,0.307219662058
+my,tfidf,tri,500,Random Forest,Fscore,0.160954828669
+my,tfidf,all,10,AdaBoost,Precision,0.366971456221
+google,tfidf,bi,10,Dummy,Fscore,0.351117759495
+my,tfidf,tri,2000,Nearest Neighbors,Precision,0.496744959245
+my,tfidf,uni,5000,Neural Net,Precision,0.45758377425
+my,justc,bi,all,Random Forest,Fscore,0.114682539683
+google,tfidf,uni,100,Nearest Neighbors,Precision,0.439753021159
+google,justc,tri,all,Random Forest,Fscore,0.307219662058
+google,tfidf,bi,10,AdaBoost,Fscore,0.396338641743
+my,tfidf,quad,5000,Random Forest,Recall,0.285714285714
+my,tfidf,bi,2000,AdaBoost,Precision,0.381618844119
+my,tfidf,uni,500,Neural Net,Recall,0.460317460317
+my,justc,bi,all,Linear SVM,Precision,0.00100781053162
+google,tfidf,all,10,Dummy,Recall,0.515873015873
+google,tfidf,bi,1000,Logistic Regression,Recall,0.468253968254
+my,tfidf,uni,10000,Random Forest,Recall,0.293650793651
+google,tfidf,uni,100,Nearest Neighbors,Fscore,0.416549392114
+my,tfidf,all,1000,Decision Tree,Fscore,0.322796746904
+google,tfidf,tri,1000,Nearest Neighbors,Precision,0.402207306485
+my,tfidf,uni,1000,Decision Tree,Precision,0.397677897678
+google,tfidf,bi,500,Logistic Regression,Recall,0.460317460317
+my,tfidf,quad,10000,Logistic Regression,Precision,0.514676575021
+my,tfidf,uni,10,Logistic Regression,Score,0.396825396825
+google,justc,uni,all,Logistic Regression,Fscore,0.435108958838
+google,tfidf,quad,10000,Decision Tree,Fscore,0.406967651627
+google,tfidf,tri,10000,Naive Bayes,Score,0.515873015873
+my,tfidf,tri,500,Dummy,Score,0.047619047619
+google,tfidf,tri,5000,Naive Bayes,Recall,0.515873015873
+google,tfidf,all,500,Random Forest,Recall,0.484126984127
+my,tfidf,tri,10000,Random Forest,Recall,0.261904761905
+google,tfidf,all,10,Naive Bayes,Score,0.103174603175
+google,justc,tri,all,Naive Bayes,Fscore,0.000124984376953
+my,tfidf,bi,10000,Logistic Regression,Score,0.428571428571
+google,tfidf,uni,2000,RBF SVM,Fscore,0.351117759495
+google,tfidf,tri,2000,Dummy,Recall,0.515873015873
+my,numoc,tri,all,Linear SVM,Recall,0.031746031746
+my,numoc,bi,all,RBF SVM,Score,0.031746031746
+my,tfidf,tri,1000,Random Forest,Precision,0.179651509727
+google,numoc,tri,all,RBF SVM,Score,0.47619047619
+google,tfidf,all,10000,Naive Bayes,Precision,0.266124968506
+google,tfidf,tri,10000,Logistic Regression,Recall,0.484126984127
+google,justc,tri,all,Dummy,Score,0.47619047619
+google,tfidf,all,1000,Random Forest,Recall,0.52380952381
+google,tfidf,uni,1000,Naive Bayes,Precision,0.266325113379
+google,tfidf,uni,100,AdaBoost,Recall,0.428571428571
+my,tfidf,uni,2000,Decision Tree,Recall,0.357142857143
+my,tfidf,quad,2000,Dummy,Score,0.047619047619
+google,tfidf,all,500,Decision Tree,Precision,0.351797385621
+google,tfidf,uni,5000,Random Forest,Recall,0.5
+google,tfidf,uni,100,Linear SVM,Fscore,0.353077641313
+google,numoc,uni,all,Naive Bayes,Recall,0.47619047619
+my,tfidf,tri,100,Decision Tree,Score,0.31746031746
+google,tfidf,quad,5000,Linear SVM,Score,0.436507936508
+my,tfidf,bi,1000,Logistic Regression,Fscore,0.419404276199
+google,tfidf,uni,10000,AdaBoost,Fscore,0.364011657833
+google,tfidf,quad,10,Logistic Regression,Precision,0.380738962252
+my,tfidf,quad,10000,Naive Bayes,Fscore,0.102873216797
+google,tfidf,quad,500,Nearest Neighbors,Score,0.492063492063
+google,tfidf,quad,1000,AdaBoost,Score,0.444444444444
+my,tfidf,tri,1000,Naive Bayes,Score,0.261904761905
+my,tfidf,uni,500,Neural Net,Score,0.460317460317
+my,numoc,uni,all,Naive Bayes,Precision,0.139965025558
+google,tfidf,bi,10000,RBF SVM,Fscore,0.351117759495
+google,tfidf,bi,1000,Nearest Neighbors,Precision,0.380120327701
+my,tfidf,all,500,Linear SVM,Fscore,0.457059127429
+google,tfidf,quad,2000,Decision Tree,Precision,0.361609290181
+google,justc,uni,all,Nearest Neighbors,Recall,0.420634920635
+google,numoc,tri,all,Linear SVM,Score,0.47619047619
+my,tfidf,all,1000,Nearest Neighbors,Score,0.452380952381
+google,tfidf,uni,10,Nearest Neighbors,Precision,0.487310513084
+my,tfidf,tri,10,Dummy,Recall,0.047619047619
+google,tfidf,tri,500,Neural Net,Fscore,0.439955395046
+my,tfidf,all,10000,AdaBoost,Recall,0.404761904762
+google,tfidf,quad,10,Logistic Regression,Recall,0.492063492063
+my,tfidf,tri,100,Logistic Regression,Precision,0.440572390572
+google,tfidf,uni,1000,Linear SVM,Score,0.428571428571
+my,tfidf,uni,1000,Neural Net,Fscore,0.4447100866
+google,justc,tri,all,Dummy,Recall,0.47619047619
+google,tfidf,quad,10,Nearest Neighbors,Recall,0.515873015873
+my,tfidf,bi,1000,Random Forest,Score,0.253968253968
+my,tfidf,tri,1000,Decision Tree,Precision,0.424602794168
+google,tfidf,uni,2000,Naive Bayes,Recall,0.0952380952381
+my,tfidf,tri,1000,Linear SVM,Score,0.428571428571
+google,tfidf,quad,500,Neural Net,Fscore,0.439709889603
+google,tfidf,quad,5000,Neural Net,Score,0.452380952381
+google,tfidf,uni,500,RBF SVM,Recall,0.515873015873
+my,tfidf,all,100,Naive Bayes,Precision,0.323951777523
+google,numoc,tri,all,Decision Tree,Fscore,0.307219662058
+google,tfidf,bi,2000,Neural Net,Recall,0.468253968254
+my,tfidf,quad,1000,Dummy,Precision,0.00226757369615
+my,justc,bi,all,Logistic Regression,Precision,0.0728143109095
+my,tfidf,quad,100,Dummy,Recall,0.047619047619
+my,tfidf,tri,500,AdaBoost,Score,0.365079365079
+my,tfidf,tri,10000,Neural Net,Recall,0.428571428571
+google,tfidf,uni,2000,Nearest Neighbors,Fscore,0.416549392114
+google,tfidf,quad,10,Linear SVM,Recall,0.515873015873
+my,tfidf,all,10000,Neural Net,Precision,0.537479474548
+google,tfidf,all,100,AdaBoost,Fscore,0.406962703282
+google,tfidf,tri,500,Linear SVM,Precision,0.447691197691
+my,tfidf,quad,100,Naive Bayes,Recall,0.285714285714
+google,tfidf,tri,10000,Linear SVM,Precision,0.447691197691
+my,tfidf,bi,10000,RBF SVM,Precision,0.0493827160494
+google,tfidf,tri,1000,Dummy,Fscore,0.351117759495
+google,tfidf,quad,5000,Decision Tree,Score,0.412698412698
+my,tfidf,uni,10000,RBF SVM,Score,0.222222222222
+my,tfidf,bi,100,Random Forest,Score,0.309523809524
+my,tfidf,bi,1000,Dummy,Fscore,0.004329004329
+my,justc,uni,all,Nearest Neighbors,Precision,0.364962691524
+my,tfidf,quad,10000,Nearest Neighbors,Fscore,0.439983364795
+my,justc,tri,all,Neural Net,Fscore,0.114682539683
+my,tfidf,bi,500,Nearest Neighbors,Score,0.507936507937
+google,tfidf,uni,10,Logistic Regression,Score,0.492063492063
+my,numoc,tri,all,Decision Tree,Score,0.269841269841
+my,tfidf,all,2000,Decision Tree,Fscore,0.329336302988
+my,tfidf,tri,10,Neural Net,Score,0.373015873016
+my,tfidf,quad,10,Naive Bayes,Score,0.238095238095
+google,tfidf,tri,2000,Dummy,Precision,0.266124968506
+google,tfidf,all,1000,Naive Bayes,Fscore,0.351117759495
+google,tfidf,tri,500,AdaBoost,Recall,0.428571428571
+my,tfidf,tri,100,Dummy,Fscore,0.004329004329
+my,tfidf,bi,500,Naive Bayes,Precision,0.0629841269841
+google,tfidf,uni,2000,Linear SVM,Recall,0.452380952381
+google,tfidf,all,500,Linear SVM,Recall,0.468253968254
+my,tfidf,quad,2000,AdaBoost,Precision,0.441173374209
+my,tfidf,tri,1000,Random Forest,Recall,0.230158730159
+my,numoc,tri,all,Dummy,Precision,0.00100781053162
+google,tfidf,tri,1000,Random Forest,Score,0.515873015873
+my,tfidf,uni,2000,Logistic Regression,Precision,0.446962990713
+google,tfidf,tri,5000,Naive Bayes,Score,0.515873015873
+google,tfidf,uni,2000,AdaBoost,Recall,0.428571428571
+my,tfidf,quad,5000,Naive Bayes,Recall,0.253968253968
+google,tfidf,all,10000,Naive Bayes,Recall,0.515873015873
+my,tfidf,tri,10,Decision Tree,Precision,0.447297147297
+google,tfidf,uni,500,RBF SVM,Precision,0.266124968506
+my,tfidf,all,10000,Neural Net,Score,0.468253968254
+my,tfidf,tri,10,Neural Net,Precision,0.465649694221
+google,tfidf,uni,10000,Decision Tree,Recall,0.444444444444
+google,tfidf,uni,100,Random Forest,Precision,0.417050691244
+my,tfidf,uni,500,Dummy,Precision,0.00226757369615
+google,tfidf,uni,2000,Dummy,Fscore,0.351117759495
+google,tfidf,uni,1000,Neural Net,Fscore,0.404547404547
+my,tfidf,quad,5000,Linear SVM,Precision,0.494130985728
+google,tfidf,uni,10,RBF SVM,Fscore,0.383567821068
+google,justc,tri,all,Linear SVM,Fscore,0.307219662058
+google,justc,uni,all,Naive Bayes,Precision,0.226757369615
+google,justc,bi,all,Logistic Regression,Fscore,0.307219662058
+my,tfidf,all,10000,Naive Bayes,Recall,0.253968253968
+google,tfidf,all,5000,RBF SVM,Precision,0.266124968506
+my,tfidf,quad,2000,Decision Tree,Precision,0.336992213153
+my,tfidf,uni,10000,Random Forest,Precision,0.326210826211
+google,tfidf,tri,100,AdaBoost,Precision,0.366695266695
+google,tfidf,tri,500,Linear SVM,Fscore,0.450046432441
+google,tfidf,bi,2000,Dummy,Precision,0.266124968506
+google,tfidf,bi,10,Nearest Neighbors,Score,0.484126984127
+google,numoc,uni,all,RBF SVM,Score,0.47619047619
+google,tfidf,bi,5000,Naive Bayes,Recall,0.515873015873
+google,tfidf,all,10,RBF SVM,Fscore,0.421796276013
+google,numoc,uni,all,Random Forest,Score,0.492063492063
+my,tfidf,all,5000,Nearest Neighbors,Fscore,0.456607504883
+google,tfidf,uni,10000,Linear SVM,Precision,0.381742596028
+google,tfidf,uni,10000,RBF SVM,Fscore,0.351117759495
+google,tfidf,all,2000,Neural Net,Precision,0.43771043771
+my,tfidf,bi,2000,Neural Net,Precision,0.457410893544
+google,justc,tri,all,Naive Bayes,Precision,6.29881582263e-05
+my,tfidf,tri,500,Neural Net,Score,0.428571428571
+my,tfidf,bi,2000,AdaBoost,Fscore,0.374047521019
+my,tfidf,all,10,Naive Bayes,Fscore,0.361556774686
+my,numoc,uni,all,AdaBoost,Score,0.388888888889
+google,numoc,uni,all,Nearest Neighbors,Fscore,0.285145888594
+google,tfidf,bi,1000,Neural Net,Precision,0.392434779192
+google,tfidf,uni,1000,Dummy,Recall,0.515873015873
+google,tfidf,uni,500,Logistic Regression,Score,0.420634920635
+google,tfidf,all,10,Random Forest,Recall,0.531746031746
+my,tfidf,all,100,Decision Tree,Precision,0.438167558735
+google,tfidf,bi,1000,Dummy,Precision,0.266124968506
+my,tfidf,uni,10000,Naive Bayes,Score,0.325396825397
+google,tfidf,uni,10,RBF SVM,Recall,0.492063492063
+google,tfidf,uni,100,Dummy,Score,0.515873015873
+google,tfidf,quad,100,Logistic Regression,Precision,0.399649498806
+google,tfidf,quad,1000,Linear SVM,Precision,0.427946033817
+google,tfidf,quad,10000,RBF SVM,Fscore,0.351117759495
+my,justc,bi,all,Dummy,Precision,0.00100781053162
+my,tfidf,all,10,Naive Bayes,Precision,0.473166833167
+google,tfidf,bi,5000,Logistic Regression,Recall,0.460317460317
+google,tfidf,all,1000,Linear SVM,Fscore,0.44447752517
+my,tfidf,all,5000,Neural Net,Fscore,0.463089166868
+google,tfidf,quad,5000,Dummy,Precision,0.266124968506
+google,tfidf,uni,5000,AdaBoost,Fscore,0.368441724609
+my,tfidf,tri,5000,Linear SVM,Recall,0.420634920635
+my,tfidf,bi,100,Random Forest,Fscore,0.265593977797
+google,tfidf,quad,1000,Random Forest,Recall,0.5
+my,tfidf,bi,5000,Neural Net,Precision,0.452257440303
+my,tfidf,all,1000,Naive Bayes,Score,0.253968253968
+my,tfidf,quad,100,RBF SVM,Precision,0.0493827160494
+google,tfidf,bi,10000,Naive Bayes,Recall,0.515873015873
+google,tfidf,tri,10000,Logistic Regression,Precision,0.446896588093
+my,tfidf,tri,100,AdaBoost,Fscore,0.408911370816
+my,numoc,uni,all,Random Forest,Score,0.31746031746
+my,tfidf,tri,500,Nearest Neighbors,Recall,0.452380952381
+google,tfidf,bi,100,Logistic Regression,Precision,0.348288788506
+my,tfidf,quad,1000,Dummy,Score,0.047619047619
+my,tfidf,bi,100,RBF SVM,Fscore,0.0808080808081
+google,tfidf,bi,500,RBF SVM,Score,0.515873015873
+google,tfidf,bi,1000,Random Forest,Recall,0.52380952381
+my,tfidf,quad,5000,Naive Bayes,Fscore,0.103528460216
+google,tfidf,quad,2000,Nearest Neighbors,Score,0.492063492063
+google,tfidf,bi,2000,AdaBoost,Precision,0.436507936508
+my,tfidf,bi,10,Naive Bayes,Precision,0.379864976294
+google,tfidf,bi,5000,Nearest Neighbors,Score,0.47619047619
+google,tfidf,all,10,AdaBoost,Fscore,0.404218308328
+my,tfidf,bi,10000,Logistic Regression,Recall,0.428571428571
+my,tfidf,bi,1000,AdaBoost,Recall,0.380952380952
+my,tfidf,all,10000,Dummy,Fscore,0.004329004329
+google,numoc,tri,all,Neural Net,Precision,0.226757369615
+google,tfidf,bi,10000,Linear SVM,Precision,0.39417989418
+google,numoc,uni,all,RBF SVM,Fscore,0.307219662058
+my,tfidf,tri,5000,AdaBoost,Recall,0.365079365079
+my,numoc,uni,all,RBF SVM,Score,0.269841269841
+my,tfidf,all,10,Naive Bayes,Recall,0.34126984127
+my,tfidf,tri,10000,Random Forest,Precision,0.316789979057
+google,tfidf,uni,100,Random Forest,Fscore,0.364453682708
+google,tfidf,bi,1000,Nearest Neighbors,Fscore,0.412772517019
+google,tfidf,tri,2000,Neural Net,Recall,0.47619047619
+my,tfidf,uni,1000,Logistic Regression,Score,0.428571428571
+google,tfidf,all,10000,RBF SVM,Fscore,0.351117759495
+google,tfidf,all,100,Random Forest,Fscore,0.380655843033
+my,tfidf,quad,100,Decision Tree,Fscore,0.30334560309
+google,numoc,uni,all,Logistic Regression,Score,0.428571428571
+my,tfidf,all,2000,Linear SVM,Score,0.452380952381
+my,numoc,tri,all,RBF SVM,Precision,0.00100781053162
+google,tfidf,tri,2000,RBF SVM,Fscore,0.351117759495
+google,numoc,tri,all,Logistic Regression,Recall,0.47619047619
+my,tfidf,all,10000,Random Forest,Fscore,0.1904711446
+google,tfidf,tri,500,Linear SVM,Score,0.468253968254
+my,tfidf,tri,100,Naive Bayes,Precision,0.428978475546
+my,tfidf,bi,10,Linear SVM,Score,0.261904761905
+my,tfidf,quad,1000,Nearest Neighbors,Precision,0.500717229548
+my,tfidf,all,1000,Logistic Regression,Fscore,0.462922160486
+my,tfidf,tri,500,Random Forest,Score,0.238095238095
+google,tfidf,all,10000,Random Forest,Score,0.52380952381
+my,tfidf,uni,100,Random Forest,Score,0.285714285714
+google,tfidf,tri,500,Dummy,Precision,0.266124968506
+google,tfidf,all,10000,Nearest Neighbors,Score,0.507936507937
+my,tfidf,tri,100,Decision Tree,Fscore,0.325407000407
+my,numoc,uni,all,Dummy,Score,0.031746031746
+google,numoc,bi,all,Decision Tree,Precision,0.226757369615
+google,tfidf,quad,10000,RBF SVM,Recall,0.515873015873
+my,justc,uni,all,Nearest Neighbors,Fscore,0.287917084413
+my,tfidf,tri,2000,Logistic Regression,Precision,0.487776071766
+google,tfidf,quad,500,AdaBoost,Precision,0.371874387615
+my,tfidf,bi,10,Linear SVM,Precision,0.285113648437
+my,numoc,bi,all,Neural Net,Precision,0.0728143109095
+google,tfidf,bi,2000,Decision Tree,Recall,0.468253968254
+google,tfidf,bi,2000,RBF SVM,Fscore,0.351117759495
+google,tfidf,uni,2000,Dummy,Score,0.515873015873
+google,tfidf,quad,100,Linear SVM,Precision,0.353662793869
+google,tfidf,uni,1000,Random Forest,Recall,0.507936507937
+my,tfidf,tri,10,Naive Bayes,Score,0.269841269841
+google,tfidf,quad,10,AdaBoost,Score,0.396825396825
+my,justc,bi,all,Neural Net,Fscore,0.114682539683
+my,tfidf,bi,10000,Linear SVM,Fscore,0.41709196554
+google,tfidf,uni,1000,Dummy,Score,0.515873015873
+my,tfidf,tri,10000,Dummy,Precision,0.00226757369615
+my,tfidf,tri,5000,Neural Net,Recall,0.436507936508
+my,tfidf,bi,2000,RBF SVM,Score,0.222222222222
+my,tfidf,tri,5000,RBF SVM,Fscore,0.0808080808081
+my,tfidf,bi,10000,Dummy,Recall,0.047619047619
+google,tfidf,all,10000,Decision Tree,Score,0.460317460317
+my,tfidf,quad,10000,Random Forest,Fscore,0.157744224212
+my,tfidf,tri,10000,Random Forest,Fscore,0.233607455347
+my,tfidf,bi,10,Decision Tree,Fscore,0.353811938501
+google,tfidf,all,10000,RBF SVM,Score,0.515873015873
+my,tfidf,all,10000,Dummy,Precision,0.00226757369615
+google,justc,tri,all,AdaBoost,Recall,0.47619047619
+google,tfidf,all,5000,Logistic Regression,Fscore,0.445716398865
+google,tfidf,bi,2000,Linear SVM,Score,0.420634920635
+google,tfidf,bi,100,RBF SVM,Score,0.515873015873
+my,tfidf,all,10000,Naive Bayes,Score,0.253968253968
+my,tfidf,tri,2000,Decision Tree,Recall,0.349206349206
+my,tfidf,tri,10000,Naive Bayes,Fscore,0.118566054201
+google,justc,uni,all,Neural Net,Precision,0.348757696711
+google,tfidf,all,10,AdaBoost,Score,0.436507936508
+google,tfidf,tri,2000,AdaBoost,Score,0.428571428571
+google,tfidf,all,2000,Logistic Regression,Recall,0.484126984127
+google,tfidf,tri,100,Naive Bayes,Fscore,0.217623031933
+google,tfidf,all,1000,RBF SVM,Fscore,0.351117759495
+my,tfidf,all,2000,Logistic Regression,Recall,0.452380952381
+my,tfidf,quad,1000,AdaBoost,Precision,0.441173374209
+google,tfidf,all,5000,Neural Net,Fscore,0.455530360292
+google,tfidf,bi,100,AdaBoost,Score,0.460317460317
+my,tfidf,all,500,RBF SVM,Fscore,0.0808080808081
+my,tfidf,all,500,Naive Bayes,Precision,0.0644998740237
+google,tfidf,bi,100,Logistic Regression,Fscore,0.366093755266
+google,tfidf,uni,100,Logistic Regression,Score,0.420634920635
+my,tfidf,all,2000,Logistic Regression,Precision,0.515845828889
+google,justc,bi,all,Logistic Regression,Precision,0.226757369615
+google,justc,bi,all,RBF SVM,Score,0.47619047619
+my,tfidf,quad,500,Linear SVM,Recall,0.452380952381
+google,tfidf,tri,2000,RBF SVM,Precision,0.266124968506
+google,tfidf,tri,10000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,tri,5000,Logistic Regression,Recall,0.428571428571
+my,tfidf,all,1000,Random Forest,Recall,0.214285714286
+my,tfidf,tri,1000,Naive Bayes,Fscore,0.118566054201
+google,tfidf,bi,10,AdaBoost,Precision,0.393491088192
+google,tfidf,bi,2000,AdaBoost,Recall,0.507936507937
+my,tfidf,tri,10000,Nearest Neighbors,Precision,0.496744959245
+my,tfidf,uni,10000,Linear SVM,Score,0.492063492063
+my,tfidf,all,100,Logistic Regression,Precision,0.529743456535
+google,tfidf,tri,100,Random Forest,Recall,0.515873015873
+my,tfidf,uni,10,Neural Net,Precision,0.427735237198
+google,tfidf,bi,10000,Decision Tree,Recall,0.468253968254
+google,tfidf,all,10000,Logistic Regression,Recall,0.484126984127
+google,justc,bi,all,Nearest Neighbors,Fscore,0.307219662058
+google,tfidf,quad,2000,Nearest Neighbors,Precision,0.42659369787
+my,tfidf,tri,10000,Logistic Regression,Fscore,0.436221580047
+google,tfidf,bi,500,AdaBoost,Score,0.507936507937
+google,tfidf,bi,5000,Random Forest,Fscore,0.381833541497
+google,tfidf,bi,5000,RBF SVM,Precision,0.266124968506
+my,tfidf,quad,100,AdaBoost,Fscore,0.380664020751
+my,tfidf,all,100,Decision Tree,Recall,0.380952380952
+my,tfidf,quad,5000,Random Forest,Fscore,0.243803327439
+google,numoc,tri,all,Logistic Regression,Fscore,0.307219662058
+my,tfidf,quad,100,Random Forest,Precision,0.318785363898
+my,tfidf,quad,10000,Neural Net,Score,0.452380952381
+my,tfidf,bi,10,RBF SVM,Precision,0.332526064377
+google,tfidf,tri,100,Linear SVM,Recall,0.420634920635
+google,tfidf,quad,500,AdaBoost,Score,0.444444444444
+google,tfidf,bi,10,AdaBoost,Score,0.428571428571
+google,tfidf,tri,1000,Logistic Regression,Score,0.484126984127
+google,tfidf,uni,5000,Linear SVM,Score,0.436507936508
+my,tfidf,quad,500,RBF SVM,Precision,0.0493827160494
+google,justc,tri,all,Dummy,Precision,0.226757369615
+google,tfidf,bi,500,Linear SVM,Score,0.420634920635
+my,numoc,tri,all,RBF SVM,Recall,0.031746031746
+google,tfidf,uni,1000,Random Forest,Fscore,0.349374317628
+my,tfidf,quad,100,Nearest Neighbors,Score,0.420634920635
+my,tfidf,quad,5000,Logistic Regression,Fscore,0.455022564793
+my,numoc,tri,all,Naive Bayes,Fscore,0.114682539683
+my,tfidf,bi,500,Decision Tree,Fscore,0.318990929705
+my,tfidf,quad,2000,Dummy,Recall,0.047619047619
+my,tfidf,tri,10000,Linear SVM,Precision,0.458751055103
+google,tfidf,bi,500,Nearest Neighbors,Precision,0.380120327701
+my,tfidf,uni,500,Random Forest,Score,0.333333333333
+google,tfidf,all,5000,RBF SVM,Score,0.515873015873
+google,numoc,bi,all,Nearest Neighbors,Fscore,0.307219662058
+google,numoc,tri,all,Naive Bayes,Fscore,0.000124984376953
+google,tfidf,quad,2000,Linear SVM,Fscore,0.421486358093
+my,tfidf,uni,10000,Dummy,Fscore,0.004329004329
+google,tfidf,tri,5000,RBF SVM,Fscore,0.351117759495
+my,tfidf,tri,100,Logistic Regression,Fscore,0.416993798714
+my,tfidf,quad,10000,Dummy,Precision,0.00226757369615
+google,tfidf,tri,10000,Linear SVM,Score,0.468253968254
+my,justc,bi,all,Naive Bayes,Precision,0.0728143109095
+google,tfidf,quad,2000,Logistic Regression,Recall,0.444444444444
+my,tfidf,quad,100,Neural Net,Recall,0.420634920635
+google,tfidf,all,1000,RBF SVM,Recall,0.515873015873
+my,numoc,uni,all,Nearest Neighbors,Score,0.333333333333
+google,tfidf,uni,500,Naive Bayes,Recall,0.103174603175
+my,justc,bi,all,Naive Bayes,Recall,0.269841269841
+my,numoc,tri,all,Dummy,Fscore,0.0019536019536
+my,tfidf,bi,500,Naive Bayes,Recall,0.246031746032
+my,justc,tri,all,AdaBoost,Score,0.269841269841
+google,tfidf,bi,10000,Logistic Regression,Precision,0.380643166357
+my,tfidf,tri,100,Neural Net,Fscore,0.437306132708
+my,tfidf,bi,1000,Naive Bayes,Recall,0.246031746032
+my,tfidf,bi,10000,Nearest Neighbors,Recall,0.507936507937
+google,tfidf,all,2000,Logistic Regression,Fscore,0.445716398865
+google,tfidf,tri,10000,Neural Net,Score,0.484126984127
+my,tfidf,uni,5000,Dummy,Fscore,0.004329004329
+my,justc,tri,all,Dummy,Score,0.031746031746
+google,tfidf,all,100,Decision Tree,Score,0.412698412698
+google,tfidf,tri,500,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,quad,1000,Linear SVM,Score,0.452380952381
+google,tfidf,all,1000,Dummy,Precision,0.266124968506
+google,tfidf,tri,1000,Dummy,Recall,0.515873015873
+my,tfidf,quad,10,Decision Tree,Score,0.309523809524
+google,justc,bi,all,Naive Bayes,Precision,6.29881582263e-05
+google,tfidf,tri,10,AdaBoost,Recall,0.436507936508
+google,tfidf,tri,10,AdaBoost,Fscore,0.386243386243
+google,tfidf,bi,500,Random Forest,Score,0.515873015873
+google,tfidf,tri,5000,Random Forest,Fscore,0.343915343915
+google,tfidf,bi,500,AdaBoost,Fscore,0.41777345859
+my,tfidf,uni,2000,RBF SVM,Score,0.222222222222
+my,tfidf,quad,5000,Random Forest,Score,0.285714285714
+google,tfidf,bi,10000,Random Forest,Recall,0.515873015873
+my,numoc,bi,all,Logistic Regression,Recall,0.269841269841
+google,tfidf,quad,2000,Nearest Neighbors,Fscore,0.437551163023
+my,tfidf,all,5000,Naive Bayes,Score,0.253968253968
+google,tfidf,all,500,Logistic Regression,Fscore,0.449570255453
+google,tfidf,quad,100,AdaBoost,Recall,0.34126984127
+my,tfidf,bi,2000,Nearest Neighbors,Recall,0.507936507937
+my,tfidf,all,5000,RBF SVM,Precision,0.0493827160494
+google,tfidf,bi,500,Nearest Neighbors,Recall,0.47619047619
+google,tfidf,tri,500,Decision Tree,Score,0.420634920635
+google,tfidf,tri,2000,Random Forest,Precision,0.417050691244
+google,tfidf,quad,500,Nearest Neighbors,Recall,0.492063492063
+my,justc,bi,all,Nearest Neighbors,Score,0.15873015873
+google,tfidf,bi,2000,Naive Bayes,Precision,0.266124968506
+my,numoc,uni,all,Linear SVM,Recall,0.412698412698
+my,tfidf,bi,5000,AdaBoost,Precision,0.381540257404
+google,tfidf,quad,500,Decision Tree,Precision,0.382946927208
+my,tfidf,uni,500,Linear SVM,Fscore,0.468578258
+google,tfidf,all,500,RBF SVM,Fscore,0.351117759495
+my,justc,uni,all,Linear SVM,Recall,0.373015873016
+my,tfidf,tri,500,Naive Bayes,Score,0.253968253968
+google,tfidf,tri,1000,Naive Bayes,Precision,0.266124968506
+my,numoc,uni,all,Linear SVM,Precision,0.425885844021
+google,tfidf,tri,2000,Linear SVM,Precision,0.444227903814
+my,tfidf,all,2000,Linear SVM,Recall,0.452380952381
+google,tfidf,bi,500,Dummy,Score,0.515873015873
+google,tfidf,bi,100,AdaBoost,Precision,0.402647197493
+google,tfidf,all,2000,AdaBoost,Fscore,0.430189008166
+google,tfidf,quad,1000,Decision Tree,Fscore,0.416501081514
+my,tfidf,bi,500,RBF SVM,Precision,0.0493827160494
+my,tfidf,uni,2000,Logistic Regression,Fscore,0.389052904557
+google,tfidf,all,100,Random Forest,Recall,0.52380952381
+google,tfidf,quad,100,Logistic Regression,Fscore,0.366089899423
+google,tfidf,tri,5000,Neural Net,Precision,0.458380883217
+my,tfidf,uni,10000,Logistic Regression,Recall,0.404761904762
+google,tfidf,quad,5000,Decision Tree,Recall,0.412698412698
+google,tfidf,bi,500,Decision Tree,Recall,0.436507936508
+my,tfidf,bi,10,RBF SVM,Fscore,0.318486590424
+google,tfidf,bi,10,Linear SVM,Recall,0.515873015873
+google,tfidf,uni,5000,Random Forest,Score,0.5
+google,tfidf,tri,10000,Random Forest,Score,0.515873015873
+my,tfidf,bi,100,Naive Bayes,Recall,0.365079365079
+my,tfidf,quad,500,Logistic Regression,Score,0.452380952381
+my,tfidf,all,1000,Random Forest,Score,0.214285714286
+my,tfidf,tri,1000,Nearest Neighbors,Fscore,0.448338950474
+google,tfidf,all,100,Linear SVM,Recall,0.404761904762
+google,tfidf,all,100,Linear SVM,Fscore,0.331727135299
+my,tfidf,all,10000,Linear SVM,Recall,0.452380952381
+google,tfidf,tri,500,Random Forest,Precision,0.262096774194
+google,tfidf,all,100,Linear SVM,Precision,0.302417766819
+my,tfidf,bi,5000,Decision Tree,Score,0.301587301587
+my,tfidf,quad,5000,Neural Net,Precision,0.510225371211
+my,tfidf,uni,500,Naive Bayes,Precision,0.413608580447
+google,tfidf,tri,10000,Decision Tree,Score,0.436507936508
+my,tfidf,uni,5000,AdaBoost,Precision,0.378066378066
+google,tfidf,quad,1000,RBF SVM,Score,0.515873015873
+google,tfidf,tri,10,Naive Bayes,Precision,0.286122046749
+my,tfidf,all,10,Random Forest,Fscore,0.394341620148
+google,tfidf,all,10000,Dummy,Score,0.515873015873
+google,tfidf,tri,500,Nearest Neighbors,Fscore,0.419263640067
+google,tfidf,tri,5000,Linear SVM,Precision,0.444227903814
+google,tfidf,bi,10,Dummy,Precision,0.266124968506
+google,tfidf,uni,1000,RBF SVM,Recall,0.515873015873
+google,tfidf,tri,2000,Naive Bayes,Recall,0.515873015873
+google,tfidf,bi,500,Random Forest,Recall,0.515873015873
+google,tfidf,tri,10000,Decision Tree,Precision,0.366207184628
+google,tfidf,uni,5000,Dummy,Precision,0.266124968506
+my,tfidf,bi,100,Neural Net,Recall,0.468253968254
+google,tfidf,uni,1000,Decision Tree,Score,0.452380952381
+my,tfidf,all,1000,Decision Tree,Score,0.31746031746
+google,tfidf,uni,500,Neural Net,Recall,0.452380952381
+my,tfidf,uni,500,Nearest Neighbors,Precision,0.421742349252
+google,tfidf,tri,100,Random Forest,Score,0.515873015873
+google,tfidf,quad,5000,AdaBoost,Fscore,0.412366688229
+google,tfidf,bi,10,Logistic Regression,Precision,0.350718065004
+my,justc,tri,all,RBF SVM,Recall,0.031746031746
+my,numoc,bi,all,Dummy,Fscore,0.0019536019536
+google,justc,uni,all,Linear SVM,Fscore,0.370156010855
+my,tfidf,bi,5000,RBF SVM,Precision,0.0493827160494
+google,tfidf,all,1000,Naive Bayes,Score,0.515873015873
+my,tfidf,quad,10000,AdaBoost,Recall,0.420634920635
+google,tfidf,all,2000,Linear SVM,Score,0.460317460317
+my,tfidf,uni,10000,Decision Tree,Fscore,0.35116207456
+google,tfidf,quad,2000,Naive Bayes,Precision,0.266124968506
+google,justc,uni,all,Naive Bayes,Fscore,0.307219662058
+google,tfidf,quad,500,Linear SVM,Recall,0.436507936508
+my,tfidf,tri,2000,RBF SVM,Precision,0.0493827160494
+my,tfidf,tri,5000,Random Forest,Score,0.238095238095
+my,tfidf,quad,1000,AdaBoost,Recall,0.420634920635
+my,tfidf,quad,1000,Naive Bayes,Score,0.253968253968
+my,tfidf,uni,2000,Decision Tree,Fscore,0.348860549197
+google,tfidf,bi,2000,AdaBoost,Fscore,0.415808228053
+google,tfidf,uni,5000,Naive Bayes,Fscore,0.12484952422
+my,tfidf,all,10000,Decision Tree,Recall,0.309523809524
+my,tfidf,all,5000,RBF SVM,Score,0.222222222222
+google,tfidf,uni,5000,RBF SVM,Precision,0.266124968506
+my,tfidf,tri,10000,AdaBoost,Score,0.365079365079
+my,tfidf,all,5000,Neural Net,Precision,0.530245147194
+my,tfidf,uni,5000,RBF SVM,Recall,0.222222222222
+my,tfidf,quad,100,Nearest Neighbors,Precision,0.471357153973
+google,tfidf,tri,2000,Logistic Regression,Fscore,0.452785624971
+my,tfidf,uni,1000,RBF SVM,Precision,0.0493827160494
+my,justc,bi,all,Random Forest,Recall,0.269841269841
+google,tfidf,uni,500,AdaBoost,Recall,0.428571428571
+my,tfidf,bi,1000,Nearest Neighbors,Score,0.507936507937
+google,tfidf,all,100,Dummy,Fscore,0.351117759495
+my,tfidf,uni,10000,Naive Bayes,Precision,0.391536029617
+my,tfidf,tri,10,Logistic Regression,Fscore,0.353298143477
+google,tfidf,all,2000,Random Forest,Score,0.5
+google,tfidf,bi,10,RBF SVM,Score,0.5
+google,tfidf,all,500,Linear SVM,Fscore,0.44447752517
+my,tfidf,bi,100,AdaBoost,Score,0.396825396825
+google,tfidf,quad,500,Naive Bayes,Fscore,0.34753550543
+google,tfidf,quad,500,AdaBoost,Fscore,0.404399507139
+google,tfidf,bi,2000,Nearest Neighbors,Precision,0.380120327701
+google,tfidf,tri,2000,AdaBoost,Fscore,0.387676057592
+google,justc,tri,all,Dummy,Fscore,0.307219662058
+my,tfidf,all,10000,Decision Tree,Fscore,0.312071837994
+my,justc,tri,all,Dummy,Fscore,0.0019536019536
+google,tfidf,uni,5000,Logistic Regression,Precision,0.373748198955
+my,tfidf,uni,100,Neural Net,Fscore,0.444556200436
+google,tfidf,uni,10,Naive Bayes,Score,0.206349206349
+google,tfidf,uni,2000,Neural Net,Precision,0.382459702227
+google,tfidf,bi,500,Neural Net,Fscore,0.399168719212
+my,tfidf,all,5000,Dummy,Fscore,0.004329004329
+my,numoc,tri,all,AdaBoost,Score,0.269841269841
+google,tfidf,tri,10000,Nearest Neighbors,Precision,0.402207306485
+google,tfidf,quad,1000,Random Forest,Score,0.5
+google,tfidf,uni,5000,Random Forest,Fscore,0.343915343915
+google,tfidf,all,1000,Random Forest,Fscore,0.387590785106
+google,tfidf,tri,1000,Random Forest,Recall,0.515873015873
+google,tfidf,quad,2000,Dummy,Recall,0.515873015873
+my,tfidf,all,100,RBF SVM,Fscore,0.0808080808081
+google,tfidf,uni,2000,Naive Bayes,Score,0.0952380952381
+my,numoc,tri,all,AdaBoost,Precision,0.0728143109095
+my,numoc,uni,all,Decision Tree,Recall,0.293650793651
+google,tfidf,quad,500,Dummy,Score,0.515873015873
+google,tfidf,tri,5000,Nearest Neighbors,Precision,0.402207306485
+google,tfidf,all,100,Dummy,Recall,0.515873015873
+google,tfidf,bi,10,Random Forest,Recall,0.47619047619
+google,numoc,tri,all,Linear SVM,Precision,0.226757369615
+google,tfidf,quad,500,Naive Bayes,Precision,0.264126984127
+google,tfidf,tri,500,Random Forest,Fscore,0.343915343915
+google,tfidf,quad,100,Neural Net,Precision,0.445816186557
+my,tfidf,all,10,Neural Net,Precision,0.460562451101
+google,tfidf,tri,2000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,quad,500,Logistic Regression,Recall,0.452380952381
+my,tfidf,tri,2000,AdaBoost,Fscore,0.366064914226
+google,tfidf,bi,5000,Linear SVM,Score,0.420634920635
+google,tfidf,tri,500,Naive Bayes,Recall,0.515873015873
+google,tfidf,uni,10000,Neural Net,Recall,0.444444444444
+my,tfidf,bi,500,Decision Tree,Precision,0.361222422583
+google,tfidf,quad,2000,AdaBoost,Score,0.444444444444
+google,tfidf,bi,500,Dummy,Fscore,0.351117759495
+google,numoc,bi,all,Logistic Regression,Precision,0.226757369615
+google,tfidf,bi,500,Naive Bayes,Fscore,0.357310825565
+my,tfidf,tri,500,Nearest Neighbors,Precision,0.496744959245
+google,tfidf,quad,10,Naive Bayes,Score,0.0793650793651
+my,tfidf,tri,5000,Dummy,Recall,0.047619047619
+google,tfidf,bi,5000,Neural Net,Score,0.452380952381
+google,tfidf,all,5000,Neural Net,Recall,0.5
+my,tfidf,all,100,Neural Net,Fscore,0.489534256429
+my,tfidf,tri,500,Naive Bayes,Fscore,0.102873216797
+my,tfidf,tri,10000,Logistic Regression,Precision,0.487776071766
+my,tfidf,bi,10000,Linear SVM,Precision,0.442615107509
+google,tfidf,quad,10000,Logistic Regression,Score,0.444444444444
+google,tfidf,bi,10000,Random Forest,Precision,0.400303624275
+google,tfidf,bi,10,AdaBoost,Recall,0.428571428571
+my,tfidf,quad,2000,Decision Tree,Recall,0.325396825397
+my,justc,tri,all,Linear SVM,Recall,0.031746031746
+google,tfidf,all,10,Neural Net,Precision,0.327252112966
+my,tfidf,quad,10,Dummy,Fscore,0.004329004329
+google,tfidf,quad,5000,Nearest Neighbors,Score,0.492063492063
+my,tfidf,bi,10000,AdaBoost,Fscore,0.378548532893
+my,tfidf,tri,1000,Linear SVM,Fscore,0.423197751074
+my,tfidf,quad,10000,Nearest Neighbors,Score,0.428571428571
+my,tfidf,bi,100,RBF SVM,Recall,0.222222222222
+my,tfidf,all,10000,AdaBoost,Precision,0.43569344236
+my,tfidf,uni,100,Nearest Neighbors,Precision,0.418230142298
+google,tfidf,quad,2000,Random Forest,Score,0.531746031746
+my,tfidf,quad,10,Linear SVM,Recall,0.301587301587
+my,tfidf,uni,10,Nearest Neighbors,Score,0.436507936508
+my,tfidf,tri,500,Decision Tree,Score,0.349206349206
+google,tfidf,quad,1000,Naive Bayes,Precision,0.266124968506
+google,justc,bi,all,Naive Bayes,Recall,0.00793650793651
+my,tfidf,tri,10000,AdaBoost,Fscore,0.366064914226
+google,numoc,uni,all,Logistic Regression,Precision,0.338779956427
+google,tfidf,quad,10,Random Forest,Precision,0.336745595674
+my,numoc,bi,all,Decision Tree,Score,0.269841269841
+my,tfidf,all,1000,Linear SVM,Fscore,0.456827030508
+google,tfidf,uni,100,RBF SVM,Fscore,0.351117759495
+google,tfidf,quad,5000,RBF SVM,Precision,0.266124968506
+my,tfidf,bi,500,Naive Bayes,Score,0.246031746032
+my,justc,bi,all,AdaBoost,Recall,0.269841269841
+my,justc,tri,all,Decision Tree,Precision,0.0728143109095
+google,tfidf,uni,10000,Neural Net,Fscore,0.398900300861
+google,tfidf,all,500,Nearest Neighbors,Recall,0.507936507937
+google,tfidf,uni,2000,Nearest Neighbors,Score,0.460317460317
+my,tfidf,bi,10000,Nearest Neighbors,Precision,0.568701668702
+my,tfidf,uni,5000,Decision Tree,Precision,0.360713360713
+my,tfidf,tri,1000,Nearest Neighbors,Recall,0.452380952381
+my,tfidf,all,5000,Decision Tree,Recall,0.301587301587
+my,tfidf,all,100,Logistic Regression,Score,0.484126984127
+my,tfidf,bi,5000,Nearest Neighbors,Recall,0.507936507937
+google,tfidf,bi,500,Linear SVM,Precision,0.401080945199
+google,tfidf,all,10000,Dummy,Fscore,0.351117759495
+my,tfidf,uni,10000,Random Forest,Score,0.293650793651
+my,tfidf,uni,500,AdaBoost,Precision,0.388111711573
+google,tfidf,uni,10000,AdaBoost,Recall,0.428571428571
+my,tfidf,quad,500,Nearest Neighbors,Score,0.428571428571
+my,tfidf,uni,10,Linear SVM,Recall,0.293650793651
+google,tfidf,all,1000,Nearest Neighbors,Recall,0.507936507937
+google,tfidf,tri,5000,RBF SVM,Recall,0.515873015873
+google,tfidf,all,500,Naive Bayes,Precision,0.266124968506
+google,tfidf,tri,1000,Naive Bayes,Fscore,0.351117759495
+google,tfidf,all,500,Random Forest,Precision,0.262235449735
+my,tfidf,tri,5000,AdaBoost,Precision,0.392401098633
+google,tfidf,bi,500,Nearest Neighbors,Fscore,0.412772517019
+google,tfidf,quad,2000,Neural Net,Precision,0.395878427128
+google,tfidf,quad,10000,Nearest Neighbors,Precision,0.42659369787
+google,tfidf,all,10,Decision Tree,Fscore,0.397714375966
+google,tfidf,all,10,AdaBoost,Recall,0.436507936508
+google,tfidf,all,5000,Neural Net,Precision,0.45566893424
+google,tfidf,quad,10,AdaBoost,Recall,0.396825396825
+my,tfidf,tri,10,AdaBoost,Score,0.325396825397
+my,tfidf,uni,500,Dummy,Fscore,0.004329004329
+my,tfidf,uni,1000,AdaBoost,Fscore,0.402440645774
+google,justc,tri,all,Nearest Neighbors,Recall,0.47619047619
+my,tfidf,tri,5000,Logistic Regression,Fscore,0.427356122882
+my,tfidf,tri,10000,Decision Tree,Score,0.357142857143
+my,tfidf,all,10,Logistic Regression,Recall,0.404761904762
+google,tfidf,bi,2000,Naive Bayes,Fscore,0.351117759495
+my,tfidf,uni,100,Decision Tree,Score,0.373015873016
+google,tfidf,quad,500,Dummy,Precision,0.266124968506
+google,tfidf,bi,100,RBF SVM,Recall,0.515873015873
+google,tfidf,uni,500,Naive Bayes,Precision,0.309627200756
+my,tfidf,uni,10000,Decision Tree,Precision,0.358394132778
+google,numoc,tri,all,Linear SVM,Fscore,0.307219662058
+google,tfidf,all,100,Logistic Regression,Recall,0.388888888889
+google,tfidf,tri,10,Dummy,Fscore,0.351117759495
+my,tfidf,bi,1000,Nearest Neighbors,Precision,0.568701668702
+google,justc,uni,all,Nearest Neighbors,Precision,0.347011144883
+google,tfidf,uni,1000,Dummy,Precision,0.266124968506
+google,tfidf,tri,1000,Nearest Neighbors,Recall,0.47619047619
+my,numoc,uni,all,AdaBoost,Recall,0.388888888889
+my,tfidf,all,500,Nearest Neighbors,Recall,0.452380952381
+my,tfidf,quad,2000,Dummy,Precision,0.00226757369615
+my,tfidf,quad,100,Logistic Regression,Precision,0.49494047619
+my,tfidf,tri,10000,Decision Tree,Recall,0.357142857143
+google,tfidf,bi,1000,Neural Net,Score,0.460317460317
+my,tfidf,uni,2000,Nearest Neighbors,Score,0.31746031746
+google,tfidf,quad,100,Random Forest,Fscore,0.343915343915
+my,tfidf,tri,10,Nearest Neighbors,Precision,0.336433083955
+google,numoc,bi,all,Dummy,Precision,0.226757369615
+my,numoc,tri,all,Naive Bayes,Precision,0.0728143109095
+google,tfidf,uni,2000,Nearest Neighbors,Precision,0.439753021159
+my,justc,tri,all,Random Forest,Fscore,0.114682539683
+google,tfidf,quad,500,RBF SVM,Score,0.515873015873
+my,tfidf,bi,500,Random Forest,Precision,0.374542823856
+google,tfidf,bi,10000,Linear SVM,Score,0.412698412698
+my,tfidf,all,10,AdaBoost,Score,0.373015873016
+google,justc,uni,all,AdaBoost,Score,0.460317460317
+google,justc,uni,all,Random Forest,Fscore,0.325574021226
+google,tfidf,all,500,Linear SVM,Precision,0.437958548718
+my,tfidf,quad,5000,Linear SVM,Score,0.452380952381
+google,tfidf,bi,5000,Random Forest,Score,0.52380952381
+my,tfidf,bi,2000,Naive Bayes,Recall,0.246031746032
+my,tfidf,bi,1000,Naive Bayes,Precision,0.0634920634921
+my,tfidf,quad,5000,Naive Bayes,Score,0.253968253968
+google,tfidf,bi,10000,RBF SVM,Precision,0.266124968506
+google,justc,bi,all,Logistic Regression,Recall,0.47619047619
+google,tfidf,bi,100,Decision Tree,Recall,0.396825396825
+google,tfidf,tri,500,Decision Tree,Recall,0.420634920635
+google,tfidf,uni,10000,Nearest Neighbors,Precision,0.38088994339
+google,tfidf,all,10,Random Forest,Fscore,0.423059964727
+my,tfidf,all,5000,Nearest Neighbors,Score,0.452380952381
+my,tfidf,bi,100,Logistic Regression,Recall,0.444444444444
+my,tfidf,uni,100,RBF SVM,Fscore,0.0808080808081
+google,tfidf,tri,5000,AdaBoost,Recall,0.428571428571
+google,tfidf,tri,1000,Linear SVM,Recall,0.468253968254
+my,tfidf,bi,2000,Logistic Regression,Fscore,0.419404276199
+my,tfidf,quad,100,Neural Net,Precision,0.465246626026
+my,justc,uni,all,Random Forest,Precision,0.340651578319
+my,tfidf,all,100,Random Forest,Score,0.277777777778
+my,tfidf,uni,10,Nearest Neighbors,Fscore,0.449842864349
+google,tfidf,all,10,RBF SVM,Recall,0.5
+google,tfidf,tri,100,Decision Tree,Precision,0.344125992838
+my,tfidf,uni,1000,AdaBoost,Precision,0.43215208564
+google,tfidf,all,1000,Logistic Regression,Precision,0.451873229651
+google,tfidf,all,100,Logistic Regression,Fscore,0.358826274508
+my,tfidf,quad,10000,Random Forest,Precision,0.198319815561
+google,tfidf,bi,500,Dummy,Precision,0.266124968506
+google,tfidf,bi,5000,RBF SVM,Fscore,0.351117759495
+google,tfidf,uni,2000,Logistic Regression,Recall,0.428571428571
+google,tfidf,uni,10000,RBF SVM,Precision,0.266124968506
+google,tfidf,tri,10,Nearest Neighbors,Fscore,0.43597083207
+google,tfidf,quad,2000,Neural Net,Score,0.436507936508
+my,tfidf,uni,10000,Neural Net,Recall,0.47619047619
+google,tfidf,uni,10000,Neural Net,Precision,0.37018999519
+my,tfidf,quad,2000,Random Forest,Fscore,0.181587131734
+google,tfidf,all,2000,RBF SVM,Precision,0.266124968506
+my,justc,uni,all,AdaBoost,Precision,0.290249433107
+my,tfidf,tri,10,AdaBoost,Recall,0.325396825397
+my,tfidf,bi,2000,Dummy,Fscore,0.004329004329
+google,tfidf,bi,1000,Dummy,Fscore,0.351117759495
+google,tfidf,tri,500,RBF SVM,Score,0.515873015873
+google,tfidf,quad,1000,Nearest Neighbors,Score,0.492063492063
+my,tfidf,uni,10,Dummy,Precision,0.00226757369615
+google,tfidf,all,1000,Neural Net,Fscore,0.45658856135
+google,justc,tri,all,Neural Net,Recall,0.47619047619
+google,numoc,tri,all,Nearest Neighbors,Precision,0.226757369615
+my,tfidf,tri,10000,Decision Tree,Fscore,0.365686628187
+my,justc,uni,all,Nearest Neighbors,Recall,0.277777777778
+my,tfidf,tri,2000,Naive Bayes,Fscore,0.102873216797
+my,tfidf,uni,1000,Logistic Regression,Precision,0.450171420384
+google,numoc,bi,all,Neural Net,Fscore,0.307219662058
+my,tfidf,uni,2000,Nearest Neighbors,Precision,0.40947845938
+my,tfidf,uni,5000,Random Forest,Precision,0.461693177447
+my,tfidf,uni,10,Logistic Regression,Recall,0.396825396825
+my,tfidf,quad,500,Linear SVM,Score,0.452380952381
+google,tfidf,bi,1000,Naive Bayes,Recall,0.507936507937
+my,tfidf,quad,500,Naive Bayes,Fscore,0.103528460216
+google,justc,uni,all,RBF SVM,Precision,0.417377235559
+my,tfidf,tri,100,AdaBoost,Recall,0.404761904762
+my,justc,uni,all,AdaBoost,Recall,0.31746031746
+google,tfidf,bi,500,Naive Bayes,Score,0.515873015873
+google,tfidf,bi,5000,Linear SVM,Precision,0.401080945199
+my,tfidf,tri,500,RBF SVM,Precision,0.0493827160494
+my,tfidf,all,5000,RBF SVM,Fscore,0.0808080808081
+google,tfidf,all,10000,RBF SVM,Recall,0.515873015873
+google,tfidf,all,10000,Random Forest,Precision,0.570009033424
+google,tfidf,uni,10000,Linear SVM,Recall,0.436507936508
+google,tfidf,all,10000,AdaBoost,Fscore,0.434234660726
+my,tfidf,all,100,Nearest Neighbors,Recall,0.373015873016
+google,tfidf,tri,10,Logistic Regression,Fscore,0.397139457894
+google,tfidf,all,500,Linear SVM,Score,0.468253968254
+google,tfidf,bi,5000,Naive Bayes,Score,0.515873015873
+my,tfidf,tri,10,Neural Net,Fscore,0.376911167052
+google,tfidf,quad,1000,Logistic Regression,Score,0.444444444444
+google,tfidf,uni,10000,Logistic Regression,Score,0.412698412698
+google,tfidf,quad,2000,Neural Net,Recall,0.436507936508
+my,tfidf,uni,2000,Neural Net,Recall,0.460317460317
+google,tfidf,tri,10000,Neural Net,Fscore,0.450475146199
+my,tfidf,tri,10,Decision Tree,Fscore,0.398504539211
+google,tfidf,bi,100,Linear SVM,Fscore,0.373648846041
+google,tfidf,all,2000,Nearest Neighbors,Recall,0.507936507937
+my,numoc,bi,all,RBF SVM,Fscore,0.0019536019536
+google,tfidf,quad,10000,RBF SVM,Precision,0.266124968506
+my,tfidf,all,500,Nearest Neighbors,Precision,0.527813722107
+google,tfidf,quad,2000,Decision Tree,Recall,0.428571428571
+my,tfidf,quad,500,Random Forest,Fscore,0.221404433435
+google,tfidf,bi,100,AdaBoost,Fscore,0.39577009336
+google,tfidf,bi,2000,Logistic Regression,Recall,0.460317460317
+google,justc,bi,all,Nearest Neighbors,Precision,0.226757369615
+google,tfidf,uni,5000,Decision Tree,Precision,0.373638344227
+google,justc,tri,all,RBF SVM,Score,0.47619047619
+google,tfidf,bi,100,Naive Bayes,Fscore,0.19415911118
+google,tfidf,quad,10000,Neural Net,Score,0.444444444444
+my,numoc,uni,all,AdaBoost,Precision,0.493539853217
+my,numoc,tri,all,Neural Net,Precision,0.0728143109095
+my,tfidf,tri,5000,Naive Bayes,Fscore,0.102873216797
+google,tfidf,uni,5000,Neural Net,Recall,0.444444444444
+google,tfidf,tri,5000,Random Forest,Precision,0.262096774194
+my,tfidf,uni,500,Linear SVM,Score,0.492063492063
+my,tfidf,uni,10000,Decision Tree,Score,0.357142857143
+google,tfidf,tri,1000,Neural Net,Precision,0.450736763237
+google,tfidf,uni,500,AdaBoost,Score,0.428571428571
+my,tfidf,all,2000,AdaBoost,Fscore,0.403490084448

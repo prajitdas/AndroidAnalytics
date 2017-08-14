@@ -81,7 +81,7 @@ def doClassify(X,y):
 			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred)
-			prf1sDict["testConfMat"] = list(np.ndarray.flatten(confusion_matrix(y_test, y_pred)))
+			prf1sDict["testConfMat"] = confusion_matrix(y_test, y_pred).tolist()
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
@@ -89,7 +89,7 @@ def doClassify(X,y):
 			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
 			score_=clf.score(X_train, y_train)
 			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
-			prf1sDict["trainConfMat"] = list(np.ndarray.flatten(confusion_matrix(y_train, y_pred_)))
+			prf1sDict["trainConfMat"] = confusion_matrix(y_train, y_pred_).tolist()
 			prf1sDict["trainScore"] = score_
 			prf1sDict["trainPrecision"] = precision_
 			prf1sDict["trainRecall"] = recall_
@@ -136,6 +136,7 @@ def runClassification(permissionsList,allAppsDict,category):
 		y.append(allAppsDict[app][category])
 
 	return X,y
+
 def pairedSampleTTest(X,y):
 	print "Paired Sample T-Test"
 
@@ -148,14 +149,20 @@ def pairedSampleTTest(X,y):
 		else:
 			to_do_list.append(X[index])
 		index += 1
-	
+
+	pValues = 0.0
 	lengthToUse = min(len(alarm_clock), len(to_do_list))
 	for loopCount in range(100):
 		index = np.random.choice(lengthToUse)
 		a = alarm_clock[index]
 		b = to_do_list[index]
-		paired_sample = stats.ttest_rel(a,b)
-		print "The t-statistic is %.3f and the p-value is %.3f." % paired_sample
+		tstat, pval = stats.ttest_rel(a,b)
+		# print type(pval)
+		pValues += pval
+		# print "Index chosen:", index
+		# print "The t-statistic is", tstat, "and the p-value is", pval
+
+	print "Average p-value:", pValues/100.0
 
 def featureImportance(X,y):
 	# Build a forest and compute the feature importances
@@ -178,15 +185,15 @@ def main(argv):
 	permissionsList, allAppsDict = extractData(json.loads(open("data.json","r").read()))
 	# print permissionsList
 
-	X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
-	result = doClassify(X,y)
-	open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
-	print "Done with google play categories"
+	# X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
+	# result = doClassify(X,y)
+	# open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
+	# print "Done with google play categories"
 
 	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
-	result = doClassify(X,y)
-	open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
-	print "Done with annotated categories"
+	# result = doClassify(X,y)
+	# open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
+	# print "Done with annotated categories"
 
 	pairedSampleTTest(X,y)
 	featureImportance(X,y)

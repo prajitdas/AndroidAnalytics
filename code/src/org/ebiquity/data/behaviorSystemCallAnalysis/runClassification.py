@@ -41,12 +41,6 @@ my=1
 syscalls=2
 testRatio=0.25
 
-# names=["Linear SVM","Neural Net","Dummy"]
-# classifiers = [
-# 	SVC(kernel="linear", C=0.025),
-# 	MLPClassifier(alpha=1,solver='sgd',activation='tanh'),
-# 	DummyClassifier(strategy='most_frequent')]
-
 names = ["Nearest Neighbors",
 		 "Linear SVM",
 		 "RBF SVM",

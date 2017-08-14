@@ -36,26 +36,26 @@ logging.basicConfig(filename="classification.log",level=logging.DEBUG)
 
 testRatio=0.25
 
-names = ["Nearest Neighbors",
+names = ["Dummy",
 		 "Linear SVM",
-		 "RBF SVM",
+		 "Nearest Neighbors",
 		 "Decision Tree",
 		 "Random Forest",
+		 "RBF SVM",
 		 "Neural Net",
 		 "AdaBoost",
 		 "Naive Bayes",
-		 "Logistic Regression",
-		 "Dummy"]
-classifiers = [KNeighborsClassifier(3),
+		 "Logistic Regression"]		 
+classifiers = [DummyClassifier(strategy="most_frequent"),
 				SVC(kernel="linear", C=1),
-				SVC(kernel="rbf", C=1),
+				KNeighborsClassifier(3),
 				DecisionTreeClassifier(max_depth=5),
 				RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+				SVC(kernel="poly", C=1),
 				MLPClassifier(alpha=1),
 				AdaBoostClassifier(),
 				GaussianNB(),
-				LogisticRegression(solver="sag"),
-				DummyClassifier(strategy="most_frequent")]
+				LogisticRegression(multi_class='multinomial',solver='lbfgs')]
 
 def doClassify(X,y):
 	resultDict={}
@@ -144,9 +144,10 @@ def pairedSampleTTest(X,y):
 	to_do_list = []
 	index = 0
 	for behaviorCat in y:
+		print behaviorCat
 		if behaviorCat == "alarm_clock":
 			alarm_clock.append(X[index])
-		else:
+		elif behaviorCat == "to_do_list":
 			to_do_list.append(X[index])
 		index += 1
 

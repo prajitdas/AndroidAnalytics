@@ -149,7 +149,7 @@ def pairedSampleTTest(X,y):
 			to_do_list.append(X[index])
 		index += 1
 	
-	lengthToUse = max(len(alarm_clock), len(to_do_list))
+	lengthToUse = min(len(alarm_clock), len(to_do_list))
 	for loopCount in range(100):
 		index = np.random.choice(lengthToUse)
 		a = alarm_clock[index]

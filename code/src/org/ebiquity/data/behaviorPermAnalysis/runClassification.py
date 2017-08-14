@@ -178,6 +178,11 @@ def main(argv):
 	permissionsList, allAppsDict = extractData(json.loads(open("data.json","r").read()))
 	# print permissionsList
 
+	X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
+	result = doClassify(X,y)
+	open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
+	print "Done with google play categories"
+
 	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
 	result = doClassify(X,y)
 	open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
@@ -185,11 +190,6 @@ def main(argv):
 
 	pairedSampleTTest(X,y)
 	featureImportance(X,y)
-
-	X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
-	result = doClassify(X,y)
-	open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
-	print "Done with google play categories"
 
 	executionTime = str((time.time()-startTime)/60)
 	print "Execution time was: "+executionTime+" minutes"

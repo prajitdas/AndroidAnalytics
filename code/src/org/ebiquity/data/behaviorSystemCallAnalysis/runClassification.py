@@ -530,6 +530,9 @@ def main(argv):
 	result={}
 	result["results"] = output
 	open("results.json","w").write(json.dumps(result, indent=4))
+
+	anovaTest(corpus["corpus"], corpus["my"])
+	
 	executionTime = (time.time()-startTime)
 	print 'Execution time was: '+format_seconds_to_hhmmss(executionTime)
 

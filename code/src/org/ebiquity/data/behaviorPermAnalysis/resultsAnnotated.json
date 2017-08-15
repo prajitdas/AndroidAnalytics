@@ -1150,10 +1150,10 @@
                 18
             ]
         ], 
-        "testScore": 0.7089552238805971, 
-        "testFscore": 0.6920920292843638, 
-        "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.75      0.84      0.79        32\n        battery_saver       1.00      0.94      0.97        18\n        drink_recipes       0.00      0.00      0.00         3\n        file_explorer       0.70      0.73      0.71        22\n       lunar_calendar       0.00      0.00      0.00         2\n           pdf_reader       0.00      0.00      0.00         5\nscientific_calculator       0.91      0.56      0.69        18\n           to_do_list       0.50      0.70      0.58        27\n       video_playback       0.00      0.00      0.00         1\n        wifi_analyzer       1.00      1.00      1.00         6\n\n          avg / total       0.70      0.71      0.69       134\n", 
-        "testRecall": 0.7089552238805971, 
+        "testScore": 0.6940298507462687, 
+        "testFscore": 0.6727451557300337, 
+        "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.77      0.84      0.81        32\n        battery_saver       0.85      0.94      0.89        18\n        drink_recipes       0.00      0.00      0.00         3\n        file_explorer       0.67      0.64      0.65        22\n       lunar_calendar       0.00      0.00      0.00         2\n           pdf_reader       0.00      0.00      0.00         5\nscientific_calculator       0.92      0.61      0.73        18\n           to_do_list       0.49      0.67      0.56        27\n       video_playback       0.00      0.00      0.00         1\n        wifi_analyzer       0.86      1.00      0.92         6\n\n          avg / total       0.67      0.69      0.67       134\n", 
+        "testRecall": 0.6940298507462687, 
         "testConfMat": [
             [
                 27, 
@@ -1195,13 +1195,13 @@
                 2, 
                 0, 
                 0, 
-                16, 
+                14, 
                 1, 
                 0, 
                 0, 
-                3, 
+                4, 
                 0, 
-                0
+                1
             ], 
             [
                 0, 
@@ -1234,20 +1234,20 @@
                 0, 
                 0, 
                 0, 
-                10, 
-                8, 
+                11, 
+                7, 
                 0, 
                 0
             ], 
             [
-                6, 
-                0, 
+                5, 
+                3, 
                 0, 
                 1, 
-                1, 
                 0, 
                 0, 
-                19, 
+                0, 
+                18, 
                 0, 
                 0
             ], 
@@ -1276,7 +1276,7 @@
                 6
             ]
         ], 
-        "testPrecision": 0.6952834641024128, 
+        "testPrecision": 0.6673908450027852, 
         "trainRecall": 0.805
     }, 
     "RBF SVM": {
@@ -1536,10 +1536,10 @@
         "trainRecall": 0.73
     }, 
     "AdaBoost": {
-        "trainScore": 0.7525, 
-        "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.87      0.88      0.87        96\n        battery_saver       0.97      0.80      0.88        75\n        drink_recipes       0.57      0.67      0.62        12\n        file_explorer       0.71      0.84      0.77        50\n       lunar_calendar       0.67      0.20      0.31        10\n           pdf_reader       0.44      0.24      0.31        17\nscientific_calculator       0.83      0.70      0.76        43\n           to_do_list       0.50      0.65      0.57        75\n       video_playback       1.00      1.00      1.00         4\n        wifi_analyzer       1.00      1.00      1.00        18\n\n          avg / total       0.77      0.75      0.75       400\n", 
-        "trainFscore": 0.7515659806535316, 
-        "trainPrecision": 0.7693014613288213, 
+        "trainScore": 0.755, 
+        "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.87      0.88      0.87        96\n        battery_saver       0.94      0.81      0.87        75\n        drink_recipes       0.70      0.58      0.64        12\n        file_explorer       0.71      0.84      0.77        50\n       lunar_calendar       0.67      0.20      0.31        10\n           pdf_reader       0.44      0.24      0.31        17\nscientific_calculator       0.83      0.70      0.76        43\n           to_do_list       0.51      0.67      0.57        75\n       video_playback       1.00      1.00      1.00         4\n        wifi_analyzer       1.00      1.00      1.00        18\n\n          avg / total       0.77      0.76      0.75       400\n", 
+        "trainFscore": 0.7528993796407087, 
+        "trainPrecision": 0.7686154994412465, 
         "trainConfMat": [
             [
                 84, 
@@ -1555,8 +1555,8 @@
             ], 
             [
                 2, 
-                60, 
-                1, 
+                61, 
+                0, 
                 1, 
                 1, 
                 0, 
@@ -1567,8 +1567,8 @@
             ], 
             [
                 0, 
-                0, 
-                8, 
+                1, 
+                7, 
                 0, 
                 0, 
                 0, 
@@ -1603,8 +1603,8 @@
             ], 
             [
                 1, 
-                0, 
                 1, 
+                0, 
                 9, 
                 0, 
                 4, 
@@ -1628,12 +1628,12 @@
             [
                 10, 
                 0, 
-                4, 
+                3, 
                 6, 
                 0, 
                 1, 
                 5, 
-                49, 
+                50, 
                 0, 
                 0
             ], 
@@ -1663,8 +1663,8 @@
             ]
         ], 
         "testScore": 0.6716417910447762, 
-        "testFscore": 0.6606427287983211, 
-        "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.74      0.88      0.80        32\n        battery_saver       0.75      0.83      0.79        18\n        drink_recipes       0.33      0.33      0.33         3\n        file_explorer       0.65      0.59      0.62        22\n       lunar_calendar       0.00      0.00      0.00         2\n           pdf_reader       0.00      0.00      0.00         5\nscientific_calculator       0.92      0.61      0.73        18\n           to_do_list       0.52      0.59      0.55        27\n       video_playback       0.00      0.00      0.00         1\n        wifi_analyzer       1.00      1.00      1.00         6\n\n          avg / total       0.66      0.67      0.66       134\n", 
+        "testFscore": 0.6594160685771596, 
+        "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.74      0.88      0.80        32\n        battery_saver       0.71      0.83      0.77        18\n        drink_recipes       0.50      0.33      0.40         3\n        file_explorer       0.65      0.59      0.62        22\n       lunar_calendar       0.00      0.00      0.00         2\n           pdf_reader       0.00      0.00      0.00         5\nscientific_calculator       0.92      0.61      0.73        18\n           to_do_list       0.52      0.59      0.55        27\n       video_playback       0.00      0.00      0.00         1\n        wifi_analyzer       1.00      1.00      1.00         6\n\n          avg / total       0.66      0.67      0.66       134\n", 
         "testRecall": 0.6716417910447762, 
         "testConfMat": [
             [
@@ -1717,8 +1717,8 @@
             ], 
             [
                 0, 
-                0, 
                 1, 
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1788,8 +1788,8 @@
                 6
             ]
         ], 
-        "testPrecision": 0.6627942629805134, 
-        "trainRecall": 0.7525
+        "testPrecision": 0.6617281648994899, 
+        "trainRecall": 0.755
     }, 
     "Logistic Regression": {
         "trainScore": 0.785, 
@@ -2048,52 +2048,28 @@
         "trainRecall": 0.785
     }, 
     "Random Forest": {
-        "trainScore": 0.4675, 
-        "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.34      0.94      0.50        96\n        battery_saver       0.90      0.63      0.74        75\n        drink_recipes       0.00      0.00      0.00        12\n        file_explorer       1.00      0.30      0.46        50\n       lunar_calendar       0.00      0.00      0.00        10\n           pdf_reader       0.00      0.00      0.00        17\nscientific_calculator       1.00      0.02      0.05        43\n           to_do_list       0.52      0.45      0.48        75\n       video_playback       0.00      0.00      0.00         4\n        wifi_analyzer       0.00      0.00      0.00        18\n\n          avg / total       0.58      0.47      0.41       400\n", 
-        "trainFscore": 0.41112074737720566, 
-        "trainPrecision": 0.5797650704558599, 
+        "trainScore": 0.49, 
+        "trainReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.41      0.91      0.56        96\n        battery_saver       0.89      0.65      0.75        75\n        drink_recipes       0.00      0.00      0.00        12\n        file_explorer       1.00      0.08      0.15        50\n       lunar_calendar       0.00      0.00      0.00        10\n           pdf_reader       0.00      0.00      0.00        17\nscientific_calculator       1.00      0.02      0.05        43\n           to_do_list       0.43      0.71      0.53        75\n       video_playback       0.00      0.00      0.00         4\n        wifi_analyzer       1.00      0.11      0.20        18\n\n          avg / total       0.62      0.49      0.41       400\n", 
+        "trainFscore": 0.4083350852796873, 
+        "trainPrecision": 0.6222566770356566, 
         "trainConfMat": [
             [
-                90, 
-                2, 
+                87, 
                 0, 
                 0, 
                 0, 
                 0, 
                 0, 
-                4, 
                 0, 
-                0
-            ], 
-            [
-                26, 
-                47, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                2, 
+                9, 
                 0, 
                 0
             ], 
             [
-                12, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0
-            ], 
-            [
-                21, 
-                3, 
-                0, 
                 15, 
+                49, 
+                0, 
+                0, 
                 0, 
                 0, 
                 0, 
@@ -2102,172 +2078,22 @@
                 0
             ], 
             [
-                8, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                2, 
-                0, 
-                0
-            ], 
-            [
-                14, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                3, 
-                0, 
-                0
-            ], 
-            [
-                34, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                1, 
-                8, 
-                0, 
-                0
-            ], 
-            [
-                41, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                34, 
-                0, 
-                0
-            ], 
-            [
-                4, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0
-            ], 
-            [
-                16, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                2, 
-                0, 
-                0
-            ]
-        ], 
-        "testScore": 0.4253731343283582, 
-        "testFscore": 0.345626917481268, 
-        "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.32      0.88      0.47        32\n        battery_saver       0.93      0.78      0.85        18\n        drink_recipes       0.00      0.00      0.00         3\n        file_explorer       1.00      0.09      0.17        22\n       lunar_calendar       0.00      0.00      0.00         2\n           pdf_reader       0.00      0.00      0.00         5\nscientific_calculator       0.00      0.00      0.00        18\n           to_do_list       0.43      0.48      0.46        27\n       video_playback       0.00      0.00      0.00         1\n        wifi_analyzer       0.00      0.00      0.00         6\n\n          avg / total       0.45      0.43      0.35       134\n", 
-        "testRecall": 0.4253731343283582, 
-        "testConfMat": [
-            [
-                28, 
+                6, 
                 1, 
                 0, 
                 0, 
                 0, 
                 0, 
                 0, 
-                3, 
+                5, 
                 0, 
                 0
             ], 
             [
-                4, 
-                14, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0
-            ], 
-            [
-                1, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                2, 
-                0, 
-                0
-            ], 
-            [
-                16, 
-                0, 
-                0, 
-                2, 
-                0, 
-                0, 
-                0, 
+                29, 
                 4, 
                 0, 
-                0
-            ], 
-            [
-                2, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0
-            ], 
-            [
                 4, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                1, 
-                0, 
-                0
-            ], 
-            [
-                14, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                4, 
-                0, 
-                0
-            ], 
-            [
-                14, 
-                0, 
-                0, 
-                0, 
                 0, 
                 0, 
                 0, 
@@ -2276,6 +2102,180 @@
                 0
             ], 
             [
+                6, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                4, 
+                0, 
+                0
+            ], 
+            [
+                11, 
+                1, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                5, 
+                0, 
+                0
+            ], 
+            [
+                18, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                1, 
+                24, 
+                0, 
+                0
+            ], 
+            [
+                22, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                53, 
+                0, 
+                0
+            ], 
+            [
+                4, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0
+            ], 
+            [
+                16, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                2
+            ]
+        ], 
+        "testScore": 0.4701492537313433, 
+        "testFscore": 0.39119761148571897, 
+        "testReport": "                       precision    recall  f1-score   support\n\n          alarm_clock       0.40      0.81      0.54        32\n        battery_saver       0.80      0.89      0.84        18\n        drink_recipes       0.00      0.00      0.00         3\n        file_explorer       0.71      0.23      0.34        22\n       lunar_calendar       0.00      0.00      0.00         2\n           pdf_reader       0.00      0.00      0.00         5\nscientific_calculator       0.00      0.00      0.00        18\n           to_do_list       0.38      0.59      0.46        27\n       video_playback       0.00      0.00      0.00         1\n        wifi_analyzer       0.00      0.00      0.00         6\n\n          avg / total       0.40      0.47      0.39       134\n", 
+        "testRecall": 0.4701492537313433, 
+        "testConfMat": [
+            [
+                26, 
+                0, 
+                0, 
+                1, 
+                0, 
+                0, 
+                0, 
+                5, 
+                0, 
+                0
+            ], 
+            [
+                0, 
+                16, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                2, 
+                0, 
+                0
+            ], 
+            [
+                0, 
+                1, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                2, 
+                0, 
+                0
+            ], 
+            [
+                10, 
+                2, 
+                0, 
+                5, 
+                0, 
+                0, 
+                0, 
+                5, 
+                0, 
+                0
+            ], 
+            [
+                0, 
+                1, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                1, 
+                0, 
+                0
+            ], 
+            [
+                4, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                1, 
+                0, 
+                0
+            ], 
+            [
+                8, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                10, 
+                0, 
+                0
+            ], 
+            [
+                10, 
+                0, 
+                0, 
+                1, 
+                0, 
+                0, 
+                0, 
+                16, 
+                0, 
+                0
+            ], 
+            [
                 1, 
                 0, 
                 0, 
@@ -2288,20 +2288,20 @@
                 0
             ], 
             [
-                3, 
+                6, 
                 0, 
                 0, 
                 0, 
                 0, 
                 0, 
                 0, 
-                3, 
+                0, 
                 0, 
                 0
             ]
         ], 
-        "testPrecision": 0.45372276548293017, 
-        "trainRecall": 0.4675
+        "testPrecision": 0.3970149253731344, 
+        "trainRecall": 0.49
     }, 
     "Nearest Neighbors": {
         "trainScore": 0.635, 

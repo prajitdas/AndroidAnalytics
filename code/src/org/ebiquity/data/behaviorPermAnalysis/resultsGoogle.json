@@ -711,10 +711,10 @@
         "trainRecall": 0.005
     }, 
     "Decision Tree": {
-        "trainScore": 0.63, 
-        "trainReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         1\nbooks_n_reference       1.00      0.11      0.20         9\n         business       1.00      0.60      0.75         5\n    communication       1.00      0.25      0.40         4\n        education       0.67      0.22      0.33         9\n    entertainment       0.00      0.00      0.00         5\n health_n_fitness       1.00      0.75      0.86         4\n libraries_n_demo       1.00      1.00      1.00         1\n        lifestyle       1.00      0.22      0.36        41\n    media_n_video       1.00      1.00      1.00         3\n          medical       0.25      1.00      0.40         2\n    music_n_audio       0.86      0.86      0.86         7\n news_n_magazines       0.00      0.00      0.00         1\n  personalization       0.88      0.54      0.67        13\n     productivity       0.50      0.45      0.47        91\n         shopping       0.00      0.00      0.00         1\n           social       1.00      1.00      1.00         1\n            tools       0.64      0.86      0.73       199\n   travel_n_local       0.00      0.00      0.00         2\n\n      avg / total       0.66      0.63      0.59       400\n", 
-        "trainFscore": 0.5947495163529997, 
-        "trainPrecision": 0.6603634259259259, 
+        "trainScore": 0.6275, 
+        "trainReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         1\nbooks_n_reference       1.00      0.11      0.20         9\n         business       1.00      0.60      0.75         5\n    communication       1.00      0.25      0.40         4\n        education       0.67      0.22      0.33         9\n    entertainment       0.00      0.00      0.00         5\n health_n_fitness       1.00      0.75      0.86         4\n libraries_n_demo       1.00      1.00      1.00         1\n        lifestyle       1.00      0.22      0.36        41\n    media_n_video       1.00      1.00      1.00         3\n          medical       0.25      1.00      0.40         2\n    music_n_audio       0.86      0.86      0.86         7\n news_n_magazines       0.00      0.00      0.00         1\n  personalization       0.88      0.54      0.67        13\n     productivity       0.49      0.44      0.47        91\n         shopping       0.00      0.00      0.00         1\n           social       1.00      1.00      1.00         1\n            tools       0.63      0.86      0.73       199\n   travel_n_local       0.00      0.00      0.00         2\n\n      avg / total       0.66      0.63      0.59       400\n", 
+        "trainFscore": 0.5919547083009354, 
+        "trainPrecision": 0.6577896365769214, 
         "trainConfMat": [
             [
                 0, 
@@ -1062,10 +1062,10 @@
                 0, 
                 0, 
                 0, 
-                41, 
+                40, 
                 0, 
                 0, 
-                48, 
+                49, 
                 0
             ], 
             [
@@ -1157,12 +1157,13 @@
                 0
             ]
         ], 
-        "testScore": 0.4552238805970149, 
-        "testFscore": 0.40875594685492567, 
-        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n        lifestyle       0.00      0.00      0.00         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       0.50      1.00      0.67         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.39      0.27      0.32        45\n           social       0.00      0.00      0.00         1\n            tools       0.53      0.75      0.62        64\n\n      avg / total       0.39      0.46      0.41       134\n", 
-        "testRecall": 0.4552238805970149, 
+        "testScore": 0.4626865671641791, 
+        "testFscore": 0.4200188395003791, 
+        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n        lifestyle       0.00      0.00      0.00         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       0.50      1.00      0.67         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.41      0.29      0.34        45\n           social       0.00      0.00      0.00         1\n            tools       0.55      0.75      0.63        64\n\n      avg / total       0.40      0.46      0.42       134\n", 
+        "testRecall": 0.4626865671641791, 
         "testConfMat": [
             [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1179,6 +1180,7 @@
                 1
             ], 
             [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1206,11 +1208,13 @@
                 0, 
                 0, 
                 0, 
+                0, 
                 1, 
                 0, 
                 0
             ], 
             [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1238,6 +1242,7 @@
                 0, 
                 0, 
                 0, 
+                0, 
                 1, 
                 0, 
                 1
@@ -1254,11 +1259,30 @@
                 0, 
                 0, 
                 0, 
+                0, 
                 2, 
                 0, 
                 0
             ], 
             [
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0
+            ], 
+            [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1286,11 +1310,13 @@
                 0, 
                 0, 
                 0, 
+                0, 
                 1, 
                 0, 
                 0
             ], 
             [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1316,6 +1342,7 @@
                 0, 
                 0, 
                 0, 
+                0, 
                 1, 
                 0, 
                 0, 
@@ -1323,6 +1350,7 @@
                 0
             ], 
             [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1345,16 +1373,18 @@
                 1, 
                 0, 
                 0, 
-                0, 
+                1, 
                 0, 
                 1, 
                 1, 
-                4, 
-                12, 
+                1, 
+                3, 
+                13, 
                 0, 
-                26
+                24
             ], 
             [
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1376,6 +1406,7 @@
                 0, 
                 0, 
                 1, 
+                0, 
                 0, 
                 0, 
                 0, 
@@ -1387,8 +1418,8 @@
                 48
             ]
         ], 
-        "testPrecision": 0.3884528968062911, 
-        "trainRecall": 0.63
+        "testPrecision": 0.4006741858887381, 
+        "trainRecall": 0.6275
     }, 
     "Naive Bayes": {
         "trainScore": 0.3825, 
@@ -2881,10 +2912,10 @@
         "trainRecall": 0.6225
     }, 
     "Neural Net": {
-        "trainScore": 0.7525, 
-        "trainReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         1\nbooks_n_reference       1.00      0.22      0.36         9\n         business       1.00      0.60      0.75         5\n    communication       1.00      0.25      0.40         4\n        education       1.00      0.11      0.20         9\n    entertainment       0.00      0.00      0.00         5\n health_n_fitness       1.00      0.75      0.86         4\n libraries_n_demo       0.00      0.00      0.00         1\n        lifestyle       0.92      0.56      0.70        41\n    media_n_video       1.00      1.00      1.00         3\n          medical       0.00      0.00      0.00         2\n    music_n_audio       0.86      0.86      0.86         7\n news_n_magazines       0.00      0.00      0.00         1\n  personalization       1.00      0.46      0.63        13\n     productivity       0.75      0.68      0.71        91\n         shopping       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         1\n            tools       0.72      0.96      0.82       199\n   travel_n_local       0.00      0.00      0.00         2\n\n      avg / total       0.75      0.75      0.72       400\n", 
-        "trainFscore": 0.7199193179949064, 
-        "trainPrecision": 0.7539672026451671, 
+        "trainScore": 0.7475, 
+        "trainReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         1\nbooks_n_reference       1.00      0.11      0.20         9\n         business       1.00      0.60      0.75         5\n    communication       1.00      0.25      0.40         4\n        education       1.00      0.11      0.20         9\n    entertainment       0.00      0.00      0.00         5\n health_n_fitness       1.00      0.75      0.86         4\n libraries_n_demo       1.00      1.00      1.00         1\n        lifestyle       0.92      0.56      0.70        41\n    media_n_video       1.00      1.00      1.00         3\n          medical       0.00      0.00      0.00         2\n    music_n_audio       0.86      0.86      0.86         7\n news_n_magazines       0.00      0.00      0.00         1\n  personalization       1.00      0.46      0.63        13\n     productivity       0.75      0.66      0.70        91\n         shopping       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         1\n            tools       0.71      0.96      0.82       199\n   travel_n_local       0.00      0.00      0.00         2\n\n      avg / total       0.75      0.75      0.71       400\n", 
+        "trainFscore": 0.7136403209363735, 
+        "trainPrecision": 0.7531684944237917, 
         "trainConfMat": [
             [
                 0, 
@@ -2933,7 +2964,7 @@
             [
                 0, 
                 0, 
-                2, 
+                1, 
                 0, 
                 0, 
                 0, 
@@ -2949,7 +2980,7 @@
                 0, 
                 0, 
                 0, 
-                6, 
+                7, 
                 0
             ], 
             [
@@ -3071,14 +3102,14 @@
                 0, 
                 0, 
                 0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
                 1, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
+                0, 
                 0, 
                 0, 
                 0, 
@@ -3232,10 +3263,10 @@
                 0, 
                 0, 
                 0, 
-                62, 
+                60, 
                 0, 
                 0, 
-                29, 
+                31, 
                 0
             ], 
             [
@@ -3327,10 +3358,10 @@
                 0
             ]
         ], 
-        "testScore": 0.47761194029850745, 
-        "testFscore": 0.41903834862952327, 
-        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n        lifestyle       0.00      0.00      0.00         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       0.50      1.00      0.67         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.44      0.24      0.31        45\n           social       0.00      0.00      0.00         1\n            tools       0.54      0.81      0.65        64\n\n      avg / total       0.41      0.48      0.42       134\n", 
-        "testRecall": 0.47761194029850745, 
+        "testScore": 0.48507462686567165, 
+        "testFscore": 0.42264272130943037, 
+        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n        lifestyle       0.00      0.00      0.00         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       0.50      1.00      0.67         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.46      0.24      0.32        45\n           social       0.00      0.00      0.00         1\n            tools       0.54      0.83      0.65        64\n\n      avg / total       0.41      0.49      0.42       134\n", 
+        "testRecall": 0.48507462686567165, 
         "testConfMat": [
             [
                 0, 
@@ -3440,9 +3471,9 @@
                 0, 
                 0, 
                 0, 
-                2, 
+                1, 
                 0, 
-                4
+                5
             ], 
             [
                 0, 
@@ -3547,18 +3578,18 @@
                 0, 
                 0, 
                 0, 
-                3, 
+                2, 
                 0, 
                 0, 
                 0, 
                 1, 
                 7, 
                 0, 
-                52
+                53
             ]
         ], 
-        "testPrecision": 0.4075319279889214, 
-        "trainRecall": 0.7525
+        "testPrecision": 0.41334049449721094, 
+        "trainRecall": 0.7475
     }, 
     "RBF SVM": {
         "trainScore": 0.6475, 
@@ -4687,10 +4718,10 @@
                 1
             ]
         ], 
-        "testScore": 0.4626865671641791, 
-        "testFscore": 0.3789910098629658, 
-        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n        lifestyle       0.25      0.17      0.20         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       1.00      1.00      1.00         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.44      0.09      0.15        45\n           social       0.00      0.00      0.00         1\n            tools       0.52      0.88      0.65        64\n\n      avg / total       0.42      0.46      0.38       134\n", 
-        "testRecall": 0.4626865671641791, 
+        "testScore": 0.4701492537313433, 
+        "testFscore": 0.3921382392848592, 
+        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n libraries_n_demo       0.00      0.00      0.00         0\n        lifestyle       0.25      0.17      0.20         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       1.00      1.00      1.00         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.50      0.11      0.18        45\n           social       0.00      0.00      0.00         1\n            tools       0.53      0.88      0.66        64\n\n      avg / total       0.44      0.47      0.39       134\n", 
+        "testRecall": 0.4701492537313433, 
         "testConfMat": [
             [
                 0, 
@@ -4909,9 +4940,9 @@
                 0, 
                 0, 
                 4, 
-                4, 
+                5, 
                 0, 
-                31
+                30
             ], 
             [
                 0, 
@@ -4948,7 +4979,7 @@
                 56
             ]
         ], 
-        "testPrecision": 0.41787557539405773, 
+        "testPrecision": 0.4388904533934103, 
         "trainRecall": 0.6625
     }, 
     "Logistic Regression": {
@@ -5632,10 +5663,10 @@
         "trainRecall": 0.69
     }, 
     "Random Forest": {
-        "trainScore": 0.5075, 
-        "trainReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         9\n         business       1.00      0.20      0.33         5\n    communication       0.00      0.00      0.00         4\n        education       0.00      0.00      0.00         9\n    entertainment       0.00      0.00      0.00         5\n health_n_fitness       0.00      0.00      0.00         4\n libraries_n_demo       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        41\n    media_n_video       0.00      0.00      0.00         3\n          medical       0.00      0.00      0.00         2\n    music_n_audio       0.00      0.00      0.00         7\n news_n_magazines       0.00      0.00      0.00         1\n  personalization       0.00      0.00      0.00        13\n     productivity       1.00      0.03      0.06        91\n         shopping       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         1\n            tools       0.50      1.00      0.67       199\n   travel_n_local       0.00      0.00      0.00         2\n\n      avg / total       0.49      0.51      0.35       400\n", 
-        "trainFscore": 0.3514694558674534, 
-        "trainPrecision": 0.4900063131313131, 
+        "trainScore": 0.51, 
+        "trainReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\n           arcade       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         9\n         business       0.00      0.00      0.00         5\n    communication       0.00      0.00      0.00         4\n        education       0.00      0.00      0.00         9\n    entertainment       0.00      0.00      0.00         5\n health_n_fitness       0.00      0.00      0.00         4\n libraries_n_demo       0.00      0.00      0.00         1\n        lifestyle       0.00      0.00      0.00        41\n    media_n_video       0.00      0.00      0.00         3\n          medical       0.00      0.00      0.00         2\n    music_n_audio       0.00      0.00      0.00         7\n news_n_magazines       0.00      0.00      0.00         1\n  personalization       0.00      0.00      0.00        13\n     productivity       1.00      0.05      0.10        91\n         shopping       0.00      0.00      0.00         1\n           social       0.00      0.00      0.00         1\n            tools       0.50      1.00      0.67       199\n   travel_n_local       0.00      0.00      0.00         2\n\n      avg / total       0.48      0.51      0.36       400\n", 
+        "trainFscore": 0.35703966750841754, 
+        "trainPrecision": 0.4781392405063291, 
         "trainConfMat": [
             [
                 0, 
@@ -5707,7 +5738,6 @@
                 0, 
                 0, 
                 0, 
-                1, 
                 0, 
                 0, 
                 0, 
@@ -5722,7 +5752,8 @@
                 0, 
                 0, 
                 0, 
-                4, 
+                0, 
+                5, 
                 0
             ], 
             [
@@ -5983,10 +6014,10 @@
                 0, 
                 0, 
                 0, 
-                3, 
+                5, 
                 0, 
                 0, 
-                88, 
+                86, 
                 0
             ], 
             [
@@ -6079,8 +6110,8 @@
             ]
         ], 
         "testScore": 0.47761194029850745, 
-        "testFscore": 0.30875923413236844, 
-        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n        lifestyle       0.00      0.00      0.00         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       0.00      0.00      0.00         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.00      0.00      0.00        45\n           social       0.00      0.00      0.00         1\n            tools       0.48      1.00      0.65        64\n\n      avg / total       0.23      0.48      0.31       134\n", 
+        "testFscore": 0.32132649820804793, 
+        "testReport": "                   precision    recall  f1-score   support\n\n        adventure       0.00      0.00      0.00         1\nbooks_n_reference       0.00      0.00      0.00         3\n    communication       0.00      0.00      0.00         1\n        education       0.00      0.00      0.00         5\n    entertainment       0.00      0.00      0.00         2\n health_n_fitness       0.00      0.00      0.00         2\n        lifestyle       0.00      0.00      0.00         6\n    media_n_video       0.00      0.00      0.00         1\n          medical       0.00      0.00      0.00         1\n    music_n_audio       0.00      0.00      0.00         1\n  personalization       0.00      0.00      0.00         1\n     productivity       0.50      0.02      0.04        45\n           social       0.00      0.00      0.00         1\n            tools       0.48      0.98      0.64        64\n\n      avg / total       0.40      0.48      0.32       134\n", 
         "testRecall": 0.47761194029850745, 
         "testConfMat": [
             [
@@ -6271,9 +6302,9 @@
                 0, 
                 0, 
                 0, 
+                1, 
                 0, 
-                0, 
-                45
+                44
             ], 
             [
                 0, 
@@ -6303,13 +6334,13 @@
                 0, 
                 0, 
                 0, 
+                1, 
                 0, 
-                0, 
-                64
+                63
             ]
         ], 
-        "testPrecision": 0.22811316551570504, 
-        "trainRecall": 0.5075
+        "testPrecision": 0.3958616010854817, 
+        "trainRecall": 0.51
     }, 
     "Nearest Neighbors": {
         "trainScore": 0.605, 

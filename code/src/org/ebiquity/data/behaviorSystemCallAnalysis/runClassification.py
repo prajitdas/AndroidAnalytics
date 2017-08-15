@@ -423,6 +423,67 @@ def format_seconds_to_hhmmss(seconds):
 	seconds %= 60
 	return "%02i hours, %02i minutes, %02i seconds" % (hours, minutes, seconds)
 
+def anovaTest(X,y):
+	print "ANOVA Test"
+
+	alarm_clock = []
+	battery_saver = []
+	drink_recipes = []
+	file_explorer = []
+	lunar_calendar = []
+	pdf_reader = []
+	scientific_calculator = []
+	to_do_list = []
+	video_playback = []
+	wifi_analyzer = []
+	index = 0
+	for behaviorCat in y:
+		if behaviorCat == "alarm_clock":
+			alarm_clock.append(X[index])
+		elif behaviorCat == "battery_saver":
+			battery_saver.append(X[index])
+		elif behaviorCat == "drink_recipes":
+			drink_recipes.append(X[index])
+		elif behaviorCat == "file_explorer":
+			file_explorer.append(X[index])
+		elif behaviorCat == "lunar_calendar":
+			lunar_calendar.append(X[index])
+		elif behaviorCat == "pdf_reader":
+			pdf_reader.append(X[index])
+		elif behaviorCat == "scientific_calculator":
+			scientific_calculator.append(X[index])
+		elif behaviorCat == "to_do_list":
+			to_do_list.append(X[index])
+		elif behaviorCat == "video_playback":
+			video_playback.append(X[index])
+		elif behaviorCat == "wifi_analyzer":
+			wifi_analyzer.append(X[index])
+		index += 1
+
+	pValues = 0.0
+	for loopCount in range(100000):
+		a = alarm_clock[np.random.choice(len(alarm_clock))]
+		b = battery_saver[np.random.choice(len(battery_saver))]
+		c = drink_recipes[np.random.choice(len(drink_recipes))]
+		d = file_explorer[np.random.choice(len(file_explorer))]
+		e = lunar_calendar[np.random.choice(len(lunar_calendar))]
+		f = pdf_reader[np.random.choice(len(pdf_reader))]
+		g = scientific_calculator[np.random.choice(len(scientific_calculator))]
+		h = to_do_list[np.random.choice(len(to_do_list))]
+		i = video_playback[np.random.choice(len(video_playback))]
+		j = wifi_analyzer[np.random.choice(len(wifi_analyzer))]
+
+		tstat, pval = stats.f_oneway(a,b,c,d,e,f,g,h,i,j)
+		pValues += pval
+
+		# if not np.array_equal(a, b):
+		# tstat, pval = stats.ttest_rel(a,b)
+		# print type(pval)
+		# print "Index chosen:", index
+		# print "The t-statistic is", tstat, "and the p-value is", pval
+
+	print "Average p-value:", pValues/100000.0
+
 def main(argv):
 	if len(sys.argv) != 1:
 		sys.stderr.write('Usage: python runClassification.py')

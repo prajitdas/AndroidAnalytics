@@ -494,6 +494,7 @@ def main(argv):
 	gramDict={}
 	for gramIndex in [1,2,3]:
 		jsonFile = str(gramIndex)+"gram534.json"
+		print "reading file:", jsonFile
 		labelDict={}
 #		if gramIndex != 1:
 #			continue

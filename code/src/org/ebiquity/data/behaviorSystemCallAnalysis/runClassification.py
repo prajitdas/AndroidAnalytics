@@ -337,9 +337,6 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 		y_pred=clf.predict(X_test)
 		y_pred_=clf.predict(X_train)
 		prf1sDict={}
-		# chi,pval = chi2(X_train, y_train)
-		# prf1sDict["chi2"] = chi
-		# prf1sDict["pval"] = pval
 		precision = 0
 		recall = 0
 		fscore = 0

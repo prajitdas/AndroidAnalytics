@@ -41,7 +41,7 @@ def doTFIDF(corpus):
 	b = []
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
 	y = list(set(corpus["my"]))
-	X=vectorizer.fit_transform(X_train)
+	X=vectorizer.fit_transform(corpus["corpus"])
 	anovaTest(X,y)
 	# for iteration in range(0,2):
 	# 	skf = StratifiedKFold(n_splits=10)

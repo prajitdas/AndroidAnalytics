@@ -108,6 +108,8 @@ def anovaTest(X,y):
 			wifi_analyzer.append(X[index])
 		index += 1
 
+	print len(drink_recipes)
+	
 	pValues = 0.0
 	for loopCount in range(100000):
 		a = alarm_clock[np.random.choice(len(alarm_clock))]

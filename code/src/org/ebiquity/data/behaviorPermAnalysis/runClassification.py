@@ -198,20 +198,135 @@ def anovaTest(X,y):
 
 	print "Average p-value:", pValues/100000.0
 
-def featureImportance(X,y):
-	# Build a forest and compute the feature importances
-	forest = ExtraTreesClassifier(n_estimators=250, random_state=0)
+def MLP(X,y):
+	precision = 0
+	recall = 0
+	fscore = 0
+	support = 0
 
-	forest.fit(X, y)
+	X_train, X_test, y_train, y_test = \
+		train_test_split(X, y, stratify=y, test_size=testRatio, random_state=42)
+	X_train = StandardScaler().fit_transform(X_train)
+	X_test = StandardScaler().fit_transform(X_test)
+
+	mlp = MLPClassifier(hidden_layer_sizes=(100,100), max_iter=400, alpha=1e-4, solver='sgd', verbose=400, tol=1e-4, random_state=1, learning_rate_init=1e-1)
+	# mlp = MLPClassifier(hidden_layer_sizes=(50,), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)
+	mlp.fit(X_train, y_train)
+
+	y_pred = mlp.predict(X_test)
+	y_pred_ = mlp.predict(X_train)
+
+	precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average="weighted")
+	score = mlp.score(X_test, y_test)
+	print "classification_report_test\n", classification_report(y_test, y_pred)
+	tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
+
+	precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
+	score_=mlp.score(X_train, y_train)
+	print "classification_report_train\n", classification_report(y_train, y_pred_)
+	tn, fp, fn, tp = confusion_matrix(y_train, y_pred_).ravel()
+
+	print "testTN", tn
+	print "testFP", fp
+	print "testFN", fn
+	print "testTP", tp
+	print "testPrecision", precision
+	print "testRecall", recall
+	print "testFscore", fscore
+	print "Training set score:", score
+	print "Test set score:", score_
+	print "trainTN", tn
+	print "trainFP", fp
+	print "trainFN", fn
+	print "trainTP", tp
+	print "trainPrecision", precision_
+	print "trainRecall", recall_
+	print "trainFscore", fscore_
+
+	# # print len(mlp.coefs_[0])
+	# print mlp.coefs_[0].shape
+	# # print mlp.coefs_.shape
+	# # arr = np.array(mlp.coefs_)
+	# # print arr.shape
+
+	# fig, ax = plt.subplots(1, 1, figsize=(15,6))
+	# ax.imshow(np.transpose(mlp.coefs_[0]), cmap=plt.get_cmap("gray"), aspect="auto")
+	# # use global min / max to ensure all weights are shown on the same scale
+	# vmin, vmax = mlp.coefs_[0].min(), mlp.coefs_[0].max()
+	# # use global min / max to ensure all weights are shown on the same scale
+	# plt.matshow(mlp.coefs_[0].reshape(len(mlp.coefs_[0]), 50), cmap=plt.cm.gray, vmin=.5 * vmin, vmax=.5 * vmax)
+	# # plt.set_xticks(())
+	# # plt.set_yticks(())
+
+	# plt.show()
+
+def featureImportance(X,y,permissionsList):
+	precision = 0
+	recall = 0
+	fscore = 0
+	support = 0
+
+	X_train, X_test, y_train, y_test = \
+		train_test_split(X, y, stratify=y, test_size=testRatio, random_state=42)
+	X_train = StandardScaler().fit_transform(X_train)
+	X_test = StandardScaler().fit_transform(X_test)
+
+	# Build a forest and compute the feature importances
+	forest = ExtraTreesClassifier(n_estimators=1000,random_state=0)
+
+	forest.fit(X_train, y_train)
+
+	y_pred = forest.predict(X_test)
+	y_pred_ = forest.predict(X_train)
+
+	precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average="weighted")
+	score = forest.score(X_test, y_test)
+	print "classification_report_test\n", classification_report(y_test, y_pred)
+	tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
+
+	precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
+	score_=forest.score(X_train, y_train)
+	print "classification_report_train\n", classification_report(y_train, y_pred_)
+	tn, fp, fn, tp = confusion_matrix(y_train, y_pred_).ravel()
+
+	print "testTN", tn
+	print "testFP", fp
+	print "testFN", fn
+	print "testTP", tp
+	print "testPrecision", precision
+	print "testRecall", recall
+	print "testFscore", fscore
+	print "Training set score:", score
+	print "Test set score:", score_
+	print "trainTN", tn
+	print "trainFP", fp
+	print "trainFN", fn
+	print "trainTP", tp
+	print "trainPrecision", precision_
+	print "trainRecall", recall_
+	print "trainFscore", fscore_
+
 	importances = forest.feature_importances_
-	std = np.std([tree.feature_importances_ for tree in forest.estimators_],axis=0)
+	std = np.std([tree.feature_importances_ for tree in forest.estimators_], axis=0)
 	indices = np.argsort(importances)[::-1]
 
+	featImpDict = {}
 	# Print the feature ranking
-	print "Feature ranking:"
+	print("Feature ranking:")
+	nparray = np.array(X_train)
+	for f in range(nparray.shape[1]):
+		featImpDict[permissionsList[indices[f]]] = importances[indices[f]]
+		if f < 25:
+			print("%d. permission %s. feature %d (%f)" % (f + 1, permissionsList[indices[f]], indices[f], importances[indices[f]]))
 
-	for f in range(X.shape[1]):
-		print "%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]])
+	# Plot the feature importances of the forest
+	plt.figure()
+	plt.title("Feature importances")
+	plt.bar(range(nparray.shape[1]), importances[indices],
+	color="r", yerr=std[indices], align="center")
+	plt.xticks(range(nparray.shape[1]), indices)
+	plt.xlim([-1, nparray.shape[1]])
+	plt.show()
 
 def main(argv):
 	startTime = time.time()

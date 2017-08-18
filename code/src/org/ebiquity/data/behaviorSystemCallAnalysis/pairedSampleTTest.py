@@ -36,7 +36,7 @@ import pandas as pd
 import logging
 logging.basicConfig(filename='classification.log',level=logging.DEBUG)
 
-def doTFIDF(corpus, label):
+def doTFIDF(corpus):
 	a = []
 	b = []
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')

@@ -36,17 +36,6 @@ import pandas as pd
 import logging
 logging.basicConfig(filename='classification.log',level=logging.DEBUG)
 
-google=0
-my=1
-syscalls=2
-testRatio=0.25
-
-names = ["Nearest Neighbors",
-		 "Neural Net"]
-
-classifiers = [KNeighborsClassifier(3),
-				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
-
 def doTFIDF(corpus, label):
 	a = []
 	b = []

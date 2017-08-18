@@ -27,9 +27,9 @@ from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, ExtraTr
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.feature_selection import chi2
-from scipy import stats
 import numpy as np
-import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
 import databaseHandler as db
 import logging
 logging.basicConfig(filename="classification.log",level=logging.DEBUG)

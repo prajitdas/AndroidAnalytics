@@ -27,9 +27,9 @@ from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, ExtraTr
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.feature_selection import chi2
-from scipy import stats
 import numpy as np
-import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
 import databaseHandler as db
 import logging
 logging.basicConfig(filename="classification.log",level=logging.DEBUG)
@@ -219,26 +219,26 @@ def MLP(X,y):
 	precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average="weighted")
 	score = mlp.score(X_test, y_test)
 	print "classification_report_test\n", classification_report(y_test, y_pred)
-	tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
+	# tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
 
 	precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
 	score_=mlp.score(X_train, y_train)
 	print "classification_report_train\n", classification_report(y_train, y_pred_)
-	tn, fp, fn, tp = confusion_matrix(y_train, y_pred_).ravel()
+	# tn, fp, fn, tp = confusion_matrix(y_train, y_pred_).ravel()
 
-	print "testTN", tn
-	print "testFP", fp
-	print "testFN", fn
-	print "testTP", tp
+	# print "testTN", tn
+	# print "testFP", fp
+	# print "testFN", fn
+	# print "testTP", tp
 	print "testPrecision", precision
 	print "testRecall", recall
 	print "testFscore", fscore
 	print "Training set score:", score
 	print "Test set score:", score_
-	print "trainTN", tn
-	print "trainFP", fp
-	print "trainFN", fn
-	print "trainTP", tp
+	# print "trainTN", tn
+	# print "trainFP", fp
+	# print "trainFN", fn
+	# print "trainTP", tp
 	print "trainPrecision", precision_
 	print "trainRecall", recall_
 	print "trainFscore", fscore_

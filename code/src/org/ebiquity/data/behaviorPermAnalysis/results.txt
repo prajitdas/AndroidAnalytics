@@ -1,0 +1,71 @@
+classification_report_test
+                       precision    recall  f1-score   support
+
+          alarm_clock       0.72      0.81      0.76        32
+        battery_saver       0.78      0.61      0.68        23
+        drink_recipes       0.00      0.00      0.00         4
+        file_explorer       0.60      0.67      0.63        18
+       lunar_calendar       0.00      0.00      0.00         3
+           pdf_reader       0.00      0.00      0.00         6
+scientific_calculator       0.60      0.40      0.48        15
+           to_do_list       0.38      0.58      0.46        26
+       video_playback       0.00      0.00      0.00         1
+        wifi_analyzer       0.86      1.00      0.92         6
+
+          avg / total       0.57      0.59      0.57       134
+
+classification_report_train
+                       precision    recall  f1-score   support
+
+          alarm_clock       0.96      0.94      0.95        96
+        battery_saver       0.96      0.91      0.93        70
+        drink_recipes       0.80      0.73      0.76        11
+        file_explorer       0.73      0.96      0.83        54
+       lunar_calendar       1.00      0.11      0.20         9
+           pdf_reader       1.00      0.31      0.48        16
+scientific_calculator       0.84      0.78      0.81        46
+           to_do_list       0.67      0.78      0.72        76
+       video_playback       1.00      0.75      0.86         4
+        wifi_analyzer       1.00      1.00      1.00        18
+
+          avg / total       0.86      0.84      0.83       400
+
+testPrecision 0.566737739872
+testRecall 0.589552238806
+testFscore 0.569289461937
+Training set score: 0.589552238806
+Test set score: 0.84
+trainPrecision 0.858990085987
+trainRecall 0.84
+trainFscore 0.831004524197
+ANOVA Test
+Average p-value: 0.0257957832759
+Feature ranking:
+1. permission android.permission.WAKE_LOCK. feature 113 (0.072243)
+2. permission android.permission.RECEIVE_BOOT_COMPLETED. feature 98 (0.065853)
+3. permission android.permission.VIBRATE. feature 100 (0.063488)
+4. permission android.permission.CHANGE_WIFI_STATE. feature 36 (0.051435)
+5. permission android.permission.WRITE_EXTERNAL_STORAGE. feature 142 (0.047045)
+6. permission android.permission.READ_EXTERNAL_STORAGE. feature 144 (0.044519)
+7. permission android.permission.ACCESS_WIFI_STATE. feature 48 (0.035714)
+8. permission com.android.vending.BILLING. feature 84 (0.034120)
+9. permission android.permission.CHANGE_NETWORK_STATE. feature 120 (0.033670)
+10. permission android.permission.READ_PHONE_STATE. feature 103 (0.030755)
+11. permission android.permission.KILL_BACKGROUND_PROCESSES. feature 110 (0.0280                                                                                                                                                                                               59)
+12. permission android.permission.WRITE_SETTINGS. feature 66 (0.024500)
+13. permission android.permission.DISABLE_KEYGUARD. feature 122 (0.024332)
+14. permission android.permission.ACCESS_NETWORK_STATE. feature 54 (0.021816)
+15. permission android.permission.BLUETOOTH_ADMIN. feature 133 (0.019971)
+16. permission com.android.launcher.permission.INSTALL_SHORTCUT. feature 12 (0.0                                                                                                                                                                                               18159)
+17. permission android.permission.BLUETOOTH. feature 47 (0.016914)
+18. permission android.permission.INTERNET. feature 6 (0.015380)
+19. permission android.permission.WRITE_SYNC_SETTINGS. feature 21 (0.015180)
+20. permission android.permission.ACCESS_FINE_LOCATION. feature 134 (0.014529)
+21. permission android.permission.GET_TASKS. feature 93 (0.014487)
+22. permission android.permission.READ_LOGS. feature 76 (0.014258)
+23. permission android.permission.ACCESS_COARSE_LOCATION. feature 129 (0.014249)
+24. permission com.android.alarm.permission.SET_ALARM. feature 149 (0.013950)
+25. permission android.permission.GET_ACCOUNTS. feature 119 (0.012391)
+Execution time was: 1.21871666511 minutes
+D:\anaconda\lib\site-packages\sklearn\metrics\classification.py:1113: UndefinedM                                                                                                                                                                                               etricWarning: Precision and F-score are ill-defined and being set to 0.0 in labe                                                                                                                                                                                               ls with no predicted samples.
+  'precision', 'predicted', average, warn_for)

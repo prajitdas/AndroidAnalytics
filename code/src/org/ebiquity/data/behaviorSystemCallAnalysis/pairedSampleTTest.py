@@ -72,31 +72,10 @@ def doClassify(X,y):
 	print a, b, tstat, pvalue
 
 def doTFIDF(corpus):
-	a = []
-	b = []
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
 	y = list(set(corpus["my"]))
 	X = vectorizer.fit_transform(corpus["corpus"])
-	doClassify(X,y)
-	# for iteration in range(0,2):
-	# 	skf = StratifiedKFold(n_splits=10)
-	# 	for train_index, test_index in skf.split(X, y):
-	# 		# print train_index, test_index
-	# 		X_train, X_test = X[train_index], X[test_index]
-	# 		y_train, y_test = y[train_index], y[test_index]
-	# 		# iterate over classifiers
-	# 		for name, clf in zip(names, classifiers):
-	# 			print "Running cliasifer:", name
-	# 			clf.fit(X_train, y_train) # Train the model
-	# 			y_pred=clf.predict(X_test) # Do the predcition on test set
-	# 			tn, fp, fn, tp = np.array(confusion_matrix(y_test, y_pred))
-	# 			if name == "Neural Net":
-	# 				a.append(fp+fn)
-	# 			else:
-	# 				b.append(fp+fn)
-
-	# tstat, pvalue = stats.ttest_rel(a,b)
-	# print a, b, tstat, pvalue
+	doClassify(np.array(X),np.array(y))
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)

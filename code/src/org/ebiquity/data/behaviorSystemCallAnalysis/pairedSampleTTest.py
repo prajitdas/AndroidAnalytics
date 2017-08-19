@@ -77,7 +77,7 @@ def doClassify(X, y, labels):
 	tstat, pvalue = stats.ttest_rel(a,b)
 	print a, b, tstat, pvalue
 
-def doTFIDF(corpus, label, vectorizer):
+def doTFIDF(corpus):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
 	labelList = list(set(corpus["my"]))
 	doClassify(corpus["corpus"], corpus["my"], labelList)

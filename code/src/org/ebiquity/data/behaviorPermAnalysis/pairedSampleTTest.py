@@ -10,12 +10,11 @@ import sys
 import time
 import datetime
 from random import sample
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
-from sklearn.metrics import precision_recall_fscore_support
-from sklearn.metrics import classification_report
+from sklearn.metrics import precision_recall_fscore_support, classification_report
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -25,11 +24,11 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, ExtraTreesClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import confusion_matrix
-from sklearn.feature_selection import chi2
-import numpy as np
+from sklearn.metrics import confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
 from scipy import stats
+import numpy as np
+import pandas as pd
 import databaseHandler as db
 import logging
 logging.basicConfig(filename="classification.log",level=logging.DEBUG)

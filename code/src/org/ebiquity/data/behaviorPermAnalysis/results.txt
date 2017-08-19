@@ -141,4 +141,3 @@ Feature ranking:
 98. permission android.permission.DUMP. feature 35 (0.000390)
 99. permission com.android.browser.permission.WRITE_HISTORY_BOOKMARKS. feature 10 (0.000387)
 100. permission com.noootes.blocknotes.todolist.permission.C2D_MESSAGE. feature 23 (0.000380)
-

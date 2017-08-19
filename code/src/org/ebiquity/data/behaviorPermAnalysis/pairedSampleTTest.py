@@ -267,6 +267,7 @@ def featureImportance(X,y,permissionsList):
 	# plt.xticks(range(nparray.shape[1]), indices)
 	# plt.xlim([-1, nparray.shape[1]])
 	# plt.show()
+	return featImpDict
 
 def main(argv):
 	startTime = time.time()

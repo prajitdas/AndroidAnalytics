@@ -47,7 +47,7 @@ def doClassify(X,y):
 	a = []
 	b = []
 	for iteration in range(0,5):
-		skf = StratifiedKFold(n_splits=10)
+		skf = StratifiedKFold(n_splits=5)
 		for train_index, test_index in skf.split(X, y):
 			# print train_index, test_index
 			X_train, X_test = X[train_index], X[test_index]

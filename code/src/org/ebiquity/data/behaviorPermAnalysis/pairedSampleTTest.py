@@ -38,10 +38,10 @@ testRatio=0.25
 names = ["Nearest Neighbors",
 		 "Neural Net"]
 
-classifiers = [DummyClassifier(strategy="most_frequent"),
-				DummyClassifier(strategy="most_frequent")]
-# classifiers = [KNeighborsClassifier(3),
-# 				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
+# classifiers = [DummyClassifier(strategy="most_frequent"),
+# 				DummyClassifier(strategy="most_frequent")]
+classifiers = [KNeighborsClassifier(3),
+				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
 
 def doClassify(X,y):
 	a = []
@@ -256,7 +256,7 @@ def featureImportance(X,y,permissionsList):
 	nparray = np.array(X_train)
 	for f in range(nparray.shape[1]):
 		featImpDict[permissionsList[indices[f]]] = importances[indices[f]]
-		if f < 25:
+		if f < 100:
 			print("%d. permission %s. feature %d (%f)" % (f + 1, permissionsList[indices[f]], indices[f], importances[indices[f]]))
 
 	# Plot the feature importances of the forest
@@ -280,14 +280,14 @@ def main(argv):
 	# print "Done with google play categories"
 
 	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
-	result = doClassify(X,y)
+	# result = doClassify(X,y)
 	# open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
 	# print "Done with annotated categories"
 
 	# MLP(X,y)
 	# anovaTest(X,y)
-	# resultFeatImp = featureImportance(X,y,permissionsList)
-	# open("resultFeatImp.json","w").write(json.dumps(resultFeatImp, indent=4))
+	resultFeatImp = featureImportance(X,y,permissionsList)
+	open("resultFeatImp.json","w").write(json.dumps(resultFeatImp, indent=4))
 
 	# result = doClassify(X,y)
 	# open("results.json","w").write(json.dumps(result, indent=4))

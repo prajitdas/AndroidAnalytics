@@ -4,23 +4,17 @@ Modified May 21, 2017
 @author: Prajit Kumar Das
 Usage: python runClassification.py
 '''
-
-import datetime
-import numpy as np
-import cPickle
-import computeDistance as cd
-import NumpyEncoder
-import gzip
-import logging
+import os
 import json
-import time
 import sys
-from sklearn.model_selection import train_test_split
+import time
+import datetime
+from random import sample
+from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
-from sklearn.metrics import precision_recall_fscore_support
-from sklearn.metrics import classification_report
+from sklearn.metrics import precision_recall_fscore_support, classification_report
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -28,22 +22,62 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, ExtraTreesClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import confusion_matrix
-from sklearn.feature_selection import chi2
+from sklearn.metrics import confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
 from scipy import stats
+import numpy as np
+import pandas as pd
+import databaseHandler as db
 import logging
-logging.basicConfig(filename='classification.log',level=logging.DEBUG)
+logging.basicConfig(filename="classification.log",level=logging.DEBUG)
+
+testRatio=0.25
+
+names = ["Nearest Neighbors",
+		 "Neural Net"]
+
+# classifiers = [DummyClassifier(strategy="most_frequent"),
+# 				DummyClassifier(strategy="most_frequent")]
+classifiers = [KNeighborsClassifier(3),
+				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
+
+def doClassify(X,y):
+	a = []
+	b = []
+	for iteration in range(0,5):
+		skf = StratifiedKFold(n_splits=5)
+		for train_index, test_index in skf.split(X, y):
+			# print train_index, test_index
+			X_train, X_test = X[train_index], X[test_index]
+			y_train, y_test = y[train_index], y[test_index]
+			# iterate over classifiers
+			for name, clf in zip(names, classifiers):
+				print "Running cliasifer:", name
+				clf.fit(X_train, y_train) # Train the model
+				y_pred=clf.predict(X_test) # Do the predcition on test set
+				confMat = confusion_matrix(y_test, y_pred)
+				misclassificationError = 0
+				for i in range(0,10):
+					for j in range(0,10):
+						if i != j:
+							misclassificationError += confMat[i][j]
+				if name == "Neural Net":
+					a.append(misclassificationError)
+				else:
+					b.append(misclassificationError)
+
+	tstat, pvalue = stats.ttest_rel(a,b)
+	print a, b, tstat, pvalue
 
 def doTFIDF(corpus):
 	a = []
 	b = []
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
 	y = list(set(corpus["my"]))
-	X=vectorizer.fit_transform(corpus["corpus"])
-	anovaTest(X,y)
+	X = vectorizer.fit_transform(corpus["corpus"])
+	doClassify(X,y)
 	# for iteration in range(0,2):
 	# 	skf = StratifiedKFold(n_splits=10)
 	# 	for train_index, test_index in skf.split(X, y):

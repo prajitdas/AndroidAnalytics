@@ -52,6 +52,12 @@ def doClassify(X, y, labels):
 			# print train_index, test_index
 			X_train, X_test = X[train_index], X[test_index]
 			y_train, y_test = y[train_index], y[test_index]
+			
+			X_train = vectorizer.fit_transform(X_train)
+			X_test = vectorizer.transform(X_test)
+			print X_train.shape, X_test.shape
+			samples,features = X_train.shape
+			
 			# iterate over classifiers
 			for name, clf in zip(names, classifiers):
 				print "Running cliasifer:", name

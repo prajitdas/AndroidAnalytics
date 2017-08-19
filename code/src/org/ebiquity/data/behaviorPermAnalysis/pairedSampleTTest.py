@@ -58,10 +58,10 @@ def doClassify(X,y):
 				clf.fit(X_train, y_train) # Train the model
 				y_pred=clf.predict(X_test) # Do the predcition on test set
 				print type(confusion_matrix(y_test, y_pred))
-				if name == "Neural Net":
-					a.append(fp+fn)
-				else:
-					b.append(fp+fn)
+				# if name == "Neural Net":
+				# 	a.append(fp+fn)
+				# else:
+				# 	b.append(fp+fn)
 
 	tstat, pvalue = stats.ttest_rel(a,b)
 	print a, b, tstat, pvalue

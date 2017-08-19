@@ -280,7 +280,7 @@ def main(argv):
 	# print "Done with google play categories"
 
 	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
-	# result = doClassify(X,y)
+	result = doClassify(X,y)
 	# open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
 	# print "Done with annotated categories"
 

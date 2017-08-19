@@ -260,13 +260,13 @@ def featureImportance(X,y,permissionsList):
 			print("%d. permission %s. feature %d (%f)" % (f + 1, permissionsList[indices[f]], indices[f], importances[indices[f]]))
 
 	# Plot the feature importances of the forest
-	plt.figure()
-	plt.title("Feature importances")
-	plt.bar(range(nparray.shape[1]), importances[indices],
-	color="r", yerr=std[indices], align="center")
-	plt.xticks(range(nparray.shape[1]), indices)
-	plt.xlim([-1, nparray.shape[1]])
-	plt.show()
+	# plt.figure()
+	# plt.title("Feature importances")
+	# plt.bar(range(nparray.shape[1]), importances[indices],
+	# color="r", yerr=std[indices], align="center")
+	# plt.xticks(range(nparray.shape[1]), indices)
+	# plt.xlim([-1, nparray.shape[1]])
+	# plt.show()
 
 def main(argv):
 	startTime = time.time()

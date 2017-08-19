@@ -287,8 +287,8 @@ def main(argv):
 
 	# MLP(X,y)
 	# anovaTest(X,y)
-	resultFeatImp = featureImportance(X,y,permissionsList)
-	open("resultFeatImp.json","w").write(json.dumps(resultFeatImp, indent=4))
+	# resultFeatImp = featureImportance(X,y,permissionsList)
+	# open("resultFeatImp.json","w").write(json.dumps(resultFeatImp, indent=4))
 
 	# result = doClassify(X,y)
 	# open("results.json","w").write(json.dumps(result, indent=4))

@@ -40,6 +40,13 @@ trainRecall 0.84
 trainFscore 0.831004524197
 ANOVA Test
 Average p-value: 0.0257957832759
+
+
+[53, 38, 46, 36, 37, 53, 38, 46, 36, 37, 53, 38, 46, 36, 37, 53, 38, 46, 36, 37, 53, 38, 46, 36, 37]
+[61, 52, 61, 49, 57, 61, 52, 61, 49, 57, 61, 52, 61, 49, 57, 61, 52, 61, 49, 57, 61, 52, 61, 49, 57]
+-17.8280071191 2.39088890819e-15
+
+
 Feature ranking:
 1. permission android.permission.WAKE_LOCK. feature 113 (0.071579)
 2. permission android.permission.RECEIVE_BOOT_COMPLETED. feature 98 (0.066318)

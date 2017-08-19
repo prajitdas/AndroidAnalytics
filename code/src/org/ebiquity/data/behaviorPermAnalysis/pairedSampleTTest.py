@@ -100,7 +100,7 @@ def runClassification(permissionsList,allAppsDict,category):
 		X.append(classificationFeatures)
 		y.append(allAppsDict[app][category])
 
-	return X,y
+	return np.array(X),np.array(y)
 
 def anovaTest(X,y):
 	print "ANOVA Test"

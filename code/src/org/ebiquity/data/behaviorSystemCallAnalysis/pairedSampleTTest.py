@@ -44,12 +44,13 @@ classifiers = [KNeighborsClassifier(3),
 				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
 
 def doClassify(X, y, labels):
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
 	a = []
 	b = []
 	for iteration in range(0,5):
 		skf = StratifiedKFold(n_splits=5)
 		for train_index, test_index in skf.split(X, y):
-			# print train_index, test_index
+			print X[train_index]
 			X_train, X_test = X[train_index], X[test_index]
 			y_train, y_test = y[train_index], y[test_index]
 			
@@ -78,7 +79,6 @@ def doClassify(X, y, labels):
 	print a, b, tstat, pvalue
 
 def doTFIDF(corpus):
-	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
 	labelList = list(set(corpus["my"]))
 	doClassify(corpus["corpus"], corpus["my"], labelList)
 

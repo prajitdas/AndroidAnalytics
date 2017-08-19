@@ -57,7 +57,10 @@ def doClassify(X,y):
 				print "Running cliasifer:", name
 				clf.fit(X_train, y_train) # Train the model
 				y_pred=clf.predict(X_test) # Do the predcition on test set
-				print type(confusion_matrix(y_test, y_pred).ravel())
+				confMat = confusion_matrix(y_test, y_pred)
+				for i in confMat:
+					for j in confMat[i]:
+						print confMat[i][j]
 				# if name == "Neural Net":
 				# 	a.append(fp+fn)
 				# else:

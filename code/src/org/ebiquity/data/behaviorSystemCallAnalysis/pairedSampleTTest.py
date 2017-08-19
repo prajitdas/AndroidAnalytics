@@ -43,7 +43,7 @@ names = ["Nearest Neighbors",
 classifiers = [KNeighborsClassifier(3),
 				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
 
-def doClassify(X,y):
+def doClassify(X, y, labels):
 	a = []
 	b = []
 	for iteration in range(0,5):
@@ -71,11 +71,10 @@ def doClassify(X,y):
 	tstat, pvalue = stats.ttest_rel(a,b)
 	print a, b, tstat, pvalue
 
-def doTFIDF(corpus):
+def doTFIDF(corpus, label, vectorizer):
 	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
-	y = list(set(corpus["my"]))
-	X = vectorizer.fit_transform(corpus["corpus"])
-	doClassify(np.array(X),np.array(y))
+	labelList = list(set(corpus["my"]))
+	doClassify(corpus["corpus"], corpus["my"], labelList)
 
 def format_seconds_to_hhmmss(seconds):
 	hours = seconds // (60*60)

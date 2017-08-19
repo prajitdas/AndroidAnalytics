@@ -36,70 +36,36 @@ logging.basicConfig(filename="classification.log",level=logging.DEBUG)
 
 testRatio=0.25
 
-names = ["Dummy",
-		 "Linear SVM",
-		 "Nearest Neighbors",
-		 "Decision Tree",
-		 "Random Forest",
-		 "RBF SVM",
-		 "Neural Net",
-		 "AdaBoost",
-		 "Naive Bayes",
-		 "Logistic Regression"]		 
+names = ["Nearest Neighbors",
+		 "Neural Net"]
+
 classifiers = [DummyClassifier(strategy="most_frequent"),
-				SVC(kernel="linear", C=1),
-				KNeighborsClassifier(3),
-				DecisionTreeClassifier(max_depth=5),
-				RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-				SVC(kernel="poly", C=1),
-				MLPClassifier(alpha=1),
-				AdaBoostClassifier(),
-				GaussianNB(),
-				LogisticRegression(multi_class='multinomial',solver='lbfgs')]
+				DummyClassifier(strategy="most_frequent")]
+# classifiers = [KNeighborsClassifier(3),
+# 				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
 
 def doClassify(X,y):
-	resultDict={}
-	X_train, X_test, y_train, y_test = \
-		train_test_split(X, y, test_size=testRatio, random_state=42)
-	X_train = StandardScaler().fit_transform(X_train)
-	X_test = StandardScaler().fit_transform(X_test)
-	# iterate over classifiers
-	for name, clf in zip(names, classifiers):
-		print "Running cliasifer:", name
-		if name != "Logistic Regression":
-			clf=OneVsRestClassifier(clf)
-		clf.fit(X_train, y_train)
-		y_pred=clf.predict(X_test)
-		y_pred_=clf.predict(X_train)
-		prf1sDict={}
-		precision = 0
-		recall = 0
-		fscore = 0
-		support = 0
-		try:
-			precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average="weighted")
-			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name)
-			score=clf.score(X_test, y_test)
-			prf1sDict["testReport"] = classification_report(y_test, y_pred)
-			prf1sDict["testConfMat"] = confusion_matrix(y_test, y_pred).tolist()
-			prf1sDict["testScore"] = score
-			prf1sDict["testPrecision"] = precision
-			prf1sDict["testRecall"] = recall
-			prf1sDict["testFscore"] = fscore
-			precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
-			score_=clf.score(X_train, y_train)
-			prf1sDict["trainReport"] = classification_report(y_train, y_pred_)
-			prf1sDict["trainConfMat"] = confusion_matrix(y_train, y_pred_).tolist()
-			prf1sDict["trainScore"] = score_
-			prf1sDict["trainPrecision"] = precision_
-			prf1sDict["trainRecall"] = recall_
-			prf1sDict["trainFscore"] = fscore_
-			resultDict[name] = prf1sDict
-		except ValueError:
-			print "Error for claissifier:", name
-			print "Unexpected error in test:", sys.exc_info()
-			continue
-	return resultDict
+	a = []
+	b = []
+	for iteration in range(0,5):
+		skf = StratifiedKFold(n_splits=10)
+		for train_index, test_index in skf.split(X, y):
+			# print train_index, test_index
+			X_train, X_test = X[train_index], X[test_index]
+			y_train, y_test = y[train_index], y[test_index]
+			# iterate over classifiers
+			for name, clf in zip(names, classifiers):
+				print "Running cliasifer:", name
+				clf.fit(X_train, y_train) # Train the model
+				y_pred=clf.predict(X_test) # Do the predcition on test set
+				print type(confusion_matrix(y_test, y_pred))
+				if name == "Neural Net":
+					a.append(fp+fn)
+				else:
+					b.append(fp+fn)
+
+	tstat, pvalue = stats.ttest_rel(a,b)
+	print a, b, tstat, pvalue
 
 def extractData(appDict):
 	allAppsDict = {}
@@ -310,14 +276,14 @@ def main(argv):
 	# print "Done with google play categories"
 
 	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
-	# result = doClassify(X,y)
+	result = doClassify(X,y)
 	# open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
 	# print "Done with annotated categories"
 
-	MLP(X,y)
-	anovaTest(X,y)
-	resultFeatImp = featureImportance(X,y,permissionsList)
-	open("resultFeatImp.json","w").write(json.dumps(resultFeatImp, indent=4))
+	# MLP(X,y)
+	# anovaTest(X,y)
+	# resultFeatImp = featureImportance(X,y,permissionsList)
+	# open("resultFeatImp.json","w").write(json.dumps(resultFeatImp, indent=4))
 
 	# result = doClassify(X,y)
 	# open("results.json","w").write(json.dumps(result, indent=4))

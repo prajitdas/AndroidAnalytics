@@ -1,0 +1,1697 @@
+Already up-to-date.
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[14  5  2  0  0  0  0  5  0  0]
+ [ 9  7  1  0  0  0  0  2  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 5  0  0  7  0  0  1  1  0  1]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 0  1  0  0  0  4  0  0  0  0]
+ [ 5  1  0  0  0  0  2  5  0  0]
+ [10  2  0  0  0  1  0  8  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 5  0  0  0  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.36605026
+Iteration 2, loss = 2.19322333
+Iteration 3, loss = 2.04385074
+Iteration 4, loss = 1.98342557
+Iteration 5, loss = 1.99782683
+Iteration 6, loss = 2.00642246
+Iteration 7, loss = 1.97839182
+Iteration 8, loss = 1.97432330
+Iteration 9, loss = 1.97073373
+Iteration 10, loss = 1.96029305
+Iteration 11, loss = 1.95967628
+Iteration 12, loss = 1.95863903
+Iteration 13, loss = 1.94352817
+Iteration 14, loss = 1.93330455
+Iteration 15, loss = 1.91428938
+Iteration 16, loss = 1.90028956
+Iteration 17, loss = 1.88961879
+Iteration 18, loss = 1.88628120
+Iteration 19, loss = 1.86522397
+Iteration 20, loss = 1.84220945
+Iteration 21, loss = 1.82001780
+Iteration 22, loss = 1.81082915
+Iteration 23, loss = 1.79866489
+Iteration 24, loss = 1.79092915
+Iteration 25, loss = 1.76303314
+Iteration 26, loss = 1.77546919
+Iteration 27, loss = 1.75774069
+Iteration 28, loss = 1.73869878
+Iteration 29, loss = 1.73200954
+Iteration 30, loss = 1.72470175
+Iteration 31, loss = 1.71484279
+Iteration 32, loss = 1.72715894
+Iteration 33, loss = 1.73296405
+Iteration 34, loss = 1.69651229
+Iteration 35, loss = 1.70528311
+Iteration 36, loss = 1.68366943
+Iteration 37, loss = 1.68224453
+Iteration 38, loss = 1.66097507
+Iteration 39, loss = 1.65387327
+Iteration 40, loss = 1.67273077
+Iteration 41, loss = 1.64806735
+Iteration 42, loss = 1.65153556
+Iteration 43, loss = 1.64955463
+Iteration 44, loss = 1.68040447
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[13  5  0  1  0  0  1  6  0  0]
+ [ 8 10  0  0  0  0  0  1  0  0]
+ [ 0  2  0  0  0  0  1  0  0  0]
+ [ 6  1  0  7  0  0  1  0  0  0]
+ [ 1  1  0  0  0  0  0  1  0  0]
+ [ 0  0  0  0  0  5  0  0  0  0]
+ [ 3  4  0  0  0  0  2  4  0  0]
+ [ 4  2  0  0  0  1  2 12  0  0]
+ [ 0  1  0  0  0  0  0  0  0  0]
+ [ 1  2  0  0  0  0  2  0  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  2  0  0  0  6  0  0]
+ [ 9  7  0  0  0  0  1  2  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 0  7  0  5  0  1  2  0  0  0]
+ [ 2  0  0  1  0  0  0  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 3  3  0  0  0  2  3  1  0  0]
+ [ 9  4  0  1  0  1  2  4  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28953925
+Iteration 2, loss = 2.16425528
+Iteration 3, loss = 2.04759815
+Iteration 4, loss = 2.00649583
+Iteration 5, loss = 1.99525791
+Iteration 6, loss = 1.97429763
+Iteration 7, loss = 1.96668275
+Iteration 8, loss = 1.97786963
+Iteration 9, loss = 1.96943538
+Iteration 10, loss = 1.95228478
+Iteration 11, loss = 1.93745088
+Iteration 12, loss = 1.92548467
+Iteration 13, loss = 1.91013447
+Iteration 14, loss = 1.89433590
+Iteration 15, loss = 1.88387582
+Iteration 16, loss = 1.86538168
+Iteration 17, loss = 1.84103770
+Iteration 18, loss = 1.81918885
+Iteration 19, loss = 1.82010202
+Iteration 20, loss = 1.79272624
+Iteration 21, loss = 1.77049017
+Iteration 22, loss = 1.76640289
+Iteration 23, loss = 1.76628205
+Iteration 24, loss = 1.72657049
+Iteration 25, loss = 1.71871563
+Iteration 26, loss = 1.73571567
+Iteration 27, loss = 1.69636362
+Iteration 28, loss = 1.71347625
+Iteration 29, loss = 1.67350547
+Iteration 30, loss = 1.68128556
+Iteration 31, loss = 1.70500588
+Iteration 32, loss = 1.69961420
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  1  0  0  0  0  0  8  0  0]
+ [ 9  5  0  0  0  1  1  3  0  0]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 4  2  0  4  0  3  1  1  0  0]
+ [ 2  0  0  0  0  0  1  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 6  3  0  0  0  0  3  0  0  0]
+ [13  1  0  1  0  0  0  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  1  0  0  3  4  0  0]
+ [ 5 12  0  1  0  0  1  0  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 5  2  0  5  0  0  0  2  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  0  3  0  0  0  0]
+ [ 2  5  0  0  0  0  5  0  0  0]
+ [ 8  6  0  2  0  0  0  4  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 4  0  0  1  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28361012
+Iteration 2, loss = 2.15959225
+Iteration 3, loss = 2.05623797
+Iteration 4, loss = 2.00373467
+Iteration 5, loss = 1.99051933
+Iteration 6, loss = 1.98372866
+Iteration 7, loss = 1.99025265
+Iteration 8, loss = 1.96587017
+Iteration 9, loss = 1.96022842
+Iteration 10, loss = 1.95720947
+Iteration 11, loss = 1.94959550
+Iteration 12, loss = 1.94067685
+Iteration 13, loss = 1.92472477
+Iteration 14, loss = 1.91280885
+Iteration 15, loss = 1.90314222
+Iteration 16, loss = 1.88627280
+Iteration 17, loss = 1.86937900
+Iteration 18, loss = 1.85240971
+Iteration 19, loss = 1.83855648
+Iteration 20, loss = 1.81541780
+Iteration 21, loss = 1.79587322
+Iteration 22, loss = 1.77778328
+Iteration 23, loss = 1.76380730
+Iteration 24, loss = 1.75636463
+Iteration 25, loss = 1.74174567
+Iteration 26, loss = 1.73098343
+Iteration 27, loss = 1.71318427
+Iteration 28, loss = 1.71056989
+Iteration 29, loss = 1.70302133
+Iteration 30, loss = 1.71505443
+Iteration 31, loss = 1.71614434
+Iteration 32, loss = 1.71283406
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  4  0  0  0  0  0  5  0  0]
+ [14  1  0  0  0  2  0  2  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 7  0  0  5  0  1  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  4  0  0  0  0]
+ [ 4  7  0  0  0  0  0  1  0  0]
+ [ 6  5  0  1  0  0  0  8  0  0]
+ [ 0  0  0  0  0  0  0  1  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[11  6  0  1  0  0  1  6  0  0]
+ [ 8  9  0  0  0  0  0  1  0  0]
+ [ 1  2  0  0  0  0  0  0  0  0]
+ [ 4  2  0  7  0  0  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  2  0  0  0  0]
+ [ 5  2  0  0  0  0  4  1  0  0]
+ [10  2  0  0  0  1  0  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  1  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.30227909
+Iteration 2, loss = 2.18572050
+Iteration 3, loss = 2.07601586
+Iteration 4, loss = 2.00982343
+Iteration 5, loss = 1.99137562
+Iteration 6, loss = 1.98115656
+Iteration 7, loss = 1.97151712
+Iteration 8, loss = 1.96852774
+Iteration 9, loss = 1.95851864
+Iteration 10, loss = 1.94945057
+Iteration 11, loss = 1.93661064
+Iteration 12, loss = 1.92713257
+Iteration 13, loss = 1.91292900
+Iteration 14, loss = 1.89846842
+Iteration 15, loss = 1.88864626
+Iteration 16, loss = 1.87132395
+Iteration 17, loss = 1.85408432
+Iteration 18, loss = 1.84114962
+Iteration 19, loss = 1.82624204
+Iteration 20, loss = 1.81413183
+Iteration 21, loss = 1.79841767
+Iteration 22, loss = 1.79302693
+Iteration 23, loss = 1.77038983
+Iteration 24, loss = 1.76115316
+Iteration 25, loss = 1.74923403
+Iteration 26, loss = 1.74050846
+Iteration 27, loss = 1.72494525
+Iteration 28, loss = 1.71088395
+Iteration 29, loss = 1.70410177
+Iteration 30, loss = 1.69880818
+Iteration 31, loss = 1.70645453
+Iteration 32, loss = 1.76749891
+Iteration 33, loss = 1.67660054
+Iteration 34, loss = 1.67825773
+Iteration 35, loss = 1.66789974
+Iteration 36, loss = 1.66046394
+Iteration 37, loss = 1.65587528
+Iteration 38, loss = 1.66968650
+Iteration 39, loss = 1.63904547
+Iteration 40, loss = 1.65440880
+Iteration 41, loss = 1.62618913
+Iteration 42, loss = 1.68246555
+Iteration 43, loss = 1.62351383
+Iteration 44, loss = 1.62756024
+Iteration 45, loss = 1.62041110
+Iteration 46, loss = 1.62192284
+Iteration 47, loss = 1.61437772
+Iteration 48, loss = 1.60698679
+Iteration 49, loss = 1.58825723
+Iteration 50, loss = 1.61814411
+Iteration 51, loss = 1.59756201
+Iteration 52, loss = 1.60176118
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 8  0  0 12  0  1  0  4  0  0]
+ [ 4  3  0 11  0  0  0  0  0  0]
+ [ 1  0  0  2  0  0  0  0  0  0]
+ [ 2  0  0 10  0  1  0  1  0  0]
+ [ 0  0  0  2  0  0  0  0  0  0]
+ [ 0  0  0  2  0  2  0  0  0  0]
+ [ 2  0  0 10  0  0  0  0  0  0]
+ [ 3  1  0  2  0  1  0 13  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 0  1  0  3  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[16  1  1  0  2  1  2  2  0  0]
+ [ 6  9  0  0  0  0  2  1  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 4  1  0  8  0  0  1  0  0  0]
+ [ 0  0  0  0  1  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 5  0  2  0  0  1  3  1  0  0]
+ [ 9  3  0  0  0  0  2  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.29651267
+Iteration 2, loss = 2.17330089
+Iteration 3, loss = 2.05988556
+Iteration 4, loss = 2.00788484
+Iteration 5, loss = 1.98669239
+Iteration 6, loss = 1.97755483
+Iteration 7, loss = 1.97639413
+Iteration 8, loss = 1.97288773
+Iteration 9, loss = 1.96042457
+Iteration 10, loss = 1.94536853
+Iteration 11, loss = 1.93498021
+Iteration 12, loss = 1.91697201
+Iteration 13, loss = 1.90379130
+Iteration 14, loss = 1.89197706
+Iteration 15, loss = 1.86661285
+Iteration 16, loss = 1.85105046
+Iteration 17, loss = 1.83215041
+Iteration 18, loss = 1.80820725
+Iteration 19, loss = 1.79231659
+Iteration 20, loss = 1.77457195
+Iteration 21, loss = 1.76637314
+Iteration 22, loss = 1.75628928
+Iteration 23, loss = 1.75883465
+Iteration 24, loss = 1.72756623
+Iteration 25, loss = 1.72064131
+Iteration 26, loss = 1.71957812
+Iteration 27, loss = 1.70347222
+Iteration 28, loss = 1.68395510
+Iteration 29, loss = 1.68131105
+Iteration 30, loss = 1.66279956
+Iteration 31, loss = 1.68009423
+Iteration 32, loss = 1.67308180
+Iteration 33, loss = 1.65808783
+Iteration 34, loss = 1.65418990
+Iteration 35, loss = 1.63996301
+Iteration 36, loss = 1.63055136
+Iteration 37, loss = 1.63433457
+Iteration 38, loss = 1.61653565
+Iteration 39, loss = 1.60962620
+Iteration 40, loss = 1.60992783
+Iteration 41, loss = 1.59274078
+Iteration 42, loss = 1.61613416
+Iteration 43, loss = 1.62442345
+Iteration 44, loss = 1.59389712
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 6 12  0  1  0  1  1  4  0  0]
+ [ 5 10  0  0  0  0  2  1  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 2  1  0  8  0  0  1  2  0  0]
+ [ 1  0  0  0  0  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 4  2  0  0  0  1  1  4  0  0]
+ [10  1  0  0  0  0  2  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  0  0  1  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[14  5  2  0  0  0  0  5  0  0]
+ [ 9  7  1  0  0  0  0  2  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 5  0  0  7  0  0  1  1  0  1]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 0  1  0  0  0  4  0  0  0  0]
+ [ 5  1  0  0  0  0  2  5  0  0]
+ [10  2  0  0  0  1  0  8  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 5  0  0  0  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.36605026
+Iteration 2, loss = 2.19322333
+Iteration 3, loss = 2.04385074
+Iteration 4, loss = 1.98342557
+Iteration 5, loss = 1.99782683
+Iteration 6, loss = 2.00642246
+Iteration 7, loss = 1.97839182
+Iteration 8, loss = 1.97432330
+Iteration 9, loss = 1.97073373
+Iteration 10, loss = 1.96029305
+Iteration 11, loss = 1.95967628
+Iteration 12, loss = 1.95863903
+Iteration 13, loss = 1.94352817
+Iteration 14, loss = 1.93330455
+Iteration 15, loss = 1.91428938
+Iteration 16, loss = 1.90028956
+Iteration 17, loss = 1.88961879
+Iteration 18, loss = 1.88628120
+Iteration 19, loss = 1.86522397
+Iteration 20, loss = 1.84220945
+Iteration 21, loss = 1.82001780
+Iteration 22, loss = 1.81082915
+Iteration 23, loss = 1.79866489
+Iteration 24, loss = 1.79092915
+Iteration 25, loss = 1.76303314
+Iteration 26, loss = 1.77546919
+Iteration 27, loss = 1.75774069
+Iteration 28, loss = 1.73869878
+Iteration 29, loss = 1.73200954
+Iteration 30, loss = 1.72470175
+Iteration 31, loss = 1.71484279
+Iteration 32, loss = 1.72715894
+Iteration 33, loss = 1.73296405
+Iteration 34, loss = 1.69651229
+Iteration 35, loss = 1.70528311
+Iteration 36, loss = 1.68366943
+Iteration 37, loss = 1.68224453
+Iteration 38, loss = 1.66097507
+Iteration 39, loss = 1.65387327
+Iteration 40, loss = 1.67273077
+Iteration 41, loss = 1.64806735
+Iteration 42, loss = 1.65153556
+Iteration 43, loss = 1.64955463
+Iteration 44, loss = 1.68040447
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[13  5  0  1  0  0  1  6  0  0]
+ [ 8 10  0  0  0  0  0  1  0  0]
+ [ 0  2  0  0  0  0  1  0  0  0]
+ [ 6  1  0  7  0  0  1  0  0  0]
+ [ 1  1  0  0  0  0  0  1  0  0]
+ [ 0  0  0  0  0  5  0  0  0  0]
+ [ 3  4  0  0  0  0  2  4  0  0]
+ [ 4  2  0  0  0  1  2 12  0  0]
+ [ 0  1  0  0  0  0  0  0  0  0]
+ [ 1  2  0  0  0  0  2  0  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  2  0  0  0  6  0  0]
+ [ 9  7  0  0  0  0  1  2  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 0  7  0  5  0  1  2  0  0  0]
+ [ 2  0  0  1  0  0  0  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 3  3  0  0  0  2  3  1  0  0]
+ [ 9  4  0  1  0  1  2  4  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28953925
+Iteration 2, loss = 2.16425528
+Iteration 3, loss = 2.04759815
+Iteration 4, loss = 2.00649583
+Iteration 5, loss = 1.99525791
+Iteration 6, loss = 1.97429763
+Iteration 7, loss = 1.96668275
+Iteration 8, loss = 1.97786963
+Iteration 9, loss = 1.96943538
+Iteration 10, loss = 1.95228478
+Iteration 11, loss = 1.93745088
+Iteration 12, loss = 1.92548467
+Iteration 13, loss = 1.91013447
+Iteration 14, loss = 1.89433590
+Iteration 15, loss = 1.88387582
+Iteration 16, loss = 1.86538168
+Iteration 17, loss = 1.84103770
+Iteration 18, loss = 1.81918885
+Iteration 19, loss = 1.82010202
+Iteration 20, loss = 1.79272624
+Iteration 21, loss = 1.77049017
+Iteration 22, loss = 1.76640289
+Iteration 23, loss = 1.76628205
+Iteration 24, loss = 1.72657049
+Iteration 25, loss = 1.71871563
+Iteration 26, loss = 1.73571567
+Iteration 27, loss = 1.69636362
+Iteration 28, loss = 1.71347625
+Iteration 29, loss = 1.67350547
+Iteration 30, loss = 1.68128556
+Iteration 31, loss = 1.70500588
+Iteration 32, loss = 1.69961420
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  1  0  0  0  0  0  8  0  0]
+ [ 9  5  0  0  0  1  1  3  0  0]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 4  2  0  4  0  3  1  1  0  0]
+ [ 2  0  0  0  0  0  1  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 6  3  0  0  0  0  3  0  0  0]
+ [13  1  0  1  0  0  0  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  1  0  0  3  4  0  0]
+ [ 5 12  0  1  0  0  1  0  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 5  2  0  5  0  0  0  2  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  0  3  0  0  0  0]
+ [ 2  5  0  0  0  0  5  0  0  0]
+ [ 8  6  0  2  0  0  0  4  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 4  0  0  1  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28361012
+Iteration 2, loss = 2.15959225
+Iteration 3, loss = 2.05623797
+Iteration 4, loss = 2.00373467
+Iteration 5, loss = 1.99051933
+Iteration 6, loss = 1.98372866
+Iteration 7, loss = 1.99025265
+Iteration 8, loss = 1.96587017
+Iteration 9, loss = 1.96022842
+Iteration 10, loss = 1.95720947
+Iteration 11, loss = 1.94959550
+Iteration 12, loss = 1.94067685
+Iteration 13, loss = 1.92472477
+Iteration 14, loss = 1.91280885
+Iteration 15, loss = 1.90314222
+Iteration 16, loss = 1.88627280
+Iteration 17, loss = 1.86937900
+Iteration 18, loss = 1.85240971
+Iteration 19, loss = 1.83855648
+Iteration 20, loss = 1.81541780
+Iteration 21, loss = 1.79587322
+Iteration 22, loss = 1.77778328
+Iteration 23, loss = 1.76380730
+Iteration 24, loss = 1.75636463
+Iteration 25, loss = 1.74174567
+Iteration 26, loss = 1.73098343
+Iteration 27, loss = 1.71318427
+Iteration 28, loss = 1.71056989
+Iteration 29, loss = 1.70302133
+Iteration 30, loss = 1.71505443
+Iteration 31, loss = 1.71614434
+Iteration 32, loss = 1.71283406
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  4  0  0  0  0  0  5  0  0]
+ [14  1  0  0  0  2  0  2  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 7  0  0  5  0  1  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  4  0  0  0  0]
+ [ 4  7  0  0  0  0  0  1  0  0]
+ [ 6  5  0  1  0  0  0  8  0  0]
+ [ 0  0  0  0  0  0  0  1  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[11  6  0  1  0  0  1  6  0  0]
+ [ 8  9  0  0  0  0  0  1  0  0]
+ [ 1  2  0  0  0  0  0  0  0  0]
+ [ 4  2  0  7  0  0  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  2  0  0  0  0]
+ [ 5  2  0  0  0  0  4  1  0  0]
+ [10  2  0  0  0  1  0  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  1  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.30227909
+Iteration 2, loss = 2.18572050
+Iteration 3, loss = 2.07601586
+Iteration 4, loss = 2.00982343
+Iteration 5, loss = 1.99137562
+Iteration 6, loss = 1.98115656
+Iteration 7, loss = 1.97151712
+Iteration 8, loss = 1.96852774
+Iteration 9, loss = 1.95851864
+Iteration 10, loss = 1.94945057
+Iteration 11, loss = 1.93661064
+Iteration 12, loss = 1.92713257
+Iteration 13, loss = 1.91292900
+Iteration 14, loss = 1.89846842
+Iteration 15, loss = 1.88864626
+Iteration 16, loss = 1.87132395
+Iteration 17, loss = 1.85408432
+Iteration 18, loss = 1.84114962
+Iteration 19, loss = 1.82624204
+Iteration 20, loss = 1.81413183
+Iteration 21, loss = 1.79841767
+Iteration 22, loss = 1.79302693
+Iteration 23, loss = 1.77038983
+Iteration 24, loss = 1.76115316
+Iteration 25, loss = 1.74923403
+Iteration 26, loss = 1.74050846
+Iteration 27, loss = 1.72494525
+Iteration 28, loss = 1.71088395
+Iteration 29, loss = 1.70410177
+Iteration 30, loss = 1.69880818
+Iteration 31, loss = 1.70645453
+Iteration 32, loss = 1.76749891
+Iteration 33, loss = 1.67660054
+Iteration 34, loss = 1.67825773
+Iteration 35, loss = 1.66789974
+Iteration 36, loss = 1.66046394
+Iteration 37, loss = 1.65587528
+Iteration 38, loss = 1.66968650
+Iteration 39, loss = 1.63904547
+Iteration 40, loss = 1.65440880
+Iteration 41, loss = 1.62618913
+Iteration 42, loss = 1.68246555
+Iteration 43, loss = 1.62351383
+Iteration 44, loss = 1.62756024
+Iteration 45, loss = 1.62041110
+Iteration 46, loss = 1.62192284
+Iteration 47, loss = 1.61437772
+Iteration 48, loss = 1.60698679
+Iteration 49, loss = 1.58825723
+Iteration 50, loss = 1.61814411
+Iteration 51, loss = 1.59756201
+Iteration 52, loss = 1.60176118
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 8  0  0 12  0  1  0  4  0  0]
+ [ 4  3  0 11  0  0  0  0  0  0]
+ [ 1  0  0  2  0  0  0  0  0  0]
+ [ 2  0  0 10  0  1  0  1  0  0]
+ [ 0  0  0  2  0  0  0  0  0  0]
+ [ 0  0  0  2  0  2  0  0  0  0]
+ [ 2  0  0 10  0  0  0  0  0  0]
+ [ 3  1  0  2  0  1  0 13  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 0  1  0  3  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[16  1  1  0  2  1  2  2  0  0]
+ [ 6  9  0  0  0  0  2  1  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 4  1  0  8  0  0  1  0  0  0]
+ [ 0  0  0  0  1  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 5  0  2  0  0  1  3  1  0  0]
+ [ 9  3  0  0  0  0  2  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.29651267
+Iteration 2, loss = 2.17330089
+Iteration 3, loss = 2.05988556
+Iteration 4, loss = 2.00788484
+Iteration 5, loss = 1.98669239
+Iteration 6, loss = 1.97755483
+Iteration 7, loss = 1.97639413
+Iteration 8, loss = 1.97288773
+Iteration 9, loss = 1.96042457
+Iteration 10, loss = 1.94536853
+Iteration 11, loss = 1.93498021
+Iteration 12, loss = 1.91697201
+Iteration 13, loss = 1.90379130
+Iteration 14, loss = 1.89197706
+Iteration 15, loss = 1.86661285
+Iteration 16, loss = 1.85105046
+Iteration 17, loss = 1.83215041
+Iteration 18, loss = 1.80820725
+Iteration 19, loss = 1.79231659
+Iteration 20, loss = 1.77457195
+Iteration 21, loss = 1.76637314
+Iteration 22, loss = 1.75628928
+Iteration 23, loss = 1.75883465
+Iteration 24, loss = 1.72756623
+Iteration 25, loss = 1.72064131
+Iteration 26, loss = 1.71957812
+Iteration 27, loss = 1.70347222
+Iteration 28, loss = 1.68395510
+Iteration 29, loss = 1.68131105
+Iteration 30, loss = 1.66279956
+Iteration 31, loss = 1.68009423
+Iteration 32, loss = 1.67308180
+Iteration 33, loss = 1.65808783
+Iteration 34, loss = 1.65418990
+Iteration 35, loss = 1.63996301
+Iteration 36, loss = 1.63055136
+Iteration 37, loss = 1.63433457
+Iteration 38, loss = 1.61653565
+Iteration 39, loss = 1.60962620
+Iteration 40, loss = 1.60992783
+Iteration 41, loss = 1.59274078
+Iteration 42, loss = 1.61613416
+Iteration 43, loss = 1.62442345
+Iteration 44, loss = 1.59389712
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 6 12  0  1  0  1  1  4  0  0]
+ [ 5 10  0  0  0  0  2  1  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 2  1  0  8  0  0  1  2  0  0]
+ [ 1  0  0  0  0  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 4  2  0  0  0  1  1  4  0  0]
+ [10  1  0  0  0  0  2  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  0  0  1  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[14  5  2  0  0  0  0  5  0  0]
+ [ 9  7  1  0  0  0  0  2  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 5  0  0  7  0  0  1  1  0  1]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 0  1  0  0  0  4  0  0  0  0]
+ [ 5  1  0  0  0  0  2  5  0  0]
+ [10  2  0  0  0  1  0  8  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 5  0  0  0  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.36605026
+Iteration 2, loss = 2.19322333
+Iteration 3, loss = 2.04385074
+Iteration 4, loss = 1.98342557
+Iteration 5, loss = 1.99782683
+Iteration 6, loss = 2.00642246
+Iteration 7, loss = 1.97839182
+Iteration 8, loss = 1.97432330
+Iteration 9, loss = 1.97073373
+Iteration 10, loss = 1.96029305
+Iteration 11, loss = 1.95967628
+Iteration 12, loss = 1.95863903
+Iteration 13, loss = 1.94352817
+Iteration 14, loss = 1.93330455
+Iteration 15, loss = 1.91428938
+Iteration 16, loss = 1.90028956
+Iteration 17, loss = 1.88961879
+Iteration 18, loss = 1.88628120
+Iteration 19, loss = 1.86522397
+Iteration 20, loss = 1.84220945
+Iteration 21, loss = 1.82001780
+Iteration 22, loss = 1.81082915
+Iteration 23, loss = 1.79866489
+Iteration 24, loss = 1.79092915
+Iteration 25, loss = 1.76303314
+Iteration 26, loss = 1.77546919
+Iteration 27, loss = 1.75774069
+Iteration 28, loss = 1.73869878
+Iteration 29, loss = 1.73200954
+Iteration 30, loss = 1.72470175
+Iteration 31, loss = 1.71484279
+Iteration 32, loss = 1.72715894
+Iteration 33, loss = 1.73296405
+Iteration 34, loss = 1.69651229
+Iteration 35, loss = 1.70528311
+Iteration 36, loss = 1.68366943
+Iteration 37, loss = 1.68224453
+Iteration 38, loss = 1.66097507
+Iteration 39, loss = 1.65387327
+Iteration 40, loss = 1.67273077
+Iteration 41, loss = 1.64806735
+Iteration 42, loss = 1.65153556
+Iteration 43, loss = 1.64955463
+Iteration 44, loss = 1.68040447
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[13  5  0  1  0  0  1  6  0  0]
+ [ 8 10  0  0  0  0  0  1  0  0]
+ [ 0  2  0  0  0  0  1  0  0  0]
+ [ 6  1  0  7  0  0  1  0  0  0]
+ [ 1  1  0  0  0  0  0  1  0  0]
+ [ 0  0  0  0  0  5  0  0  0  0]
+ [ 3  4  0  0  0  0  2  4  0  0]
+ [ 4  2  0  0  0  1  2 12  0  0]
+ [ 0  1  0  0  0  0  0  0  0  0]
+ [ 1  2  0  0  0  0  2  0  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  2  0  0  0  6  0  0]
+ [ 9  7  0  0  0  0  1  2  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 0  7  0  5  0  1  2  0  0  0]
+ [ 2  0  0  1  0  0  0  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 3  3  0  0  0  2  3  1  0  0]
+ [ 9  4  0  1  0  1  2  4  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28953925
+Iteration 2, loss = 2.16425528
+Iteration 3, loss = 2.04759815
+Iteration 4, loss = 2.00649583
+Iteration 5, loss = 1.99525791
+Iteration 6, loss = 1.97429763
+Iteration 7, loss = 1.96668275
+Iteration 8, loss = 1.97786963
+Iteration 9, loss = 1.96943538
+Iteration 10, loss = 1.95228478
+Iteration 11, loss = 1.93745088
+Iteration 12, loss = 1.92548467
+Iteration 13, loss = 1.91013447
+Iteration 14, loss = 1.89433590
+Iteration 15, loss = 1.88387582
+Iteration 16, loss = 1.86538168
+Iteration 17, loss = 1.84103770
+Iteration 18, loss = 1.81918885
+Iteration 19, loss = 1.82010202
+Iteration 20, loss = 1.79272624
+Iteration 21, loss = 1.77049017
+Iteration 22, loss = 1.76640289
+Iteration 23, loss = 1.76628205
+Iteration 24, loss = 1.72657049
+Iteration 25, loss = 1.71871563
+Iteration 26, loss = 1.73571567
+Iteration 27, loss = 1.69636362
+Iteration 28, loss = 1.71347625
+Iteration 29, loss = 1.67350547
+Iteration 30, loss = 1.68128556
+Iteration 31, loss = 1.70500588
+Iteration 32, loss = 1.69961420
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  1  0  0  0  0  0  8  0  0]
+ [ 9  5  0  0  0  1  1  3  0  0]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 4  2  0  4  0  3  1  1  0  0]
+ [ 2  0  0  0  0  0  1  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 6  3  0  0  0  0  3  0  0  0]
+ [13  1  0  1  0  0  0  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  1  0  0  3  4  0  0]
+ [ 5 12  0  1  0  0  1  0  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 5  2  0  5  0  0  0  2  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  0  3  0  0  0  0]
+ [ 2  5  0  0  0  0  5  0  0  0]
+ [ 8  6  0  2  0  0  0  4  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 4  0  0  1  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28361012
+Iteration 2, loss = 2.15959225
+Iteration 3, loss = 2.05623797
+Iteration 4, loss = 2.00373467
+Iteration 5, loss = 1.99051933
+Iteration 6, loss = 1.98372866
+Iteration 7, loss = 1.99025265
+Iteration 8, loss = 1.96587017
+Iteration 9, loss = 1.96022842
+Iteration 10, loss = 1.95720947
+Iteration 11, loss = 1.94959550
+Iteration 12, loss = 1.94067685
+Iteration 13, loss = 1.92472477
+Iteration 14, loss = 1.91280885
+Iteration 15, loss = 1.90314222
+Iteration 16, loss = 1.88627280
+Iteration 17, loss = 1.86937900
+Iteration 18, loss = 1.85240971
+Iteration 19, loss = 1.83855648
+Iteration 20, loss = 1.81541780
+Iteration 21, loss = 1.79587322
+Iteration 22, loss = 1.77778328
+Iteration 23, loss = 1.76380730
+Iteration 24, loss = 1.75636463
+Iteration 25, loss = 1.74174567
+Iteration 26, loss = 1.73098343
+Iteration 27, loss = 1.71318427
+Iteration 28, loss = 1.71056989
+Iteration 29, loss = 1.70302133
+Iteration 30, loss = 1.71505443
+Iteration 31, loss = 1.71614434
+Iteration 32, loss = 1.71283406
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  4  0  0  0  0  0  5  0  0]
+ [14  1  0  0  0  2  0  2  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 7  0  0  5  0  1  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  4  0  0  0  0]
+ [ 4  7  0  0  0  0  0  1  0  0]
+ [ 6  5  0  1  0  0  0  8  0  0]
+ [ 0  0  0  0  0  0  0  1  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[11  6  0  1  0  0  1  6  0  0]
+ [ 8  9  0  0  0  0  0  1  0  0]
+ [ 1  2  0  0  0  0  0  0  0  0]
+ [ 4  2  0  7  0  0  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  2  0  0  0  0]
+ [ 5  2  0  0  0  0  4  1  0  0]
+ [10  2  0  0  0  1  0  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  1  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.30227909
+Iteration 2, loss = 2.18572050
+Iteration 3, loss = 2.07601586
+Iteration 4, loss = 2.00982343
+Iteration 5, loss = 1.99137562
+Iteration 6, loss = 1.98115656
+Iteration 7, loss = 1.97151712
+Iteration 8, loss = 1.96852774
+Iteration 9, loss = 1.95851864
+Iteration 10, loss = 1.94945057
+Iteration 11, loss = 1.93661064
+Iteration 12, loss = 1.92713257
+Iteration 13, loss = 1.91292900
+Iteration 14, loss = 1.89846842
+Iteration 15, loss = 1.88864626
+Iteration 16, loss = 1.87132395
+Iteration 17, loss = 1.85408432
+Iteration 18, loss = 1.84114962
+Iteration 19, loss = 1.82624204
+Iteration 20, loss = 1.81413183
+Iteration 21, loss = 1.79841767
+Iteration 22, loss = 1.79302693
+Iteration 23, loss = 1.77038983
+Iteration 24, loss = 1.76115316
+Iteration 25, loss = 1.74923403
+Iteration 26, loss = 1.74050846
+Iteration 27, loss = 1.72494525
+Iteration 28, loss = 1.71088395
+Iteration 29, loss = 1.70410177
+Iteration 30, loss = 1.69880818
+Iteration 31, loss = 1.70645453
+Iteration 32, loss = 1.76749891
+Iteration 33, loss = 1.67660054
+Iteration 34, loss = 1.67825773
+Iteration 35, loss = 1.66789974
+Iteration 36, loss = 1.66046394
+Iteration 37, loss = 1.65587528
+Iteration 38, loss = 1.66968650
+Iteration 39, loss = 1.63904547
+Iteration 40, loss = 1.65440880
+Iteration 41, loss = 1.62618913
+Iteration 42, loss = 1.68246555
+Iteration 43, loss = 1.62351383
+Iteration 44, loss = 1.62756024
+Iteration 45, loss = 1.62041110
+Iteration 46, loss = 1.62192284
+Iteration 47, loss = 1.61437772
+Iteration 48, loss = 1.60698679
+Iteration 49, loss = 1.58825723
+Iteration 50, loss = 1.61814411
+Iteration 51, loss = 1.59756201
+Iteration 52, loss = 1.60176118
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 8  0  0 12  0  1  0  4  0  0]
+ [ 4  3  0 11  0  0  0  0  0  0]
+ [ 1  0  0  2  0  0  0  0  0  0]
+ [ 2  0  0 10  0  1  0  1  0  0]
+ [ 0  0  0  2  0  0  0  0  0  0]
+ [ 0  0  0  2  0  2  0  0  0  0]
+ [ 2  0  0 10  0  0  0  0  0  0]
+ [ 3  1  0  2  0  1  0 13  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 0  1  0  3  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[16  1  1  0  2  1  2  2  0  0]
+ [ 6  9  0  0  0  0  2  1  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 4  1  0  8  0  0  1  0  0  0]
+ [ 0  0  0  0  1  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 5  0  2  0  0  1  3  1  0  0]
+ [ 9  3  0  0  0  0  2  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.29651267
+Iteration 2, loss = 2.17330089
+Iteration 3, loss = 2.05988556
+Iteration 4, loss = 2.00788484
+Iteration 5, loss = 1.98669239
+Iteration 6, loss = 1.97755483
+Iteration 7, loss = 1.97639413
+Iteration 8, loss = 1.97288773
+Iteration 9, loss = 1.96042457
+Iteration 10, loss = 1.94536853
+Iteration 11, loss = 1.93498021
+Iteration 12, loss = 1.91697201
+Iteration 13, loss = 1.90379130
+Iteration 14, loss = 1.89197706
+Iteration 15, loss = 1.86661285
+Iteration 16, loss = 1.85105046
+Iteration 17, loss = 1.83215041
+Iteration 18, loss = 1.80820725
+Iteration 19, loss = 1.79231659
+Iteration 20, loss = 1.77457195
+Iteration 21, loss = 1.76637314
+Iteration 22, loss = 1.75628928
+Iteration 23, loss = 1.75883465
+Iteration 24, loss = 1.72756623
+Iteration 25, loss = 1.72064131
+Iteration 26, loss = 1.71957812
+Iteration 27, loss = 1.70347222
+Iteration 28, loss = 1.68395510
+Iteration 29, loss = 1.68131105
+Iteration 30, loss = 1.66279956
+Iteration 31, loss = 1.68009423
+Iteration 32, loss = 1.67308180
+Iteration 33, loss = 1.65808783
+Iteration 34, loss = 1.65418990
+Iteration 35, loss = 1.63996301
+Iteration 36, loss = 1.63055136
+Iteration 37, loss = 1.63433457
+Iteration 38, loss = 1.61653565
+Iteration 39, loss = 1.60962620
+Iteration 40, loss = 1.60992783
+Iteration 41, loss = 1.59274078
+Iteration 42, loss = 1.61613416
+Iteration 43, loss = 1.62442345
+Iteration 44, loss = 1.59389712
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 6 12  0  1  0  1  1  4  0  0]
+ [ 5 10  0  0  0  0  2  1  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 2  1  0  8  0  0  1  2  0  0]
+ [ 1  0  0  0  0  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 4  2  0  0  0  1  1  4  0  0]
+ [10  1  0  0  0  0  2  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  0  0  1  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[14  5  2  0  0  0  0  5  0  0]
+ [ 9  7  1  0  0  0  0  2  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 5  0  0  7  0  0  1  1  0  1]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 0  1  0  0  0  4  0  0  0  0]
+ [ 5  1  0  0  0  0  2  5  0  0]
+ [10  2  0  0  0  1  0  8  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 5  0  0  0  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.36605026
+Iteration 2, loss = 2.19322333
+Iteration 3, loss = 2.04385074
+Iteration 4, loss = 1.98342557
+Iteration 5, loss = 1.99782683
+Iteration 6, loss = 2.00642246
+Iteration 7, loss = 1.97839182
+Iteration 8, loss = 1.97432330
+Iteration 9, loss = 1.97073373
+Iteration 10, loss = 1.96029305
+Iteration 11, loss = 1.95967628
+Iteration 12, loss = 1.95863903
+Iteration 13, loss = 1.94352817
+Iteration 14, loss = 1.93330455
+Iteration 15, loss = 1.91428938
+Iteration 16, loss = 1.90028956
+Iteration 17, loss = 1.88961879
+Iteration 18, loss = 1.88628120
+Iteration 19, loss = 1.86522397
+Iteration 20, loss = 1.84220945
+Iteration 21, loss = 1.82001780
+Iteration 22, loss = 1.81082915
+Iteration 23, loss = 1.79866489
+Iteration 24, loss = 1.79092915
+Iteration 25, loss = 1.76303314
+Iteration 26, loss = 1.77546919
+Iteration 27, loss = 1.75774069
+Iteration 28, loss = 1.73869878
+Iteration 29, loss = 1.73200954
+Iteration 30, loss = 1.72470175
+Iteration 31, loss = 1.71484279
+Iteration 32, loss = 1.72715894
+Iteration 33, loss = 1.73296405
+Iteration 34, loss = 1.69651229
+Iteration 35, loss = 1.70528311
+Iteration 36, loss = 1.68366943
+Iteration 37, loss = 1.68224453
+Iteration 38, loss = 1.66097507
+Iteration 39, loss = 1.65387327
+Iteration 40, loss = 1.67273077
+Iteration 41, loss = 1.64806735
+Iteration 42, loss = 1.65153556
+Iteration 43, loss = 1.64955463
+Iteration 44, loss = 1.68040447
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[13  5  0  1  0  0  1  6  0  0]
+ [ 8 10  0  0  0  0  0  1  0  0]
+ [ 0  2  0  0  0  0  1  0  0  0]
+ [ 6  1  0  7  0  0  1  0  0  0]
+ [ 1  1  0  0  0  0  0  1  0  0]
+ [ 0  0  0  0  0  5  0  0  0  0]
+ [ 3  4  0  0  0  0  2  4  0  0]
+ [ 4  2  0  0  0  1  2 12  0  0]
+ [ 0  1  0  0  0  0  0  0  0  0]
+ [ 1  2  0  0  0  0  2  0  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  2  0  0  0  6  0  0]
+ [ 9  7  0  0  0  0  1  2  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 0  7  0  5  0  1  2  0  0  0]
+ [ 2  0  0  1  0  0  0  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 3  3  0  0  0  2  3  1  0  0]
+ [ 9  4  0  1  0  1  2  4  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28953925
+Iteration 2, loss = 2.16425528
+Iteration 3, loss = 2.04759815
+Iteration 4, loss = 2.00649583
+Iteration 5, loss = 1.99525791
+Iteration 6, loss = 1.97429763
+Iteration 7, loss = 1.96668275
+Iteration 8, loss = 1.97786963
+Iteration 9, loss = 1.96943538
+Iteration 10, loss = 1.95228478
+Iteration 11, loss = 1.93745088
+Iteration 12, loss = 1.92548467
+Iteration 13, loss = 1.91013447
+Iteration 14, loss = 1.89433590
+Iteration 15, loss = 1.88387582
+Iteration 16, loss = 1.86538168
+Iteration 17, loss = 1.84103770
+Iteration 18, loss = 1.81918885
+Iteration 19, loss = 1.82010202
+Iteration 20, loss = 1.79272624
+Iteration 21, loss = 1.77049017
+Iteration 22, loss = 1.76640289
+Iteration 23, loss = 1.76628205
+Iteration 24, loss = 1.72657049
+Iteration 25, loss = 1.71871563
+Iteration 26, loss = 1.73571567
+Iteration 27, loss = 1.69636362
+Iteration 28, loss = 1.71347625
+Iteration 29, loss = 1.67350547
+Iteration 30, loss = 1.68128556
+Iteration 31, loss = 1.70500588
+Iteration 32, loss = 1.69961420
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  1  0  0  0  0  0  8  0  0]
+ [ 9  5  0  0  0  1  1  3  0  0]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 4  2  0  4  0  3  1  1  0  0]
+ [ 2  0  0  0  0  0  1  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 6  3  0  0  0  0  3  0  0  0]
+ [13  1  0  1  0  0  0  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  1  0  0  3  4  0  0]
+ [ 5 12  0  1  0  0  1  0  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 5  2  0  5  0  0  0  2  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  0  3  0  0  0  0]
+ [ 2  5  0  0  0  0  5  0  0  0]
+ [ 8  6  0  2  0  0  0  4  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 4  0  0  1  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28361012
+Iteration 2, loss = 2.15959225
+Iteration 3, loss = 2.05623797
+Iteration 4, loss = 2.00373467
+Iteration 5, loss = 1.99051933
+Iteration 6, loss = 1.98372866
+Iteration 7, loss = 1.99025265
+Iteration 8, loss = 1.96587017
+Iteration 9, loss = 1.96022842
+Iteration 10, loss = 1.95720947
+Iteration 11, loss = 1.94959550
+Iteration 12, loss = 1.94067685
+Iteration 13, loss = 1.92472477
+Iteration 14, loss = 1.91280885
+Iteration 15, loss = 1.90314222
+Iteration 16, loss = 1.88627280
+Iteration 17, loss = 1.86937900
+Iteration 18, loss = 1.85240971
+Iteration 19, loss = 1.83855648
+Iteration 20, loss = 1.81541780
+Iteration 21, loss = 1.79587322
+Iteration 22, loss = 1.77778328
+Iteration 23, loss = 1.76380730
+Iteration 24, loss = 1.75636463
+Iteration 25, loss = 1.74174567
+Iteration 26, loss = 1.73098343
+Iteration 27, loss = 1.71318427
+Iteration 28, loss = 1.71056989
+Iteration 29, loss = 1.70302133
+Iteration 30, loss = 1.71505443
+Iteration 31, loss = 1.71614434
+Iteration 32, loss = 1.71283406
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  4  0  0  0  0  0  5  0  0]
+ [14  1  0  0  0  2  0  2  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 7  0  0  5  0  1  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  4  0  0  0  0]
+ [ 4  7  0  0  0  0  0  1  0  0]
+ [ 6  5  0  1  0  0  0  8  0  0]
+ [ 0  0  0  0  0  0  0  1  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[11  6  0  1  0  0  1  6  0  0]
+ [ 8  9  0  0  0  0  0  1  0  0]
+ [ 1  2  0  0  0  0  0  0  0  0]
+ [ 4  2  0  7  0  0  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  2  0  0  0  0]
+ [ 5  2  0  0  0  0  4  1  0  0]
+ [10  2  0  0  0  1  0  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  1  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.30227909
+Iteration 2, loss = 2.18572050
+Iteration 3, loss = 2.07601586
+Iteration 4, loss = 2.00982343
+Iteration 5, loss = 1.99137562
+Iteration 6, loss = 1.98115656
+Iteration 7, loss = 1.97151712
+Iteration 8, loss = 1.96852774
+Iteration 9, loss = 1.95851864
+Iteration 10, loss = 1.94945057
+Iteration 11, loss = 1.93661064
+Iteration 12, loss = 1.92713257
+Iteration 13, loss = 1.91292900
+Iteration 14, loss = 1.89846842
+Iteration 15, loss = 1.88864626
+Iteration 16, loss = 1.87132395
+Iteration 17, loss = 1.85408432
+Iteration 18, loss = 1.84114962
+Iteration 19, loss = 1.82624204
+Iteration 20, loss = 1.81413183
+Iteration 21, loss = 1.79841767
+Iteration 22, loss = 1.79302693
+Iteration 23, loss = 1.77038983
+Iteration 24, loss = 1.76115316
+Iteration 25, loss = 1.74923403
+Iteration 26, loss = 1.74050846
+Iteration 27, loss = 1.72494525
+Iteration 28, loss = 1.71088395
+Iteration 29, loss = 1.70410177
+Iteration 30, loss = 1.69880818
+Iteration 31, loss = 1.70645453
+Iteration 32, loss = 1.76749891
+Iteration 33, loss = 1.67660054
+Iteration 34, loss = 1.67825773
+Iteration 35, loss = 1.66789974
+Iteration 36, loss = 1.66046394
+Iteration 37, loss = 1.65587528
+Iteration 38, loss = 1.66968650
+Iteration 39, loss = 1.63904547
+Iteration 40, loss = 1.65440880
+Iteration 41, loss = 1.62618913
+Iteration 42, loss = 1.68246555
+Iteration 43, loss = 1.62351383
+Iteration 44, loss = 1.62756024
+Iteration 45, loss = 1.62041110
+Iteration 46, loss = 1.62192284
+Iteration 47, loss = 1.61437772
+Iteration 48, loss = 1.60698679
+Iteration 49, loss = 1.58825723
+Iteration 50, loss = 1.61814411
+Iteration 51, loss = 1.59756201
+Iteration 52, loss = 1.60176118
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 8  0  0 12  0  1  0  4  0  0]
+ [ 4  3  0 11  0  0  0  0  0  0]
+ [ 1  0  0  2  0  0  0  0  0  0]
+ [ 2  0  0 10  0  1  0  1  0  0]
+ [ 0  0  0  2  0  0  0  0  0  0]
+ [ 0  0  0  2  0  2  0  0  0  0]
+ [ 2  0  0 10  0  0  0  0  0  0]
+ [ 3  1  0  2  0  1  0 13  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 0  1  0  3  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[16  1  1  0  2  1  2  2  0  0]
+ [ 6  9  0  0  0  0  2  1  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 4  1  0  8  0  0  1  0  0  0]
+ [ 0  0  0  0  1  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 5  0  2  0  0  1  3  1  0  0]
+ [ 9  3  0  0  0  0  2  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.29651267
+Iteration 2, loss = 2.17330089
+Iteration 3, loss = 2.05988556
+Iteration 4, loss = 2.00788484
+Iteration 5, loss = 1.98669239
+Iteration 6, loss = 1.97755483
+Iteration 7, loss = 1.97639413
+Iteration 8, loss = 1.97288773
+Iteration 9, loss = 1.96042457
+Iteration 10, loss = 1.94536853
+Iteration 11, loss = 1.93498021
+Iteration 12, loss = 1.91697201
+Iteration 13, loss = 1.90379130
+Iteration 14, loss = 1.89197706
+Iteration 15, loss = 1.86661285
+Iteration 16, loss = 1.85105046
+Iteration 17, loss = 1.83215041
+Iteration 18, loss = 1.80820725
+Iteration 19, loss = 1.79231659
+Iteration 20, loss = 1.77457195
+Iteration 21, loss = 1.76637314
+Iteration 22, loss = 1.75628928
+Iteration 23, loss = 1.75883465
+Iteration 24, loss = 1.72756623
+Iteration 25, loss = 1.72064131
+Iteration 26, loss = 1.71957812
+Iteration 27, loss = 1.70347222
+Iteration 28, loss = 1.68395510
+Iteration 29, loss = 1.68131105
+Iteration 30, loss = 1.66279956
+Iteration 31, loss = 1.68009423
+Iteration 32, loss = 1.67308180
+Iteration 33, loss = 1.65808783
+Iteration 34, loss = 1.65418990
+Iteration 35, loss = 1.63996301
+Iteration 36, loss = 1.63055136
+Iteration 37, loss = 1.63433457
+Iteration 38, loss = 1.61653565
+Iteration 39, loss = 1.60962620
+Iteration 40, loss = 1.60992783
+Iteration 41, loss = 1.59274078
+Iteration 42, loss = 1.61613416
+Iteration 43, loss = 1.62442345
+Iteration 44, loss = 1.59389712
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 6 12  0  1  0  1  1  4  0  0]
+ [ 5 10  0  0  0  0  2  1  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 2  1  0  8  0  0  1  2  0  0]
+ [ 1  0  0  0  0  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 4  2  0  0  0  1  1  4  0  0]
+ [10  1  0  0  0  0  2  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  0  0  1  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[14  5  2  0  0  0  0  5  0  0]
+ [ 9  7  1  0  0  0  0  2  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 5  0  0  7  0  0  1  1  0  1]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 0  1  0  0  0  4  0  0  0  0]
+ [ 5  1  0  0  0  0  2  5  0  0]
+ [10  2  0  0  0  1  0  8  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 5  0  0  0  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.36605026
+Iteration 2, loss = 2.19322333
+Iteration 3, loss = 2.04385074
+Iteration 4, loss = 1.98342557
+Iteration 5, loss = 1.99782683
+Iteration 6, loss = 2.00642246
+Iteration 7, loss = 1.97839182
+Iteration 8, loss = 1.97432330
+Iteration 9, loss = 1.97073373
+Iteration 10, loss = 1.96029305
+Iteration 11, loss = 1.95967628
+Iteration 12, loss = 1.95863903
+Iteration 13, loss = 1.94352817
+Iteration 14, loss = 1.93330455
+Iteration 15, loss = 1.91428938
+Iteration 16, loss = 1.90028956
+Iteration 17, loss = 1.88961879
+Iteration 18, loss = 1.88628120
+Iteration 19, loss = 1.86522397
+Iteration 20, loss = 1.84220945
+Iteration 21, loss = 1.82001780
+Iteration 22, loss = 1.81082915
+Iteration 23, loss = 1.79866489
+Iteration 24, loss = 1.79092915
+Iteration 25, loss = 1.76303314
+Iteration 26, loss = 1.77546919
+Iteration 27, loss = 1.75774069
+Iteration 28, loss = 1.73869878
+Iteration 29, loss = 1.73200954
+Iteration 30, loss = 1.72470175
+Iteration 31, loss = 1.71484279
+Iteration 32, loss = 1.72715894
+Iteration 33, loss = 1.73296405
+Iteration 34, loss = 1.69651229
+Iteration 35, loss = 1.70528311
+Iteration 36, loss = 1.68366943
+Iteration 37, loss = 1.68224453
+Iteration 38, loss = 1.66097507
+Iteration 39, loss = 1.65387327
+Iteration 40, loss = 1.67273077
+Iteration 41, loss = 1.64806735
+Iteration 42, loss = 1.65153556
+Iteration 43, loss = 1.64955463
+Iteration 44, loss = 1.68040447
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[13  5  0  1  0  0  1  6  0  0]
+ [ 8 10  0  0  0  0  0  1  0  0]
+ [ 0  2  0  0  0  0  1  0  0  0]
+ [ 6  1  0  7  0  0  1  0  0  0]
+ [ 1  1  0  0  0  0  0  1  0  0]
+ [ 0  0  0  0  0  5  0  0  0  0]
+ [ 3  4  0  0  0  0  2  4  0  0]
+ [ 4  2  0  0  0  1  2 12  0  0]
+ [ 0  1  0  0  0  0  0  0  0  0]
+ [ 1  2  0  0  0  0  2  0  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  2  0  0  0  6  0  0]
+ [ 9  7  0  0  0  0  1  2  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 0  7  0  5  0  1  2  0  0  0]
+ [ 2  0  0  1  0  0  0  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 3  3  0  0  0  2  3  1  0  0]
+ [ 9  4  0  1  0  1  2  4  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28953925
+Iteration 2, loss = 2.16425528
+Iteration 3, loss = 2.04759815
+Iteration 4, loss = 2.00649583
+Iteration 5, loss = 1.99525791
+Iteration 6, loss = 1.97429763
+Iteration 7, loss = 1.96668275
+Iteration 8, loss = 1.97786963
+Iteration 9, loss = 1.96943538
+Iteration 10, loss = 1.95228478
+Iteration 11, loss = 1.93745088
+Iteration 12, loss = 1.92548467
+Iteration 13, loss = 1.91013447
+Iteration 14, loss = 1.89433590
+Iteration 15, loss = 1.88387582
+Iteration 16, loss = 1.86538168
+Iteration 17, loss = 1.84103770
+Iteration 18, loss = 1.81918885
+Iteration 19, loss = 1.82010202
+Iteration 20, loss = 1.79272624
+Iteration 21, loss = 1.77049017
+Iteration 22, loss = 1.76640289
+Iteration 23, loss = 1.76628205
+Iteration 24, loss = 1.72657049
+Iteration 25, loss = 1.71871563
+Iteration 26, loss = 1.73571567
+Iteration 27, loss = 1.69636362
+Iteration 28, loss = 1.71347625
+Iteration 29, loss = 1.67350547
+Iteration 30, loss = 1.68128556
+Iteration 31, loss = 1.70500588
+Iteration 32, loss = 1.69961420
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  1  0  0  0  0  0  8  0  0]
+ [ 9  5  0  0  0  1  1  3  0  0]
+ [ 2  0  0  0  0  0  0  1  0  0]
+ [ 4  2  0  4  0  3  1  1  0  0]
+ [ 2  0  0  0  0  0  1  0  0  0]
+ [ 0  0  0  1  0  4  0  0  0  0]
+ [ 6  3  0  0  0  0  3  0  0  0]
+ [13  1  0  1  0  0  0  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[15  3  0  1  0  0  3  4  0  0]
+ [ 5 12  0  1  0  0  1  0  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 5  2  0  5  0  0  0  2  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  0  3  0  0  0  0]
+ [ 2  5  0  0  0  0  5  0  0  0]
+ [ 8  6  0  2  0  0  0  4  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 4  0  0  1  0  0  0  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.28361012
+Iteration 2, loss = 2.15959225
+Iteration 3, loss = 2.05623797
+Iteration 4, loss = 2.00373467
+Iteration 5, loss = 1.99051933
+Iteration 6, loss = 1.98372866
+Iteration 7, loss = 1.99025265
+Iteration 8, loss = 1.96587017
+Iteration 9, loss = 1.96022842
+Iteration 10, loss = 1.95720947
+Iteration 11, loss = 1.94959550
+Iteration 12, loss = 1.94067685
+Iteration 13, loss = 1.92472477
+Iteration 14, loss = 1.91280885
+Iteration 15, loss = 1.90314222
+Iteration 16, loss = 1.88627280
+Iteration 17, loss = 1.86937900
+Iteration 18, loss = 1.85240971
+Iteration 19, loss = 1.83855648
+Iteration 20, loss = 1.81541780
+Iteration 21, loss = 1.79587322
+Iteration 22, loss = 1.77778328
+Iteration 23, loss = 1.76380730
+Iteration 24, loss = 1.75636463
+Iteration 25, loss = 1.74174567
+Iteration 26, loss = 1.73098343
+Iteration 27, loss = 1.71318427
+Iteration 28, loss = 1.71056989
+Iteration 29, loss = 1.70302133
+Iteration 30, loss = 1.71505443
+Iteration 31, loss = 1.71614434
+Iteration 32, loss = 1.71283406
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[17  4  0  0  0  0  0  5  0  0]
+ [14  1  0  0  0  2  0  2  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0]
+ [ 7  0  0  5  0  1  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  4  0  0  0  0]
+ [ 4  7  0  0  0  0  0  1  0  0]
+ [ 6  5  0  1  0  0  0  8  0  0]
+ [ 0  0  0  0  0  0  0  1  0  0]
+ [ 4  0  0  0  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[11  6  0  1  0  0  1  6  0  0]
+ [ 8  9  0  0  0  0  0  1  0  0]
+ [ 1  2  0  0  0  0  0  0  0  0]
+ [ 4  2  0  7  0  0  0  1  0  0]
+ [ 2  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  2  0  0  0  0]
+ [ 5  2  0  0  0  0  4  1  0  0]
+ [10  2  0  0  0  1  0  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 3  1  0  0  0  0  1  0  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.30227909
+Iteration 2, loss = 2.18572050
+Iteration 3, loss = 2.07601586
+Iteration 4, loss = 2.00982343
+Iteration 5, loss = 1.99137562
+Iteration 6, loss = 1.98115656
+Iteration 7, loss = 1.97151712
+Iteration 8, loss = 1.96852774
+Iteration 9, loss = 1.95851864
+Iteration 10, loss = 1.94945057
+Iteration 11, loss = 1.93661064
+Iteration 12, loss = 1.92713257
+Iteration 13, loss = 1.91292900
+Iteration 14, loss = 1.89846842
+Iteration 15, loss = 1.88864626
+Iteration 16, loss = 1.87132395
+Iteration 17, loss = 1.85408432
+Iteration 18, loss = 1.84114962
+Iteration 19, loss = 1.82624204
+Iteration 20, loss = 1.81413183
+Iteration 21, loss = 1.79841767
+Iteration 22, loss = 1.79302693
+Iteration 23, loss = 1.77038983
+Iteration 24, loss = 1.76115316
+Iteration 25, loss = 1.74923403
+Iteration 26, loss = 1.74050846
+Iteration 27, loss = 1.72494525
+Iteration 28, loss = 1.71088395
+Iteration 29, loss = 1.70410177
+Iteration 30, loss = 1.69880818
+Iteration 31, loss = 1.70645453
+Iteration 32, loss = 1.76749891
+Iteration 33, loss = 1.67660054
+Iteration 34, loss = 1.67825773
+Iteration 35, loss = 1.66789974
+Iteration 36, loss = 1.66046394
+Iteration 37, loss = 1.65587528
+Iteration 38, loss = 1.66968650
+Iteration 39, loss = 1.63904547
+Iteration 40, loss = 1.65440880
+Iteration 41, loss = 1.62618913
+Iteration 42, loss = 1.68246555
+Iteration 43, loss = 1.62351383
+Iteration 44, loss = 1.62756024
+Iteration 45, loss = 1.62041110
+Iteration 46, loss = 1.62192284
+Iteration 47, loss = 1.61437772
+Iteration 48, loss = 1.60698679
+Iteration 49, loss = 1.58825723
+Iteration 50, loss = 1.61814411
+Iteration 51, loss = 1.59756201
+Iteration 52, loss = 1.60176118
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 8  0  0 12  0  1  0  4  0  0]
+ [ 4  3  0 11  0  0  0  0  0  0]
+ [ 1  0  0  2  0  0  0  0  0  0]
+ [ 2  0  0 10  0  1  0  1  0  0]
+ [ 0  0  0  2  0  0  0  0  0  0]
+ [ 0  0  0  2  0  2  0  0  0  0]
+ [ 2  0  0 10  0  0  0  0  0  0]
+ [ 3  1  0  2  0  1  0 13  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0]
+ [ 0  1  0  3  0  0  0  1  0  0]]
+Running cliasifer: Nearest Neighbors
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[16  1  1  0  2  1  2  2  0  0]
+ [ 6  9  0  0  0  0  2  1  0  0]
+ [ 2  0  1  0  0  0  0  0  0  0]
+ [ 4  1  0  8  0  0  1  0  0  0]
+ [ 0  0  0  0  1  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 5  0  2  0  0  1  3  1  0  0]
+ [ 9  3  0  0  0  0  2  6  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  1  0  0  0  0  0  1  0  0]]
+Running cliasifer: Neural Net
+Iteration 1, loss = 2.29651267
+Iteration 2, loss = 2.17330089
+Iteration 3, loss = 2.05988556
+Iteration 4, loss = 2.00788484
+Iteration 5, loss = 1.98669239
+Iteration 6, loss = 1.97755483
+Iteration 7, loss = 1.97639413
+Iteration 8, loss = 1.97288773
+Iteration 9, loss = 1.96042457
+Iteration 10, loss = 1.94536853
+Iteration 11, loss = 1.93498021
+Iteration 12, loss = 1.91697201
+Iteration 13, loss = 1.90379130
+Iteration 14, loss = 1.89197706
+Iteration 15, loss = 1.86661285
+Iteration 16, loss = 1.85105046
+Iteration 17, loss = 1.83215041
+Iteration 18, loss = 1.80820725
+Iteration 19, loss = 1.79231659
+Iteration 20, loss = 1.77457195
+Iteration 21, loss = 1.76637314
+Iteration 22, loss = 1.75628928
+Iteration 23, loss = 1.75883465
+Iteration 24, loss = 1.72756623
+Iteration 25, loss = 1.72064131
+Iteration 26, loss = 1.71957812
+Iteration 27, loss = 1.70347222
+Iteration 28, loss = 1.68395510
+Iteration 29, loss = 1.68131105
+Iteration 30, loss = 1.66279956
+Iteration 31, loss = 1.68009423
+Iteration 32, loss = 1.67308180
+Iteration 33, loss = 1.65808783
+Iteration 34, loss = 1.65418990
+Iteration 35, loss = 1.63996301
+Iteration 36, loss = 1.63055136
+Iteration 37, loss = 1.63433457
+Iteration 38, loss = 1.61653565
+Iteration 39, loss = 1.60962620
+Iteration 40, loss = 1.60992783
+Iteration 41, loss = 1.59274078
+Iteration 42, loss = 1.61613416
+Iteration 43, loss = 1.62442345
+Iteration 44, loss = 1.59389712
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+confMat type: <type 'numpy.ndarray'>
+confMat len: 10
+confMat: [[ 6 12  0  1  0  1  1  4  0  0]
+ [ 5 10  0  0  0  0  2  1  0  0]
+ [ 2  1  0  0  0  0  0  0  0  0]
+ [ 2  1  0  8  0  0  1  2  0  0]
+ [ 1  0  0  0  0  0  0  1  0  0]
+ [ 1  0  0  1  0  1  1  0  0  0]
+ [ 4  2  0  0  0  1  1  4  0  0]
+ [10  1  0  0  0  0  2  7  0  0]
+ [ 0  0  0  0  0  1  0  0  0  0]
+ [ 2  0  0  1  0  0  0  1  0  0]]
+[62, 71, 71, 68, 70, 62, 71, 71, 68, 70, 62, 71, 71, 68, 70, 62, 71, 71, 68, 70, 62, 71, 71, 68, 70] [69, 71, 62, 64, 58, 69, 71, 62, 64, 58, 69, 71, 62, 64, 58, 69, 71, 62, 64, 58, 69, 71, 62, 64, 58] 2.62790057964 0.0147426387282

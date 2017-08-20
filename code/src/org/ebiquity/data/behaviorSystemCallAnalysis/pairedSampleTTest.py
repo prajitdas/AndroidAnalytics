@@ -162,8 +162,11 @@ def featureImportance(X,y,permissionsList):
 
 	X_train, X_test, y_train, y_test = \
 		train_test_split(X, y, stratify=y, test_size=testRatio, random_state=42)
-	X_train = StandardScaler().fit_transform(X_train)
-	X_test = StandardScaler().fit_transform(X_test)
+	
+	vectorizer = TfidfVectorizer(min_df=1,ngram_range=(2,2),analyzer='word')
+	
+	X_train = vectorizer.fit_transform(X_train)
+	X_test = vectorizer.transform(X_test)
 
 	# Build a forest and compute the feature importances
 	forest = ExtraTreesClassifier(n_estimators=1000,random_state=0)

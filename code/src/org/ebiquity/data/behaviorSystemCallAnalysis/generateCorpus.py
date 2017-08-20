@@ -20,7 +20,8 @@ for appPkgName in appDict["packages"]:
 	input_list = appDataDict[appPkgName]["syscalls"]
 	corpus.append(' '.join(input_list))
 
-	print appPkgName, appDataDict[appPkgName]["annotated_category"], len(appDataDict[appPkgName]["syscalls"])
+	if len(appDataDict[appPkgName]["syscalls"]) < 10:
+		print appPkgName, appDataDict[appPkgName]["annotated_category"], len(appDataDict[appPkgName]["syscalls"])
 
 data["my"] = my
 data["google"] = google

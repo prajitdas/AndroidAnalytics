@@ -67,7 +67,8 @@ def doClassify(X, y, labels):
 				clf.fit(X_train, y_train) # Train the model
 				y_pred=clf.predict(X_test) # Do the predcition on test set
 				confMat = confusion_matrix(y_test, y_pred)
-				print "confMat size:", size(confMat)
+				print "confMat type:", type(confMat)
+				print "confMat len:", len(confMat)
 				print "confMat:", confMat
 				misclassificationError = 0
 				for i in range(0,10):

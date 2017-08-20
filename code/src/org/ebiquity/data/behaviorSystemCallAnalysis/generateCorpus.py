@@ -20,10 +20,7 @@ for appPkgName in appDict["packages"]:
 	input_list = appDataDict[appPkgName]["syscalls"]
 	corpus.append(' '.join(input_list))
 
-	print appPkgName
-	print appDataDict[appPkgName]["annotated_category"]
-	print appDataDict[appPkgName]["google_play_category"]
-	print len(appDataDict[appPkgName]["syscalls"])
+	print appPkgName, appDataDict[appPkgName]["annotated_category"], len(appDataDict[appPkgName]["syscalls"])
 
 data["my"] = my
 data["google"] = google

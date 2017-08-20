@@ -52,13 +52,13 @@ def doClassify(X, y, labels):
 	for iteration in range(0,5):
 		skf = StratifiedKFold(n_splits=5)
 		for train_index, test_index in skf.split(X, y):
-			print X[train_index]
+			# print X[train_index]
 			X_train, X_test = X[train_index], X[test_index]
 			y_train, y_test = y[train_index], y[test_index]
 			
 			X_train = vectorizer.fit_transform(X_train)
 			X_test = vectorizer.transform(X_test)
-			print X_train.shape, X_test.shape
+			# print X_train.shape, X_test.shape
 			samples,features = X_train.shape
 			
 			# iterate over classifiers
@@ -153,6 +153,45 @@ def anovaTest(X,y):
 		# print "The t-statistic is", tstat, "and the p-value is", pval
 
 	print "Average p-value:", pValues/100000.0
+
+def featureImportance(X,y,permissionsList):
+	precision = 0
+	recall = 0
+	fscore = 0
+	support = 0
+
+	X_train, X_test, y_train, y_test = \
+		train_test_split(X, y, stratify=y, test_size=testRatio, random_state=42)
+	X_train = StandardScaler().fit_transform(X_train)
+	X_test = StandardScaler().fit_transform(X_test)
+
+	# Build a forest and compute the feature importances
+	forest = ExtraTreesClassifier(n_estimators=1000,random_state=0)
+
+	forest.fit(X_train, y_train)
+
+	importances = forest.feature_importances_
+	std = np.std([tree.feature_importances_ for tree in forest.estimators_], axis=0)
+	indices = np.argsort(importances)[::-1]
+
+	featImpDict = {}
+	# Print the feature ranking
+	print("Feature ranking:")
+	nparray = np.array(X_train)
+	for f in range(nparray.shape[1]):
+		featImpDict[permissionsList[indices[f]]] = importances[indices[f]]
+		if f < 100:
+			print("%d. permission %s. feature %d (%f)" % (f + 1, permissionsList[indices[f]], indices[f], importances[indices[f]]))
+
+	# Plot the feature importances of the forest
+	# plt.figure()
+	# plt.title("Feature importances")
+	# plt.bar(range(nparray.shape[1]), importances[indices],
+	# color="r", yerr=std[indices], align="center")
+	# plt.xticks(range(nparray.shape[1]), indices)
+	# plt.xlim([-1, nparray.shape[1]])
+	# plt.show()
+	return featImpDict
 
 def main(argv):
 	if len(sys.argv) != 1:

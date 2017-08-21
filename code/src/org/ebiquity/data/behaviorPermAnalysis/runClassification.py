@@ -81,7 +81,14 @@ def doClassify(X,y):
 			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred)
-			prf1sDict["testConfMat"] = confusion_matrix(y_test, y_pred).tolist()
+			labels=list(set(y_test))
+			confMat = confusion_matrix(y_test, y_pred, labels=labels)
+			print "confMat type:", type(confMat)
+			print "confMat len:", len(confMat)
+			print "confMat:"
+			print confMat
+			print labels
+			prf1sDict["testConfMat"] = confMat
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall
@@ -135,7 +142,7 @@ def runClassification(permissionsList,allAppsDict,category):
 		X.append(classificationFeatures)
 		y.append(allAppsDict[app][category])
 
-	return X,y
+	return np.array(X),np.array(y)
 
 def anovaTest(X,y):
 	print "ANOVA Test"

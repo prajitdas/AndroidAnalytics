@@ -347,7 +347,14 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 			logging.debug(str(precision)+","+str(recall)+","+str(fscore)+","+str(support)+","+name+","+str(n_components)+","+label)
 			score=clf.score(X_test, y_test)
 			prf1sDict["testReport"] = classification_report(y_test, y_pred, labels=labels)
-			prf1sDict["testConfusionMatrix"] = confusion_matrix(y_train, y_pred)
+			labels=list(set(y_test))
+			confMat = confusion_matrix(y_test, y_pred, labels=labels)
+			print "confMat type:", type(confMat)
+			print "confMat len:", len(confMat)
+			print "confMat:"
+			print confMat
+			print labels
+			prf1sDict["testConfusionMatrix"] = confMat
 			# pd.crosstab(y_test, y_pred, rownames=['True'], colnames=['Predicted'], margins=True)
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision

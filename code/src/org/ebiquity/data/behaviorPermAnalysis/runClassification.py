@@ -268,63 +268,37 @@ def MLP(X,y):
 	# plt.show()
 
 def featureImportance(X,y,permissionsList):
-	precision = 0
-	recall = 0
-	fscore = 0
-	support = 0
+	a = []
+	b = []
+	for iteration in range(0,5):
+		skf = StratifiedKFold(n_splits=5)
+		for train_index, test_index in skf.split(X, y):
+			# print train_index, test_index
+			X_train, X_test = X[train_index], X[test_index]
+			y_train, y_test = y[train_index], y[test_index]
+			# iterate over classifiers
+			for name, clf in zip(names, classifiers):
+				print "Running cliasifer:", name
+				clf.fit(X_train, y_train) # Train the model
+				y_pred=clf.predict(X_test) # Do the predcition on test set
+				labels=list(set(y_test))
+				confMat = confusion_matrix(y_test, y_pred, labels=labels)
+				print "confMat type:", type(confMat)
+				print "confMat len:", len(confMat)
+				print "confMat:", confMat
+				print labels
+				misclassificationError = 0
+				for i in range(0,10):
+					for j in range(0,10):
+						if i != j:
+							misclassificationError += confMat[i][j]
+				if name == "Neural Net":
+					a.append(misclassificationError)
+				else:
+					b.append(misclassificationError)
 
-	X_train, X_test, y_train, y_test = \
-		train_test_split(X, y, stratify=y, test_size=testRatio, random_state=42)
-	X_train = StandardScaler().fit_transform(X_train)
-	X_test = StandardScaler().fit_transform(X_test)
-
-	# Build a forest and compute the feature importances
-	forest = ExtraTreesClassifier(n_estimators=1000,random_state=0)
-
-	forest.fit(X_train, y_train)
-
-	y_pred = forest.predict(X_test)
-	y_pred_ = forest.predict(X_train)
-
-	precision, recall, fscore, support = precision_recall_fscore_support(y_test, y_pred, average="weighted")
-	score = forest.score(X_test, y_test)
-	print "classification_report_test\n", classification_report(y_test, y_pred)
-	tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
-
-	precision_, recall_, fscore_, support_ = precision_recall_fscore_support(y_train, y_pred_, average="weighted")
-	score_=forest.score(X_train, y_train)
-	print "classification_report_train\n", classification_report(y_train, y_pred_)
-	tn, fp, fn, tp = confusion_matrix(y_train, y_pred_).ravel()
-
-	print "testTN", tn
-	print "testFP", fp
-	print "testFN", fn
-	print "testTP", tp
-	print "testPrecision", precision
-	print "testRecall", recall
-	print "testFscore", fscore
-	print "Training set score:", score
-	print "Test set score:", score_
-	print "trainTN", tn
-	print "trainFP", fp
-	print "trainFN", fn
-	print "trainTP", tp
-	print "trainPrecision", precision_
-	print "trainRecall", recall_
-	print "trainFscore", fscore_
-
-	importances = forest.feature_importances_
-	std = np.std([tree.feature_importances_ for tree in forest.estimators_], axis=0)
-	indices = np.argsort(importances)[::-1]
-
-	featImpDict = {}
-	# Print the feature ranking
-	print("Feature ranking:")
-	nparray = np.array(X_train)
-	for f in range(nparray.shape[1]):
-		featImpDict[permissionsList[indices[f]]] = importances[indices[f]]
-		if f < 25:
-			print("%d. permission %s. feature %d (%f)" % (f + 1, permissionsList[indices[f]], indices[f], importances[indices[f]]))
+	tstat, pvalue = stats.ttest_rel(a,b)
+	print a, b, tstat, pvalue
 
 	# Plot the feature importances of the forest
 	plt.figure()
@@ -342,17 +316,17 @@ def main(argv):
 	# print permissionsList
 
 	X,y = runClassification(permissionsList, allAppsDict, "google_play_category")
-	result = doClassify(X,y)
-	open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
-	print "Done with google play categories"
+	# result = doClassify(X,y)
+	# open("resultsGoogle.json","w").write(json.dumps(result, indent=4))
+	# print "Done with google play categories"
 
-	X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
-	result = doClassify(X,y)
-	open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
-	print "Done with annotated categories"
+	# X,y = runClassification(permissionsList, allAppsDict, "annotated_category")
+	# result = doClassify(X,y)
+	# open("resultsAnnotated.json","w").write(json.dumps(result, indent=4))
+	# print "Done with annotated categories"
 
-	anovaTest(X,y)
-	# featureImportance(X,y)
+	# anovaTest(X,y)
+	featureImportance(X,y)
 
 	executionTime = str((time.time()-startTime)/60)
 	print "Execution time was: "+executionTime+" minutes"

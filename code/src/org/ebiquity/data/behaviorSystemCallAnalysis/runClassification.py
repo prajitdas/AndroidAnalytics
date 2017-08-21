@@ -354,7 +354,7 @@ def tfidfDoClassify(X_train, X_test, y_train, y_test, labels, label, n_component
 			print "confMat:"
 			print confMat
 			print labels
-			prf1sDict["testConfusionMatrix"] = confMat
+			prf1sDict["testConfusionMatrix"] = confMat.tolist()
 			# pd.crosstab(y_test, y_pred, rownames=['True'], colnames=['Predicted'], margins=True)
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision

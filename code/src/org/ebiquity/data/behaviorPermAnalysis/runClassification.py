@@ -88,7 +88,7 @@ def doClassify(X,y):
 			print "confMat:"
 			print confMat
 			print labels
-			prf1sDict["testConfMat"] = confMat
+			prf1sDict["testConfMat"] = confMat.tolist()
 			prf1sDict["testScore"] = score
 			prf1sDict["testPrecision"] = precision
 			prf1sDict["testRecall"] = recall

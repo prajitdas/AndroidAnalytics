@@ -57,7 +57,12 @@ def doClassify(X,y):
 				print "Running cliasifer:", name
 				clf.fit(X_train, y_train) # Train the model
 				y_pred=clf.predict(X_test) # Do the predcition on test set
-				confMat = confusion_matrix(y_test, y_pred)
+				labels=list(set(y_test))
+				confMat = confusion_matrix(y_test, y_pred, labels=labels)
+				print "confMat type:", type(confMat)
+				print "confMat len:", len(confMat)
+				print "confMat:", confMat
+				print labels
 				misclassificationError = 0
 				for i in range(0,10):
 					for j in range(0,10):

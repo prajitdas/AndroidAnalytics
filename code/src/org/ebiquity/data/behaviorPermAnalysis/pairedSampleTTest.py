@@ -35,12 +35,12 @@ logging.basicConfig(filename="classification.log",level=logging.DEBUG)
 
 testRatio=0.25
 
-names = ["Nearest Neighbors",
+names = ["Logistic regression",
 		 "Neural Net"]
 
 # classifiers = [DummyClassifier(strategy="most_frequent"),
 # 				DummyClassifier(strategy="most_frequent")]
-classifiers = [KNeighborsClassifier(3),
+classifiers = [LogisticRegression(multi_class='multinomial',solver='lbfgs'),
 				MLPClassifier(hidden_layer_sizes=(50,50), max_iter=100, alpha=1e-4, solver='sgd', verbose=100, tol=1e-4, random_state=1, learning_rate_init=1e-1)]
 
 def doClassify(X,y):

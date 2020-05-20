@@ -6,7 +6,7 @@ selenium==3.4.2
 cssutils==1.0.2
 xmltodict==0.10.2
 plotly==2.0.8
-requests==2.13.0
+requests==2.20.0
 gensim==2.1.0
 httplib2==0.10.3
 matplotlib==1.5.1

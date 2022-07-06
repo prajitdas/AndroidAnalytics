@@ -12,6 +12,6 @@ httplib2==0.10.3
 matplotlib==1.5.1
 beautifulsoup4==4.6.0
 protobuf==3.3.0
-lxml==3.8.0
+lxml==4.9.1
 mysql_connector_repackaged==0.3.1
 scikit_learn==0.19b2

@@ -14,7 +14,7 @@ import numpy as np
 def writeToFile(idfPermissionsDict):    
     idfPermissionsDictJSONFile = "idfPermissionsDict.json"
     with open(idfPermissionsDictJSONFile, 'w') as f:
-        print "Writing 'Inverse Document Frequency' of apps requesting a permission to a file"
+        print("Writing 'Inverse Document Frequency' of apps requesting a permission to a file")
         f.write(json.dumps(idfPermissionsDict))
 
 def jaccardSimOperation(app1, app2, permissionsDict, idfPermissionsDictJSONRead):
@@ -32,7 +32,7 @@ def jaccardSimOperation(app1, app2, permissionsDict, idfPermissionsDictJSONRead)
 #        for perm in intersectionSet:
 #            if perm in idfPermissionsDictJSONRead:
 #                intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[perm]
-        #print "intersection done for:", app1, "and", app2
+        #print("intersection done for:", app1, "and", app2)
 
         for perm in unionSet:
             #if perm in idfPermissionsDictJSONRead:
@@ -40,55 +40,55 @@ def jaccardSimOperation(app1, app2, permissionsDict, idfPermissionsDictJSONRead)
             unionSumOfPermissionWeights += idfPermissionsDictJSONRead[strperm]
             if perm in intersectionSet:
                 intersectionSumOfPermissionWeights += idfPermissionsDictJSONRead[strperm]
-        #print "union done for:", app1, "and", app2
+        #print("union done for:", app1, "and", app2)
         
-#        print intersectionSumOfPermissionWeights
-#        print unionSumOfPermissionWeights
+#        print(intersectionSumOfPermissionWeights)
+#        print(unionSumOfPermissionWeights)
         result = intersectionSumOfPermissionWeights/unionSumOfPermissionWeights
-        #print "result computed for:", app1, "and", app2
+        #print("result computed for:", app1, "and", app2)
 #                 if app1 == 'com.facebook.katana' and app2 == 'com.instagram.android':
-#                     print "fb and insta:", numerator/denominator
-#                     print sorted(permissionsDict[app1])
-#                     print sorted(permissionsDict[app2])
-#                     print intersectionSet
-#                     print app1PermSet.difference(app2PermSet)
-#                     print app2PermSet.difference(app1PermSet)
+#                     print("fb and insta:", numerator/denominator)
+#                     print(sorted(permissionsDict[app1]))
+#                     print(sorted(permissionsDict[app2]))
+#                     print(intersectionSet)
+#                     print(app1PermSet.difference(app2PermSet))
+#                     print(app2PermSet.difference(app1PermSet))
 #                 elif app1 == 'com.ubercab' and app2 == 'com.ubercab.driver':
-#                     print "uber and uber driver:", numerator/denominator
-#                     print sorted(permissionsDict[app1])
-#                     print sorted(permissionsDict[app2])
-#                     print intersectionSet
-#                     print app1PermSet.difference(app2PermSet)
-#                     print app2PermSet.difference(app1PermSet)
+#                     print("uber and uber driver:", numerator/denominator)
+#                     print(sorted(permissionsDict[app1]))
+#                     print(sorted(permissionsDict[app2]))
+#                     print(intersectionSet)
+#                     print(app1PermSet.difference(app2PermSet))
+#                     print(app2PermSet.difference(app1PermSet))
 #                 elif app1 == 'com.ubercab' and app2 == 'com.facebook.katana':
-#                     print "uber and facebook:", numerator/denominator
-#                     print sorted(permissionsDict[app1])
-#                     print sorted(permissionsDict[app2])
-#                     print intersectionSet
-#                     print app1PermSet.difference(app2PermSet)
-#                     print app2PermSet.difference(app1PermSet)
+#                     print("uber and facebook:", numerator/denominator)
+#                     print(sorted(permissionsDict[app1]))
+#                     print(sorted(permissionsDict[app2]))
+#                     print(intersectionSet)
+#                     print(app1PermSet.difference(app2PermSet))
+#                     print(app2PermSet.difference(app1PermSet))
 #                 elif app1 == 'com.surpax.ledflashlight.panel' and app2 == 'com.facebook.katana':
-#                     print "flash light and fb:", numerator/denominator
-#                     print sorted(permissionsDict[app1])
-#                     print sorted(permissionsDict[app2])
-#                     print intersectionSet
-#                     print app1PermSet.difference(app2PermSet)
-#                     print app2PermSet.difference(app1PermSet)
+#                     print("flash light and fb:", numerator/denominator)
+#                     print(sorted(permissionsDict[app1]))
+#                     print(sorted(permissionsDict[app2]))
+#                     print(intersectionSet)
+#                     print(app1PermSet.difference(app2PermSet))
+#                     print(app2PermSet.difference(app1PermSet))
 #                 elif app1 == 'com.zynga.wwf2.free' and app2 == 'com.imangi.templerun':
-#                     print "zynga and templerun:", numerator/denominator
-#                     print sorted(permissionsDict[app1])
-#                     print sorted(permissionsDict[app2])
-#                     print intersectionSet
-#                     print app1PermSet.difference(app2PermSet)
-#                     print app2PermSet.difference(app1PermSet)
+#                     print("zynga and templerun:", numerator/denominator)
+#                     print(sorted(permissionsDict[app1]))
+#                     print(sorted(permissionsDict[app2]))
+#                     print(intersectionSet)
+#                     print(app1PermSet.difference(app2PermSet))
+#                     print(app2PermSet.difference(app1PermSet))
     return result
 
 def computeJaccardMatrix(permissionsSet, permissionsDict):
-    print "Inside computeJaccardMatrix"
+    print("Inside computeJaccardMatrix")
     
     idfPermissionsDictJSONRead = {}
     numberOfApps = len(permissionsDict.keys())
-    appVector = permissionsDict.keys()
+    appVector = list(permissionsDict.keys())
 
     # Creates a list containing 5 lists initialized to 0
     #appMatrix = [[0 for x in range(numberOfApps)] for x in range(numberOfApps)]
@@ -109,7 +109,7 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
 #            counter += 1
 #            appMatrix[appVector.index(app1)][appVector.index(app2)] = jaccardSimOperation(app1, app2)
 #            if counter % 100000 == 0:
-#                print "Computed JS for loops:", counter
+#                print("Computed JS for loops:", counter)
     
     # reducing computation by half by replicating the upper half of the matrix
     counter = 0
@@ -121,26 +121,27 @@ def computeJaccardMatrix(permissionsSet, permissionsDict):
                 appMatrix[j, i] = score
             counter += 1
             if counter % 100000 == 0:
-                print "Computed JS for loops:", counter           
+                print("Computed JS for loops:", counter)
     
     
 #    X = np.array(appMatrix)
 #    X.shape = (numberOfApps,numberOfApps)
-    print "computeJaccardMatrix complete"
+    print("computeJaccardMatrix complete")
     return appMatrix, appVector
 
 def getCountOfAppPermissionsCollected(dbHandle):
     sqlStatement = "SELECT * FROM `count_of_app_perm_collected_view`;"
     cursor = dbHandle.cursor()
     try:
-        print "Extracting count of app permissions collected"
+        print("Extracting count of app permissions collected")
         cursor.execute(sqlStatement)
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
+        # mysql.connector might not provide rowcount for SELECT without buffered=True or fetching all
+        queryOutput = cursor.fetchall()
+        if len(queryOutput) > 0:
             for row in queryOutput:
                 countOfApps = row[0]
     except:
-        print "Unexpected error in getCountOfAppPermissionsCollected:", sys.exc_info()[0]
+        print("Unexpected error in getCountOfAppPermissionsCollected:", sys.exc_info()[0])
         raise
     return float(countOfApps)
  
@@ -150,12 +151,12 @@ def getAppCountRequestingPermissions(dbHandle):
     cursor = dbHandle.cursor()
     idfPermissionsDict = {'countOfApps':countOfApps}
     try:
-        print "Extracting app count requesting given permission"
+        print("Extracting app count requesting given permission")
         cursor.execute(sqlStatement)
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
+        queryOutput = cursor.fetchall()
+        if len(queryOutput) > 0:
             for row in queryOutput:
-#                 print row[0],row[1]
+#                 print(row[0],row[1])
                 '''
                 Computing an "Inverse Document Frequency" of apps requesting a permission. 
                 This will tell us if a particular permission is unique and rare or a popular one.
@@ -164,14 +165,14 @@ def getAppCountRequestingPermissions(dbHandle):
                 We are using permission ids to store less data.
                 '''
                 idfPermissionsDict[row[2]] = countOfApps/row[0]
-                #print idfPermissionsDict[str(row[2])]
+                #print(idfPermissionsDict[str(row[2])])
     except:
-        print "Unexpected error in getAppCountRequestingPermissions:", sys.exc_info()[0]
+        print("Unexpected error in getAppCountRequestingPermissions:", sys.exc_info()[0])
         raise
 
-    #print idfPermissionsDict
+    #print(idfPermissionsDict)
     writeToFile(idfPermissionsDict)
-    print "Completed the IDF computation process"
+    print("Completed the IDF computation process")
 #     return idfPermissionsDict
  
 def main(argv):
@@ -185,7 +186,7 @@ def main(argv):
     #Compute Jaccard Similarity
     getAppCountRequestingPermissions(dbHandle)
     executionTime = str((time.time()-startTime)*1000)
-    print "Execution time was: "+executionTime+" ms"
+    print("Execution time was: "+executionTime+" ms")
      
     dbHandle.close() #DB Close
  

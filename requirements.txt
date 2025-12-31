@@ -20,3 +20,4 @@ lxml==4.9.1
 >>>>>>> master
 mysql_connector_repackaged==0.3.1
 scikit_learn==0.19b2
+mysql-connector-python

@@ -13,36 +13,43 @@ import time
 import weightedJaccardSimilarity as wjs
 import databaseHandler
 
-def generatePermVector(dbHandle, sqlStatement):
+def generatePermVector(dbHandle, sqlStatement, args=None):
     cursor = dbHandle.cursor()
     permissionsSet = set()
     permissionsDict = {}
     try:
-        cursor.execute(sqlStatement)
-        print "Extracting app permissions"
-        if cursor.rowcount > 0:
-            queryOutput = cursor.fetchall()
+        if args:
+            cursor.execute(sqlStatement, args)
+        else:
+            cursor.execute(sqlStatement)
+        print("Extracting app permissions")
+        # Ensure we fetch all rows
+        queryOutput = cursor.fetchall()
+        if len(queryOutput) > 0:
             for row in queryOutput:
                 permissionsSet.add(row[1])
-                if permissionsDict.has_key(row[0]):
+                if row[0] in permissionsDict:
                     permissionsDict[row[0]].add(row[1]) # We are using permission ids to store less data
                 else:
                     permissionsDict[row[0]] = set([row[1]]) # We are using permission ids to store less data
 
     except:
-        print "Unexpected error in generatePermVector:", sys.exc_info()[0]
+        print("Unexpected error in generatePermVector:", sys.exc_info()[0])
         raise
     
-    print "generatePermVector complete"
+    print("generatePermVector complete")
     return permissionsSet, permissionsDict
 
 def getJaccardSimilarity(app1, app2):
     dbHandle = databaseHandler.dbConnectionCheck()
-    appIdVectorSQLQueryList = "'"+app1+"','"+app2+"'"
-    sqlStatement = "SELECT app.`app_pkg_name`, a.`perm_id` FROM `appperm` a, `appdata` app WHERE a.`app_id` = app.`id` AND app.`app_pkg_name` IN ("+appIdVectorSQLQueryList+");"
-    print sqlStatement
-    permissionsSet, permissionsDict = generatePermVector(dbHandle, sqlStatement)
-    print wjs.computeJaccardMatrix(permissionsSet, permissionsDict)
+
+    # Use parameterized query to prevent SQL injection
+    sqlStatement = "SELECT app.`app_pkg_name`, a.`perm_id` FROM `appperm` a, `appdata` app WHERE a.`app_id` = app.`id` AND app.`app_pkg_name` IN (%s, %s);"
+    args = (app1, app2)
+
+    print(sqlStatement)
+    permissionsSet, permissionsDict = generatePermVector(dbHandle, sqlStatement, args)
+    print(wjs.computeJaccardMatrix(permissionsSet, permissionsDict))
     result = (wjs.computeJaccardMatrix(permissionsSet, permissionsDict)[0])[0][1]
     return result
 
@@ -51,11 +58,11 @@ def doTask():
         evaluatedClusterResultsDict = json.loads(f.read())
 
     # expected = np.arange(10000, dtype=np.float)
-    print len(evaluatedClusterResultsDict["appVectors"])
-    print type(evaluatedClusterResultsDict["appVectors"])
+    print(len(evaluatedClusterResultsDict["appVectors"]))
+    print(type(evaluatedClusterResultsDict["appVectors"]))
     #print evaluatedClusterResultsDict["appVectors"]
     result = ne.decodeNDArray(evaluatedClusterResultsDict["appVectors"])
-    print result
+    print(result)
 
     # None of the following assertions will be broken.
     # assert result.dtype == expected.dtype, "Wrong Type"
@@ -78,7 +85,7 @@ def main(argv):
     distances = {}
     distances['fbdist'] = dist1
     distances['flightdist'] = dist2
-    print json.dumps(distances)
+    print(json.dumps(distances))
     #executionTime = str((time.time()-startTime)*1000)
     #print "Execution time was: "+executionTime+" ms"
 

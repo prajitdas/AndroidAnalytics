@@ -8,6 +8,7 @@ Modified on May 5, 2017
 '''
 
 import sys
+import os
 import time
 import logging
 import mysql.connector as mysql
@@ -77,12 +78,14 @@ def dbConnectionCheck():
 		'user': user,
 		'password': passwd,
 		'host': host,
-		'client_flags': [ClientFlag.SSL],
-		'ssl_ca': ssl_ca,
-		'ssl_cert': ssl_cert,
-		'ssl_key': ssl_key,
 		'database': db,
 	}
+
+	if ssl_ca or ssl_cert or ssl_key:
+		config['client_flags'] = [ClientFlag.SSL]
+		if ssl_ca: config['ssl_ca'] = ssl_ca
+		if ssl_cert: config['ssl_cert'] = ssl_cert
+		if ssl_key: config['ssl_key'] = ssl_key
 	
 	try:
 		dbHandle = mysql.connect(**config)

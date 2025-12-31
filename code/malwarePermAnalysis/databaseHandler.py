@@ -7,13 +7,14 @@ Modified on May 5, 2017
 @author: Prajit Kumar Das
 '''
 
-from ConfigParser import SafeConfigParser
 import sys
+import os
 import time
 import logging
 import mysql.connector as mysql
 from mysql.connector import errorcode
 from mysql.connector.constants import ClientFlag
+
 logging.basicConfig(filename='databaseHandler.log',level=logging.DEBUG)
 
 # Fire an DML SQL statement and commit data
@@ -39,28 +40,31 @@ def dbManipulateData(dbHandle, sqlStatement):
 
 # Database Connection Handler
 def dbConnectionCheck():
-	parser = SafeConfigParser()
-	parser.read('dbconfig.ini')
-	
-	user = parser.get('dbconfig', 'user')
-	passwd = parser.get('dbconfig', 'passwd')
-	host = parser.get('dbconfig', 'host')
-	ssl_ca = parser.get('dbconfig', 'ssl_ca')
-	ssl_cert = parser.get('dbconfig', 'ssl_cert')
-	ssl_key = parser.get('dbconfig', 'ssl_key')
-	db = parser.get('dbconfig', 'db')
-	#print("info"+user+passwd+host+ssl_ca+ssl_cert+ssl_key)
+	user = os.environ.get('DB_USER')
+	passwd = os.environ.get('DB_PASSWD')
+	host = os.environ.get('DB_HOST')
+	db = os.environ.get('DB_NAME')
+	ssl_ca = os.environ.get('DB_SSL_CA')
+	ssl_cert = os.environ.get('DB_SSL_CERT')
+	ssl_key = os.environ.get('DB_SSL_KEY')
+
+	if not (user and passwd and host and db):
+		logging.error("Missing database credentials in environment variables.")
+		print("Missing database credentials in environment variables. Please set DB_USER, DB_PASSWD, DB_HOST, DB_NAME.")
+		return None
 
 	config = {
 		'user': user,
 		'password': passwd,
 		'host': host,
-		'client_flags': [ClientFlag.SSL],
-		'ssl_ca': ssl_ca,
-		'ssl_cert': ssl_cert,
-		'ssl_key': ssl_key,
 		'database': db,
 	}
+
+	if ssl_ca or ssl_cert or ssl_key:
+		config['client_flags'] = [ClientFlag.SSL]
+		if ssl_ca: config['ssl_ca'] = ssl_ca
+		if ssl_cert: config['ssl_cert'] = ssl_cert
+		if ssl_key: config['ssl_key'] = ssl_key
 	
 	try:
 		dbHandle = mysql.connect(**config)

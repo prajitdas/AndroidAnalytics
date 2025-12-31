@@ -14,6 +14,12 @@ import logging
 import mysql.connector as mysql
 from mysql.connector import errorcode
 from mysql.connector.constants import ClientFlag
+import os
+
+try:
+    from ConfigParser import SafeConfigParser
+except ImportError:
+    from configparser import ConfigParser as SafeConfigParser
 
 logging.basicConfig(filename='databaseHandler.log',level=logging.DEBUG)
 
@@ -43,15 +49,30 @@ def dbConnectionCheck():
 	user = os.environ.get('DB_USER')
 	passwd = os.environ.get('DB_PASSWD')
 	host = os.environ.get('DB_HOST')
-	db = os.environ.get('DB_NAME')
 	ssl_ca = os.environ.get('DB_SSL_CA')
 	ssl_cert = os.environ.get('DB_SSL_CERT')
 	ssl_key = os.environ.get('DB_SSL_KEY')
+	db = os.environ.get('DB_NAME')
 
 	if not (user and passwd and host and db):
-		logging.error("Missing database credentials in environment variables.")
-		print("Missing database credentials in environment variables. Please set DB_USER, DB_PASSWD, DB_HOST, DB_NAME.")
-		return None
+		if os.path.exists('dbconfig.ini'):
+			parser = SafeConfigParser()
+			parser.read('dbconfig.ini')
+
+			if parser.has_option('dbconfig', 'user'):
+				user = parser.get('dbconfig', 'user')
+			if parser.has_option('dbconfig', 'passwd'):
+				passwd = parser.get('dbconfig', 'passwd')
+			if parser.has_option('dbconfig', 'host'):
+				host = parser.get('dbconfig', 'host')
+			if parser.has_option('dbconfig', 'ssl_ca'):
+				ssl_ca = parser.get('dbconfig', 'ssl_ca')
+			if parser.has_option('dbconfig', 'ssl_cert'):
+				ssl_cert = parser.get('dbconfig', 'ssl_cert')
+			if parser.has_option('dbconfig', 'ssl_key'):
+				ssl_key = parser.get('dbconfig', 'ssl_key')
+			if parser.has_option('dbconfig', 'db'):
+				db = parser.get('dbconfig', 'db')
 
 	config = {
 		'user': user,
